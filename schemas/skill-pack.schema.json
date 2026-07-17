@@ -1,0 +1,66 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skill Pack",
+  "description": "Codex Factory user-defined skill pack. Extends Factory capabilities without bypassing verification gates.",
+  "type": "object",
+  "required": ["name", "version", "target_project_types"],
+  "properties": {
+    "name": { "type": "string", "description": "Unique skill pack identifier" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "description": { "type": "string" },
+    "target_project_types": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["backend-api","admin-system","ecommerce","miniapp","saas","game-threejs","cpp-tool","custom-complex-project"] },
+      "description": "Project types this skill pack is designed for"
+    },
+    "triggers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Keywords or conditions that trigger this skill pack"
+    },
+    "rules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Rules this skill pack enforces"
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Actions explicitly forbidden when this pack is active"
+    },
+    "validation_requirements": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Validation gates that must pass"
+    },
+    "required_artifacts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Artifacts that must be produced"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this skill pack is currently active"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Other skill packs this one depends on"
+    },
+    "compatible_factory_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+",
+      "description": "Minimum compatible Codex Factory version"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [
+        "Skill packs extend Factory capabilities, they do not bypass risk/artifact gates",
+        "Custom skill packs must declare validation requirements",
+        "Disabled packs have no effect on project execution"
+      ]
+    }
+  }
+}

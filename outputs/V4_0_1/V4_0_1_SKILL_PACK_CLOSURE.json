@@ -1,0 +1,1 @@
+﻿{"module":"skill-pack-closure","status":"CLOSED","changes":["schema_created","create_template_enhanced","enable_disable_added","validate_enhanced"],"dryRunPass":true,"schemaFields":["name","version","description","target_project_types","triggers","rules","forbidden_actions","validation_requirements","required_artifacts","enabled","dependencies","compatible_factory_version"]}

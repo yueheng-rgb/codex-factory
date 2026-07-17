@@ -90,17 +90,78 @@ powershell -File runtime/codex-factory-doctor.ps1
 powershell -File runtime/project-onboarding-wizard.ps1 -ProjectName my-app
 ```
 
-## Quick Start
+## 5-Minute Quick Start
 
-### 1. Run the Snapshot Verifier
+### Prerequisites
+- Git, Node.js, npm
+- PowerShell 5+ (Windows) or PowerShell Core 7+ (`pwsh`) on Linux/macOS
 
+### Step 1: Clone & Init
 ```powershell
-# Windows (PowerShell)
-powershell -File runtime/snapshot-verifier.ps1
+git clone https://github.com/yueheng-rgb/codex-factory.git
+cd codex-factory
+pwsh -File runtime/codex-factory-init.ps1
+```
+Choose your LLM provider, search (default: none), and CI settings. No API keys collected.
 
-# Linux / macOS (PowerShell Core)
+### Step 2: Check Environment
+```powershell
+pwsh -File runtime/codex-factory-doctor.ps1
+```
+
+### Step 3: Run the Snapshot Verifier
+```powershell
 pwsh -File runtime/snapshot-verifier.ps1
 ```
+Expected: `15/15 PASS, SNAPSHOT_VERIFIED`
+
+### Step 4: Add Your Project
+```powershell
+# Create a skill pack for your domain
+pwsh -File runtime/skill-pack-manager.ps1 -Action create-template -Name my-domain
+
+# Import your project knowledge (local only, never uploaded)
+pwsh -File runtime/knowledge-pack-manager.ps1 -Action add -Name my-project -Source ./docs
+pwsh -File runtime/knowledge-pack-manager.ps1 -Action build-evidence
+
+# Generate project onboarding plan
+pwsh -File runtime/project-onboarding-wizard.ps1 -ProjectName my-app
+```
+
+### User Path Examples
+
+**DeepSeek + GLM search:**
+```powershell
+pwsh -File runtime/codex-factory-init.ps1
+# Choose: [2] DeepSeek → [2] GLM/Zhipu search
+# Set DEEPSEEK_API_KEY + ZHIPUAI_API_KEY in .env
+```
+
+**GPT / native search / no external search:**
+```powershell
+pwsh -File runtime/codex-factory-init.ps1
+# Choose: [1] OpenAI → [1] None (search)
+# Set OPENAI_API_KEY in .env
+```
+
+**Local-only / offline:**
+```powershell
+pwsh -File runtime/codex-factory-init.ps1
+# Choose: [5] Local → [1] None (search) → [3] Disabled (CI)
+# No API keys needed.
+```
+
+**Existing project onboarding:**
+```powershell
+pwsh -File runtime/project-onboarding-wizard.ps1 -ProjectName existing-app
+pwsh -File runtime/skill-pack-manager.ps1 -Action enable -Name backend-api-design
+pwsh -File runtime/skill-pack-manager.ps1 -Action enable -Name auth-permission-security
+```
+
+> **No artifact = no PASS.** Every verification claim must be backed by evidence.
+> **GLM is optional.** Search defaults to none. You choose your own stack.
+> **Skill packs are customizable.** Create your own with `create-template`.
+> **Knowledge packs are local only.** Never uploaded, never committed.
 
 Expected output:
 ```

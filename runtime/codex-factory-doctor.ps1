@@ -13,6 +13,17 @@ function Add-Check($name, $status, $detail) {
     [void]$results.checks.Add(@{name=$name; status=$status; detail=$detail})
 }
 
+
+# 0. Platform
+$isWindows = $IsWindows -or ($env:OS -match 'Windows')
+$isLinux = $IsLinux -or ($env:OS -notmatch 'Windows' -and (uname 2>$null) -match 'Linux')
+$isMac = $IsMacOS -or ((uname 2>$null) -match 'Darwin')
+$platform = if ($isWindows) { "Windows" } elseif ($isLinux) { "Linux" } elseif ($isMac) { "macOS" } else { "Unknown" }
+Add-Check "platform" "PASS" $platform
+
+# 0b. pwsh availability
+try { $pwshV = & pwsh --version 2>$null; if ($pwshV) { Add-Check "pwsh" "PASS" "pwsh $pwshV" } else { Add-Check "pwsh" "WARN" "pwsh not found. Install: winget install Microsoft.PowerShell (Win) / brew install powershell (Mac) / apt install powershell (Linux)" } } catch { Add-Check "pwsh" "WARN" "pwsh not found. GitHub Actions Linux runner uses pwsh." }
+
 # 1. Git
 try { $v = & git --version 2>$null; if ($v) { Add-Check "git" "PASS" $v } else { Add-Check "git" "FAIL" "Not found" } } catch { Add-Check "git" "FAIL" "Error: $_" }
 
