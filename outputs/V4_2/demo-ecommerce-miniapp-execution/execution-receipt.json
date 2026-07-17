@@ -1,0 +1,31 @@
+﻿{
+    "integration_status":  "READY_FOR_INTEGRATION",
+    "non_claims":  [
+                       "Manual mode: EXECUTION_VERIFIED requires all handoffs COMPLETED + all artifacts present + validation PASS + integration READY",
+                       "Current status reflects actual collected evidence, not assumed completion",
+                       "Agent-adapter mode is NOT_CONFIGURED"
+                   ],
+    "workers_total":  3,
+    "validation_status":  "PARTIAL",
+    "input_plan_hashes":  {
+                              "worker_plan":  "D5CCDA05869FFDE95252DBF7091FC395BFE4777E95DB1FCF180ED4CE0378F32A",
+                              "agent_execution_plan":  "070C0BBA8E7AB9D1E7D83593AF966CA46E1385A4568AE94859E17D67A9EFFF14",
+                              "task_graph":  "375F84BB9565B76EFCD73726E1B1B31F7499E5110ABCAE14529AF3C277324332",
+                              "validation_plan":  "61F587FA8864AA91FFE0036862FAD628E5BC5F1F27A314B2B29843C83218CE0E"
+                          },
+    "tasks_blocked":  0,
+    "artifacts_collected":  8,
+    "final_status":  "READY_FOR_INTEGRATION",
+    "handoffs_expected":  3,
+    "no_fake_pass_confirmed":  true,
+    "handoffs_collected":  3,
+    "run_id":  "run-20260717-230838-2902",
+    "closed_at":  "2026-07-17T23:08:58.3383458+08:00",
+    "artifacts_expected":  8,
+    "tasks_completed":  8,
+    "tasks_total":  8,
+    "blocking_issues":  [
+
+                        ],
+    "mode":  "manual"
+}

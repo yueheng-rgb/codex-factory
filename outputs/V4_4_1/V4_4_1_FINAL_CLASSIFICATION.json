@@ -1,0 +1,58 @@
+﻿{
+  "report": "V4.4.1 Final Classification",
+  "version": "4.4.1",
+  "generated_at": "2026-07-18",
+  "final_classification": "V4_4_1_CAPSULE_BOUNDARY_REFINEMENT_CLOSED",
+  "grade": "A",
+  "capsule_boundary_refinement_result": {
+    "status": "REFINED",
+    "problem": "domain-keyword pattern src/*/auth* conflicted with T5 Auth Module assignment",
+    "fix": "Cross-worker directory boundaries only. No domain keywords.",
+    "before": ["src/*/auth*","config/secrets*"],
+    "after": ["config/secrets*","src/worker-frontend/*","tests/worker-frontend/*","src/worker-qa/*","tests/worker-qa/*"]
+  },
+  "conflict_detector_result": {
+    "status": "OPERATIONAL",
+    "location": "runtime/agent-execution-runtime.ps1 New-WorkerCapsule",
+    "behavior": "Auto-detects task/forbidden_files conflicts, auto-refines with record"
+  },
+  "boundary_regression_result": {
+    "status": "PASS",
+    "tests": 4,
+    "passed": 4,
+    "key": "Auth files in own dir OK. Cross-worker access blocked. Rogue correctly rejected."
+  },
+  "v4_4_evidence_consolidation": {
+    "V4_4_live_verification": "INTACT — A+ classification preserved",
+    "capsule_finding": "Resolved in V4.4.1: src/*/auth* removed from forbidden_files",
+    "artifacts": "8/8 non-empty, all verifiable",
+    "tests": "79 total (59 pass, 20 cross-window skip)",
+    "isolation": "Cross-window isolation confirmed",
+    "no_fake_pass": true
+  },
+  "regression_result": {
+    "V4_4_live_verification": "INTACT",
+    "V4_3_simulation": "INTACT",
+    "V4_2_runtime": "INTACT",
+    "V4_1_1_task_decomposition": "INTACT",
+    "V4_0_1_provider_skill_knowledge": "INTACT",
+    "V3_4_2_strict_remote": "INTACT",
+    "search_provider": "none",
+    "GLM": "optional",
+    "secret_scan": "PASS",
+    "github_actions": "INTACT"
+  },
+  "files_changed": [
+    "runtime/task-decomposition-engine.ps1 — worker plan forbidden_files",
+    "runtime/agent-execution-runtime.ps1 — New-WorkerCapsule conflict detection",
+    "outputs/V4_4_1/capsule-boundary-refinement.json",
+    "outputs/V4_4_1/capsule-boundary-refinement.md",
+    "outputs/V4_4_1/boundary-regression-test.json",
+    "outputs/V4_4_1/boundary-regression-test.md"
+  ],
+  "remaining_risks": [
+    "Agent-adapter mode still NOT_CONFIGURED",
+    "Capsule refinement only applies to auth-module pattern — other keyword conflicts possible but not yet seen"
+  ],
+  "recommended_next_stage": "V4.5: Multi-Project Factory Pipeline (scale beyond single project)"
+}

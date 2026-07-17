@@ -1,0 +1,41 @@
+﻿{
+    "generated_at":  "2026-07-17T23:08:23.1596699+08:00",
+    "non_claims":  [
+                       "Integration check validates handoff completeness and boundaries",
+                       "Actual code merge must be performed by the integrator agent or main agent"
+                   ],
+    "run_id":  "run-20260717-230737-5987",
+    "integration_status":  "READY_FOR_INTEGRATION",
+    "checks":  [
+                   {
+                       "expected":  3,
+                       "status":  "PASS",
+                       "actual":  3,
+                       "missing":  [
+
+                                   ],
+                       "check":  "all_workers_handed_off"
+                   },
+                   {
+                       "status":  "PASS",
+                       "blocked_workers":  [
+
+                                           ],
+                       "check":  "no_blockers"
+                   },
+                   {
+                       "status":  "PASS",
+                       "missing":  [
+
+                                   ],
+                       "check":  "required_artifacts"
+                   },
+                   {
+                       "status":  "PASS",
+                       "violations":  [
+
+                                      ],
+                       "check":  "no_boundary_violations"
+                   }
+               ]
+}

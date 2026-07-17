@@ -1,0 +1,48 @@
+﻿{
+  "report": "V4.1.1 Final Classification",
+  "version": "4.1.1",
+  "generated_at": "2026-07-17",
+  "final_classification": "V4_1_1_TASK_DECOMPOSITION_OUTPUT_RELIABILITY_CLOSED",
+  "grade": "A",
+  "zero_byte_fix_result": {
+    "status": "FIXED",
+    "before": "risk_classification.json=0b, agent_execution_plan.json=0b, evidence_requirements.json=missing",
+    "after": "All 8 output files per demo are non-zero and valid JSON",
+    "root_cause": "PowerShell @(...) + (if ...) inside hashtable literal parse failure"
+  },
+  "output_integrity_check_result": {
+    "status": "PASS",
+    "admin_system": "7/7 PASS",
+    "ecommerce_miniapp": "7/7 PASS",
+    "mechanism": "Post-generation check: file exists + size>0 + JSON parse + required fields. exit 1 on any failure."
+  },
+  "fallback_strategy_result": {
+    "status": "HONEST",
+    "fully_supported": ["admin-system","ecommerce","miniapp","saas","generic-complex-project","backend-api"],
+    "fallback_type": "generic-complex-project",
+    "fallback_reason_provided": true,
+    "confidence_reduced_on_fallback": true,
+    "no_silent_admin_system_fallback": true
+  },
+  "demo_rerun_result": {
+    "admin_system": { "risk_level": "P0", "tasks": 12, "workers": 3, "integrity": "7/7 PASS" },
+    "ecommerce_miniapp": { "risk_level": "P0", "tasks": 12, "workers": 3, "integrity": "7/7 PASS" }
+  },
+  "regression_result": {
+    "V3_4_2_snapshot_verifier": "FIXED_AND_VERIFIED_LOCALLY",
+    "secret_scan": "PASS",
+    "github_actions_workflow": "INTACT",
+    "search_provider_default": "none",
+    "GLM_binding": "optional",
+    "skill_pack_enable_disable": "available",
+    "knowledge_build_evidence": "available",
+    "no_secrets": true
+  },
+  "files_changed": ["runtime/task-decomposition-engine.ps1"],
+  "remaining_risks": [
+    "task templates only cover 6 project types; game-threejs, cpp-tool, and others need custom templates",
+    "fallback to generic-complex-project may produce suboptimal task graphs for exotic project types",
+    "evidence_requirements.json is derived from knowledge_references which may be empty if no knowledge pack loaded"
+  ],
+  "recommended_next_stage": "V4.2: Agent Execution Runtime (actual worker dispatch and artifact collection)"
+}

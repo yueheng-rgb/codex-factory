@@ -1,0 +1,21 @@
+﻿{
+  "report": "V4 Evidence Index",
+  "version": "4.FINAL",
+  "generated_at": "2026-07-18",
+  "evidence_entries": [
+    {"version":"V3.4.2","type":"CI_REMOTE_VERIFICATION","classification":"V3_4_2_REMOTE_ARTIFACT_VERIFIED_STRICT","files":["outputs/V3_4_2/V3_4_2_SNAPSHOT_VERIFIER_STRICTNESS_RESULT.json"],"authenticity":"REAL_GITHUB_ACTIONS","note":"Authoritative CI evidence. Not simulation."},
+    {"version":"V4.0.1","type":"PRODUCTIZATION_CLOSURE","classification":"V4_0_1_PRODUCTIZATION_GAPS_CLOSED","files":["outputs/V4_0_1/"],"authenticity":"LOCAL_VERIFIED"},
+    {"version":"V4.1.1","type":"OUTPUT_RELIABILITY_CLOSURE","classification":"V4_1_1_TASK_DECOMPOSITION_OUTPUT_RELIABILITY_CLOSED","files":["outputs/V4_1_1/","outputs/V4_1/demo-admin-system/"],"authenticity":"LOCAL_VERIFIED","note":"0-byte bug fixed. Output integrity check operational."},
+    {"version":"V4.2","type":"EXECUTION_RUNTIME","classification":"V4_2_AGENT_EXECUTION_RUNTIME_READY","files":["outputs/V4_2/","runtime/agent-execution-runtime.ps1","schemas/worker-capsule.schema.json"],"authenticity":"LOCAL_VERIFIED"},
+    {"version":"V4.3","type":"CROSS_WINDOW_SIMULATION","classification":"V4_3_CROSS_WINDOW_SIMULATION_VERIFIED","files":["outputs/V4_3/"],"authenticity":"SIMULATION","note":"Simulation with convention-based isolation. Boundary violation test: 4/4 caught."},
+    {"version":"V4.4","type":"REAL_CROSS_WINDOW_LIVE","classification":"V4_4_REAL_CROSS_WINDOW_LIVE_VERIFIED","files":["outputs/V4_4/V4_4_LIVE_VERIFICATION_FINAL.json","runs/v44-live-cross-window/"],"authenticity":"REAL_LIVE_TEST","note":"3 real independent Codex windows. 8/8 artifacts, 79 tests. QA could not see backend artifacts (genuine isolation)."},
+    {"version":"V4.4.1","type":"CAPSULE_BOUNDARY_REFINEMENT","classification":"V4_4_1_CAPSULE_BOUNDARY_REFINEMENT_CLOSED","files":["outputs/V4_4_1/"],"authenticity":"LOCAL_VERIFIED","note":"Capsule forbidden_files refined from domain-keywords to cross-worker boundaries. 4/4 regression PASS."}
+  ],
+  "evidence_hierarchy": {
+    "strongest": ["V3.4.2 CI Remote","V4.4 Real Live Test"],
+    "verified": ["V4.3 Simulation","V4.2 Runtime","V4.1.1 Decomposition"],
+    "supporting": ["V4.0.1 Productization","V4.4.1 Refinement"]
+  },
+  "no_fake_evidence": true,
+  "total_evidence_entries": 7
+}

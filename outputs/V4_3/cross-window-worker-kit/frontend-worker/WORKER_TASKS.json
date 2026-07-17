@@ -1,0 +1,1 @@
+﻿{"worker_id":"worker-frontend","role":"worker-frontend","assigned_tasks":["T7","T8"],"task_details":{"T7":{"title":"Admin Dashboard UI","risk":"P2","type":"frontend_module"},"T8":{"title":"Management Pages","risk":"P2","type":"frontend_module"}}}

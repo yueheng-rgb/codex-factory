@@ -1,0 +1,67 @@
+﻿{
+    "checks":  [
+                   {
+                       "detail":  "3/3 legitimate workers",
+                       "status":  "PASS",
+                       "check":  "all_workers_handed_off"
+                   },
+                   {
+                       "detail":  "rogue-backend handoff rejected",
+                       "status":  "PASS",
+                       "check":  "rogue_worker_rejected"
+                   },
+                   {
+                       "detail":  "8 artifacts",
+                       "status":  "PASS",
+                       "check":  "artifacts_collected"
+                   },
+                   {
+                       "detail":  "No boundary violations in accepted handoffs",
+                       "status":  "PASS",
+                       "check":  "boundary_clean"
+                   },
+                   {
+                       "detail":  "8 completed, 4 uncovered (main-agent tasks)",
+                       "status":  "PARTIAL",
+                       "check":  "task_coverage"
+                   }
+               ],
+    "task_coverage":  {
+                          "uncovered":  [
+                                            "T1",
+                                            "T2",
+                                            "T9",
+                                            "T11"
+                                        ],
+                          "completed":  8,
+                          "blocked":  0
+                      },
+    "workers_rejected":  [
+                             "rogue-backend"
+                         ],
+    "ready_for_integration":  true,
+    "artifacts_total":  8,
+    "artifact_list":  [
+                          "T3-output",
+                          "T4-output",
+                          "T5-output",
+                          "T6-output",
+                          "T7-output",
+                          "T8-output",
+                          "T10-output",
+                          "T12-output"
+                      ],
+    "integration_status":  "READY_FOR_INTEGRATION_WITH_MAIN_AGENT_TASKS_PENDING",
+    "notes":  [
+                  "Tasks T1,T2,T9,T11 are main-agent/integrator tasks — not assigned to workers",
+                  "Integration is READY — all worker tasks have artifacts",
+                  "rogue-backend handoff correctly rejected by boundary validation",
+                  "No forbidden file violations in accepted handoffs"
+              ],
+    "generated_at":  "2026-07-17T23:25:28.0131296+08:00",
+    "workers_accepted":  [
+                             "backend-worker",
+                             "frontend-worker",
+                             "test-validation-worker"
+                         ]
+}

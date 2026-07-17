@@ -1,0 +1,57 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Worker Capsule",
+  "description": "Codex Factory V4.2 — Self-contained worker assignment capsule for manual/local/agent execution",
+  "type": "object",
+  "required": ["worker_id","role","assigned_tasks","allowed_files","forbidden_files","required_output_artifacts","completion_criteria"],
+  "properties": {
+    "worker_id": {"type":"string","description":"Unique worker identifier from worker_plan"},
+    "role": {"type":"string","description":"Worker role (worker-backend, worker-frontend, worker-qa, etc.)"},
+    "assigned_tasks": {
+      "type":"array","items":{"type":"string"},
+      "description":"Task IDs assigned to this worker"
+    },
+    "allowed_files": {
+      "type":"array","items":{"type":"string"},
+      "description":"File patterns this worker may modify (e.g. src/backend/, tests/backend/)"
+    },
+    "forbidden_files": {
+      "type":"array","items":{"type":"string"},
+      "description":"File patterns this worker MUST NOT touch (e.g. src/*/auth*, config/secrets*)"
+    },
+    "input_artifacts": {
+      "type":"array","items":{"type":"string"},
+      "description":"Artifacts this worker may consume as input"
+    },
+    "required_output_artifacts": {
+      "type":"array","items":{"type":"string"},
+      "description":"Artifacts this worker MUST produce before handoff"
+    },
+    "validation_methods": {
+      "type":"array","items":{"type":"string","enum":["artifact","test","review","static_check","manual"]},
+      "description":"Validation methods applicable to this worker's tasks"
+    },
+    "related_skill_packs": {
+      "type":"array","items":{"type":"string"},
+      "description":"Skill packs relevant to this worker's tasks"
+    },
+    "related_knowledge_sources": {
+      "type":"array","items":{"type":"object","properties":{"source_file":{"type":"string"},"source_hash":{"type":"string"},"evidence_type":{"type":"string"}}},
+      "description":"Knowledge sources referenced by this worker's tasks"
+    },
+    "handoff_required": {"type":"boolean","description":"Whether this worker must produce a handoff file"},
+    "completion_criteria": {
+      "type":"array","items":{"type":"string"},
+      "description":"Criteria that must be met before this worker is considered complete"
+    },
+    "forbidden_actions": {
+      "type":"array","items":{"type":"string"},
+      "description":"Actions this worker MUST NOT perform",
+      "default": ["Cannot write entire repo","Cannot bypass artifact gate","Cannot self-approve final acceptance","Cannot modify other workers' files"]
+    },
+    "non_claims": {
+      "type":"array","items":{"type":"string"},
+      "default": ["Worker output is not final acceptance","No artifact = no PASS"]
+    }
+  }
+}

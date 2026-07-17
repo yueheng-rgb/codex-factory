@@ -1,0 +1,47 @@
+﻿{
+    "forbidden_files":  [
+                            "src/*/auth*",
+                            "config/secrets*"
+                        ],
+    "non_claims":  [
+                       "Worker output is not final acceptance",
+                       "No artifact = no PASS"
+                   ],
+    "completion_criteria":  [
+                                "All assigned tasks have output artifacts",
+                                "All tests pass (if applicable)",
+                                "Handoff file produced",
+                                "No forbidden file boundary violation"
+                            ],
+    "assigned_tasks":  [
+                           "T8"
+                       ],
+    "related_skill_packs":  {
+
+                            },
+    "related_knowledge_sources":  {
+
+                                  },
+    "validation_methods":  [
+                               "artifact"
+                           ],
+    "allowed_files":  [
+                          "src/worker-frontend/",
+                          "tests/worker-frontend/"
+                      ],
+    "worker_id":  "worker-frontend",
+    "role":  "worker-frontend",
+    "required_output_artifacts":  [
+                                      "T8-output"
+                                  ],
+    "handoff_required":  true,
+    "forbidden_actions":  [
+                              "Cannot write entire repo",
+                              "Cannot bypass artifact gate",
+                              "Cannot self-approve final acceptance",
+                              "Cannot modify other workers\u0027 files"
+                          ],
+    "input_artifacts":  [
+                            "T8-input"
+                        ]
+}

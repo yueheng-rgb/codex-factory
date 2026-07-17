@@ -1,0 +1,24 @@
+﻿{
+    "issues":  [
+                   "VIOLATION: \u0027src/backend/auth.ts\u0027 matches forbidden pattern \u0027src/*/auth*\u0027",
+                   "OUT_OF_BOUNDS: \u0027src/backend/auth.ts\u0027 is not in allowed files",
+                   "OUT_OF_BOUNDS: \u0027src/backend/secrets.ts\u0027 is not in allowed files",
+                   "OUT_OF_BOUNDS: \u0027src/frontend/Dashboard.tsx\u0027 is not in allowed files"
+               ],
+    "verdict":  "BOUNDARY_VIOLATION_DETECTED_AND_REJECTED",
+    "worker_id":  "rogue-backend",
+    "allowed_patterns":  [
+                             "src/worker-backend/",
+                             "tests/worker-backend/"
+                         ],
+    "test":  "boundary_violation",
+    "files_changed":  [
+                          "src/backend/auth.ts",
+                          "src/backend/secrets.ts",
+                          "src/frontend/Dashboard.tsx"
+                      ],
+    "forbidden_patterns":  [
+                               "src/*/auth*",
+                               "config/secrets*"
+                           ]
+}

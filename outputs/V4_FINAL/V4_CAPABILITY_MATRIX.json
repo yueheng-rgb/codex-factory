@@ -1,0 +1,129 @@
+﻿{
+  "report": "V4 Capability Matrix",
+  "version": "4.FINAL",
+  "generated_at": "2026-07-18",
+  "capabilities": [
+    {
+      "id": "C01",
+      "capability": "Provider Abstraction",
+      "status": "PRODUCTION_READY",
+      "evidence": "factory.config.example.json with search.type=none, GLM optional, multi-provider support documented",
+      "related_files": ["factory.config.example.json","schemas/factory-config.schema.json","docs/provider-configuration.md","runtime/codex-factory-init.ps1"],
+      "limitations": ["Agent-adapter mode NOT_CONFIGURED","No live API key management"],
+      "user_value": "Users choose their LLM/search/memory/CI providers. No vendor lock-in. DeepSeek users can use GLM search; GPT users can use native search. Default: no external search."
+    },
+    {
+      "id": "C02",
+      "capability": "Init Wizard",
+      "status": "PRODUCTION_READY",
+      "evidence": "runtime/codex-factory-init.ps1 generates factory.config.json interactively",
+      "related_files": ["runtime/codex-factory-init.ps1"],
+      "limitations": ["PowerShell-only","Interactive only (no silent mode)"],
+      "user_value": "Guided setup: choose providers, set up workspace, get running in 5 minutes."
+    },
+    {
+      "id": "C03",
+      "capability": "Doctor",
+      "status": "PRODUCTION_READY",
+      "evidence": "runtime/codex-factory-doctor.ps1 checks pwsh, config, schema validity, environment",
+      "related_files": ["runtime/codex-factory-doctor.ps1"],
+      "limitations": ["Windows-first (pwsh recommended for Linux)"],
+      "user_value": "One-command health check. Detects missing dependencies, invalid config, platform issues."
+    },
+    {
+      "id": "C04",
+      "capability": "Skill Pack Manager",
+      "status": "PRODUCTION_READY",
+      "evidence": "runtime/skill-pack-manager.ps1 supports list/validate/create-template/enable/disable/remove",
+      "related_files": ["runtime/skill-pack-manager.ps1","schemas/skill-pack.schema.json","packs/"],
+      "limitations": ["No marketplace integration","Local-only packs"],
+      "user_value": "Create custom skill packs with rules, prompts, validation, examples. Enable/disable per project."
+    },
+    {
+      "id": "C05",
+      "capability": "Knowledge Pack Manager",
+      "status": "PRODUCTION_READY",
+      "evidence": "runtime/knowledge-pack-manager.ps1 supports add/index/build-evidence with source tracking",
+      "related_files": ["runtime/knowledge-pack-manager.ps1","schemas/knowledge-pack.schema.json","knowledge/"],
+      "limitations": ["Local-only — user knowledge never uploaded","Evidence extraction is MVP"],
+      "user_value": "Import local knowledge (specs, docs) with source attribution. Build evidence packs with source_file/source_hash/line_reference. Knowledge stays private."
+    },
+    {
+      "id": "C06",
+      "capability": "Project Onboarding Wizard",
+      "status": "PRODUCTION_READY",
+      "evidence": "runtime/project-onboarding-wizard.ps1",
+      "related_files": ["runtime/project-onboarding-wizard.ps1"],
+      "limitations": ["Best for existing projects being onboarded to Factory"],
+      "user_value": "Guided onboarding for existing projects: classify project type, match skill packs, suggest architecture."
+    },
+    {
+      "id": "C07",
+      "capability": "Task Decomposition Engine",
+      "status": "PRODUCTION_READY",
+      "evidence": "runtime/task-decomposition-engine.ps1 generates task_graph, worker_plan, validation_plan, risk_classification, agent_execution_plan — all with output integrity checks (V4.1.1)",
+      "related_files": ["runtime/task-decomposition-engine.ps1","outputs/V4_1/demo-admin-system/","outputs/V4_1_1/"],
+      "limitations": ["6 project type templates (admin-system, ecommerce, miniapp, saas, generic, backend-api)","Fallback to generic for unknown types"],
+      "user_value": "Complex requirements → structured task graph with risk classification, worker assignments, validation plans. 0-byte output bug fixed in V4.1.1."
+    },
+    {
+      "id": "C08",
+      "capability": "Agent Execution Runtime",
+      "status": "PRODUCTION_READY",
+      "evidence": "runtime/agent-execution-runtime.ps1 with 11 CLI commands (start/status/handoff/validate/collect/validate/integrate/close + 3 live commands)",
+      "related_files": ["runtime/agent-execution-runtime.ps1","schemas/worker-capsule.schema.json","schemas/worker-handoff.schema.json","schemas/execution-receipt.schema.json","outputs/V4_2/"],
+      "limitations": ["Manual mode only (no autonomous agent dispatch)","Agent-adapter NOT_CONFIGURED"],
+      "user_value": "Convert task plans into executable run workspaces with worker capsules, handoff protocol, artifact collection, integration checks, and signed execution receipts."
+    },
+    {
+      "id": "C09",
+      "capability": "Cross-Window Worker Kit",
+      "status": "VERIFIED",
+      "evidence": "V4.3 simulation + V4.4 real live test. 21 worker kit files across 3 workers. Self-contained prompts.",
+      "related_files": ["outputs/V4_3/cross-window-worker-kit/","outputs/V4_4/live-cross-window-kit/","docs/cross-window-worker-execution.md"],
+      "limitations": ["Manual distribution to Codex windows required","No automated dispatch"],
+      "user_value": "Package worker assignments as self-contained prompts for distribution to independent Codex windows. Each worker sees only its own tasks, boundaries, and rules."
+    },
+    {
+      "id": "C10",
+      "capability": "Real Cross-Window Live Verification",
+      "status": "VERIFIED (A+)",
+      "evidence": "V4.4: 3 real independent Codex windows executed backend/frontend/QA tasks. 8/8 artifacts, 79 tests, cross-window isolation confirmed. QA could not see backend artifacts (genuine isolation).",
+      "related_files": ["outputs/V4_4/V4_4_LIVE_VERIFICATION_FINAL.json","outputs/V4_4/live-cross-window-kit/","runs/v44-live-cross-window/"],
+      "limitations": ["Manual — user opened 3 windows","Not fully autonomous"],
+      "user_value": "Proven: worker capsules work in real independent Codex windows. Isolation verified. Handoff protocol functional. This is the strongest V4 evidence."
+    },
+    {
+      "id": "C11",
+      "capability": "Capsule Boundary Conflict Detector",
+      "status": "REFINED (V4.4.1)",
+      "evidence": "V4.4.1: domain-keyword patterns removed. Cross-worker boundary enforcement confirmed (4/4 regression PASS).",
+      "related_files": ["runtime/agent-execution-runtime.ps1 (New-WorkerCapsule)","runtime/task-decomposition-engine.ps1","outputs/V4_4_1/"],
+      "limitations": ["Currently detects auth-module conflict pattern; extensible to other types"],
+      "user_value": "Capsules automatically refine forbidden_files to cross-worker boundaries. No false positives on assigned domain tasks (e.g., auth worker creating auth files)."
+    },
+    {
+      "id": "C12",
+      "capability": "Artifact / Handoff / Integration Verification",
+      "status": "PRODUCTION_READY",
+      "evidence": "validate-handoff, validate-live-handoff, collect-artifacts, validate, integrate, close — all operational. 8/8 artifacts verified in V4.4.",
+      "related_files": ["runtime/agent-execution-runtime.ps1","schemas/worker-handoff.schema.json","schemas/execution-receipt.schema.json"],
+      "limitations": ["Manual collection in live mode","No automatic artifact hashing in manual mode"],
+      "user_value": "End-to-end verification pipeline: handoff validation → artifact collection → per-task validation → integration checks → signed execution receipt. No artifact = no PASS."
+    }
+  ],
+  "summary": {
+    "total_capabilities": 12,
+    "production_ready": 8,
+    "verified": 3,
+    "refined": 1,
+    "v4_overall_status": "V4_FINAL_CAPABILITY_PACKAGE_READY"
+  },
+  "non_claims": [
+    "Not a production multi-agent cloud platform",
+    "Not fully autonomous (manual mode + agent-adapter NOT_CONFIGURED)",
+    "V3.4.2 strict remote CI verification remains authoritative for CI evidence",
+    "No marketplace integration",
+    "GLM is optional — users choose their own providers"
+  ]
+}

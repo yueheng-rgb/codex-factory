@@ -1,0 +1,79 @@
+﻿{
+  "report": "V4.4 Final Classification",
+  "version": "4.4.0",
+  "generated_at": "2026-07-18",
+  "final_classification": "V4_4_LIVE_TEST_READY_FOR_USER_HANDOFFS",
+  "grade": "A",
+  "live_test_kit_result": {
+    "status": "PASS",
+    "files": [
+      "MAIN_CONTROLLER_INSTRUCTIONS.md",
+      "WORKER_1_BACKEND_PROMPT.md",
+      "WORKER_2_FRONTEND_PROMPT.md",
+      "WORKER_3_TEST_VALIDATION_PROMPT.md",
+      "HANDOFF_RETURN_TEMPLATE.md",
+      "LIVE_TEST_CHECKLIST.md"
+    ],
+    "all_self_contained": true,
+    "ready_for_distribution": true
+  },
+  "main_controller_instructions_result": {
+    "status": "PASS",
+    "covers": ["Open 3 windows","Distribute prompts","Wait for workers","Collect handoffs","Validate","Report"]
+  },
+  "worker_prompt_result": {
+    "status": "PASS",
+    "workers": 3,
+    "each_contains": ["Identity","Tasks","Allowed files","Forbidden files","Required artifacts","Handoff format","Rules","Context"],
+    "all_self_contained": true,
+    "no_cross_references": true
+  },
+  "handoff_intake_result": {
+    "status": "PASS",
+    "commands_added": ["import-live-handoff","validate-live-handoff","summarize-live-run"],
+    "placeholder_detection": "3/3 detected and rejected",
+    "boundary_check": "active"
+  },
+  "dry_run_result": {
+    "status": "PASS",
+    "workspace_created": true,
+    "placeholders_created": 3,
+    "placeholders_rejected": 3,
+    "acceptance_rate": "0/3 (correct — placeholders should not PASS)",
+    "final_status": "LIVE_CROSS_WINDOW_BLOCKED",
+    "no_fake_pass": true
+  },
+  "optional_live_verification_result": {
+    "status": "NOT_YET_RUN",
+    "message": "Awaiting user to run 3 separate Codex windows with worker prompts",
+    "expected_status_after": "LIVE_CROSS_WINDOW_VERIFIED or LIVE_CROSS_WINDOW_PARTIAL or LIVE_CROSS_WINDOW_BLOCKED"
+  },
+  "docs_updated": ["docs/real-cross-window-live-test.md (new)"],
+  "regression_result": {
+    "V4_3_simulation": "INTACT",
+    "V4_2_execution_runtime": "INTACT (3 new commands)",
+    "V4_1_1_task_decomposition": "INTACT",
+    "V4_0_1_provider_skill_knowledge": "INTACT",
+    "V3_4_2_strict_remote": "INTACT",
+    "search_provider": "none",
+    "GLM": "optional",
+    "secret_scan": "PASS",
+    "github_actions": "INTACT"
+  },
+  "files_changed": [
+    "runtime/agent-execution-runtime.ps1 (3 new commands)",
+    "outputs/V4_4/live-cross-window-kit/ (6 files)",
+    "outputs/V4_4/live-test-dry-run.json",
+    "outputs/V4_4/live-test-dry-run.md",
+    "docs/real-cross-window-live-test.md (new)",
+    "runs/v44-live-cross-window/ (dry-run workspace)"
+  ],
+  "user_action_required": "Open 3 separate Codex windows and paste WORKER_*_PROMPT.md from outputs/V4_4/live-cross-window-kit/",
+  "known_risks": [
+    "Real cross-window test requires user to manually open and manage 3 Codex windows",
+    "Worker output quality depends on the specific Codex model/window context",
+    "Agent-adapter mode still NOT_CONFIGURED — no automated window dispatch",
+    "Cross-window isolation relies on user discipline (not pasting full history)"
+  ],
+  "recommended_next_stage": "After user completes live test: V4.5 Multi-Project Factory Pipeline (scale beyond single project)"
+}

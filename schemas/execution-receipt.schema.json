@@ -1,0 +1,45 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Execution Receipt",
+  "description": "Codex Factory V4.2 — Final execution receipt for a run",
+  "type": "object",
+  "required": ["run_id","mode","final_status","no_fake_pass_confirmed"],
+  "properties": {
+    "run_id": {"type":"string","description":"Run identifier"},
+    "mode": {"type":"string","enum":["manual","local-script","agent-adapter"],"description":"Execution mode used"},
+    "input_plan_hashes": {
+      "type":"object","description":"SHA256 hashes of input plan files",
+      "properties": {
+        "agent_execution_plan": {"type":"string"},
+        "task_graph": {"type":"string"},
+        "worker_plan": {"type":"string"},
+        "validation_plan": {"type":"string"}
+      }
+    },
+    "tasks_total": {"type":"integer","description":"Total tasks in the plan"},
+    "tasks_completed": {"type":"integer","description":"Tasks marked as completed"},
+    "tasks_blocked": {"type":"integer","description":"Tasks with blockers"},
+    "workers_total": {"type":"integer","description":"Total workers in the plan"},
+    "handoffs_expected": {"type":"integer","description":"Expected handoff count"},
+    "handoffs_collected": {"type":"integer","description":"Actually collected handoffs"},
+    "artifacts_expected": {"type":"integer","description":"Expected artifact count"},
+    "artifacts_collected": {"type":"integer","description":"Actually collected artifacts"},
+    "validation_status": {"type":"string","enum":["PASS","FAIL","PARTIAL","SKIPPED","PENDING"]},
+    "integration_status": {"type":"string","enum":["PASS","FAIL","BLOCKED","SKIPPED","PENDING"]},
+    "final_status": {
+      "type":"string",
+      "enum":["READY_FOR_MANUAL_WORKER_EXECUTION","PARTIAL_HANDOFF_COLLECTED","READY_FOR_INTEGRATION","INTEGRATION_BLOCKED","VALIDATION_BLOCKED","EXECUTION_VERIFIED","FAILED"],
+      "description":"Final execution status"
+    },
+    "blocking_issues": {"type":"array","items":{"type":"string"},"description":"Issues preventing completion"},
+    "no_fake_pass_confirmed": {"type":"boolean","description":"Confirmed: no fake PASS, no missing artifact marked as present"},
+    "non_claims": {
+      "type":"array","items":{"type":"string"},
+      "default": [
+        "Manual mode initial status is READY_FOR_MANUAL_WORKER_EXECUTION, not EXECUTION_VERIFIED",
+        "Agent-adapter is NOT_CONFIGURED when unavailable; not PASS",
+        "No artifact = no PASS"
+      ]
+    }
+  }
+}

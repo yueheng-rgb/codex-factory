@@ -1,0 +1,11 @@
+﻿{
+  "worker_id": "worker-backend",
+  "role": "worker-backend",
+  "assigned_tasks": ["T3","T4","T5","T6"],
+  "task_details": {
+    "T3": {"title":"Database Schema Design","risk":"P1","type":"data_model"},
+    "T4": {"title":"REST API Contract Definition","risk":"P1","type":"api_contract"},
+    "T5": {"title":"Auth & Permission Module","risk":"P0","type":"backend_module"},
+    "T6": {"title":"CRUD Service Modules","risk":"P2","type":"backend_module"}
+  }
+}

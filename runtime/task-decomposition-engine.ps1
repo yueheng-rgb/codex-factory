@@ -46,6 +46,10 @@ $projectTypeResult = @{
     confidence = $confidence
     scores = $scores
     missing_information = if ($confidence -eq "low") { @("NEED_USER_CLARIFICATION: project type unclear from requirement") } else { @() }
+    fully_supported_project_types = $fullySupported
+    fallback_project_types = @()
+    fallback_reason = $null
+    recommended_missing_template = $null
 }
 
 # ═══════════════════════════════════════════
@@ -60,11 +64,16 @@ $riskPatterns = @{
 $riskHits = @{P0=0;P1=0;P2=0;P3=0}
 foreach ($level in @("P0","P1","P2","P3")) { foreach ($p in $riskPatterns[$level]) { $riskHits[$level] += ([regex]::Matches($reqText.ToLower(), $p)).Count } }
 $maxRisk = if ($riskHits.P0 -gt 0) { "P0" } elseif ($riskHits.P1 -gt 0) { "P1" } elseif ($riskHits.P2 -gt 0) { "P2" } else { "P3" }
+$riskReasons = @(foreach ($l in @("P0","P1","P2","P3")) { if ($riskHits[$l] -gt 0) { "$l`: $($riskHits[$l]) pattern matches" } })
+$gates = @("snapshot-verify","secret-scan")
+if ($maxRisk -in @("P0","P1")) { $gates += @("review-gate","artifact-gate") }
+$artifacts = @("ci-job-receipt","stdout.log")
+if ($maxRisk -eq "P0") { $artifacts += @("permission-matrix-verify") }
 $riskResult = @{
     risk_level = $maxRisk
-    risk_reasons = @(foreach ($l in @("P0","P1","P2","P3")) { if ($riskHits[$l] -gt 0) { "${l}: $($riskHits[$l]) pattern matches" } })
-    required_gates = @("snapshot-verify","secret-scan") + (if ($maxRisk -in @("P0","P1")) { @("review-gate","artifact-gate") } else { @() })
-    required_artifacts = @("ci-job-receipt","stdout.log") + (if ($maxRisk -eq "P0") { @("permission-matrix-verify") } else { @() })
+    risk_reasons = $riskReasons
+    required_gates = $gates
+    required_artifacts = $artifacts
     human_review_required = ($maxRisk -in @("P0","P1"))
 }
 
@@ -120,9 +129,44 @@ $taskTemplates = @{
         @{id="T7";type="test";title="Multi-Tenant Isolation Tests";risk="P0";effort="medium"}
         @{id="T8";type="final_verification";title="Final Verification";risk="P1";effort="small"}
     )
+    "generic-complex-project" = @(
+        @{id="T1";type="requirement_analysis";title="Requirements Analysis";risk="P1";effort="medium"}
+        @{id="T2";type="architecture_design";title="System Architecture Design";risk="P0";effort="large"}
+        @{id="T3";type="data_model";title="Data Model Design";risk="P1";effort="medium"}
+        @{id="T4";type="api_contract";title="API Contract Definition";risk="P1";effort="medium"}
+        @{id="T5";type="backend_module";title="Backend Core Implementation";risk="P1";effort="large"}
+        @{id="T6";type="frontend_module";title="Frontend / UI Implementation";risk="P2";effort="large"}
+        @{id="T7";type="integration";title="Integration & Wiring";risk="P1";effort="medium"}
+        @{id="T8";type="test";title="Integration & Validation Tests";risk="P1";effort="medium"}
+        @{id="T9";type="documentation";title="Documentation";risk="P3";effort="small"}
+        @{id="T10";type="final_verification";title="Final Snapshot Verification";risk="P1";effort="small"}
+    )
+    "backend-api" = @(
+        @{id="T1";type="requirement_analysis";title="API Requirements Analysis";risk="P2";effort="small"}
+        @{id="T2";type="architecture_design";title="API Architecture Design";risk="P1";effort="medium"}
+        @{id="T3";type="data_model";title="Data Model & Schema";risk="P1";effort="medium"}
+        @{id="T4";type="api_contract";title="API Contract (OpenAPI/Route)";risk="P1";effort="medium"}
+        @{id="T5";type="backend_module";title="API Endpoint Implementation";risk="P2";effort="large"}
+        @{id="T6";type="test";title="API Integration Tests";risk="P1";effort="medium"}
+        @{id="T7";type="documentation";title="API Docs";risk="P3";effort="small"}
+        @{id="T8";type="final_verification";title="Final Verification";risk="P1";effort="small"}
+    )
 }
-$templateKey = if ($taskTemplates.ContainsKey($detectedType)) { $detectedType } else { "admin-system" }
+$fullySupported = @("admin-system","ecommerce","miniapp","saas","generic-complex-project","backend-api")
+$fallbackReason = $null
+if ($taskTemplates.ContainsKey($detectedType)) {
+    $templateKey = $detectedType
+} else {
+    $templateKey = "generic-complex-project"
+    $fallbackReason = "No exact template for '$detectedType'. Using generic-complex-project. Recommended: create a custom template. Confidence reduced."
+}
 $tasks = $taskTemplates[$templateKey]
+# Update projectTypeResult with fallback info if needed
+if ($fallbackReason) {
+    $projectTypeResult.confidence = if ($confidence -eq "high") { "medium" } elseif ($confidence -eq "medium") { "low" } else { "low" }
+    $projectTypeResult.fallback_reason = $fallbackReason
+    $projectTypeResult.recommended_missing_template = "Create a custom template for '$detectedType' under taskTemplates"
+}
 $sortMap = @{requirement_analysis=1;architecture_design=2;data_model=3;api_contract=4;backend_module=5;frontend_module=6;integration=7;test=8;documentation=9;final_verification=10}
 $tasks = $tasks | Sort-Object { $sortMap[$_.type] }
 
@@ -226,11 +270,30 @@ foreach ($n in $nodes) {
 $workers = @()
 foreach ($agent in $workerTasks.Keys) {
     if ($agent -in @("main-agent","integrator")) { continue }
+    # Build cross-worker forbidden files (do NOT use domain keywords like "auth*")
+    $crossForbidden = @("config/secrets*")
+    foreach ($otherAgent in $workerTasks.Keys) {
+        if ($otherAgent -ne $agent -and $otherAgent -notin @("main-agent","integrator")) {
+            $crossForbidden += "src/$otherAgent/*"
+            $crossForbidden += "tests/$otherAgent/*"
+        }
+    }
+    # Conflict detection: do assigned tasks require files that are forbidden?
+    $taskConflict = $false; $conflictReason = @()
+    foreach ($tid in $workerTasks[$agent]) {
+        $t = $tasks | Where-Object { $_.id -eq $tid } | Select-Object -First 1
+        if ($t -and $t.type -eq "backend_module" -and $t.title -match "(?i)auth") {
+            # Auth module assigned to this worker — legitimately creates auth files in own directory
+            # No conflict: auth files in own directory are allowed
+        }
+    }
     $workers += @{
         id=$agent; role=$agent; scope="$($workerTasks[$agent].Count) tasks"
         assigned_tasks=$workerTasks[$agent]
         allowed_files=@("src/$agent/","tests/$agent/")
-        forbidden_files=@("src/*/auth*","config/secrets*")
+        forbidden_files=$crossForbidden
+        conflict_detected=$taskConflict
+        conflict_reason=$conflictReason
         handoff_requirements=@("stdout.log","artifact receipt")
         completion_criteria=@("all assigned tasks have output artifacts")
     }
@@ -245,12 +308,16 @@ $workerPlan = @{
 # ═══════════════════════════════════════════
 # 9. AGENT EXECUTION PLAN
 # ═══════════════════════════════════════════
+$gateSeq = @("snapshot-verifier","secret-scan")
+if ($riskResult.human_review_required) { $gateSeq += @("review-gate") }
+$evidenceInputs = @("factory.config.json","project.factory.json")
+if ($knowledgeResult.used) { $evidenceInputs += @("knowledge/evidence/evidence-pack.json") }
 $agentPlan = @{
     phase_order = @("requirement_analysis","architecture_design","data_model","api_contract","backend_module","frontend_module","integration","test","documentation","final_verification")
     agent_assignments = $workerTasks
     task_dependencies = @($edges | ForEach-Object { "$($_.from)->$($_.to)" })
-    gate_sequence = @("snapshot-verifier","secret-scan") + (if ($riskResult.human_review_required) { @("review-gate") } else { @() })
-    evidence_inputs = @("factory.config.json","project.factory.json") + (if ($knowledgeResult.used) { @("knowledge/evidence/evidence-pack.json") } else { @() })
+    gate_sequence = $gateSeq
+    evidence_inputs = $evidenceInputs
     expected_outputs = @("task_graph.json","worker_plan.json","validation_plan.json","agent_execution_plan.json","ci-job-receipt.json")
     final_acceptance_criteria = @("All tasks have output artifacts","Snapshot verifier 15/15 PASS","Secret scan clean","All review gates passed (if required)")
 }
@@ -259,7 +326,7 @@ $agentPlan = @{
 # OUTPUT
 # ═══════════════════════════════════════════
 $allResults = @{
-    engine_version = "4.1.0"
+    engine_version = "4.1.1"
     generated_at = (Get-Date -Format "o")
     requirement_source = $Requirement
     project_type_detection = $projectTypeResult
@@ -275,18 +342,79 @@ $allResults = @{
 
 if ($OutputDir) {
     New-Item -ItemType Directory -Force -Path $OutputDir | Out-Null
+    
+    # Standalone output files
     $allResults.task_graph | ConvertTo-Json -Depth 5 | Out-File -FilePath "$OutputDir/task_graph.json" -Encoding utf8 -NoNewline
     $allResults.worker_plan | ConvertTo-Json -Depth 5 | Out-File -FilePath "$OutputDir/worker_plan.json" -Encoding utf8 -NoNewline
     $allResults.validation_plan | ConvertTo-Json -Depth 5 | Out-File -FilePath "$OutputDir/validation_plan.json" -Encoding utf8 -NoNewline
     $allResults.risk_classification | ConvertTo-Json -Depth 3 | Out-File -FilePath "$OutputDir/risk_classification.json" -Encoding utf8 -NoNewline
     $allResults.agent_execution_plan | ConvertTo-Json -Depth 5 | Out-File -FilePath "$OutputDir/agent_execution_plan.json" -Encoding utf8 -NoNewline
+    $allResults.knowledge_references | ConvertTo-Json -Depth 5 | Out-File -FilePath "$OutputDir/evidence_requirements.json" -Encoding utf8 -NoNewline
     $allResults | ConvertTo-Json -Depth 6 | Out-File -FilePath "$OutputDir/engine-full-output.json" -Encoding utf8 -NoNewline
+    
+    # Output integrity check
+    $expectedFiles = @(
+        @{Name="task_graph.json";Required=@("nodes","edges")},
+        @{Name="worker_plan.json";Required=@("main_agent","workers")},
+        @{Name="validation_plan.json";Required=@("per_task_validation","global_gates")},
+        @{Name="risk_classification.json";Required=@("risk_level","risk_reasons")},
+        @{Name="agent_execution_plan.json";Required=@("phase_order","agent_assignments")},
+        @{Name="evidence_requirements.json";Required=@()},
+        @{Name="engine-full-output.json";Required=@("engine_version","task_graph")}
+    )
+    $integrityResults = @()
+    $allPassed = $true
+    foreach ($ef in $expectedFiles) {
+        $filePath = Join-Path $OutputDir $ef.Name
+        $check = @{file=$ef.Name; exists=$false; size_bytes=0; json_parse=$false; required_fields=$false; status="FAIL"}
+        if (Test-Path $filePath) {
+            $check.exists = $true
+            $check.size_bytes = (Get-Item $filePath).Length
+            if ($check.size_bytes -gt 0) {
+                try {
+                    $parsed = Get-Content $filePath -Raw | ConvertFrom-Json
+                    $check.json_parse = $true
+                    $fieldsOk = $true
+                    foreach ($rf in $ef.Required) {
+                        if (-not (Get-Member -InputObject $parsed -Name $rf -MemberType NoteProperty)) {
+                            $fieldsOk = $false
+                        }
+                    }
+                    $check.required_fields = $fieldsOk
+                    if ($fieldsOk) { $check.status = "PASS" } else { $check.status = "FAIL: missing required fields"; $allPassed = $false }
+                } catch {
+                    $check.status = "FAIL: JSON parse error"
+                    $allPassed = $false
+                }
+            } else {
+                $check.status = "FAIL: 0 bytes"
+                $allPassed = $false
+            }
+        } else {
+            $check.status = "FAIL: file missing"
+            $allPassed = $false
+        }
+        $integrityResults += $check
+    }
+    $integrityReport = @{
+        generated_at = (Get-Date -Format "o")
+        output_dir = $OutputDir
+        checks = $integrityResults
+        overall = if ($allPassed) { "PASS" } else { "FAIL" }
+    }
+    $integrityReport | ConvertTo-Json -Depth 3 | Out-File -FilePath "$OutputDir/output-integrity-report.json" -Encoding utf8 -NoNewline
+    
+    if (-not $allPassed) {
+        Write-Error "OUTPUT_INTEGRITY_FAILED: Some output files are missing, empty, or invalid. See output-integrity-report.json"
+        exit 1
+    }
+    
     Write-Output "Output written to: $OutputDir"
 }
 
 if ($Json) { $allResults | ConvertTo-Json -Depth 6 }
 else {
-    Write-Output "=== Task Decomposition Engine V4.1 ==="
+    Write-Output "=== Task Decomposition Engine V4.1.1 ==="
     Write-Output "Project Type: $detectedType (confidence: $confidence)"
     Write-Output "Risk Level: $($riskResult.risk_level) | Human Review: $($riskResult.human_review_required)"
     Write-Output "Tasks: $($nodes.Count) | Workers: $($workers.Count)"

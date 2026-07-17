@@ -1,0 +1,25 @@
+﻿{
+  "report": "V4.4.1 Capsule Boundary Refinement",
+  "version": "4.4.1",
+  "generated_at": "2026-07-18",
+  "problem": {
+    "finding": "Backend worker capsule's forbidden_files included 'src/*/auth*' — a domain-keyword pattern that conflicted with assigned Task T5 (Auth & Permission Module)",
+    "impact": "5 legitimate auth files created by backend worker were flagged as boundary violations in V4.4 live verification",
+    "classification": "CAPSULE_DESIGN_CONFLICT — not worker violation"
+  },
+  "fix": {
+    "approach": "Replace domain-keyword forbidden patterns with cross-worker directory boundaries",
+    "before": ["src/*/auth*","config/secrets*"],
+    "after": ["config/secrets*","src/worker-frontend/*","tests/worker-frontend/*","src/worker-qa/*","tests/worker-qa/*"],
+    "principle": "forbidden_files should express 'which other workers' territory is off-limits', not 'which domain keywords are forbidden'"
+  },
+  "conflict_detector": {
+    "location": "runtime/agent-execution-runtime.ps1 New-WorkerCapsule function",
+    "behavior": "Detects if assigned task type (e.g., auth module) conflicts with forbidden_files patterns. If conflict found, auto-refines to cross-worker patterns and records capsule_boundary_refinement note."
+  },
+  "files_changed": [
+    "runtime/task-decomposition-engine.ps1 — worker plan forbidden_files generation",
+    "runtime/agent-execution-runtime.ps1 — New-WorkerCapsule conflict detection + refinement"
+  ],
+  "status": "REFINED"
+}

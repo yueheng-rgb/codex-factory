@@ -1,0 +1,1 @@
+﻿{"worker_id":"test-validation-worker","task_ids":["T10","T12"],"status":"PENDING","files_changed":[],"artifacts_produced":[],"tests_run":0,"tests_passed":0,"tests_failed":0,"validation_result":"PENDING","blockers":[],"assumptions":[],"handoff_notes":"[FILL IN]","next_agent":"integrator","timestamp":"FILL_TIMESTAMP"}

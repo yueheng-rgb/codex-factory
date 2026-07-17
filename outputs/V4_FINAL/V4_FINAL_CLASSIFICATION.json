@@ -1,0 +1,61 @@
+﻿{
+  "report": "V4 Final Consolidation — Final Classification",
+  "version": "4.FINAL",
+  "generated_at": "2026-07-18",
+  "final_classification": "V4_FINAL_CAPABILITY_PACKAGE_READY",
+  "grade": "A",
+  "capability_matrix_result": {
+    "status": "COMPLETE",
+    "capabilities": 12,
+    "production_ready": 8,
+    "verified": 3,
+    "refined": 1
+  },
+  "evidence_index_result": {
+    "status": "COMPLETE",
+    "entries": 7,
+    "strongest": ["V3.4.2 CI Remote","V4.4 Real Live Test"]
+  },
+  "readme_docs_result": {
+    "status": "COMPLETE",
+    "new_or_updated": ["docs/v4-capabilities.md","docs/v4-public-demo-guide.md","docs/real-cross-window-live-test.md","docs/cross-window-worker-execution.md","docs/agent-execution-runtime.md"]
+  },
+  "public_demo_guide_result": {
+    "status": "COMPLETE",
+    "steps": 10,
+    "file": "docs/v4-public-demo-guide.md"
+  },
+  "release_package_result": {
+    "status": "COMPLETE",
+    "zip": "dist/codex-factory-v4-capability-package.zip",
+    "sha256": "CD6F9D996B6CA06028DDCBF870D71A262A8C6159E63855E5A77D7677E048753E",
+    "manifest": "dist/codex-factory-v4-capability-package.manifest.json"
+  },
+  "final_audit_result": {
+    "status": "AUDIT_PASS",
+    "checks": 15,
+    "blocking_issues": 0
+  },
+  "files_changed": [
+    "outputs/V4_FINAL/V4_CAPABILITY_MATRIX.json",
+    "outputs/V4_FINAL/V4_CAPABILITY_MATRIX.md",
+    "outputs/V4_FINAL/V4_EVIDENCE_INDEX.json",
+    "outputs/V4_FINAL/V4_EVIDENCE_INDEX.md",
+    "outputs/V4_FINAL/V4_FINAL_AUDIT.json",
+    "outputs/V4_FINAL/V4_FINAL_AUDIT.md",
+    "docs/v4-capabilities.md (new)",
+    "docs/v4-public-demo-guide.md (new)",
+    "dist/codex-factory-v4-capability-package.zip",
+    "dist/codex-factory-v4-capability-package.sha256.txt",
+    "dist/codex-factory-v4-capability-package.manifest.json"
+  ],
+  "zip_path": "dist/codex-factory-v4-capability-package.zip",
+  "zip_sha256": "CD6F9D996B6CA06028DDCBF870D71A262A8C6159E63855E5A77D7677E048753E",
+  "remaining_risks": [
+    "Agent-adapter mode NOT_CONFIGURED — no automated worker dispatch",
+    "Manual mode requires user coordination for cross-window execution",
+    "Knowledge packs local-only (no sharing mechanism)",
+    "No marketplace for skill pack distribution"
+  ],
+  "recommended_next_step": "Publish v4-capability-package.zip as a GitHub Release on yueheng-rgb/codex-factory. Switch repo from Private to Public after final review."
+}

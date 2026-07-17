@@ -1,0 +1,85 @@
+﻿{
+  "report": "V4.2 Final Classification",
+  "version": "4.2.0",
+  "generated_at": "2026-07-17",
+  "final_classification": "V4_2_AGENT_EXECUTION_RUNTIME_READY",
+  "grade": "A",
+  "execution_runtime_result": {
+    "status": "OPERATIONAL",
+    "script": "runtime/agent-execution-runtime.ps1",
+    "commands_supported": ["start","status","create-handoff-template","validate-handoff","collect-artifacts","validate","integrate","close"],
+    "modes": {"manual":"default","local-script":"available","agent-adapter":"NOT_CONFIGURED"}
+  },
+  "run_workspace_result": {
+    "status": "PASS",
+    "structure": ["execution-run.json","input/","worker-capsules/","handoffs/","artifacts/","validation/","integration/","execution-receipt.json"],
+    "input_sealing": "Plan files copied with SHA256 hashes at start"
+  },
+  "worker_capsule_result": {
+    "status": "PASS",
+    "capsules_per_run": 3,
+    "boundary_enforcement": true,
+    "schema": "schemas/worker-capsule.schema.json"
+  },
+  "handoff_protocol_result": {
+    "status": "PASS",
+    "schema": "schemas/worker-handoff.schema.json",
+    "validation_rules": ["required fields","status not PENDING","artifact coverage","boundary check","placeholder detection"],
+    "demo_validation": "3/3 handoffs validated"
+  },
+  "artifact_collection_result": {
+    "status": "PASS",
+    "artifacts_collected": 8,
+    "index_generated": true
+  },
+  "validation_runner_result": {
+    "status": "PASS",
+    "admin_system": "12 tasks: 8 PASS, 4 PENDING (main-agent tasks)",
+    "ecommerce_miniapp": "12 tasks: 8 PASS, 4 PENDING (main-agent tasks)",
+    "explanation": "4 PENDING are main-agent/integrator tasks (T1,T2,T9,T11) not assigned to workers"
+  },
+  "integrator_phase_result": {
+    "status": "PASS",
+    "checks": {
+      "all_workers_handed_off": "PASS",
+      "no_blockers": "PASS",
+      "required_artifacts": "PASS",
+      "no_boundary_violations": "PASS"
+    }
+  },
+  "execution_receipt_result": {
+    "status": "PASS",
+    "admin_system": {"final_status":"READY_FOR_INTEGRATION","mode":"manual"},
+    "ecommerce_miniapp": {"final_status":"READY_FOR_INTEGRATION","mode":"manual"},
+    "no_fake_execution_verified": true
+  },
+  "demo_results": {
+    "admin_system": {"workers":3,"handoffs":3,"artifacts":8,"integration":"READY_FOR_INTEGRATION","final_status":"READY_FOR_INTEGRATION"},
+    "ecommerce_miniapp": {"workers":3,"handoffs":3,"artifacts":8,"integration":"READY_FOR_INTEGRATION","final_status":"READY_FOR_INTEGRATION"}
+  },
+  "regression_result": {
+    "V4_1_1_task_decomposition": "INTACT (8 non-zero JSON files)",
+    "V4_0_1_provider_skill_knowledge": "INTACT",
+    "V3_4_2_strict_remote_verification": "INTACT",
+    "search_provider_default": "none",
+    "GLM_binding": "optional",
+    "secret_scan": "PASS",
+    "github_actions_workflow": "INTACT"
+  },
+  "files_changed": [
+    "schemas/worker-capsule.schema.json (new)",
+    "schemas/worker-handoff.schema.json (new)",
+    "schemas/execution-receipt.schema.json (new)",
+    "runtime/agent-execution-runtime.ps1 (new)",
+    "docs/agent-execution-runtime.md (new)",
+    "docs/worker-handoff-protocol.md (new)"
+  ],
+  "known_risks": [
+    "Manual mode requires user to dispatch capsules to separate Codex windows",
+    "Agent-adapter mode is NOT_CONFIGURED — requires future spawn_agent integration",
+    "Validation PENDING count reflects main-agent tasks not assigned to workers",
+    "No real cross-window communication — handoff collection is file-based",
+    "Local-script mode validates but does not generate code"
+  ],
+  "recommended_next_stage": "V4.3: Cross-Window Test & Real Worker Simulation (dispatch capsules to multiple Codex windows)"
+}

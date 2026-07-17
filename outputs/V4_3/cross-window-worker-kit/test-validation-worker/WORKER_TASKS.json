@@ -1,0 +1,1 @@
+﻿{"worker_id":"test-validation-worker","role":"worker-qa","assigned_tasks":["T10","T12"],"task_details":{"T10":{"title":"Integration & E2E Tests","risk":"P1","type":"test"},"T12":{"title":"Final Snapshot Verification","risk":"P1","type":"final_verification"}}}

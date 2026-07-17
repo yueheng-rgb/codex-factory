@@ -1,0 +1,102 @@
+﻿{
+    "workers":  [
+                    {
+                        "forbidden_files":  [
+                                                "src/*/auth*",
+                                                "config/secrets*"
+                                            ],
+                        "id":  "worker-backend",
+                        "completion_criteria":  [
+                                                    "all assigned tasks have output artifacts"
+                                                ],
+                        "assigned_tasks":  [
+                                               "T3",
+                                               "T4",
+                                               "T7",
+                                               "T6",
+                                               "T5"
+                                           ],
+                        "allowed_files":  [
+                                              "src/worker-backend/",
+                                              "tests/worker-backend/"
+                                          ],
+                        "handoff_requirements":  [
+                                                     "stdout.log",
+                                                     "artifact receipt"
+                                                 ],
+                        "role":  "worker-backend",
+                        "scope":  "5 tasks"
+                    },
+                    {
+                        "forbidden_files":  [
+                                                "src/*/auth*",
+                                                "config/secrets*"
+                                            ],
+                        "id":  "worker-frontend",
+                        "completion_criteria":  [
+                                                    "all assigned tasks have output artifacts"
+                                                ],
+                        "assigned_tasks":  [
+                                               "T8"
+                                           ],
+                        "allowed_files":  [
+                                              "src/worker-frontend/",
+                                              "tests/worker-frontend/"
+                                          ],
+                        "handoff_requirements":  [
+                                                     "stdout.log",
+                                                     "artifact receipt"
+                                                 ],
+                        "role":  "worker-frontend",
+                        "scope":  "1 tasks"
+                    },
+                    {
+                        "forbidden_files":  [
+                                                "src/*/auth*",
+                                                "config/secrets*"
+                                            ],
+                        "id":  "worker-qa",
+                        "completion_criteria":  [
+                                                    "all assigned tasks have output artifacts"
+                                                ],
+                        "assigned_tasks":  [
+                                               "T10",
+                                               "T12"
+                                           ],
+                        "allowed_files":  [
+                                              "src/worker-qa/",
+                                              "tests/worker-qa/"
+                                          ],
+                        "handoff_requirements":  [
+                                                     "stdout.log",
+                                                     "artifact receipt"
+                                                 ],
+                        "role":  "worker-qa",
+                        "scope":  "2 tasks"
+                    }
+                ],
+    "main_agent":  {
+                       "final_decision_authority":  true,
+                       "responsibilities":  [
+                                                "Final decision",
+                                                "Acceptance",
+                                                "Rejection"
+                                            ],
+                       "role":  "Project Lead"
+                   },
+    "non_claims":  [
+                       "Workers cannot write entire repo",
+                       "Integrator is sole integration point",
+                       "Main Agent has final decision",
+                       "Workers must produce handoff artifacts"
+                   ],
+    "integrator_agent":  {
+                             "scope":  "Merge and integrate all worker outputs",
+                             "integrates":  [
+                                                "worker-backend",
+                                                "worker-frontend",
+                                                "worker-qa"
+                                            ],
+                             "role":  "Integration Lead"
+                         }
+}

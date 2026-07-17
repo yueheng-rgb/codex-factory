@@ -1,0 +1,16 @@
+﻿{
+  "worker_id": "worker-backend",
+  "task_ids": ["T3","T4","T5","T6"],
+  "status": "PENDING",
+  "files_changed": [],
+  "artifacts_produced": [],
+  "tests_run": 0,
+  "tests_passed": 0,
+  "tests_failed": 0,
+  "validation_result": "PENDING",
+  "blockers": [],
+  "assumptions": [],
+  "handoff_notes": "[FILL IN after completing tasks]",
+  "next_agent": "integrator",
+  "timestamp": "FILL_TIMESTAMP"
+}

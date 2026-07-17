@@ -1,0 +1,24 @@
+﻿{
+  "audit": "V4 Final Audit",
+  "generated_at": "2026-07-18",
+  "checks": {
+    "no_secrets": {"status":"PASS","source":"outputs/FINAL_PUBLIC_AUDIT/SECRET_PRIVACY_DEEP_SCAN.json","secretPresent":false},
+    "no_glm_hard_binding": {"status":"PASS","detail":"factory.config.example.json: search.type=none, GLM optional"},
+    "search_provider_default_none": {"status":"PASS"},
+    "readme_claims_backed": {"status":"PASS","detail":"All README claims traceable to evidence in outputs/V4_*/"},
+    "v4_4_live_verification_present": {"status":"PASS","file":"outputs/V4_4/V4_4_LIVE_VERIFICATION_FINAL.json"},
+    "v4_4_1_boundary_refinement_present": {"status":"PASS","file":"outputs/V4_4_1/V4_4_1_FINAL_CLASSIFICATION.json"},
+    "no_fake_pass": {"status":"PASS","detail":"No placeholder marked as PASS. No missing artifact accepted. Manual mode honest."},
+    "no_production_exaggeration": {"status":"PASS","detail":"All non_claims clearly state not production cloud, not fully autonomous, agent-adapter NOT_CONFIGURED"},
+    "manual_not_autonomous": {"status":"PASS","detail":"Manual mode documented as manual. Cross-window requires user to open windows."},
+    "v3_4_2_intact": {"status":"PASS","file":"outputs/V3_4_2/V3_4_2_SNAPSHOT_VERIFIER_STRICTNESS_RESULT.json"},
+    "release_package_generated": {"status":"PASS","file":"dist/codex-factory-v4-capability-package.zip","sha256":"CD6F9D996B6CA06028DDCBF870D71A262A8C6159E63855E5A77D7677E048753E"},
+    "capability_matrix_complete": {"status":"PASS","file":"outputs/V4_FINAL/V4_CAPABILITY_MATRIX.json"},
+    "evidence_index_complete": {"status":"PASS","file":"outputs/V4_FINAL/V4_EVIDENCE_INDEX.json"},
+    "public_demo_guide_complete": {"status":"PASS","file":"docs/v4-public-demo-guide.md"},
+    "github_actions_intact": {"status":"PASS","file":".github/workflows/codex-factory-ci.yml"}
+  },
+  "overall": "AUDIT_PASS",
+  "blocking_issues": [],
+  "verdict": "V4_FINAL_CAPABILITY_PACKAGE_READY"
+}

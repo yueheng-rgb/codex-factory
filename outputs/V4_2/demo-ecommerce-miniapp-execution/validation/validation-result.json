@@ -1,0 +1,157 @@
+﻿{
+    "task_results":  [
+                         {
+                             "status":  "PENDING",
+                             "task_id":  "T1",
+                             "required_methods":  [
+                                                      "artifact"
+                                                  ],
+                             "handoff_present":  false
+                         },
+                         {
+                             "status":  "PENDING",
+                             "task_id":  "T2",
+                             "required_methods":  [
+                                                      "artifact",
+                                                      "review"
+                                                  ],
+                             "handoff_present":  false
+                         },
+                         {
+                             "status":  "PASS",
+                             "task_id":  "T3",
+                             "required_methods":  [
+                                                      "artifact",
+                                                      "review",
+                                                      "static_check"
+                                                  ],
+                             "handoff_status":  "COMPLETED",
+                             "handoff_present":  true
+                         },
+                         {
+                             "status":  "PASS",
+                             "task_id":  "T4",
+                             "required_methods":  [
+                                                      "artifact",
+                                                      "review",
+                                                      "static_check"
+                                                  ],
+                             "handoff_status":  "COMPLETED",
+                             "handoff_present":  true
+                         },
+                         {
+                             "status":  "PASS",
+                             "task_id":  "T7",
+                             "required_methods":  [
+                                                      "artifact",
+                                                      "review"
+                                                  ],
+                             "handoff_status":  "COMPLETED",
+                             "handoff_present":  true
+                         },
+                         {
+                             "status":  "PASS",
+                             "task_id":  "T6",
+                             "required_methods":  [
+                                                      "artifact"
+                                                  ],
+                             "handoff_status":  "COMPLETED",
+                             "handoff_present":  true
+                         },
+                         {
+                             "status":  "PASS",
+                             "task_id":  "T5",
+                             "required_methods":  [
+                                                      "artifact",
+                                                      "review"
+                                                  ],
+                             "handoff_status":  "COMPLETED",
+                             "handoff_present":  true
+                         },
+                         {
+                             "status":  "PASS",
+                             "task_id":  "T8",
+                             "required_methods":  [
+                                                      "artifact"
+                                                  ],
+                             "handoff_status":  "COMPLETED",
+                             "handoff_present":  true
+                         },
+                         {
+                             "status":  "PENDING",
+                             "task_id":  "T9",
+                             "required_methods":  [
+                                                      "artifact",
+                                                      "review"
+                                                  ],
+                             "handoff_present":  false
+                         },
+                         {
+                             "status":  "PASS",
+                             "task_id":  "T10",
+                             "required_methods":  [
+                                                      "artifact",
+                                                      "test",
+                                                      "review"
+                                                  ],
+                             "handoff_status":  "COMPLETED",
+                             "handoff_present":  true
+                         },
+                         {
+                             "status":  "PENDING",
+                             "task_id":  "T11",
+                             "required_methods":  [
+                                                      "artifact"
+                                                  ],
+                             "handoff_present":  false
+                         },
+                         {
+                             "status":  "PASS",
+                             "task_id":  "T12",
+                             "required_methods":  [
+                                                      "artifact",
+                                                      "test",
+                                                      "review"
+                                                  ],
+                             "handoff_status":  "COMPLETED",
+                             "handoff_present":  true
+                         }
+                     ],
+    "gate_results":  [
+                         {
+                             "gate":  "snapshot-verifier",
+                             "result":  "SKIPPED — run outside CI context",
+                             "condition":  "before merge",
+                             "status":  "required"
+                         },
+                         {
+                             "gate":  "secret-scan",
+                             "result":  "PENDING — run secret-presence-check.ps1",
+                             "condition":  "on every commit",
+                             "status":  "required"
+                         },
+                         {
+                             "gate":  "ci-artifact-upload",
+                             "condition":  "",
+                             "status":  "skipped"
+                         },
+                         {
+                             "gate":  "review-gate",
+                             "condition":  "",
+                             "status":  "required"
+                         }
+                     ],
+    "non_claims":  [
+                       "Manual mode: validation reflects handoff collection status only",
+                       "snapshot-verifier and secret-scan gates need CI context or manual execution"
+                   ],
+    "overall":  "PARTIAL",
+    "validated_at":  "2026-07-17T23:08:57.7433292+08:00",
+    "summary":  {
+                    "pending":  4,
+                    "failed":  0,
+                    "total":  12,
+                    "passed":  8
+                },
+    "run_id":  "run-20260717-230838-2902"
+}

@@ -1,7 +1,7 @@
 ﻿{
-    "engine_version":  "4.1.0",
+    "engine_version":  "4.1.1",
     "task_graph":  {
-                       "generated_at":  "2026-07-17T22:48:37.9438240+08:00",
+                       "generated_at":  "2026-07-17T23:00:29.2179185+08:00",
                        "edges":  [
                                      {
                                          "from":  "T1",
@@ -441,13 +441,39 @@
                                              }
                     },
     "requirement_source":  "examples/task-decomposition/ecommerce-miniapp-requirement.md",
-    "risk_classification":  null,
+    "risk_classification":  {
+                                "human_review_required":  true,
+                                "required_gates":  [
+                                                       "snapshot-verify",
+                                                       "secret-scan",
+                                                       "review-gate",
+                                                       "artifact-gate"
+                                                   ],
+                                "risk_level":  "P0",
+                                "risk_reasons":  [
+                                                     "P0: 4 pattern matches",
+                                                     "P1: 1 pattern matches",
+                                                     "P2: 3 pattern matches"
+                                                 ],
+                                "required_artifacts":  [
+                                                           "ci-job-receipt",
+                                                           "stdout.log",
+                                                           "permission-matrix-verify"
+                                                       ]
+                            },
     "knowledge_references":  {
                                  "used":  false,
                                  "message":  "no_knowledge_pack_used"
                              },
-    "generated_at":  "2026-07-17T22:48:37.9750722+08:00",
+    "generated_at":  "2026-07-17T23:00:29.2354937+08:00",
     "project_type_detection":  {
+                                   "fallback_project_types":  [
+
+                                                              ],
+                                   "fallback_reason":  null,
+                                   "missing_information":  {
+
+                                                           },
                                    "scores":  {
                                                   "admin-system":  3,
                                                   "miniapp":  9,
@@ -457,13 +483,84 @@
                                                   "backend-api":  0,
                                                   "ecommerce":  12
                                               },
-                                   "missing_information":  {
-
-                                                           },
+                                   "fully_supported_project_types":  null,
+                                   "detected_project_type":  "ecommerce",
                                    "confidence":  "high",
-                                   "detected_project_type":  "ecommerce"
+                                   "recommended_missing_template":  null
                                },
-    "agent_execution_plan":  null,
+    "agent_execution_plan":  {
+                                 "gate_sequence":  [
+                                                       "snapshot-verifier",
+                                                       "secret-scan",
+                                                       "review-gate"
+                                                   ],
+                                 "evidence_inputs":  [
+                                                         "factory.config.json",
+                                                         "project.factory.json"
+                                                     ],
+                                 "expected_outputs":  [
+                                                          "task_graph.json",
+                                                          "worker_plan.json",
+                                                          "validation_plan.json",
+                                                          "agent_execution_plan.json",
+                                                          "ci-job-receipt.json"
+                                                      ],
+                                 "task_dependencies":  [
+                                                           "T1-\u003eT2",
+                                                           "T2-\u003eT3",
+                                                           "T3-\u003eT4",
+                                                           "T4-\u003eT7",
+                                                           "T7-\u003eT6",
+                                                           "T6-\u003eT5",
+                                                           "T5-\u003eT8",
+                                                           "T8-\u003eT9",
+                                                           "T9-\u003eT10",
+                                                           "T10-\u003eT11",
+                                                           "T11-\u003eT12"
+                                                       ],
+                                 "agent_assignments":  {
+                                                           "worker-backend":  [
+                                                                                  "T3",
+                                                                                  "T4",
+                                                                                  "T7",
+                                                                                  "T6",
+                                                                                  "T5"
+                                                                              ],
+                                                           "worker-frontend":  [
+                                                                                   "T8"
+                                                                               ],
+                                                           "main-agent":  [
+                                                                              "T1",
+                                                                              "T2",
+                                                                              "T11"
+                                                                          ],
+                                                           "integrator":  [
+                                                                              "T9"
+                                                                          ],
+                                                           "worker-qa":  [
+                                                                             "T10",
+                                                                             "T12"
+                                                                         ]
+                                                       },
+                                 "phase_order":  [
+                                                     "requirement_analysis",
+                                                     "architecture_design",
+                                                     "data_model",
+                                                     "api_contract",
+                                                     "backend_module",
+                                                     "frontend_module",
+                                                     "integration",
+                                                     "test",
+                                                     "documentation",
+                                                     "final_verification"
+                                                 ],
+                                 "final_acceptance_criteria":  [
+                                                                   "All tasks have output artifacts",
+                                                                   "Snapshot verifier 15/15 PASS",
+                                                                   "Secret scan clean",
+                                                                   "All review gates passed (if required)"
+                                                               ]
+                             },
     "validation_plan":  {
                             "non_claims":  [
                                                "No artifact = no PASS",
@@ -622,7 +719,7 @@
                                                  {
                                                      "gate":  "review-gate",
                                                      "condition":  "",
-                                                     "status":  "optional"
+                                                     "status":  "required"
                                                  }
                                              ]
                         },

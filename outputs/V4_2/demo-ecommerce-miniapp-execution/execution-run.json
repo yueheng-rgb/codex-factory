@@ -1,0 +1,41 @@
+﻿{
+    "risk_level":  "P0",
+    "run_id":  "run-20260717-230838-2902",
+    "non_claims":  [
+                       "Manual mode: workers must be dispatched to separate Codex windows manually",
+                       "Agent-adapter mode: NOT_CONFIGURED (reserved for future spawn_agent integration)",
+                       "No fake PASS: status will not be EXECUTION_VERIFIED until all artifacts collected"
+                   ],
+    "selected_skill_packs":  [
+
+                             ],
+    "search_provider":  "none",
+    "project_type":  "unknown",
+    "source_plan_dir":  "outputs/V4_1/demo-ecommerce-miniapp",
+    "knowledge_sources_used":  false,
+    "task_count":  12,
+    "status":  "READY_FOR_INTEGRATION",
+    "worker_count":  3,
+    "mode":  "manual",
+    "created_at":  "2026-07-17T23:08:38.1452671+08:00",
+    "source_plan_hashes":  {
+                               "worker_plan":  "D5CCDA05869FFDE95252DBF7091FC395BFE4777E95DB1FCF180ED4CE0378F32A",
+                               "agent_execution_plan":  "070C0BBA8E7AB9D1E7D83593AF966CA46E1385A4568AE94859E17D67A9EFFF14",
+                               "task_graph":  "375F84BB9565B76EFCD73726E1B1B31F7499E5110ABCAE14529AF3C277324332",
+                               "validation_plan":  "61F587FA8864AA91FFE0036862FAD628E5BC5F1F27A314B2B29843C83218CE0E"
+                           },
+    "capsule_index":  [
+                          {
+                              "worker_id":  "worker-backend",
+                              "capsule_file":  "worker-capsules/worker-backend-capsule.json"
+                          },
+                          {
+                              "worker_id":  "worker-frontend",
+                              "capsule_file":  "worker-capsules/worker-frontend-capsule.json"
+                          },
+                          {
+                              "worker_id":  "worker-qa",
+                              "capsule_file":  "worker-capsules/worker-qa-capsule.json"
+                          }
+                      ]
+}

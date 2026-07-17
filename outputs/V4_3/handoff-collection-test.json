@@ -1,0 +1,74 @@
+﻿{
+    "results":  [
+                    {
+                        "verdict":  "ACCEPTED",
+                        "task_ids":  [
+                                         "T3",
+                                         "T4",
+                                         "T5",
+                                         "T6"
+                                     ],
+                        "worker_id":  "worker-backend",
+                        "artifacts":  4,
+                        "warnings":  [
+
+                                     ],
+                        "status":  "COMPLETED",
+                        "issues":  [
+
+                                   ]
+                    },
+                    {
+                        "verdict":  "ACCEPTED",
+                        "task_ids":  [
+                                         "T7",
+                                         "T8"
+                                     ],
+                        "worker_id":  "worker-frontend",
+                        "artifacts":  2,
+                        "warnings":  [
+
+                                     ],
+                        "status":  "COMPLETED",
+                        "issues":  [
+
+                                   ]
+                    },
+                    {
+                        "verdict":  "REJECTED",
+                        "task_ids":  [
+                                         "T5"
+                                     ],
+                        "worker_id":  "rogue-backend",
+                        "artifacts":  1,
+                        "warnings":  [
+
+                                     ],
+                        "status":  "COMPLETED",
+                        "issues":  [
+                                       "FORBIDDEN: src/backend/auth.ts matches src/*/auth*"
+                                   ]
+                    },
+                    {
+                        "verdict":  "ACCEPTED",
+                        "task_ids":  [
+                                         "T10",
+                                         "T12"
+                                     ],
+                        "worker_id":  "test-validation-worker",
+                        "artifacts":  2,
+                        "warnings":  [
+
+                                     ],
+                        "status":  "COMPLETED",
+                        "issues":  [
+
+                                   ]
+                    }
+                ],
+    "rejected":  7,
+    "accepted":  3,
+    "total":  4,
+    "collected_at":  "2026-07-17T23:25:03.1273704+08:00",
+    "incomplete":  0
+}

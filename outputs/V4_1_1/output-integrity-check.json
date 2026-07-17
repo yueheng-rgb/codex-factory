@@ -1,0 +1,62 @@
+﻿{
+  "report": "V4.1.1 Output Integrity Check Result",
+  "version": "4.1.1",
+  "generated_at": "2026-07-17",
+  "root_cause": "PowerShell hashtable literal parsing bug: @(...) + (if ...) inside @{ } causes if statement to fail as command, silently producing null/empty objects",
+  "fix_applied": "Pre-compute all conditional arrays before hashtable literal construction. Affected: riskResult (risk_reasons, required_gates, required_artifacts), agentPlan (gate_sequence, evidence_inputs)",
+  "fix_locations": [
+    "Line 65-68: riskResult - replaced @(...) + (if ...) with pre-computed variables",
+    "Line 252-253: agentPlan - replaced @(...) + (if ...) with pre-computed variables",
+    "Line 132-144: Added generic-complex-project task template",
+    "Line 144-152: Added backend-api task template",
+    "Line 155-163: Added honest fallback strategy with fallback_reason and confidence reduction",
+    "Line 333: Added evidence_requirements.json standalone output",
+    "Line 336-395: Added output integrity check with exit 1 on failure"
+  ],
+  "demo_results": {
+    "admin_system": {
+      "files": {
+        "task_graph.json": { "size": 13016, "parse": true },
+        "worker_plan.json": { "size": 5246, "parse": true },
+        "validation_plan.json": { "size": 8424, "parse": true },
+        "risk_classification.json": { "size": 716, "parse": true },
+        "agent_execution_plan.json": { "size": 3321, "parse": true },
+        "evidence_requirements.json": { "size": 70, "parse": true },
+        "engine-full-output.json": { "size": 48137, "parse": true },
+        "output-integrity-report.json": { "size": 2463, "parse": true }
+      },
+      "integrity_overall": "PASS",
+      "risk_level": "P0",
+      "human_review_required": true
+    },
+    "ecommerce_miniapp": {
+      "files": {
+        "task_graph.json": { "size": 13107, "parse": true },
+        "worker_plan.json": { "size": 5246, "parse": true },
+        "validation_plan.json": { "size": 8487, "parse": true },
+        "risk_classification.json": { "size": 716, "parse": true },
+        "agent_execution_plan.json": { "size": 3320, "parse": true },
+        "evidence_requirements.json": { "size": 70, "parse": true },
+        "engine-full-output.json": { "size": 48310, "parse": true },
+        "output-integrity-report.json": { "size": 2468, "parse": true }
+      },
+      "integrity_overall": "PASS",
+      "risk_level": "P0",
+      "human_review_required": true
+    }
+  },
+  "zero_byte_fix_result": "FIXED: All 8 output files per demo are non-zero and valid JSON. Previously: risk_classification.json=0b, agent_execution_plan.json=0b, evidence_requirements.json=missing.",
+  "fallback_strategy_result": "HONEST: 6 fully_supported types. Unknown types fallback to generic-complex-project with fallback_reason and reduced confidence. No silent admin-system fallback.",
+  "output_integrity_check_result": "PASS: Both demos produced output-integrity-report.json with 7/7 PASS each.",
+  "regression": {
+    "V3_4_2_snapshot_verifier": "FIXED_AND_VERIFIED_LOCALLY",
+    "secret_scan": "PASS (secretPresent: false)",
+    "github_actions_workflow": "INTACT (.github/workflows/codex-factory-ci.yml)",
+    "search_provider_default": "none (factory.config.example.json)",
+    "GLM_binding": "optional, not hard-bound",
+    "skill_pack_manager": "present",
+    "knowledge_build_evidence": "present"
+  },
+  "final_classification": "V4_1_1_TASK_DECOMPOSITION_OUTPUT_RELIABILITY_CLOSED",
+  "status": "A"
+}

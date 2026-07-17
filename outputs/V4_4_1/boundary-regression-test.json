@@ -1,0 +1,17 @@
+﻿{
+  "report": "V4.4.1 Boundary Regression Test",
+  "capsule_version": "4.4.1-refined",
+  "results": [
+    {"test":"backend-auth-legitimate","files":22,"violations":0,"verdict":"PASS","note":"Backend worker creating auth files in own directory — correctly ALLOWED after refinement"},
+    {"test":"frontend-legitimate","files":9,"violations":0,"verdict":"PASS","note":"Frontend worker files within own directory — correctly ALLOWED"},
+    {"test":"qa-legitimate","files":3,"violations":0,"verdict":"PASS","note":"QA worker files within own directory — correctly ALLOWED"},
+    {"test":"rogue-frontend-touches-backend-auth","violations":2,"details":["src/worker-backend/auth.ts matches src/worker-backend/*","src/worker-backend/db.ts matches src/worker-backend/*"],"verdict":"PASS (correctly rejected)","note":"Frontend worker attempting to modify backend files — correctly REJECTED"}
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "all_expected": true
+  },
+  "key_finding": "Cross-worker boundary enforcement works correctly. Auth files in own directory OK. Cross-directory access blocked. Domain-keyword patterns removed.",
+  "status": "PASS"
+}

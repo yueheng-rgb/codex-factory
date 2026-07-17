@@ -1,0 +1,57 @@
+﻿{
+    "collected_at":  "2026-07-17T23:08:19.0629208+08:00",
+    "run_id":  "run-20260717-230737-5987",
+    "artifacts":  [
+
+                  ],
+    "handoff_artifacts":  [
+                              {
+                                  "claimed_by":  "worker-backend",
+                                  "status":  "COMPLETED",
+                                  "artifact_name":  "T3-output",
+                                  "handoff_file":  "worker-backend-handoff.json"
+                              },
+                              {
+                                  "claimed_by":  "worker-backend",
+                                  "status":  "COMPLETED",
+                                  "artifact_name":  "T4-output",
+                                  "handoff_file":  "worker-backend-handoff.json"
+                              },
+                              {
+                                  "claimed_by":  "worker-backend",
+                                  "status":  "COMPLETED",
+                                  "artifact_name":  "T5-output",
+                                  "handoff_file":  "worker-backend-handoff.json"
+                              },
+                              {
+                                  "claimed_by":  "worker-backend",
+                                  "status":  "COMPLETED",
+                                  "artifact_name":  "T6-output",
+                                  "handoff_file":  "worker-backend-handoff.json"
+                              },
+                              {
+                                  "claimed_by":  "worker-frontend",
+                                  "status":  "COMPLETED",
+                                  "artifact_name":  "T7-output",
+                                  "handoff_file":  "worker-frontend-handoff.json"
+                              },
+                              {
+                                  "claimed_by":  "worker-frontend",
+                                  "status":  "COMPLETED",
+                                  "artifact_name":  "T8-output",
+                                  "handoff_file":  "worker-frontend-handoff.json"
+                              },
+                              {
+                                  "claimed_by":  "worker-qa",
+                                  "status":  "COMPLETED",
+                                  "artifact_name":  "T10-output",
+                                  "handoff_file":  "worker-qa-handoff.json"
+                              },
+                              {
+                                  "claimed_by":  "worker-qa",
+                                  "status":  "COMPLETED",
+                                  "artifact_name":  "T12-output",
+                                  "handoff_file":  "worker-qa-handoff.json"
+                              }
+                          ]
+}

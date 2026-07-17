@@ -1,0 +1,63 @@
+﻿{
+    "generated_at":  "2026-07-17T23:00:29.2813911+08:00",
+    "overall":  "PASS",
+    "output_dir":  "outputs/V4_1/demo-ecommerce-miniapp",
+    "checks":  [
+                   {
+                       "json_parse":  true,
+                       "status":  "PASS",
+                       "size_bytes":  13107,
+                       "required_fields":  true,
+                       "exists":  true,
+                       "file":  "task_graph.json"
+                   },
+                   {
+                       "json_parse":  true,
+                       "status":  "PASS",
+                       "size_bytes":  5246,
+                       "required_fields":  true,
+                       "exists":  true,
+                       "file":  "worker_plan.json"
+                   },
+                   {
+                       "json_parse":  true,
+                       "status":  "PASS",
+                       "size_bytes":  8487,
+                       "required_fields":  true,
+                       "exists":  true,
+                       "file":  "validation_plan.json"
+                   },
+                   {
+                       "json_parse":  true,
+                       "status":  "PASS",
+                       "size_bytes":  716,
+                       "required_fields":  true,
+                       "exists":  true,
+                       "file":  "risk_classification.json"
+                   },
+                   {
+                       "json_parse":  true,
+                       "status":  "PASS",
+                       "size_bytes":  3320,
+                       "required_fields":  true,
+                       "exists":  true,
+                       "file":  "agent_execution_plan.json"
+                   },
+                   {
+                       "json_parse":  true,
+                       "status":  "PASS",
+                       "size_bytes":  70,
+                       "required_fields":  true,
+                       "exists":  true,
+                       "file":  "evidence_requirements.json"
+                   },
+                   {
+                       "json_parse":  true,
+                       "status":  "PASS",
+                       "size_bytes":  48310,
+                       "required_fields":  true,
+                       "exists":  true,
+                       "file":  "engine-full-output.json"
+                   }
+               ]
+}

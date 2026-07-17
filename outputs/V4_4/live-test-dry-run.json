@@ -1,0 +1,29 @@
+﻿{
+  "report": "V4.4 Live Test Dry Run",
+  "run_id": "v44-live-cross-window",
+  "generated_at": "2026-07-18T00:09:00+08:00",
+  "dry_run_status": "WAITING_FOR_REAL_WORKER_HANDOFFS",
+  "workspace_created": true,
+  "live_kit_generated": true,
+  "placeholder_test": {
+    "handoffs_created": 3,
+    "handoffs_validated": 3,
+    "placeholders_detected": 3,
+    "placeholders_rejected": 3,
+    "accepted": 0,
+    "verdict": "All 3 placeholder handoffs correctly rejected as non-real worker outputs"
+  },
+  "validation_details": {
+    "worker-backend": "REJECTED — PLACEHOLDER_DETECTED",
+    "worker-frontend": "REJECTED — PLACEHOLDER_DETECTED",
+    "worker-qa": "REJECTED — PLACEHOLDER_DETECTED"
+  },
+  "final_status": "LIVE_CROSS_WINDOW_BLOCKED",
+  "no_fake_pass": true,
+  "user_action_required": "Replace placeholder handoffs with real worker outputs from separate Codex windows",
+  "non_claims": [
+    "Dry-run does not equal VERIFIED",
+    "Placeholder handoffs are intentionally rejected",
+    "Real verification requires user to run 3 separate Codex windows"
+  ]
+}

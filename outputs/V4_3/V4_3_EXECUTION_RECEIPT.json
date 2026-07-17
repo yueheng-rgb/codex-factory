@@ -1,0 +1,51 @@
+﻿{
+  "receipt": "V4.3 Execution Receipt",
+  "run_id": "v43-cross-window-sim",
+  "mode": "cross-window-simulation",
+  "generated_at": "2026-07-17T23:35:00+08:00",
+  "workers": {
+    "total": 4,
+    "legitimate": 3,
+    "rogue_detected": 1,
+    "legitimate_handoffs_collected": 3
+  },
+  "artifacts": {
+    "total_produced": 8,
+    "by_worker": {
+      "worker-backend": ["T3-output","T4-output","T5-output","T6-output"],
+      "worker-frontend": ["T7-output","T8-output"],
+      "test-validation-worker": ["T10-output","T12-output"]
+    },
+    "all_non_empty": true,
+    "all_verifiable": true
+  },
+  "boundary_violation_test": {
+    "conducted": true,
+    "result": "BOUNDARY_VIOLATION_DETECTED_AND_REJECTED",
+    "violations_found": 4,
+    "rejected_correctly": true
+  },
+  "handoff_validation": {
+    "legitimate_accepted": 3,
+    "rogue_rejected": 1,
+    "acceptance_rate": "75% (3/4)"
+  },
+  "integrator": {
+    "tasks_covered_by_workers": 8,
+    "tasks_uncovered": 4,
+    "uncovered_tasks": ["T1","T2","T9","T11"],
+    "uncovered_reason": "Main-agent/integrator tasks not assigned to workers",
+    "ready_for_integration": true,
+    "with_caveats": "4 main-agent tasks still pending"
+  },
+  "final_status": "CROSS_WINDOW_SIMULATION_VERIFIED",
+  "final_status_rationale": "All 3 legitimate workers produced real, non-empty artifacts. All artifacts are verifiable. Boundary violations correctly detected and rejected. Handoff protocol functional. Integrator can proceed. The 4 uncovered tasks are main-agent scope, not worker scope.",
+  "no_fake_pass": true,
+  "non_claims": [
+    "This is a cross-window SIMULATION, not actual multi-Codex-window execution",
+    "Workers were simulated in the same repo with isolation enforced by convention",
+    "True cross-window execution requires separate Codex instances with capsule distribution",
+    "V3.4.2 strict remote verification remains the authoritative evidence source",
+    "Agent-adapter mode is NOT_CONFIGURED"
+  ]
+}
