@@ -7,6 +7,10 @@
 
 ---
 
+**New here?** → [Getting Started (5 min)](GETTING_STARTED.md) · [User Guide](docs/user-guide.md) · [V4 Demo Walkthrough](docs/v4-public-demo-guide.md)
+
+**30-second pitch:** Codex Factory lets you configure providers, add skill packs, import your own knowledge, decompose complex projects into task graphs, distribute work across multiple Codex windows, and verify every result. **GLM is optional. No artifact = no PASS. Your knowledge stays local.**
+
 ## What is Codex Factory?
 
 Codex Factory is an **open engineering reliability framework** for AI coding agents (Codex / Claude Code / Cursor / Copilot). It solves the trust gap between "AI wrote it" and "we can ship it."
