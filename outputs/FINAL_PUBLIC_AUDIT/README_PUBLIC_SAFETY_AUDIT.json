@@ -1,0 +1,1 @@
+﻿{"audit":"README Public Safety","date":"2026-07-17","verdict":"README_PUBLIC_SAFE","riskyPhrases":{"production":{"count":2,"context":"negation_in_limitations"},"cloud_platform":{"count":1,"context":"negation_in_limitations"}},"correctRunId":true,"noWrongRunIds":true,"strictQualified":true,"noExaggeration":true}

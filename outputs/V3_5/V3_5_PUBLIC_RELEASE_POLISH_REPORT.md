@@ -15,8 +15,10 @@
 | `LICENSE` | Created: MIT License |
 | `PUBLIC_RELEASE_CHECKLIST.md` | Created: pre-public audit checklist |
 | `docs/INTERNSHIP_RESUME_BULLETS.md` | Created: internship portfolio packaging |
+| `outputs/V3_4_2/*.json` (×3) | Added: AGENTS drift reconciliation, local strict verifier, strictness result |
+| `outputs/V3_5/V3_5_PUBLIC_RELEASE_POLISH_REPORT.md` | Created: this report |
+| `outputs/V3_5/V3_5_PUBLIC_AUDIT_RESULT.json` | Created: public audit JSON |
 | `.github/workflows/codex-factory-ci.yml` | Unchanged (hardened in V3.4.1, strict in V3.4.2) |
-| `outputs/V3_5/` | Created: V3.5 reports directory |
 
 ## README Summary
 
