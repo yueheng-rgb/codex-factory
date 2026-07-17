@@ -17,3 +17,6 @@ Thumbs.db
 
 # Workspace run artifacts (large)
 workspaces/runs/
+
+# Remote artifact verification extracts
+artifacts/remote/
