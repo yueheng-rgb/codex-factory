@@ -1,0 +1,1 @@
+﻿{"classification":"V4_1_TASK_DECOMPOSITION_ENGINE_READY","engine":"DONE","schemas":["task-graph","worker-plan","validation-plan","evidence-requirements"],"demos":{"admin-system":{"tasks":12,"risk":"P0"},"ecommerce-miniapp":{"tasks":12,"risk":"P0"}},"docs":["task-decomposition","multi-agent-execution-plan"],"regression":"10/10 PASS","v401_fix":"line_or_section_reference added"}

@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Worker Plan",
+  "type": "object",
+  "required": ["main_agent","integrator_agent","workers"],
+  "properties": {
+    "main_agent": { "type": "object", "properties": { "role": {"type":"string"}, "responsibilities": {"type":"array","items":{"type":"string"}}, "final_decision_authority": {"type":"boolean","default":true} } },
+    "integrator_agent": { "type": "object", "properties": { "role": {"type":"string"}, "scope": {"type":"string"}, "integrates": {"type":"array","items":{"type":"string"}} } },
+    "workers": { "type": "array", "items": {
+      "type": "object", "required": ["id","role","scope"],
+      "properties": {
+        "id": {"type":"string"}, "role": {"type":"string"}, "scope": {"type":"string"},
+        "assigned_tasks": {"type":"array","items":{"type":"string"}},
+        "allowed_files": {"type":"array","items":{"type":"string"}},
+        "forbidden_files": {"type":"array","items":{"type":"string"}},
+        "handoff_requirements": {"type":"array","items":{"type":"string"}},
+        "completion_criteria": {"type":"array","items":{"type":"string"}}
+      }
+    }},
+    "non_claims": { "type": "array", "items": {"type":"string"}, "default": ["Workers cannot write to the entire repo","Integrator is the sole integration point","Main Agent has final decision authority","Workers must produce handoff artifacts"] }
+  }
+}

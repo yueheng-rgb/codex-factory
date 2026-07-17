@@ -1,0 +1,327 @@
+﻿{
+    "generated_at":  "2026-07-17T22:48:37.9438240+08:00",
+    "edges":  [
+                  {
+                      "from":  "T1",
+                      "to":  "T2",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T2",
+                      "to":  "T3",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T3",
+                      "to":  "T4",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T4",
+                      "to":  "T7",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T7",
+                      "to":  "T6",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T6",
+                      "to":  "T5",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T5",
+                      "to":  "T8",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T8",
+                      "to":  "T9",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T9",
+                      "to":  "T10",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T10",
+                      "to":  "T11",
+                      "type":  "depends_on"
+                  },
+                  {
+                      "from":  "T11",
+                      "to":  "T12",
+                      "type":  "depends_on"
+                  }
+              ],
+    "project_name":  "ecommerce-miniapp-requirement",
+    "nodes":  [
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "main-agent",
+                      "id":  "T1",
+                      "type":  "requirement_analysis",
+                      "description":  "Requirements Analysis",
+                      "output_artifacts":  [
+                                               "T1-output"
+                                           ],
+                      "estimated_effort":  "medium",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P2",
+                      "title":  "Requirements Analysis",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "main-agent",
+                      "id":  "T2",
+                      "type":  "architecture_design",
+                      "description":  "System Architecture Design",
+                      "output_artifacts":  [
+                                               "T2-output"
+                                           ],
+                      "estimated_effort":  "large",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P1",
+                      "title":  "System Architecture Design",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "worker-backend",
+                      "id":  "T3",
+                      "type":  "data_model",
+                      "description":  "Database Schema (Products/Orders/Users)",
+                      "output_artifacts":  [
+                                               "T3-output"
+                                           ],
+                      "estimated_effort":  "large",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P1",
+                      "title":  "Database Schema (Products/Orders/Users)",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "worker-backend",
+                      "id":  "T4",
+                      "type":  "api_contract",
+                      "description":  "REST API Contracts",
+                      "output_artifacts":  [
+                                               "T4-output"
+                                           ],
+                      "estimated_effort":  "medium",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P1",
+                      "title":  "REST API Contracts",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "worker-backend",
+                      "id":  "T7",
+                      "type":  "backend_module",
+                      "description":  "Cart, Order \u0026 Payment Module",
+                      "output_artifacts":  [
+                                               "T7-output"
+                                           ],
+                      "estimated_effort":  "xlarge",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P0",
+                      "title":  "Cart, Order \u0026 Payment Module",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "worker-backend",
+                      "id":  "T6",
+                      "type":  "backend_module",
+                      "description":  "Product Catalog \u0026 Search",
+                      "output_artifacts":  [
+                                               "T6-output"
+                                           ],
+                      "estimated_effort":  "large",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P2",
+                      "title":  "Product Catalog \u0026 Search",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "worker-backend",
+                      "id":  "T5",
+                      "type":  "backend_module",
+                      "description":  "Auth \u0026 User Module",
+                      "output_artifacts":  [
+                                               "T5-output"
+                                           ],
+                      "estimated_effort":  "large",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P0",
+                      "title":  "Auth \u0026 User Module",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "worker-frontend",
+                      "id":  "T8",
+                      "type":  "frontend_module",
+                      "description":  "Mini Program Pages (WXML/WXSS)",
+                      "output_artifacts":  [
+                                               "T8-output"
+                                           ],
+                      "estimated_effort":  "xlarge",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P2",
+                      "title":  "Mini Program Pages (WXML/WXSS)",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "integrator",
+                      "id":  "T9",
+                      "type":  "integration",
+                      "description":  "WeChat Pay Integration (Mock)",
+                      "output_artifacts":  [
+                                               "T9-output"
+                                           ],
+                      "estimated_effort":  "large",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P0",
+                      "title":  "WeChat Pay Integration (Mock)",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "worker-qa",
+                      "id":  "T10",
+                      "type":  "test",
+                      "description":  "API \u0026 Integration Tests",
+                      "output_artifacts":  [
+                                               "T10-output"
+                                           ],
+                      "estimated_effort":  "medium",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P1",
+                      "title":  "API \u0026 Integration Tests",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "main-agent",
+                      "id":  "T11",
+                      "type":  "documentation",
+                      "description":  "API Docs \u0026 README",
+                      "output_artifacts":  [
+                                               "T11-output"
+                                           ],
+                      "estimated_effort":  "small",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P3",
+                      "title":  "API Docs \u0026 README",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  },
+                  {
+                      "related_skill_packs":  [
+
+                                              ],
+                      "owner_agent":  "worker-qa",
+                      "id":  "T12",
+                      "type":  "final_verification",
+                      "description":  "Final Snapshot Verification",
+                      "output_artifacts":  [
+                                               "T12-output"
+                                           ],
+                      "estimated_effort":  "small",
+                      "related_knowledge_sources":  [
+
+                                                    ],
+                      "risk_level":  "P1",
+                      "title":  "Final Snapshot Verification",
+                      "input_artifacts":  [
+
+                                          ],
+                      "validation_required":  true
+                  }
+              ]
+}

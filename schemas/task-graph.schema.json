@@ -1,0 +1,44 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Task Graph",
+  "description": "Decomposed task graph for a complex project",
+  "type": "object",
+  "required": ["project_name", "nodes", "edges"],
+  "properties": {
+    "project_name": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string", "enum": ["requirement_analysis","architecture_design","data_model","api_contract","frontend_module","backend_module","integration","test","documentation","final_verification"] },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "risk_level": { "type": "string", "enum": ["P0","P1","P2","P3"] },
+          "estimated_effort": { "type": "string", "enum": ["small","medium","large","xlarge"] },
+          "related_skill_packs": { "type": "array", "items": { "type": "string" } },
+          "related_knowledge_sources": { "type": "array", "items": { "type": "string" } },
+          "validation_required": { "type": "boolean", "default": true },
+          "owner_agent": { "type": "string" },
+          "input_artifacts": { "type": "array", "items": { "type": "string" } },
+          "output_artifacts": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "type": { "type": "string", "enum": ["blocks","feeds","depends_on"] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Requirements",
+  "type": "object",
+  "required": ["task_id","requirements"],
+  "properties": {
+    "task_id": {"type":"string"},
+    "requirements": {"type":"array","items":{
+      "type":"object","required":["type","description"],
+      "properties": {
+        "type": {"type":"string","enum":["test_result","artifact","review_receipt","static_analysis","snapshot_verification","ci_log"]},
+        "description": {"type":"string"},
+        "artifact_path": {"type":"string"},
+        "acceptance_criteria": {"type":"string"}
+      }
+    }}
+  }
+}

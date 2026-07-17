@@ -201,6 +201,41 @@ powershell -File runtime/remote-artifact-verifier.ps1 -RunId "gh-run-XXX"
 
 ---
 
+
+## Complex Project Workflow (V4.1)
+
+From requirement to verified execution plan in one command:
+
+```powershell
+# 1. Write your requirement (or use existing docs)
+# 2. Run the task decomposition engine
+pwsh -File runtime/task-decomposition-engine.ps1 `
+  -Requirement ./my-project-requirement.md `
+  -OutputDir ./output/my-project
+
+# 3. Review the generated plans
+#    - task_graph.json       (tasks + dependencies)
+#    - worker_plan.json      (agent assignments)
+#    - validation_plan.json  (verification per task)
+#    - agent_execution_plan.json (execution order)
+```
+
+### What Happens
+
+| Step | Engine Action |
+|---|---|
+| Project Type Detection | Keywords → `admin-system`, `ecommerce`, `saas`, etc. |
+| Risk Classification | P0 (auth/payment) → P3 (docs/styles) with required gates |
+| Task Decomposition | Requirement → 8-12 ordered task nodes |
+| Skill Pack Matching | Auto-match enabled packs to project type |
+| Knowledge Referencing | Evidence pack citations with source_file + source_hash |
+| Search Strategy | Provider-aware: respects `search_provider=none` default |
+| Validation Plan | Every task has ≥1 method: test, artifact, review, static_check |
+| Worker Plan | Main Agent + Integrator + Workers with file boundaries |
+
+> **No artifact = no PASS.** Every task must produce verifiable output.
+> **Search defaults to none.** GLM is optional. GPT/Claude can use native search.
+
 ## Architecture
 
 ```

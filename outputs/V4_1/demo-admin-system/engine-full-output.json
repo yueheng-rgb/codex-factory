@@ -1,0 +1,641 @@
+﻿{
+    "engine_version":  "4.1.0",
+    "task_graph":  {
+                       "generated_at":  "2026-07-17T22:48:31.7551413+08:00",
+                       "edges":  [
+                                     {
+                                         "from":  "T1",
+                                         "to":  "T2",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T2",
+                                         "to":  "T3",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T3",
+                                         "to":  "T4",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T4",
+                                         "to":  "T6",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T6",
+                                         "to":  "T5",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T5",
+                                         "to":  "T8",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T8",
+                                         "to":  "T7",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T7",
+                                         "to":  "T9",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T9",
+                                         "to":  "T10",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T10",
+                                         "to":  "T11",
+                                         "type":  "depends_on"
+                                     },
+                                     {
+                                         "from":  "T11",
+                                         "to":  "T12",
+                                         "type":  "depends_on"
+                                     }
+                                 ],
+                       "project_name":  "admin-system-requirement",
+                       "nodes":  [
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "main-agent",
+                                         "id":  "T1",
+                                         "type":  "requirement_analysis",
+                                         "description":  "Requirements Analysis",
+                                         "output_artifacts":  [
+                                                                  "T1-output"
+                                                              ],
+                                         "estimated_effort":  "medium",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P2",
+                                         "title":  "Requirements Analysis",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "main-agent",
+                                         "id":  "T2",
+                                         "type":  "architecture_design",
+                                         "description":  "System Architecture Design",
+                                         "output_artifacts":  [
+                                                                  "T2-output"
+                                                              ],
+                                         "estimated_effort":  "large",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P1",
+                                         "title":  "System Architecture Design",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "worker-backend",
+                                         "id":  "T3",
+                                         "type":  "data_model",
+                                         "description":  "Database Schema Design",
+                                         "output_artifacts":  [
+                                                                  "T3-output"
+                                                              ],
+                                         "estimated_effort":  "medium",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P1",
+                                         "title":  "Database Schema Design",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "worker-backend",
+                                         "id":  "T4",
+                                         "type":  "api_contract",
+                                         "description":  "REST API Contract Definition",
+                                         "output_artifacts":  [
+                                                                  "T4-output"
+                                                              ],
+                                         "estimated_effort":  "medium",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P1",
+                                         "title":  "REST API Contract Definition",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "worker-backend",
+                                         "id":  "T6",
+                                         "type":  "backend_module",
+                                         "description":  "CRUD Service Modules",
+                                         "output_artifacts":  [
+                                                                  "T6-output"
+                                                              ],
+                                         "estimated_effort":  "large",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P2",
+                                         "title":  "CRUD Service Modules",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "worker-backend",
+                                         "id":  "T5",
+                                         "type":  "backend_module",
+                                         "description":  "Auth \u0026 Permission Module",
+                                         "output_artifacts":  [
+                                                                  "T5-output"
+                                                              ],
+                                         "estimated_effort":  "large",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P0",
+                                         "title":  "Auth \u0026 Permission Module",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "worker-frontend",
+                                         "id":  "T8",
+                                         "type":  "frontend_module",
+                                         "description":  "Management Pages",
+                                         "output_artifacts":  [
+                                                                  "T8-output"
+                                                              ],
+                                         "estimated_effort":  "large",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P2",
+                                         "title":  "Management Pages",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "worker-frontend",
+                                         "id":  "T7",
+                                         "type":  "frontend_module",
+                                         "description":  "Admin Dashboard UI",
+                                         "output_artifacts":  [
+                                                                  "T7-output"
+                                                              ],
+                                         "estimated_effort":  "large",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P2",
+                                         "title":  "Admin Dashboard UI",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "integrator",
+                                         "id":  "T9",
+                                         "type":  "integration",
+                                         "description":  "API-Frontend Integration",
+                                         "output_artifacts":  [
+                                                                  "T9-output"
+                                                              ],
+                                         "estimated_effort":  "medium",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P1",
+                                         "title":  "API-Frontend Integration",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "worker-qa",
+                                         "id":  "T10",
+                                         "type":  "test",
+                                         "description":  "Integration \u0026 E2E Tests",
+                                         "output_artifacts":  [
+                                                                  "T10-output"
+                                                              ],
+                                         "estimated_effort":  "medium",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P1",
+                                         "title":  "Integration \u0026 E2E Tests",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "main-agent",
+                                         "id":  "T11",
+                                         "type":  "documentation",
+                                         "description":  "API Docs \u0026 README",
+                                         "output_artifacts":  [
+                                                                  "T11-output"
+                                                              ],
+                                         "estimated_effort":  "small",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P3",
+                                         "title":  "API Docs \u0026 README",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     },
+                                     {
+                                         "related_skill_packs":  [
+
+                                                                 ],
+                                         "owner_agent":  "worker-qa",
+                                         "id":  "T12",
+                                         "type":  "final_verification",
+                                         "description":  "Final Snapshot Verification",
+                                         "output_artifacts":  [
+                                                                  "T12-output"
+                                                              ],
+                                         "estimated_effort":  "small",
+                                         "related_knowledge_sources":  [
+
+                                                                       ],
+                                         "risk_level":  "P1",
+                                         "title":  "Final Snapshot Verification",
+                                         "input_artifacts":  [
+
+                                                             ],
+                                         "validation_required":  true
+                                     }
+                                 ]
+                   },
+    "search_strategy":  {
+                            "missing_search_config":  "none",
+                            "search_tasks":  {
+
+                                             },
+                            "search_provider":  "none",
+                            "search_required":  false,
+                            "expected_evidence_pack":  "none"
+                        },
+    "worker_plan":  {
+                        "workers":  [
+                                        {
+                                            "forbidden_files":  [
+                                                                    "src/*/auth*",
+                                                                    "config/secrets*"
+                                                                ],
+                                            "id":  "worker-backend",
+                                            "completion_criteria":  [
+                                                                        "all assigned tasks have output artifacts"
+                                                                    ],
+                                            "assigned_tasks":  [
+                                                                   "T3",
+                                                                   "T4",
+                                                                   "T6",
+                                                                   "T5"
+                                                               ],
+                                            "allowed_files":  [
+                                                                  "src/worker-backend/",
+                                                                  "tests/worker-backend/"
+                                                              ],
+                                            "handoff_requirements":  [
+                                                                         "stdout.log",
+                                                                         "artifact receipt"
+                                                                     ],
+                                            "role":  "worker-backend",
+                                            "scope":  "4 tasks"
+                                        },
+                                        {
+                                            "forbidden_files":  [
+                                                                    "src/*/auth*",
+                                                                    "config/secrets*"
+                                                                ],
+                                            "id":  "worker-frontend",
+                                            "completion_criteria":  [
+                                                                        "all assigned tasks have output artifacts"
+                                                                    ],
+                                            "assigned_tasks":  [
+                                                                   "T8",
+                                                                   "T7"
+                                                               ],
+                                            "allowed_files":  [
+                                                                  "src/worker-frontend/",
+                                                                  "tests/worker-frontend/"
+                                                              ],
+                                            "handoff_requirements":  [
+                                                                         "stdout.log",
+                                                                         "artifact receipt"
+                                                                     ],
+                                            "role":  "worker-frontend",
+                                            "scope":  "2 tasks"
+                                        },
+                                        {
+                                            "forbidden_files":  [
+                                                                    "src/*/auth*",
+                                                                    "config/secrets*"
+                                                                ],
+                                            "id":  "worker-qa",
+                                            "completion_criteria":  [
+                                                                        "all assigned tasks have output artifacts"
+                                                                    ],
+                                            "assigned_tasks":  [
+                                                                   "T10",
+                                                                   "T12"
+                                                               ],
+                                            "allowed_files":  [
+                                                                  "src/worker-qa/",
+                                                                  "tests/worker-qa/"
+                                                              ],
+                                            "handoff_requirements":  [
+                                                                         "stdout.log",
+                                                                         "artifact receipt"
+                                                                     ],
+                                            "role":  "worker-qa",
+                                            "scope":  "2 tasks"
+                                        }
+                                    ],
+                        "main_agent":  {
+                                           "final_decision_authority":  true,
+                                           "responsibilities":  [
+                                                                    "Final decision",
+                                                                    "Acceptance",
+                                                                    "Rejection"
+                                                                ],
+                                           "role":  "Project Lead"
+                                       },
+                        "non_claims":  [
+                                           "Workers cannot write entire repo",
+                                           "Integrator is sole integration point",
+                                           "Main Agent has final decision",
+                                           "Workers must produce handoff artifacts"
+                                       ],
+                        "integrator_agent":  {
+                                                 "scope":  "Merge and integrate all worker outputs",
+                                                 "integrates":  [
+                                                                    "worker-backend",
+                                                                    "worker-frontend",
+                                                                    "worker-qa"
+                                                                ],
+                                                 "role":  "Integration Lead"
+                                             }
+                    },
+    "requirement_source":  "examples/task-decomposition/admin-system-requirement.md",
+    "risk_classification":  null,
+    "knowledge_references":  {
+                                 "used":  false,
+                                 "message":  "no_knowledge_pack_used"
+                             },
+    "generated_at":  "2026-07-17T22:48:31.8205700+08:00",
+    "project_type_detection":  {
+                                   "scores":  {
+                                                  "admin-system":  16,
+                                                  "miniapp":  0,
+                                                  "game-threejs":  0,
+                                                  "cpp-tool":  0,
+                                                  "saas":  0,
+                                                  "backend-api":  0,
+                                                  "ecommerce":  0
+                                              },
+                                   "missing_information":  {
+
+                                                           },
+                                   "confidence":  "high",
+                                   "detected_project_type":  "admin-system"
+                               },
+    "agent_execution_plan":  null,
+    "validation_plan":  {
+                            "non_claims":  [
+                                               "No artifact = no PASS",
+                                               "Every task has at least one validation method"
+                                           ],
+                            "per_task_validation":  [
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T1-output"
+                                                                                  ],
+                                                            "task_id":  "T1",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T2-output"
+                                                                                  ],
+                                                            "task_id":  "T2",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact",
+                                                                            "review"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T3-output"
+                                                                                  ],
+                                                            "task_id":  "T3",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact",
+                                                                            "review",
+                                                                            "static_check"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T4-output"
+                                                                                  ],
+                                                            "task_id":  "T4",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact",
+                                                                            "review",
+                                                                            "static_check"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T6-output"
+                                                                                  ],
+                                                            "task_id":  "T6",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T5-output"
+                                                                                  ],
+                                                            "task_id":  "T5",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact",
+                                                                            "review"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T8-output"
+                                                                                  ],
+                                                            "task_id":  "T8",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T7-output"
+                                                                                  ],
+                                                            "task_id":  "T7",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T9-output"
+                                                                                  ],
+                                                            "task_id":  "T9",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact",
+                                                                            "review"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T10-output"
+                                                                                  ],
+                                                            "task_id":  "T10",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact",
+                                                                            "test",
+                                                                            "review"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T11-output"
+                                                                                  ],
+                                                            "task_id":  "T11",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact"
+                                                                        ]
+                                                        },
+                                                        {
+                                                            "required_evidence":  [
+                                                                                      "T12-output"
+                                                                                  ],
+                                                            "task_id":  "T12",
+                                                            "blocking":  true,
+                                                            "methods":  [
+                                                                            "artifact",
+                                                                            "test",
+                                                                            "review"
+                                                                        ]
+                                                        }
+                                                    ],
+                            "global_gates":  [
+                                                 {
+                                                     "gate":  "snapshot-verifier",
+                                                     "condition":  "before merge",
+                                                     "status":  "required"
+                                                 },
+                                                 {
+                                                     "gate":  "secret-scan",
+                                                     "condition":  "on every commit",
+                                                     "status":  "required"
+                                                 },
+                                                 {
+                                                     "gate":  "ci-artifact-upload",
+                                                     "condition":  "",
+                                                     "status":  "skipped"
+                                                 },
+                                                 {
+                                                     "gate":  "review-gate",
+                                                     "condition":  "",
+                                                     "status":  "optional"
+                                                 }
+                                             ]
+                        },
+    "skill_pack_matching":  {
+                                "selected_skill_packs":  [
+
+                                                         ],
+                                "why_selected":  "Matched by project type: admin-system",
+                                "unused_enabled_packs":  [
+
+                                                         ],
+                                "recommended_missing_packs":  [
+                                                                  "admin-system",
+                                                                  "auth-permission-security",
+                                                                  "frontend-ui-system",
+                                                                  "database-schema-design"
+                                                              ]
+                            }
+}

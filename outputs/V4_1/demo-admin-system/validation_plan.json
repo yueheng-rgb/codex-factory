@@ -1,0 +1,161 @@
+﻿{
+    "non_claims":  [
+                       "No artifact = no PASS",
+                       "Every task has at least one validation method"
+                   ],
+    "per_task_validation":  [
+                                {
+                                    "required_evidence":  [
+                                                              "T1-output"
+                                                          ],
+                                    "task_id":  "T1",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T2-output"
+                                                          ],
+                                    "task_id":  "T2",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact",
+                                                    "review"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T3-output"
+                                                          ],
+                                    "task_id":  "T3",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact",
+                                                    "review",
+                                                    "static_check"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T4-output"
+                                                          ],
+                                    "task_id":  "T4",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact",
+                                                    "review",
+                                                    "static_check"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T6-output"
+                                                          ],
+                                    "task_id":  "T6",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T5-output"
+                                                          ],
+                                    "task_id":  "T5",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact",
+                                                    "review"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T8-output"
+                                                          ],
+                                    "task_id":  "T8",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T7-output"
+                                                          ],
+                                    "task_id":  "T7",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T9-output"
+                                                          ],
+                                    "task_id":  "T9",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact",
+                                                    "review"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T10-output"
+                                                          ],
+                                    "task_id":  "T10",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact",
+                                                    "test",
+                                                    "review"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T11-output"
+                                                          ],
+                                    "task_id":  "T11",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact"
+                                                ]
+                                },
+                                {
+                                    "required_evidence":  [
+                                                              "T12-output"
+                                                          ],
+                                    "task_id":  "T12",
+                                    "blocking":  true,
+                                    "methods":  [
+                                                    "artifact",
+                                                    "test",
+                                                    "review"
+                                                ]
+                                }
+                            ],
+    "global_gates":  [
+                         {
+                             "gate":  "snapshot-verifier",
+                             "condition":  "before merge",
+                             "status":  "required"
+                         },
+                         {
+                             "gate":  "secret-scan",
+                             "condition":  "on every commit",
+                             "status":  "required"
+                         },
+                         {
+                             "gate":  "ci-artifact-upload",
+                             "condition":  "",
+                             "status":  "skipped"
+                         },
+                         {
+                             "gate":  "review-gate",
+                             "condition":  "",
+                             "status":  "optional"
+                         }
+                     ]
+}
