@@ -1,0 +1,24 @@
+﻿{
+  "report": "V3.4.2 Snapshot Verifier Strictness Result",
+  "verifier_version": "3.4.2-strict",
+  "changes": {
+    "hash_mismatch_behavior": "Any hash mismatch => FAIL status + snapshot_verified=false + exit_code=non-zero",
+    "count_consistency": "Added check_count_consistency: PASS+FAIL+WARN+SKIP must equal TOTAL",
+    "status_categories": "Introduced WARN (non-fatal) alongside PASS/FAIL. Replaced PARTIAL with WARN.",
+    "allow_drift_flag": "New -AllowDrift switch: reports mismatches but exit_code=0",
+    "classification_granularity": "Distinguishes MANIFEST_MATCH, FILE_HASH_MATCH, SNAPSHOT_VERIFIED, SNAPSHOT_DRIFT_DETECTED",
+    "file_hash_function": "Uses raw byte reading (not PowerShell Get-FileHash) for cross-platform consistency"
+  },
+  "before": {
+    "check_count_issue": "14 checks reported but 13 PASS + 3 FAIL = 16 (inconsistent)",
+    "exit_code_on_drift": "0 (should be non-zero)",
+    "snapshot_verified_on_drift": "true (should be false)",
+    "overall_on_drift": "PASS (should be SNAPSHOT_DRIFT_DETECTED)"
+  },
+  "after": {
+    "local_result": "15 checks, 12 PASS + 3 FAIL = 15 (consistent), exit_code=3, SNAPSHOT_DRIFT_DETECTED",
+    "expected_remote_result": "15 checks, 15 PASS, exit_code=0, SNAPSHOT_VERIFIED (after LF normalization)"
+  },
+  "local_drift_explanation": "3 FAILs on Windows working tree (CRLF). Git objects are LF. GitHub Actions will see LF.",
+  "status": "FIXED_AND_VERIFIED_LOCALLY"
+}

@@ -1,0 +1,25 @@
+﻿{
+  "report": "V3.4.2 Local Strict Verifier Result",
+  "verifier_version": "3.4.2-strict",
+  "run_at": "2026-07-17T19:15:00+08:00",
+  "environment": "Windows (core.autocrlf=true)",
+  "result": {
+    "total_checks": 15,
+    "pass": 12,
+    "fail": 3,
+    "warn": 0,
+    "consistency": "15 == 15 OK",
+    "manifest_match": true,
+    "file_hash_match": false,
+    "snapshot_verified": false,
+    "overall": "SNAPSHOT_DRIFT_DETECTED",
+    "exit_code": 3
+  },
+  "failures": [
+    {"file": "AGENTS.md", "expected": "6BDA8B2D... (LF)", "actual": "FF12D304... (CRLF)", "root_cause": "Windows working tree CRLF vs committed LF"},
+    {"file": "APP_TYPE_ROUTER.md", "expected": "12D4EB52... (LF)", "actual": "F4EF34CE... (CRLF)", "root_cause": "Windows working tree CRLF vs committed LF"},
+    {"file": "STACK_DECISION_GUIDE.md", "expected": "E97422EE... (LF)", "actual": "346F3C7E... (CRLF)", "root_cause": "Windows working tree CRLF vs committed LF"}
+  ],
+  "note": "These 3 FAILs are expected on Windows with core.autocrlf=true. The git objects are stored as LF (via .gitattributes). GitHub Actions Linux runner will see LF files and hashes will match.",
+  "expected_remote_result": "SNAPSHOT_VERIFIED"
+}

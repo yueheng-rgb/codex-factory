@@ -1,0 +1,19 @@
+﻿{
+  "report": "V3.4.2 AGENTS Drift Reconciliation",
+  "resolution": "Option A — Legitimate Governance Change (LF normalization)",
+  "root_cause": "Windows core.autocrlf=true caused CRLF line endings in working tree. V2_9 manifest was frozen with CRLF-based hashes. GitHub Actions Linux runner checks out with LF endings, producing different SHA256.",
+  "evidence": {
+    "local_crlf_hash": "FF12D30467A08A756DE8BCA4DB8DCE9608C4D47909E316021D5BD8F98899C7D2",
+    "remote_lf_hash": "6BDA8B2D13BD14F7078933FD06C832F5DD1BBF3D19BBB0EEC50ADC2AAE40347B",
+    "lf_normalized_local_hash": "6BDA8B2D13BD14F7078933FD06C832F5DD1BBF3D19BBB0EEC50ADC2AAE40347B",
+    "match_confirmed": true
+  },
+  "fix": {
+    "action": "Add .gitattributes with * text=auto eol=lf",
+    "manifest_regenerated": true,
+    "entries_updated": 49,
+    "snapshot_version": "2.9.1"
+  },
+  "classification": "LEGITIMATE_DRIFT_RESOLVED",
+  "note": "No actual content was changed. Only line endings normalized for cross-platform hash consistency."
+}
