@@ -1,0 +1,12 @@
+﻿{
+  "name": "_template",
+  "version": "1.0.0",
+  "description": "Skill pack template. Copy and customize.",
+  "requires": [],
+  "provides": [],
+  "validations": [],
+  "non_claims": [
+    "Skill packs extend Factory capabilities, they do not bypass verification gates",
+    "Custom skill packs must declare their validation requirements"
+  ]
+}

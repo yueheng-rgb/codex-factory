@@ -1,0 +1,20 @@
+﻿{
+  "version": "4.0.0",
+  "description": "Codex Factory user configuration. Copy to factory.config.json and customize.",
+  "_instructions": [
+    "1. Copy this file to factory.config.json",
+    "2. Choose your providers below",
+    "3. Set API keys in .env (NOT here!)",
+    "4. Run 'powershell -File runtime/codex-factory-doctor.ps1' to verify",
+    "5. Search defaults to NONE — enable explicitly if needed"
+  ],
+  "providers": {
+    "llm": { "type": "openai", "model": "gpt-4o" },
+    "search": { "type": "none" },
+    "memory": { "type": "local_snapshot" },
+    "ci": { "type": "none" }
+  },
+  "expert_packs": [],
+  "skill_packs": [],
+  "knowledge_packs": []
+}

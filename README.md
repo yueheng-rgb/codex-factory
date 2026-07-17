@@ -52,6 +52,44 @@ These are **not simulated**. They were verified on a real GitHub Actions Linux r
 
 ---
 
+
+## V4.0: Provider Choice & User Onboarding (NEW)
+
+Codex Factory V4.0 puts **you** in control of your AI stack:
+
+### Choose Your Providers
+```powershell
+# Interactive setup — no API keys collected
+powershell -File runtime/codex-factory-init.ps1
+```
+- **LLM**: OpenAI · DeepSeek · Claude · Qwen · Local · Custom
+- **Search**: None (default) · GLM/Zhipu · Tavily · SerpAPI · Custom
+- **Memory**: Local snapshot · File-based · Disabled
+- **CI**: GitHub Actions · Local only · None
+
+> **Search defaults to NONE.** GPT/Claude have built-in search. No external API required.
+
+### Bring Your Own Knowledge
+```powershell
+powershell -File runtime/knowledge-pack-manager.ps1 -Action add -Name my-project -Source ./docs
+```
+Import your docs, API specs, and project rules. Every claim traceable to source.
+
+### Create Skill Packs
+```powershell
+powershell -File runtime/skill-pack-manager.ps1 -Action create -Name my-domain
+```
+
+### Check Your Environment
+```powershell
+powershell -File runtime/codex-factory-doctor.ps1
+```
+
+### Start a New Project
+```powershell
+powershell -File runtime/project-onboarding-wizard.ps1 -ProjectName my-app
+```
+
 ## Quick Start
 
 ### 1. Run the Snapshot Verifier

@@ -1,0 +1,11 @@
+﻿{
+  "version": "4.0.0",
+  "preset": "deepseek-glm",
+  "description": "DeepSeek as LLM + GLM/Zhipu as search provider. Recommended for Chinese developers using DeepSeek.",
+  "providers": {
+    "llm": { "type": "deepseek", "model": "deepseek-v3" },
+    "search": { "type": "glm_zhipu", "api_key_env": "ZHIPUAI_API_KEY" },
+    "memory": { "type": "local_snapshot" },
+    "ci": { "type": "github_actions", "remote_verification": true }
+  }
+}

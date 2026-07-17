@@ -1,0 +1,86 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Codex Factory Configuration",
+  "description": "User-facing configuration for Codex Factory. NEVER commit real API keys here. Use .env or local ignored config.",
+  "type": "object",
+  "required": ["version", "providers"],
+  "properties": {
+    "version": { "type": "string", "default": "4.0.0" },
+    "providers": {
+      "type": "object",
+      "required": ["llm", "search", "memory", "ci"],
+      "properties": {
+        "llm": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["openai", "deepseek", "claude", "qwen", "local", "custom"],
+              "default": "openai",
+              "description": "Primary LLM provider. API key goes in .env, not here."
+            },
+            "model": { "type": "string", "description": "Model name override", "examples": ["gpt-4o", "deepseek-v3"] },
+            "endpoint": { "type": "string", "description": "Custom endpoint (for custom/local providers)" }
+          }
+        },
+        "search": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["none", "glm_zhipu", "openai_web_search", "tavily", "serpapi", "bing", "custom_http", "mcp_search"],
+              "default": "none",
+              "description": "External search provider. Default is NONE — no external search unless explicitly enabled."
+            },
+            "api_key_env": { "type": "string", "description": "Environment variable name for the search API key", "examples": ["ZHIPUAI_API_KEY", "TAVILY_API_KEY"] }
+          }
+        },
+        "memory": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": { "type": "string", "enum": ["local_snapshot", "file_based", "disabled"], "default": "local_snapshot" }
+          }
+        },
+        "ci": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": { "type": "string", "enum": ["none", "github_actions", "local_only"], "default": "none" },
+            "remote_verification": { "type": "boolean", "default": false }
+          }
+        }
+      }
+    },
+    "expert_packs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Enabled Expert Packs. Empty = none enabled."
+    },
+    "skill_packs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "User-installed Skill Packs. Managed via skill-pack-manager.ps1."
+    },
+    "knowledge_packs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "User-imported Knowledge Packs. Managed via knowledge-pack-manager.ps1."
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [
+        "This config does NOT contain real API keys. Use .env for secrets.",
+        "Provider presets are suggestions, not requirements.",
+        "GLM/Zhipu is NOT the default search provider.",
+        "Search defaults to NONE — users must explicitly opt in."
+      ]
+    }
+  }
+}

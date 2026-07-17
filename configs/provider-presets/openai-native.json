@@ -1,0 +1,11 @@
+﻿{
+  "version": "4.0.0",
+  "preset": "openai-native",
+  "description": "OpenAI as LLM, no external search. GPT models have built-in web search capability.",
+  "providers": {
+    "llm": { "type": "openai", "model": "gpt-4o" },
+    "search": { "type": "none" },
+    "memory": { "type": "local_snapshot" },
+    "ci": { "type": "github_actions", "remote_verification": true }
+  }
+}

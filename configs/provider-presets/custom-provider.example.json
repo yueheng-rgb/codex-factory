@@ -1,0 +1,11 @@
+﻿{
+  "version": "4.0.0",
+  "preset": "custom-provider",
+  "description": "EXAMPLE ONLY. Custom LLM + custom search. Fill in your own provider details.",
+  "providers": {
+    "llm": { "type": "custom", "model": "YOUR_MODEL", "endpoint": "https://your-llm-api.example.com/v1" },
+    "search": { "type": "custom_http", "api_key_env": "YOUR_SEARCH_API_KEY" },
+    "memory": { "type": "local_snapshot" },
+    "ci": { "type": "none" }
+  }
+}

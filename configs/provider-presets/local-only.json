@@ -1,0 +1,11 @@
+﻿{
+  "version": "4.0.0",
+  "preset": "local-only",
+  "description": "Local LLM, no external search, no CI. Fully offline mode.",
+  "providers": {
+    "llm": { "type": "local", "model": "local" },
+    "search": { "type": "none" },
+    "memory": { "type": "local_snapshot" },
+    "ci": { "type": "none" }
+  }
+}

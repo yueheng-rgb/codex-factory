@@ -1,0 +1,49 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Knowledge Pack",
+  "description": "User-supplied knowledge base pack. Content enters Evidence Pack, never injected raw into prompts.",
+  "type": "object",
+  "required": ["name", "version", "source_files"],
+  "properties": {
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "description": { "type": "string" },
+    "source": { "type": "string", "description": "Origin of knowledge (docs folder, project rules, readme, etc.)" },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string" },
+          "size": { "type": "integer" },
+          "last_modified": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim": { "type": "string" },
+          "source_file": { "type": "string" },
+          "source_line": { "type": "integer" },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
+        }
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [
+        "Knowledge pack content enters Evidence Pack, not raw prompt injection",
+        "Every claim must be traceable to a source file",
+        "Knowledge is local-only by default",
+        "Never upload private/confidential documents"
+      ]
+    }
+  }
+}
