@@ -2,106 +2,106 @@
     "categories":  {
                        "governance_core":  [
                                                {
-                                                   "last_verified_phase":  "V2_8",
+                                                   "last_verified_phase":  "V3_4_2",
                                                    "path":  "AGENTS.md",
-                                                   "sha256":  "FF12D30467A08A756DE8BCA4DB8DCE9608C4D47909E316021D5BD8F98899C7D2",
+                                                   "sha256":  "6BDA8B2D13BD14F7078933FD06C832F5DD1BBF3D19BBB0EEC50ADC2AAE40347B",
                                                    "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                   "size":  4682
+                                                   "size":  4680
                                                },
                                                {
-                                                   "last_verified_phase":  "V2_8",
+                                                   "last_verified_phase":  "V3_4_2",
                                                    "path":  "APP_TYPE_ROUTER.md",
-                                                   "sha256":  "F4EF34CE616FA92CA445E562CB319B289F848AAC16FD4F8F959A09975C38EC80",
+                                                   "sha256":  "12D4EB528283EDA1E4728B926D9E049F2BD26E0E3D905858C576B9B0638556AE",
                                                    "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                   "size":  7808
+                                                   "size":  7807
                                                },
                                                {
-                                                   "last_verified_phase":  "V2_8",
+                                                   "last_verified_phase":  "V3_4_2",
                                                    "path":  "STACK_DECISION_GUIDE.md",
-                                                   "sha256":  "346F3C7EE527527DAB83FCE421D93130F67590DAFF08040799151B7E4C04D7E0",
+                                                   "sha256":  "E97422EE2FFCF0C6023CDEBA080F51A78BC84E67C7F22087816EB52433B558D0",
                                                    "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                   "size":  5748
+                                                   "size":  5747
                                                }
                                            ],
                        "v2_4_v2_7_reports":  [
                                                  {
-                                                     "last_verified_phase":  "V2_8",
+                                                     "last_verified_phase":  "V3_4_2",
                                                      "path":  "outputs/V2_4/V2_4_RUNTIME_VALIDATION_BATCH_REPORT.md",
-                                                     "sha256":  "5E2EC69F881CFB846F441BF95DAEC2F60C0B8998B8F3C987E14CA00624860C44",
+                                                     "sha256":  "6D6DD00237F255C09EF548F230F0107B95078F2520FAA450F1AAD9E612A2C2FF",
                                                      "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                     "size":  8812
+                                                     "size":  8810
                                                  },
                                                  {
-                                                     "last_verified_phase":  "V2_8",
+                                                     "last_verified_phase":  "V3_4_2",
                                                      "path":  "outputs/V2_5/V2_5_RUNTIME_TOOLCHAIN_RELIABILITY_CLOSURE.md",
-                                                     "sha256":  "7511FD282F939D9A4BCE97E212E5EB11EE12AD7B0BD85DB83AFD76816FD34173",
+                                                     "sha256":  "7E54F6A296D139B5B2B8688F320055CC8E4B527C1A96EEF8A79EC419FC61A85A",
                                                      "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                     "size":  3638
+                                                     "size":  3637
                                                  },
                                                  {
-                                                     "last_verified_phase":  "V2_8",
+                                                     "last_verified_phase":  "V3_4_2",
                                                      "path":  "outputs/V2_6/V2_6_CROSS_PACK_LONG_HORIZON_SMOKE_REPORT.md",
-                                                     "sha256":  "57B527FEEDF256378E6BDD2D12170479687F239F073EF8E6BCAF6D6F355F8EA8",
+                                                     "sha256":  "3BABD598976872FCA134D37C015E3C4CF9F54CC98ACA26C5837A43B5662C5F44",
                                                      "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                     "size":  4366
+                                                     "size":  4365
                                                  },
                                                  {
-                                                     "last_verified_phase":  "V2_8",
+                                                     "last_verified_phase":  "V3_4_2",
                                                      "path":  "outputs/V2_7/V2_7_PRODUCTION_READINESS_PILOT_REPORT.md",
-                                                     "sha256":  "57C3F1A35DC45CB8AB06805356A5A39882D8CF6E7AF788737A2117436BC7317C",
+                                                     "sha256":  "33C63D2E73826D04AD61F8CB8A547A353906CF11CA47EFFA4551F8DB09538627",
                                                      "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                     "size":  2806
+                                                     "size":  2805
                                                  }
                                              ],
                        "v2_8_audit":  [
                                           {
-                                              "last_verified_phase":  "V2_8",
+                                              "last_verified_phase":  "V3_4_2",
                                               "path":  "outputs/V2_8/V2_8_FOUNDATION_AUDIT_PACKAGE_REPORT.md",
-                                              "sha256":  "3B3C79AC0AF7CC4C2D7C96E5222AC94B6ACD6196AFEB74A4B4B77E2400AF9DD0",
+                                              "sha256":  "6D45D638AE9A443852CDB0A841FD14E0EF51CC0383F3380005578787CAC1A95A",
                                               "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                              "size":  3049
+                                              "size":  3048
                                           },
                                           {
-                                              "last_verified_phase":  "V2_8",
+                                              "last_verified_phase":  "V3_4_2",
                                               "path":  "outputs/V2_8/V2_8_CROSS_STAGE_ARTIFACT_TRACEABILITY_AUDIT.json",
-                                              "sha256":  "6093394F9E275CC741297F11B9AB1F62A776727CA883B4BF7BE2DE9E227D4912",
+                                              "sha256":  "FB1DC2616AA39F19A9BEAF42A9FEC12B495FE497FBCADEAA733157A817F47422",
                                               "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                              "size":  10556
+                                              "size":  10555
                                           },
                                           {
-                                              "last_verified_phase":  "V2_8",
+                                              "last_verified_phase":  "V3_4_2",
                                               "path":  "outputs/V2_8/V2_8_CLAIM_TO_EVIDENCE_MATRIX.json",
-                                              "sha256":  "C67398F3C374E2CB4163084407424AF2386BBBC2F7C7994CAE286D527EBDD6EA",
+                                              "sha256":  "39D92150880147DCE978529D61E286369AD37536ABD9964BF2A4A649CD302930",
                                               "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                              "size":  4985
+                                              "size":  4984
                                           },
                                           {
-                                              "last_verified_phase":  "V2_8",
+                                              "last_verified_phase":  "V3_4_2",
                                               "path":  "outputs/V2_8/V2_8_FROZEN_TRUNK_MANIFEST.json",
-                                              "sha256":  "F9AAAD80A5E211BAE9A1C7F3E1252D3D89E6EEC8BFE747B455901B4B13FFDD6E",
+                                              "sha256":  "4439ACA6A105743061149B477C9ABC793EFA05E2686117084678042C9DB6A499",
                                               "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                              "size":  6553
+                                              "size":  6552
                                           },
                                           {
-                                              "last_verified_phase":  "V2_8",
+                                              "last_verified_phase":  "V3_4_2",
                                               "path":  "outputs/V2_8/V2_8_VERIFIED_CAPABILITY_MAP.json",
-                                              "sha256":  "6EDEC255C5D640FE2BBFD49529FC39A4FD0F2C909D2DCE8B18360B772635F1A6",
+                                              "sha256":  "51B20EDFDFFE256DADF40434203683B54539984E5307EB54C9BB2DC468692EBE",
                                               "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                              "size":  4070
+                                              "size":  4069
                                           },
                                           {
-                                              "last_verified_phase":  "V2_8",
+                                              "last_verified_phase":  "V3_4_2",
                                               "path":  "outputs/V2_8/V2_8_REVIEW_RECEIPT_AUDIT.json",
-                                              "sha256":  "8300936EE36132FAEDC7FC994474D7A74C168CAA481CEA7F3845C8DAABCD6042",
+                                              "sha256":  "B08BDC44E4B1EBD04566C43D66568858A360F308D2C5DBDD9F5832D236E796C1",
                                               "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                              "size":  3280
+                                              "size":  3279
                                           },
                                           {
-                                              "last_verified_phase":  "V2_8",
+                                              "last_verified_phase":  "V3_4_2",
                                               "path":  "outputs/V2_8/V2_8_CONSOLIDATED_KNOWN_RISKS_AND_NON_CLAIMS.md",
-                                              "sha256":  "94F0DD7EBEE0F92C8BC14E265C3F14DF33C2204A6863863CA7E5C28A41DD17EA",
+                                              "sha256":  "C4338574C1284E63637CD00F6E1FF74C53D863279C6FAA7D96571E033673DADF",
                                               "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                              "size":  4753
+                                              "size":  4752
                                           }
                                       ],
                        "reviews":  [
@@ -109,253 +109,253 @@
                                    ],
                        "expert_packs":  [
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\expert-pack-registry.json",
-                                                "sha256":  "B1A35E5709B7DA74DD5C90A82B7A1B254D4A3760E692DC44E185073BCA990CBC",
+                                                "sha256":  "E8BA777C870B9E5D8E73D08506EBCDAB42046BF34A3C36930C9CB8F41D6590C4",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  3077
+                                                "size":  3023
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\EXPERT_PACK_SYSTEM.md",
-                                                "sha256":  "D7E237257ACF8194FBE1FA03BAADAEF877732DCD434EA5DFF190B1A672617D4F",
+                                                "sha256":  "D74DAFFAD6665E38917FCD7E022300935D0C6964103E01FEA3B8B0C8FC94381E",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  2856
+                                                "size":  2855
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\admin-system\\admin-system-benchmarks.json",
-                                                "sha256":  "29C09F955D39E0647E3BDF643F12E0725306D8DCEB5D9F593843D167256D613D",
+                                                "sha256":  "9F5E4D9A5BAF683B90F4BA385E1898C493BDF51647189BE84073A65FA16B1ADF",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  3364
+                                                "size":  3363
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\admin-system\\admin-system-invariants.json",
-                                                "sha256":  "84B788F24DFFCDD2ED1DE51AB58461556AD78A88509D9D48D6FDDDE19D154B44",
+                                                "sha256":  "C2A9DAA6DD5F61CE53A15685D6182610004D72E2D8B44D7CFA373B359A24E0D5",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  6517
+                                                "size":  6516
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\admin-system\\admin-system-pack.json",
-                                                "sha256":  "D73922FC215791642F5382521AFFB289CB2D0FDE3F0F0CE324F4B2AB69206F1B",
+                                                "sha256":  "988C26731758C3F6AB18EF7905A1A5338E770D5B8C95A5ADDD88BFE84366DF14",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  12198
+                                                "size":  12197
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\admin-system\\ADMIN_SYSTEM_PACK.md",
-                                                "sha256":  "42B51EE563843944D4E8CDE032D6B93DB939EFC6074D2479C437ED0BAC7D12C7",
+                                                "sha256":  "24F0A4A29C8091280665A3E3FAC17C883F692AB33A7DB00DE234A07BDCF742CD",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  3912
+                                                "size":  3911
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\cpp-memory-safety\\cpp-memory-safety-benchmarks.json",
-                                                "sha256":  "D44D290753DA5BAB18439E18182F306DC3109547124C9C388B68B048C3DF1D3C",
+                                                "sha256":  "2D94413E7B802059557990916D02F4EA1C12522751113C1158569C7FBF47DBC2",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  1221
+                                                "size":  1220
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\cpp-memory-safety\\cpp-memory-safety-invariants.json",
-                                                "sha256":  "EC9F8EADD6C3861D14806FEF356D4E12FD669F9CBDD70D0B90DACFACF19828E8",
+                                                "sha256":  "76257327ACADACD67E6C06B41EA32C4CE2A453F6B8510A8017B1E905644AC54F",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  4847
+                                                "size":  4846
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\cpp-memory-safety\\cpp-memory-safety-pack.json",
-                                                "sha256":  "E81536BB1E0D6CA4C9B5E403E593D1CC257D11240906C957E574E33843453498",
+                                                "sha256":  "A837EAF26A5B12FFC63F82D8D3D9E83E2AA58CDB25B417CB41D00B5447A5BE09",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  3111
+                                                "size":  3110
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\ecommerce\\ecommerce-benchmarks.json",
-                                                "sha256":  "A26ABF76FE0CF224526A11D877DF16B4FF58359F76B2B457C9FBC6260533A376",
+                                                "sha256":  "E83329A20653C8514B572290BCCF455CB317E23787934D2181B7B4CBED84A7EF",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  2727
+                                                "size":  2726
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\ecommerce\\ecommerce-invariants.json",
-                                                "sha256":  "9EFE0D9D43357D9016CCA06E285BF2F127E37298D39A779832FB0904C7570CA5",
+                                                "sha256":  "6F82DF5B50A6EBF39D228AF57846F82E96E03AC7EFD6959D8E18F3912835622B",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  4485
+                                                "size":  4484
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\ecommerce\\ecommerce-pack.json",
-                                                "sha256":  "962A245B08B4B60D67B2097D769862ED647BDAB359B940F21BB6C4EC1E50F678",
+                                                "sha256":  "8355D44C56E4E8FD89D797165A4BD7CF4C8A463F37CC3AE3B2BFDFC160C8C81E",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  12771
+                                                "size":  12770
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\ecommerce\\ECOMMERCE_PACK.md",
-                                                "sha256":  "A04CCDAC416A68C14327CFF21F2AE634668DDC6C43481A44C11339C2D77F4CF7",
+                                                "sha256":  "1A68293BE5228535E585280C7FC864F2C503DCDDCB62ED68C2AB9B1BBBF49BAD",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  4265
+                                                "size":  4264
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\game-threejs\\game-threejs-benchmarks.json",
-                                                "sha256":  "40CBD1E037E4CCEE5C8E688D26833317CEDCB8128389027E340ABFDAC6B891DE",
+                                                "sha256":  "260AD2D3B7A1EBE7C470BDB4D3B0BEA911D86706824C4D3A51AB02B6BF1C4163",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  1286
+                                                "size":  1285
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\game-threejs\\game-threejs-invariants.json",
-                                                "sha256":  "0C9F224D66C568F34DED1CE01F8DD847DADCDA5FB42D69D709782A0B85165CEA",
+                                                "sha256":  "25043FE2FD0DCF6BE1E87DA2B69773770A0AD360BFD39F1CAD971391708EF5AA",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  4462
+                                                "size":  4461
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\game-threejs\\game-threejs-pack.json",
-                                                "sha256":  "7ED61F8ACEF20F385FD0FFE698A730BF89C8B1441A6DFF1767F5755449E3BBE8",
+                                                "sha256":  "EFD03DFDFFF5FC1B7F4F6000F2609A4B2CC2456BB80FBA53EA758E4AD7CBDDC2",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  3040
+                                                "size":  3039
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\miniapp\\miniapp-benchmarks.json",
-                                                "sha256":  "3A86C33EDA8929D61C6FE60DC851F7838021C748B42B681542B92BDB8182A98C",
+                                                "sha256":  "1CDB265F0C5D36EE2A27C6DAD4AEDF3933D6B1BBC80376AFC73BCBE625261667",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  1696
+                                                "size":  1695
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\miniapp\\miniapp-invariants.json",
-                                                "sha256":  "6D73439F7AC84AD004A024569659D917256697629A2CD1DC363C9BD52BC3CF58",
+                                                "sha256":  "3B2618FA472826A2DF6775A33C91A0774B8EA8726D19AD9ED381CCC5331AEA7F",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  5252
+                                                "size":  5251
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\miniapp\\miniapp-pack.json",
-                                                "sha256":  "9E4C41FF1B27B0FB7EB761815C840B15DD5AF6D98C1CA3E59C2C9DF26804B277",
+                                                "sha256":  "B02B4F166F87A4FCF33152B7D9C800AE9821FFFEF3FD9EE8709542D108760BA0",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  3603
+                                                "size":  3602
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\saas-tool\\saas-tool-benchmarks.json",
-                                                "sha256":  "6535E2189C5B5DA500CE357834BF6DEC81D0E03F3A58D9D48ECA36A94724848F",
+                                                "sha256":  "87839343045C6BBC1612A6FFCF7220B3DEADE188A7B05814813190ACC92EA7DD",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  2500
+                                                "size":  2499
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\saas-tool\\saas-tool-invariants.json",
-                                                "sha256":  "BF50C6DE6A5202FE9C8B04EA6CAECC86D0C0B7EAEEA902580A87B753DDCC1D67",
+                                                "sha256":  "13D458E9A48CE9C1C2D5E179E6175BD4A9E8D091D524B669B3FC24F04841F960",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  6270
+                                                "size":  6269
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\saas-tool\\saas-tool-pack.json",
-                                                "sha256":  "91EBB0E63607FF4B3375DA96426FD9B95C9A6D603AF7C3DAD92D07FAACC3CE69",
+                                                "sha256":  "2AECC620B15AF89C138D53556BBDFC9122B93676B7D05E098BC2FAF7AE5FC5DD",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  19731
+                                                "size":  19730
                                             },
                                             {
-                                                "last_verified_phase":  "V2_8",
+                                                "last_verified_phase":  "V3_4_2",
                                                 "path":  "governance\\expert-packs\\saas-tool\\SAAS_TOOL_PACK.md",
-                                                "sha256":  "E31729FEBECE65C62CB43A00F7BB9ACD90CE77F4B5B4A5CB94C8AB7A052C86E6",
+                                                "sha256":  "504EE2B2745F4DE25B2B3F0B059DEFB9547B775C45B03B7F40BDAC8665890256",
                                                 "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                "size":  3417
+                                                "size":  3416
                                             }
                                         ],
                        "v2_0_reports":  [
                                             {
                                                 "path":  "outputs/V2_0_RELEASE_VERSION.json",
-                                                "size":  1447,
-                                                "sha256":  "9719FD6F3695A15D8443DD60E509157C4E783151FA9BF9E07941EA8C33F4898E",
+                                                "size":  1446,
+                                                "sha256":  "EDCB2CF1217D241E4825DDF2A70088D98B491B4E5BEB7F3CA8466327FA8D7A13",
                                                 "evidence_status":  "VERIFIED_WITH_REPORT",
-                                                "last_verified_phase":  "V2_8"
+                                                "last_verified_phase":  "V3_4_2"
                                             },
                                             {
                                                 "path":  "outputs/V2_0_RELEASE_MANIFEST.json",
-                                                "size":  16390,
-                                                "sha256":  "519DD78B1DB5875EE0A651C3D5DEF58D3FE175BEB6C04DCF5D19755400BCC6B9",
+                                                "size":  16389,
+                                                "sha256":  "29FA3AEB2573918115F26FA93BA5D2CF6A92E734C9E8635BD8B16DE8EB2B88DB",
                                                 "evidence_status":  "VERIFIED_WITH_REPORT",
-                                                "last_verified_phase":  "V2_8"
+                                                "last_verified_phase":  "V3_4_2"
                                             },
                                             {
                                                 "path":  "outputs/V2_0_RELEASE_READINESS_CHECK.json",
-                                                "size":  1956,
-                                                "sha256":  "3E06C13A8FCE42E9244D3FC6A58758455AFD651900D3E508B12C6C142E259A1C",
+                                                "size":  1955,
+                                                "sha256":  "E91C58912A9D5E31BDF54B59500DFA5BAAD36BE579C786811F96542E98064791",
                                                 "evidence_status":  "VERIFIED_WITH_REPORT",
-                                                "last_verified_phase":  "V2_8"
+                                                "last_verified_phase":  "V3_4_2"
                                             },
                                             {
                                                 "path":  "outputs/V2_0_MISSION_TRIAL_EVIDENCE.json",
-                                                "size":  2968,
-                                                "sha256":  "DB0EB5DB9B25D295C888AB063F4CC7596F7EA903181C021F6E7871FE971F2D94",
+                                                "size":  2967,
+                                                "sha256":  "99C61F79A3D52963D86D3A97AACA25DED51E5268BA187E453B2D3C2D9E58AC28",
                                                 "evidence_status":  "VERIFIED_WITH_REPORT",
-                                                "last_verified_phase":  "V2_8"
+                                                "last_verified_phase":  "V3_4_2"
                                             },
                                             {
                                                 "path":  "outputs/V2_0_CAPABILITY_SUMMARY.md",
-                                                "size":  9478,
-                                                "sha256":  "2F7E8EE0B7CD9505C781C6107C928BE8735176F1A29C9448C7E2BD60877F526D",
+                                                "size":  9477,
+                                                "sha256":  "A518F7D01A67FE8A2E7A1ADD66754DD59070466BF18CB88E22CDA80D0AB755A8",
                                                 "evidence_status":  "VERIFIED_WITH_REPORT",
-                                                "last_verified_phase":  "V2_8"
+                                                "last_verified_phase":  "V3_4_2"
                                             },
                                             {
                                                 "path":  "outputs/V2_0_DEPRECATED_DIRECTIONS_FINAL_LOCK.md",
-                                                "size":  7330,
-                                                "sha256":  "1B1A63853647465427710687B0D2A7876CF29378FA7F9A47F936D3702FC6FF45",
+                                                "size":  7329,
+                                                "sha256":  "596528CFDBCDC85C2EA01118084B6E816DB45AE170A34054DE70D0E3BCA07B23",
                                                 "evidence_status":  "VERIFIED_WITH_REPORT",
-                                                "last_verified_phase":  "V2_8"
+                                                "last_verified_phase":  "V3_4_2"
                                             },
                                             {
                                                 "path":  "outputs/V2_0_KNOWN_RISKS_AND_NON_CLAIMS.md",
-                                                "size":  3980,
-                                                "sha256":  "46957F885F0A582496D0467442274E584ADB8F81C95D2F77A6C328C9F4C3B147",
+                                                "size":  3979,
+                                                "sha256":  "C51C4AF3E249D162E1306E58EA4FC6736E2BE12CE67CF78DD1523D9E7968D65D",
                                                 "evidence_status":  "VERIFIED_WITH_REPORT",
-                                                "last_verified_phase":  "V2_8"
+                                                "last_verified_phase":  "V3_4_2"
                                             },
                                             {
                                                 "path":  "outputs/V2_0_REGRESSION_COMMAND_INDEX.json",
-                                                "size":  2596,
-                                                "sha256":  "92C2B691C35185BA4E9AAAB8C28C91A5239A09DD3F5ECCBB0A7C077F48593FF3",
+                                                "size":  2595,
+                                                "sha256":  "4ED9284BA0AC1F1C28F78D5A13E789B5BB327AD595B8D423CAC87AF056C63F13",
                                                 "evidence_status":  "VERIFIED_WITH_REPORT",
-                                                "last_verified_phase":  "V2_8"
+                                                "last_verified_phase":  "V3_4_2"
                                             }
                                         ],
                        "v2_1_v2_3_reports":  [
                                                  {
-                                                     "last_verified_phase":  "V2_8",
+                                                     "last_verified_phase":  "V3_4_2",
                                                      "path":  "outputs/V2_1_CI_ARTIFACT_STORE_REPORT.md",
-                                                     "sha256":  "8CCF8E86B181C22A454088BEB2A8EC35F1D09DC6E21450D40C65EF38BC4E845E",
+                                                     "sha256":  "4731E28437568B85DDF9A7BDAC8BD2B186ADA78AAE6FA22421FEA7288A0A1E4B",
                                                      "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                     "size":  4713
+                                                     "size":  4712
                                                  },
                                                  {
-                                                     "last_verified_phase":  "V2_8",
+                                                     "last_verified_phase":  "V3_4_2",
                                                      "path":  "outputs/V2_2_HUMAN_REVIEW_CONSOLE_REPORT.md",
-                                                     "sha256":  "0557EB95E909485EFE07E3BEB78EB8B95B8724643E98CABDDF051279CE79F14F",
+                                                     "sha256":  "05942B19612C084278E9D47DEA3EE58F70056BA15646DE387E711A48B270D3DB",
                                                      "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                     "size":  6118
+                                                     "size":  6117
                                                  },
                                                  {
-                                                     "last_verified_phase":  "V2_8",
+                                                     "last_verified_phase":  "V3_4_2",
                                                      "path":  "outputs/V2_3_EXPERT_PACK_EXPANSION_REPORT.md",
-                                                     "sha256":  "C13F85AD47935B3FD367D60D5E89139C7C00D96F628D357FBCDC927D6834DFAA",
+                                                     "sha256":  "6B65F01FFC7357656D8148274054418D96D47A54CAD91D8AD275ACF8BDE692E3",
                                                      "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                     "size":  7053
+                                                     "size":  7052
                                                  },
                                                  {
-                                                     "last_verified_phase":  "V2_8",
+                                                     "last_verified_phase":  "V3_4_2",
                                                      "path":  "outputs/V2_3_activation_demos.json",
-                                                     "sha256":  "12585F795B942A2D7F1F7447A96939127B4A234E2F5C21DEC86A3C806625F03D",
+                                                     "sha256":  "B82FA7DCA7B04E2BFAE783C5DE204CB2EBCCB063747348ECA4E87AE9DECCBE3B",
                                                      "evidence_status":  "VERIFIED_WITH_ARTIFACT",
-                                                     "size":  15077
+                                                     "size":  14704
                                                  }
                                              ]
                    },
@@ -377,14 +377,16 @@
 
                           ],
     "created_at":  "2026-07-17T00:00:00+08:00",
-    "snapshot_version":  "2.9.0",
+    "snapshot_version":  "2.9.1",
     "non_claims":  [
                        "This snapshot is an AUDIT ARTIFACT, not a production deployment",
                        "READY_FOR_PRODUCTION_REVIEW does not mean production-ready",
                        "V2.0 evidence is VERIFIED_WITH_REPORT, not artifact-verified",
                        "Human review receipts use self_declared_automated signature_mode",
                        "SHA256 hashes verify file integrity, not semantic correctness",
-                       "This snapshot does NOT replace the actual repository files"
+                       "This snapshot does NOT replace the actual repository files",
+                       "V3.4.2: LF-normalized hashes (.gitattributes) for cross-platform consistency",
+                       "Original V2.9 manifest hashes were CRLF-based (Windows). LF hashes match GitHub Actions Linux runner."
                    ],
     "report_files":  [
 

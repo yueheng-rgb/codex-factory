@@ -1,0 +1,29 @@
+﻿# Codex Factory — cross-platform line-ending normalization
+# Ensures SHA256 hashes are consistent between Windows dev and Linux CI
+
+*      text=auto eol=lf
+*.ps1  text eol=lf
+*.psm1 text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.js   text eol=lf
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.css  text eol=lf
+*.html text eol=lf
+*.py   text eol=lf
+*.sh   text eol=lf
+*.toml text eol=lf
+*.cfg  text eol=lf
+*.ini  text eol=lf
+*.xml  text eol=lf
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.zip  binary
+*.node binary
+*.exe  binary
