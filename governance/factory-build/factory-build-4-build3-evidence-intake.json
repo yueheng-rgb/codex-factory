@@ -1,0 +1,16 @@
+﻿{
+  "phase":"FACTORY-BUILD-4","subPhase":"A_BUILD3_EVIDENCE_INTAKE",
+  "sourcePhase":"FACTORY-BUILD-3","sourceVerdict":"PASS",
+  "sourceVerifier":"36/36 PASS","sourceNegatives":"52/52",
+  "claims": [
+    {"id":"C01","claim":"Build Mode can produce a real MVP","classification":"SUPPORTED","evidence":"DevFlow Studio Lite: backend(10 routes), frontend(7 pages), DB(6 tables), auth(JWT+bcrypt), RBAC(4 roles), workflow(6 states), tests(6 suites)","rationale":"Product code exists and is runnable"},
+    {"id":"C02","claim":"External memory supports build continuation","classification":"SUPPORTED","evidence":".codex-factory/ with 8 files updated across 9 stages, recovery drill passed","rationale":"Memory was initialized, updated, and recoverable"},
+    {"id":"C03","claim":"Diagnostic gate catches issues","classification":"SUPPORTED","evidence":"Quick Mode found 1 warning (default JWT secret) among 12 checks","rationale":"Gate operated correctly: readonly, flagged issues, did not auto-repair"},
+    {"id":"C04","claim":"Build Mode solves all complex projects","classification":"REJECTED","evidence":"BUILD-3 tested ONE project (DevFlow, MEDIUM complexity). No evidence for LARGE, HIGH_RISK, or multi-agent projects.","rationale":"Single trial ≠ universal proof"},
+    {"id":"C05","claim":"Multi-agent should be default","classification":"REJECTED","evidence":"BUILD-3 used BUILD_LITE (single-agent). No multi-agent trial completed.","rationale":"No evidence supports multi-agent default"},
+    {"id":"C06","claim":"v0.5 release is ready","classification":"REJECTED","evidence":"Only one BUILD trial completed. No multi-agent trial. No benchmark comparison.","rationale":"v0.5 remains BLOCKED"},
+    {"id":"C07","claim":"External memory is fully proven","classification":"PARTIAL","evidence":"Used in one 2-session equivalent trial. Not tested across >3 sessions or with multi-agent coordination.","rationale":"Proven for single-session, needs multi-session evidence"},
+    {"id":"C08","claim":"BUILD_LITE mode is sufficient for MEDIUM","classification":"SUPPORTED","evidence":"DevFlow (MEDIUM) completed successfully with BUILD_LITE","rationale":"One data point supports but does not prove"}
+  ],
+  "trialProductStatus":"DevFlow Studio Lite is a TRIAL product, not a release product. BUILD-3 proved Build Mode can produce a real MVP in this context."
+}

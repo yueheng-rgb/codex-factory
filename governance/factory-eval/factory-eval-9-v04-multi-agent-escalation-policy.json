@@ -1,0 +1,46 @@
+﻿{
+  "phase": "FACTORY-EVAL-9-D",
+  "title": "Multi-Agent Escalation Policy",
+  "createdAt": "2026-06-25T20:06:00+08:00",
+  "evidenceBase": "EVAL-8: Multi-agent benefits not yet proven. Escalation should be conditional, not default.",
+  "escalationTiers": [
+    {
+      "tier": 0,
+      "name": "Factory Lite Core (Default)",
+      "trigger": "All projects",
+      "model": "No role model. Manual Router + POR only.",
+      "roles": 0,
+      "overhead": "~200ms"
+    },
+    {
+      "tier": 1,
+      "name": "3-Role Model (Optional)",
+      "trigger": "Projects meeting ANY: (a) >10 FRs with auth/RBAC, (b) separate frontend+backend, (c) user explicitly requests review",
+      "model": "Architect (planning) + Builder (implementation) + Reviewer (QA+Verifier+Auditor)",
+      "roles": 3,
+      "overhead": "~350ms"
+    },
+    {
+      "tier": 2,
+      "name": "Full Multi-Agent (Experimental)",
+      "trigger": "Projects meeting ALL: (a) >20 FRs, (b) separate teams/agents for frontend/backend, (c) dedicated QA infrastructure, (d) user explicitly requests multi-agent",
+      "model": "Architect + Frontend + Backend + Database + Integrator + QA + Security + Verifier + Auditor + PM",
+      "roles": 10,
+      "overhead": "~1555ms",
+      "warning": "EVAL-8 showed 10-role model underperforms Factory Lite for moderate projects. Use only when complexity genuinely requires role separation."
+    }
+  ],
+  "escalationRules": [
+    "Default: Tier 0 (Factory Lite Core) — no role model",
+    "User may request Tier 1 (3-role) for any project",
+    "Tier 1 automatically suggested when project has auth/RBAC + separate frontend/backend",
+    "Tier 2 requires explicit user confirmation AND multi-agent infrastructure",
+    "Never auto-escalate from Tier 0 to Tier 2",
+    "If Tier 2 underperforms, fall back to Tier 1 or Tier 0"
+  ],
+  "antiPatterns": [
+    "Using 10-role model for a single-developer project",
+    "Creating cross-role contracts when only one agent builds everything",
+    "Adding process artifacts to compensate for missing product quality"
+  ]
+}

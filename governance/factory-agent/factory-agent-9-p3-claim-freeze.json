@@ -1,0 +1,30 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P3",
+  "step": "B_CLAIM_FREEZE",
+  "timestamp": "2026-06-26T20:48:35.7238582+08:00",
+  "allowedClaims": [
+    {"claim":"P1 improves process evidence and diagnosability over Vanilla","status":"ALLOWED","evidence":"AGENT-9-P2 process/evidence scores: P1 80/82 vs Vanilla 40/45"},
+    {"claim":"P1 improves over old 7-agent mode","status":"ALLOWED","evidence":"P1 79.30 vs old v0.5 73.10 composite; lower overhead (4 vs 7 agents)"},
+    {"claim":"P1 beats v0.4 on composite under repaired policy","status":"ALLOWED","evidence":"P1 79.30 vs v0.4 67.75"},
+    {"claim":"P1 is close to Vanilla on product quality but does not beat it","status":"ALLOWED","evidence":"Vanilla 85 vs P1 84"},
+    {"claim":"Multi-agent is CONDITIONAL, not default","status":"ALLOWED","evidence":"No product superiority; process benefit is contextual"},
+    {"claim":"P1 4-agent is better than 7-agent for this benchmark size","status":"ALLOWED","evidence":"P1 composite > old v0.5 composite; lower overhead"},
+    {"claim":"7-agent mode should not be the default agent company form","status":"ALLOWED","evidence":"P1 outperforms old v0.5 on composite with fewer agents"},
+    {"claim":"P1 runtime adds guardrail value (reviewer, floor checks, overhead budget)","status":"ALLOWED","evidence":"AGENT-8-P1/R1 reviewer-verifier, mid-run floor check, overhead budget"},
+    {"claim":"AGENT-5-P1 policy repair was necessary and correct","status":"ALLOWED","evidence":"source/export floors were gaming-prone metrics; repaired policy fair to all runs"}
+  ],
+  "forbiddenClaims": [
+    {"claim":"P1 is the product quality winner","reason":"Vanilla 85 > P1 84 on product-only"},
+    {"claim":"Multi-agent is the default mode for large projects","reason":"No product superiority proven; evidence only shows process benefit"},
+    {"claim":"v0.5 release package is ready","reason":"Gates not met; AGENT-9-P2 explicitly blocks v0.5"},
+    {"claim":"4-agent P1 has been proven to improve product quality","reason":"P1 product-only 84 vs Vanilla 85"},
+    {"claim":"Process artifacts count as product quality","reason":"Product/process/evidence/overhead are separate dimensions"},
+    {"claim":"Old 10-role model should be restored","reason":"Old 7-agent already worse than P1 4-agent; 10-role is even heavier"},
+    {"claim":"Multi-agent is useless and should be abandoned","reason":"Process/evidence benefit is real and valuable in some contexts"}
+  ],
+  "conditionalClaims": [
+    {"claim":"Multi-agent may benefit larger projects","condition":"Requires new benchmark with project size >50 modules"},
+    {"claim":"P1 runtime could be packaged as experimental process layer","condition":"Must be labeled non-default, no product quality claim, experimental only"},
+    {"claim":"Reviewer-Verifier diagnostic mode has standalone value","condition":"Can be extracted without full multi-agent implementation"}
+  ]
+}

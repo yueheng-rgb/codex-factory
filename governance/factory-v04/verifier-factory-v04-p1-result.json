@@ -1,0 +1,137 @@
+﻿{
+    "passed":  21,
+    "timestamp":  "2026-06-25T22:20:17+08:00",
+    "title":  "Verifier — v0.4 P1 Reframe+Quality Gap",
+    "verdict":  "PASS",
+    "phase":  "FACTORY-V04-P1-H",
+    "total":  21,
+    "checks":  [
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "old FINAL package unchanged",
+                       "id":  "V01"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no new final ZIP",
+                       "id":  "V02"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no v0.4 release ZIP",
+                       "id":  "V03"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "v0.4 draft DRAFT_NOT_RELEASED",
+                       "id":  "V04"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "FACTORY-EVAL-13 PASS exists",
+                       "id":  "V05"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "evidence reconciliation exists",
+                       "id":  "V06"
+                   },
+                   {
+                       "detail":  "4/4 docs",
+                       "result":  "PASS",
+                       "name":  "positioning docs exist",
+                       "id":  "V07"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "EVAL-13 INCONCLUSIVE preserved",
+                       "id":  "V08"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "v0.4 positioned as process integrity layer",
+                       "id":  "V09"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "product quality marked CONDITIONAL",
+                       "id":  "V10"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "quality-gap trigger policy exists",
+                       "id":  "V11"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Reviewer P1 exists",
+                       "id":  "V12"
+                   },
+                   {
+                       "detail":  "Tier 0.5 Reviewer added",
+                       "result":  "PASS",
+                       "name":  "escalation policy repaired",
+                       "id":  "V13"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "manifest updated with new positioning",
+                       "id":  "V14"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "forbidden claims include universal quality",
+                       "id":  "V15"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "EVAL-8 and EVAL-13 both represented",
+                       "id":  "V16"
+                   },
+                   {
+                       "detail":  "5/5 scenarios",
+                       "result":  "PASS",
+                       "name":  "smoke tests pass",
+                       "id":  "V17"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no RUN-F started",
+                       "id":  "V18"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no release prep started",
+                       "id":  "V19"
+                   },
+                   {
+                       "detail":  "26/26",
+                       "result":  "PASS",
+                       "name":  "negatives executed 0 gaps",
+                       "id":  "V20"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no anti-patterns in negatives",
+                       "id":  "V21"
+                   }
+               ],
+    "failed":  0
+}

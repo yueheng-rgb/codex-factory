@@ -1,0 +1,11 @@
+﻿{
+    "notCloud":  true,
+    "notRealValidation":  true,
+    "section":  "A",
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0",
+    "scope":  "LOCAL_TOOLING_WORKFLOW_PATCH",
+    "notV06":  true,
+    "userApproved":  true,
+    "v05Preserved":  true,
+    "notDeploy":  true
+}

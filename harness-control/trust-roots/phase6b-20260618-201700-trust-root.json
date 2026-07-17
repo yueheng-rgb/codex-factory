@@ -1,0 +1,41 @@
+{
+    "governanceFiles":  [
+                            {
+                                "sha256":  "placeholder",
+                                "path":  "harness.config.json"
+                            },
+                            {
+                                "sha256":  "37daec8de16a2ce0dd5f75c480b1a002a67668c042a0bbacbe5e78705a19a697",
+                                "path":  "scripts/validate-state.ps1"
+                            },
+                            {
+                                "sha256":  "d316e03c159dba1d6d6fc0aec737f77d6c5206ad8cfd944c9dd1b5ed9a94f916",
+                                "path":  "scripts/validate-evidence.ps1"
+                            },
+                            {
+                                "sha256":  "95d53c83579715a5d3c583fff325a105d8d085f166f2bb000467701d7b3d9a46",
+                                "path":  "scripts/validate-delivery-archive.ps1"
+                            },
+                            {
+                                "sha256":  "51b0a70d21aba7133833ea901dc07cf8b669e76ff2d382fa6486582ed86d8f63",
+                                "path":  "scripts/validate-control-plane.ps1"
+                            },
+                            {
+                                "sha256":  "53fafb234b28958c71c69403578b5f1dc23b9b46e4fb48763a816341bf70acca",
+                                "path":  "scripts/freeze-control-plane.ps1"
+                            },
+                            {
+                                "sha256":  "86b13e7aab5efa1aeca9afc1e7904202319bb85f7669f3c5d0d493d9a5636298",
+                                "path":  "scripts/claim-task.ps1"
+                            },
+                            {
+                                "sha256":  "716e09e1d0eb7b84cb9c7d637c20923013aa7e069328f3eadcce50d31c604121",
+                                "path":  "scripts/submit-task.ps1"
+                            }
+                        ],
+    "frozenAt":  "2026-06-18T20:19:29.7145208+08:00",
+    "createdAt":  "2026-06-18T20:31:54.6759812+08:00",
+    "runId":  "phase6b-20260618-201700",
+    "controlPlaneLockSha256":  "2d0f444311913d290b3df2b4bb34442a6c7337f6b9b12346c38e0fd12ae89307",
+    "schemaVersion":  "6B"
+}

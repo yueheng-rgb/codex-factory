@@ -1,0 +1,155 @@
+﻿{
+    "hypothesis":  2,
+    "rejected":  10,
+    "totalCarriers":  9,
+    "subPhase":  "A",
+    "carriers":  [
+                     {
+                         "mayCreateNewCarrier":  true,
+                         "evidence":  "20+ proven manual session rotations in this repo",
+                         "inheritsFullContext":  false,
+                         "classification":  "VERIFIED_FACT",
+                         "allowedUse":  "Always-safe fallback for any rotation",
+                         "riskIfAssumedWrong":  "P0: context loss, no handoff",
+                         "capability":  "manual_new_codex_window",
+                         "forbiddenClaims":  [
+                                                 "automatic",
+                                                 "no_user_action_required"
+                                             ],
+                         "requiresArtifactStartupVerification":  true,
+                         "userActionRequired":  true
+                     },
+                     {
+                         "mayCreateNewCarrier":  true,
+                         "evidence":  "Codex CLI /new command documented in Codex docs",
+                         "inheritsFullContext":  false,
+                         "classification":  "PARTIALLY_VERIFIED",
+                         "allowedUse":  "Optional carrier if available",
+                         "riskIfAssumedWrong":  "P1: may not exist in all environments",
+                         "capability":  "cli_new",
+                         "forbiddenClaims":  [
+                                                 "inherits_full_context",
+                                                 "automatic_handoff"
+                                             ],
+                         "requiresArtifactStartupVerification":  true,
+                         "userActionRequired":  true
+                     },
+                     {
+                         "mayCreateNewCarrier":  true,
+                         "evidence":  "Codex CLI /fork command documented; fork_context param in spawn_agent tested (H13-C)",
+                         "inheritsFullContext":  "unknown",
+                         "classification":  "PARTIALLY_VERIFIED",
+                         "allowedUse":  "Optional carrier with mandatory startup verification",
+                         "riskIfAssumedWrong":  "P1: fork may not preserve full context across compactions",
+                         "capability":  "cli_fork",
+                         "forbiddenClaims":  [
+                                                 "inherits_full_context",
+                                                 "replaces_artifact_handoff"
+                                             ],
+                         "requiresArtifactStartupVerification":  true,
+                         "userActionRequired":  true
+                     },
+                     {
+                         "mayCreateNewCarrier":  true,
+                         "evidence":  "Codex app thread tools exist in tool schema but not live-tested in this repo",
+                         "inheritsFullContext":  "unknown",
+                         "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                         "allowedUse":  "If verified, optional carrier",
+                         "riskIfAssumedWrong":  "P1: unsupported capability assumption",
+                         "capability":  "app_thread_start",
+                         "forbiddenClaims":  [
+                                                 "automatic",
+                                                 "no_user_action",
+                                                 "inherits_full_context"
+                                             ],
+                         "requiresArtifactStartupVerification":  true,
+                         "userActionRequired":  "unknown"
+                     },
+                     {
+                         "mayCreateNewCarrier":  false,
+                         "evidence":  "No evidence automation can wake up thread with full context; H21 monitoring is prototype only",
+                         "inheritsFullContext":  false,
+                         "classification":  "REJECTED_OR_UNSUPPORTED",
+                         "allowedUse":  "Not as session carrier; may trigger watcher alert",
+                         "riskIfAssumedWrong":  "P0: assuming wakeup restores context = silent corruption",
+                         "capability":  "automation_wakeup",
+                         "forbiddenClaims":  [
+                                                 "new_context_carrier",
+                                                 "full_context_restore"
+                                             ],
+                         "requiresArtifactStartupVerification":  true,
+                         "userActionRequired":  true
+                     },
+                     {
+                         "mayCreateNewCarrier":  false,
+                         "evidence":  "H13-C real spawn_agent test; DRY21-24 all use fork_context:false for builders",
+                         "inheritsFullContext":  false,
+                         "classification":  "VERIFIED_FACT",
+                         "allowedUse":  "Builder isolation only — not a session carrier",
+                         "riskIfAssumedWrong":  "P1: subagent misused as user branch",
+                         "capability":  "spawn_agent_fork_false",
+                         "forbiddenClaims":  [
+                                                 "user_visible_branch",
+                                                 "session_carrier"
+                                             ],
+                         "requiresArtifactStartupVerification":  false,
+                         "userActionRequired":  false
+                     },
+                     {
+                         "mayCreateNewCarrier":  false,
+                         "evidence":  "Documented in spawn_agent tool; fork_context:true tested for explorers",
+                         "inheritsFullContext":  "partial",
+                         "classification":  "PARTIALLY_VERIFIED",
+                         "allowedUse":  "Explorer agents with context access",
+                         "riskIfAssumedWrong":  "P2: context drift in forked explorer",
+                         "capability":  "spawn_agent_fork_true",
+                         "forbiddenClaims":  [
+                                                 "session_carrier",
+                                                 "full_context_inheritance_guaranteed"
+                                             ],
+                         "requiresArtifactStartupVerification":  false,
+                         "userActionRequired":  false
+                     },
+                     {
+                         "mayCreateNewCarrier":  true,
+                         "evidence":  "automation_update tool exists in tool schema; not tested in this repo",
+                         "inheritsFullContext":  false,
+                         "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                         "allowedUse":  "If verified, fresh task carrier",
+                         "riskIfAssumedWrong":  "P1: unsupported assumption",
+                         "capability":  "project_automation_fresh",
+                         "forbiddenClaims":  [
+                                                 "automatic",
+                                                 "inherits_context"
+                                             ],
+                         "requiresArtifactStartupVerification":  true,
+                         "userActionRequired":  "unknown"
+                     },
+                     {
+                         "mayCreateNewCarrier":  true,
+                         "evidence":  "Primary mechanism for all 20+ session rotations in this repo",
+                         "inheritsFullContext":  false,
+                         "classification":  "VERIFIED_FACT",
+                         "allowedUse":  "ALWAYS-SAFE FALLBACK — preferred default",
+                         "riskIfAssumedWrong":  "N/A: proven mechanism",
+                         "capability":  "manual_new_window_artifact_handoff",
+                         "forbiddenClaims":  [
+
+                                             ],
+                         "requiresArtifactStartupVerification":  true,
+                         "userActionRequired":  true
+                     }
+                 ],
+    "phase":  "LIVE-RUNTIME-6",
+    "generatedAt":  "2026-06-25T00:34:03+08:00",
+    "nativeGenerated":  true,
+    "rules":  [
+                  "no_auto_window_claim_without_proof",
+                  "no_full_inheritance_claim_without_proof",
+                  "unavailable_classified_honestly",
+                  "manual_fallback_always_safe"
+              ],
+    "safeFallback":  "manual_new_window_artifact_handoff",
+    "partiallyVerified":  3,
+    "verifiedCount":  3
+}

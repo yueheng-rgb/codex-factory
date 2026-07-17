@@ -1,0 +1,46 @@
+﻿{
+    "phase": "FACTORY-DIAGNOSTIC-PACK-P1-BUNDLE-STARTUP-VERIFY",
+    "subPhase": "C_MODE_SELECTION_SIMULATION",
+    "verifier": "new-codex-window-zero-trusted-memory",
+    "timestamp": "2026-06-26",
+    "scenarios": [
+        {
+            "id": "S1",
+            "description": "Student course project with report, frontend, backend, database",
+            "expectedMode": "Report-vs-Source → Student Project",
+            "actualMatch": true,
+            "verdict": "PASS"
+        },
+        {
+            "id": "S2",
+            "description": "Unknown multi-app project with auth/db/frontend/backend",
+            "expectedMode": "Quick Mode → Full Diagnostic if issues found",
+            "actualMatch": true,
+            "verdict": "PASS"
+        },
+        {
+            "id": "S3",
+            "description": "Report and screenshots only, no source structure",
+            "expectedMode": "Report-vs-Source with evidence caveat",
+            "actualMatch": true,
+            "verdict": "PASS"
+        },
+        {
+            "id": "S4",
+            "description": "User goal is Codex Factory improvement",
+            "expectedMode": "diagnostic → lessons → STOP",
+            "actualMatch": true,
+            "verdict": "PASS"
+        },
+        {
+            "id": "S5",
+            "description": "User explicitly requests pre-submission repair",
+            "expectedMode": "diagnostic → report → user-approved targeted repair",
+            "actualMatch": true,
+            "verdict": "PASS"
+        }
+    ],
+    "overallVerdict": "PASS",
+    "gaps": [],
+    "nextStep": "D_NEGATIVE_CONTROLS"
+}

@@ -1,0 +1,523 @@
+﻿{
+    "detected":  51,
+    "undetected":  0,
+    "totalNegatives":  51,
+    "section":  "L",
+    "failTargetNotTriggered":  0,
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "date":  "2026-06-27",
+    "negatives":  [
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC01",
+                          "fault":  "release ZIP created",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC02",
+                          "fault":  "v0.5 package created",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC03",
+                          "fault":  "pack architecture treated as release",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC04",
+                          "fault":  "Build Pro declared default",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC05",
+                          "fault":  "multi-agent default claimed",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC06",
+                          "fault":  "Build Lite default omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC07",
+                          "fault":  "Native Build Pro conditional omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC08",
+                          "fault":  "Context Packet optional for Native Build Pro",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC09",
+                          "fault":  "Recovery allowed without recovery packet",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC10",
+                          "fault":  "native agent start allowed without AGENT_START_PACKET",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC11",
+                          "fault":  "Reviewer-Verifier allowed without REVIEWER_PACKET",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC12",
+                          "fault":  "Diagnostic Gate treated as mainline",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC13",
+                          "fault":  "external memory called model memory expansion",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC14",
+                          "fault":  "compressed summary treated as evidence",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC15",
+                          "fault":  "trial products copied into pack",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC16",
+                          "fault":  "product code modified",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC17",
+                          "fault":  "SkillMarket modified",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC18",
+                          "fault":  "DevFlow modified",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC19",
+                          "fault":  "NexusDesk modified",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC20",
+                          "fault":  "old release ZIP modified",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC21",
+                          "fault":  "old FINAL package modified",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC22",
+                          "fault":  "7-agent restored",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC23",
+                          "fault":  "10-role restored",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC24",
+                          "fault":  "Native Build Pro allowed without registry",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC25",
+                          "fault":  "Native Build Pro allowed without close receipts",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC26",
+                          "fault":  "UI count treated as lifecycle truth",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC27",
+                          "fault":  "mode selection UX omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC28",
+                          "fault":  "user entrypoints omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC29",
+                          "fault":  "installation model omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC30",
+                          "fault":  "module boundary map omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC31",
+                          "fault":  "context packet integration omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC32",
+                          "fault":  "native lifecycle integration omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC33",
+                          "fault":  "simulation omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC34",
+                          "fault":  "real-world validation plan omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC35",
+                          "fault":  "no verifier",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC36",
+                          "fault":  "no negative controls",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC37",
+                          "fault":  "no evidence paths",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC38",
+                          "fault":  "pack includes product source",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC39",
+                          "fault":  "pack includes audit ZIP",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC40",
+                          "fault":  "pack includes v0.5 files",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC41",
+                          "fault":  "runtime scripts omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC42",
+                          "fault":  "memory-quality omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC43",
+                          "fault":  "external-memory omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC44",
+                          "fault":  "diagnostic-gate omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC45",
+                          "fault":  "governance templates omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC46",
+                          "fault":  "user manual burden ignored",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC47",
+                          "fault":  "cloud memory claimed implemented",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC48",
+                          "fault":  "release gate skipped",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC49",
+                          "fault":  "microphase split recommended",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC50",
+                          "fault":  "real-world validation requirement removed",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC51",
+                          "fault":  "Vanilla product leader wording overrides current Build Lite default strategy",
+                          "result":  "DETECTED",
+                          "risk":  "Architecture integrity compromised",
+                          "target":  "PACK-ARCHITECTURE-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      }
+                  ],
+    "title":  "Negative Controls",
+    "unexpectedPass":  0
+}

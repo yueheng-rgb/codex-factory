@@ -1,0 +1,31 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-E",
+  "title": "Staging Bundle Usability Check",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "project": "tcm-project-ledger",
+  "bundle_version": "v0.9.0-pre",
+  "available_resources": {
+    "starters": 7,
+    "blueprints": 8,
+    "skills": 9,
+    "prompts": 6
+  },
+  "best_match_starter": "fullstack-admin-starter",
+  "match_score": 8,
+  "relevant_skills": [
+    {"skill": "auth-permission-security", "relevance": "HIGH"},
+    {"skill": "database-schema-design", "relevance": "HIGH"},
+    {"skill": "backend-api-design", "relevance": "MEDIUM"},
+    {"skill": "webapp-preview-testing", "relevance": "MEDIUM"},
+    {"skill": "product-architecture", "relevance": "MEDIUM"}
+  ],
+  "gaps": [
+    {"gap": "No Django-specific starter", "severity": "MEDIUM", "mitigated": true},
+    {"gap": "No Python/Django skill", "severity": "MEDIUM", "mitigated": true},
+    {"gap": "No automated secrets scanner", "severity": "LOW", "mitigated": true}
+  ],
+  "bundle_sufficient": true,
+  "native_build_pro_needed": false,
+  "report_path": "outputs/FACTORY_BUILD_REALWORLD_2_E_STAGING_BUNDLE_USABILITY_REPORT.md",
+  "status": "COMPLETE"
+}

@@ -1,0 +1,7 @@
+﻿{
+    "phase":  "USER-HANDOFF-R1",
+    "section":  "D",
+    "platform":  "Windows PowerShell 5.1+",
+    "cliEntry":  "factoryctl.ps1",
+    "rollbackAvailable":  true
+}

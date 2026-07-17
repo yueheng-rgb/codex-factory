@@ -1,0 +1,48 @@
+﻿{
+    "designConstraints":  [
+                              "Must not consume excessive context (router itself must be lightweight)",
+                              "Must not require Codex to memorize all pages (router points, doesn\u0027t contain)",
+                              "Must work with existing Context OS and startup verification",
+                              "Must be verifiable: proof-of-read must have machine-readable evidence",
+                              "Must not become a \u0027read everything\u0027 tax that blocks productive work"
+                          ],
+    "proposedArchitecture":  {
+                                 "name":  "Page Router + Required-Reading Gate",
+                                 "components":  [
+                                                    {
+                                                        "component":  "MANIFEST.json router",
+                                                        "description":  "Factory MANIFEST maps phase/task to required reading pages. Router reads MANIFEST, not all pages."
+                                                    },
+                                                    {
+                                                        "component":  "Required-reading gate",
+                                                        "description":  "Before each phase/task, verifier checks that required pages from MANIFEST were accessed (file read timestamp or hash-based proof)"
+                                                    },
+                                                    {
+                                                        "component":  "Proof-of-read",
+                                                        "description":  "SHA256 of read content logged to agent event ledger. Verifier confirms content hash matches expected."
+                                                    },
+                                                    {
+                                                        "component":  "Page budget",
+                                                        "description":  "Each phase declares max pages to read. Exceeding budget is a risk signal."
+                                                    }
+                                                ]
+                             },
+    "contextCostEstimate":  "Router MANIFEST: ~500 bytes. Read-event log per file: ~100 bytes. Total overhead per phase: \u003c2KB. Negligible compared to project context.",
+    "whatAlreadyExists":  [
+                              "startup-verification-contract.schema.json — defines required read files",
+                              "FACTORY_MEMORY_INDEX.json — maps topics to files",
+                              "Verifier pattern — check file existence",
+                              "Agent event ledger — can log read events"
+                          ],
+    "recommendation":  "BUILD MANUAL ROUTER FIRST (FACTORY-EVAL-2). Without proof-of-read, role-specialized agents cannot reliably read their role definitions, and verifier cannot confirm content comprehension.",
+    "problem":  "Codex may skip reading artifacts. Verifier checks file existence, not content comprehension. No mechanism ensures Codex read what it claims to have read.",
+    "phase":  "FACTORY-EVAL-1-D",
+    "generatedAt":  "2026-06-25T15:53:44+08:00",
+    "schemaId":  "factory-eval-1-manual-router-design-analysis",
+    "whatNeedsBuilding":  [
+                              "MANIFEST router mapping phase/task to required pages",
+                              "Read-event logging to agent ledger",
+                              "Proof-of-read verifier (content hash check)",
+                              "Page budget policy"
+                          ]
+}

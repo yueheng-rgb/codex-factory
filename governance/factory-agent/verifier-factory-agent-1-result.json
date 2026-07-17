@@ -1,0 +1,271 @@
+﻿{
+    "passed":  52,
+    "timestamp":  "2026-06-26T01:23:40.8860064+08:00",
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\factory-agent-1-protocol-pack-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  52,
+    "phase":  "FACTORY-AGENT-1",
+    "checks":  [
+                   {
+                       "Label":  "V04_ZIP_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "V04_ZIP_SHA256",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "OLD_FINAL_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_NEW_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "AGENT0_PASS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PACK_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "README_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "BOUNDARY_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MANIFEST_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_main-agent-orchestrator",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_architect",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_builder-agent",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_integration-lead",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_reviewer",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_verifier",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_integrity-checker",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_worker-capsule",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_worker-reporting",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_worker-handoff",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_close-receipt",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_worker-capsule-protocol",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_worker-reporting-protocol",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_worker-handoff-protocol",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_scheduling-spawn-decision-protocol",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_integration-merge-protocol",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_anti-deception-policy",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "DRIFT_POLICY",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCOPE_POLICY",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "INTEGRITY_POLICY",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "VALIDATE_CAPSULE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_task-graph",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_spawn-decisions",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_worker-capsule-builder-1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_worker-capsule-builder-2",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_progress-report-builder-1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_blocker-report-builder-1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_handoff-builder-1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_handoff-builder-2",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_integration-result",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_reviewer-result",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_verifier-result",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_integrity-check-result",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_close-receipt-builder-1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_close-receipt-builder-2",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_simulation-manifest",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "DRIFT_DETECTED",
+                       "Pass":  true,
+                       "Detail":  "driftInjectionDetected=True, injections=5"
+                   },
+                   {
+                       "Label":  "NO_V05_PACKAGE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_BENCHMARK_RUN",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVE_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEG_36",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEG_GAPS_0",
+                       "Pass":  true,
+                       "Detail":  ""
+                   }
+               ],
+    "failed":  0
+}

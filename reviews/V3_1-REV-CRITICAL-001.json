@@ -1,0 +1,23 @@
+﻿{
+    "review_id": "V3_1-REV-CRITICAL-001",
+    "timestamp": "2026-07-17T16:19:00+08:00",
+    "identity_mode": "signed_local_receipt",
+    "reviewer_alias": "Factory-V3_1-CI-Reviewer",
+    "run_id": "CRITREV-20260717-161843-0001",
+    "mission_id": "CPM-001",
+    "risk_level": "CRITICAL",
+    "decision": "APPROVED_WITH_RISK",
+    "evidence": {
+        "artifact_ids": ["C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stdout.log", "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stderr.log"],
+        "tests_passed": 17,
+        "tests_total": 17,
+        "exit_code": 0
+    },
+    "receipt_hash": "SIMULATED-HASH-V3_1-CRITICAL-001",
+    "non_claims": [
+        "signed_local_receipt uses SIMULATED hash, NOT cryptographic signing",
+        "This is NOT a real external identity verification",
+        "APPROVED_WITH_RISK is NOT production approval",
+        "local_named_reviewer is local alias, NOT verified identity"
+    ]
+}

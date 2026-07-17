@@ -1,0 +1,164 @@
+﻿{
+  "phase": "FACTORY-AGENT-2",
+  "step": "A_PREFLIGHT_RECONCILIATION",
+  "generatedAt": "2026-06-26T03:00:00+08:00",
+  "nativeGenerated": true,
+  "preflightResult": "PASS_WITH_GAPS",
+  "parentPhase": "FACTORY-AGENT-1",
+  "parentVerdict": "PASS",
+  "parentVerifier": "52/52",
+  "parentNegatives": "36/36",
+  "protocolPackPath": "factory-agent-company-protocol-pack/",
+  "protocolPackExists": true,
+  "protocolPackFiles": 47,
+  "v04ReleaseZipSha256": "FF5EE6A652524B1B0F6DB100DDEB48B740E2D4F9A42E428EC43D161D5D1B1FCE",
+  "v04ReleaseZipUnchanged": true,
+  "oldFinalPackageUnchanged": true,
+  "integrityScriptReconciliation": {
+    "question": "AGENT-1 required check-agent-protocol-integrity.ps1 but completion highlighted validate-capsule.ps1",
+    "searchResult": "check-agent-protocol-integrity.ps1 does NOT exist in repo",
+    "classification": "MISSING_RUNTIME_SCRIPT",
+    "resolution": "Must be created in AGENT-2 as runtime/scripts/check-agent-protocol-integrity.ps1",
+    "existingCapsuleValidator": "factory-agent-company-protocol-pack/scripts/validate-capsule.ps1",
+    "capsuleValidatorExists": true,
+    "capsuleValidatorFieldCoverage": {
+      "checksCapsuleId": true,
+      "checksOwnedScope": true,
+      "checksForbiddenScope": true,
+      "checksForkContext": true,
+      "checksExpectedOutputs": true,
+      "checksHandoffFileList": true,
+      "checksHandoffSha256": true,
+      "checksHandoffTranscriptRef": true,
+      "checksHandoffContractChecklist": true,
+      "missingChecks": [
+        "phase",
+        "role validation against known roles",
+        "allowedImports",
+        "forbiddenImports",
+        "requiredEvidence",
+        "closeConditions",
+        "antiDeceptionChecks",
+        "escalationTriggers",
+        "assignedBy",
+        "assignedAt",
+        "contractVersion",
+        "capsuleId pattern validation",
+        "ownedScope minItems validation per schema",
+        "expectedOutputs structured object check (path+description)"
+      ]
+    }
+  },
+  "runtimeGapAnalysis": {
+    "antiDeceptionRuntime": {
+      "exists": false,
+      "policyOnly": true,
+      "policyPath": "factory-agent-company-protocol-pack/protocols/anti-deception-policy.md",
+      "needsRuntime": true
+    },
+    "capsuleValidation": {
+      "exists": true,
+      "path": "factory-agent-company-protocol-pack/scripts/validate-capsule.ps1",
+      "needsUpgrade": true,
+      "gapDescription": "Missing 13 schema field checks; needs upgrade to full schema coverage"
+    },
+    "reportingValidation": {
+      "exists": false,
+      "schemaExists": true,
+      "schemaPath": "factory-agent-company-protocol-pack/schemas/worker-reporting.schema.json",
+      "needsRuntime": true
+    },
+    "handoffValidation": {
+      "exists": false,
+      "schemaExists": true,
+      "schemaPath": "factory-agent-company-protocol-pack/schemas/worker-handoff.schema.json",
+      "needsRuntime": true
+    },
+    "closeReceiptValidation": {
+      "exists": false,
+      "schemaExists": true,
+      "schemaPath": "factory-agent-company-protocol-pack/schemas/close-receipt.schema.json",
+      "needsRuntime": true
+    },
+    "scopeIsolation": {
+      "exists": false,
+      "policyOnly": true,
+      "policyPath": "factory-agent-company-protocol-pack/policies/scope-isolation-policy.md",
+      "needsRuntime": true
+    },
+    "evidenceIntegrity": {
+      "exists": false,
+      "policyOnly": true,
+      "policyPath": "factory-agent-company-protocol-pack/policies/integrity-check-policy.md",
+      "needsRuntime": true
+    },
+    "combinedProtocolSuite": {
+      "exists": false,
+      "needsRuntime": true
+    }
+  },
+  "existingSchemas": [
+    "factory-agent-company-protocol-pack/schemas/worker-capsule.schema.json",
+    "factory-agent-company-protocol-pack/schemas/worker-reporting.schema.json",
+    "factory-agent-company-protocol-pack/schemas/worker-handoff.schema.json",
+    "factory-agent-company-protocol-pack/schemas/close-receipt.schema.json"
+  ],
+  "existingFixtures": [
+    "factory-agent-company-protocol-pack/fixtures/valid-worker-capsule-fixture.json",
+    "factory-agent-company-protocol-pack/fixtures/invalid-worker-capsule-no-scope-fixture.json",
+    "factory-agent-company-protocol-pack/fixtures/valid-close-receipt-fixture.json",
+    "factory-agent-company-protocol-pack/fixtures/valid-worker-handoff-fixture.json",
+    "factory-agent-company-protocol-pack/fixtures/drift-injection-fixture.json"
+  ],
+  "existingSimulationArtifacts": [
+    "harness/runs/factory-agent-1-protocol-pack-simulation/worker-capsule-builder-1.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/worker-capsule-builder-2.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/progress-report-builder-1.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/blocker-report-builder-1.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/handoff-builder-1.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/handoff-builder-2.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/close-receipt-builder-1.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/close-receipt-builder-2.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/integration-result.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/integrity-check-result.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/reviewer-result.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/verifier-result.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/spawn-decisions.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/task-graph.json",
+    "harness/runs/factory-agent-1-protocol-pack-simulation/simulation-manifest.json"
+  ],
+  "ag2RequiredRuntimeScripts": [
+    "runtime/scripts/validate-worker-capsule.ps1",
+    "runtime/scripts/validate-progress-report.ps1",
+    "runtime/scripts/validate-worker-status-report.ps1",
+    "runtime/scripts/validate-worker-handoff.ps1",
+    "runtime/scripts/validate-agent-close-receipt.ps1",
+    "runtime/scripts/check-scope-isolation.ps1",
+    "runtime/scripts/check-evidence-integrity.ps1",
+    "runtime/scripts/check-agent-protocol-integrity.ps1",
+    "runtime/scripts/run-agent-runtime-suite.ps1"
+  ],
+  "ag2RequiredFixtureSets": [
+    "valid-worker-capsule.json",
+    "invalid-worker-capsule-missing-scope.json",
+    "invalid-worker-capsule-broad-scope.json",
+    "valid-progress-report.json",
+    "invalid-progress-report-markdown-only.json",
+    "valid-status-report.json",
+    "invalid-status-report-claims-pass.json",
+    "valid-handoff.json",
+    "invalid-handoff-no-evidence.json",
+    "valid-close-receipt.json",
+    "invalid-close-receipt-no-handoff.json",
+    "scope-valid-case.json",
+    "scope-invalid-cross-write.json",
+    "evidence-valid-case.json",
+    "evidence-invalid-sha.json"
+  ],
+  "blockersFound": [],
+  "openCaveats": [
+    "AGENT-1 requested check-agent-protocol-integrity.ps1 but it was not created; resolved by including it in AGENT-2",
+    "Existing validate-capsule.ps1 covers only 9 of 22 required capsule fields; must be upgraded",
+    "All 4 schemas exist but no runtime validators consume them yet"
+  ]
+}

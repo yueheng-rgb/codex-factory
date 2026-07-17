@@ -1,0 +1,41 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "B",
+    "title": "RC Criteria and Boundary Definition",
+    "timestamp": "2026-06-28T20:30:00+08:00",
+    "artifacts": {
+        "rc_boundary": "factory-release/RC_BOUNDARY.md",
+        "rc_criteria": "factory-release/RC_CRITERIA.md"
+    },
+    "rc_definition": {
+        "type": "RELEASE_CANDIDATE",
+        "is_release": false,
+        "is_v05": false,
+        "purpose": ["package candidate", "smoke target", "user review target"],
+        "version": "0.9.0-pre-rc0",
+        "underlying_staging": "0.9.0-pre (P8)"
+    },
+    "required_flags": {
+        "releaseAllowed": false,
+        "v05Package": false,
+        "finalRelease": false,
+        "rcCandidate": true,
+        "rcRequiresUserApproval": true,
+        "artifactType": "RELEASE_CANDIDATE"
+    },
+    "source_boundary": {
+        "basis": "P8 staging pack definition + current project state",
+        "core_included": ["AGENTS.md", "GLOBAL_CODEX_RULES.md", "APP_TYPE_ROUTER.md", "STACK_DECISION_GUIDE.md", "factory-resource-pack/", "scripts/factoryctl.ps1", "governance/", "memory-quality/", "runtime/scripts/factory-cleanup-planner.ps1", "schemas/", "prompts/", "templates/", "blueprints/", "starters/", "skills/", "scripts/", "EXTERNAL_SKILLS_RESEARCH.md"],
+        "experimental_included": ["codex-factory-plugin/", "codex-factory-plugin/mcp/", "codex-factory-plugin/automation/", "scripts/monitoring/"],
+        "excluded": ["real projects", "working copies", "trial/harness/run artifacts", "historical scoring/failure-router", "old student packages", "real .env", "secrets", "release ZIPs", "v0.5 packages"]
+    },
+    "acceptance": {
+        "rc_criteria_defined": true,
+        "rc_boundary_defined": true,
+        "flags_specified": true,
+        "inclusion_exclusion_clear": true,
+        "version_boundary_clear": true,
+        "release_boundary_preserved": true
+    },
+    "section_verdict": "COMPLETE"
+}

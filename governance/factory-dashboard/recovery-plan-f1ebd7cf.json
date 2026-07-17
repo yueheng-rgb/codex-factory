@@ -1,0 +1,57 @@
+﻿{
+    "dashboardHealthBefore":  "CRITICAL",
+    "planId":  "f1ebd7cf-c5f4-40c0-9359-deaa7fd2b802",
+    "userConfirmationsRequired":  2,
+    "projectId":  "UNKNOWN",
+    "userConfirmationsReceived":  0,
+    "findings":  [
+                     {
+                         "action":  "CREATE_REPAIR_PLAN",
+                         "failureModeId":  "FM-01",
+                         "description":  "Missing project registry",
+                         "autoRepairAllowed":  false,
+                         "userConfirmationRequired":  true,
+                         "severity":  "CRITICAL",
+                         "status":  "PENDING"
+                     },
+                     {
+                         "action":  "CREATE_REPAIR_PLAN",
+                         "failureModeId":  "FM-08",
+                         "description":  "Missing phase ledger",
+                         "autoRepairAllowed":  false,
+                         "userConfirmationRequired":  true,
+                         "severity":  "CRITICAL",
+                         "status":  "PENDING"
+                     }
+                 ],
+    "timestamp":  "2026-06-29T00:25:22+08:00",
+    "recoveryLevel":  "LEVEL_3",
+    "actions":  [
+                    {
+                        "step":  1,
+                        "safeForAuto":  false,
+                        "description":  "CONFIRMATION REQUIRED: Missing project registry",
+                        "result":  "Awaiting user confirmation",
+                        "actionType":  "CREATE_REPAIR_PLAN",
+                        "targetPath":  "",
+                        "status":  "PENDING"
+                    },
+                    {
+                        "step":  2,
+                        "safeForAuto":  false,
+                        "description":  "CONFIRMATION REQUIRED: Missing phase ledger",
+                        "result":  "Awaiting user confirmation",
+                        "actionType":  "CREATE_REPAIR_PLAN",
+                        "targetPath":  "",
+                        "status":  "PENDING"
+                    }
+                ],
+    "overallStatus":  "AWAITING_CONFIRMATION",
+    "blockedOperations":  [
+                              "phase_start",
+                              "phase_close",
+                              "build",
+                              "package",
+                              "release"
+                          ]
+}

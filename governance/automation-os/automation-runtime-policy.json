@@ -1,0 +1,61 @@
+﻿{
+    "version":  "1.0.0",
+    "forbiddenActions":  [
+                             "Mutate currentTrustedPhase",
+                             "Mark phase PASS",
+                             "Create final ZIP",
+                             "Start new major phase",
+                             "Claim new context creation",
+                             "Replace verifier evidence"
+                         ],
+    "schemaId":  "automation-runtime-policy",
+    "phase":  "LIVE-RUNTIME-9-C",
+    "baseRule":  "Automation is scheduler/monitor, not state actor",
+    "rules":  [
+                  {
+                      "id":  "ARP-01",
+                      "rule":  "Automation alert is not verifier PASS"
+                  },
+                  {
+                      "id":  "ARP-02",
+                      "rule":  "Automation cannot mutate governance state (currentTrustedPhase, phase status, finalGateState)"
+                  },
+                  {
+                      "id":  "ARP-03",
+                      "rule":  "Automation cannot create final ZIP"
+                  },
+                  {
+                      "id":  "ARP-04",
+                      "rule":  "Automation cannot claim new context or window creation unless directly proven"
+                  },
+                  {
+                      "id":  "ARP-05",
+                      "rule":  "Automation same-thread wakeup is NOT a new context carrier"
+                  },
+                  {
+                      "id":  "ARP-06",
+                      "rule":  "Automation may recommend manual new window + artifact startup verification"
+                  },
+                  {
+                      "id":  "ARP-07",
+                      "rule":  "Scheduled-mode simulation must be labeled as such, never as REAL_SCHEDULED"
+                  },
+                  {
+                      "id":  "ARP-08",
+                      "rule":  "Automation output must be machine-readable JSON, not markdown-only"
+                  },
+                  {
+                      "id":  "ARP-09",
+                      "rule":  "Automation must include evidence paths in all alerts"
+                  }
+              ],
+    "allowedActions":  [
+                           "Run watcher script",
+                           "Emit non-mutating alert",
+                           "Generate rotation recommendation",
+                           "Generate startup packet",
+                           "Notify user",
+                           "Archive when clean"
+                       ],
+    "generatedAt":  "2026-06-25T00:53:41+08:00"
+}

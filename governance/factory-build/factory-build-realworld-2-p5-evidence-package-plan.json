@@ -1,0 +1,12 @@
+﻿{
+    "evidence_id": "FACTORY-BUILD-REALWORLD-2-P5-EVIDENCE-PACKAGE-PLAN",
+    "generated_at": "2026-06-28T10:49:26+08:00", "section": "G",
+    "plan": {
+        "type": "EVIDENCE_ONLY_NOT_RELEASE",
+        "includes": ["All P1-P5 reports in outputs/", "All governance JSONs in governance/factory-build/", "All verifier results", "Working copy change inventory"],
+        "excludes": ["Original project files", "Production .env", "Deploy scripts with credentials", "db.sqlite3 with patient data", "Any secret values"],
+        "zip_name": "REALWORLD_2_EVIDENCE_ONLY_NOT_RELEASE.zip",
+        "notes": ["This is evidence of Factory workflow, NOT a product release", "Not v0.5", "Not deployment package", "Contains no secrets"]
+    },
+    "verdict": "EVIDENCE_PACKAGE_PLAN_READY"
+}

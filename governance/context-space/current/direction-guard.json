@@ -1,0 +1,137 @@
+﻿{
+    "guard_version":  "1.0.0",
+    "generated_at":  "2026-06-29T13:41:27+08:00",
+    "generated_during_phase":  "FACTORY-CONTEXT-LEDGER-RECONCILIATION-0",
+    "currentPhase":  "FACTORY-REAL-VALIDATION-READINESS-0",
+    "lastCompletedPhase":  "USER-HANDOFF-R1",
+    "rules":  [
+                  {
+                      "rule_id":  "DG-001",
+                      "rule":  "No pre-coding before Bootstrap",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "BOOT-001: Factory Bootstrap must run first"
+                  },
+                  {
+                      "rule_id":  "DG-002",
+                      "rule":  "Build Lite is default build mode",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "FROZEN-001: Build Lite best cost/performance"
+                  },
+                  {
+                      "rule_id":  "DG-003",
+                      "rule":  "Native Build Pro is conditional, not default",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "FROZEN-002"
+                  },
+                  {
+                      "rule_id":  "DG-004",
+                      "rule":  "v0.5 release blocked",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "AGENT-9-P3 verdict: no vanilla quality advantage proven"
+                  },
+                  {
+                      "rule_id":  "DG-005",
+                      "rule":  "Multi-agent is NOT default",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "RC001 rejected"
+                  },
+                  {
+                      "rule_id":  "DG-006",
+                      "rule":  "No cloud without local MVP proof",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "User preference: LOCAL_ONLY"
+                  },
+                  {
+                      "rule_id":  "DG-007",
+                      "rule":  "No micro-phase splitting",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "User preference: big phases"
+                  },
+                  {
+                      "rule_id":  "DG-008",
+                      "rule":  "Compressed summary cannot be evidence",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "Evidence hierarchy policy"
+                  },
+                  {
+                      "rule_id":  "DG-009",
+                      "rule":  "Completed phases cannot be shown as pending",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "CURRENT-STATE-SOURCE-POLICY OVERRIDE-001; MOUNT-TRIAL-R1 finding"
+                  },
+                  {
+                      "rule_id":  "DG-010",
+                      "rule":  "Attach Packet must carry freshnessStatus and sourceOfTruthPaths",
+                      "type":  "block",
+                      "frozen":  true,
+                      "rationale":  "CURRENT-STATE-SOURCE-POLICY OVERRIDE-003; MOUNT-TRIAL-R1 hardening"
+                  },
+                  {
+                      "frozen":  true,
+                      "rule":  "ULTRA_COMPACT snapshot cannot be used for autonomous continuation",
+                      "rule_id":  "DG-011",
+                      "rationale":  "Missing frozen_conclusions, strategy flags, and risks makes autonomous continuation unsafe",
+                      "type":  "block"
+                  },
+                  {
+                      "frozen":  true,
+                      "rule":  "Snapshot Pack is not verifier evidence — always reference verifier JSONs",
+                      "rule_id":  "DG-012",
+                      "rationale":  "Snapshots are derived context, not evidence",
+                      "type":  "block"
+                  },
+                  {
+                      "frozen":  true,
+                      "rule":  "Fresh window must validate snapshot freshness before mounting",
+                      "rule_id":  "DG-013",
+                      "rationale":  "Stale snapshot without validation risks resurrecting old conclusions",
+                      "type":  "block"
+                  }
+              ],
+    "nextRecommendedPhases":  [
+                                  "FACTORY-REAL-VALIDATION-READINESS-0 (sub-steps B-I pending, sub-step A done)",
+                                  "FACTORY-REAL-VALIDATION-0 (first R1 real project trial — ONLY after READINESS-0 PASS)",
+                                  "PAUSE_OR_USER_DIRECTION (v0.5-R1 delivered; next user decides)"
+                              ],
+    "blockedPhases":  [
+                          "v0.5 release — COMPLETED (V0.5-RELEASE-CREATION-0 PASS)",
+                          "SQLite P1 (user said no)",
+                          "Cloud deploy (user said no)",
+                          "Native Build Pro as default (FROZEN-002)",
+                          "FACTORY-CONTEXT-SPACE-CLOUD-0 (user said no)",
+                          "v0.6 (user said no)"
+                      ],
+    "archivedLegacyWarnings":  [
+                                   {
+                                       "source":  "governance/session-controller/latest-rotation-execution-packet.json",
+                                       "date":  "2026-06-25",
+                                       "risks":  [
+                                                     {
+                                                         "risk":  "Shared memory divergence",
+                                                         "severity":  "P0",
+                                                         "status":  "ARCHIVED_NOT_ACTIVE_BLOCKER"
+                                                     },
+                                                     {
+                                                         "risk":  "Verifier overfitting",
+                                                         "severity":  "P1",
+                                                         "status":  "ARCHIVED_NOT_ACTIVE_BLOCKER"
+                                                     },
+                                                     {
+                                                         "risk":  "Automation rotation watcher not implemented",
+                                                         "severity":  "P1",
+                                                         "status":  "ARCHIVED_NOT_ACTIVE_BLOCKER"
+                                                     }
+                                                 ],
+                                       "note":  "These are legacy rotation warnings. They do not block current Mount Trial R1 work."
+                                   }
+                               ]
+}

@@ -1,0 +1,161 @@
+﻿{
+    "passed":  30,
+    "timestamp":  "2026-06-24T17:32:43.9451697+08:00",
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\phase6c-dry25-s0-startup-tooling-repair-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  30,
+    "phase":  "DRY25-S0",
+    "checks":  [
+                   {
+                       "Label":  "S0_PARENT_H18",
+                       "Pass":  true,
+                       "Detail":  "currentTrustedPhase=H18"
+                   },
+                   {
+                       "Label":  "S0_H18_PASS",
+                       "Pass":  true,
+                       "Detail":  "h18Status=PASS"
+                   },
+                   {
+                       "Label":  "S0_DRY25_NOT_STARTED",
+                       "Pass":  true,
+                       "Detail":  "dry25Status not STARTED"
+                   },
+                   {
+                       "Label":  "S0_NO_DRY25_MISSION",
+                       "Pass":  true,
+                       "Detail":  "Found 0"
+                   },
+                   {
+                       "Label":  "S0_NO_H19",
+                       "Pass":  true,
+                       "Detail":  "Found 0"
+                   },
+                   {
+                       "Label":  "S0_NO_FINAL_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "S0_FACTORYCTL_PASS",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS"
+                   },
+                   {
+                       "Label":  "S0_FACTORYCTL_NO_MODULE_FAIL",
+                       "Pass":  true,
+                       "Detail":  "failedModules=0"
+                   },
+                   {
+                       "Label":  "S0_MODULE_check-handoff-integrity-PASS",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS"
+                   },
+                   {
+                       "Label":  "S0_MODULE_check-worker-boundaries-PASS",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS"
+                   },
+                   {
+                       "Label":  "S0_EVIDENCE_HASH_CANONICAL",
+                       "Pass":  true,
+                       "Detail":  "canonical field used, verdict=PASS"
+                   },
+                   {
+                       "Label":  "S0_LEGACY_AGENTS_CLASSIFIED",
+                       "Pass":  true,
+                       "Detail":  "legacy=9, active=0, violating=0"
+                   },
+                   {
+                       "Label":  "S0_ACTIVE_VIOLATORS_ZERO",
+                       "Pass":  true,
+                       "Detail":  "violating=0 (would block if \u003e0)"
+                   },
+                   {
+                       "Label":  "S0_BOOTSTRAP_PATH_FIXED",
+                       "Pass":  true,
+                       "Detail":  "default PackPath uses parent dir"
+                   },
+                   {
+                       "Label":  "S0_BOOTSTRAP_VALIDATE_PASS",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS, checks=14"
+                   },
+                   {
+                       "Label":  "S0_MANIFEST_SHA256_PASS",
+                       "Pass":  true,
+                       "Detail":  "status=PASS, detail=Hash: AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8"
+                   },
+                   {
+                       "Label":  "S0_H18_POST_COMPLETION_PASS",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS, passed=87/87"
+                   },
+                   {
+                       "Label":  "S0_H18_NO_FALSE_POSITIVES",
+                       "Pass":  true,
+                       "Detail":  "failed=0"
+                   },
+                   {
+                       "Label":  "S0_H18_CURRENT_PHASE_OK",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "S0_H18_DRY25_CLASSIFIED",
+                       "Pass":  true,
+                       "Detail":  "detail=forbidden=0, allowed=4"
+                   },
+                   {
+                       "Label":  "S0_CLASSIFICATION_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "S0_CLASSIFICATION_HAS_RULES",
+                       "Pass":  true,
+                       "Detail":  "categories=5"
+                   },
+                   {
+                       "Label":  "S0_STARTUP_ALLOWED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "S0_VERIFICATION_ALLOWED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "S0_MISSION_FORBIDDEN",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "S0_STARTUP_VERIFICATION_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "S0_STARTUP_VERIFICATION_CLEAN",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS"
+                   },
+                   {
+                       "Label":  "S0_NO_MANUAL_PASS",
+                       "Pass":  true,
+                       "Detail":  "count=0"
+                   },
+                   {
+                       "Label":  "S0_NO_GENERIC_FAIL",
+                       "Pass":  true,
+                       "Detail":  "count=0"
+                   },
+                   {
+                       "Label":  "S0_NO_RUNNER_SABOTAGE",
+                       "Pass":  true,
+                       "Detail":  "Direct execution, no runner"
+                   }
+               ],
+    "failed":  0
+}

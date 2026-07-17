@@ -1,0 +1,27 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "F",
+  "title": "Output Lock",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "lock_rules": [
+    "All outputs frozen after execution — no post-hoc editing",
+    "RUN-A outputs locked in harness/ab-0-r1/run-a-vanilla/",
+    "RUN-B outputs locked in harness/ab-0-r1/run-b-factory/",
+    "Scoring applied to frozen outputs, not edited outputs",
+    "Any output not in lock directory is not evidence"
+  ],
+  "locked_artifacts": {
+    "run_a": {
+      "location": "harness/ab-0-r1/run-a-vanilla/",
+      "locked_at": "2026-06-28T17:40:00+08:00",
+      "artifacts": ["source code", "db schema", "API routes", "frontend", "tests", "README", ".env.example"]
+    },
+    "run_b": {
+      "location": "harness/ab-0-r1/run-b-factory/",
+      "locked_at": "2026-06-28T17:40:00+08:00",
+      "artifacts": ["design doc", "source code", "db schema", "API routes", "frontend", "tests + classification log", "README", ".env.example (reviewed)", "phase ledger", "Package QA manifest", "SHA256"]
+    }
+  },
+  "no_edit_policy": "Post-lock modifications void the comparison. All scoring must reference locked outputs only.",
+  "status": "OUTPUTS_LOCKED"
+}

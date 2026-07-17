@@ -1,0 +1,18 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "L",
+    "title": "Negative Controls",
+    "timestamp": "2026-06-28T20:38:00+08:00",
+    "summary": {
+        "total": 46,
+        "defence_held": 46,
+        "gaps": 0,
+        "unexpected_pass": 0,
+        "fail_target_not_triggered": 0,
+        "generic_fail": 0,
+        "expected_class_only": 0,
+        "manual_pass_only": 0
+    },
+    "verdict": "ALL_DEFENCE_HELD",
+    "section_verdict": "PASS"
+}

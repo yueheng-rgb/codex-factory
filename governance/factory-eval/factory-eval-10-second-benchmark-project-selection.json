@@ -1,0 +1,41 @@
+﻿{
+  "phase": "FACTORY-EVAL-10-A",
+  "title": "Second Benchmark Project Selection — LedgerFlow Lite",
+  "createdAt": "2026-06-25T20:25:00+08:00",
+  "selectedProject": {
+    "name": "LedgerFlow Lite",
+    "description": "A small invoicing/expense system with approval workflow, line items, financial calculations, and reporting.",
+    "type": "SaaS / Business Tool",
+    "complexity": "14-16 FRs — moderately higher than TeamFlow Lite (11 FRs)"
+  },
+  "justification": {
+    "whyDifferentFromTeamFlowLite": [
+      "TeamFlow Lite was task/workflow management. LedgerFlow Lite is financial operations.",
+      "New domain: financial calculations (tax, totals), line items, approval chains, reporting/aggregation.",
+      "Different data model: customers/vendors instead of teams/members, invoices instead of tasks, line items instead of comments.",
+      "Different workflows: draft→submitted→approved→rejected→paid vs todo→in_progress→blocked→done.",
+      "New competency requirements: CSV export, dashboard aggregation, amount validation."
+    ],
+    "whatNewSimplificationRisksItExposes": [
+      "Financial calculation correctness — simple implementation may produce wrong totals/tax.",
+      "Line item relationships — 1:N relationship with cascade that differs from task→comment.",
+      "Approval workflow with permission checks — more nuanced than task status transitions.",
+      "Dashboard/reporting — aggregation queries that test whether v0.4 Manual Router catches complexity.",
+      "CSV export — testing whether v0.4 produces deterministic, verifiable output."
+    ],
+    "whyComplexEnoughButNotTooLarge": [
+      "14-16 FRs is moderate — above TeamFlow Lite's 11 but far below enterprise ERP (50+ FRs).",
+      "Financial domain adds real-world validation complexity without requiring payment gateways.",
+      "Line items + approval + dashboard are distinct enough to test multi-entity relationships.",
+      "Can be built as a monolith (anti-overengineering rule) — no microservices needed.",
+      "Estimated implementation: 500-800 lines of backend + 400-600 lines of frontend."
+    ],
+    "whyV04FactoryLiteShouldHelp": [
+      "Manual Router should classify LedgerFlow Lite as a business-tool/SaaS, routing to appropriate starter.",
+      "Proof-of-Read ensures requirements for financial calculations are read before implementing.",
+      "Contamination logging keeps Vanilla and v0.4 runs independent.",
+      "Evidence hierarchy prevents counting CSV stubs or placeholder dashboards as real features.",
+      "Anti-gaming controls catch fake financial calculations and placeholder approval workflows."
+    ]
+  }
+}

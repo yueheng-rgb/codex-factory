@@ -1,0 +1,26 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "D",
+  "title": "Build Lite Rule Update",
+  "timestamp": "2026-06-28T10:58:00+08:00",
+  "rule": "DG-002: Build Lite is default build mode",
+  "status": "CONFIRMED_AND_STRENGTHENED",
+  "confirmations_from_realworld2": [
+    "REALWORLD-1: Build Lite successfully handled Online Bookstore working-copy validation",
+    "REALWORLD-2: Build Lite successfully handled TCM Django 5-phase validation",
+    "Both projects: single-agent Build Lite completed full intake→harden→repair→deliver cycle",
+    "No Native Build Pro needed for either realworld project"
+  ],
+  "working_copy_requirements": {
+    "context_packet": "MANDATORY — must include project type, risks, mode, phase scope",
+    "working_copy_isolation": "MANDATORY — original project must remain untouched",
+    "baseline_validation": "MANDATORY — run check/lint/smoke before any changes",
+    "security_deploy_gate": "MANDATORY for projects with deployed traces or secrets"
+  },
+  "context_packet_minimum": {
+    "fields": ["project_type", "risk_count", "build_mode", "phase_scope", "original_path", "working_copy_path"],
+    "validation": "Must pass Context Packet schema validation before phase start"
+  },
+  "rule_preserved": true,
+  "report_path": "outputs/FACTORY_REALWORLD_2_LESSONS_0_D_BUILD_LITE_RULE_UPDATE_REPORT.md"
+}

@@ -1,0 +1,674 @@
+﻿{
+    "manifestPath":  "C:\\Codex_App_Factory\\harness\\runs\\factory-agent-3-orchestrator-runtime-simulation\\suite-manifest.json",
+    "suiteEnd":  "2026-06-26T01:49:08.7632099+08:00",
+    "overall":  "FAIL",
+    "verdict":  "AGENT_PROTOCOL_BLOCKED",
+    "artifactsChecked":  11,
+    "blockingCount":  5,
+    "warningCount":  0,
+    "errorCount":  0,
+    "passCount":  6,
+    "results":  [
+                    {
+                        "definitionPath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\scheduler\\fixtures\\valid-task-graph.json",
+                        "validatedAt":  "2026-06-26T01:49:05.1480592+08:00",
+                        "overall":  "PASS",
+                        "totalChecks":  39,
+                        "passedChecks":  39,
+                        "failedChecks":  0,
+                        "cycles":  [
+
+                                   ],
+                        "missingOwners":  [
+
+                                          ],
+                        "results":  [
+                                        {
+                                            "field":  "graphId",
+                                            "result":  "PASS",
+                                            "detail":  "graphId=\u0027tg-ag3-valid\u0027"
+                                        },
+                                        {
+                                            "field":  "phaseId",
+                                            "result":  "PASS",
+                                            "detail":  "phaseId=\u0027FACTORY-AGENT-3\u0027"
+                                        },
+                                        {
+                                            "field":  "tasksDefined",
+                                            "result":  "PASS",
+                                            "detail":  "tasks count=6"
+                                        },
+                                        {
+                                            "field":  "maxParallelAgents",
+                                            "result":  "PASS",
+                                            "detail":  "maxParallelAgents=4"
+                                        },
+                                        {
+                                            "field":  "task.t1.id",
+                                            "result":  "PASS",
+                                            "detail":  "taskId=\u0027t1\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t1.title",
+                                            "result":  "PASS",
+                                            "detail":  "title=\u0027Architect design\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t1.role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Architect\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t1.outputs",
+                                            "result":  "PASS",
+                                            "detail":  "outputs=1"
+                                        },
+                                        {
+                                            "field":  "task.t1.status",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027pending\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t2.id",
+                                            "result":  "PASS",
+                                            "detail":  "taskId=\u0027t2\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t2.title",
+                                            "result":  "PASS",
+                                            "detail":  "title=\u0027Build auth module\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t2.role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Builder\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t2.outputs",
+                                            "result":  "PASS",
+                                            "detail":  "outputs=1"
+                                        },
+                                        {
+                                            "field":  "task.t2.status",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027pending\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t2.hasModule",
+                                            "result":  "PASS",
+                                            "detail":  "module=\u0027auth\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t3.id",
+                                            "result":  "PASS",
+                                            "detail":  "taskId=\u0027t3\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t3.title",
+                                            "result":  "PASS",
+                                            "detail":  "title=\u0027Build payment module\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t3.role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Builder\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t3.outputs",
+                                            "result":  "PASS",
+                                            "detail":  "outputs=1"
+                                        },
+                                        {
+                                            "field":  "task.t3.status",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027pending\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t3.hasModule",
+                                            "result":  "PASS",
+                                            "detail":  "module=\u0027payments\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t4.id",
+                                            "result":  "PASS",
+                                            "detail":  "taskId=\u0027t4\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t4.title",
+                                            "result":  "PASS",
+                                            "detail":  "title=\u0027Integration\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t4.role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Integration Lead\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t4.outputs",
+                                            "result":  "PASS",
+                                            "detail":  "outputs=1"
+                                        },
+                                        {
+                                            "field":  "task.t4.status",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027pending\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t4.highRiskReviewer",
+                                            "result":  "PASS",
+                                            "detail":  "riskLevel=high - requires reviewer checkpoint"
+                                        },
+                                        {
+                                            "field":  "task.t5.id",
+                                            "result":  "PASS",
+                                            "detail":  "taskId=\u0027t5\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t5.title",
+                                            "result":  "PASS",
+                                            "detail":  "title=\u0027Review all modules\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t5.role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Reviewer\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t5.outputs",
+                                            "result":  "PASS",
+                                            "detail":  "outputs=1"
+                                        },
+                                        {
+                                            "field":  "task.t5.status",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027pending\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t6.id",
+                                            "result":  "PASS",
+                                            "detail":  "taskId=\u0027t6\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t6.title",
+                                            "result":  "PASS",
+                                            "detail":  "title=\u0027Verify all gates\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t6.role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Verifier\u0027"
+                                        },
+                                        {
+                                            "field":  "task.t6.outputs",
+                                            "result":  "PASS",
+                                            "detail":  "outputs=1"
+                                        },
+                                        {
+                                            "field":  "task.t6.status",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027pending\u0027"
+                                        },
+                                        {
+                                            "field":  "noCycles",
+                                            "result":  "PASS",
+                                            "detail":  "Dependency cycles: 0"
+                                        },
+                                        {
+                                            "field":  "noMissingOwners",
+                                            "result":  "PASS",
+                                            "detail":  "Missing owners: 0"
+                                        }
+                                    ]
+                    },
+                    {
+                        "definitionPath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\scheduler\\fixtures\\invalid-task-graph-cycle.json",
+                        "validatedAt":  "2026-06-26T01:49:05.5645410+08:00",
+                        "overall":  "FAIL",
+                        "totalChecks":  16,
+                        "passedChecks":  15,
+                        "failedChecks":  1,
+                        "cycles":  [
+                                       "a"
+                                   ],
+                        "missingOwners":  [
+
+                                          ],
+                        "results":  [
+                                        {
+                                            "field":  "graphId",
+                                            "result":  "PASS",
+                                            "detail":  "graphId=\u0027tg-ag3-cycle\u0027"
+                                        },
+                                        {
+                                            "field":  "phaseId",
+                                            "result":  "PASS",
+                                            "detail":  "phaseId=\u0027FACTORY-AGENT-3\u0027"
+                                        },
+                                        {
+                                            "field":  "tasksDefined",
+                                            "result":  "PASS",
+                                            "detail":  "tasks count=2"
+                                        },
+                                        {
+                                            "field":  "maxParallelAgents",
+                                            "result":  "PASS",
+                                            "detail":  "maxParallelAgents=2"
+                                        },
+                                        {
+                                            "field":  "task.a.id",
+                                            "result":  "PASS",
+                                            "detail":  "taskId=\u0027a\u0027"
+                                        },
+                                        {
+                                            "field":  "task.a.title",
+                                            "result":  "PASS",
+                                            "detail":  "title=\u0027Task A\u0027"
+                                        },
+                                        {
+                                            "field":  "task.a.role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Builder\u0027"
+                                        },
+                                        {
+                                            "field":  "task.a.outputs",
+                                            "result":  "PASS",
+                                            "detail":  "outputs=1"
+                                        },
+                                        {
+                                            "field":  "task.a.status",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027pending\u0027"
+                                        },
+                                        {
+                                            "field":  "task.b.id",
+                                            "result":  "PASS",
+                                            "detail":  "taskId=\u0027b\u0027"
+                                        },
+                                        {
+                                            "field":  "task.b.title",
+                                            "result":  "PASS",
+                                            "detail":  "title=\u0027Task B\u0027"
+                                        },
+                                        {
+                                            "field":  "task.b.role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Builder\u0027"
+                                        },
+                                        {
+                                            "field":  "task.b.outputs",
+                                            "result":  "PASS",
+                                            "detail":  "outputs=1"
+                                        },
+                                        {
+                                            "field":  "task.b.status",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027pending\u0027"
+                                        },
+                                        {
+                                            "field":  "noCycles",
+                                            "result":  "FAIL",
+                                            "detail":  "Dependency cycles: 1"
+                                        },
+                                        {
+                                            "field":  "noMissingOwners",
+                                            "result":  "PASS",
+                                            "detail":  "Missing owners: 0"
+                                        }
+                                    ]
+                    },
+                    {
+                        "statePath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\scheduler\\fixtures\\valid-capacity-preflight.json",
+                        "checkedAt":  "2026-06-26T01:49:05.9529281+08:00",
+                        "overall":  "PASS",
+                        "totalChecks":  5,
+                        "passedChecks":  5,
+                        "failedChecks":  0,
+                        "results":  [
+                                        {
+                                            "field":  "maxAgentsDefined",
+                                            "result":  "PASS",
+                                            "detail":  "maxAgents=4"
+                                        },
+                                        {
+                                            "field":  "openAgentsDefined",
+                                            "result":  "PASS",
+                                            "detail":  "openAgents=2"
+                                        },
+                                        {
+                                            "field":  "staleAgentsDefined",
+                                            "result":  "PASS",
+                                            "detail":  "staleAgents=0"
+                                        },
+                                        {
+                                            "field":  "noUnsafeStaleOpen",
+                                            "result":  "PASS",
+                                            "detail":  "Stale+open overlap=0"
+                                        },
+                                        {
+                                            "field":  "underCapacity",
+                                            "result":  "PASS",
+                                            "detail":  "openAgents(2) \u003c maxAgents(4)"
+                                        }
+                                    ]
+                    },
+                    {
+                        "statePath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\scheduler\\fixtures\\invalid-capacity-overload.json",
+                        "checkedAt":  "2026-06-26T01:49:06.3000925+08:00",
+                        "overall":  "FAIL",
+                        "totalChecks":  5,
+                        "passedChecks":  3,
+                        "failedChecks":  2,
+                        "results":  [
+                                        {
+                                            "field":  "maxAgentsDefined",
+                                            "result":  "PASS",
+                                            "detail":  "maxAgents=2"
+                                        },
+                                        {
+                                            "field":  "openAgentsDefined",
+                                            "result":  "PASS",
+                                            "detail":  "openAgents=3"
+                                        },
+                                        {
+                                            "field":  "staleAgentsDefined",
+                                            "result":  "PASS",
+                                            "detail":  "staleAgents=1"
+                                        },
+                                        {
+                                            "field":  "noUnsafeStaleOpen",
+                                            "result":  "FAIL",
+                                            "detail":  "Stale+open overlap=1"
+                                        },
+                                        {
+                                            "field":  "underCapacity",
+                                            "result":  "FAIL",
+                                            "detail":  "openAgents(3) \u003c maxAgents(2)"
+                                        }
+                                    ]
+                    },
+                    {
+                        "decisionPath":  "C:\\Codex_App_Factory\\harness\\runs\\factory-agent-3-orchestrator-runtime-simulation\\valid-spawn-decision.json",
+                        "validatedAt":  "2026-06-26T01:49:06.6396982+08:00",
+                        "overall":  "PASS",
+                        "totalChecks":  9,
+                        "passedChecks":  9,
+                        "failedChecks":  0,
+                        "results":  [
+                                        {
+                                            "field":  "decisionId",
+                                            "result":  "PASS",
+                                            "detail":  "decisionId=\u0027spawn-ag3-b1\u0027"
+                                        },
+                                        {
+                                            "field":  "agentId",
+                                            "result":  "PASS",
+                                            "detail":  "agentId=\u0027ag3-builder-1\u0027"
+                                        },
+                                        {
+                                            "field":  "role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Builder\u0027"
+                                        },
+                                        {
+                                            "field":  "complexityTrigger",
+                                            "result":  "PASS",
+                                            "detail":  "complexityTrigger=\u0027Task t1 requires 3+ files\u0027"
+                                        },
+                                        {
+                                            "field":  "isolationPlan",
+                                            "result":  "PASS",
+                                            "detail":  "isolationPlan=\u0027packages/mod1/src/\u0027"
+                                        },
+                                        {
+                                            "field":  "capsuleRef",
+                                            "result":  "PASS",
+                                            "detail":  "capsuleRef=\u0027capsules/builder1.json\u0027"
+                                        },
+                                        {
+                                            "field":  "forkContext",
+                                            "result":  "PASS",
+                                            "detail":  "forkContext=false"
+                                        },
+                                        {
+                                            "field":  "capacityApproved",
+                                            "result":  "PASS",
+                                            "detail":  "capacityApproved=true"
+                                        },
+                                        {
+                                            "field":  "decisionOutcome",
+                                            "result":  "PASS",
+                                            "detail":  "outcome=\u0027APPROVED\u0027"
+                                        }
+                                    ]
+                    },
+                    {
+                        "decisionPath":  "C:\\Codex_App_Factory\\harness\\runs\\factory-agent-3-orchestrator-runtime-simulation\\invalid-spawn-decision.json",
+                        "validatedAt":  "2026-06-26T01:49:06.9688980+08:00",
+                        "overall":  "FAIL",
+                        "totalChecks":  9,
+                        "passedChecks":  6,
+                        "failedChecks":  3,
+                        "results":  [
+                                        {
+                                            "field":  "decisionId",
+                                            "result":  "PASS",
+                                            "detail":  "decisionId=\u0027spawn-ag3-bad\u0027"
+                                        },
+                                        {
+                                            "field":  "agentId",
+                                            "result":  "PASS",
+                                            "detail":  "agentId=\u0027ag3-bad\u0027"
+                                        },
+                                        {
+                                            "field":  "role",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Builder\u0027"
+                                        },
+                                        {
+                                            "field":  "complexityTrigger",
+                                            "result":  "FAIL",
+                                            "detail":  "complexityTrigger=\u0027\u0027"
+                                        },
+                                        {
+                                            "field":  "isolationPlan",
+                                            "result":  "FAIL",
+                                            "detail":  "isolationPlan=\u0027\u0027"
+                                        },
+                                        {
+                                            "field":  "capsuleRef",
+                                            "result":  "FAIL",
+                                            "detail":  "capsuleRef=\u0027\u0027"
+                                        },
+                                        {
+                                            "field":  "forkContext",
+                                            "result":  "PASS",
+                                            "detail":  "forkContext=false"
+                                        },
+                                        {
+                                            "field":  "capacityApproved",
+                                            "result":  "PASS",
+                                            "detail":  "capacityApproved=true"
+                                        },
+                                        {
+                                            "field":  "decisionOutcome",
+                                            "result":  "PASS",
+                                            "detail":  "outcome=\u0027APPROVED\u0027"
+                                        }
+                                    ]
+                    },
+                    {
+                        "taskGraphPath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\scheduler\\fixtures\\valid-task-graph.json",
+                        "taskId":  "dependency-t4.json",
+                        "checkedAt":  "2026-06-26T01:49:07.3232847+08:00",
+                        "overall":  "FAIL",
+                        "totalChecks":  2,
+                        "passedChecks":  1,
+                        "failedChecks":  1,
+                        "blockedDeps":  [
+
+                                        ],
+                        "results":  [
+                                        {
+                                            "field":  "taskFound",
+                                            "result":  "FAIL",
+                                            "detail":  "TaskId=dependency-t4.json"
+                                        },
+                                        {
+                                            "field":  "allDepsReady",
+                                            "result":  "PASS",
+                                            "detail":  "Blocked deps: 0 []"
+                                        }
+                                    ]
+                    },
+                    {
+                        "registryPath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\registry\\fixtures\\sim-registry.json",
+                        "checkedAt":  "2026-06-26T01:49:07.6402979+08:00",
+                        "overall":  "FAIL",
+                        "totalChecks":  4,
+                        "passedChecks":  3,
+                        "failedChecks":  1,
+                        "staleAgents":  [
+
+                                        ],
+                        "openAgents":  [
+
+                                       ],
+                        "unclosed":  [
+
+                                     ],
+                        "results":  [
+                                        {
+                                            "field":  "registryLoaded",
+                                            "result":  "FAIL",
+                                            "detail":  "Registry has 0 agents"
+                                        },
+                                        {
+                                            "field":  "noStaleAgents",
+                                            "result":  "PASS",
+                                            "detail":  "Stale agents: 0 []"
+                                        },
+                                        {
+                                            "field":  "noUnclosedAgents",
+                                            "result":  "PASS",
+                                            "detail":  "Unclosed (completed without receipt): 0"
+                                        },
+                                        {
+                                            "field":  "openAgentCount",
+                                            "result":  "PASS",
+                                            "detail":  "Open agents: 0"
+                                        }
+                                    ]
+                    },
+                    {
+                        "agentPath":  "C:\\Codex_App_Factory\\harness\\runs\\factory-agent-3-orchestrator-runtime-simulation\\agent-ag3-builder-1.json",
+                        "registryPath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\registry\\fixtures\\sim-registry.json",
+                        "registeredAt":  "2026-06-26T01:49:07.9933870+08:00",
+                        "overall":  "PASS",
+                        "totalChecks":  5,
+                        "passedChecks":  5,
+                        "failedChecks":  0,
+                        "registrySize":  1,
+                        "results":  [
+                                        {
+                                            "field":  "agentIdPresent",
+                                            "result":  "PASS",
+                                            "detail":  "agentId=\u0027ag3-builder-1\u0027"
+                                        },
+                                        {
+                                            "field":  "notDuplicate",
+                                            "result":  "PASS",
+                                            "detail":  "No duplicate agentId"
+                                        },
+                                        {
+                                            "field":  "roleValid",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Builder\u0027"
+                                        },
+                                        {
+                                            "field":  "phaseValid",
+                                            "result":  "PASS",
+                                            "detail":  "phase=\u0027FACTORY-AGENT-3\u0027"
+                                        },
+                                        {
+                                            "field":  "statusValid",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027ACTIVE\u0027"
+                                        }
+                                    ]
+                    },
+                    {
+                        "agentPath":  "C:\\Codex_App_Factory\\harness\\runs\\factory-agent-3-orchestrator-runtime-simulation\\agent-ag3-builder-2.json",
+                        "registryPath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\registry\\fixtures\\sim-registry.json",
+                        "registeredAt":  "2026-06-26T01:49:08.3794107+08:00",
+                        "overall":  "PASS",
+                        "totalChecks":  5,
+                        "passedChecks":  5,
+                        "failedChecks":  0,
+                        "registrySize":  2,
+                        "results":  [
+                                        {
+                                            "field":  "agentIdPresent",
+                                            "result":  "PASS",
+                                            "detail":  "agentId=\u0027ag3-builder-2\u0027"
+                                        },
+                                        {
+                                            "field":  "notDuplicate",
+                                            "result":  "PASS",
+                                            "detail":  "No duplicate agentId"
+                                        },
+                                        {
+                                            "field":  "roleValid",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Builder\u0027"
+                                        },
+                                        {
+                                            "field":  "phaseValid",
+                                            "result":  "PASS",
+                                            "detail":  "phase=\u0027FACTORY-AGENT-3\u0027"
+                                        },
+                                        {
+                                            "field":  "statusValid",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027ACTIVE\u0027"
+                                        }
+                                    ]
+                    },
+                    {
+                        "agentPath":  "C:\\Codex_App_Factory\\harness\\runs\\factory-agent-3-orchestrator-runtime-simulation\\agent-ag3-reviewer.json",
+                        "registryPath":  "C:\\Codex_App_Factory\\factory-agent-company-protocol-pack\\runtime\\registry\\fixtures\\sim-registry.json",
+                        "registeredAt":  "2026-06-26T01:49:08.7252097+08:00",
+                        "overall":  "PASS",
+                        "totalChecks":  5,
+                        "passedChecks":  5,
+                        "failedChecks":  0,
+                        "registrySize":  2,
+                        "results":  [
+                                        {
+                                            "field":  "agentIdPresent",
+                                            "result":  "PASS",
+                                            "detail":  "agentId=\u0027ag3-reviewer\u0027"
+                                        },
+                                        {
+                                            "field":  "notDuplicate",
+                                            "result":  "PASS",
+                                            "detail":  "No duplicate agentId"
+                                        },
+                                        {
+                                            "field":  "roleValid",
+                                            "result":  "PASS",
+                                            "detail":  "role=\u0027Reviewer\u0027"
+                                        },
+                                        {
+                                            "field":  "phaseValid",
+                                            "result":  "PASS",
+                                            "detail":  "phase=\u0027FACTORY-AGENT-3\u0027"
+                                        },
+                                        {
+                                            "field":  "statusValid",
+                                            "result":  "PASS",
+                                            "detail":  "status=\u0027ACTIVE\u0027"
+                                        }
+                                    ]
+                    }
+                ]
+}

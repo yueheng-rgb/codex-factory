@@ -1,0 +1,56 @@
+﻿{
+    "version":  "1.0.0",
+    "generatedAt":  "2026-06-25T16:07:33+08:00",
+    "driftTypes":  [
+                       {
+                           "detectedBy":  "Auditor",
+                           "description":  "Role writes code outside ownedScope",
+                           "id":  "DRF-01",
+                           "type":  "Scope drift",
+                           "severity":  "P0"
+                       },
+                       {
+                           "detectedBy":  "Auditor",
+                           "description":  "Role loads skills in forbiddenSkills list",
+                           "id":  "DRF-02",
+                           "type":  "Skill misuse",
+                           "severity":  "P1"
+                       },
+                       {
+                           "detectedBy":  "Auditor+Verifier",
+                           "description":  "Role performs prohibitedActions",
+                           "id":  "DRF-03",
+                           "type":  "Authority violation",
+                           "severity":  "P0"
+                       },
+                       {
+                           "detectedBy":  "Verifier",
+                           "description":  "Readonly role writes implementation code",
+                           "id":  "DRF-04",
+                           "type":  "Readonly violation",
+                           "severity":  "P0"
+                       },
+                       {
+                           "detectedBy":  "Integrator+Auditor",
+                           "description":  "Cross-role handoff missing receipt or artifact path",
+                           "id":  "DRF-05",
+                           "type":  "Handoff gap",
+                           "severity":  "P1"
+                       },
+                       {
+                           "detectedBy":  "Verifier+Auditor",
+                           "description":  "Role claims PASS without verifier JSON",
+                           "id":  "DRF-06",
+                           "type":  "Verification bypass",
+                           "severity":  "P0"
+                       }
+                   ],
+    "phase":  "FACTORY-EVAL-3-D",
+    "schemaId":  "drift-detection-policy",
+    "controls":  [
+                     "Auditor checks role outputs against role profile after each phase",
+                     "Drift detection is machine-verifiable (check file ownership, skill loads, handoff receipts)",
+                     "P0 drift blocks phase closure",
+                     "P1 drift generates risk signal, may not block"
+                 ]
+}

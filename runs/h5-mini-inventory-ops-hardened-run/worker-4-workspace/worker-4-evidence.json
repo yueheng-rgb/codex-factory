@@ -1,0 +1,42 @@
+{
+  "worker": "worker-4",
+  "role": "Acceptance / Domain Scenario Runner / Static UI",
+  "completedAt": "' + (Get-Date -Format o) + '",
+  "files": [
+    "scenarioRunner.js",
+    "acceptanceWriter.js",
+    "reportGenerator.js",
+    "staticPage.js",
+    "worker-4-evidence.json"
+  ],
+  "scenarios": {
+    "total": 12,
+    "names": [
+      "create_item_returns_item",
+      "seed_creates_5_sample_items",
+      "inbound_increases_stock",
+      "outbound_decreases_stock",
+      "outbound_rejects_negative_available",
+      "reserve_stock_succeeds",
+      "release_reservation_restores_available",
+      "transfer_moves_stock_between_skus",
+      "duplicate_idempotency_key_does_not_double_apply",
+      "stale_version_update_rejected",
+      "export_import_roundtrip",
+      "audit_events_recorded_for_adjustments"
+    ],
+    "allPassed": true
+  },
+  "exports": {
+    "scenarioRunner.js": "runScenarios(), InventorySystem, SCENARIOS",
+    "acceptanceWriter.js": "writeAcceptanceReport(scenarios, outputDir)",
+    "reportGenerator.js": "generateReport(scenarios)",
+    "staticPage.js": "generateStaticPage(stockData, auditData)"
+  },
+  "verification": {
+    "scenarios_run": "node -e \"require('./scenarioRunner.js').runScenarios()\"",
+    "acceptance_report": "node -e \"const {runScenarios}=require('./scenarioRunner.js');const {writeAcceptanceReport}=require('./acceptanceWriter.js');runScenarios().then(s=>writeAcceptanceReport(s))\"",
+    "static_page": "node -e \"const {generateStaticPage}=require('./staticPage.js');generateStaticPage([],[])\"",
+    "markdown_report": "node -e \"const {runScenarios}=require('./scenarioRunner.js');const {generateReport}=require('./reportGenerator.js');runScenarios().then(s=>console.log(generateReport(s).slice(0,200)))\""
+  }
+}

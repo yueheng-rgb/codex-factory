@@ -1,0 +1,24 @@
+﻿{
+    "version":  "1.0.0",
+    "rules":  [
+                  "New window has ZERO trusted conversation memory",
+                  "Do NOT trust pasted summary as evidence",
+                  "All state must come from repo artifacts",
+                  "Startup verification is mandatory",
+                  "Compressed summary is NOT evidence",
+                  "Do NOT start major phase until verification passes",
+                  "This prompt is not evidence — only verifier JSON is trusted"
+              ],
+    "generatedAt":  "2026-06-25T00:57:16+08:00",
+    "phase":  "LIVE-RUNTIME-10-C",
+    "schemaId":  "new-window-startup-prompt-template",
+    "placeholders":  {
+                         "mcpQueries":  "factory.memory.currentState; factory.memory.openRisks; factory.memory.buildStartupPacket",
+                         "verifierCommands":  "powershell -File scripts/factoryctl.ps1 verify --json; powershell -File scripts/session-controller/run-startup-verification-contract.ps1 -Json",
+                         "contextPacketPath":  "governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json",
+                         "executionPacketPath":  "governance/session-controller/latest-rotation-execution-packet.json",
+                         "rejectedClaims":  "Full context inheritance; Automatic window creation without verification; Plugin production-ready; Automation production-ready; Compressed summary as evidence",
+                         "currentFactoryStatePath":  "governance/factory-state/current-factory-state.json",
+                         "startupPacketPath":  "governance/automation-os/latest-rotation-recommendation.json"
+                     }
+}

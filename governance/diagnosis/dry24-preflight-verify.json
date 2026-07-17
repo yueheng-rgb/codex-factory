@@ -1,0 +1,14 @@
+{
+  "phase": "DRY24",
+  "preflightAt": "2026-06-24T16:02:37.257711+08:00",
+  "parentPhase": "H17",
+  "h17Status": "PASS",
+  "h17P1Status": "PASS",
+  "allowedNextIncludesDry24": true,
+  "h18Artifacts": 0,
+  "dry24PreArtifacts": 0,
+  "finalZip": false,
+  "policiesExist": true,
+  "factoryctlOk": true,
+  "verdict": "PASS"
+}

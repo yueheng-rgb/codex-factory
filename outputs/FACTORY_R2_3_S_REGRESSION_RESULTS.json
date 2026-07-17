@@ -1,0 +1,42 @@
+﻿[
+    {
+        "test":  "REGRESSION-A: Positive live-search",
+        "result":  "PASS",
+        "expected":  "PASS",
+        "actual":  "PASS",
+        "verdict":  "high_quality",
+        "score":  14,
+        "maxScore":  16,
+        "fatalRejections":  ""
+    },
+    {
+        "test":  "REGRESSION-B: Negative plain-chat (LLM knowledge)",
+        "result":  "PASS",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "verdict":  "reject",
+        "score":  7,
+        "maxScore":  16,
+        "fatalRejections":  "source_is_not_provider_api_endpoint: FAIL; source_is_not_llm_knowledge_answer: FAIL; search_invocation_present: FAIL"
+    },
+    {
+        "test":  "REGRESSION-C: Negative API-endpoint-source",
+        "result":  "PASS",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "verdict":  "reject",
+        "score":  13,
+        "maxScore":  16,
+        "fatalRejections":  "source_is_not_provider_api_endpoint: FAIL"
+    },
+    {
+        "test":  "REGRESSION-D: Negative mock/dry_run mislabeled",
+        "result":  "PASS",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "verdict":  "reject",
+        "score":  12,
+        "maxScore":  16,
+        "fatalRejections":  "response_not_dry_run: FAIL; search_invocation_present: FAIL"
+    }
+]

@@ -1,0 +1,38 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "K",
+  "title": "Cloud Deferral Record",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "deferral_file": "factory-workflow/CLOUD_DEFERRAL_RECORD.md",
+  "decision": "Cloud is deferred",
+  "rationale": [
+    "Cloud does not directly improve Codex reasoning capability",
+    "Premature cloud adds complexity without benefit",
+    "User is not blocked without cloud",
+    "Cloud introduces security surface"
+  ],
+  "not_needed_now": [
+    "Running Factory (runs locally)",
+    "Storing user projects (stay on user machine)",
+    "Storing secrets (stay local)",
+    "External conversation spaces (local filesystem sufficient)",
+    "Real-time collaboration (not a v0.x requirement)"
+  ],
+  "possible_future_use": [
+    {"use_case": "Resource pack update distribution", "condition": "Read-only CDN, no user data"},
+    {"use_case": "Version manifest hosting", "condition": "Static JSON file"},
+    {"use_case": "Checksum/signature distribution", "condition": "Static files only"},
+    {"use_case": "Release notes hosting", "condition": "Static content"},
+    {"use_case": "Optional update channel", "condition": "Opt-in only"}
+  ],
+  "safety_boundaries": [
+    "Must not store user projects",
+    "Must not store secrets",
+    "Must not store external conversation spaces by default",
+    "Must be opt-in",
+    "Read-only by default"
+  ],
+  "reevaluation_trigger": "v1.0 released and stable, or user explicitly requests, or resource pack distribution bottleneck",
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_K_CLOUD_DEFERRAL_RECORD_REPORT.md"
+}

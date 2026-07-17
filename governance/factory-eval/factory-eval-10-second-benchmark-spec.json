@@ -1,0 +1,79 @@
+﻿{
+  "phase": "FACTORY-EVAL-10-B",
+  "title": "Second Benchmark Specification — LedgerFlow Lite",
+  "createdAt": "2026-06-25T20:25:00+08:00",
+  "projectName": "LedgerFlow Lite",
+  "projectDescription": "A small invoicing/expense system. Users create customers/vendors, generate invoices with line items, submit for approval, track status through an approval workflow, and view dashboard summaries. Includes CSV export.",
+  "functionalRequirements": {
+    "FR01": {"id": "FR01", "name": "User Registration and Authentication", "description": "Users register with email+password. Login returns JWT. bcrypt password hashing."},
+    "FR02": {"id": "FR02", "name": "Role-Based Access Control", "description": "Roles: admin, manager, clerk, viewer. Admin manages users. Permissions enforced server-side."},
+    "FR03": {"id": "FR03", "name": "Customer/Vendor Management", "description": "CRUD for customers/vendors with name, email, address, phone. Scoped to organization."},
+    "FR04": {"id": "FR04", "name": "Invoice CRUD with Line Items", "description": "Create invoices with multiple line items. Each line item: description, quantity, unit_price. Auto-calculate line_total, subtotal, tax, grand_total."},
+    "FR05": {"id": "FR05", "name": "Financial Calculation Correctness", "description": "line_total = quantity * unit_price. subtotal = sum(line_totals). tax = subtotal * tax_rate. grand_total = subtotal + tax. All server-side calculated."},
+    "FR06": {"id": "FR06", "name": "Approval Workflow", "description": "Status: draft → submitted → (approved | rejected). Rejected → draft. Approved → paid. Invalid transitions rejected. Permission: clerk submits, manager/admin approves."},
+    "FR07": {"id": "FR07", "name": "Approval Actions with Permission Checks", "description": "Clerk can create/submit. Manager+ can approve/reject. Admin can do all. Viewer read-only. Server-side enforcement."},
+    "FR08": {"id": "FR08", "name": "Audit Log", "description": "All key actions logged: invoice create/update/delete, status changes, approval actions. Append-only. Filterable by user, action, date range."},
+    "FR09": {"id": "FR09", "name": "Dashboard / Report Summary", "description": "Dashboard shows: total invoices this month, total amount, pending approvals, paid vs unpaid breakdown. Aggregated from database."},
+    "FR10": {"id": "FR10", "name": "Search / Filter / Sort", "description": "Filter invoices by status, customer, date range. Search by invoice number or customer name. Sort by date, amount, status."},
+    "FR11": {"id": "FR11", "name": "CSV Export", "description": "Export invoice list to CSV with deterministic columns: invoice_number, customer, date, status, subtotal, tax, grand_total."},
+    "FR12": {"id": "FR12", "name": "Validation and Error Handling", "description": "Validate: quantity > 0, unit_price >= 0, tax_rate 0-100, required fields, future dates. Meaningful error messages."},
+    "FR13": {"id": "FR13", "name": "Seed / Sample Data", "description": "Seed data: 2-3 users with different roles, 3-5 customers, 3-5 invoices with line items in various statuses."},
+    "FR14": {"id": "FR14", "name": "UI Pages", "description": "Login, Dashboard, Customer List, Invoice List, Invoice Detail (with line items + approval buttons), Audit Log. Loading/empty/error states."},
+    "FR15": {"id": "FR15", "name": "API Contract", "description": "RESTful API. Consistent request/response/error shapes. Pagination on list endpoints."},
+    "FR16": {"id": "FR16", "name": "Tests and Documentation", "description": "Unit/integration tests with real assertions. README with setup/run/test. No fake tests. No placeholder implementations."}
+  },
+  "nonFunctionalRequirements": {
+    "NFR01": "Modular architecture — clear frontend/backend boundary",
+    "NFR02": "Persistence abstraction — database layer separated from business logic",
+    "NFR03": "Deterministic test/verification — tests produce repeatable results",
+    "NFR04": "No fake tests — all tests have real assertions",
+    "NFR05": "No placeholder-only implementation — every endpoint returns real data",
+    "NFR06": "No hardcoded local absolute paths",
+    "NFR07": "Financial calculations verified server-side — not client-only"
+  },
+  "databaseEntities": [
+    {"name": "User", "fields": ["id", "email", "password_hash", "display_name", "role", "created_at"]},
+    {"name": "Customer", "fields": ["id", "name", "email", "address", "phone", "created_at"]},
+    {"name": "Invoice", "fields": ["id", "invoice_number", "customer_id", "status", "tax_rate", "subtotal", "tax_amount", "grand_total", "created_by", "created_at", "updated_at"]},
+    {"name": "LineItem", "fields": ["id", "invoice_id", "description", "quantity", "unit_price", "line_total"]},
+    {"name": "AuditLog", "fields": ["id", "actor_id", "action", "target_type", "target_id", "details", "created_at"]}
+  ],
+  "apiEndpoints": {
+    "auth": [
+      {"method": "POST", "path": "/api/auth/register"},
+      {"method": "POST", "path": "/api/auth/login"},
+      {"method": "GET", "path": "/api/auth/me"}
+    ],
+    "customers": [
+      {"method": "POST", "path": "/api/customers"},
+      {"method": "GET", "path": "/api/customers"},
+      {"method": "GET", "path": "/api/customers/:id"},
+      {"method": "PATCH", "path": "/api/customers/:id"},
+      {"method": "DELETE", "path": "/api/customers/:id"}
+    ],
+    "invoices": [
+      {"method": "POST", "path": "/api/invoices"},
+      {"method": "GET", "path": "/api/invoices"},
+      {"method": "GET", "path": "/api/invoices/:id"},
+      {"method": "PATCH", "path": "/api/invoices/:id"},
+      {"method": "PATCH", "path": "/api/invoices/:id/submit"},
+      {"method": "PATCH", "path": "/api/invoices/:id/approve"},
+      {"method": "PATCH", "path": "/api/invoices/:id/reject"},
+      {"method": "PATCH", "path": "/api/invoices/:id/mark-paid"},
+      {"method": "DELETE", "path": "/api/invoices/:id"}
+    ],
+    "dashboard": [
+      {"method": "GET", "path": "/api/dashboard"}
+    ],
+    "export": [
+      {"method": "GET", "path": "/api/invoices/export/csv"}
+    ],
+    "audit": [
+      {"method": "GET", "path": "/api/audit-log"}
+    ]
+  },
+  "testRequirements": {
+    "unitTests": ["Financial calculation: line_total = qty * price", "Financial calculation: grand_total = subtotal + tax", "Status workflow: valid and invalid transitions", "Permission: clerk cannot approve, manager can"],
+    "integrationTests": ["Auth flow: register → login → protected endpoint", "Invoice CRUD with line items", "Approval workflow end-to-end", "CSV export produces deterministic output", "Dashboard returns correct aggregates", "Permission boundaries enforced"]
+  }
+}

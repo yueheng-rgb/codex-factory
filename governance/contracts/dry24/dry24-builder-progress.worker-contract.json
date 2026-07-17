@@ -1,0 +1,36 @@
+{
+  "contractId": "dry24-builder-progress-contract",
+  "phase": "DRY24-A",
+  "agentId": "dry24-builder-progress",
+  "role": "builder",
+  "forkContext": false,
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:03:07.718055+08:00",
+  "scope": "packages/progress-integrity/",
+  "ownedFiles": [
+    "packages/progress-integrity/src/"
+  ],
+  "exportedAPI": [
+    "ProgressValidator",
+    "RegistryChecker",
+    "TranscriptVerifier",
+    "ArtifactEvidenceValidator",
+    "ProgressIntegrityReport"
+  ],
+  "allowedImports": [
+    "packages/worker-contract-engine/src/"
+  ],
+  "forbiddenImports": [
+    "packages/dry24-integration-hub/"
+  ],
+  "integrationPoints": [
+    "@dry24/progress-integrity"
+  ],
+  "dependencyDeclarations": [
+    {
+      "source": "packages/progress-integrity/",
+      "target": "packages/worker-contract-engine/src/"
+    }
+  ],
+  "handoffPath": "governance/contracts/dry24/dry24-builder-progress.worker-contract.json"
+}

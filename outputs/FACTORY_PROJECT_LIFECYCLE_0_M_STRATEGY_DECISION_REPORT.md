@@ -1,0 +1,2 @@
+﻿# M: Strategy Decision
+> Q1: Covers lifecycle? YES (9 states + transitions + permissions). Q2: Integrates all prior phases? YES (cleanup/dashboard/recovery/multi-agent/evidence). Q3: Remaining: implementation code, real validation. Q4: Next: FACTORY-V05-R1-INTEGRATION-PLAN or FACTORY-REAL-VALIDATION-READINESS-0. Q5: Theory baseline may be close to complete. Do not immediately start v0.6. Do not cloud/deploy.

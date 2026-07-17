@@ -1,0 +1,9 @@
+﻿{
+  "pack_id": "game-threejs",
+  "version": "1.0.0",
+  "benchmarks": [
+    {"benchmark_id":"G3D-B1","description":"Simple 3D viewer — load model, orbit camera, basic lighting","expected_surfaces":"threejs-interactive","expected_risk_level":"LOW","expected_invariants":["animation_loop_must_be_bounded","canvas_smoke_required_for_ui_surface","webgl_context_loss_handled_or_documented"],"runnable_or_design_only":"design_only"},
+    {"benchmark_id":"G3D-B2","description":"Save/load user scene with server storage","expected_surfaces":"threejs-interactive api-service database","expected_risk_level":"HIGH","expected_invariants":["user_scene_data_must_be_validated","saved_scene_belongs_to_user","assets_must_have_loading_error_handling"],"runnable_or_design_only":"design_only"},
+    {"benchmark_id":"G3D-B3","description":"External asset loading with competitive scoring","expected_surfaces":"threejs-interactive api-service database","expected_risk_level":"CRITICAL","expected_invariants":["external_asset_urls_must_be_allowlisted","score_or_progress_cannot_be_client_trusted_if_competitive","game_state_transition_allowed","frame_budget_must_be_defined"],"runnable_or_design_only":"design_only","notes":"Requires human review for competitive scoring and external assets"}
+  ]
+}

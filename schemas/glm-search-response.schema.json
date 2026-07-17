@@ -1,0 +1,61 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "glm-search-response.schema.json",
+  "title": "GLM Search Adapter — Response",
+  "description": "Normalized response format from GLM Search Adapter, regardless of provider mode.",
+  "type": "object",
+  "required": ["responseId", "requestId", "provider", "mode", "query", "normalizedResults", "retrievalTime"],
+  "properties": {
+    "responseId": { "type": "string", "pattern": "^GLM-RESP-\\d{4}$" },
+    "requestId": { "type": "string", "description": "References the request this responds to" },
+    "provider": { "type": "string", "enum": ["glm_search"] },
+    "mode": { "type": "string", "enum": ["manual", "dry_run", "live_api"] },
+    "query": { "type": "string" },
+    "queryHash": { "type": "string", "description": "SHA256 of query for ledger (query raw content not stored)" },
+    "normalizedResults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url", "snippet"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "snippet": { "type": "string" },
+          "siteName": { "type": "string" },
+          "publishDate": { "type": "string", "format": "date" },
+          "sourceType": { "type": "string", "enum": ["official_docs", "blog", "github", "paper", "community", "ai_generated", "advertisement", "unknown"] },
+          "trustIndicator": { "type": "string", "enum": ["high", "medium", "low", "unknown"] }
+        }
+      }
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "sourceType": { "type": "string" },
+          "publishDate": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "resultCount": { "type": "integer" },
+    "sourceCount": { "type": "integer" },
+    "retrievalTime": { "type": "string", "format": "date-time" },
+    "caveats": { "type": "array", "items": { "type": "string" } },
+    "qualityGateStatus": {
+      "type": "object",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "score": { "type": "integer" },
+        "verdict": { "type": "string" },
+        "issues": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "secretPresent": { "type": "boolean", "description": "Whether API key was available (never record the key itself)" },
+    "networkBoundary": { "type": "string", "enum": ["no_network", "external_api"] },
+    "humanApproval": { "type": "boolean" },
+    "downgradedFrom": { "type": "string", "enum": ["live_api", "none"], "description": "If live_api downgraded to dry_run/manual due to missing key" }
+  }
+}

@@ -1,0 +1,7 @@
+﻿{
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE",
+    "section":  "H",
+    "passed":  25,
+    "failed":  2,
+    "totalChecks":  27
+}

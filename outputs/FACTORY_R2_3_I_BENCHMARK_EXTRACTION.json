@@ -1,0 +1,35 @@
+﻿[
+    {
+        "project":  "small-web-api-demo",
+        "files":  2,
+        "build":  1,
+        "test":  1,
+        "lint":  1,
+        "sec":  10,
+        "dirs":  12,
+        "forbidden":  10,
+        "handoff":  1
+    },
+    {
+        "project":  "small-nextjs-admin-demo",
+        "files":  1,
+        "build":  0,
+        "test":  1,
+        "lint":  0,
+        "sec":  6,
+        "dirs":  0,
+        "forbidden":  5,
+        "handoff":  1
+    },
+    {
+        "project":  "small-cli-tool-demo",
+        "files":  1,
+        "build":  0,
+        "test":  0,
+        "lint":  0,
+        "sec":  4,
+        "dirs":  0,
+        "forbidden":  4,
+        "handoff":  1
+    }
+]

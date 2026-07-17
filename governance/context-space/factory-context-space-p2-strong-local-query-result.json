@@ -1,0 +1,9 @@
+﻿{
+    "nc_pass":  57,
+    "executed_at":  "2026-06-28T01:08:43.0590804+08:00",
+    "verdict":  "PASS",
+    "checks_passed":  37,
+    "checks_failed":  0,
+    "phase":  "FACTORY-CONTEXT-SPACE-P2",
+    "usability_pass":  10
+}

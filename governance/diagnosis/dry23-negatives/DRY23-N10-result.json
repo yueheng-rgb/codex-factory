@@ -1,0 +1,13 @@
+﻿{
+    "timestamp":  "2026-06-24T00:49:09.0897851+08:00",
+    "negativeId":  "DRY23-N10",
+    "verifyOutput":  "{\r\n    \"command\":  \"verify\",\r\n    \"phase\":  \"latest\",\r\n    \"verdict\":  \"FAIL\",\r\n    \"totalChecks\":  29,\r\n    \"modules\":  [\r\n                    {\r\n                        \"verdict\":  \"PASS_WITH_CAVEATS\",\r\n                        \"checks\":  10\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  3\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"FAIL\",\r\n                        \"checks\":  4\r\n                    }\r\n                ],\r\n    \"checkedAt\":  \"2026-06-24T00:49:09+08:00\"\r\n}",
+    "faultManifest":  {
+                          "id":  "DRY23-N10",
+                          "name":  "Stale Session Handoff",
+                          "timestamp":  "2026-06-24T00:49:01.8837270+08:00",
+                          "expectedFailureClass":  "STALE_HANDOFF",
+                          "targetGate":  "handoff-freshness-check",
+                          "category":  "evidence_chain_integrity"
+                      }
+}

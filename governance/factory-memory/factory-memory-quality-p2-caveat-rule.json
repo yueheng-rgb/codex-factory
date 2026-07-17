@@ -1,0 +1,30 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "E",
+  "title": "Caveat Rule",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "caveat_rule": {
+    "name": "CAVEAT_ENFORCEMENT_RULE v1.0.0",
+    "when_required": [
+      "Claim is based on design analysis, not executed evidence → DESIGN_ONLY",
+      "Claim is based on local trial, not production → LOCAL_ONLY",
+      "Claim is partial (e.g., PARTIAL_EXECUTED_EVIDENCE) → explain what is missing",
+      "Claim is conditional (e.g., 'if user approves') → state the condition",
+      "Single data point used for generalization → warn about limited generalizability",
+      "Score/verdict has known limitations → list limitations",
+      "Evidence from single task/project type → state scope limitation"
+    ],
+    "caveat_format": {
+      "max_chars": 200,
+      "required_elements": ["What the limitation is", "Why it matters", "What would resolve it"],
+      "example": "Single task type (admin portal). Executed analysis, not live multi-hour session. Not generalizable to all project types. Second trial on different project type would strengthen evidence."
+    },
+    "blocking_rules": [
+      "NO_CAVEAT_FOR_DESIGN_ONLY → BLOCK ingestion, require DESIGN_ONLY tag",
+      "NO_CAVEAT_FOR_LOCAL_ONLY → BLOCK ingestion, require LOCAL_ONLY tag",
+      "NO_CAVEAT_FOR_PARTIAL → BLOCK ingestion, require explanation of what is missing",
+      "OVERCLAIM_DETECTED → BLOCK ingestion, require downgrade"
+    ]
+  },
+  "status": "CAVEAT_RULE_DEFINED"
+}

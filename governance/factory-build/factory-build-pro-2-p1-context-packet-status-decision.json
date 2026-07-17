@@ -1,0 +1,31 @@
+﻿{
+    "priorStatus":  "OPTIONAL for all modes",
+    "section":  "C",
+    "newStatus":  {
+                      "recovery":  "REQUIRED — RECOVERY_PACKET must be used for recovery operations",
+                      "nativeBuildPro":  "REQUIRED — must generate context packet at phase start, each agent start, recovery, and iteration boundary",
+                      "buildLite":  "OPTIONAL — Build Lite users may use context packets but are not required to",
+                      "nativeAgentStart":  "REQUIRED — AGENT_START_PACKET before each spawn_agent call",
+                      "longHorizon":  "REQUIRED — same as Native Build Pro plus per-iteration regeneration"
+                  },
+    "rejectedOptions":  [
+                            "Context Packet REQUIRED for all modes — rejected as overreach for Build Lite",
+                            "Context Packet OPTIONAL for all modes — rejected as insufficient for Build Pro safety"
+                        ],
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "date":  "2026-06-27",
+    "decision":  "CONTEXT_PACKET_REQUIRED_FOR_BUILD_PRO",
+    "rationale":  [
+                      "PRO-2 evidence: 10 context packets used across 3 iterations — demonstrated value",
+                      "Long-horizon analysis: context quality degrades without structured minimal packets",
+                      "Build Pro agents need role-specific boundaries — context packets provide this",
+                      "Recovery without context packet = agents restarting without knowing prior state",
+                      "Build Lite remains simpler — overhead not justified for single-agent workflows"
+                  ],
+    "title":  "Context Packet Status Decision",
+    "NOT_required_for":  [
+                             "Build Lite (single-agent mode)",
+                             "Trivial/single-file projects",
+                             "Non-factory ad-hoc coding"
+                         ]
+}

@@ -1,0 +1,166 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-dry21-full-mission-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  31,
+    "passed":  31,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "id":  1,
+                       "desc":  "parent phase was H14",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  2,
+                       "desc":  "DRY21 started after H14 PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  3,
+                       "desc":  "factoryctl operational",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  4,
+                       "desc":  "DRY21 native agents exist",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  5,
+                       "desc":  "All DRY21 agents nativeGenerated",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  6,
+                       "desc":  "Historical reconstructed preserved",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  7,
+                       "desc":  "Agent has dry21-orchestrator-1",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  8,
+                       "desc":  "All progress valid JSON",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  9,
+                       "desc":  "DRY21 progress events exist",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  10,
+                       "desc":  "DRY21 events nativeGenerated",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  11,
+                       "desc":  "Historical reconstructed untouched",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  12,
+                       "desc":  "64+ source files",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  13,
+                       "desc":  "90+ exports",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  14,
+                       "desc":  "4 packages",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  15,
+                       "desc":  "complexity budget exists in state",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  16,
+                       "desc":  "All-negative-evidence exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  17,
+                       "desc":  "12 negatives",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  18,
+                       "desc":  "0 generic FAIL",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  19,
+                       "desc":  "0 preclassified-only",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  20,
+                       "desc":  "0 expectedClass-only",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  21,
+                       "desc":  "0 manual PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  22,
+                       "desc":  "All have transcripts",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  23,
+                       "desc":  "currentTrustedPhase is DRY21",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  24,
+                       "desc":  "dry21Status POSITIVE_NEGATIVE_CLOSED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  25,
+                       "desc":  "finalZipExists false",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  26,
+                       "desc":  "No DRY22 artifacts prematurely",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  27,
+                       "desc":  "Handoff nativeGenerated",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  28,
+                       "desc":  "Handoff references factory-state SHA",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  29,
+                       "desc":  "Handoff DRY21=NOT_STARTED is now CLOSED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  30,
+                       "desc":  "Diagnosis report exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  31,
+                       "desc":  "Handoff report exists",
+                       "status":  "PASS"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T23:23:31+08:00"
+}

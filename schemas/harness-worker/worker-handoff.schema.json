@@ -1,0 +1,68 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Worker Handoff Schema",
+  "description": "Defines the handoff artifacts a Worker must produce upon completion. Validated by verify-worker-handoff.ps1.",
+  "schemaVersion": "H10-R1",
+  "type": "object",
+  "required": [
+    "runId", "phase", "workerId", "agentId", "worktreePath",
+    "filesCreated", "filesModified", "exportsProvided", "evidenceOutputs",
+    "contractSatisfied", "knownLimitations", "branchResultPath", "branchDeltaPath",
+    "completedAt"
+  ],
+  "properties": {
+    "runId": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "minLength": 1 },
+    "workerId": { "type": "string", "minLength": 1 },
+    "agentId": { "type": "string", "minLength": 1, "description": "Codex agent ID assigned at spawn." },
+    "worktreePath": { "type": "string", "minLength": 1, "description": "Path to worker's worktree directory." },
+    "filesCreated": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Absolute or worktree-relative paths of all files created by this worker."
+    },
+    "filesModified": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Absolute or worktree-relative paths of all files modified by this worker."
+    },
+    "exportsProvided": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Function/class/type names exported by this worker's source files."
+    },
+    "evidenceOutputs": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Paths to evidence files produced (test results, typecheck output, build logs)."
+    },
+    "contractSatisfied": {
+      "type": "boolean",
+      "description": "Worker self-attestation that the interface contract is satisfied. Verified by handoff verifier."
+    },
+    "knownLimitations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Worker-declared limitations, edge cases not handled, or known issues."
+    },
+    "mailboxMessageId": {
+      "type": "string",
+      "description": "ID of the mailbox handoff message if agent-mailbox/ exists."
+    },
+    "branchResultPath": { "type": "string", "minLength": 1, "description": "Path to BRANCH_RESULT.md." },
+    "branchDeltaPath": { "type": "string", "minLength": 1, "description": "Path to BRANCH_DELTA.json." },
+    "sourceManifestPath": { "type": "string", "description": "Path to SOURCE_MANIFEST.json." },
+    "evidenceManifestPath": { "type": "string", "description": "Path to EVIDENCE_MANIFEST.json." },
+    "completedAt": { "type": "string", "format": "date-time", "description": "ISO-8601 completion timestamp." }
+  },
+  "validationRules": {
+    "branchResultMustExist": "BRANCH_RESULT.md must exist at branchResultPath.",
+    "branchDeltaMustExist": "BRANCH_DELTA.json must exist at branchDeltaPath.",
+    "filesCreatedMustMatchWorktree": "All files in filesCreated must exist in the worktree directory.",
+    "filesCreatedMustNotContainOutsidePaths": "No file in filesCreated may be outside worktreePath.",
+    "exportsMustMatchSource": "All exports in exportsProvided must be extractable from source files in worktree.",
+    "evidenceOutputsMustExist": "All paths in evidenceOutputs must exist.",
+    "contractSatisfiedMustBeTrue": "contractSatisfied must be true for handoff to be accepted (self-attested, verified).",
+    "limitationsMustBeDeclared": "knownLimitations must be explicit (empty array = no limitations declared, acceptable)."
+  }
+}

@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-RECOVERY-0","section":"D","title":"Trusted Source Hierarchy","timestamp":"2026-06-29T00:00:00+08:00","tiers":{"T1_primary":5,"T2_derived":5,"T3_supporting":4,"T4_untrusted":5},"key_rule":"Repair only uses Tier 1 as ground truth; Tier 2 regenerated from Tier 1; Tier 3 never used for repair; Tier 4 must verify against Tier 1"}

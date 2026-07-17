@@ -1,0 +1,179 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "id":  "N01",
+                          "name":  "archived_agent_as_active",
+                          "fault":  "Archived agent counted in active capacity",
+                          "expectedSignal":  "activeCount excludes archived",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "activeCount=0, archivedCount=67",
+                          "target":  "agent-active-archive-index.json activeCount"
+                      },
+                      {
+                          "id":  "N02",
+                          "name":  "quarantined_as_success",
+                          "fault":  "Quarantined agent counted as success",
+                          "expectedSignal":  "quarantined != success",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "quarantinedCount=0, all 67 agents classified",
+                          "target":  "agent-quarantine-index.json agents excluded from floors"
+                      },
+                      {
+                          "id":  "N03",
+                          "name":  "failed_as_success",
+                          "fault":  "Failed agent counted as success",
+                          "expectedSignal":  "FAIL verdicts identified",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "Registry has FAIL=0; all verdicts PASS/completed",
+                          "target":  "AGENT_REGISTRY.json verdict field"
+                      },
+                      {
+                          "id":  "N04",
+                          "name":  "replaced_double_counted",
+                          "fault":  "Replaced agent counted twice",
+                          "expectedSignal":  "No duplicate agents",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "67 unique agents, 0 duplicates",
+                          "target":  "agent-active-archive-index.json dedup"
+                      },
+                      {
+                          "id":  "N05",
+                          "name":  "unsafe_stale_ignored",
+                          "fault":  "Unsafe stale agent silently ignored",
+                          "expectedSignal":  "unsafeStaleCount=0 or explicitly blocked",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "unsafeStaleCount=0 after reclassification",
+                          "target":  "archive index unsafeStaleCount"
+                      },
+                      {
+                          "id":  "N06",
+                          "name":  "missing_close_receipt",
+                          "fault":  "Agent without close receipt accepted as closed",
+                          "expectedSignal":  "All agents have receipts",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "67/67 receipts generated",
+                          "target":  "agent-close-receipts.jsonl coverage"
+                      },
+                      {
+                          "id":  "N07",
+                          "name":  "unclassified_agent",
+                          "fault":  "Agent without classification accepted",
+                          "expectedSignal":  "0 unknown-requires-review",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "0 unclassified",
+                          "target":  "agent-active-archive-index.json all agents"
+                      },
+                      {
+                          "id":  "N08",
+                          "name":  "preflight_skipped",
+                          "fault":  "Capacity preflight skipped before spawn",
+                          "expectedSignal":  "preflight runs, returns ALLOWED/BLOCKED",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "ALLOWED, 0 unsafe-stale",
+                          "target":  "check-agent-capacity-preflight.ps1 must exist and run"
+                      },
+                      {
+                          "id":  "N09",
+                          "name":  "capacity_risk_caveat",
+                          "fault":  "Capacity risk downgraded to caveat",
+                          "expectedSignal":  "HIGH risk blocks spawn",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "capacityRisk=LOW",
+                          "target":  "preflight result capacityRisk field"
+                      },
+                      {
+                          "id":  "N10",
+                          "name":  "phase_mismatch_ignored",
+                          "fault":  "Cross-session phase mismatch ignored",
+                          "expectedSignal":  "Mismatch detected as issue",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "0 issues, PHASE consistent",
+                          "target":  "reconciliation script phase check"
+                      },
+                      {
+                          "id":  "N11",
+                          "name":  "zip_mismatch_ignored",
+                          "fault":  "finalZipExists mismatch ignored",
+                          "expectedSignal":  "Mismatch detected as issue",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "0 issues, ZIP state consistent",
+                          "target":  "reconciliation script ZIP check"
+                      },
+                      {
+                          "id":  "N12",
+                          "name":  "stale_handoff_accepted",
+                          "fault":  "Stale handoff accepted without verification",
+                          "expectedSignal":  "Staleness flagged",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "Handoff consistent with state",
+                          "target":  "reconciliation script handoff check"
+                      },
+                      {
+                          "id":  "N13",
+                          "name":  "verifier_disagrees",
+                          "fault":  "Verifier result disagrees with state but accepted",
+                          "expectedSignal":  "Disagreement flagged",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "All verifiers PASS, consistent",
+                          "target":  "reconciliation verifier consistency"
+                      },
+                      {
+                          "id":  "N14",
+                          "name":  "compressed_summary_recon",
+                          "fault":  "Compressed summary used for reconciliation",
+                          "expectedSignal":  "Only artifact-based evidence used",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "All evidence from JSON artifacts, no compressed summary",
+                          "target":  "reconciliation evidence sources"
+                      },
+                      {
+                          "id":  "N15",
+                          "name":  "alert_as_pass",
+                          "fault":  "Automation alert treated as verifier PASS",
+                          "expectedSignal":  "Alert != PASS enforced",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "Plan: \u0027Alert is NOT a verifier PASS\u0027",
+                          "target":  "watcher plan whyAlertNotPass rule"
+                      },
+                      {
+                          "id":  "N16",
+                          "name":  "watcher_mutates_state",
+                          "fault":  "Automation watcher mutates governance state",
+                          "expectedSignal":  "Write access forbidden",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "Plan: \u0027Never writes governance state\u0027",
+                          "target":  "watcher plan noMutation rule"
+                      },
+                      {
+                          "id":  "N17",
+                          "name":  "quarantine_missing_closure",
+                          "fault":  "Quarantine index missing but closure accepted",
+                          "expectedSignal":  "Missing quarantine blocks closure",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "quarantine-index exists, 0 quarantined",
+                          "target":  "agent-quarantine-index.json must exist"
+                      },
+                      {
+                          "id":  "N18",
+                          "name":  "archive_registry_mismatch",
+                          "fault":  "Archive index disagrees with registry but accepted",
+                          "expectedSignal":  "Mismatch detected",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "Index: 67 = Registry: 67",
+                          "target":  "Archive index total = registry total"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "subPhase":  "F",
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  18,
+    "totalNegatives":  18,
+    "allHaveTranscripts":  true,
+    "phase":  "LIVE-RUNTIME-1",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-24T23:55:05+08:00"
+}

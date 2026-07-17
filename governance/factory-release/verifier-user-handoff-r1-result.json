@@ -1,0 +1,107 @@
+﻿{
+    "phase":  "USER-HANDOFF-R1",
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-29T01:11:18+08:00",
+    "checks":  {
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "No manual PASS-only",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "v0.5 zip not modified",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "No production/cloud/universal overclaim",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "21 controls",
+                               "description":  "Negative controls 0 gaps",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "R1 zip not modified",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "D563C5E4... in final report",
+                               "description":  "SHA present and full",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "Known limitations / next options exists",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Scope lock exists",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "No v0.6",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "Final handoff report exists",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "Final artifact summary exists",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "Post-smoke PASS exists",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "No generic FAIL",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "Usage quickstart exists",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "Feature guide exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "No real validation started",
+                               "pass":  true
+                           },
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Safety scope reminder exists",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "v0.5 vs R1 diff summary exists",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "Install/upgrade guide exists",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "Verification evidence summary exists",
+                               "pass":  true
+                           }
+               }
+}

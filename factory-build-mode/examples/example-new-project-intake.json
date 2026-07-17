@@ -1,0 +1,29 @@
+﻿{
+    "projectType": "NEW",
+    "newProject": {
+        "projectName": "TaskBoard Pro",
+        "productGoal": "A team task management app with kanban board, user auth, and real-time updates",
+        "userType": "Small teams (5-20 people)",
+        "featureList": [
+            "User registration and login",
+            "Create, edit, delete tasks",
+            "Drag-and-drop kanban board",
+            "Task assignment to team members",
+            "Due date tracking",
+            "Comment threads on tasks",
+            "Email notifications"
+        ],
+        "techStackPreference": {
+            "frontend": "React",
+            "backend": "Node.js/Express",
+            "database": "PostgreSQL",
+            "hosting": "Any"
+        },
+        "complexityExpectation": "MEDIUM",
+        "deliveryGoal": "Working web app with auth and basic kanban",
+        "constraints": ["Must run on one machine for demo", "No payment integration needed"],
+        "mustHave": ["Auth", "Kanban board", "Task CRUD"],
+        "niceToHave": ["Real-time updates", "File attachments"],
+        "forbiddenActions": []
+    }
+}

@@ -1,0 +1,155 @@
+﻿{
+  "registry_version": "2.0.0",
+  "description": "Codex Factory External Engine Registry v2 — security, performance, UI E2E, and reader engines",
+  "last_updated": "2026-07-11",
+  "engines": [
+    {
+      "engine_id": "semgrep",
+      "category": "security",
+      "description": "Static analysis security testing for multiple languages",
+      "install_detection": "semgrep --version",
+      "run_command_template": "semgrep --config=auto {target_path} --json -o {output_file}",
+      "input_contract": { "type": "filesystem_path", "required": ["target_path"] },
+      "output_contract": { "format": "JSON", "schema": "semgrep_findings", "fields": ["findings","errors","paths"] },
+      "parser": "runtime/parsers/semgrep-parser.ps1",
+      "skip_condition": "semgrep not in PATH or pip not available",
+      "failure_classification": ["TOOL_FAILED", "PARSE_ERROR", "SCAN_TIMEOUT", "TARGET_NOT_FOUND"],
+      "evidence_binding_policy": "ALWAYS_BIND — security findings must enter evidence binding",
+      "non_claims": [
+        "CLEAN result does not mean bug-free or secure",
+        "False negatives exist in all static analysis tools",
+        "Not a replacement for manual security review"
+      ],
+      "available": true,
+      "version": "1.169.0"
+    },
+    {
+      "engine_id": "autocannon",
+      "category": "performance",
+      "description": "HTTP load testing tool for API smoke tests",
+      "install_detection": "npx autocannon --version",
+      "run_command_template": "npx autocannon -d {duration_seconds} {target_url}",
+      "input_contract": { "type": "http_url", "required": ["target_url","duration_seconds"] },
+      "output_contract": { "format": "JSON", "schema": "autocannon_result", "fields": ["requests","errors","latency","throughput"] },
+      "parser": "runtime/parsers/autocannon-parser.ps1",
+      "skip_condition": "Service not running, port mismatch, or module resolution blocks server start",
+      "failure_classification": ["TOOL_UNAVAILABLE", "PROJECT_START_FAILED", "MODULE_RESOLUTION_FAILED", "TARGET_UNREACHABLE", "TEST_NOT_APPLICABLE"],
+      "evidence_binding_policy": "BIND_WITH_NON_CLAIMS — results are local smoke only, not production capacity",
+      "non_claims": [
+        "Local smoke test only — NOT production capacity proof",
+        "Results are dev-machine measurements, not reproducible benchmarks",
+        "Does NOT prove million-concurrency capability",
+        "Single-endpoint smoke != system-wide performance test"
+      ],
+      "available": true,
+      "version": "8.0.0"
+    },
+    {
+      "engine_id": "playwright",
+      "category": "ui-e2e",
+      "description": "Browser automation for UI smoke tests and E2E validation",
+      "install_detection": "npx playwright --version",
+      "run_command_template": "npx playwright test --config={config_path}",
+      "input_contract": { "type": "project_config", "required": ["config_path","test_files"] },
+      "output_contract": { "format": "JSON", "schema": "playwright_result", "fields": ["passed","failed","skipped","duration"] },
+      "parser": "runtime/parsers/playwright-parser.ps1",
+      "skip_condition": "No UI surface, no playwright config in project, browser version mismatch",
+      "failure_classification": ["TOOL_FAILED", "BROWSER_VERSION_MISMATCH", "PROJECT_START_FAILED", "ASSERTION_FAILED", "TEST_NOT_APPLICABLE"],
+      "evidence_binding_policy": "BIND_WHEN_RUN — UI smoke evidence for surface validation",
+      "non_claims": [
+        "UI smoke is NOT comprehensive E2E testing",
+        "Does NOT cover all browser/device combinations",
+        "API-only projects should not be blocked by Playwright unavailability"
+      ],
+      "available": true,
+      "version": "1.61.1"
+    },
+    {
+      "engine_id": "codeql",
+      "category": "security",
+      "description": "GitHub CodeQL — deep semantic code analysis and variant analysis",
+      "install_detection": "codeql version",
+      "run_command_template": "codeql database create {db_path} --language={lang} --source-root={target_path} && codeql database analyze {db_path} --format=sarif-latest --output={output_file}",
+      "input_contract": { "type": "filesystem_path", "required": ["target_path","language"] },
+      "output_contract": { "format": "SARIF", "schema": "sarif_v2.1.0", "fields": ["runs","results","rules"] },
+      "parser": "runtime/parsers/codeql-parser.ps1",
+      "skip_condition": "codeql CLI not installed; requires 'codeql bundle' download or GitHub Actions runner",
+      "failure_classification": ["TOOL_UNAVAILABLE", "INSTALL_REQUIRED", "DB_CREATE_FAILED", "ANALYZE_FAILED", "PARSE_ERROR"],
+      "evidence_binding_policy": "BIND_WHEN_AVAILABLE — CodeQL is heavy; skip acceptable if documented",
+      "non_claims": [
+        "CodeQL not installed on this machine — requires manual setup",
+        "Install: download from github.com/github/codeql-cli-binaries",
+        "Heavy analysis — not suitable for quick validation smoke"
+      ],
+      "available": false,
+      "version": null,
+      "install_instructions": "Download CodeQL CLI bundle from https://github.com/github/codeql-action/releases, extract, add to PATH, then run 'codeql version'"
+    },
+    {
+      "engine_id": "k6",
+      "category": "performance",
+      "description": "Grafana k6 — modern load testing tool with JavaScript scripting",
+      "install_detection": "k6 version",
+      "run_command_template": "k6 run {script_path} --duration {duration} --vus {vus}",
+      "input_contract": { "type": "script_file", "required": ["script_path","duration","vus"] },
+      "output_contract": { "format": "JSON", "schema": "k6_summary", "fields": ["metrics","thresholds","checks"] },
+      "parser": "runtime/parsers/k6-parser.ps1",
+      "skip_condition": "k6 CLI not installed; requires chocolatey/brew/download",
+      "failure_classification": ["TOOL_UNAVAILABLE", "INSTALL_REQUIRED", "SCRIPT_ERROR", "TARGET_UNREACHABLE", "THRESHOLD_FAILED"],
+      "evidence_binding_policy": "BIND_WITH_NON_CLAIMS — structured load test, still not production capacity proof",
+      "non_claims": [
+        "k6 not installed on this machine — requires manual setup",
+        "Install: choco install k6 (Windows), brew install k6 (macOS), or download from grafana.com",
+        "Load test results are dev-environment measurements",
+        "Does NOT constitute production capacity certification"
+      ],
+      "available": false,
+      "version": null,
+      "install_instructions": "choco install k6 (Windows, admin) or download from https://grafana.com/docs/k6/latest/set-up/install-k6/"
+    },
+    {
+      "engine_id": "firecrawl-reader",
+      "category": "reader",
+      "description": "Firecrawl — web page reader and content extractor. READER ONLY — NOT canonical search.",
+      "install_detection": "Check for FIRECRAWL_API_KEY environment variable or npm @mendable/firecrawl-js",
+      "run_command_template": "npx @mendable/firecrawl-js scrape {url}",
+      "input_contract": { "type": "url", "required": ["url","api_key"] },
+      "output_contract": { "format": "JSON", "schema": "firecrawl_scrape_result", "fields": ["content","markdown","metadata"] },
+      "parser": "runtime/parsers/firecrawl-reader-parser.ps1",
+      "skip_condition": "No FIRECRAWL_API_KEY set, npm package not installed, or URL unreachable",
+      "failure_classification": ["TOOL_UNAVAILABLE", "API_KEY_MISSING", "URL_UNREACHABLE", "PARSE_ERROR", "RATE_LIMITED"],
+      "evidence_binding_policy": "BIND_AS_READER_ONLY — source_origin must be 'firecrawl_reader', NOT 'canonical_search'",
+      "non_claims": [
+        "NOT canonical search — Firecrawl is a reader/extractor only",
+        "Does NOT replace /api/paas/v4/web_search pipeline",
+        "Evidence from Firecrawl must be marked source_origin=firecrawl_reader",
+        "Cannot be used to generate canonical Evidence Packs",
+        "API key required — not available without user configuration",
+        "Content extraction quality depends on target page structure"
+      ],
+      "available": false,
+      "version": null,
+      "install_instructions": "npm install @mendable/firecrawl-js; set FIRECRAWL_API_KEY environment variable",
+      "api_key_env_var": "FIRECRAWL_API_KEY",
+      "api_key_check_result": "NOT_SET"
+    }
+  ],
+  "engine_categories": {
+    "security": ["semgrep","codeql"],
+    "performance": ["autocannon","k6"],
+    "ui-e2e": ["playwright"],
+    "reader": ["firecrawl-reader"]
+  },
+  "availability_summary": {
+    "available": 3,
+    "unavailable": 3,
+    "details": {
+      "semgrep": "AVAILABLE (1.169.0)",
+      "autocannon": "AVAILABLE (8.0.0 npx)",
+      "playwright": "AVAILABLE (1.61.1 npx)",
+      "codeql": "TOOL_UNAVAILABLE (INSTALL_REQUIRED)",
+      "k6": "TOOL_UNAVAILABLE (INSTALL_REQUIRED)",
+      "firecrawl-reader": "TOOL_UNAVAILABLE (API_KEY_MISSING + NOT_INSTALLED)"
+    }
+  }
+}

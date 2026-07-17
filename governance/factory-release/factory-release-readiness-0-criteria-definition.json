@@ -1,0 +1,28 @@
+﻿{
+  "phase": "FACTORY-RELEASE-READINESS-0",
+  "section": "B",
+  "title": "Release Readiness Criteria v1.0",
+  "timestamp": "2026-06-28T17:10:00+08:00",
+  "criteria": [
+    {"id":"RRC-01","category":"Installation usability","requirement":"One-command install works on clean Windows","status":"READY","evidence":"P4/P5 trials: 3 modes functional"},
+    {"id":"RRC-02","category":"Bootstrap correctness","requirement":"Bootstrap validates VERSION/BOUNDARY/modules","status":"READY","evidence":"P4/P5: 18/18 checks"},
+    {"id":"RRC-03","category":"Mode selection","requirement":"Build Lite is default; NBP conditional","status":"READY","evidence":"DG-002/DG-003 frozen"},
+    {"id":"RRC-04","category":"Build Lite real project safety","requirement":"Working-copy isolation, original untouched","status":"READY","evidence":"RW1+RW2: original untouched"},
+    {"id":"RRC-05","category":"Security/Deploy Gate safety","requirement":"10 checks, 6 blocking; triggers for deployed projects","status":"READY","evidence":"P3 integrated; P5 trial verified"},
+    {"id":"RRC-06","category":"Package QA Gate safety","requirement":"Final ZIP handoff gate; read-only; BLOCKED prevents handoff","status":"READY","evidence":"P2 integrated; 37/37"},
+    {"id":"RRC-07","category":"Context Space freshness","requirement":"Phase close updates ledgers/snapshots/guard","status":"READY","evidence":"P7: fresh-window mount 50/50"},
+    {"id":"RRC-08","category":"Phase close reliability","requirement":"Ledger/snapshot/guard update; verifier boundary","status":"READY_MINOR_WARN","evidence":"P5 trial: mismatch caught, missing=warned; P6 hardening doc added"},
+    {"id":"RRC-09","category":"Test repair policy","requirement":"CLASSIFICATION_FIRST; HONEST_SKIP; NO_FAKE_PASS","status":"READY","evidence":"RW2: 13→21, 2 ENV_MISMATCH skips"},
+    {"id":"RRC-10","category":"Staging bundle hygiene","requirement":"No secrets, no projects, no .env, manifest/zip reconciled","status":"READY","evidence":"P6-R1: 4-layer audit clean"},
+    {"id":"RRC-11","category":"Verifier robustness","requirement":"No UNEXPECTED_PASS, no generic FAIL, no manual-only","status":"READY","evidence":"All phases use verifier+neg controls"},
+    {"id":"RRC-12","category":"Negative control coverage","requirement":"45+ controls per phase, 0 gaps","status":"READY","evidence":"P3(58),P4(57),P5(48),P6(45),P6-R1(42)"},
+    {"id":"RRC-13","category":"Documentation usability","requirement":"QUICKSTART with copy-paste; CLI help; workflow docs","status":"READY","evidence":"P6: factory.ps1 help, QUICKSTART.md"},
+    {"id":"RRC-14","category":"User burden","requirement":"~60-70% reduction from pre-P4 baseline","status":"READY","evidence":"P4 benchmark; P5 remeasured"},
+    {"id":"RRC-15","category":"Non-overclaim discipline","requirement":"No superiority, no production readiness claims","status":"READY","evidence":"All phases: verifier checks pass"},
+    {"id":"RRC-16","category":"Coverage reconciliation","requirement":"Source/manifest/zip/extraction 4-layer audit","status":"READY","evidence":"P6-R1: 0 mismatches after fix"},
+    {"id":"RRC-17","category":"RC extraction/smoke","requirement":"Extract bundle, verify VERSION, scripts, no forbidden","status":"READY","evidence":"P6-R1 extraction: 65 files, clean"},
+    {"id":"RRC-18","category":"User review readiness","requirement":"Chinese summary available; clear next steps","status":"READY","evidence":"Section K below"}
+  ],
+  "summary": {"ready":17,"ready_minor_warn":1,"not_ready":0},
+  "status": "CRITERIA_DEFINED_AND_AUDITED"
+}

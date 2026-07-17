@@ -1,0 +1,27 @@
+﻿{
+  "pack_id": "game-threejs",
+  "pack_version": "1.0.0",
+  "testbed_path": "testbeds/game-threejs-runtime-validation",
+  "validator_stage": "v2.4-runtime-validation",
+  "validation_date": "2026-07-12",
+  "invariant_coverage": {
+    "total_invariants_in_pack": 10,
+    "invariants_with_runtime_validation": 10,
+    "invariants_validated_live": ["G3D-001","G3D-002","G3D-003","G3D-004","G3D-005","G3D-006","G3D-007","G3D-008","G3D-009","G3D-010"],
+    "missing_runtime_coverage": []
+  },
+  "test_results": {
+    "total": 30,
+    "passed": 30,
+    "failed": 0,
+    "negative_controls": 7,
+    "negative_controls_active": 7
+  },
+  "external_engines": {
+    "semgrep": { "status": "RUN", "result": "CLEAN", "findings": 0 },
+    "autocannon": { "status": "NOT_APPLICABLE", "reason": "no backend server" },
+    "playwright": { "status": "TOOL_FAILED", "reason": "browser version mismatch, known from R3.2" }
+  },
+  "pack_traceable": true,
+  "runtime_validated": true
+}

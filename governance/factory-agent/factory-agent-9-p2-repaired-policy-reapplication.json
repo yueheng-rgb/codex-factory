@@ -1,0 +1,102 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P2",
+  "step": "B_REPAIRED_POLICY_REAPPLICATION",
+  "timestamp": "2026-06-26T20:29:00.1656106+08:00",
+  "policy": "AGENT-5-P1 repaired complexity policy v2.0-repaired",
+  "evaluations": [
+    {
+      "run": "RUN-LP-A (Vanilla)",
+      "hardFloors": {
+        "endpointCount": {"floor":40,"actual":55,"met":true},
+        "dbTableCount": {"floor":15,"actual":15,"met":true},
+        "moduleCount": {"floor":10,"actual":13,"met":true},
+        "errorStateCount": {"floor":30,"actual":35,"met":true},
+        "apiContractCompleteness": {"floor":"all","met":true},
+        "deterministicSeed": {"floor":"present","met":true},
+        "deterministicImportExport": {"floor":"present","met":true},
+        "workflowValidator": {"floor":"present","met":true},
+        "auditLog": {"floor":"present","met":true},
+        "notificationOutbox": {"floor":"present","met":true},
+        "settingsModule": {"floor":"present","met":true}
+      },
+      "diagnosticMetrics": {
+        "sourceFileCount": {"floor":50,"actual":78,"met":true,"note":"All meaningful files"},
+        "exportCount": {"floor":"10 avg/module","actual":12.5,"met":true},
+        "testFileCount": {"floor":10,"actual":27,"met":true}
+      },
+      "overallHardFloorsMet": 11,
+      "overallHardFloorsTotal": 11
+    },
+    {
+      "run": "RUN-LP-B (v0.4 Factory Lite)",
+      "hardFloors": {
+        "endpointCount": {"floor":40,"actual":48,"met":true},
+        "dbTableCount": {"floor":15,"actual":15,"met":true},
+        "moduleCount": {"floor":10,"actual":13,"met":true},
+        "errorStateCount": {"floor":30,"actual":32,"met":true},
+        "apiContractCompleteness": {"floor":"all","met":true},
+        "deterministicSeed": {"floor":"present","met":true},
+        "deterministicImportExport": {"floor":"present","met":true},
+        "workflowValidator": {"floor":"present","met":true},
+        "auditLog": {"floor":"present","met":true},
+        "notificationOutbox": {"floor":"present","met":true},
+        "settingsModule": {"floor":"present","met":true}
+      },
+      "diagnosticMetrics": {
+        "sourceFileCount": {"floor":50,"actual":78,"met":true},
+        "exportCount": {"floor":"10 avg/module","actual":11.8,"met":true},
+        "testFileCount": {"floor":10,"actual":27,"met":true}
+      },
+      "overallHardFloorsMet": 11,
+      "overallHardFloorsTotal": 11
+    },
+    {
+      "run": "old RUN-LP-C (7-agent)",
+      "hardFloors": {
+        "endpointCount": {"floor":40,"actual":52,"met":true},
+        "dbTableCount": {"floor":15,"actual":15,"met":true},
+        "moduleCount": {"floor":10,"actual":13,"met":true},
+        "errorStateCount": {"floor":30,"actual":38,"met":true},
+        "apiContractCompleteness": {"floor":"all","met":true},
+        "deterministicSeed": {"floor":"present","met":true},
+        "deterministicImportExport": {"floor":"present","met":true},
+        "workflowValidator": {"floor":"present","met":true},
+        "auditLog": {"floor":"present","met":true},
+        "notificationOutbox": {"floor":"present","met":true},
+        "settingsModule": {"floor":"present","met":true}
+      },
+      "diagnosticMetrics": {
+        "sourceFileCount": {"floor":50,"actual":117,"met":true,"note":"117 files but some may be process artifacts; 7-agent overhead includes capsules, handoffs, registry"},
+        "exportCount": {"floor":"10 avg/module","actual":16.5,"met":true},
+        "testFileCount": {"floor":10,"actual":22,"met":true}
+      },
+      "overallHardFloorsMet": 11,
+      "overallHardFloorsTotal": 11
+    },
+    {
+      "run": "RUN-LP-C-P1 (4-agent after R1)",
+      "hardFloors": {
+        "endpointCount": {"floor":40,"actual":50,"met":true},
+        "dbTableCount": {"floor":15,"actual":15,"met":true},
+        "moduleCount": {"floor":10,"actual":13,"met":true},
+        "errorStateCount": {"floor":30,"actual":34,"met":true},
+        "apiContractCompleteness": {"floor":"all","met":true},
+        "deterministicSeed": {"floor":"present","met":true},
+        "deterministicImportExport": {"floor":"present","met":true},
+        "workflowValidator": {"floor":"present","met":true},
+        "auditLog": {"floor":"present","met":true},
+        "notificationOutbox": {"floor":"present","met":true},
+        "settingsModule": {"floor":"present","met":true}
+      },
+      "diagnosticMetrics": {
+        "sourceFileCount": {"floor":50,"actual":77,"met":true,"note":"Post-R1: 77 legitimate files, no gaming"},
+        "exportCount": {"floor":"10 avg/module","actual":15.2,"met":true},
+        "testFileCount": {"floor":10,"actual":23,"met":true}
+      },
+      "overallHardFloorsMet": 11,
+      "overallHardFloorsTotal": 11,
+      "historicalNote": "Under old policy: BLOCKED_BY_REVIEWER (71/80 source, 109/300 exports). Under repaired policy: all hard floors met. Diagnostic metrics all exceed floors."
+    }
+  ],
+  "keyFinding": "Under repaired policy v2.0, ALL FOUR runs meet all 11 hard floors. The gaming-prone metrics (sourceFileCount, exportCount) that artificially blocked P1 are now diagnostic-only. The policy repair successfully removed the artificial barrier without giving P1 any unfair advantage."
+}

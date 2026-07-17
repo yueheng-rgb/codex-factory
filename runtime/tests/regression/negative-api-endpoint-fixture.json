@@ -1,0 +1,20 @@
+﻿{
+  "fixtureId": "REGRESSION-NEG-002",
+  "description": "Negative API-endpoint-source test — open.bigmodel.cn/api/paas used as source MUST be rejected",
+  "testType": "negative_api_endpoint_source",
+  "expectedResult": "REJECT — Classification D — source_is_not_provider_api_endpoint FATAL",
+  "intakePacket": {
+    "sourceRefs": [
+      {
+        "title": "GLM API Endpoint",
+        "url": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+        "sourceType": "official_api",
+        "snippet": "API endpoint for GLM chat completions."
+      }
+    ],
+    "provider": "glm_search",
+    "claimedFacts": []
+  },
+  "searchInvoked": true,
+  "actualMode": "live_api"
+}

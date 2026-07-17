@@ -1,0 +1,35 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "F",
+  "title": "Socratic Clarification Gate",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "socratic_gate": {
+    "name": "SOCRATIC_CLARIFICATION_GATE v1.0.0",
+    "scope": "Only for high-risk ambiguity. Does NOT apply to normal execution phases.",
+    "trigger_conditions": [
+      "Direction conflict: two active strategies contradict each other",
+      "Unclear scope: phase boundary is ambiguous and could lead to overreach",
+      "Release/deploy/security/secret boundary: any action touching these boundaries",
+      "Evidence classification ambiguous: design vs execution, local vs production",
+      "User intent unclear: could be interpreted as release when user means trial"
+    ],
+    "max_questions": 3,
+    "question_format": {
+      "must_be": ["Specific to the ambiguity", "Multiple choice with clear tradeoffs", "Answered before proceeding"],
+      "must_not_be": ["Already answered", "Generic 'are you sure?'", "Micro-task drift", "Repeated across phases"]
+    },
+    "anti_patterns": [
+      "Socratic Gate asking 10 questions → VIOLATION (max 3)",
+      "Socratic Gate blocking normal execution → VIOLATION (high-risk only)",
+      "Socratic Gate asking already-answered question → VIOLATION",
+      "Every phase triggers Socratic → VIOLATION (high-risk only)"
+    ],
+    "non_triggers": [
+      "Normal build/install/bootstrap/preflight/phase-close",
+      "Documentation-only phases",
+      "Formatting/cleanup tasks",
+      "User explicitly confirms a direction"
+    ]
+  },
+  "status": "SOCRATIC_GATE_DEFINED"
+}

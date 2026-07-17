@@ -1,0 +1,56 @@
+﻿{
+  "packetId": "FACTORY_CURRENT_CONTEXT_PACKET",
+  "purpose": "Current project state — single entry point for new windows",
+  "generatedAt": "2026-06-25T00:10:02+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-3",
+  "currentTrustedPhase": "FINAL",
+  "liveRuntimePhases": {
+    "LIVE-RUNTIME-0": "PASS — Agent + Context Risk Discovery",
+    "LIVE-RUNTIME-1": "PASS — P0 Gap Close Sprint",
+    "LIVE-RUNTIME-2": "PASS — Agent OS + Accountability Bus",
+    "LIVE-RUNTIME-3": "IN_PROGRESS — Context OS + External Memory Index"
+  },
+  "finalPackage": {
+    "status": "CREATED_AND_VALIDATED",
+    "zipPath": "outputs/CODEX_FACTORY_FINAL_PACKAGE.zip",
+    "sha256": "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+    "coreComponents": ["resource-pack","factoryctl","governance","policies"],
+    "experimentalComponents": ["plugin","MCP","monitoring","automation"],
+    "excludedComponents": ["scoring-systems","failure-router"]
+  },
+  "agentOS": {
+    "established": true,
+    "lifecycleStates": 15,
+    "roles": 8,
+    "eventBusActive": true,
+    "allAgentsClassified": true,
+    "unsafeStaleAgents": 0
+  },
+  "contextOS": {
+    "established": true,
+    "memoryIndexEntries": 20,
+    "ledgers": ["phase","decision","risk","agent","package"],
+    "contextPackets": 6,
+    "evidenceHierarchy": "HIGHEST > MEDIUM > LOW > FORBIDDEN"
+  },
+  "activeRisks": [
+    {"risk":"Shared memory divergence","severity":"P0","status":"UNRESOLVED"},
+    {"risk":"Verifier overfitting","severity":"P1","status":"UNRESOLVED"},
+    {"risk":"Automation rotation watcher not implemented","severity":"P1","status":"UNRESOLVED"}
+  ],
+  "rejectedClaims": [
+    "Full context inheritance",
+    "Automatic window creation without verification",
+    "Plugin production-ready",
+    "Automation production-ready",
+    "Compressed summary as evidence"
+  ],
+  "recommendedNextPhase": "LIVE-RUNTIME-4 / MCP Memory Server or LIVE-RUNTIME-4 / Automation Rotation Watcher",
+  "requiredStartupVerification": [
+    "factoryctl verify -Json",
+    "Cross-session state reconciliation",
+    "MANIFEST SHA256 validation",
+    "Agent archive index check",
+    "Capacity preflight"
+  ]
+}

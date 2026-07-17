@@ -1,0 +1,140 @@
+﻿{
+    "verifier":  "factory-diagnostic-pack-p1-bundle-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T23:35:10.3514020+08:00",
+    "passRatio":  "26/26",
+    "total":  26,
+    "pass":  26,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2044016+08:00",
+                       "pass":  true,
+                       "name":  "p1-pass-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2094000+08:00",
+                       "pass":  true,
+                       "name":  "staging-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2094000+08:00",
+                       "pass":  true,
+                       "name":  "readme-bundle-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2094000+08:00",
+                       "pass":  true,
+                       "name":  "install-use-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2104015+08:00",
+                       "pass":  true,
+                       "name":  "boundary-claims-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2104015+08:00",
+                       "pass":  true,
+                       "name":  "startup-prompt-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2104015+08:00",
+                       "pass":  true,
+                       "name":  "evidence-index-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2104015+08:00",
+                       "pass":  true,
+                       "name":  "manifest-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2104015+08:00",
+                       "pass":  true,
+                       "name":  "sha-manifest-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2124022+08:00",
+                       "pass":  true,
+                       "name":  "zip-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2604032+08:00",
+                       "pass":  true,
+                       "name":  "zip-sha-recorded"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.2614013+08:00",
+                       "pass":  true,
+                       "name":  "extract-dir-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3274027+08:00",
+                       "pass":  true,
+                       "name":  "extract-sha-all-pass"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3394023+08:00",
+                       "pass":  true,
+                       "name":  "no-excluded-items-in-zip"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3404014+08:00",
+                       "pass":  true,
+                       "name":  "smoke-test-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3414012+08:00",
+                       "pass":  true,
+                       "name":  "no-v05-dir"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3424013+08:00",
+                       "pass":  true,
+                       "name":  "no-product-modified"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3424013+08:00",
+                       "pass":  true,
+                       "name":  "no-new-benchmark"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3424013+08:00",
+                       "pass":  true,
+                       "name":  "v04-zip-unchanged"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3444021+08:00",
+                       "pass":  true,
+                       "name":  "boundary-no-product-superiority"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3444021+08:00",
+                       "pass":  true,
+                       "name":  "boundary-no-multiagent-default"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3444021+08:00",
+                       "pass":  true,
+                       "name":  "boundary-v05-blocked"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3454017+08:00",
+                       "pass":  true,
+                       "name":  "boundary-vanilla-leader"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3473997+08:00",
+                       "pass":  true,
+                       "name":  "neg-34-total"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3484022+08:00",
+                       "pass":  true,
+                       "name":  "neg-all-detected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:35:10.3494024+08:00",
+                       "pass":  true,
+                       "name":  "neg-zero-gaps"
+                   }
+               ]
+}

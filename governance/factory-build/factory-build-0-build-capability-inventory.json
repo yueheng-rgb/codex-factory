@@ -1,0 +1,53 @@
+﻿{
+    "phase": "FACTORY-BUILD-0",
+    "subPhase": "B_BUILD_CAPABILITY_INVENTORY",
+    "date": "2026-06-27",
+    "categories": {
+        "DIRECTLY_USABLE_FOR_BUILD": [
+            {"capability": "Manual Router (APP_TYPE_ROUTER.md)", "source": "starters/", "status": "OPERATIONAL", "usage": "Routes project type to recommended architecture and starter template"},
+            {"capability": "Proof-of-Read", "source": "AGENTS.md rules, EVIDENCE_INDEX.md", "status": "OPERATIONAL", "usage": "Verifies codebase understanding before modification"},
+            {"capability": "Evidence Hierarchy (Tier 1-5)", "source": "diagnostic-pack/evidence-hierarchy.md", "status": "OPERATIONAL", "usage": "Classifies evidence by quality tier, prevents process-artifact-as-product confusion"},
+            {"capability": "Verifier Framework", "source": "scripts/*.ps1, governance/verifier-*.json", "status": "OPERATIONAL", "usage": "Machine-readable pass/fail checks with negative controls"},
+            {"capability": "Negative Controls Framework", "source": "diagnostic-pack/BOUNDARY.md, all phase negative controls", "status": "OPERATIONAL", "usage": "Every check designed to FAIL when wrong, no PASS-by-default"},
+            {"capability": "Diagnostic Pack as Gate", "source": "diagnostic-pack/ (3 modes + Report-vs-Source)", "status": "OPERATIONAL", "usage": "Pre-build quality gate and evidence check, readonly"},
+            {"capability": "Session Handoff / Startup Verification", "source": "bundle-docs/STARTUP_PROMPT_FOR_NEW_CODEX_WINDOW.md", "status": "OPERATIONAL", "usage": "New Codex window can pick up state without conversation memory"},
+            {"capability": "4-Agent P1 Runtime Mechanisms", "source": "governance/factory-agent/", "status": "PARTIAL", "usage": "Conditional multi-agent collaboration, not default but operational"},
+            {"capability": "Reviewer-Verifier", "source": "diagnostic-pack/reviewer-verifier-checklist.md", "status": "OPERATIONAL", "usage": "Single-agent readonly inspection role"},
+            {"capability": "Mid-Run Floor Checks", "source": "diagnostic-pack/floor-check-policy.md", "status": "OPERATIONAL", "usage": "Prevents premature PASS declarations mid-execution"},
+            {"capability": "Lifecycle/Handoff/Close Receipt", "source": "harness/smoke-simulation.json", "status": "PARTIAL", "usage": "Phase completion and handoff evidence chains"}
+        ],
+        "AUXILIARY_FOR_BUILD": [
+            {"capability": "Report-vs-Source Checks", "source": "diagnostic-pack/REPORT_VS_SOURCE_MODE.md", "status": "OPERATIONAL", "usage": "Verifies claims against implementation, auxiliary to build verification"},
+            {"capability": "Anti-Deception Checks", "source": "diagnostic-pack/anti-deception-checklist.md", "status": "OPERATIONAL", "usage": "Detects false PASS, self-report-only, fake tests — protects build integrity"},
+            {"capability": "Contamination Check", "source": "diagnostic-pack/contamination-checklist.md", "status": "OPERATIONAL", "usage": "Detects cross-run pollution, protects build state isolation"},
+            {"capability": "Student Project Mode", "source": "diagnostic-pack/STUDENT_PROJECT_MODE.md", "status": "OPERATIONAL", "usage": "Specialized diagnostic for academic projects, auxiliary"},
+            {"capability": "Quick Mode", "source": "diagnostic-pack/QUICK_MODE.md", "status": "OPERATIONAL", "usage": "Fast first-pass structural check, auxiliary gate"}
+        ],
+        "NOT_YET_BUILT": [
+            {"capability": "One-Click Project Intake", "status": "MISSING", "priority": "P0", "description": "Accept project path/requirements, auto-classify, route to mode"},
+            {"capability": "Automatic Complexity Classifier", "status": "MISSING", "priority": "P0", "description": "Judge project complexity: file count, auth presence, DB presence, multi-app, risk level"},
+            {"capability": "Real Production Task Graph", "status": "MISSING", "priority": "P0", "description": "Generate dependency-ordered task graph from requirements and architecture"},
+            {"capability": "Agent Work Allocation", "status": "MISSING", "priority": "P1", "description": "Allocate task graph nodes to agents with clear write-scope boundaries"},
+            {"capability": "Cross-Agent Integration", "status": "MISSING", "priority": "P1", "description": "Merge agent outputs, resolve conflicts, verify integration contracts"},
+            {"capability": "External Project Memory", "status": "MISSING", "priority": "P0", "description": "File-based state that persists across sessions and agents"},
+            {"capability": "Long-Term Context Continuation", "status": "MISSING", "priority": "P1", "description": "Resume complex project across multiple sessions without losing context"},
+            {"capability": "Cloud Knowledge/Data Recovery", "status": "MISSING", "priority": "P2", "description": "External knowledge base for project-specific decisions and patterns"},
+            {"capability": "Multi-Round Sustained Development", "status": "MISSING", "priority": "P1", "description": "Iterate on complex project across days/weeks with state preservation"},
+            {"capability": "Real Complex Project Delivery Closed Loop", "status": "MISSING", "priority": "P0", "description": "End-to-end: intake → build → verify → repair → deliver → handoff"}
+        ],
+        "USE_WITH_CAUTION": [
+            {"capability": "4-Agent P1 (Full)", "source": "governance/factory-agent/", "status": "EXPERIMENTAL", "caution": "Has process evidence, no product superiority over Vanilla. Use conditionally for large projects."},
+            {"capability": "Full Multi-Agent (7-agent legacy)", "source": "AGENT-9-P3: CUT as default", "status": "CUT", "caution": "Not suitable as default. Only considered for >20 module projects with clear boundaries."},
+            {"capability": "Benchmark Scoring", "source": "AGENT-9-P2", "status": "EXPERIMENTAL", "caution": "Measures outcomes, does not build. Only meaningful after build harness operational."},
+            {"capability": "Release Packaging (ZIP)", "source": "outputs/CODEX_FACTORY_V04_RELEASE_PACKAGE.zip", "status": "EXISTING", "caution": "Packaging without proven build capability is premature. Gate behind Build Mode success."},
+            {"capability": "SkillMarket as Evidence", "source": "governance/skillmarket-repair/", "status": "CLOSED", "caution": "Evidence trial complete. Do not reopen as product."}
+        ]
+    },
+    "summary": {
+        "directlyUsable": 11,
+        "auxiliary": 5,
+        "notYetBuilt": 10,
+        "useWithCaution": 5
+    },
+    "criticalGapAssessment": "10 of 26 needed capabilities are MISSING. Core Build Harness capabilities (intake, classifier, task graph, external memory, delivery closed loop) are all MISSING. Existing capabilities are strong on verification and safety, weak on production and coordination."
+}

@@ -1,0 +1,41 @@
+﻿{
+    "question":  "Why did RUN-C Role-Agent not beat Factory Lite in TeamFlow?",
+    "nativeGenerated":  true,
+    "implicationsForV05":  [
+                               "v0.5 must use fewer roles (3-5) appropriate for large-project scale",
+                               "v0.5 benchmark must use a genuinely large project (50+ features, 5+ independent modules)",
+                               "True fork_context:false with owned scopes is non-negotiable",
+                               "Overhead must be measured explicitly (agent count vs completion time vs quality)"
+                           ],
+    "generatedAt":  "2026-06-26T01:02:53.1809382+08:00",
+    "analysis":  {
+                     "overheadDominates":  {
+                                               "detail":  "Contract generation, scope enforcement, handoff verification, and agent lifecycle management added process overhead that outweighed parallelism benefits at TeamFlow scale.",
+                                               "finding":  true
+                                           },
+                     "noRealSpawnIsolation":  {
+                                                  "detail":  "Early role-agent runs used fork_context:true or simulated roles. True fork_context:false isolation with owned scopes came later (DRY24).",
+                                                  "finding":  "PARTIAL"
+                                              },
+                     "projectTooSmall":  {
+                                             "detail":  "TeamFlow is a medium-scale project (~15-20 features). Multi-agent overhead (role coordination, contract generation, handoff verification) dominates at this scale. Benefit threshold likely requires 50+ features or 5+ independent modules.",
+                                             "evidenceRef":  "EVAL-13 INCONCLUSIVE",
+                                             "finding":  true
+                                         },
+                     "tenRoleOverkill":  {
+                                             "detail":  "10 roles (Founder/CTO/Architect/PM/Builder/Integrator/Verifier/Auditor/DevOps/Knowledge) for a medium project creates more coordination cost than division-of-labor benefit. 3-4 roles would be more appropriate for TeamFlow scale.",
+                                             "evidenceRef":  "EVAL-3 simulation, EVAL-7 RUN-C",
+                                             "finding":  true
+                                         },
+                     "wrongComparison":  {
+                                             "detail":  "Comparing multi-agent to Factory Lite on a medium project is like comparing a factory assembly line to a craft workshop for making 5 chairs. The assembly line wins at 500 chairs.",
+                                             "finding":  true
+                                         },
+                     "insufficientParallelism":  {
+                                                     "detail":  "TeamFlow modules were not independent enough for effective parallel agent work. Cross-module dependencies forced sequential integration regardless of agent count.",
+                                                     "finding":  true
+                                                 }
+                 },
+    "phase":  "FACTORY-AGENT-0-C",
+    "conclusion":  "RUN-C Role-Agent failure does NOT prove multi-agent is useless. It proves: (1) 10-role model was overkill for TeamFlow scale, (2) medium projects don\u0027t benefit from multi-agent overhead, (3) true fork_context:false isolation was not yet available. Multi-agent value for LARGE projects remains untested."
+}

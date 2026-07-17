@@ -1,0 +1,85 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codex-factory/schemas/evidence-pack-v2.schema.json",
+  "title": "Evidence Pack v2 (R2.3-Y)",
+  "description": "Structured evidence pack with R2.3-Y quality fields, security requirements, source ranking, and language tracking",
+  "type": "object",
+  "required": ["phase", "mode", "provider", "search_invoked", "query", "runtime_timestamp", "sources"],
+  "properties": {
+    "phase": { "type": "string", "description": "Factory phase ID" },
+    "mode": { "type": "string", "enum": ["live_search", "manual", "dry_run"], "description": "Search mode" },
+    "provider": { "type": "string", "description": "Search provider name" },
+    "selectedSearchPath": { "type": "string", "description": "e.g., /api/paas/v4/web_search" },
+    "search_invoked": { "type": "boolean" },
+    "query": { "type": "string" },
+    "query_intent": { "type": "string", "enum": ["official_api_check", "best_practice", "risk_pattern", "alternative_options"] },
+    "query_intents": { "type": "array", "items": { "type": "string" } },
+    "runtime_timestamp": { "type": "string", "format": "date-time" },
+    "security_critical": { "type": "boolean", "default": false },
+    
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url", "source_origin"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "snippet_or_content": { "type": "string" },
+          "source_origin": {
+            "type": "string",
+            "enum": ["provider_search_result", "model_text_extraction", "manual", "unknown"],
+            "description": "MUST be provider_search_result for canonical evidence"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": ["official_documentation", "official_SDK_repo", "official_example", "mainstream_open_source_repo", "authoritative_tech_article", "community_tutorial", "issue_resolution", "tech_blog", "personal_blog", "AI_generated_summary", "reference_project", "benchmark", "other"]
+          },
+          "source_tier": {
+            "type": "string",
+            "enum": ["tier_1_gold", "tier_2_silver", "tier_3_bronze", "tier_4_supplement"]
+          },
+          "source_language": { "type": "string", "enum": ["zh", "en", "other"] },
+          "freshness_note": { "type": "string" },
+          "maturity_signal": { "type": "string", "enum": ["stable", "beta", "deprecated", "unknown"] },
+          "risk_signal": { "type": "string" },
+          "version_or_dependency_note": { "type": "string" },
+          "selected_reason": { "type": "string" },
+          "limitations": { "type": "string" }
+        }
+      }
+    },
+    
+    "source_type_counts": {
+      "type": "object",
+      "properties": {
+        "official": { "type": "integer" },
+        "community": { "type": "integer" },
+        "article": { "type": "integer" },
+        "issue": { "type": "integer" },
+        "other": { "type": "integer" }
+      }
+    },
+    "official_sources_count": { "type": "integer" },
+    "community_sources_count": { "type": "integer" },
+    "authoritative_source_gap": { "type": "boolean" },
+    "english_source_gap": { "type": "boolean" },
+    "research_coverage_summary": { "type": "string" },
+    "rejected_sources_summary": { "type": "string" },
+    "open_questions": { "type": "array", "items": { "type": "string" } },
+    "confidence_level": { "type": "string", "enum": ["high", "medium", "low"] },
+    
+    "security_risk_notes": { "type": "string" },
+    "minimum_controls": { "type": "array", "items": { "type": "string" } },
+    "rejected_insecure_alternatives": { "type": "array", "items": { "type": "string" } },
+    "required_tests_for_failure_paths": { "type": "array", "items": { "type": "string" } },
+    "dependency_version_constraints": { "type": "array", "items": { "type": "string" } },
+    
+    "implementation_checklist": { "type": "array", "items": { "type": "string" } },
+    "test_checklist": { "type": "array", "items": { "type": "string" } },
+    
+    "quality_gate": { "type": "object" },
+    "downstream_readonly_result": { "type": "string" },
+    "secret_safety_result": { "type": "string" }
+  }
+}

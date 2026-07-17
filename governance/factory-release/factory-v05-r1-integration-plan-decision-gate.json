@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-V05-R1-INTEGRATION-PLAN","section":"L","title":"R1 Decision Gate","preconditions_met":8,"preconditions_total":9,"pending":"User approval","blockers":["CLI name reconciliation","Evidence taxonomy enforcement","Lifecycle delete PLAN-first"],"next_phase":"FACTORY-V05-R1-INTEGRATION-0"}

@@ -1,0 +1,221 @@
+﻿{
+    "verifier":  "factory-agent-8-p1-simplified-agent-company-run-verify.ps1",
+    "passed":  35,
+    "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+    "warnings":  0,
+    "verdict":  "PASS",
+    "totalChecks":  35,
+    "checks":  [
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "NO_V05_ZIP"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "NO_NEW_ZIP"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "RUNTIME_P1_PASS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_9_P1_PASS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "P1_DIR_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "RUN_METADATA_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "P1_RUNTIME_ENABLED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "FOUR_AGENT_COUNT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "SEVEN_AGENT_NOT_USED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "TEN_ROLE_NOT_USED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "FLOOR_ENFORCEMENT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "CAVEAT_BLOCKING"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "OVERHEAD_BUDGET"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "TASK_GRAPH"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "CAPSULES_EXIST"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "REGISTRY_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "LIFECYCLE_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "HANDOFFS_EXIST"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "CLOSE_RECEIPTS_EXIST"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "PLANNING_FLOOR_CHECK"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "MID_RUN_FLOOR_CHECK"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "PRE_CLOSURE_FLOOR_CHECK"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "REVIEWER_VERIFIER_RESULT"
+                   },
+                   {
+                       "detail":  "Floor enforcement triggered correctly",
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "REVIEWER_BLOCKED"
+                   },
+                   {
+                       "detail":  "Reviewer-Verifier did not write product code",
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "REVIEWER_READONLY"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "PHASE_GATE_EXISTS"
+                   },
+                   {
+                       "detail":  "Phase gate blocked as designed",
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "PHASE_GATE_BLOCKED"
+                   },
+                   {
+                       "detail":  "Floor enforcement triggered correctly",
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "FLOORS_ENFORCED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "PRODUCT_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "OVERHEAD_LOG"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "MAIN_REPORT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "NEG_REPORT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "NO_EFFECTIVENESS_CLAIM"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "NO_COMPARISON_CLAIM"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T19:30:28.7179021+08:00",
+                       "pass":  true,
+                       "name":  "NO_MULTI_AGENT_DEFAULT"
+                   }
+               ],
+    "failed":  0
+}

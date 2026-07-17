@@ -1,0 +1,152 @@
+﻿{
+  "policyId": "H9-P4-CONVERSATION-ROTATION-V1",
+  "phase": "6C-H9-P4",
+  "title": "Conversation Rotation and Compression Resume Protocol",
+  "createdAt": "2026-06-22T22:00:00+08:00",
+  "codexFactoryVersion": "Phase 6C",
+
+  "rotationTriggers": {
+    "compressionCount": {
+      "threshold": 2,
+      "description": "If compressionCount >= 2 in a single active conversation, the main agent must stop and cannot continue in the same window.",
+      "action": "STOP_AND_HANDOFF",
+      "resumeRequirement": "New window with verified resume capsule"
+    },
+    "agentLimitHit": {
+      "description": "If agent spawn limit is reached and pending workers cannot be dispatched, main agent must stop.",
+      "action": "STOP_AND_HANDOFF",
+      "resumeRequirement": "New window with verified resume capsule and cleared agent pool"
+    },
+    "phaseRegression": {
+      "description": "If a closed phase is re-executed or its evidence is regenerated, main agent must stop.",
+      "action": "STOP_AND_QUARANTINE",
+      "resumeRequirement": "New window; phase regression report required"
+    },
+    "contextCompressionDuringActiveRun": {
+      "description": "If context compression occurs during an active run, resumeAllowed=false until resume capsule is verified.",
+      "action": "SET_RESUME_BLOCKED",
+      "resumeRequirement": "verify-resume-capsule.ps1 must pass before resuming"
+    }
+  },
+
+  "resumeCapsule": {
+    "description": "A self-contained JSON artifact created by create-resume-capsule.ps1 at handoff time.",
+    "requiredFields": [
+      "currentTrustedPhase",
+      "allowedNextPhase",
+      "activeRunId",
+      "activeRunStatus",
+      "lastTrustedReports",
+      "quarantinedRuns",
+      "openCaveats",
+      "forbiddenActions",
+      "requiredNextAction",
+      "evidencePaths",
+      "compressionCount",
+      "handoffCreatedAt"
+    ],
+    "verifierScript": "scripts/harness-readiness/verify-resume-capsule.ps1",
+    "creatorScript": "scripts/harness-readiness/create-resume-capsule.ps1",
+    "expectedPath": "{runDir}/resume-capsule.json",
+    "alternatePath": "harness-control/locks/C-RUN-H9-P4/resume-capsule.json"
+  },
+
+  "newWindowRequirements": {
+    "description": "Requirements that must pass before a new window agent continues work.",
+    "verifierScript": "scripts/harness-readiness/verify-new-window-readiness.ps1",
+    "mustRead": [
+      "governance/harness-readiness/current-phase-lock.json",
+      "governance/harness-readiness/quarantined-runs.json",
+      "latest trusted report (from currentTrustedPhase)",
+      "latest active run status",
+      "allowedNextPhase",
+      "known caveats",
+      "forbidden closed phases"
+    ],
+    "mustNotDo": [
+      "Continue from memory without reading phase lock",
+      "Start a closed phase",
+      "Start DRY18-B before DRY18-A-P2 PASS is recorded",
+      "Use a quarantined run as evidence source",
+      "Continue in same window if compressionCount >= 2 without new handoff",
+      "Create final ZIP",
+      "Handwrite PASS evidence"
+    ]
+  },
+
+  "verifierFailureConditions": {
+    "description": "Conditions that cause verify-resume-capsule.ps1 or verify-new-window-readiness.ps1 to FAIL.",
+    "conditions": [
+      {
+        "condition": "RESUME_CAPSULE_MISSING",
+        "description": "Resume capsule file not found at expected path.",
+        "classification": "FAIL_MISSING_EVIDENCE"
+      },
+      {
+        "condition": "PHASE_MISMATCH",
+        "description": "allowedNextPhase in capsule does not match current phase lock.",
+        "classification": "FAIL_CONTRACT_DRIFT"
+      },
+      {
+        "condition": "CLOSED_PHASE_REQUESTED",
+        "description": "Requested phase is in forbiddenClosedPhases.",
+        "classification": "FAIL_CONTRACT_DRIFT"
+      },
+      {
+        "condition": "DRY18_B_BEFORE_DRY18_A_P2_PASS",
+        "description": "DRY18-B requested but DRY18-A-P2 PASS is not recorded.",
+        "classification": "FAIL_CONTRACT_DRIFT"
+      },
+      {
+        "condition": "QUARANTINED_SOURCE",
+        "description": "A quarantined run is referenced as evidence source.",
+        "classification": "FAIL_CONTRACT_DRIFT"
+      },
+      {
+        "condition": "COMPRESSION_NO_HANDOFF",
+        "description": "compressionCount >= 2 and no new window handoff exists.",
+        "classification": "FAIL_CONTRACT_DRIFT"
+      },
+      {
+        "condition": "PASS_CLAIM_NO_EVIDENCE",
+        "description": "A PASS claim lacks an evidence path.",
+        "classification": "FAIL_MISSING_EVIDENCE"
+      }
+    ]
+  },
+
+  "phaseLockUpdateRules": {
+    "description": "Rules for updating current-phase-lock.json during rotation.",
+    "onHandoff": {
+      "setCompressionCount": true,
+      "setResumeBlocked": true,
+      "setHandoffCreatedAt": true,
+      "updateAllowedNextPhase": false
+    },
+    "onNewWindowResume": {
+      "setCompressionCount": 0,
+      "setResumeBlocked": false,
+      "clearHandoffCreatedAt": true,
+      "updateAllowedNextPhase": true
+    }
+  },
+
+  "forbiddenActionsDuringRotation": [
+    "Start DRY18-B",
+    "Continue from memory",
+    "Rerun closed phases",
+    "Create final ZIP",
+    "Handwrite PASS evidence",
+    "Use quarantined run as source",
+    "Skip resume capsule creation before handoff",
+    "Skip new-window-readiness verification"
+  ],
+
+  "integrations": {
+    "phaseLockVerifier": "harness/scripts/harness-readiness/verify-phase-lock.ps1",
+    "resumeSafetyVerifier": "harness/scripts/harness-readiness/verify-resume-safety.ps1",
+    "dry18ReadinessVerifier": "harness/scripts/harness-readiness/verify-dry18-readiness.ps1",
+    "cleanStartAuthorizer": "harness/scripts/harness-readiness/authorize-clean-start.ps1",
+    "cleanStartVerifier": "harness/scripts/harness-readiness/verify-clean-start-no-contamination.ps1"
+  }
+}

@@ -1,0 +1,24 @@
+﻿{
+    "archivedRoles":  [
+                          "builder-db",
+                          "builder-backend",
+                          "builder-frontend",
+                          "builder-tests",
+                          "reviewer",
+                          "verifier",
+                          "integrity-checker"
+                      ],
+    "document":  "seven-agent-archive",
+    "archivedModel":  "7-agent Agent Company (AGENT-1 through AGENT-8)",
+    "archiveReason":  "MULTI_AGENT_NO_BENEFIT on OpsFlow Enterprise Lite (AGENT-9). Root causes H1,H7,H8. Preserved for evidence reference only.",
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "timestamp":  "2026-06-26T18:47:55.4441842+08:00",
+    "defaultStatus":  false,
+    "preservedArtifacts":  [
+                               "governance/factory-agent/factory-agent-8-v05-agent-company-result.json",
+                               "harness/benchmarks/factory-agent-large-project/runs/v05-agent-company/",
+                               "outputs/FACTORY_AGENT_8_V05_AGENT_COMPANY_RUN_REPORT.md"
+                           ],
+    "status":  "ARCHIVED_NOT_DEFAULT",
+    "replacementModel":  "4-agent P1 candidate"
+}

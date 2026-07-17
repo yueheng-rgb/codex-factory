@@ -1,0 +1,22 @@
+﻿{
+  "packetId": "agent-os-packet",
+  "purpose": "Recover Agent OS state — event bus, roles, lifecycle, accountability",
+  "generatedAt": "2026-06-25T00:10:02+08:00",
+  "requiredReadFiles": [
+    "governance/agent-os/agent-state-machine.json",
+    "governance/agent-os/agent-role-policy.json",
+    "governance/agent-os/agent-authority-matrix.json",
+    "governance/agent-os/AGENT_EVENTS.jsonl",
+    "governance/factory-state/agent-active-archive-index.json"
+  ],
+  "trustedFacts": [
+    "Agent OS established with 15-state lifecycle",
+    "8 roles with authority matrix",
+    "Event bus: append-only, hash-chained",
+    "All 67 historical agents classified and receipted",
+    "0 unsafe-stale agents"
+  ],
+  "activeRisks": [],
+  "rejectedClaims": [],
+  "nextActions": ["Validate event hash chain","Check agent archive index","Run role boundary check"]
+}

@@ -1,0 +1,26 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Execution Run",
+  "description": "Codex Factory V3.0 External Execution Platform — Execution Run Record",
+  "type": "object",
+  "required": ["run_id","task_id","runner_type","command","started_at","exit_code","final_status"],
+  "properties": {
+    "run_id": {"type":"string","description":"Unique run identifier"},
+    "task_id": {"type":"string","description":"Associated task/mission ID"},
+    "runner_type": {"type":"string","enum":["local","sandbox","dry_run","artifact_capture"]},
+    "working_directory": {"type":"string"},
+    "command": {"type":"string"},
+    "command_redacted": {"type":"string"},
+    "started_at": {"type":"string","format":"date-time"},
+    "finished_at": {"type":"string","format":"date-time"},
+    "exit_code": {"type":"integer"},
+    "stdout_path": {"type":"string"},
+    "stderr_path": {"type":"string"},
+    "artifact_paths": {"type":"array","items":{"type":"string"}},
+    "environment_snapshot": {"type":"object"},
+    "secret_policy_result": {"type":"string","enum":["PASS","FAIL","NOT_CHECKED"]},
+    "snapshot_verified": {"type":"boolean"},
+    "final_status": {"type":"string","enum":["PASS","FAIL","BLOCKED","PARTIAL","SKIPPED"]},
+    "non_claims": {"type":"array","items":{"type":"string"}}
+  }
+}

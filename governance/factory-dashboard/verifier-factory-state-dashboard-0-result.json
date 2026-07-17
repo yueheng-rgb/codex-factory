@@ -1,0 +1,198 @@
+﻿{
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Markdown format doc",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "Simulation report",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "All section reports (B-H)",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "Path visibility JSON",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "",
+                               "description":  "No destructive action in prototype",
+                               "pass":  true
+                           },
+                   "V38":  {
+                               "detail":  "",
+                               "description":  "Verifier script exists",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "CLI contract doc",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Health/warning rules doc",
+                               "pass":  true
+                           },
+                   "V35":  {
+                               "detail":  "31 controls",
+                               "description":  "Negative controls 0 gaps",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "CLI contract JSON",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "PROJECT-ISOLATION-0 PASS exists",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "Health/warning JSON",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "Agent ledger view schema",
+                               "pass":  true
+                           },
+                   "V32":  {
+                               "detail":  "",
+                               "description":  "No v0.6 created",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "projectId visible in agent view",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "UNKNOWN_WITH_REASON rule exists",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "Agent ledger view doc",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "Prototype fixtures exist",
+                               "pass":  true
+                           },
+                   "V34":  {
+                               "detail":  "",
+                               "description":  "Negative controls report",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "",
+                               "description":  "Foreign context warning exists",
+                               "pass":  true
+                           },
+                   "V30":  {
+                               "detail":  "Theory + prototype phase",
+                               "description":  "No real project validation",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "Data model schema",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "Prototype script exists",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "Strategy decision report",
+                               "pass":  true
+                           },
+                   "V31":  {
+                               "detail":  "SHA256: 9FD3A5F979FE1FDEA712F69CAC300E2F49F4E84705A0448D98186CA950AC16CB",
+                               "description":  "v0.5 zip NOT modified",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "Data model doc",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "10 sim scenarios",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "CLI/Markdown/JSON only",
+                               "description":  "No Web UI requirement",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "Scope lock JSON",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "Cloud deferred",
+                               "description":  "No cloud/deploy",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Scope lock report",
+                               "pass":  true
+                           },
+                   "V37":  {
+                               "detail":  "",
+                               "description":  "No expectedClass-only / generic FAIL",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "Path visibility doc",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "Markdown template",
+                               "pass":  true
+                           },
+                   "V36":  {
+                               "detail":  "",
+                               "description":  "No manual PASS-only",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "Integration points report",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "",
+                               "description":  "Stale/missing/corrupt detection exists",
+                               "pass":  true
+                           },
+                   "V33":  {
+                               "detail":  "",
+                               "description":  "No new release",
+                               "pass":  true
+                           }
+               },
+    "verdict":  "PASS",
+    "phase":  "FACTORY-STATE-DASHBOARD-0",
+    "timestamp":  "2026-06-29T00:19:07+08:00",
+    "verifier":  "factory-state-dashboard-0-verify.ps1"
+}

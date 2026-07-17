@@ -1,0 +1,208 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "date":  "2026-06-27T15:53:12.8229275+08:00",
+    "overall":  "PASS",
+    "passedChecks":  33,
+    "failedChecks":  0,
+    "totalChecks":  33,
+    "checks":  [
+                   {
+                       "path":  "governance\\factory-build\\verifier-factory-build-pro-2-result.json",
+                       "pass":  true,
+                       "id":  "V00",
+                       "desc":  "FACTORY-BUILD-PRO-2 PASS exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-evidence-freeze.json",
+                       "pass":  true,
+                       "id":  "V01",
+                       "desc":  "Evidence freeze exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-long-horizon-analysis.json",
+                       "pass":  true,
+                       "id":  "V02",
+                       "desc":  "Long-horizon analysis exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-context-packet-status-decision.json",
+                       "pass":  true,
+                       "id":  "V03",
+                       "desc":  "Context packet status decision exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-capability-stack.json",
+                       "pass":  true,
+                       "id":  "V04",
+                       "desc":  "Capability stack exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-mode-selector-policy-update.json",
+                       "pass":  true,
+                       "id":  "V05",
+                       "desc":  "Mode selector policy exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-pack-architecture-draft.json",
+                       "pass":  true,
+                       "id":  "V06",
+                       "desc":  "Pack architecture draft exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-user-workflow-draft.json",
+                       "pass":  true,
+                       "id":  "V07",
+                       "desc":  "User workflow draft exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-real-world-validation-requirement.json",
+                       "pass":  true,
+                       "id":  "V08",
+                       "desc":  "Real-world validation requirement exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-risk-register.json",
+                       "pass":  true,
+                       "id":  "V09",
+                       "desc":  "Risk register exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-next-phase-decision.json",
+                       "pass":  true,
+                       "id":  "V10",
+                       "desc":  "Next phase decision exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PRO_2_P1_A_EVIDENCE_FREEZE_REPORT.md",
+                       "pass":  true,
+                       "id":  "V11",
+                       "desc":  "Section A report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PRO_2_P1_C_CONTEXT_PACKET_STATUS_REPORT.md",
+                       "pass":  true,
+                       "id":  "V12",
+                       "desc":  "Section C report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PRO_2_P1_E_MODE_SELECTOR_POLICY_REPORT.md",
+                       "pass":  true,
+                       "id":  "V13",
+                       "desc":  "Section E report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PRO_2_P1_G_USER_WORKFLOW_REPORT.md",
+                       "pass":  true,
+                       "id":  "V14",
+                       "desc":  "Section G report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PRO_2_P1_H_REAL_WORLD_VALIDATION_REPORT.md",
+                       "pass":  true,
+                       "id":  "V15",
+                       "desc":  "Section H report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PRO_2_P1_I_RISK_REGISTER_REPORT.md",
+                       "pass":  true,
+                       "id":  "V16",
+                       "desc":  "Section I report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PRO_2_P1_J_NEXT_PHASE_DECISION_REPORT.md",
+                       "pass":  true,
+                       "id":  "V17",
+                       "desc":  "Section J report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PRO_2_P1_NEGATIVE_CONTROLS_REPORT.md",
+                       "pass":  true,
+                       "id":  "V18",
+                       "desc":  "Negative controls report exists"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Decision JSON confirms",
+                       "id":  "V19",
+                       "desc":  "Context Packet REQUIRED for Native Build Pro"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Decision JSON confirms",
+                       "id":  "V20",
+                       "desc":  "Context Packet REQUIRED for long-horizon"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Decision JSON confirms",
+                       "id":  "V21",
+                       "desc":  "Context Packet REQUIRED for native agent start"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Mode selector: Build Lite = DEFAULT",
+                       "id":  "V22",
+                       "desc":  "Build Lite remains default"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Mode selector: Build Pro = CONDITIONAL",
+                       "id":  "V23",
+                       "desc":  "Native Build Pro remains conditional"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "All documents confirm v0.5 BLOCKED",
+                       "id":  "V24",
+                       "desc":  "v0.5 remains blocked"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Strategy explicitly REJECTED",
+                       "id":  "V25",
+                       "desc":  "No multi-agent default claim"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Build Pro = CONDITIONAL, not default",
+                       "id":  "V26",
+                       "desc":  "No Build Pro default claim"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No v0.5",
+                       "id":  "V27",
+                       "desc":  "No v0.5 package created"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No release ZIP",
+                       "id":  "V28",
+                       "desc":  "No release ZIP created"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Only governance/ + outputs/ + scripts/ modified",
+                       "id":  "V29",
+                       "desc":  "No product code modified"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "v0.4 release + FINAL untouched",
+                       "id":  "V30",
+                       "desc":  "No prior product modified"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "0 gaps",
+                       "id":  "V31",
+                       "desc":  "Negative controls 50/50 detected"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-2-p1-negative-controls.json",
+                       "pass":  true,
+                       "id":  "V32",
+                       "desc":  "Negative controls exist"
+                   }
+               ]
+}

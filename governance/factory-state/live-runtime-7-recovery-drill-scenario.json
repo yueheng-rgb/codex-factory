@@ -1,0 +1,127 @@
+﻿{
+    "totalScenarios":  4,
+    "version":  "1.0.0",
+    "scenarios":  [
+                      {
+                          "expectedControllerAction":  "Generate rotation execution packet with carrier=manual_new_window, userActionRequired=true",
+                          "forbiddenAssumptions":  [
+                                                       "old window can start major phase",
+                                                       "compressed summary is evidence",
+                                                       "context is preserved",
+                                                       "new window inherits full context"
+                                                   ],
+                          "id":  "DRL-01",
+                          "trigger":  "Confirmed compact marker detected in current-factory-state.json; old window attempting to start new major phase",
+                          "riskyBehaviors":  [
+                                                 "starting H/DRY/FINAL in compacted window",
+                                                 "skipping startup verification",
+                                                 "trusting compressed summary"
+                                             ],
+                          "expectedWatcherVerdict":  "ROTATION_REQUIRED",
+                          "startupVerificationExpectation":  "STARTUP_VERIFICATION_PASS only after all 8 checks pass in new carrier",
+                          "name":  "CONFIRMED_COMPACT_BEFORE_MAJOR_PHASE",
+                          "requiredPacketContents":  [
+                                                         "executionId",
+                                                         "selectedCarrier=manual_new_window",
+                                                         "userActionRequired=true",
+                                                         "startupVerificationContract",
+                                                         "forbiddenAssumptions",
+                                                         "trustedFacts"
+                                                     ],
+                          "drillGoal":  "Prove that compacted window cannot start a new major phase and must rotate via artifact handoff",
+                          "allowedNextAction":  "Narrow continuation task in new window after startup verification PASS"
+                      },
+                      {
+                          "expectedControllerAction":  "Generate rotation execution packet; flag stale artifacts; require full startup verification including MCP memory queries",
+                          "forbiddenAssumptions":  [
+                                                       "stale handoff is acceptable",
+                                                       "old memory compensates for stale artifacts",
+                                                       "skip MCP memory validation"
+                                                   ],
+                          "id":  "DRL-02",
+                          "trigger":  "Simulated stale handoff (handoff timestamp \u003e 24h old) or stale Context OS packet; no recent verifier run",
+                          "riskyBehaviors":  [
+                                                 "accepting stale handoff",
+                                                 "continuing without fresh verification",
+                                                 "trusting outdated verifier results"
+                                             ],
+                          "expectedWatcherVerdict":  "ROTATION_REQUIRED",
+                          "startupVerificationExpectation":  "STARTUP_VERIFICATION_BLOCKED if stale artifacts cannot be reconciled; must regenerate or repair",
+                          "name":  "STALE_CONTEXT_RECOVERY",
+                          "requiredPacketContents":  [
+                                                         "executionId",
+                                                         "selectedCarrier=manual_new_window",
+                                                         "staleFlag=true",
+                                                         "all startup checks mandatory",
+                                                         "MCP memory queries included"
+                                                     ],
+                          "drillGoal":  "Prove that stale context artifacts are detected and block continuation until refreshed",
+                          "allowedNextAction":  "Stale artifact repair + fresh startup verification before any continuation"
+                      },
+                      {
+                          "expectedControllerAction":  "Generate packet; flag memory conflict; require reconciliation before startup verification",
+                          "forbiddenAssumptions":  [
+                                                       "memory overrides verifier JSON",
+                                                       "conflict is ignorable",
+                                                       "MCP memory is authoritative over state file"
+                                                   ],
+                          "id":  "DRL-03",
+                          "trigger":  "Context OS memory index conflicts with verifier result or current-factory-state.json (e.g., phase status mismatch, SHA mismatch)",
+                          "riskyBehaviors":  [
+                                                 "ignoring memory conflict",
+                                                 "preferring Context OS over verifier",
+                                                 "skipping reconciliation"
+                                             ],
+                          "expectedWatcherVerdict":  "ROTATION_REQUIRED",
+                          "startupVerificationExpectation":  "STARTUP_VERIFICATION_BLOCKED until reconciliation resolves conflict; verifier JSON is authoritative source",
+                          "name":  "MEMORY_CONFLICT_RECOVERY",
+                          "requiredPacketContents":  [
+                                                         "executionId",
+                                                         "memoryConflictFlag=true",
+                                                         "reconciliationRequired=true",
+                                                         "conflictSources enumerated",
+                                                         "resolution required"
+                                                     ],
+                          "drillGoal":  "Prove that Context OS/MCP memory conflicts do not silently override verifier or state file evidence",
+                          "allowedNextAction":  "Reconciliation script run + conflict resolution + fresh startup verification"
+                      },
+                      {
+                          "expectedControllerAction":  "Generate execution packet; standard startup verification contract; no special flags",
+                          "forbiddenAssumptions":  [
+                                                       "clean rotation = automatic phase closure",
+                                                       "startup PASS = full phase complete",
+                                                       "new carrier can start major phase without user confirmation"
+                                                   ],
+                          "id":  "DRL-04",
+                          "trigger":  "Watcher detects clean state but recommends rotation as precaution; no FAIL signals",
+                          "riskyBehaviors":  [
+                                                 "automatically starting new phase after clean rotation",
+                                                 "marking phase PASS from startup verification",
+                                                 "opening new major H/DRY/FINAL without explicit request"
+                                             ],
+                          "expectedWatcherVerdict":  "ROTATION_RECOMMENDED",
+                          "startupVerificationExpectation":  "STARTUP_VERIFICATION_PASS; only narrow safe continuation allowed, NOT automatic phase closure",
+                          "name":  "CLEAN_ROTATION_RECOVERY",
+                          "requiredPacketContents":  [
+                                                         "executionId",
+                                                         "selectedCarrier=manual_new_window",
+                                                         "standard startup contract",
+                                                         "no conflict/stale flags",
+                                                         "nextAllowedAction=narrow"
+                                                     ],
+                          "drillGoal":  "Prove that even clean rotation allows only narrow continuation — not phase closure or new major phase",
+                          "allowedNextAction":  "Narrow safe continuation mini-task (e.g., status note, read-only verification)"
+                      }
+                  ],
+    "nativeGenerated":  true,
+    "schemaId":  "live-runtime-7-recovery-drill-scenarios",
+    "phase":  "LIVE-RUNTIME-7-A",
+    "rules":  [
+                  "All scenarios use only repo artifacts, verifier JSON, manifest SHA, Context OS, MCP memory — NO conversation memory",
+                  "Watcher and controller do NOT mutate state or mark PASS",
+                  "Startup verification is mandatory before any continuation",
+                  "Compressed summary is NEVER evidence",
+                  "Clean scenario does NOT mean automatic phase closure"
+              ],
+    "generatedAt":  "2026-06-25T00:42:46+08:00"
+}

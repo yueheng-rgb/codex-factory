@@ -1,0 +1,16 @@
+﻿{
+    "checklist_id": "FACTORY-BUILD-REALWORLD-2-P5-SECURITY-USER-CHECKLIST",
+    "generated_at": "2026-06-28T10:49:26+08:00", "section": "E",
+    "actions": [
+        {"id": "U-001", "action": "Rotate SSH credentials — generate new key pair: ssh-keygen -t ed25519", "severity": "CRITICAL"},
+        {"id": "U-002", "action": "Move to key-based SSH auth — disable password auth in sshd_config", "severity": "CRITICAL"},
+        {"id": "U-003", "action": "Generate new Django SECRET_KEY — python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'", "severity": "CRITICAL"},
+        {"id": "U-004", "action": "Rotate SMTP/email password — log into email provider and generate new authorization code", "severity": "CRITICAL"},
+        {"id": "U-005", "action": "Update ALL production environment variables outside repo — never in .env committed to git", "severity": "CRITICAL"},
+        {"id": "U-006", "action": "Review server login logs — /var/log/auth.log, last command", "severity": "HIGH"},
+        {"id": "U-007", "action": "Confirm full backup before any deployment — database + media + config", "severity": "HIGH"},
+        {"id": "U-008", "action": "Do NOT paste new secrets into Codex or any AI tool", "severity": "CRITICAL"}
+    ],
+    "full_checklist_file": "CREDENTIAL_ROTATION_CHECKLIST.md in working copy",
+    "verdict": "USER_CHECKLIST_READY"
+}

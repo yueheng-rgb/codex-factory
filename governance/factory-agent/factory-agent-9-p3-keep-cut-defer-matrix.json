@@ -1,0 +1,31 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P3",
+  "step": "C_KEEP_CUT_DEFER_MATRIX",
+  "timestamp": "2026-06-26T20:49:10.4368522+08:00",
+  "decisions": [
+    {"item":"Vanilla Codex","decision":"KEEP","rationale":"Product quality baseline. Always available. No overhead."},
+    {"item":"v0.4 Factory Lite","decision":"KEEP","rationale":"Mature process layer. Proof-of-read, evidence hierarchy, contamination logging are proven. No agent overhead."},
+    {"item":"7-agent mode (old v0.5)","decision":"CUT_AS_DEFAULT","rationale":"Outperformed by 4-agent P1 on composite. Higher overhead. Retain as archived experiment only."},
+    {"item":"4-agent P1 runtime","decision":"KEEP_CONDITIONALLY","rationale":"Process/evidence benefit is real. Keep as conditional, non-default mode for contexts where auditability matters."},
+    {"item":"10-role model","decision":"CUT","rationale":"Never implemented. 7-agent was too heavy; 10-role is even heavier. No evidence of benefit."},
+    {"item":"AGENT-5 benchmark floors (original)","decision":"CUT","rationale":"Replaced by AGENT-5-P1 repaired policy v2.0. Original floors had gaming-prone metrics."},
+    {"item":"AGENT-5-P1 repaired policy v2.0","decision":"KEEP","rationale":"Fair, anti-gaming, evidence-backed. Applies to all future comparisons."},
+    {"item":"Reviewer-Verifier gate","decision":"KEEP","rationale":"Proven gap detection. BLOCKED_BY_REVIEWER caught real issues. Has standalone diagnostic value."},
+    {"item":"Mid-run floor enforcement","decision":"KEEP","rationale":"Catches deficits early. Directly prevented false PASS in AGENT-8-P1."},
+    {"item":"Overhead budget gate","decision":"KEEP","rationale":"Prevents agent sprawl. 4-agent limit proven effective."},
+    {"item":"Worker capsules + handoffs","decision":"KEEP_CONDITIONALLY","rationale":"Valuable when multi-agent is used. Not needed for single-agent runs."},
+    {"item":"Agent registry + progress tracking","decision":"KEEP_CONDITIONALLY","rationale":"Enables lifecycle auditing. Conditional on multi-agent use."},
+    {"item":"Lifecycle reconciliation","decision":"KEEP","rationale":"Essential for evidence integrity when agents have gaps."},
+    {"item":"Negative controls framework","decision":"KEEP","rationale":"Core verifier quality mechanism. Applies to all phases."},
+    {"item":"factoryctl scripts","decision":"KEEP","rationale":"Repo-local operational entrypoint for status/agents/progress/watch."},
+    {"item":"Complexity budget system","decision":"DEFER","rationale":"Valuable concept but needs refinement. Current floor metrics partially gamed. Defer to larger benchmark design."},
+    {"item":"Cross-worker dependency graph","decision":"DEFER","rationale":"Good idea but adds overhead. Defer until multi-agent shows product benefit."},
+    {"item":"Contract CI enforcement","decision":"DEFER","rationale":"Complex infrastructure. Justified only if multi-agent becomes production mode."}
+  ],
+  "summary": {
+    "keep": 8,
+    "keepConditionally": 3,
+    "cut": 3,
+    "defer": 3
+  }
+}

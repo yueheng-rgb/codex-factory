@@ -1,0 +1,18 @@
+﻿{
+    "probe_id": "V3_3-GPG-PROBE-001",
+    "timestamp": "2026-07-17T16:38:55.5381872+08:00",
+    "gpg_available": false,
+    "gpg_version": "UNAVAILABLE",
+    "fingerprint_present": false,
+    "fingerprint_detail": "",
+    "install_notes": "Windows: Install Gpg4win from https://gpg4win.org/ | Linux: sudo apt install gnupg | macOS: brew install gnupg",
+    "usage_notes": "After install, run: gpg --gen-key (for test identity only, NOT company identity)",
+    "non_claims": [
+        "GPG optional — NOT required for V3.3",
+        "Do NOT generate company/organization GPG keys for this RC",
+        "Test keys only, NOT production identity",
+        "fingerprint_present=true does NOT mean production-ready identity",
+        "No private key material is collected or stored"
+    ],
+    "status": "GPG_UNAVAILABLE_WITH_INSTALL_NOTES"
+}

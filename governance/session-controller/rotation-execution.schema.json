@@ -1,0 +1,14 @@
+﻿{
+  "schemaId": "rotation-execution.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:34:03+08:00",
+  "requiredFields": ["executionId","triggerWatcherResultPath","verdict","reason","selectedCarrier","fallbackCarrier","userActionRequired","requiredReadFiles","verifierCommands","startupVerificationContract","trustedFacts","activeRisks","rejectedClaims","forbiddenAssumptions"],
+  "verdictEnum": ["ROTATION_PREPARED","ROTATION_USER_ACTION_REQUIRED","CARRIER_UNAVAILABLE_MANUAL_ONLY"],
+  "carrierEnum": ["manual_new_window","cli_new","cli_fork","app_thread_start","project_automation_fresh"],
+  "rules": {
+    "startupVerificationMandatory": true,
+    "manualFallbackAlwaysPresent": true,
+    "forkNewThreadOptionalCarrierOnly": true,
+    "noFullContextInheritanceClaim": true
+  }
+}

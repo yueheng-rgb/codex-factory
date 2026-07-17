@@ -1,0 +1,17 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "B",
+  "title": "Project Identity Model",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "model_file": "factory-isolation/PROJECT_IDENTITY_MODEL.md",
+  "schema_file": "factory-isolation/schemas/project-identity.schema.json",
+  "identity_fields": 18,
+  "immutable_fields": ["projectId", "createdAt"],
+  "status_values": ["ACTIVE", "PAUSED", "ARCHIVED", "FROZEN", "DELETED", "MIGRATED", "UNKNOWN_NEEDS_CONFIRMATION"],
+  "fingerprint_algorithms": {
+    "pathFingerprint": "SHA256 of canonical rootPath",
+    "contentFingerprint": "SHA256 of key identity files"
+  },
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_B_PROJECT_IDENTITY_MODEL_REPORT.md"
+}

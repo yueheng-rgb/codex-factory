@@ -1,0 +1,77 @@
+﻿{
+    "phase":  "FACTORY-AGENT-9-P1",
+    "timestamp":  "2026-06-26T18:38:57.6205878+08:00",
+    "document":  "evidence-lock",
+    "locks":  [
+                  {
+                      "fact":  "AGENT-9 verdict: MULTI_AGENT_NO_BENEFIT",
+                      "evidencePath":  "governance/factory-agent/factory-agent-9-large-project-comparison-conclusion.json",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "Vanilla score: 85.5",
+                      "evidencePath":  "outputs/FACTORY_AGENT_9_INDEPENDENT_LARGE_PROJECT_COMPARISON_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.4 score: 66.0",
+                      "evidencePath":  "outputs/FACTORY_AGENT_9_INDEPENDENT_LARGE_PROJECT_COMPARISON_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.5 score: 80.0",
+                      "evidencePath":  "outputs/FACTORY_AGENT_9_INDEPENDENT_LARGE_PROJECT_COMPARISON_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.5 did not beat Vanilla (80.0 \u003c 85.5)",
+                      "evidencePath":  "outputs/FACTORY_AGENT_9_INDEPENDENT_LARGE_PROJECT_COMPARISON_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.5 did beat v0.4 (80.0 \u003e 66.0)",
+                      "evidencePath":  "outputs/FACTORY_AGENT_9_INDEPENDENT_LARGE_PROJECT_COMPARISON_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.5 improved evidence quality (registry/lifecycle/anti-deception)",
+                      "evidencePath":  "governance/factory-agent/verifier-factory-agent-8-result.json",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.5 product quality did not justify 3-4x process overhead",
+                      "evidencePath":  "outputs/FACTORY_AGENT_9_INDEPENDENT_LARGE_PROJECT_COMPARISON_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.5 missed export floor: 185/300",
+                      "evidencePath":  "governance/factory-agent/factory-agent-8-v05-agent-company-result.json",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.5 missed endpoint floor: 35/40",
+                      "evidencePath":  "outputs/FACTORY_AGENT_8_V05_AGENT_COMPANY_RUN_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "No multi-agent default claim allowed",
+                      "evidencePath":  "AGENT-5 success-failure-thresholds.json",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "v0.5 had better architecture integrity than v0.4 (18 vs 14)",
+                      "evidencePath":  "outputs/FACTORY_AGENT_9_INDEPENDENT_LARGE_PROJECT_COMPARISON_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "207 tests passed (different methodology from Vanilla\u0027s 66)",
+                      "evidencePath":  "outputs/FACTORY_AGENT_8_V05_AGENT_COMPANY_RUN_REPORT.md",
+                      "classification":  "SUPPORTED"
+                  },
+                  {
+                      "fact":  "Multi-agent benefit on large projects is HYPOTHESIS, not fact",
+                      "evidencePath":  "No confirming evidence exists",
+                      "classification":  "UNSUPPORTED"
+                  }
+              ]
+}

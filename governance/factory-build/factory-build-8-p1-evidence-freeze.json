@@ -1,0 +1,20 @@
+﻿{
+    "v05Blocked":  true,
+    "multiAgentDefaultRejected":  true,
+    "subPhase":  "A_EVIDENCE_FREEZE",
+    "SUPPORTED":  [
+                      "Both modes produce complete products",
+                      "3 native agents completed",
+                      "Build Lite best single-dev"
+                  ],
+    "build8Pass":  "29/29 PASS",
+    "PARTIAL":  [
+                    "Native Build Pro for teams - single trial only"
+                ],
+    "REJECTED":  [
+                     "v0.5 release",
+                     "Multi-agent default",
+                     "UI count = active count"
+                 ],
+    "phase":  "FACTORY-BUILD-8-P1"
+}

@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  186,
+    "frozenAt":  "2026-06-19T20:35:52.7932677+08:00",
+    "runId":  "C-RUN-H-R2-FRESH",
+    "trustRootFile":  "C:\\Codex_App_Factory\\fresh-install-target-r2\\..\\harness-control\\locks\\C-RUN-H-R2-FRESH\\trust-root.json",
+    "controlPlaneLockSha256":  "1c6a9766c005b884c8ea37db9faa14541e3315b7ad624b82b67db2e1675654ac",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "048664fbe7790240beb1f3f0a7026e6be711cdc2ae6de7c17f740f680b10b969"
+}

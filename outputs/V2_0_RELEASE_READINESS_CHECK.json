@@ -1,0 +1,32 @@
+﻿{
+  "release": "Codex Factory v2.0.0",
+  "release_date": "2026-07-12",
+  "release_readiness": "READY",
+  "classification": "A",
+  "classification_label": "V2_0_CODEX_FACTORY_RELEASE_READY",
+  "checks": {
+    "core_regression": {"expected":"210/210","actual":"210/210","status":"PASS"},
+    "expert_packs": {"expected":3,"actual":3,"packs":["admin-system","ecommerce","saas-tool"],"status":"PASS"},
+    "trusted_memory": {"compression_defense":"functional","resume_gate":"functional","negative_controls":"3/3 BLOCKED","status":"PASS"},
+    "audit_trail": {"ledger":"exists","hash_chain":"verified","drift_detector":"functional","status":"PASS"},
+    "multi_agent": {"contracts":"exist","handoff":"exist","mission_workers":3,"all_verified":true,"stress_results":"readable","status":"PASS"},
+    "external_engine": {"registry":6,"broker":"functional","reliability_matrix":"readable","semgrep":"AVAILABLE","no_fake_pass":true,"status":"PASS"},
+    "benchmark": {"definition":"exists","closure_matrix":"readable","mission_benchmark":"readable","status":"PASS"},
+    "production_readiness": {"dockerfile":"exists","docker_compose":"exists","env_example":"exists","no_production_claim":true,"status":"PASS"},
+    "boundary_compliance": {"deprecated_locks":15,"all_preserved":true,"no_fake_pass":true,"no_secrets":true,"no_exaggeration":true,"frozen_trunk":"unmodified","status":"PASS"}
+  },
+  "release_files": [
+    "outputs/V2_0_RELEASE_VERSION.json",
+    "outputs/V2_0_RELEASE_NOTES.md",
+    "outputs/V2_0_RELEASE_MANIFEST.json",
+    "outputs/V2_0_CAPABILITY_SUMMARY.md",
+    "outputs/V2_0_MISSION_TRIAL_EVIDENCE.md",
+    "outputs/V2_0_MISSION_TRIAL_EVIDENCE.json",
+    "outputs/V2_0_REGRESSION_COMMAND_INDEX.md",
+    "outputs/V2_0_REGRESSION_COMMAND_INDEX.json",
+    "outputs/V2_0_KNOWN_RISKS_AND_NON_CLAIMS.md",
+    "outputs/V2_0_DEPRECATED_DIRECTIONS_FINAL_LOCK.md",
+    "outputs/V2_0_RELEASE_READINESS_CHECK.md",
+    "outputs/V2_0_V2X_ROADMAP.md"
+  ]
+}

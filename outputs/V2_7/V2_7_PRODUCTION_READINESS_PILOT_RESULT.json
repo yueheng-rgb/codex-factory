@@ -1,0 +1,52 @@
+﻿{
+  "stage": "V2_7",
+  "mission_id": "CPM-001",
+  "checker_version": "1.0.0",
+  "timestamp": "2026-07-17",
+  "checks": [
+    {"check_id":"CHK-001","category":"env_vars","item":"NODE_ENV set","status":"PASS","detail":"vitest sets NODE_ENV=test implicitly"},
+    {"check_id":"CHK-002","category":"env_vars","item":"No hardcoded secrets","status":"PASS","detail":"no API keys, passwords, or tokens in source code"},
+    {"check_id":"CHK-003","category":"secrets","item":"appSecret never exposed","status":"PASS","detail":"MINI-004 invariant enforces: /api/config returns appId only, not appSecret"},
+    {"check_id":"CHK-004","category":"secrets","item":"session tokens are random","status":"PASS","detail":"Math.random().toString(36) used; adequate for testbed"},
+    {"check_id":"CHK-005","category":"database","item":"Storage mode","status":"GAP","detail":"In-memory Map store. Production requires PostgreSQL or equivalent persistent store with migrations."},
+    {"check_id":"CHK-006","category":"database","item":"Migration status","status":"GAP","detail":"No migration scripts. Production requires versioned schema migrations."},
+    {"check_id":"CHK-007","category":"database","item":"Rollback notes","status":"GAP","detail":"No rollback procedures documented. Production requires rollback plan."},
+    {"check_id":"CHK-008","category":"api","item":"Health endpoint","status":"PASS","detail":"GET /health returns {status:\"ok\", mission:\"CPM-001\"} — artifact V2_7-ART-001 confirmed"},
+    {"check_id":"CHK-009","category":"api","item":"Unified error format","status":"PASS","detail":"All errors return {error:\"CODE\"} JSON. Consistent across auth, products, orders, payment."},
+    {"check_id":"CHK-010","category":"api","item":"Status codes correct","status":"PASS","detail":"401 for no-auth, 403 for forbidden, 400 for validation, 404 for not-found"},
+    {"check_id":"CHK-011","category":"logging","item":"Structured logging","status":"GAP","detail":"Fastify logger=false in testbed. Production requires structured JSON logging with request IDs."},
+    {"check_id":"CHK-012","category":"testing","item":"Unit/integration tests","status":"PASS","detail":"17/17 PASS — artifact V2_7-ART-001; covers all 10 CRITICAL invariants"},
+    {"check_id":"CHK-013","category":"testing","item":"Negative controls","status":"PASS","detail":"3 negative controls PASS: cross-user access blocked, admin escalation blocked, tampered price rejected"},
+    {"check_id":"CHK-014","category":"testing","item":"Build/typecheck","status":"PASS","detail":"tsc --noEmit passes; TypeScript strict mode enabled"},
+    {"check_id":"CHK-015","category":"security","item":"Static analysis","status":"SKIPPED","detail":"semgrep TOOL_UNAVAILABLE in cross-pack testbed. Can be run: semgrep --config=auto src/ tests/"},
+    {"check_id":"CHK-016","category":"security","item":"Auth enforcement","status":"PASS","detail":"requireAuth middleware on all protected routes; session token validation; openid server-side check"},
+    {"check_id":"CHK-017","category":"security","item":"RBAC enforcement","status":"PASS","detail":"ADMINS set gates admin routes; non-admin product creation returns 403"},
+    {"check_id":"CHK-018","category":"load","item":"Load smoke","status":"SKIPPED","detail":"autocannon TOOL_UNAVAILABLE in cross-pack testbed. Can be run: npx autocannon -d 5 -c 10 http://localhost:3300/health"},
+    {"check_id":"CHK-019","category":"platform","item":"WeChat/miniapp platform review","status":"GAP","detail":"No WeChat platform review. Production miniapp requires WeChat review before going live with real AppID."},
+    {"check_id":"CHK-020","category":"platform","item":"Payment gateway integration","status":"GAP","detail":"Payment callback is mock/in-memory. Production requires real WeChat Pay / payment gateway integration."},
+    {"check_id":"CHK-021","category":"compliance","item":"Data isolation","status":"PASS","detail":"CROSS_USER_ACCESS_DENIED enforced on order access; users cannot access other users' data"},
+    {"check_id":"CHK-022","category":"review","item":"Human review required","status":"PASS","detail":"CRITICAL mission with payment + admin escalation + production appid triggers human review"},
+    {"check_id":"CHK-023","category":"docs","item":"README present","status":"PASS","detail":"testbeds/cross-pack-cpm-001/README.md — mission description, packs, invariants, commands"},
+    {"check_id":"CHK-024","category":"docs","item":"Non-claims documented","status":"PASS","detail":"V2_7_KNOWN_RISKS_AND_NON_CLAIMS.md documents all production gaps"}
+  ],
+  "summary": {
+    "total_checks": 24,
+    "pass": 16,
+    "gap": 6,
+    "skipped": 2,
+    "fail": 0,
+    "readiness_level": "READY_FOR_PRODUCTION_REVIEW",
+    "blocking_gaps": [
+      "in-memory store (not production database)",
+      "no migration/rollback scripts",
+      "no structured logging",
+      "no WeChat platform review",
+      "no real payment gateway",
+      "no load smoke executed"
+    ],
+    "non_blocking_notes": [
+      "semgrep not run — can be added",
+      "autocannon not run — can be added"
+    ]
+  }
+}

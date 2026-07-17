@@ -1,0 +1,10 @@
+﻿{"phase":"H16","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"h16-orchestrator-1","classification":"closed","role":"orchestrator"}
+{"phase":"H16","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"h16-negative-orchestrator","classification":"closed","role":"orchestrator"}
+{"phase":"H16","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"h16-handoff-checker","classification":"closed-no-receipt","role":"builder"}
+{"phase":"H16","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"h16-verifier-1","classification":"closed","role":"verifier"}
+{"phase":"DRY23-A","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"dry23-builder-risk-classifier","classification":"closed-no-receipt","role":"builder"}
+{"phase":"DRY23-A","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"dry23-builder-evidence-collector","classification":"closed-no-receipt","role":"builder"}
+{"phase":"DRY23-A","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"dry23-builder-diagnosis-engine","classification":"closed-no-receipt","role":"builder"}
+{"phase":"DRY23-A","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"dry23-builder-snapshot-manager","classification":"closed-no-receipt","role":"builder"}
+{"phase":"DRY22-B","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"dry22-negative-orchestrator","classification":"closed","role":"orchestrator"}
+{"phase":"H16","recordedAt":"2026-06-25T00:09:34+08:00","agentId":"h16-diagnosis-engine","classification":"closed-no-receipt","role":"builder"}

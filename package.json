@@ -1,0 +1,24 @@
+{
+  "name": "valid-minimal-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal fixture for synthetic harness run testing",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "echo ok"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "undici-types": "^8.3.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

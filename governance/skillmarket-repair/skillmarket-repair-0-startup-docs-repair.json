@@ -1,0 +1,24 @@
+﻿{
+  "phase": "SKILLMARKET-REPAIR-0-E",
+  "timestamp": "2026-06-26T23:40:00+08:00",
+  "filesCreated": [
+    {"path":"README.md","purpose":"Comprehensive project documentation with setup, run, test instructions"},
+    {"path":"server/.env.example","purpose":"Environment variable template"}
+  ],
+  "startupCommands": {
+    "backend": {"command":"cd server && npm install && npm start","port":3000,"verified":true},
+    "client": {"command":"cd client-v2 && npm install && npm run dev","port":5173},
+    "admin": {"command":"cd admin && npm install && npm run dev","port":5174},
+    "merchant": {"command":"cd merchant && npm install && npm run dev","port":5175},
+    "database": {"command":"mysql -u root -p < schema.sql"}
+  },
+  "packageJsonFixed": {
+    "start": "node index.js (delegates to src/index.js)",
+    "dev": "node --watch src/index.js",
+    "test": "node test/run.js"
+  },
+  "readmeIncludes": [
+    "Project overview", "Tech stack", "Quick start for all apps",
+    "Test accounts with credentials", "Project structure diagram", "API endpoint list"
+  ]
+}

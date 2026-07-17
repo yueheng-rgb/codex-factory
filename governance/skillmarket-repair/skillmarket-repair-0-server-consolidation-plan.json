@@ -1,0 +1,47 @@
+{
+  "phase": "SKILLMARKET-REPAIR-0-B",
+  "timestamp": "2026-06-26T23:25:00+08:00",
+  "decision": {
+    "authoritativeServer": "server/src/index.js",
+    "reason": "More complete (14 routes vs 5), proper MVC structure, uses env vars for config, has merchant middleware, rate limiting, SQL guard, audit logging",
+    "deprecatedServer": "Root-level server/index.js with routes/*.js",
+    "deprecationMethod": "Root index.js becomes thin wrapper delegating to src/index.js",
+    "packageJsonFix": "Already correct: \"start\": \"node src/index.js\". Add dev script."
+  },
+  "routeMapping": {
+    "frontendApiCalls": {
+      "/api/auth/login": "Mapped to src/routes/auth.routes.js (POST /auth/login)",
+      "/api/auth/register": "Mapped to src/routes/auth.routes.js (POST /auth/register)",
+      "/api/auth/profile": "Mapped to src/routes/auth.routes.js (GET /auth/profile)",
+      "/api/products": "Mapped to src/routes/product.routes.js",
+      "/api/categories": "Mapped to src/routes/category.routes.js",
+      "/api/cart": "Mapped to src/routes/cart.routes.js",
+      "/api/orders": "Mapped to src/routes/order.routes.js",
+      "/api/favorites": "Mapped to src/routes/favorites.routes.js",
+      "/api/reviews": "Mapped to src/routes/review.routes.js",
+      "/api/messages": "Mapped to src/routes/message.routes.js",
+      "/api/merchants": "Mapped to src/routes/merchant.routes.js"
+    },
+    "frontendBaseUrl": "/api",
+    "note": "Frontend client-v2/src/api/index.js uses BASE='/api'. Server mounts all routes under /api via src/index.js. Compatible."
+  },
+  "jwtConfig": {
+    "currentIssue": "Root middleware/auth.js hardcodes SECRET='<EXAMPLE_JWT_SECRET_PLACEHOLDER>' while .env has JWT_SECRET=ecommerce_jwt_2024_secret",
+    "fix": "src/middleware/auth.js already uses process.env.JWT_SECRET. No code change needed for src/. Root auth.js will be deprecated.",
+    "verification": "Both src/index.js (require('dotenv')) and src/middleware/auth.js (process.env.JWT_SECRET) are consistent."
+  },
+  "filesToChange": [
+    {"path":"server/index.js","action":"REWRITE as thin wrapper"},
+    {"path":"server/package.json","action":"UPDATE scripts"},
+    {"path":"server/.env","action":"KEEP as-is (src/ uses dotenv)"},
+    {"path":"NEW server/README.md","action":"CREATE"},
+    {"path":"NEW server/test/","action":"CREATE with 8 test files"}
+  ],
+  "filesToNotChange": [
+    "server/src/* (already correct)",
+    "client-v2/* (frontend already calls /api/* correctly)",
+    "admin/*",
+    "merchant/*",
+    "_writer*.js, write_*.py (legacy tools, not runtime)"
+  ]
+}

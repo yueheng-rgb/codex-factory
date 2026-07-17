@@ -1,0 +1,18 @@
+﻿{
+    "exit_code":  0,
+    "runner_type":  "sandbox",
+    "run_id":  "DEMO-004-150930",
+    "human_review_required":  true,
+    "artifact_paths":  [
+                           "artifacts/runs/DEMO-004-150930/stdout.log",
+                           "artifacts/runs/DEMO-004-150930/run-record.json"
+                       ],
+    "task_id":  "DEMO-004-CRITICAL",
+    "risk_level":  "CRITICAL",
+    "started_at":  "2026-07-17T15:09:30.0083509+08:00",
+    "snapshot_verified":  true,
+    "command":  "npm test",
+    "finished_at":  "2026-07-17T15:09:32.1313318+08:00",
+    "final_status":  "PASS",
+    "linked_review_id":  "V3_0-REV-001"
+}

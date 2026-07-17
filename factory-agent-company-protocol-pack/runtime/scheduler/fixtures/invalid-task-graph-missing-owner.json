@@ -1,0 +1,4 @@
+﻿{"graphId":"tg-ag3-no-owner","phaseId":"FACTORY-AGENT-3","projectId":"no-owner-test","maxParallelAgents":2,"tasks":[
+  {"taskId":"x1","taskTitle":"Task X1","roleNeeded":"Builder","expectedOutputs":["x1.txt"],"status":"assigned"},
+  {"taskId":"x2","taskTitle":"Task X2","roleNeeded":"Builder","expectedOutputs":["x2.txt"],"status":"pending"}
+]}

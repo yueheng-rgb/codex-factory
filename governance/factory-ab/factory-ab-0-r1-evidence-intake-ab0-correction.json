@@ -1,0 +1,38 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "A",
+  "title": "R1 Evidence Intake and AB-0 Correction",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "ab0_correction": {
+    "ab0_verdict": "PASS 38/38",
+    "ab0_nature": "DESIGNED_ANALYSIS — not executed trial",
+    "ab0_scores": "Vanilla 50, Factory 87 — DESIGN_SCORE_ONLY, not execution evidence",
+    "correction": "AB-0 scores cannot be used as executed A/B evidence. They represent expected/designed behaviors, not measured outcomes.",
+    "block001_after_correction": "ACTIVE_WITH_AB_DESIGN_READY — design framework exists, but no execution evidence collected"
+  },
+  "inherited": {
+    "RELEASE_READINESS_0": "PASS 29/29",
+    "PACK_STAGING_P7": "PASS 39/39",
+    "FACTORY_AB_0": "PASS 38/38 (design only)",
+    "BLOCK_001": "ACTIVE_WITH_AB_DESIGN_READY",
+    "BLOCK_002": "ACTIVE",
+    "BLOCK_003": "ACTIVE",
+    "BLOCK_004": "ACTIVE",
+    "v0_5": "BLOCKED",
+    "releaseAllowed": false,
+    "v05Package": false
+  },
+  "r1_purpose": {
+    "primary": "Execute matched comparison and collect actual output evidence",
+    "is": ["executed RUN-A vanilla", "executed RUN-B factory", "actual output collection", "evidence-based scoring"],
+    "is_not": ["v0.5 release", "RC package", "production deployment", "Factory superiority proof", "BLOCK-001 final resolution"]
+  },
+  "evidence_classification": {
+    "AB-0 prompt_design": "SUPPORTED",
+    "AB-0 rubric_design": "SUPPORTED",
+    "AB-0 executed_evidence": "NOT_PROVEN",
+    "AB-0 score_50_vs_87": "DESIGN_SCORE_ONLY",
+    "BLOCK_001 pre_r1": "ACTIVE_WITH_AB_DESIGN_READY"
+  },
+  "status": "EVIDENCE_INTAKE_WITH_AB0_CORRECTION"
+}

@@ -1,0 +1,136 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "Codex self-report accepted as proof",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "self_report_proof",
+                          "id":  "N01"
+                      },
+                      {
+                          "fault":  "Markdown-only PASS accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_pass",
+                          "id":  "N02"
+                      },
+                      {
+                          "fault":  "FINAL package modified during EVAL-0",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "final_modified",
+                          "id":  "N03"
+                      },
+                      {
+                          "fault":  "New final ZIP created during EVAL-0",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "new_zip",
+                          "id":  "N04"
+                      },
+                      {
+                          "fault":  "Real project effectiveness marked proven without benchmark",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "effectiveness_proven",
+                          "id":  "N05"
+                      },
+                      {
+                          "fault":  "Automatic window creation marked verified without evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "auto_window_verified",
+                          "id":  "N06"
+                      },
+                      {
+                          "fault":  "Fork full-context inheritance marked verified without evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "fork_inheritance_verified",
+                          "id":  "N07"
+                      },
+                      {
+                          "fault":  "DeepSeek 1M claim marked verified without source",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "deepseek_verified",
+                          "id":  "N08"
+                      },
+                      {
+                          "fault":  "CrewAI/Coze/AutoGen claims without search marker",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "external_claims_unsourced",
+                          "id":  "N09"
+                      },
+                      {
+                          "fault":  "Missing verifier JSON ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "missing_verifier_ignored",
+                          "id":  "N10"
+                      },
+                      {
+                          "fault":  "State/verifier mismatch ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "state_mismatch_ignored",
+                          "id":  "N11"
+                      },
+                      {
+                          "fault":  "LR phase marked VERIFIED with missing artifact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "lr_missing_verified",
+                          "id":  "N12"
+                      },
+                      {
+                          "fault":  "Manual router marked existing without artifact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "manual_router_fake",
+                          "id":  "N13"
+                      },
+                      {
+                          "fault":  "Role-specialized agent model marked proven without test",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "role_agent_fake",
+                          "id":  "N14"
+                      },
+                      {
+                          "fault":  "File count/exports treated as real project quality",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "file_count_quality",
+                          "id":  "N15"
+                      },
+                      {
+                          "fault":  "User concern treated as P0 fact without evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "user_concern_fact",
+                          "id":  "N16"
+                      },
+                      {
+                          "fault":  "Half-way handoff limitation omitted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "handoff_omitted",
+                          "id":  "N17"
+                      },
+                      {
+                          "fault":  "External search-needed item marked resolved",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "search_resolved",
+                          "id":  "N18"
+                      },
+                      {
+                          "fault":  "Repo self-check-needed item marked resolved",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "selfcheck_resolved",
+                          "id":  "N19"
+                      },
+                      {
+                          "fault":  "Evaluation roadmap starts benchmark before evidence reset",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "benchmark_before_reset",
+                          "id":  "N20"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  20,
+    "schemaId":  "factory-eval-0-negative-controls-result",
+    "totalNegatives":  20,
+    "phase":  "FACTORY-EVAL-0-E",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T15:46:47+08:00"
+}

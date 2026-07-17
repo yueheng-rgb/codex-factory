@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P4",
+  "section": "O",
+  "title": "Strategy Update",
+  "timestamp": "2026-06-28T13:54:00+08:00",
+  "strategy_positions": {
+    "p4_usability_hardening": "NEW — One-command install/bootstrap/preflight/phase-close reduces user burden ~60-70%; does not change release status",
+    "build_lite_default": "MAINTAINED",
+    "native_build_pro_conditional": "MAINTAINED",
+    "v0_5_blocked": "MAINTAINED",
+    "security_deploy_gate_required": "MAINTAINED",
+    "package_qa_required": "MAINTAINED",
+    "context_space_required": "MAINTAINED",
+    "test_repair_policy_required": "MAINTAINED",
+    "cloud_deferred": "MAINTAINED",
+    "factory_superiority_not_proven": "MAINTAINED",
+    "p4_staging_non_release": "NEW — P4 staging bundle remains STAGING_NOT_RELEASE"
+  },
+  "status": "STRATEGY_UPDATED"
+}

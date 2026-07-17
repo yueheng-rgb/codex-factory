@@ -1,0 +1,30 @@
+{
+    "resolution":  "REPORT_STATE_ERROR_REPAIRED — all affected artifacts corrected. Product implementation unchanged.",
+    "section":  "A",
+    "findings":  {
+                     "expectedSHA256":  "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+                     "finalPackageExists":  true,
+                     "sessionHandoffFinalPackageStatus":  "CREATED_AND_VALIDATED",
+                     "lastModified":  "2026-06-24T22:33:38.8614742+08:00",
+                     "sessionHandoffFinalZipExists":  true,
+                     "handoffConfirms":  true,
+                     "actualSHA256":  "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+                     "sha256Match":  true,
+                     "finalPackagePath":  "outputs/CODEX_FACTORY_FINAL_PACKAGE.zip",
+                     "fileSize":  325233
+                 },
+    "generatedAt":  "2026-06-25T19:12:51+08:00",
+    "phase":  "FACTORY-EVAL-6-P1",
+    "title":  "Final Package State Reconciliation",
+    "rootCause":  {
+                      "description":  "EVAL-6 preflight checked wrong path: \u0027C:\\Codex_App_Factory\\FINAL\u0027 (directory) instead of \u0027outputs/CODEX_FACTORY_FINAL_PACKAGE.zip\u0027. Also checked *.zip only at root level, missing ZIP in outputs/ subdirectory.",
+                      "severity":  "P1 — state contradiction, report-repair required",
+                      "type":  "REPORT_STATE_ERROR",
+                      "affectedArtifacts":  [
+                                                "outputs/FACTORY_EVAL_6_FACTORY_LITE_RUN_REPORT.md",
+                                                "outputs/FACTORY_EVAL_6_NEGATIVE_CONTROLS_REPORT.md (NC26)",
+                                                "governance/factory-eval/verifier-factory-eval-6-result.json",
+                                                "scripts/factory-eval-6-factory-lite-run-verify.ps1"
+                                            ]
+                  }
+}

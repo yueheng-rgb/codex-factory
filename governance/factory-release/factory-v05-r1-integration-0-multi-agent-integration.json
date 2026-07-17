@@ -1,0 +1,10 @@
+﻿{
+    "integratorSoleMerger":  true,
+    "neverAutoStart":  true,
+    "handoffSchema":  true,
+    "buildLitePreserved":  true,
+    "section":  "I",
+    "contractSchema":  true,
+    "roleProfiles":  5,
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0"
+}

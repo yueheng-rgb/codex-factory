@@ -1,0 +1,179 @@
+﻿{
+    "phase":  "R2.3-Y-REGRESSION",
+    "total":  17,
+    "passed":  17,
+    "failed":  0,
+    "pass_rate":  100,
+    "results":  [
+                    {
+                        "id":  "A",
+                        "description":  "JWT Refresh Token",
+                        "expected":  "P0_MUST_SEARCH",
+                        "got":  "P0_MUST_SEARCH",
+                        "level_ok":  true,
+                        "reason":  "P0: SECURITY_CRITICAL",
+                        "security_critical":  true,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "B",
+                        "description":  "File Upload Multipart",
+                        "expected":  "P0_MUST_SEARCH",
+                        "got":  "P0_MUST_SEARCH",
+                        "level_ok":  true,
+                        "reason":  "P0: SECURITY_CRITICAL",
+                        "security_critical":  true,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "C",
+                        "description":  "RBAC Permissions",
+                        "expected":  "P0_MUST_SEARCH",
+                        "got":  "P0_MUST_SEARCH",
+                        "level_ok":  true,
+                        "reason":  "P0: SECURITY_CRITICAL, ARCHITECTURE_DECISION",
+                        "security_critical":  true,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "D",
+                        "description":  "Third-party SDK Integration",
+                        "expected":  "P0_MUST_SEARCH",
+                        "got":  "P0_MUST_SEARCH",
+                        "level_ok":  true,
+                        "reason":  "P0: SECURITY_CRITICAL, EXTERNAL_DEPENDENCY",
+                        "security_critical":  true,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "E",
+                        "description":  "Dependency Version Upgrade",
+                        "expected":  "P0_MUST_SEARCH",
+                        "got":  "P0_MUST_SEARCH",
+                        "level_ok":  true,
+                        "reason":  "P0: SECURITY_CRITICAL, HIGH_REWORK_RISK",
+                        "security_critical":  true,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "F",
+                        "description":  "UI Pattern",
+                        "expected":  "P1_SHOULD_SEARCH",
+                        "got":  "P1_SHOULD_SEARCH",
+                        "level_ok":  true,
+                        "reason":  "P1: COMMUNITY_REFERENCE",
+                        "security_critical":  false,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "G",
+                        "description":  "Simple CSS Fix",
+                        "expected":  "P2_NO_SEARCH_REQUIRED",
+                        "got":  "P2_NO_SEARCH_REQUIRED",
+                        "level_ok":  true,
+                        "reason":  "P2: Style/text task without implementation action",
+                        "security_critical":  false,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "H",
+                        "description":  "Local Known Bug Fix",
+                        "expected":  "P2_NO_SEARCH_REQUIRED",
+                        "got":  "P2_NO_SEARCH_REQUIRED",
+                        "level_ok":  true,
+                        "reason":  "P2: Low-risk local change",
+                        "security_critical":  false,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "I",
+                        "description":  "Bug + Dependency Uncertainty",
+                        "expected":  "P0_MUST_SEARCH",
+                        "got":  "P0_MUST_SEARCH",
+                        "level_ok":  true,
+                        "reason":  "P0: SECURITY_CRITICAL, UNCERTAINTY",
+                        "security_critical":  true,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "J",
+                        "description":  "P0 without Evidence Pack",
+                        "expected":  "P0_MUST_SEARCH",
+                        "got":  "P0_MUST_SEARCH",
+                        "level_ok":  true,
+                        "reason":  "P0: SECURITY_CRITICAL",
+                        "security_critical":  true,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "K",
+                        "description":  "Implementer Direct Search",
+                        "expected":  "REJECT",
+                        "got":  "REJECT",
+                        "level_ok":  true,
+                        "reason":  "IMPLEMENTER_DIRECT_SEARCH_FORBIDDEN",
+                        "security_critical":  false,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "M",
+                        "description":  "model_text_extraction reject",
+                        "expected":  "FAIL_FATAL",
+                        "got":  "FAIL_FATAL",
+                        "level_ok":  true,
+                        "reason":  "source_origin check",
+                        "security_critical":  false,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "N",
+                        "description":  "P2 Forced Search",
+                        "expected":  "P2_NO_SEARCH_REQUIRED",
+                        "got":  "P2_NO_SEARCH_REQUIRED",
+                        "level_ok":  true,
+                        "reason":  "P2: Style/text task without implementation action",
+                        "security_critical":  false,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "O",
+                        "description":  "Security missing controls",
+                        "expected":  "INCOMPLETE",
+                        "got":  "complete=False",
+                        "level_ok":  true,
+                        "reason":  "missing fields",
+                        "security_critical":  true,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "P",
+                        "description":  "Official source gap",
+                        "expected":  "gap=true",
+                        "got":  "gap=True",
+                        "level_ok":  true,
+                        "reason":  "authoritative_source_gap",
+                        "security_critical":  false,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "Q",
+                        "description":  "Missing query_intent",
+                        "expected":  "warning",
+                        "got":  "warnings present=True",
+                        "level_ok":  true,
+                        "reason":  "query_intent warning",
+                        "security_critical":  false,
+                        "passed":  true
+                    },
+                    {
+                        "id":  "R",
+                        "description":  "Missing source_type_counts",
+                        "expected":  "warning",
+                        "got":  "warnings present=True",
+                        "level_ok":  true,
+                        "reason":  "source_type_counts warning",
+                        "security_critical":  false,
+                        "passed":  true
+                    }
+                ]
+}

@@ -1,0 +1,54 @@
+{
+    "totalRequirements":  11,
+    "phase":  "FACTORY-EVAL-6",
+    "requirementsCovered":  11,
+    "apiEndpoints":  21,
+    "testCommand":  "node tests/run-tests.js",
+    "title":  "Factory Lite Run 鈥?TeamFlow Lite",
+    "runCommand":  "npm start",
+    "testResults":  {
+                        "failed":  0,
+                        "total":  30,
+                        "passed":  30
+                    },
+    "section":  "RUN-B",
+    "factoryMechanismsForbidden":  [
+                                       "Role-Specialized Agent Company Model",
+                                       "specialist role agents",
+                                       "Agent OS multi-agent orchestration",
+                                       "Context OS/MCP Memory as implementation assistant",
+                                       "Factory governance code as product code",
+                                       "Vanilla product code reuse"
+                                   ],
+    "productPath":  "harness/benchmarks/factory-eval-real-project/runs/factory-lite/product/",
+    "contaminationVerdict":  "CLEAN",
+    "factoryMechanismsUsed":  [
+                                  "always-on constitution",
+                                  "Manual Router",
+                                  "Proof-of-Read",
+                                  "required-reading gate",
+                                  "evidence hierarchy",
+                                  "process integrity checks"
+                              ],
+    "generatedAt":  "2026-06-25T17:51:10+08:00",
+    "uiPages":  7,
+    "runId":  "FACTORY-EVAL-6-RUN-B-FACTORY-LITE",
+    "readinessForEvaluation":  true,
+    "humanInterventions":  0,
+    "status":  "COMPLETED",
+    "notes":  "Independent implementation of TeamFlow Lite using Factory Lite controls. Ready for independent evaluation. Do not claim Factory effectiveness from this run alone.",
+    "finalPackageStatus":  {
+                               "sha256":  "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+                               "verifiedAt":  "2026-06-25T19:13:36+08:00",
+                               "sha256Match":  true,
+                               "path":  "outputs/CODEX_FACTORY_FINAL_PACKAGE.zip",
+                               "unchanged":  true,
+                               "exists":  true
+                           },
+    "p1Repair":  {
+                     "phase":  "FACTORY-EVAL-6-P1",
+                     "description":  "Corrected report from \u0027No FINAL package\u0027 to \u0027FINAL package exists, SHA verified\u0027",
+                     "productImplementationUnchanged":  true,
+                     "repairType":  "REPORT_STATE_ERROR_REPAIRED"
+                 }
+}

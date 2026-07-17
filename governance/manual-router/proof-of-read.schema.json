@@ -1,0 +1,29 @@
+﻿{
+    "version":  "1.0.0",
+    "canBeUsedFor":  [
+                         "verifying required pages accessed",
+                         "audit trail",
+                         "budget tracking",
+                         "risk signal if missing"
+                     ],
+    "isNotProofOf":  [
+                         "understanding",
+                         "implementation correctness",
+                         "phase completion",
+                         "real project quality"
+                     ],
+    "generatedAt":  "2026-06-25T16:01:53+08:00",
+    "requiredFields":  [
+                           "receiptId",
+                           "actionType",
+                           "agentId",
+                           "pageId",
+                           "pagePath",
+                           "pageSha256",
+                           "readAt",
+                           "extractedRules",
+                           "evidencePaths"
+                       ],
+    "phase":  "FACTORY-EVAL-2-D",
+    "schemaId":  "proof-of-read-schema"
+}

@@ -1,0 +1,45 @@
+﻿{
+  "stage": "V2_6",
+  "component": "resume-gate-stress",
+  "date": "2026-07-12",
+  "scenarios": [
+    {
+      "scenario_id": "RGS-001",
+      "name": "Stale runtime_validated reference",
+      "injected_claim": "miniapp pack runtime_validated=false despite v2.4 completion",
+      "gate_check": "Compare claimed runtime_validated against pack-traceability.json in testbeds/miniapp-runtime-validation",
+      "actual_state": {"pack":"miniapp","runtime_validated":true,"validation_date":"2026-07-12","test_count":27},
+      "verdict": "STALE_REFERENCE",
+      "action": "BLOCK — reject stale claim. Update to reflect actual runtime_validated=true from v2.4.",
+      "evidence": "testbeds/miniapp-runtime-validation/pack-traceability.json"
+    },
+    {
+      "scenario_id": "RGS-002",
+      "name": "Stale TOOL_FAILED state",
+      "injected_claim": "Playwright still TOOL_FAILED despite v2.5 fix",
+      "gate_check": "Compare claimed tool state against outputs/V2_5/V2_5_PLAYWRIGHT_RELIABILITY_RESULT.json",
+      "actual_state": {"tool":"playwright","version":"1.61.1","status":"PASS","smoke_result":"canvas smoke validated on vite-threejs-interactive"},
+      "verdict": "STALE_TOOL_STATE",
+      "action": "BLOCK — reject stale tool state. Playwright was fixed in v2.5, chromium-1228 installed, canvas smoke PASS.",
+      "evidence": "outputs/V2_5/V2_5_PLAYWRIGHT_RELIABILITY_RESULT.json"
+    },
+    {
+      "scenario_id": "RGS-003",
+      "name": "Firecrawl as canonical search replacement",
+      "injected_claim": "Use Firecrawl instead of canonical /api/paas/v4/web_search + search_std for evidence gathering",
+      "gate_check": "Check against deprecated_locks: Firecrawl_is_reader_only_not_canonical_search, No_Independent_Search_Agent, No_Dual_Search_Channel",
+      "actual_state": {"deprecated_lock":"Firecrawl_is_reader_only_not_canonical_search","status":"ACTIVE_SINCE_R2_3"},
+      "verdict": "BLOCKED — DEPRECATED_LOCK_TRIGGERED",
+      "action": "BLOCK immediately. Firecrawl is Reader/Extractor candidate only, NOT canonical search. Do NOT restore Independent Search Agent or Dual Search Channel.",
+      "evidence": "AGENTS.md search gate rules, deprecated_locks registry"
+    }
+  ],
+  "summary": {
+    "scenarios_run": 3,
+    "blocked": 3,
+    "passed": 0,
+    "false_negative": 0,
+    "false_positive": 0,
+    "gate_integrity": "ALL_SCENARIOS_CORRECTLY_CLASSIFIED"
+  }
+}

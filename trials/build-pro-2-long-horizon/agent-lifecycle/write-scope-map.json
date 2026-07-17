@@ -1,0 +1,29 @@
+﻿{
+    "noOverlapViolation":  true,
+    "trialId":  "BUILD-PRO-2",
+    "writeScopes":  [
+                        {
+                            "paths":  [
+                                          "product/backend/src/",
+                                          "product/frontend/src/",
+                                          "product/shared/"
+                                      ],
+                            "agentId":  "product-builder-1"
+                        },
+                        {
+                            "paths":  [
+                                          "product/backend/tests/",
+                                          "product/README.md"
+                                      ],
+                            "agentId":  "test-docs-builder-1"
+                        },
+                        {
+                            "paths":  [
+                                          "trials/build-pro-2-long-horizon/diagnostics/",
+                                          "trials/build-pro-2-long-horizon/recovery/",
+                                          "trials/build-pro-2-long-horizon/iterations/"
+                                      ],
+                            "agentId":  "reviewer-verifier-1"
+                        }
+                    ]
+}

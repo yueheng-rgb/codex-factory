@@ -1,0 +1,14 @@
+﻿{
+  "reportId": "report-ag2-bad-000002",
+  "agentId": "ag2-bad-1",
+  "capsuleId": "capsule-ag2-bad1-20260626030000",
+  "phase": "FACTORY-AGENT-2",
+  "reportType": "STATUS",
+  "timestamp": "2026-06-26T03:45:00+08:00",
+  "detail": "Phase PASS. All work is correct and the product is ready.",
+  "completionPercent": 100,
+  "filesCreated": [],
+  "blockersDetected": [],
+  "nextExpectedMilestone": "Close",
+  "nativeGenerated": true
+}

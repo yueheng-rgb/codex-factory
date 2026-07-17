@@ -1,0 +1,50 @@
+﻿{
+  "pack": "admin-system",
+  "version": "1.0.0",
+  "benchmarks": [
+    {
+      "benchmark_id": "ADMIN-B1",
+      "description": "Simple CRUD admin for a single entity with basic auth — user management table",
+      "expected_surfaces": ["admin-web","api-service","database"],
+      "expected_risk_level": "MEDIUM",
+      "expected_invariants": ["admin_required_for_admin_routes","pagination_limit_enforced"],
+      "runnable_or_design_only": "runnable",
+      "human_audit_required": false,
+      "external_engines_expected": ["semgrep"],
+      "success_criteria": "Admin CRUD works, routes protected, pagination enforced, no permission escalation possible"
+    },
+    {
+      "benchmark_id": "ADMIN-B2",
+      "description": "Admin system with role-based access control and audit log — multi-role user admin",
+      "expected_surfaces": ["admin-web","api-service","database","docs-release"],
+      "expected_risk_level": "HIGH",
+      "expected_invariants": ["admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role","audit_log_required_for_sensitive_actions","pagination_limit_enforced"],
+      "runnable_or_design_only": "runnable",
+      "human_audit_required": false,
+      "external_engines_expected": ["semgrep"],
+      "success_criteria": "RBAC enforced, role escalation blocked, audit logs created for sensitive actions"
+    },
+    {
+      "benchmark_id": "ADMIN-B3",
+      "description": "Full admin with batch ops, export, status workflows — product management admin",
+      "expected_surfaces": ["admin-web","api-service","database","docs-release"],
+      "expected_risk_level": "CRITICAL",
+      "expected_invariants": ["admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role","destructive_action_requires_confirmation","batch_operation_must_be_scoped","export_requires_permission","status_transition_allowed","audit_log_required_for_sensitive_actions","pagination_limit_enforced"],
+      "runnable_or_design_only": "design_only",
+      "human_audit_required": true,
+      "external_engines_expected": ["semgrep","autocannon","playwright"],
+      "success_criteria": "Complete admin surface plan, all invariants specified, human audit checklist generated"
+    },
+    {
+      "benchmark_id": "ADMIN-B4",
+      "description": "Super-admin system with multi-level roles, protected fields, and import — enterprise admin console",
+      "expected_surfaces": ["admin-web","api-service","database","docs-release"],
+      "expected_risk_level": "L_CLASS",
+      "expected_invariants": ["admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role","destructive_action_requires_confirmation","deleted_record_not_listed_by_default","status_transition_allowed","protected_fields_cannot_be_modified_without_permission","batch_operation_must_be_scoped","audit_log_required_for_sensitive_actions","export_requires_permission","import_requires_validation","pagination_limit_enforced","search_filter_must_be_whitelisted"],
+      "runnable_or_design_only": "design_only",
+      "human_audit_required": true,
+      "external_engines_expected": ["semgrep","codeql","autocannon"],
+      "success_criteria": "L_CLASS handling: decomposition, all 13 invariants, required reviewers, human audit required"
+    }
+  ]
+}

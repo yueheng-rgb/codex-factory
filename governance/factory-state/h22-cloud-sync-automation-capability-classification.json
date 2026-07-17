@@ -1,0 +1,120 @@
+﻿{
+    "nativeGenerated":  true,
+    "verdict":  "PASS",
+    "rules":  [
+                  "No claim marked VERIFIED_FACT without runtime evidence",
+                  "Full context inheritance remains REJECTED by architectural design",
+                  "Automation alert remains non-closure evidence",
+                  "Plugin remains EXPERIMENTAL — no production-ready claim",
+                  "Runtime automation claims remain HYPOTHESIS until DRY27"
+              ],
+    "generatedAt":  "2026-06-24T20:07:21+08:00",
+    "claims":  [
+                   {
+                       "id":  "CL-01",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "DRY26 installability structural check passed (POSITIVE_NEGATIVE_CLOSED). plugin.json valid. Directory structure conforms. Not runtime-loaded as active Codex plugin.",
+                       "claim":  "Plugin can be installed into Codex",
+                       "classification":  "PARTIALLY_VERIFIED",
+                       "requiresTest":  "Live Codex plugin install/sideload test"
+                   },
+                   {
+                       "id":  "CL-02",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "No cross-project sync test performed. Plugin is repo-local. No sync mechanism defined.",
+                       "claim":  "Plugin can be synced across projects",
+                       "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                       "requiresTest":  "Cross-project copy/import test with manifest integrity"
+                   },
+                   {
+                       "id":  "CL-03",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "H19 skill structure conforms to Codex skill format. skill-installer skill exists in system. Not tested with live skill install.",
+                       "claim":  "Skill can be installed into Codex skill path",
+                       "classification":  "PARTIALLY_VERIFIED",
+                       "requiresTest":  "Live skill installation into %USERPROFILE%\\.agents\\skills\\ or %CODEX_HOME%\\skills\\"
+                   },
+                   {
+                       "id":  "CL-04",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "No runtime test. Skill SKILL.md exists but auto-load behavior depends on Codex skill resolution which has not been tested.",
+                       "claim":  "Skill auto-load works in Codex runtime",
+                       "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                       "requiresTest":  "Live Codex session with skill loaded from plugin path"
+                   },
+                   {
+                       "id":  "CL-05",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "H20 MCP prototype exists. Node REPL MCP architecture confirmed available. Standalone MCP server not tested as plugin sub-component.",
+                       "claim":  "MCP server can run as plugin component",
+                       "classification":  "PARTIALLY_VERIFIED",
+                       "requiresTest":  "MCP server startup from plugin directory context"
+                   },
+                   {
+                       "id":  "CL-06",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "H21-A classification: DESIGN_FEASIBLE_IMPLEMENTATION_HYPOTHETICAL. Codex automation_update tool exists but not invoked. No schedule test.",
+                       "claim":  "Automation can run periodically",
+                       "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                       "requiresTest":  "Live automation schedule creation and trigger"
+                   },
+                   {
+                       "id":  "CL-07",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "App context mentions thread wakeups. H21-A AUTO-07: CODEX_SELF_REPORT_ONLY. Not tested.",
+                       "claim":  "Automation can wake/notify a Codex thread",
+                       "classification":  "CODEX_SELF_REPORT_ONLY",
+                       "requiresTest":  "Live thread wakeup via automation"
+                   },
+                   {
+                       "id":  "CL-08",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "H21-B monitoring prototype returns MONITORING_PASS. 6 checks operational. Readonly. Only repo-local — not automated runtime.",
+                       "claim":  "Automation can monitor factory state drift",
+                       "classification":  "PARTIALLY_VERIFIED",
+                       "requiresTest":  "Scheduled monitoring trigger + drift alert"
+                   },
+                   {
+                       "id":  "CL-09",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "H18 session rotation handoff format stable. App context supports thread tools (handoff_thread, fork_thread). Used as artifact handoff only — not full context inheritance.",
+                       "claim":  "Thread handoff can complement session rotation",
+                       "classification":  "PARTIALLY_VERIFIED",
+                       "requiresTest":  "Cross-thread handoff with artifact integrity verification"
+                   },
+                   {
+                       "id":  "CL-10",
+                       "mayDriveArchitecture":  false,
+                       "evidence":  "Compressed summaries explicitly marked untrusted in handoff protocol. New window startup verification relies on repo artifacts, not prior context. Full context inheritance is architecturally rejected by design.",
+                       "claim":  "Full thread context inheritance works across sessions",
+                       "classification":  "REJECTED_OR_UNSUPPORTED",
+                       "requiresTest":  "N/A — architecturally excluded"
+                   },
+                   {
+                       "id":  "CL-11",
+                       "mayDriveArchitecture":  true,
+                       "evidence":  "MANIFEST.sha256 validated across all phases from H18 through H21. SHA256 computation and validation scripts operational. Relative-path based. No absolute path dependency.",
+                       "claim":  "Cloud/sync packaging can preserve manifest SHA",
+                       "classification":  "VERIFIED_FACT",
+                       "requiresTest":  "None — already verified"
+                   },
+                   {
+                       "id":  "CL-12",
+                       "mayDriveArchitecture":  true,
+                       "evidence":  "DRY25-S0 repaired bootstrap path lookup to use relative paths. validate-resource-pack.ps1 works in fresh fixture. MANIFEST uses workspace-relative paths. No hardcoded C:\\ paths in pack.",
+                       "claim":  "Package can avoid absolute path dependencies",
+                       "classification":  "VERIFIED_FACT",
+                       "requiresTest":  "None — already verified"
+                   }
+               ],
+    "phase":  "H22-B",
+    "summary":  {
+                    "hypothesis":  3,
+                    "verifiedFact":  2,
+                    "rejected":  1,
+                    "selfReport":  1,
+                    "partiallyVerified":  4,
+                    "totalClaims":  12,
+                    "untestedRuntimeClaims":  5
+                }
+}

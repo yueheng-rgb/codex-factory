@@ -1,0 +1,48 @@
+﻿{
+    "phase":  "FACTORY-V05-R1-INTEGRATION-PLAN",
+    "features_should":  7,
+    "features_must":  13,
+    "negative_controls_gaps":  0,
+    "v05_zip_modified":  false,
+    "r1_zip_created":  false,
+    "features_deferred":  [
+                              "Web UI",
+                              "cloud",
+                              "production",
+                              "v0.6"
+                          ],
+    "verdict":  "PASS",
+    "next_recommended":  "FACTORY-V05-R1-INTEGRATION-0 (after user approval)",
+    "v05_zip_sha256":  "9FD3A5F979FE1FDEA712F69CAC300E2F49F4E84705A0448D98186CA950AC16CB",
+    "theory_baseline_total":  263,
+    "user_approval_required":  true,
+    "reports_created":  [
+                            "A_SCOPE_LOCK",
+                            "B_THEORY_BASELINE_INVENTORY",
+                            "C_FEATURE_SELECTION",
+                            "D_FILE_INTEGRATION_MAP",
+                            "E_CLI_INTEGRATION_PLAN",
+                            "F_DEFAULT_WORKFLOW_INTEGRATION",
+                            "G_MULTI_AGENT_INTEGRATION",
+                            "H_ISOLATION_LIFECYCLE_CLEANUP_INTEGRATION",
+                            "I_DASHBOARD_RECOVERY_EVIDENCE_INTEGRATION",
+                            "J_SMOKE_VERIFICATION_PLAN",
+                            "K_RISK_REGISTER",
+                            "L_R1_DECISION_GATE",
+                            "M_STRATEGY_DECISION",
+                            "NEGATIVE_CONTROLS",
+                            "MAIN_REPORT"
+                        ],
+    "excluded":  [
+                     "v0.6",
+                     "real validation",
+                     "cloud",
+                     "deploy",
+                     "Native Build Pro default",
+                     "multi-agent auto-start"
+                 ],
+    "predecessor":  "FACTORY-PROJECT-LIFECYCLE-0",
+    "timestamp":  "2026-06-29T00:51:55+08:00",
+    "phases_accounted":  7,
+    "negative_controls_total":  35
+}

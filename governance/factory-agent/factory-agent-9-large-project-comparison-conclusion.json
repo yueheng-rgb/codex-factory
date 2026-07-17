@@ -1,0 +1,58 @@
+﻿{
+    "successThresholdCheck":  {
+                                  "falsificationTriggered":  true,
+                                  "hiddenFallbackZero":  true,
+                                  "phaseClosurePass":  true,
+                                  "allAgentsClosed":  true,
+                                  "overheadUnder2x":  "NOT_CONFIRMED",
+                                  "v05OverVanilla":  false,
+                                  "antiDeceptionPass":  true,
+                                  "v05OverV04":  true
+                              },
+    "recommendedNextPhase":  "FACTORY-AGENT-10 or user decision",
+    "timestamp":  "2026-06-26T18:32:47.2845224+08:00",
+    "negativeControls":  {
+                             "gaps":  0,
+                             "detected":  55,
+                             "total":  55,
+                             "executed":  55
+                         },
+    "comparisonVerdict":  "MULTI_AGENT_NO_BENEFIT",
+    "rubricScores":  {
+                         "vanilla":  85.5,
+                         "v04FactoryLite":  66,
+                         "v05AgentCompany":  80
+                     },
+    "runsCompared":  [
+                         "RUN-LP-A-Vanilla",
+                         "RUN-LP-B-v0.4-Factory-Lite",
+                         "RUN-LP-C-v0.5-Agent-Company"
+                     ],
+    "conclusion":  {
+                       "summary":  "v0.5 Agent Company does not exceed Vanilla Codex on product quality for OpsFlow Enterprise Lite",
+                       "type":  "EVIDENCE_BACKED_NEGATIVE",
+                       "multiAgentDefault":  false
+                   },
+    "verdict":  "PASS",
+    "parentPhases":  [
+                         "FACTORY-AGENT-6",
+                         "FACTORY-AGENT-7",
+                         "FACTORY-AGENT-8"
+                     ],
+    "phase":  "FACTORY-AGENT-9",
+    "phaseName":  "Independent Large Project Comparison",
+    "outputs":  [
+                    "outputs/FACTORY_AGENT_9_INDEPENDENT_LARGE_PROJECT_COMPARISON_REPORT.md",
+                    "outputs/FACTORY_AGENT_9_L_LARGE_PROJECT_COMPARISON_CONCLUSION_REPORT.md",
+                    "outputs/FACTORY_AGENT_9_NEGATIVE_CONTROLS_REPORT.md",
+                    "governance/factory-agent/factory-agent-9-large-project-comparison-conclusion.json",
+                    "governance/factory-agent/verifier-factory-agent-9-result.json",
+                    "scripts/factory-agent-9-independent-large-project-comparison-verify.ps1"
+                ],
+    "verifierResult":  {
+                           "path":  "governance/factory-agent/verifier-factory-agent-9-result.json",
+                           "verdict":  "PASS",
+                           "checksFailed":  0,
+                           "checksPassed":  25
+                       }
+}

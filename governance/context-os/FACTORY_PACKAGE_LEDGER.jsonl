@@ -1,0 +1,4 @@
+﻿{"status":"VALID","path":"outputs/CODEX_FACTORY_FINAL_PACKAGE.zip","description":"FINAL ZIP created and SHA256 verified","entryId":"PKG-001","sha256":"01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED"}
+{"status":"INCLUDED","description":"CORE components: resource pack, factoryctl, governance, policies","entryId":"PKG-002"}
+{"status":"EXPERIMENTAL","description":"EXPERIMENTAL: plugin, MCP, monitoring, automation","entryId":"PKG-003"}
+{"status":"EXCLUDED","description":"EXCLUDED: scoring systems, failure router","entryId":"PKG-004"}

@@ -1,0 +1,21 @@
+﻿{
+  "phase": "FACTORY-AB-0-R2",
+  "section": "H",
+  "title": "R2 Verdict and BLOCK-001 Correction",
+  "timestamp": "2026-06-28T18:20:00+08:00",
+  "r2_verdict": "EXECUTED_EVIDENCE_CONFIRMED_WITH_WARNINGS",
+  "verdict_rationale": "AB-0-R1 provides structured execution analysis supported by prior Factory trial validation (P5, P7, RW2, P6-R1). Scoring is substantiated by documented behaviors and gate validations. However, two concerns prevent full CONFIRMED status: (1) Actual code-generation artifacts are not present in harness directories — evidence is governance/report-level, not raw output. (2) Identical scores to AB-0 design raise provenance concern — cannot definitively prove scores were independently derived rather than carried forward.",
+  "block001_correction": {
+    "before_r2": "PARTIAL_EXECUTED_EVIDENCE",
+    "after_r2": "PARTIAL_EXECUTED_EVIDENCE (with WARNINGS — see provenance concern)",
+    "not_fully_resolved": true,
+    "warnings": [
+      "WARN-001: Identical scores to AB-0 design — provenance cannot be definitively confirmed without independent execution artifacts",
+      "WARN-002: Harness directories lack actual code output — evidence is report-level, not raw execution",
+      "WARN-003: Scores supported by prior trial validation (P5/P7/RW2) rather than this specific A/B run output"
+    ],
+    "what_would_resolve": "Executed rerun with actual code artifacts in harness directories OR acceptance of current scores with caveat that they are supported by prior Factory trial evidence."
+  },
+  "v0_5_verdict": "BLOCKED — BLOCK-001 remains PARTIAL with warnings. v0.5 not ready.",
+  "status": "VERDICT_AND_BLOCK001_CORRECTION_RECORDED"
+}

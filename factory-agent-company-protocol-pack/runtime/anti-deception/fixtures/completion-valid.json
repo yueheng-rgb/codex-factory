@@ -1,0 +1,11 @@
+﻿{
+    "agentId":  "ag4-b1",
+    "completionPercent":  100,
+    "verifierConfirmed":  true,
+    "integrityCheckPassed":  true,
+    "evidencePaths":  [
+                          "handoff-b1.json",
+                          "close-receipt-b1.json"
+                      ],
+    "closeReceiptRef":  "cr-b1.json"
+}

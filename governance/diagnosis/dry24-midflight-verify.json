@@ -1,0 +1,17 @@
+{
+  "phase": "DRY24-A",
+  "snapshotType": "midflight",
+  "generatedAt": "2026-06-24T16:17:17.827367+08:00",
+  "buildersAllComplete": true,
+  "contractsValidated": true,
+  "dependencyGraphExists": true,
+  "filesCreated": 309,
+  "exportsEstimated": 369,
+  "crossWorkerDeps": 5,
+  "integrationPointCount": 6,
+  "positiveScenarios": 18,
+  "factoryctlOperational": true,
+  "allForkContextFalse": true,
+  "noMainAgentFallbackDetected": true,
+  "verdict": "PASS"
+}

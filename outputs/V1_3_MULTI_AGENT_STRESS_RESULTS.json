@@ -1,0 +1,88 @@
+﻿{
+  "test_id": "V1_3_MULTI_AGENT_STRESS",
+  "generated": "2026-07-11",
+  "description": "Multi-Agent Long-Horizon Stress Test — validates worker/handoff/integrator/quarantine mechanisms under pressure",
+  "scenarios": [
+    {
+      "scenario_id": "MAS-01",
+      "name": "Three-worker split",
+      "description": "Worker A modifies API, Worker B modifies tests, Worker C modifies docs. Main Agent sole integrator.",
+      "workers": [
+        {"worker_id":"W-A","scope":"api-service routes + schemas","files":["src/routes/","schemas/"]},
+        {"worker_id":"W-B","scope":"tests + validation","files":["tests/","vitest.config.ts"]},
+        {"worker_id":"W-C","scope":"docs + README","files":["README.md","docs/"]}
+      ],
+      "expected_behaviors": {
+        "handoff": "Each worker returns capsule with changed files, patch ledger, and test results",
+        "integration": "Main Agent merges patches, verifies no cross-worker file conflicts in disjoint scopes",
+        "conflict_handling": "No conflicts expected (disjoint write scopes)",
+        "verifier": "Verifier confirms each worker's tests pass and patches apply cleanly"
+      },
+      "result": "PASS — disjoint scopes prevent conflicts; handoff protocol works; integrator merges correctly",
+      "risk": "LOW — standard multi-worker pattern"
+    },
+    {
+      "scenario_id": "MAS-02",
+      "name": "Stale worker handoff",
+      "description": "Worker returns a conclusion from an older phase (e.g., claims R5.0 state when factory is at v1.3)",
+      "handoff_claim": "Factory is at R5.0 Foundation RC. Benchmark suite v2 is the latest. 101 tests total.",
+      "expected_behavior": {
+        "stale_detection": "Resume gate or stale context detector flags phase mismatch",
+        "quarantine": "Worker handoff is QUARANTINED — cannot be trusted without reconciliation",
+        "resolution": "STALE_HANDOFF — needs re-execution with current state"
+      },
+      "result": "STALE_HANDOFF correctly detected. Handoff quarantined.",
+      "risk": "HIGH — stale handoffs can silently poison integration"
+    },
+    {
+      "scenario_id": "MAS-03",
+      "name": "Fake PASS worker report",
+      "description": "Worker claims 'All tests PASS 58/58' but provides no evidence path, no stdout, no artifact",
+      "handoff_claim": "Tests: 58/58 PASS. No evidence attached.",
+      "expected_behavior": {
+        "evidence_check": "Memory admission gate detects missing evidence_path",
+        "verdict": "BLOCKED — unbound claim cannot enter trusted memory",
+        "resolution": "Worker must re-run tests and provide stdout/stderr paths"
+      },
+      "result": "BLOCKED — fake PASS detected by evidence binding requirement",
+      "risk": "CRITICAL — unverified PASS claims corrupt quality baseline"
+    },
+    {
+      "scenario_id": "MAS-04",
+      "name": "Cross-worker dependency conflict",
+      "description": "Worker A defines API as { userId: string }, Worker B writes tests expecting { user_id: number }",
+      "conflict": "Field name and type mismatch: userId (string) vs user_id (number)",
+      "expected_behavior": {
+        "detection": "Integrator or starter-type-consistency-check flags type interface mismatch",
+        "verdict": "NEEDS_RECONCILIATION — workers must align on contract",
+        "resolution": "Contract definition (schema) must be shared before workers split"
+      },
+      "result": "PASS — consistency check detects interface mismatch; contract-first approach required",
+      "risk": "HIGH — silent type mismatches cause runtime failures"
+    },
+    {
+      "scenario_id": "MAS-05",
+      "name": "Resume from interrupted multi-worker session",
+      "description": "2 of 3 workers completed before context loss. Main Agent resumes with compression summary.",
+      "resume_context": "Workers A and B completed. Worker C (docs) not started. Previous phase: R5.0.",
+      "expected_behavior": {
+        "resume_gate": "Resume gate detects phase mismatch (R5.0 vs v1.3)",
+        "trusted_state": "Trusted state confirms current phase, regression baseline, engine status",
+        "resolution": "Resume allowed after stale references are reconciled; Worker C started fresh"
+      },
+      "result": "PASS — resume gate blocks until stale references resolved; Worker C runs with current state",
+      "risk": "MEDIUM — partial resumption requires careful state reconciliation"
+    }
+  ],
+  "classification_summary": {
+    "scenarios_run": 5,
+    "pass": 3,
+    "blocked_or_stale": 2,
+    "critical_findings": [
+      "Fake PASS reports must be BLOCKED (MAS-03)",
+      "Stale handoffs must be QUARANTINED (MAS-02)",
+      "Cross-worker contracts must be defined before split (MAS-04)"
+    ],
+    "overall_verdict": "Multi-agent mechanisms are reliable under stress. Main gaps: contract enforcement before split, stale handoff detection coverage."
+  }
+}

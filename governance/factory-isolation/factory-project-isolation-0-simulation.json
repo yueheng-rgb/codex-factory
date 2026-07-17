@@ -1,0 +1,23 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "K",
+  "title": "Simulation",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "simulation_dir": "harness/project-isolation/project-isolation-0-simulation/",
+  "scenarios": [
+    {"id": 1, "name": "Project A active, Project B selected -> A context blocked", "verdict": "PASS"},
+    {"id": 2, "name": "Archived project selected -> not default mounted", "verdict": "PASS"},
+    {"id": 3, "name": "Frozen project selected -> query allowed, update blocked", "verdict": "PASS"},
+    {"id": 4, "name": "Deleted project selected -> mount blocked", "verdict": "PASS"},
+    {"id": 5, "name": "Same path, changed fingerprint -> confirmation required", "verdict": "PASS"},
+    {"id": 6, "name": "Cleanup in B does not delete A cache", "verdict": "PASS"},
+    {"id": 7, "name": "Agent output from A proposed for B -> FOREIGN_REFERENCE", "verdict": "PASS"},
+    {"id": 8, "name": "Global user preference transfers correctly", "verdict": "PASS"},
+    {"id": 9, "name": "Project-specific risk does not transfer", "verdict": "PASS"},
+    {"id": 10, "name": "Migrated project redirects with confirmation", "verdict": "PASS"}
+  ],
+  "total_scenarios": 10,
+  "all_pass": true,
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_K_SIMULATION_REPORT.md"
+}

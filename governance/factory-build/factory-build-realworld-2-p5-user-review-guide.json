@@ -1,0 +1,14 @@
+﻿{
+    "guide_id": "FACTORY-BUILD-REALWORLD-2-P5-USER-REVIEW-GUIDE",
+    "generated_at": "2026-06-28T10:49:26+08:00", "section": "F",
+    "guide": {
+        "working_copy_location": "C:\Codex_App_Factory\harness\realworld\tcm-project-ledger\working-copy\tcm-project-ledger",
+        "what_was_changed": "10 files (9 security/doc, 1 test). Zero app code changed. See change inventory.",
+        "how_to_run_local": ["cd C:\Codex_App_Factory\harness\realworld\tcm-project-ledger\working-copy\tcm-project-ledger", "python manage.py check", "python manage.py test", "python manage.py runserver"],
+        "what_not_to_run": ["Any deploy_*.py script", "Any remote_*.py script", "Any script with server IP", "python manage.py runserver 0.0.0.0:8000"],
+        "security_docs_to_review": ["SECURITY.md", "CREDENTIAL_ROTATION_CHECKLIST.md", "deploy/README.md", ".gitignore"],
+        "skipped_tests_interpretation": "2 tests skipped due to Django 6.0.6 vs 5.x target. Not hidden failures. Can be resolved by installing Django 5.x (needs network).",
+        "deployment_readiness_next": "After secret rotation: review SECURITY.md checklist, run manage.py check --deploy, test on staging server before production."
+    },
+    "verdict": "REVIEW_GUIDE_READY"
+}

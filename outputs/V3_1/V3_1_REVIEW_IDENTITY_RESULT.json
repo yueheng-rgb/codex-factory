@@ -1,0 +1,40 @@
+﻿{
+    "check_id": "V3_1-REVIEW-IDENTITY-001",
+    "timestamp": "2026-07-17T15:26:00+08:00",
+    "baseline": "V3_0-REV-001 (local_named_reviewer)",
+    "upgrades": {
+        "identity_modes_supported": [
+            "self_declared_automated",
+            "local_named_reviewer",
+            "signed_local_receipt"
+        ],
+        "future_mode": "external_identity_required (NOT_IMPLEMENTED, reserved for V3.2+)",
+        "signed_local_receipt": {
+            "description": "Local hash-based receipt signature simulation",
+            "status": "AVAILABLE",
+            "limitations": [
+                "local hash is NOT cryptographic identity proof",
+                "NOT equivalent to GPG/SSH signing",
+                "reviewer alias is local identifier, NOT verified identity"
+            ]
+        },
+        "ci_job_review_binding": {
+            "description": "CRITICAL/L_CLASS CI jobs now require review receipt",
+            "status": "ENFORCED",
+            "rule": "missing review receipt for CRITICAL CI job -> BLOCKED"
+        }
+    },
+    "non_claims": [
+        "local_named_reviewer is NOT a real human identity system",
+        "signed_local_receipt uses simulated hash, NOT cryptographic signing",
+        "external_identity_required is a FUTURE capability, NOT available in V3.1",
+        "No real OAuth/GPG/SSH identity verification"
+    ],
+    "ci_demo_binding": {
+        "CI-DEMO-001": { "risk": "MEDIUM", "review_required": false, "status": "ALLOWED" },
+        "CI-DEMO-002B": { "risk": "MEDIUM", "review_required": false, "status": "FAIL_CAPTURED" },
+        "CI-DEMO-003": { "risk": "N/A", "review_required": false, "status": "BLOCKED_NO_ARTIFACT" },
+        "CI-DEMO-004": { "risk": "N/A", "review_required": false, "status": "BLOCKED_DEPRECATED" }
+    },
+    "status": "UPGRADED"
+}

@@ -1,0 +1,39 @@
+﻿{
+    "version":  "1.0.0",
+    "rules":  [
+                  "Style guide is embedded in ALL-STYLE cross-role contract",
+                  "Integrator checks style consistency",
+                  "Style mismatch is flagged, not auto-fixed",
+                  "Architect resolves style disputes"
+              ],
+    "generatedAt":  "2026-06-25T16:07:33+08:00",
+    "styleChecks":  [
+                        {
+                            "severity":  "P1",
+                            "id":  "STY-01",
+                            "check":  "Naming convention consistency (camelCase vs snake_case)"
+                        },
+                        {
+                            "severity":  "P1",
+                            "id":  "STY-02",
+                            "check":  "Duplicate type/interface/enum definitions across roles"
+                        },
+                        {
+                            "severity":  "P0",
+                            "id":  "STY-03",
+                            "check":  "Inconsistent error response format (Frontend vs Backend)"
+                        },
+                        {
+                            "severity":  "P0",
+                            "id":  "STY-04",
+                            "check":  "API contract mismatch (field names, types, required/optional)"
+                        },
+                        {
+                            "severity":  "P1",
+                            "id":  "STY-05",
+                            "check":  "Database naming vs Backend model naming alignment"
+                        }
+                    ],
+    "phase":  "FACTORY-EVAL-3-D",
+    "schemaId":  "style-unification-policy"
+}

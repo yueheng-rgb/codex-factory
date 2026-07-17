@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  48,
+    "frozenAt":  "2026-06-20T18:31:42.2958933+08:00",
+    "runId":  "phase6c-u0-c-r1-negative-import-mismatch",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\phase6c-u0-c-r1-negative-import-mismatch\\trust-root.json",
+    "controlPlaneLockSha256":  "a6d5102cff8db63f43ccca20e8dff4385b02fcd9990f0c39a9ec17a844c8db61",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "639d03538219af01ec95a6633dfaae3004930e99a2bdc10def89b909d0d5692b"
+}

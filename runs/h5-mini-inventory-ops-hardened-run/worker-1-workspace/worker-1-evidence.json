@@ -1,0 +1,17 @@
+{
+  "workerId": 1,
+  "files": [
+    "src/itemTypes.js",
+    "src/stockLevel.js",
+    "src/inventoryAdjustment.js",
+    "src/reservation.js",
+    "src/transfer.js",
+    "src/auditEvent.js",
+    "src/itemStore.js",
+    "src/stockStore.js",
+    "src/adjustmentStore.js",
+    "src/reservationStore.js"
+  ],
+  "exportCount": 26,
+  "completedAt": "2026-06-22T06:21:44.207Z"
+}

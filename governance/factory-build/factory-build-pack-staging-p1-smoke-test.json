@@ -1,0 +1,70 @@
+﻿{
+    "passed":  12,
+    "section":  "M",
+    "checks":  [
+                   {
+                       "result":  true,
+                       "id":  "S01",
+                       "check":  "Staging directory loads"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S02",
+                       "check":  "Build Lite quickstart exists"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S03",
+                       "check":  "Native Build Pro readiness docs exist"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S04",
+                       "check":  "Context Packet generator exists"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S05",
+                       "check":  "Context Packet validator exists"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S06",
+                       "check":  "External Memory docs exist"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S07",
+                       "check":  "Diagnostic Gate docs exist"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S08",
+                       "check":  "Agent registry templates exist"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S09",
+                       "check":  "Close receipt templates exist"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S10",
+                       "check":  "No product source included"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S11",
+                       "check":  "No release ZIP included"
+                   },
+                   {
+                       "result":  true,
+                       "id":  "S12",
+                       "check":  "No v0.5 package included"
+                   }
+               ],
+    "total":  12,
+    "failed":  0,
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P1",
+    "title":  "Smoke Test"
+}

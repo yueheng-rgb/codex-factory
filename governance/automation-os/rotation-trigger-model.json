@@ -1,0 +1,35 @@
+﻿{
+  "schemaId": "rotation-trigger-model",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:21:49+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-5-A",
+  "nativeGenerated": true,
+  "verdicts": {
+    "WATCHER_OK": {"description":"All checks pass; no rotation needed","action":"None — continue current session"},
+    "ROTATION_RECOMMENDED": {"description":"Risk signals detected; rotation advised but not urgent","action":"Generate recommendation + startup packet; human decides"},
+    "ROTATION_REQUIRED": {"description":"Critical risk; rotation strongly advised before new phase","action":"Generate startup packet; block new major phase attempts"},
+    "WATCHER_ERROR": {"description":"Watcher itself failed to execute","action":"Human investigation required"}
+  },
+  "triggers": {
+    "ROTATION_REQUIRED": [
+      "Any P0 check fails",
+      "factoryctl verify returns FAIL",
+      "Unsafe stale active agents > 0",
+      "Capacity preflight BLOCKED",
+      "Multiple compaction markers detected",
+      "Final ZIP SHA mismatch",
+      "Manifest SHA mismatch"
+    ],
+    "ROTATION_RECOMMENDED": [
+      "Session handoff > 24h stale",
+      "currentTrustedPhase mismatch",
+      "Cross-session reconciliation INCONSISTENT",
+      "Memory validation has issues",
+      "P1 checks fail without P0 failures"
+    ],
+    "WATCHER_OK": [
+      "All checks pass",
+      "P2-only issues with no P0/P1 failures"
+    ]
+  }
+}

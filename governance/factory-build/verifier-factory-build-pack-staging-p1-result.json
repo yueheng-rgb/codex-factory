@@ -1,0 +1,208 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P1",
+    "date":  "2026-06-27T18:33:36.7610996+08:00",
+    "overall":  "PASS",
+    "passedChecks":  33,
+    "failedChecks":  0,
+    "totalChecks":  33,
+    "checks":  [
+                   {
+                       "path":  "governance\\factory-build\\verifier-factory-build-pack-architecture-p1-result.json",
+                       "pass":  true,
+                       "id":  "V00",
+                       "desc":  "PACK-ARCHITECTURE-P1 PASS exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging",
+                       "pass":  true,
+                       "id":  "V01",
+                       "desc":  "Staging root exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\README.md",
+                       "pass":  true,
+                       "id":  "V02",
+                       "desc":  "README.md exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\BOUNDARY.md",
+                       "pass":  true,
+                       "id":  "V03",
+                       "desc":  "BOUNDARY.md exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\VERSION.json",
+                       "pass":  true,
+                       "id":  "V04",
+                       "desc":  "VERSION.json exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\build-lite\\README.md",
+                       "pass":  true,
+                       "id":  "V05",
+                       "desc":  "build-lite module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\native-build-pro\\README.md",
+                       "pass":  true,
+                       "id":  "V06",
+                       "desc":  "native-build-pro module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\memory-quality\\README.md",
+                       "pass":  true,
+                       "id":  "V07",
+                       "desc":  "memory-quality module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\external-memory\\README.md",
+                       "pass":  true,
+                       "id":  "V08",
+                       "desc":  "external-memory module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\context-packets\\README.md",
+                       "pass":  true,
+                       "id":  "V09",
+                       "desc":  "context-packets module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\diagnostic-gate\\README.md",
+                       "pass":  true,
+                       "id":  "V10",
+                       "desc":  "diagnostic-gate module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\runtime\\README.md",
+                       "pass":  true,
+                       "id":  "V11",
+                       "desc":  "runtime module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\governance\\README.md",
+                       "pass":  true,
+                       "id":  "V12",
+                       "desc":  "governance module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\prompts\\README.md",
+                       "pass":  true,
+                       "id":  "V13",
+                       "desc":  "prompts module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\install\\README.md",
+                       "pass":  true,
+                       "id":  "V14",
+                       "desc":  "install module exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\MANIFEST.json",
+                       "pass":  true,
+                       "id":  "V15",
+                       "desc":  "MANIFEST.json exists"
+                   },
+                   {
+                       "path":  "factory-resource-pack-v0.9.0-pre-staging\\MANIFEST.sha256",
+                       "pass":  true,
+                       "id":  "V16",
+                       "desc":  "MANIFEST.sha256 exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-staging-p1-smoke-test.json",
+                       "pass":  true,
+                       "id":  "V17",
+                       "desc":  "Smoke test exists"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "VERSION.json: buildLiteDefault=true",
+                       "id":  "V18",
+                       "desc":  "Build Lite default preserved"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "VERSION.json: nativeBuildProConditional=true",
+                       "id":  "V19",
+                       "desc":  "Native Build Pro conditional preserved"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "VERSION.json: contextPacketRequiredForPro=true",
+                       "id":  "V20",
+                       "desc":  "Context Packet required for Build Pro"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "diagnostic-gate README confirms",
+                       "id":  "V21",
+                       "desc":  "Diagnostic Gate support gate only"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "external-memory README confirms",
+                       "id":  "V22",
+                       "desc":  "External Memory not model expansion"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No .ts files",
+                       "id":  "V23",
+                       "desc":  "No product source included"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No trials/",
+                       "id":  "V24",
+                       "desc":  "No trial products included"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No release ZIP",
+                       "id":  "V25",
+                       "desc":  "No release ZIP created"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No v0.5",
+                       "id":  "V26",
+                       "desc":  "No v0.5 package created"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "BOUNDARY.md confirms",
+                       "id":  "V27",
+                       "desc":  "No multi-agent default claim"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "releaseAllowed=false",
+                       "id":  "V28",
+                       "desc":  "VERSION.json releaseAllowed=false"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "v05Package=false",
+                       "id":  "V29",
+                       "desc":  "VERSION.json v05Package=false"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "0 gaps",
+                       "id":  "V30",
+                       "desc":  "Negative controls 56/56"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-staging-p1-negative-controls.json",
+                       "pass":  true,
+                       "id":  "V31",
+                       "desc":  "Negative controls JSON exists"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "10+ governance files",
+                       "id":  "V32",
+                       "desc":  "All section governance files exist"
+                   }
+               ]
+}

@@ -1,0 +1,63 @@
+﻿{
+    "h18A0InventoryPath":  "governance/factory-state/h18-a0-legacy-capability-inventory.json",
+    "summary":  {
+                    "totalAssetsPackaged":  6,
+                    "referenceArchived":  12,
+                    "deprecated":  7,
+                    "optionalAssets":  0,
+                    "coreAssets":  3,
+                    "excluded":  1
+                },
+    "scoringSystemsExcluded":  [
+                                   "risk-classifier",
+                                   "drift-severity-scoring",
+                                   "evidence-classification-scoring"
+                               ],
+    "excludedFromCore":  [
+                             {
+                                 "name":  "failure-router",
+                                 "reason":  "Automated retry/quarantine without verifier oversight",
+                                 "risk":  "HIGH"
+                             }
+                         ],
+    "basedOn":  "H18-A0 Legacy Capability Inventory",
+    "phase":  "H18",
+    "generatedAt":  "2026-06-24T16:57:58.3005831+08:00",
+    "nativeGenerated":  true,
+    "corePack":  [
+                     {
+                         "path":  "core/factoryctl/",
+                         "stability":  "stable",
+                         "name":  "factoryctl",
+                         "scripts":  [
+                                         "factoryctl.ps1"
+                                     ]
+                     },
+                     {
+                         "path":  "core/agent-tracking/",
+                         "stability":  "stable",
+                         "name":  "agent-tracking",
+                         "scripts":  [
+                                         "register-agent.ps1",
+                                         "record-progress.ps1",
+                                         "append-factory-event.ps1"
+                                     ]
+                     },
+                     {
+                         "path":  "core/handoff/",
+                         "stability":  "stable",
+                         "name":  "handoff",
+                         "scripts":  [
+                                         "generate-handoff.ps1",
+                                         "handoff-verify.ps1"
+                                     ]
+                     }
+                 ],
+    "scoringSystemGateEnforced":  true,
+    "boundaryRulesApplied":  [
+                                 "No scoring-as-PASS",
+                                 "No unverified claims as facts",
+                                 "No compressed summaries as evidence",
+                                 "No failure-router in core"
+                             ]
+}

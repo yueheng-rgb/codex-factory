@@ -1,0 +1,18 @@
+﻿{
+    "phase": "H21-B",
+    "taskId": "factory-state-monitor",
+    "description": "Periodic factory governance state integrity check",
+    "schedule": "manual-only-until-DRY27",
+    "checks": [
+        "currentTrustedPhase mismatch",
+        "final ZIP early creation",
+        "manifest SHA mismatch",
+        "factoryctl verify FAIL"
+    ],
+    "action": "ALERT_ONLY",
+    "mutationAllowed": false,
+    "evidenceWeight": "signal-only",
+    "notifies": ["session-owner"],
+    "outputFormat": "JSON",
+    "prototype": true
+}

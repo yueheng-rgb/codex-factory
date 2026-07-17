@@ -1,0 +1,151 @@
+{
+  "summaryId": "H17-P1-NEGATIVES",
+  "generatedAt": "2026-06-24T15:07:44.999121+08:00",
+  "total": 20,
+  "executed": 20,
+  "detected": 20,
+  "gaps": 0,
+  "verdict": "PASS",
+  "negatives": [
+    {
+      "negativeId": "H17-N01",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N02",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N03",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N04",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N05",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N06",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N07",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N08",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N09",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N10",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N11",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N12",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N13",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N14",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N15",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N16",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N17",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N18",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N19",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    },
+    {
+      "negativeId": "H17-N20",
+      "executed": true,
+      "detected": true,
+      "result": "PASS",
+      "noGenericFail": true
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+﻿{
+    "passed":  23,
+    "timestamp":  "2026-06-24T19:33:06.8195063+08:00",
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\phase6c-dry26-skill-plugin-installability-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  23,
+    "phase":  "DRY26",
+    "checks":  [
+                   {
+                       "Label":  "PARENT_H19",
+                       "Pass":  true,
+                       "Detail":  "actual=H19"
+                   },
+                   {
+                       "Label":  "H19_PASS",
+                       "Pass":  true,
+                       "Detail":  "h19Status=PASS"
+                   },
+                   {
+                       "Label":  "NO_H20",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_FINAL_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "FIXTURE_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SKILL_SCAFFOLD_VALID",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PLUGIN_SCAFFOLD_VALID",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "FIXTURE_NO_ABS_PATHS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIMULATION_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SIM_RULES_RECOVERABLE",
+                       "Pass":  true,
+                       "Detail":  "recoverable=12/12"
+                   },
+                   {
+                       "Label":  "SIM_NO_MISSING",
+                       "Pass":  true,
+                       "Detail":  "missing=0"
+                   },
+                   {
+                       "Label":  "PLUGIN_MCP_VALID",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PLUGIN_EXPERIMENTAL",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PLUGIN_NO_ABS_PATHS2",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MCP_DESIGN_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MCP_SCHEMA_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_PASS",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS"
+                   },
+                   {
+                       "Label":  "NEGATIVES_20",
+                       "Pass":  true,
+                       "Detail":  "count=20"
+                   },
+                   {
+                       "Label":  "NEGATIVES_ZERO_GAPS",
+                       "Pass":  true,
+                       "Detail":  "gaps=0"
+                   },
+                   {
+                       "Label":  "NO_MANUAL_PASS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_GENERIC_FAIL",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNVERIFIED_CLAIMS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_SCORING_AS_PASS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   }
+               ],
+    "failed":  0
+}

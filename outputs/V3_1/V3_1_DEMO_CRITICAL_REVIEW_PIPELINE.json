@@ -1,0 +1,39 @@
+﻿{
+    "demo_id": "V3_1-DEMO-CRITICAL-REVIEW-PIPELINE",
+    "task": "CRITICAL Review Pipeline — CPM-001 cross-pack mission",
+    "runner": {
+        "run_id": "CRITREV-20260717-161843-0001",
+        "runner_type": "sandbox",
+        "exit_code": 0,
+        "tests_passed": 17,
+        "tests_total": 17,
+        "final_status": "PASS",
+        "artifact_paths": [
+            "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stdout.log",
+            "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stderr.log"
+        ]
+    },
+    "review_gate": {
+        "without_receipt": {
+            "verifier_result": "FAIL",
+            "reason": "Receipt not found",
+            "gate_decision": "BLOCKED"
+        },
+        "with_receipt": {
+            "receipt_path": "reviews/V3_1-REV-CRITICAL-001.json",
+            "identity_mode": "signed_local_receipt",
+            "verifier_result": "PASS",
+            "gate_decision": "ALLOWED_FOR_REVIEW",
+            "decision": "APPROVED_WITH_RISK",
+            "non_claims_present": true,
+            "no_production_exaggeration": true
+        }
+    },
+    "non_claims": [
+        "signed_local_receipt uses SIMULATED hash, NOT cryptographic signing",
+        "This is NOT a real external identity verification",
+        "APPROVED_WITH_RISK is NOT production approval",
+        "CRITICAL CI job without review receipt = BLOCKED"
+    ],
+    "result": "PASS — BLOCKED without receipt, ALLOWED_FOR_REVIEW with signed_local_receipt"
+}

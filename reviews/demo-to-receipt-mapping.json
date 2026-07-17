@@ -1,0 +1,67 @@
+﻿{
+  "reconciliation_version": "2.2.1",
+  "created_at": "2026-07-12",
+  "total_demo_scenarios": 5,
+  "receipt_producing_demos": 4,
+  "gate_only_negative_controls": 1,
+  "mapping": [
+    {
+      "demo_number": 1,
+      "demo_name": "CRITICAL mission release review",
+      "receipt_id": "REV-0001",
+      "receipt_file": "reviews/REV-0001.json",
+      "decision": "APPROVED",
+      "risk_level": "CRITICAL",
+      "type": "receipt_demo",
+      "artifacts_reviewed": ["ART-0001","ART-0002","ART-0003","ART-0004","ART-0005","ART-0006","ART-0007","ART-0009","ART-0010"]
+    },
+    {
+      "demo_number": 2,
+      "demo_name": "False positive semgrep review",
+      "receipt_id": "REV-0002",
+      "receipt_file": "reviews/REV-0002.json",
+      "decision": "APPROVED",
+      "risk_level": "HIGH",
+      "type": "receipt_demo",
+      "artifacts_reviewed": ["ART-0009"]
+    },
+    {
+      "demo_number": 3,
+      "demo_name": "Missing artifact review — BLOCKED",
+      "receipt_id": "NONE",
+      "receipt_file": "NONE",
+      "decision": "N/A",
+      "risk_level": "N/A",
+      "type": "gate_only_negative_control",
+      "explanation": "This demo tests the gate itself: ART-0999 does not exist, so the gate correctly BLOCKED. No receipt is created because the gate prevents review of non-existent artifacts. This is intentional — a negative control proving the gate works, not a review demo.",
+      "gate_result": "BLOCKED — ARTIFACT_NOT_REVIEWED: ART-0999 not in any review receipt"
+    },
+    {
+      "demo_number": 4,
+      "demo_name": "Compression conflict reconciliation",
+      "receipt_id": "REV-0003",
+      "receipt_file": "reviews/REV-0003.json",
+      "decision": "REJECTED",
+      "risk_level": "CRITICAL",
+      "type": "receipt_demo",
+      "artifacts_reviewed": ["ART-0001","ART-0007"]
+    },
+    {
+      "demo_number": 5,
+      "demo_name": "Production readiness review",
+      "receipt_id": "REV-0004",
+      "receipt_file": "reviews/REV-0004.json",
+      "decision": "APPROVED_WITH_RISK",
+      "risk_level": "HIGH",
+      "type": "receipt_demo",
+      "artifacts_reviewed": ["ART-0001","ART-0002","ART-0003","ART-0004","ART-0005","ART-0006","ART-0007"],
+      "non_claims": ["NOT READY_FOR_PRODUCTION","In-memory store only","No real auth","No production deployment","Local smoke only — NOT production capacity proof"]
+    }
+  ],
+  "summary": {
+    "demo_count": 5,
+    "receipt_count": 4,
+    "gate_only_count": 1,
+    "note": "5 demos = 4 receipt-producing demos + 1 gate-only negative control. Demo 3 intentionally has no receipt — it validates that the gate blocks reviews when artifacts are missing. All 4 receipts are valid per human-review-receipt.schema.json."
+  }
+}

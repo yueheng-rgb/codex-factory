@@ -1,0 +1,84 @@
+﻿{
+    "contextId":  "CTX-PROJ-VERIFY-001-VER-001-PHASE-VERIFY-001",
+    "projectId":  "PROJ-VERIFY-001",
+    "phaseId":  "PHASE-VERIFY-001",
+    "agentId":  "VER-001",
+    "taskId":  "",
+    "role":  "Verifier Agent",
+    "category":  "Quality",
+    "agentType":  "on-demand",
+    "allowedWriteScopes":  [
+                               "projects/{projectId}/reports/verification/",
+                               "projects/{projectId}/tests/"
+                           ],
+    "forbiddenActions":  [
+                             "modify_implementation_code",
+                             "fake_test_results",
+                             "skip_negative_controls",
+                             "mark_PASS_with_unresolved_failures"
+                         ],
+    "permissions":  {
+                        "read":  [
+                                     "all_project_files"
+                                 ],
+                        "write":  [
+                                      "verification_reports_only",
+                                      "test_files_only"
+                                  ],
+                        "execute":  [
+                                        "shell_command(test runners)",
+                                        "apply_patch(test files)",
+                                        "node_repl(browser test)"
+                                    ]
+                    },
+    "allowedSkills":  {
+                          "required":  [
+                                           "codex-factory",
+                                           "webapp-preview-testing"
+                                       ],
+                          "optional":  [
+                                           "browser"
+                                       ],
+                          "forbidden":  [
+                                            "imagegen",
+                                            "documents",
+                                            "spreadsheets",
+                                            "pdf",
+                                            "presentations"
+                                        ]
+                      },
+    "requiredInputs":  [
+                           "implementer_outputs",
+                           "agent_contracts",
+                           "verifier_schema",
+                           "negative_control_definitions"
+                       ],
+    "requiredOutputs":  [
+                            {
+                                "name":  "verifier_report",
+                                "fields":  [
+                                               "verifierVerdict",
+                                               "testResults",
+                                               "contractValidations",
+                                               "negativeControls",
+                                               "gaps",
+                                               "failureAttribution"
+                                           ]
+                            }
+                        ],
+    "handoffRequired":  true,
+    "evidenceLevel":  "HIGH",
+    "failurePolicy":  {
+                          "testFailure":  "attribute_to_specific_agent_and_file",
+                          "falsePASS":  "re_run_with_tighter_checks",
+                          "corruptFixture":  "report_request_fixture_rebuild",
+                          "cannotVerify":  "report_gap_suggest_manual_verification",
+                          "maxRetries":  2
+                      },
+    "createdAt":  "2026-07-05T21:38:57+08:00",
+    "status":  "ACTIVATED",
+    "canReadProjects":  true,
+    "canWriteDesign":  false,
+    "canWriteCode":  false,
+    "canSpawnAgents":  true
+}

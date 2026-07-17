@@ -1,0 +1,124 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "knowledge-capsule.schema.json",
+  "title": "Knowledge Capsule",
+  "description": "A validated, structured unit of knowledge in the Codex Factory Knowledge Bank. Created from distilled research, project experience, or failure lessons.",
+  "type": "object",
+  "required": ["capsuleId", "domain", "topic", "problem", "validatedFacts", "sourceRefs", "lastReviewed", "status"],
+  "properties": {
+    "capsuleId": {
+      "type": "string",
+      "pattern": "^CAP-[a-f0-9-]+$",
+      "description": "Unique capsule identifier, e.g. CAP-ecommerce-001"
+    },
+    "domain": {
+      "type": "string",
+      "enum": ["miniapp", "fullstack", "backend", "frontend", "database", "devops", "security", "architecture", "ecommerce", "distributed", "mobile", "ai_ml", "testing", "general"]
+    },
+    "topic": { "type": "string", "description": "Specific topic within domain, e.g. '订单库存扣减'" },
+    "problem": { "type": "string", "description": "The problem this knowledge addresses" },
+    "validatedFacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fact", "confidence"],
+        "properties": {
+          "fact": { "type": "string", "description": "A single, verifiable fact" },
+          "confidence": { "type": "string", "enum": ["VERIFIED", "TRUSTED", "AVAILABLE"] },
+          "sourceRefIndex": { "type": "integer", "description": "Index into sourceRefs array" }
+        }
+      },
+      "minItems": 1
+    },
+    "decisionRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": { "type": "string", "description": "When this rule applies" },
+          "action": { "type": "string", "description": "What to do" },
+          "rationale": { "type": "string" }
+        }
+      },
+      "description": "Actionable decision rules derived from facts"
+    },
+    "antiPatterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pattern": { "type": "string", "description": "What NOT to do" },
+          "why": { "type": "string" },
+          "consequence": { "type": "string" }
+        }
+      },
+      "description": "Common mistakes to avoid"
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario": { "type": "string" },
+          "codeOrDescription": { "type": "string" },
+          "isCodeExample": { "type": "boolean", "default": false },
+          "language": { "type": "string" }
+        }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Known limitations, edge cases, or assumptions"
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["refId", "type", "url"],
+        "properties": {
+          "refId": { "type": "string" },
+          "type": { "type": "string", "enum": ["official_docs", "paper", "blog", "github", "stackoverflow", "research_packet", "failure_lesson", "human_expert"] },
+          "url": { "type": "string" },
+          "title": { "type": "string" },
+          "retrievedAt": { "type": "string", "format": "date" }
+        }
+      },
+      "minItems": 1
+    },
+    "lastReviewed": { "type": "string", "format": "date" },
+    "expiryPolicy": {
+      "type": "object",
+      "properties": {
+        "expiresAt": { "type": "string", "format": "date", "description": "When this capsule should be re-verified" },
+        "expiryAction": { "type": "string", "enum": ["reverify", "deprecate", "archive"], "default": "reverify" }
+      }
+    },
+    "relatedCapsules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Related capsule IDs"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "reviewing", "verified", "deprecated", "superseded"],
+      "default": "draft"
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string", "description": "Agent ID or 'human'" },
+    "approvedBy": {
+      "type": "object",
+      "properties": {
+        "architect": { "type": "string" },
+        "security": { "type": "string" },
+        "verifier": { "type": "string" },
+        "integrator": { "type": "string" }
+      }
+    },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "default": "1.0.0" }
+  }
+}

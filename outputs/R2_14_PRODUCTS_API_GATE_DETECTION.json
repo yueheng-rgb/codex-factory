@@ -1,0 +1,79 @@
+﻿{
+    "final_gate_decision":  "BLOCKED",
+    "detected_tests":  [
+                           "Found 2 test file(s) with test runner"
+                       ],
+    "timestamp":  "2026-07-11T16:57:39+08:00",
+    "detected_invariants":  [
+                                "Found 6/4 invariants. Missing: inventory_non_negative"
+                            ],
+    "gates":  [
+                  {
+                      "gate":  "tests_present",
+                      "evidence":  "Found 2 test file(s) with test runner",
+                      "status":  "SATISFIED"
+                  },
+                  {
+                      "gate":  "invariant_spec_present",
+                      "evidence":  "Found 6/4 invariants. Missing: inventory_non_negative",
+                      "status":  "PARTIAL"
+                  },
+                  {
+                      "gate":  "reviewer_present",
+                      "evidence":  "No review artifacts found. Required: security, verifier, human",
+                      "status":  "MISSING"
+                  },
+                  {
+                      "gate":  "human_audit_present",
+                      "evidence":  "Human audit required but no receipt found",
+                      "status":  "MISSING"
+                  },
+                  {
+                      "gate":  "coverage_evidence_present",
+                      "evidence":  "Covered: price. Missing: inventory",
+                      "status":  "PARTIAL"
+                  },
+                  {
+                      "gate":  "decomposition_plan_present",
+                      "evidence":  "Decomposition plan not required for risk level CRITICAL",
+                      "status":  "NOT_APPLICABLE"
+                  }
+              ],
+    "detection_id":  "GATEDET-20260711-PRODUCTS-API",
+    "missing_gates":  [
+                          "reviewer_present",
+                          "human_audit_present"
+                      ],
+    "risk_profile":  {
+                         "invariants_suggested":  [
+                                                      "price_non_negative",
+                                                      "inventory_non_negative",
+                                                      "status_transition_allowed",
+                                                      "archived_entity_not_mutable"
+                                                  ],
+                         "risk_level":  "CRITICAL",
+                         "risk_reasons":  [
+                                              "CRITICAL: Price/amount modification",
+                                              "CRITICAL: Inventory modification",
+                                              "HIGH: Schema/contract change",
+                                              "MEDIUM: CRUD operation"
+                                          ],
+                         "required_tests":  [
+                                                "unit-tests",
+                                                "invariant-tests",
+                                                "security-review",
+                                                "edge-case-tests"
+                                            ],
+                         "human_audit_required":  true,
+                         "required_reviewers":  [
+                                                    "security",
+                                                    "verifier",
+                                                    "human"
+                                                ],
+                         "risk_score":  63,
+                         "critical_fields":  [
+                                                 "price",
+                                                 "inventory"
+                                             ]
+                     }
+}

@@ -1,0 +1,1 @@
+﻿{"phase":"USER-HANDOFF-0","status":"PASS","verifier":{"verdict":"PASS","checks":18,"passed":18,"failed":0},"delivery":"COMPLETE","package":"codex-factory-core-v0.5.0.zip","pipeline":{"phases":9,"total_checks":263,"all_pass":true},"recommended":"Pause and use v0.5 on next real project"}

@@ -1,0 +1,13 @@
+﻿{
+    "schemaId":  "role-skill-profile",
+    "generatedAt":  "2026-06-25T16:07:33+08:00",
+    "version":  "1.0.0",
+    "required":  [
+                     "roleId",
+                     "requiredSkills",
+                     "forbiddenSkills",
+                     "requiredManualPageIds",
+                     "contextBudget",
+                     "proofOfReadRequired"
+                 ]
+}

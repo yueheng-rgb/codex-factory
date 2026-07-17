@@ -1,0 +1,6 @@
+﻿{
+  "files": [
+    {"path": "C:/Codex_App_Factory/factory-agent-company-protocol-pack/runtime/fixtures/evidence-valid/file1.txt", "sha256": "0000000000000000000000000000000000000000000000000000000000000000", "size": 36},
+    {"path": "C:/Codex_App_Factory/factory-agent-company-protocol-pack/runtime/fixtures/evidence-valid/phantom-nonexistent.txt", "sha256": "1111111111111111111111111111111111111111111111111111111111111111", "size": 100}
+  ]
+}

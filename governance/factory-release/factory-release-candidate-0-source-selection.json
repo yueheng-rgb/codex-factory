@@ -1,0 +1,42 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "C",
+    "title": "Source Selection from P8 Staging",
+    "timestamp": "2026-06-28T20:30:00+08:00",
+    "source_basis": {
+        "p8_manifest": "governance/factory-build/factory-build-pack-staging-p8-manifest-bundle.json",
+        "p8_verifier": "governance/factory-build/verifier-factory-build-pack-staging-p8-result.json",
+        "p8_verdict": "PASS (45/45)",
+        "actual_source": "Current project state at C:\\Codex_App_Factory"
+    },
+    "source_verification": {
+        "p8_verifier_pass": true,
+        "memory_quality_p2_integrated": true,
+        "memory_quality_p3_integrated": true,
+        "cleanup_planner_present": true,
+        "version_flags_per_p8": true,
+        "memory_quality_dir_exists": true,
+        "cli_integration_exists": true,
+        "phase_close_integration_exists": true
+    },
+    "core_modules": [
+        "AGENTS.md", "GLOBAL_CODEX_RULES.md", "APP_TYPE_ROUTER.md", "STACK_DECISION_GUIDE.md",
+        "factory-resource-pack/", "scripts/factoryctl.ps1",
+        "governance/factory-state/", "governance/factory-release/", "governance/factory-build/",
+        "governance/factory-ab/", "governance/factory-memory/", "governance/factory-eval/",
+        "governance/factory-agent/", "governance/context-space/", "governance/contracts/",
+        "governance/diagnosis/", "governance/manual-router/",
+        "memory-quality/", "runtime/scripts/factory-cleanup-planner.ps1",
+        "schemas/", "prompts/", "templates/", "blueprints/", "starters/", "skills/",
+        "scripts/", "EXTERNAL_SKILLS_RESEARCH.md"
+    ],
+    "experimental_modules": [
+        "codex-factory-plugin/", "codex-factory-plugin/mcp/",
+        "codex-factory-plugin/automation/", "scripts/monitoring/"
+    ],
+    "excluded_categories": [
+        "real_projects", "working_copies", "trial_harness_run", "historical",
+        "old_packages", "node_modules", "external_conversation_space", "workspace"
+    ],
+    "section_verdict": "COMPLETE"
+}

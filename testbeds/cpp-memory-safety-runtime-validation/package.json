@@ -1,0 +1,17 @@
+﻿{
+  "name": "cpp-memory-safety-runtime-validation",
+  "version": "1.0.0",
+  "description": "C/C++ Memory Safety Pack Runtime Validation Testbed — validates invariants from cpp-memory-safety expert pack. Does NOT claim live ASan/UBSan/Valgrind unless tools are actually available.",
+  "scripts": {
+    "start": "echo 'C++ testbed — no live server; run: npm test'",
+    "test": "npx vitest run --reporter=verbose",
+    "build": "npx tsc --noEmit",
+    "tool-check": "powershell -File src/build-and-sanitize.ps1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

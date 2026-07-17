@@ -1,0 +1,9 @@
+﻿{
+    "negative_controls_pass":  47,
+    "simulations_pass":  14,
+    "executed_at":  "2026-06-28T00:56:30.0895308+08:00",
+    "verdict":  "PASS",
+    "checks_passed":  37,
+    "checks_failed":  0,
+    "phase":  "FACTORY-CONTEXT-SPACE-P1"
+}

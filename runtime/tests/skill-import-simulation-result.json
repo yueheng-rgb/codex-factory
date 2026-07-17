@@ -1,0 +1,53 @@
+﻿{
+    "date":  "2026-07-09T20:43:11+08:00",
+    "passCount":  9,
+    "failCount":  0,
+    "allPassed":  true,
+    "scenarios":  [
+                      {
+                          "Scenario":  "1: Valid skill import → verified",
+                          "Passed":  true,
+                          "Detail":  "Status: verified"
+                      },
+                      {
+                          "Scenario":  "2: No human confirmation on AVAILABLE → PENDING_HUMAN",
+                          "Passed":  true,
+                          "Detail":  "Decision: PENDING_HUMAN"
+                      },
+                      {
+                          "Scenario":  "3: Human rejection → pipeline REJECTED",
+                          "Passed":  true,
+                          "Detail":  "Status: rejected"
+                      },
+                      {
+                          "Scenario":  "4a: PENDING_HUMAN without confirmation",
+                          "Passed":  true,
+                          "Detail":  "Decision: PENDING_HUMAN"
+                      },
+                      {
+                          "Scenario":  "4b: ALLOW with human confirmation",
+                          "Passed":  true,
+                          "Detail":  "Decision: ALLOW"
+                      },
+                      {
+                          "Scenario":  "5: Full pipeline → adapted",
+                          "Passed":  true,
+                          "Detail":  "Status: adapted"
+                      },
+                      {
+                          "Scenario":  "6: Verifier caveat accepted",
+                          "Passed":  true,
+                          "Detail":  "Verifier decision: caveat_accepted"
+                      },
+                      {
+                          "Scenario":  "7: FE agent requests PM-only skill → REJECT",
+                          "Passed":  true,
+                          "Detail":  "Decision: REJECT | REJECT: Agent \u0027IMPL-FE-001\u0027 not in applicableAgents for \u0027CAP-SKILL-004\u0027. Applicable: PM-001"
+                      },
+                      {
+                          "Scenario":  "8: Quarantine capability → REJECT",
+                          "Passed":  true,
+                          "Detail":  "Decision: REJECT"
+                      }
+                  ]
+}

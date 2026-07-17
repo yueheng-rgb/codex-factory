@@ -1,0 +1,33 @@
+﻿{
+    "stderr_path":  "C:\\Codex_App_Factory\\workspaces\\runs\\FIXFINAL-20260717-152346-0001\\stderr.log",
+    "command":  "npm test",
+    "snapshot_verified":  true,
+    "non_claims":  [
+                       "This is a V3.1 CI/Remote RC runner, NOT a production cloud platform",
+                       "Isolation is directory-level, NOT VM/container-level",
+                       "Sandbox mode is simulated via workspace copy, NOT kernel isolation",
+                       "Do NOT use for production deployment or sensitive data"
+                   ],
+    "environment_snapshot":  {
+                                 "cwd":  "C:\\Codex_App_Factory",
+                                 "workspace_copy":  "testbeds/products-api -\u003e workspaces/runs/FIXFINAL-20260717-152346-0001",
+                                 "node_version":  "v24.15.0",
+                                 "os":  "Windows_NT AMD64",
+                                 "npm_version":  "11.12.1"
+                             },
+    "run_id":  "FIXFINAL-20260717-152346-0001",
+    "secret_policy_result":  "NOT_CHECKED",
+    "exit_code":  0,
+    "final_status":  "PASS",
+    "stdout_path":  "C:\\Codex_App_Factory\\workspaces\\runs\\FIXFINAL-20260717-152346-0001\\stdout.log",
+    "working_directory":  "testbeds/products-api",
+    "started_at":  "2026-07-17T15:23:46.7740940+08:00",
+    "runner_type":  "sandbox",
+    "task_id":  "PATH-FIX-FINAL",
+    "artifact_paths":  [
+                           "C:\\Codex_App_Factory\\workspaces\\runs\\FIXFINAL-20260717-152346-0001\\stdout.log",
+                           "C:\\Codex_App_Factory\\workspaces\\runs\\FIXFINAL-20260717-152346-0001\\stderr.log"
+                       ],
+    "finished_at":  "2026-07-17T15:23:52.0111915+08:00",
+    "command_redacted":  "npm test"
+}

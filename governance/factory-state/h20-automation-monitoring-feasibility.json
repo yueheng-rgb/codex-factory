@@ -1,0 +1,27 @@
+﻿{
+    "phase":  "H20-D",
+    "verdict":  "PASS",
+    "tasks":  [
+                  {
+                      "classification":  "PARTIALLY_VERIFIED",
+                      "task":  "Periodic factoryctl verify",
+                      "mayDriveArchitecture":  false
+                  },
+                  {
+                      "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                      "task":  "State drift monitoring",
+                      "mayDriveArchitecture":  false
+                  },
+                  {
+                      "classification":  "PARTIALLY_VERIFIED",
+                      "task":  "currentTrustedPhase mismatch",
+                      "mayDriveArchitecture":  false
+                  }
+              ],
+    "generatedAt":  "2026-06-24T19:50:39+08:00",
+    "rules":  [
+                  "Automation alert != verifier PASS",
+                  "No mutation without explicit phase",
+                  "H21+ testing required"
+              ]
+}

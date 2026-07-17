@@ -1,0 +1,20 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gate-evidence-binding.schema.json",
+  "title": "Gate Evidence Binding",
+  "description": "Complete evidence binding for a risk enforcement gate decision.",
+  "type": "object",
+  "required": ["bindingId", "profileId", "gates", "finalDecision", "createdAt"],
+  "properties": {
+    "bindingId": { "type": "string" },
+    "profileId": { "type": "string" },
+    "riskLevel": { "type": "string" },
+    "gates": { "type": "array", "items": { "$ref": "gate-detection-result.schema.json#" } },
+    "finalDecision": { "type": "string", "enum": ["ALLOWED", "BLOCKED", "CONDITIONAL"] },
+    "blockedReasons": { "type": "array", "items": { "type": "string" } },
+    "overrideApplied": { "type": "boolean" },
+    "overrideReason": { "type": "string" },
+    "projectPath": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}

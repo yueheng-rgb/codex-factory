@@ -1,0 +1,99 @@
+﻿{
+  "policy_id": "ATTACH-PACKET-FRESHNESS-VALIDATION-POLICY",
+  "version": "1.0.0",
+  "generated_at": "2026-06-28T00:42:00+08:00",
+  "generated_during_phase": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1",
+  "sub_step": "D",
+  "purpose": "Ensure every generated Attach Packet carries freshness metadata and can be audited for staleness. The Attach Packet is DERIVED context — it must self-describe its freshness so consumers never mistake stale data for current state.",
+  "required_fields": {
+    "freshnessStatus": {
+      "type": "string",
+      "enum": ["FRESH", "STALE", "UNKNOWN"],
+      "description": "FRESH if all sources are within trusted threshold; STALE if any source mismatch detected; UNKNOWN if freshness cannot be verified",
+      "required": true
+    },
+    "freshnessCheckedAt": {
+      "type": "string",
+      "format": "ISO datetime",
+      "required": true
+    },
+    "freshnessCheckMethod": {
+      "type": "string",
+      "enum": ["VERIFIER_CROSS_REFERENCE", "PHASE_LEDGER_ONLY", "SELF_REPORTED"],
+      "required": true
+    },
+    "sourceOfTruthPaths": {
+      "type": "array of strings",
+      "description": "List of files checked to determine freshness",
+      "required": true,
+      "minimum": 3
+    },
+    "currentActivePhase": {
+      "type": "string",
+      "description": "The actual current working phase (NOT last completed phase)",
+      "required": true
+    },
+    "lastCompletedPhase": {
+      "type": "string",
+      "description": "Most recent verifier-PASS-completed phase",
+      "required": true
+    },
+    "nextRecommendedPhase": {
+      "type": "array of strings",
+      "description": "From direction-guard, not derived from stale current_phase",
+      "required": true
+    },
+    "archivedLegacyWarnings": {
+      "type": "array",
+      "description": "Risks/warnings from legacy packets that are NOT active blockers",
+      "required": false
+    },
+    "activeBlockers": {
+      "type": "array",
+      "description": "Confirmed active blockers with evidence",
+      "required": false
+    }
+  },
+  "freshness_validation_rules": [
+    {
+      "rule_id": "FRESH-001",
+      "rule": "If current_phase in conversation-space.json equals lastCompletedPhase in phase-ledger.jsonl, the state is STALE",
+      "action": "Set freshnessStatus=STALE; use phase-ledger for lastCompletedPhase; consult active-thread.json for currentActivePhase"
+    },
+    {
+      "rule_id": "FRESH-002",
+      "rule": "If verifier JSON for a phase exists with status PASS, that phase must appear as completed (not pending/in-progress) in Attach Packet",
+      "action": "REJECT packet if completed phase shown as pending"
+    },
+    {
+      "rule_id": "FRESH-003",
+      "rule": "Attach Packet next_actions must be derived from direction-guard nextRecommendedPhase, not from stale current_phase",
+      "action": "If next_actions contains sub-steps of completed phase, flag as STALE"
+    },
+    {
+      "rule_id": "FRESH-004",
+      "rule": "Legacy risks older than 2 completed phases must be archived unless confirmed as active blocker",
+      "action": "Move to archivedLegacyWarnings; do not list as active risks"
+    },
+    {
+      "rule_id": "FRESH-005",
+      "rule": "Attach Packet must include generated_at and mount_count so consumer can assess recency",
+      "action": "REJECT if missing"
+    },
+    {
+      "rule_id": "FRESH-006",
+      "rule": "If sourceOfTruthPaths fewer than 3, freshness is UNKNOWN",
+      "action": "Set freshnessStatus=UNKNOWN; do not treat packet as FRESH"
+    }
+  ],
+  "staleness_indicators": [
+    "current_phase == lastCompletedPhase",
+    "next_actions references completed sub-steps",
+    "legacy rotation risks listed as active blockers",
+    "no freshnessStatus field",
+    "no sourceOfTruthPaths",
+    "completed phase shown with status 'pending' or 'in_progress'",
+    "mount_count unchanged from prior mount (packet not regenerated)",
+    "generated_at older than latest phase-ledger entry"
+  ]
+}

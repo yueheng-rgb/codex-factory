@@ -1,0 +1,54 @@
+﻿{
+    "researchQuestion":  [
+                             null,
+                             "React 19 server components patterns"
+                         ],
+    "sourceList":  [
+                       null,
+                       {
+                           "title":  "React 19 Release Blog",
+                           "url":  "https://react.dev/blog/2024/12/05/react-19",
+                           "publishDate":  "2024-12-05",
+                           "sourceType":  "official_docs",
+                           "trustLevel":  "VERIFIED"
+                       },
+                       {
+                           "title":  "Server Components Deep Dive by Kent C. Dodds",
+                           "url":  "https://example.com/rsc-deep-dive",
+                           "publishDate":  "2025-03-15",
+                           "sourceType":  "blog",
+                           "trustLevel":  "TRUSTED"
+                       }
+                   ],
+    "sourcePriority":  "medium",
+    "factClaims":  [
+                       null,
+                       {
+                           "claim":  "React 19 supports Server Components",
+                           "certainty":  "confirmed",
+                           "sourceIndex":  0
+                       },
+                       {
+                           "claim":  "Server Components run only on the server",
+                           "certainty":  "confirmed",
+                           "sourceIndex":  0
+                       }
+                   ],
+    "freshnessRisk":  "unknown",
+    "applicability":  "to_be_reviewed",
+    "securityRisks":  [
+
+                      ],
+    "recommendedKnowledgeCapsules":  [
+
+                                     ],
+    "recommendedSkillCandidates":  [
+
+                                   ],
+    "requiredVerifier":  "librarian",
+    "caveats":  [
+                    "Read-only adapter: no API keys used",
+                    "No network calls made",
+                    "Results must be reviewed before entering knowledge bank"
+                ]
+}

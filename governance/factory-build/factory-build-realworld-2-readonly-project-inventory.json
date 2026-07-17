@@ -1,0 +1,42 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-B",
+  "title": "Readonly Project Inventory",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "project": "tcm-project-ledger",
+  "inventory": {
+    "framework": "Django",
+    "django_version": "5.x",
+    "python_version": "3.x",
+    "app_count": 1,
+    "app_names": ["core"],
+    "model_count": 15,
+    "migration_count": 13,
+    "template_count": 69,
+    "url_route_count": 75,
+    "database": {
+      "engine": "SQLite",
+      "file": "db.sqlite3",
+      "size_kb": 457,
+      "last_modified": "2026-06-14"
+    },
+    "test_file": "core/tests.py",
+    "test_lines": 259,
+    "view_file": "core/views.py",
+    "view_lines": 1854,
+    "has_requirements_txt": false,
+    "has_env_file": true,
+    "has_env_example": true,
+    "has_gitignore": true,
+    "settings_file_count": 1,
+    "production_settings_split": false,
+    "deploy_scripts": [
+      "deploy_full.py", "deploy_zh.py", "remote_check.py",
+      "remote_check2.py", "remote_script.py", "upload_and_run.py", "test_server.py"
+    ],
+    "management_commands": ["seed_data"],
+    "template_sections": ["core", "registration", "admin_panel", "doctor_panel", "patient"],
+    "middleware_custom": ["LoginLoggingMiddleware", "ErrorLoggingMiddleware"]
+  },
+  "report_path": "outputs/FACTORY_BUILD_REALWORLD_2_B_READONLY_PROJECT_INVENTORY_REPORT.md",
+  "status": "COMPLETE"
+}

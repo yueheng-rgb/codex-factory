@@ -1,0 +1,36 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "G",
+  "title": "Archive and Freeze Metadata Design",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "archive_metadata": {
+    "file": "governance/context-space/archive/{project_id}.archive.json",
+    "fields": {
+      "project_id": "string",
+      "archived_at": "ISO8601",
+      "archived_by": "user | system",
+      "original_path": "string",
+      "preserved_categories": ["CORE_EVIDENCE", "PHASE_ARTIFACTS"],
+      "pruned_categories": ["CACHE", "DUPLICATE"],
+      "evidecne_hash": "SHA256 of preserved evidence",
+      "restore_instructions": "To restore: move archive back to context-space/current/"
+    }
+  },
+  "freeze_metadata": {
+    "file": "governance/context-space/frozen/{project_id}.freeze.json",
+    "fields": {
+      "project_id": "string",
+      "frozen_at": "ISO8601",
+      "frozen_by": "user",
+      "auto_mount_disabled": true,
+      "all_data_preserved": true,
+      "unfreeze_instructions": "To unfreeze: delete .freeze.json or move back to current/"
+    }
+  },
+  "mount_rules": {
+    "archived": "DO NOT auto-mount. User can explicitly mount with --archived flag.",
+    "frozen": "DO NOT auto-mount. User can explicitly mount with --frozen flag.",
+    "deleted": "CANNOT mount. Project Context Space deleted."
+  },
+  "status": "ARCHIVE_FREEZE_METADATA_DEFINED"
+}

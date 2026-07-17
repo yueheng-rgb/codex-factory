@@ -1,0 +1,15 @@
+﻿{
+    "trialId":  "LOOPBACK-TRIAL-001",
+    "gateDecision":  "ALLOW_WITH_CONTROLS",
+    "networkBoundary":  "loopback_only",
+    "serverUp":  true,
+    "allPass":  true,
+    "assertionCount":  6,
+    "sandboxSessionId":  "SBOX-20260710011006-TOOL-PLAYWRIGHT-VER-001",
+    "sandboxStatus":  "completed",
+    "caveats":  [
+                    "loopback_only boundary",
+                    "no external network",
+                    "disposable workspace"
+                ]
+}

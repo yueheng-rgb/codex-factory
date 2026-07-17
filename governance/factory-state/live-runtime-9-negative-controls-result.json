@@ -1,0 +1,172 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "Automation alert treated as verifier PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "alert_as_pass",
+                          "id":  "N01"
+                      },
+                      {
+                          "fault":  "Automation mutates currentTrustedPhase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "automation_mutate_phase",
+                          "id":  "N02"
+                      },
+                      {
+                          "fault":  "Automation marks phase PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "automation_mark_pass",
+                          "id":  "N03"
+                      },
+                      {
+                          "fault":  "Automation creates final ZIP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "automation_create_zip",
+                          "id":  "N04"
+                      },
+                      {
+                          "fault":  "Automation starts new phase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "automation_start_phase",
+                          "id":  "N05"
+                      },
+                      {
+                          "fault":  "Automation claims automatic window creation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "auto_window_claim",
+                          "id":  "N06"
+                      },
+                      {
+                          "fault":  "Automation wakeup treated as new context",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "wakeup_as_context",
+                          "id":  "N07"
+                      },
+                      {
+                          "fault":  "Automation claims full context inheritance",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "full_inheritance",
+                          "id":  "N08"
+                      },
+                      {
+                          "fault":  "Automation treats compressed summary as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "compressed_evidence",
+                          "id":  "N09"
+                      },
+                      {
+                          "fault":  "Automation result markdown-only",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_only",
+                          "id":  "N10"
+                      },
+                      {
+                          "fault":  "Automation output lacks evidence paths",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_evidence_paths",
+                          "id":  "N11"
+                      },
+                      {
+                          "fault":  "Automation output lacks run mode",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_run_mode",
+                          "id":  "N12"
+                      },
+                      {
+                          "fault":  "Automation output lacks timestamp",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_timestamp",
+                          "id":  "N13"
+                      },
+                      {
+                          "fault":  "Automation output lacks userActionRequired",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_user_action",
+                          "id":  "N14"
+                      },
+                      {
+                          "fault":  "Clean state incorrectly triggers required rotation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "clean_misclassified",
+                          "id":  "N15"
+                      },
+                      {
+                          "fault":  "Stale handoff ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "stale_ignored",
+                          "id":  "N16"
+                      },
+                      {
+                          "fault":  "Manifest SHA mismatch ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "sha_ignored",
+                          "id":  "N17"
+                      },
+                      {
+                          "fault":  "Confirmed compact before major phase ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "compact_ignored",
+                          "id":  "N18"
+                      },
+                      {
+                          "fault":  "Unsafe stale active agent ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "agent_ignored",
+                          "id":  "N19"
+                      },
+                      {
+                          "fault":  "Startup packet missing but rotation accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "pkt_missing",
+                          "id":  "N20"
+                      },
+                      {
+                          "fault":  "User action payload omits verifier commands",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "payload_no_cmds",
+                          "id":  "N21"
+                      },
+                      {
+                          "fault":  "User action payload omits forbidden assumptions",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "payload_no_forbidden",
+                          "id":  "N22"
+                      },
+                      {
+                          "fault":  "Scheduled simulation marked REAL_SCHEDULED",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "sim_mislabeled",
+                          "id":  "N23"
+                      },
+                      {
+                          "fault":  "Unavailable automation marked VERIFIED_FACT",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "unavailable_verified",
+                          "id":  "N24"
+                      },
+                      {
+                          "fault":  "Automation suppresses watcher riskSignals",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "suppress_signals",
+                          "id":  "N25"
+                      },
+                      {
+                          "fault":  "Automation uses Codex self-report as sole evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "self_report_sole",
+                          "id":  "N26"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  26,
+    "schemaId":  "live-runtime-9-negative-controls-result",
+    "totalNegatives":  26,
+    "phase":  "LIVE-RUNTIME-9-E",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T00:54:08+08:00"
+}

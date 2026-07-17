@@ -1,0 +1,49 @@
+﻿{
+    "p1VerifierResult":  "12/12 PASS",
+    "dry25Status":  "POSITIVE_NEGATIVE_CLOSED (P1 repaired)",
+    "verdict":  "PASS",
+    "fileReconciliation":  {
+                               "excludedFiles":  [
+                                                     "progress-events.jsonl",
+                                                     "session-handoff.json",
+                                                     "README.md"
+                                                 ],
+                               "countedAfter":  12,
+                               "countedFiles":  [
+                                                    "contracts/builder-1-contract.json",
+                                                    "contracts/builder-2-contract.json",
+                                                    "src/schema-validator.ps1",
+                                                    "src/manifest-check.ps1",
+                                                    "src/policy-check.ps1",
+                                                    "src/report-generator.ps1",
+                                                    "src/dependency-graph.ps1",
+                                                    "src/portability-score.ps1",
+                                                    "src/integrate.ps1",
+                                                    "src/verify.ps1",
+                                                    "src/dependency-graph.json",
+                                                    "src/contract-validator.ps1"
+                                                ],
+                               "verdict":  "PASS",
+                               "gap":  1,
+                               "floor":  12,
+                               "filesAdded":  [
+                                                  "src/contract-validator.ps1"
+                                              ],
+                               "repair":  "Added src/contract-validator.ps1 (3,291 bytes, 4 exports)",
+                               "countedBefore":  11
+                           },
+    "exportReconciliation":  {
+                                 "countedBefore":  16,
+                                 "repair":  "contract-validator.ps1 contributes 4 exports (Test-ContractCompliance, Get-RequiredFields, Get-ContractSummary, Get-Exports)",
+                                 "totalRealFunctions":  11,
+                                 "totalMetaFunctions":  9,
+                                 "countedAfter":  20,
+                                 "verdict":  "PASS",
+                                 "floor":  20,
+                                 "gap":  4
+                             },
+    "phase":  "DRY25-P1",
+    "generatedAt":  "2026-06-24T19:14:56+08:00",
+    "nativeGenerated":  true,
+    "p1VerifierPath":  "governance/factory-state/verifier-dry25-p1-result.json"
+}

@@ -1,0 +1,175 @@
+﻿{
+    "phase":  "FACTORY-AGENT-5",
+    "verdict":  "PASS",
+    "totalChecks":  33,
+    "passed":  33,
+    "failed":  0,
+    "timestamp":  "2026-06-26T16:31:44.3601834+08:00",
+    "checks":  [
+                   {
+                       "Label":  "V04_ZIP_OK",
+                       "Pass":  true,
+                       "Detail":  "v0.4 ZIP"
+                   },
+                   {
+                       "Label":  "AGENT4_PASS",
+                       "Pass":  true,
+                       "Detail":  "AGENT-4 verifier"
+                   },
+                   {
+                       "Label":  "NO_IMPL",
+                       "Pass":  true,
+                       "Detail":  "No AGENT-6 implementation"
+                   },
+                   {
+                       "Label":  "NO_V05",
+                       "Pass":  true,
+                       "Detail":  "No v0.5 package"
+                   },
+                   {
+                       "Label":  "ARCHIVED_10",
+                       "Pass":  true,
+                       "Detail":  "10-role archived"
+                   },
+                   {
+                       "Label":  "NO_NEW_ZIP",
+                       "Pass":  true,
+                       "Detail":  "No new release ZIP"
+                   },
+                   {
+                       "Label":  "DOC_benchmark-objective",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-benchmark-objective.json"
+                   },
+                   {
+                       "Label":  "DOC_benchmark-spec",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-large-project-benchmark-spec.json"
+                   },
+                   {
+                       "Label":  "DOC_complexity-floor",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-complexity-floor.json"
+                   },
+                   {
+                       "Label":  "DOC_three-run-design",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-three-run-comparison-design.json"
+                   },
+                   {
+                       "Label":  "DOC_v05-agent-design",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-v05-agent-run-design.json"
+                   },
+                   {
+                       "Label":  "DOC_evaluation-rubric",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-evaluation-rubric.json"
+                   },
+                   {
+                       "Label":  "DOC_success-thresholds",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-success-failure-thresholds.json"
+                   },
+                   {
+                       "Label":  "DOC_harness-design",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-benchmark-harness-design.json"
+                   },
+                   {
+                       "Label":  "DOC_anti-gaming",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-anti-gaming-policy.json"
+                   },
+                   {
+                       "Label":  "DOC_evaluator-policy",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-independent-evaluator-policy.json"
+                   },
+                   {
+                       "Label":  "DOC_stop-conditions",
+                       "Pass":  true,
+                       "Detail":  "factory-agent-5-stop-conditions.json"
+                   },
+                   {
+                       "Label":  "REQ_COUNT_30",
+                       "Pass":  true,
+                       "Detail":  "Requirements: 36"
+                   },
+                   {
+                       "Label":  "MODULE_COUNT_8",
+                       "Pass":  true,
+                       "Detail":  "Modules: 13"
+                   },
+                   {
+                       "Label":  "NOT_TEAMFLOW",
+                       "Pass":  true,
+                       "Detail":  "Not TeamFlow"
+                   },
+                   {
+                       "Label":  "NOT_LEDGERFLOW",
+                       "Pass":  true,
+                       "Detail":  "Not LedgerFlow"
+                   },
+                   {
+                       "Label":  "THREE_RUNS",
+                       "Pass":  true,
+                       "Detail":  "3 runs defined"
+                   },
+                   {
+                       "Label":  "HAS_VANILLA",
+                       "Pass":  true,
+                       "Detail":  "RUN-LP-A Vanilla Codex found"
+                   },
+                   {
+                       "Label":  "HAS_V04",
+                       "Pass":  true,
+                       "Detail":  "RUN-LP-B v0.4 Factory Lite found"
+                   },
+                   {
+                       "Label":  "HAS_V05",
+                       "Pass":  true,
+                       "Detail":  "RUN-LP-C v0.5 Agent Company found"
+                   },
+                   {
+                       "Label":  "V05_AGENTS_8",
+                       "Pass":  true,
+                       "Detail":  "Required agents: 8"
+                   },
+                   {
+                       "Label":  "V05_SPAWN_MANDATORY",
+                       "Pass":  true,
+                       "Detail":  "Spawn decisions required"
+                   },
+                   {
+                       "Label":  "V05_CAPSULES_REQUIRED",
+                       "Pass":  true,
+                       "Detail":  "Worker capsules required"
+                   },
+                   {
+                       "Label":  "HAS_INCONCLUSIVE",
+                       "Pass":  true,
+                       "Detail":  "Inconclusive defined"
+                   },
+                   {
+                       "Label":  "HAS_FALSIFICATION",
+                       "Pass":  true,
+                       "Detail":  "Falsification threshold"
+                   },
+                   {
+                       "Label":  "NOT_CLAIMED_DEFAULT",
+                       "Pass":  true,
+                       "Detail":  "Not claimed default"
+                   },
+                   {
+                       "Label":  "NEG_SUMMARY",
+                       "Pass":  true,
+                       "Detail":  "Neg summary"
+                   },
+                   {
+                       "Label":  "NO_NEW_ZIP2",
+                       "Pass":  true,
+                       "Detail":  "No v0.5 ZIP"
+                   }
+               ]
+}

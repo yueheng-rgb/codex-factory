@@ -1,0 +1,1 @@
+﻿{"phase":"RC-SMOKE-0","section":"G","title":"Cleanup Smoke","timestamp":"2026-06-28T21:12:00+08:00","cleanup_modes":{"PLAN":"default","DELETE":"requires_confirmation","CORE_EVIDENCE":"protected"},"policies":{"default_no_autodelete":true,"confirm_required":true,"core_evidence_protected":true,"inventory_based":true},"section_verdict":"PASS"}

@@ -1,0 +1,24 @@
+﻿{
+    "validation_id": "FACTORY-BUILD-REALWORLD-2-P5-VALIDATION-STATUS-SUMMARY",
+    "generated_at": "2026-06-28T10:49:26+08:00", "section": "D",
+    "status": {
+        "manage_py_check": "CLEAN — 0 issues",
+        "bounded_smoke": "HTTP 200 — login page serves correctly",
+        "tests": {"total": 23, "passed": 21, "skipped": 2, "failed": 0, "note": "NOT 23/23. 2 skips are documented ENVIRONMENT_MISMATCH."},
+        "skipped_tests": [
+            {"test": "test_transaction_log_generated_on_add", "reason": "Django 6.x select_for_update transaction isolation"},
+            {"test": "test_doctor_cannot_verify_insufficient_balance", "reason": "Django 6.x TransactionManagementError after IntegrityError"}
+        ]
+    },
+    "security_gates": {"pre_validation": "12/12", "post_validation": "8/8", "final": "10/10", "total_checks": 30},
+    "verifier_history": {"P1": "46/46", "P2": "41/41", "P3": "25/25", "P4": "28/28"},
+    "negative_controls": {"P1": "46/46", "P2": "40/40", "P3": "40/40", "P4": "37/37"},
+    "caveats": [
+        "21 pass + 2 skip is NOT 23/23 pass",
+        "Working copy validated locally — NOT production deployment proof",
+        "Django 6.0.6 used vs 5.x target (2 tests skipped due to this)",
+        "User MUST rotate production secrets before any deployment",
+        "v0.5 remains BLOCKED"
+    ],
+    "verdict": "VALIDATION_STATUS_HONEST"
+}

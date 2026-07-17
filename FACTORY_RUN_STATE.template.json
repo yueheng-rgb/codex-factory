@@ -1,0 +1,29 @@
+{
+  "factoryVersion": "1.0",
+  "createdAt": "",
+  "requirement": "",
+  "projectName": "",
+  "targetPath": "",
+  "applicationType": "",
+  "sizeLevel": "",
+  "riskLevel": "",
+  "selectedStarter": "",
+  "rejectedStarters": [],
+  "coreUserJourney": [],
+  "minimalLoop": [],
+  "deferredFeatures": [],
+  "constraints": [],
+  "currentStage": "stage-0-bootstrap",
+  "completedStages": [],
+  "validation": {
+    "install": "pending",
+    "typecheck": "pending",
+    "lint": "not_applicable",
+    "build": "pending",
+    "devStart": "pending",
+    "functionalTests": "pending"
+  },
+  "defects": [],
+  "factoryBackflow": [],
+  "finalStatus": "in_progress"
+}

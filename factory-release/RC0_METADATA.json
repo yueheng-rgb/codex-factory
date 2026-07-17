@@ -1,0 +1,34 @@
+﻿{
+    "name": "codex-factory-core-v0.9.0-pre-RC0",
+    "artifactType": "RELEASE_CANDIDATE",
+    "version": "0.9.0-pre-rc0",
+    "basedOn": "P8 staging (0.9.0-pre)",
+    "rcNumber": 0,
+    "isRelease": false,
+    "isV05": false,
+    "flags": {
+        "releaseAllowed": false,
+        "v05Package": false,
+        "finalRelease": false,
+        "rcCandidate": true,
+        "rcRequiresUserApproval": true,
+        "rcNumber": 0,
+        "artifactType": "RELEASE_CANDIDATE",
+        "buildMode": "Build Lite",
+        "phaseOrigin": "FACTORY-RELEASE-CANDIDATE-0"
+    },
+    "prerequisites": {
+        "releaseReadiness0": "PASS",
+        "packStagingP8": "PASS (45/45)",
+        "factoryAb1": "PASS (41/41)"
+    },
+    "blockers": {
+        "BLOCK_001": "STRONG_PARTIAL_EVIDENCE",
+        "BLOCK_002": "ACTIVE",
+        "BLOCK_003": "ACTIVE",
+        "BLOCK_004": "ACTIVE",
+        "v05": "BLOCKED"
+    },
+    "generatedAt": "2026-06-28T20:30:00+08:00",
+    "generatedBy": "FACTORY-RELEASE-CANDIDATE-0"
+}

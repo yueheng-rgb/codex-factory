@@ -1,0 +1,43 @@
+﻿{
+  "stage": "V2_8",
+  "audit_type": "claim_to_evidence_matrix",
+  "audit_date": "2026-07-17",
+  "audit_version": "2.0.0",
+  "reconciliation_note": "SCOPE CORRECTED — added 8 V2.0-V2.3 claims. Total claims: 24 (was 16).",
+  "claims": [
+    {"claim_id":"CLM-001","claim":"V2.0 release version published","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_0_RELEASE_VERSION.json","outputs/V2_0_RELEASE_MANIFEST.json"]},
+    {"claim_id":"CLM-002","claim":"V2.0 mission trial evidence package exists","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_0_MISSION_TRIAL_EVIDENCE.json","outputs/V2_0_MISSION_TRIAL_EVIDENCE.md"]},
+    {"claim_id":"CLM-003","claim":"V2.0 release readiness check complete","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_0_RELEASE_READINESS_CHECK.json"]},
+    {"claim_id":"CLM-004","claim":"V2.0 deprecated directions final lock","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_0_DEPRECATED_DIRECTIONS_FINAL_LOCK.md"]},
+    {"claim_id":"CLM-005","claim":"V2.0 capability summary complete","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_0_CAPABILITY_SUMMARY.md"]},
+    {"claim_id":"CLM-006","claim":"V2.0 regression command index exists","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_0_REGRESSION_COMMAND_INDEX.json"]},
+    {"claim_id":"CLM-007","claim":"V2.1 CI artifact store captures 210/210 PASS","status":"VERIFIED_WITH_ARTIFACT","evidence":["artifacts/RUN-V2_1-20260712-002853 (21 files)","outputs/V2_1_CI_ARTIFACT_STORE_REPORT.md"]},
+    {"claim_id":"CLM-008","claim":"V2.1 no artifacts = no PASS rule enforced","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_1_CI_ARTIFACT_STORE_REPORT.md — rule documented"]},
+    {"claim_id":"CLM-009","claim":"V2.2 human review receipts valid (4 receipts)","status":"VERIFIED_WITH_ARTIFACT","evidence":["reviews/REV-0001.json through REV-0004.json","reviews/demo-to-receipt-mapping.json"]},
+    {"claim_id":"CLM-010","claim":"V2.2 missing artifact negative control BLOCKED","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_2_HUMAN_REVIEW_CONSOLE_REPORT.md"]},
+    {"claim_id":"CLM-011","claim":"V2.2 regression evidence artifact-confirmed","status":"VERIFIED_WITH_REPORT","evidence":["outputs/V2_2_HUMAN_REVIEW_CONSOLE_REPORT.md — ARTIFACT_CONFIRMED_PLUS_SPOT_CHECK"]},
+    {"claim_id":"CLM-012","claim":"V2.3 6/6 expert packs ACTIVE","status":"VERIFIED_WITH_ARTIFACT","evidence":["governance/expert-packs/ — 6 pack directories with pack.json"]},
+    {"claim_id":"CLM-013","claim":"V2.3 new packs runtime_validated=false boundary","status":"VERIFIED_WITH_ARTIFACT","evidence":["governance/expert-packs/miniapp/miniapp-pack.json","game-threejs-pack.json","cpp-memory-safety-pack.json"]},
+    {"claim_id":"CLM-014","claim":"V2.3 12 activation demos exist","status":"VERIFIED_WITH_ARTIFACT","evidence":["outputs/V2_3_activation_demos.json"]},
+    {"claim_id":"CLM-015","claim":"235/235 regression PASS (V2.4+)","status":"VERIFIED_WITH_ARTIFACT","evidence":["V2_7-ART-001, 12 npm test runs across 7 testbeds"]},
+    {"claim_id":"CLM-016","claim":"6/6 packs runtime validated (post-V2.4)","status":"VERIFIED_WITH_ARTIFACT","evidence":["pack-traceability.json in miniapp, game, cpp testbeds"]},
+    {"claim_id":"CLM-017","claim":"V2.5 miniapp autocannon 276k/0err","status":"VERIFIED_WITH_ARTIFACT","evidence":["outputs/V2_5/V2_5_MINIAPP_AUTOCANNON_RETRY_RESULT.json"]},
+    {"claim_id":"CLM-018","claim":"V2.5 Playwright canvas smoke PASS","status":"VERIFIED_WITH_ARTIFACT","evidence":["outputs/V2_5/V2_5_PLAYWRIGHT_RELIABILITY_RESULT.json"]},
+    {"claim_id":"CLM-019","claim":"C++ sanitizer unavailable with install path","status":"VERIFIED_WITH_ARTIFACT","evidence":["outputs/V2_5/V2_5_CPP_SANITIZER_RELIABILITY_RESULT.json"]},
+    {"claim_id":"CLM-020","claim":"V2.6 CPM-001 17/17, CPM-004 22/22","status":"VERIFIED_WITH_ARTIFACT","evidence":["testbeds/cross-pack-cpm-001, cross-pack-cpm-004"]},
+    {"claim_id":"CLM-021","claim":"V2.7 readiness 16/24 PASS","status":"VERIFIED_WITH_ARTIFACT","evidence":["outputs/V2_7/V2_7_PRODUCTION_READINESS_PILOT_RESULT.json"]},
+    {"claim_id":"CLM-022","claim":"V2.7 release gate READY_FOR_PRODUCTION_REVIEW","status":"VERIFIED_WITH_ARTIFACT","evidence":["outputs/V2_7/V2_7_RELEASE_GATE_DECISION.json"]},
+    {"claim_id":"CLM-023","claim":"deprecated locks preserved (15 directions)","status":"VERIFIED_WITH_REPORT","evidence":["AGENTS.md, V2_0_DEPRECATED_DIRECTIONS_FINAL_LOCK.md, V2_6 resume gate stress"]},
+    {"claim_id":"CLM-024","claim":"human review receipts with schema","status":"SELF_DECLARED_OR_SIMULATED","evidence":["reviews/V2_7-REV-* and REV-000* all use self_declared_automated"],"limitation":"self_declared_automated ≠ real human sign-off"}
+  ],
+  "summary": {
+    "total_claims": 24,
+    "verified_with_artifact": 14,
+    "verified_with_report": 9,
+    "self_declared_or_simulated": 1,
+    "design_only": 0,
+    "gap": 0,
+    "needs_reconciliation": 0,
+    "scope_corrected": true
+  }
+}

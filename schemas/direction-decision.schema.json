@@ -1,0 +1,33 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "direction-decision.schema.json",
+  "title": "Direction Decision — Roadmap Direction Status Record",
+  "description": "Formal record of every active, superseded, deferred, or deprecated direction in the Codex Factory roadmap. Prevents direction drift and ensures stale directions are explicitly retired.",
+  "type": "object",
+  "required": ["directionId", "title", "status", "reason", "date"],
+  "properties": {
+    "directionId": { "type": "string", "pattern": "^DIR-\\d{3}$", "description": "e.g. DIR-001" },
+    "title": { "type": "string", "description": "Human-readable direction name" },
+    "status": {
+      "type": "string",
+      "enum": ["active", "superseded", "deferred", "deprecated", "completed"],
+      "description": "active = current next phase; superseded = replaced by better direction; deferred = valid but prerequisites not met; deprecated = wrong/abandoned; completed = done"
+    },
+    "reason": { "type": "string", "description": "Why this status was assigned" },
+    "supersededBy": { "type": "string", "description": "directionId of the direction that supersedes this one, if applicable" },
+    "evidenceRefs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to audit reports, claim audits, verification results"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Prerequisites that must be met before this direction can become active (only for deferred status)"
+    },
+    "date": { "type": "string", "format": "date" },
+    "owner": { "type": "string", "description": "Agent or human who made the decision" },
+    "phase": { "type": "string", "description": "Phase when this decision was made" },
+    "notes": { "type": "string", "description": "Free-text additional context" }
+  }
+}

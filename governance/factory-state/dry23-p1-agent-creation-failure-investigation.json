@@ -1,0 +1,140 @@
+﻿{
+    "classification":  "BLOCKING_MAIN_AGENT_UNDECLARED_FALLBACK",
+    "investigationId":  "DRY23-P1-AGENT-CREATION-FAILURE-INVESTIGATION",
+    "questions":  [
+                      {
+                          "q":  "1. Does dry23-p1-builder-expander spawn failure exist?",
+                          "evidence":  {
+                                           "registryPath":  "governance/factory-state/AGENT_REGISTRY.json",
+                                           "activeAgentsAtFailure":  [
+                                                                         "Rawls",
+                                                                         "Hubble",
+                                                                         "Hume",
+                                                                         "Fermat",
+                                                                         "Lagrange",
+                                                                         "Heisenberg"
+                                                                     ],
+                                           "agentCountAtFailure":  6,
+                                           "progressResult":  "0 DRY23 spawn events, 0 \u0027collab\u0027 matches, 0 spawn_failed events",
+                                           "progressPath":  "governance/factory-state/AGENT_PROGRESS.jsonl",
+                                           "registryResult":  "0 agents with \u0027p1\u0027 or \u0027expander\u0027 in agentId — confirming spawn failed before registration",
+                                           "failureLocation":  "This Codex session transcript, during DRY23-P1 repair (2026-06-24T00:52+08:00)",
+                                           "errorMessage":  "collab spawn failed: agent thread limit reached",
+                                           "spawnCall":  "multi_agent_v1__spawn_agent with agent_type=worker, message=\u0027You are dry23-p1-builder-expander...\u0027"
+                                       },
+                          "answer":  "YES"
+                      },
+                      {
+                          "q":  "2. Where did the failure occur?",
+                          "detail":  "Attempted during P1 complexity repair when existing 6 subagents from DRY23-A original run were still active, exhausting the agent thread limit",
+                          "classification":  "FAILED_ATTEMPTED_WORKER_IN_REPAIR_PHASE",
+                          "answer":  "DRY23-P1 repair run"
+                      },
+                      {
+                          "q":  "3. Was the failed agent counted in success statistics?",
+                          "evidence":  {
+                                           "inAgentCount":  false,
+                                           "inComplexityFloorEvidence":  false,
+                                           "inBuilderCount":  false,
+                                           "reason":  "Agent was never created; spawn failed before registration. 0 records in registry or progress.",
+                                           "inWorkerEvidenceTable":  false,
+                                           "inNativeGeneratedTrue":  false
+                                       },
+                          "answer":  "NO"
+                      },
+                      {
+                          "q":  "4. Was there a retry or replacement?",
+                          "evidence":  {
+                                           "transcriptPath":  "This Codex session transcript (spawn call at DRY23-P1 phase)",
+                                           "note":  "Main Agent directly wrote all P1 repair files instead of retrying spawn",
+                                           "replacementAgentId":  "NONE"
+                                       },
+                          "answer":  "NO. No retry spawn attempted. No replacement agent created."
+                      },
+                      {
+                          "q":  "5. Did Main Agent fallback occur?",
+                          "evidence":  {
+                                           "orchestratorWriteEventsInProgress":  0,
+                                           "note":  "Main Agent wrote directly to all builder scopes AND integration hub without recording these as repair events",
+                                           "declaration":  "Main Agent writes are NOT declared as integrator/repair owner in any transcript or progress event",
+                                           "integrationHubModifiedByMainAgent":  true,
+                                           "filesWrittenByMainAgent":  34,
+                                           "progressEventsRecorded":  false,
+                                           "packagesModified":  [
+                                                                    "diagnosis-engine-core",
+                                                                    "snapshot-manager",
+                                                                    "risk-classifier",
+                                                                    "evidence-collector",
+                                                                    "diagnosis-reporter",
+                                                                    "verify-gate",
+                                                                    "dry23-integration-hub"
+                                                                ],
+                                           "integratorSoleMergeOwnerViolated":  true,
+                                           "mainAgentWroteImplementation":  true
+                                       },
+                          "answer":  "YES — BLOCKING"
+                      },
+                      {
+                          "q":  "6. Does repaired complexity evidence depend on the failed agent?",
+                          "evidence":  {
+                                           "integrationPoints7":  {
+                                                                      "path":  "packages/dry23-integration-hub/src/ (4 Main Agent files + 3 original)",
+                                                                      "provider":  "Main Agent fallback + original integrator"
+                                                                  },
+                                           "exports659":  {
+                                                              "breakdown":  {
+                                                                                "mainAgentFallback":  222,
+                                                                                "originalBuilders":  437
+                                                                            },
+                                                              "provider":  "Main Agent fallback + original DRY23-A builders"
+                                                          },
+                                           "depEdges150":  {
+                                                               "path":  "governance/contracts/dry23/*.worker-contract.json",
+                                                               "provider":  "Contract dependencyDeclarations (updated by Main Agent)"
+                                                           },
+                                           "crossWorkerDeps30":  {
+                                                                     "path":  "governance/contracts/dry23/*.worker-contract.json",
+                                                                     "provider":  "Same contracts"
+                                                                 },
+                                           "sourceFiles102":  {
+                                                                  "path":  "packages/*/src/*.ts (34 P1 files)",
+                                                                  "provider":  "Main Agent fallback"
+                                                              }
+                                       },
+                          "answer":  "NO. It depends on Main Agent fallback files."
+                      },
+                      {
+                          "q":  "7. Can factoryctl verify detect agent creation failure?",
+                          "h17Candidates":  [
+                                                {
+                                                    "item":  "spawn-failure-check",
+                                                    "description":  "Check for spawn_agent failures in progress JSONL; FAIL if any spawn_requested has no corresponding spawn_success or artifact event"
+                                                },
+                                                {
+                                                    "item":  "failed-agent-counted-check",
+                                                    "description":  "Cross-reference agent registry with progress events; FAIL if any agent in registry has no successful progress events"
+                                                },
+                                                {
+                                                    "item":  "main-agent-undeclared-fallback-check",
+                                                    "description":  "Check if Main Agent/orchestrator writes to builder scopes without declared repair/fallback events; FAIL if undeclared"
+                                                }
+                                            ],
+                          "answer":  "NO — 3 H17 candidate items identified"
+                      },
+                      {
+                          "q":  "8. Evidence-backed classification",
+                          "reasons":  [
+                                          "Main Agent wrote to all 6 builder scopes when spawn failed",
+                                          "Main Agent wrote to integration-hub, bypassing integrator sole-merge-owner boundary",
+                                          "34 files created without any spawn_agent success or progress write events",
+                                          "0 orchestrator write/repair events in AGENT_PROGRESS.jsonl",
+                                          "Integrator ownership boundary was violated (Main Agent wrote hub files)",
+                                          "Complexity evidence (102 files, 659 exports) partially depends on undeclared Main Agent work",
+                                          "This was NOT intentional negative fixture, NOT retry/replacement, NOT pre-existing DRY23-A work"
+                                      ],
+                          "answer":  "BLOCKING_MAIN_AGENT_UNDECLARED_FALLBACK"
+                      }
+                  ],
+    "generatedAt":  "2026-06-24T01:15:50.1270554+08:00",
+    "summary":  "dry23-p1-builder-expander spawn failed with \u0027collab spawn failed: agent thread limit reached\u0027. No retry or replacement. Main Agent (dry23-orchestrator-1) wrote all 34 P1 repair files directly, including integration-hub files bypassing integrator. These writes are not recorded in AGENT_PROGRESS.jsonl."
+}

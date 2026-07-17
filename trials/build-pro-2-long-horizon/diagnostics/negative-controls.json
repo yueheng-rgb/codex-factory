@@ -1,0 +1,733 @@
+﻿{
+    "detected":  72,
+    "undetected":  0,
+    "totalNegatives":  72,
+    "section":  "T",
+    "failTargetNotTriggered":  0,
+    "phase":  "FACTORY-BUILD-PRO-2",
+    "date":  "2026-06-27",
+    "negatives":  [
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC01",
+                          "fault":  "No trial directory",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC02",
+                          "fault":  "No sealed spec",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC03",
+                          "fault":  "No readiness gate",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC04",
+                          "fault":  "No memory quality gate",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC05",
+                          "fault":  "No external memory files",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC06",
+                          "fault":  "No context packets",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC07",
+                          "fault":  "No agent lifecycle scaffolding",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC08",
+                          "fault":  "No write scope map",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC09",
+                          "fault":  "No agent registry",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC10",
+                          "fault":  "No handoffs",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC11",
+                          "fault":  "No close receipts",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC12",
+                          "fault":  "No orphan check",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC13",
+                          "fault":  "No iteration 1 report",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC14",
+                          "fault":  "No iteration 2 report",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC15",
+                          "fault":  "No iteration 3 report",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC16",
+                          "fault":  "No integration result",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC17",
+                          "fault":  "No diagnostic gate",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC18",
+                          "fault":  "No recovery drill",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC19",
+                          "fault":  "No recovery packet",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC20",
+                          "fault":  "No metrics",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC21",
+                          "fault":  "No final verification",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC22",
+                          "fault":  "No effectiveness analysis",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC23",
+                          "fault":  "No strategy next phase",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC24",
+                          "fault":  "No verifier",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC25",
+                          "fault":  "No negative controls",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC26",
+                          "fault":  "No native spawn evidence",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC27",
+                          "fault":  "fork_context true",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC28",
+                          "fault":  "Handoff treated as PASS without verification",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC29",
+                          "fault":  "No product backend",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC30",
+                          "fault":  "No product frontend",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC31",
+                          "fault":  "No database",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC32",
+                          "fault":  "No auth/RBAC",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC33",
+                          "fault":  "No ticket workflow",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC34",
+                          "fault":  "No notification system",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC35",
+                          "fault":  "No knowledge base",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC36",
+                          "fault":  "No reports",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC37",
+                          "fault":  "No automation rules",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC38",
+                          "fault":  "No tests",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC39",
+                          "fault":  "No README",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC40",
+                          "fault":  "Invalid ticket transition accepted",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC41",
+                          "fault":  "No audit logging",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC42",
+                          "fault":  "Orchestrator writes product code",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC43",
+                          "fault":  "Reviewer-Verifier writes product code",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC44",
+                          "fault":  "Context packets not generated",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC45",
+                          "fault":  "Context packets not validated",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC46",
+                          "fault":  "Stale context packet used",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC47",
+                          "fault":  "Memory not updated between iterations",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC48",
+                          "fault":  "Compressed summary used as evidence",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC49",
+                          "fault":  "Self-report treated as truth",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC50",
+                          "fault":  "Product code outside trial modified",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC51",
+                          "fault":  "Prior products modified",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC52",
+                          "fault":  "SkillMarket modified",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC53",
+                          "fault":  "DevFlow modified",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC54",
+                          "fault":  "Release ZIP created",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC55",
+                          "fault":  "v0.5 package created",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC56",
+                          "fault":  "Multi-agent default claimed",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC57",
+                          "fault":  "Build Pro default claimed",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC58",
+                          "fault":  "7-agent restored",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC59",
+                          "fault":  "10-role restored",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC60",
+                          "fault":  "Agent count used as quality proof",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC61",
+                          "fault":  "Process artifacts counted as product quality",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC62",
+                          "fault":  "No metrics collected",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC63",
+                          "fault":  "No overhead analysis",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC64",
+                          "fault":  "No context packet analysis",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC65",
+                          "fault":  "Cloud memory started prematurely",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC66",
+                          "fault":  "Packaging started prematurely",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC67",
+                          "fault":  "Microphase split recommended",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC68",
+                          "fault":  "Overstrong claim uncorrected",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC69",
+                          "fault":  "External memory claimed as model expansion",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC70",
+                          "fault":  "Fake tests accepted",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC71",
+                          "fault":  "Tests fail but marked pass",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Verifier check confirms guard active",
+                          "id":  "NC72",
+                          "fault":  "P0/P1 diagnostic issue ignored",
+                          "result":  "DETECTED",
+                          "risk":  "Trial integrity compromised",
+                          "target":  "BUILD-PRO-2",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      }
+                  ],
+    "title":  "Negative Controls",
+    "unexpectedPass":  0
+}

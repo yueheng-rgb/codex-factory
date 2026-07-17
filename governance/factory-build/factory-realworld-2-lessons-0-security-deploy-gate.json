@@ -1,0 +1,37 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "E",
+  "title": "Security/Deploy Gate Formalization",
+  "timestamp": "2026-06-28T10:58:00+08:00",
+  "gate_id": "SECURITY_DEPLOY_GATE",
+  "gate_type": "REQUIRED_GATE",
+  "trigger_conditions": [
+    "Project contains .env file with non-placeholder values",
+    "Project contains deploy scripts (SSH, scp, rsync, ansible, terraform)",
+    "Project contains server IPs or hostnames in config",
+    "Project contains API keys, tokens, or credentials in any file",
+    "Project has production database references",
+    "Project README mentions deployment steps to real servers"
+  ],
+  "gate_checks": [
+    {"id": "SDG-001", "check": "Secret audit: no secret values printed in any output", "blocking": true},
+    {"id": "SDG-002", "check": "Working-copy does not contain original production credentials in plaintext", "blocking": true},
+    {"id": "SDG-003", "check": "User rotation checklist generated (items, not values)", "blocking": true},
+    {"id": "SDG-004", "check": "No deploy/remote/SSH command executed", "blocking": true},
+    {"id": "SDG-005", "check": "No production database accessed", "blocking": true},
+    {"id": "SDG-006", "check": "Original project path protected (no modifications)", "blocking": true},
+    {"id": "SDG-007", "check": "Security hardening changes are config/docs only, not app logic", "blocking": false},
+    {"id": "SDG-008", "check": "CSRF/Session security defaults documented", "blocking": false},
+    {"id": "SDG-009", "check": "HTTPS enforcement recommendation documented", "blocking": false},
+    {"id": "SDG-010", "check": "Dev/prod settings split recommendation documented", "blocking": false}
+  ],
+  "blocking_rule": "If any BLOCKING check fails, phase CANNOT PASS. Non-blocking checks produce warnings.",
+  "integration_points": [
+    "Build Lite: run after working-copy creation, before any modifications",
+    "Package QA Gate: run as part of final delivery check",
+    "Staging Pack: include Security/Deploy Gate result in staging bundle"
+  ],
+  "user_rotation_boundary": "Security/Deploy Gate MUST generate user rotation checklist but MUST NOT rotate secrets. See Section F.",
+  "realworld2_evidence": "10/10 security gates passed in P2; 9 files changed (config/docs), 0 app code",
+  "status": "GATE_FORMALIZED"
+}

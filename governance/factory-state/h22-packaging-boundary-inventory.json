@@ -1,0 +1,230 @@
+﻿{
+    "phase":  "H22-A",
+    "nativeGenerated":  true,
+    "summary":  {
+                    "forbiddenClaimsTotal":  28,
+                    "verdict":  "PASS",
+                    "experimental":  3,
+                    "totalCategories":  7,
+                    "stable":  4,
+                    "requiresDRY27Test":  3
+                },
+    "generatedAt":  "2026-06-24T20:06:51+08:00",
+    "categories":  [
+                       {
+                           "runtimeEvidence":  "MANIFEST.sha256 validates. Bootstrap validator passes. factoryctl verify confirms manifest integrity.",
+                           "installabilityEvidence":  "DRY25 portability stress test: POSITIVE_NEGATIVE_CLOSED. Pack validated in fresh fixture.",
+                           "id":  "CAT-01",
+                           "allowedPackageUse":  [
+                                                     "Portable resource distribution",
+                                                     "Fresh fixture bootstrap",
+                                                     "Session rotation evidence source",
+                                                     "Manifest-based integrity verification"
+                                                 ],
+                           "evidenceBasis":  "H18 closure: 84/84 PASS, MANIFEST.sha256 verified, resource pack validated",
+                           "requiresDRY27Test":  false,
+                           "subAssets":  [
+                                             {
+                                                 "path":  "factory-resource-pack/MANIFEST.json",
+                                                 "category":  "manifest",
+                                                 "status":  "STABLE"
+                                             },
+                                             {
+                                                 "path":  "factory-resource-pack/MANIFEST.sha256",
+                                                 "category":  "integrity",
+                                                 "status":  "STABLE"
+                                             },
+                                             {
+                                                 "path":  "factory-resource-pack/bootstrap/",
+                                                 "category":  "bootstrap",
+                                                 "status":  "STABLE",
+                                                 "fileCount":  5
+                                             },
+                                             {
+                                                 "path":  "factory-resource-pack/contracts/",
+                                                 "category":  "contracts",
+                                                 "status":  "STABLE"
+                                             },
+                                             {
+                                                 "path":  "factory-resource-pack/policies/",
+                                                 "category":  "policies",
+                                                 "status":  "STABLE"
+                                             },
+                                             {
+                                                 "path":  "factory-resource-pack/schemas/",
+                                                 "category":  "schemas",
+                                                 "status":  "STABLE"
+                                             },
+                                             {
+                                                 "path":  "factory-resource-pack/verifier-modules/",
+                                                 "category":  "verifiers",
+                                                 "status":  "STABLE"
+                                             }
+                                         ],
+                           "name":  "factory-resource-pack",
+                           "path":  "factory-resource-pack/",
+                           "fileCount":  55,
+                           "forbiddenClaims":  [
+                                                   "production-release",
+                                                   "scoring-system-as-PASS-gate",
+                                                   "failure-router-as-runnable-core",
+                                                   "compressed-summary-as-evidence"
+                                               ],
+                           "currentStatus":  "STABLE"
+                       },
+                       {
+                           "runtimeEvidence":  "Plugin not runtime-loaded as Codex plugin. H20 MCP prototype exists but is standalone.",
+                           "installabilityEvidence":  "DRY26 confirmed plugin structure is valid and installable. Not production-tested.",
+                           "id":  "CAT-02",
+                           "allowedPackageUse":  [
+                                                     "Development preview packaging",
+                                                     "Structural integrity verification",
+                                                     "Installability boundary definition",
+                                                     "Skill/MCP/automation directory scaffolding"
+                                                 ],
+                           "evidenceBasis":  "H19 scaffold created. DRY26 installability test: POSITIVE_NEGATIVE_CLOSED. Structural integrity verified.",
+                           "requiresDRY27Test":  true,
+                           "subAssets":  [
+                                             {
+                                                 "path":  "codex-factory-plugin/.codex-plugin/plugin.json",
+                                                 "category":  "manifest",
+                                                 "status":  "EXPERIMENTAL"
+                                             },
+                                             {
+                                                 "path":  "codex-factory-plugin/skills/",
+                                                 "category":  "skills",
+                                                 "status":  "EXPERIMENTAL"
+                                             },
+                                             {
+                                                 "path":  "codex-factory-plugin/mcp/",
+                                                 "category":  "mcp",
+                                                 "status":  "EXPERIMENTAL"
+                                             },
+                                             {
+                                                 "path":  "codex-factory-plugin/automation/",
+                                                 "category":  "automation",
+                                                 "status":  "EXPERIMENTAL",
+                                                 "fileCount":  8
+                                             }
+                                         ],
+                           "name":  "codex-factory-plugin",
+                           "path":  "codex-factory-plugin/",
+                           "fileCount":  60,
+                           "forbiddenClaims":  [
+                                                   "production-ready",
+                                                   "final-release",
+                                                   "runtime-verified",
+                                                   "full-context-inheritance",
+                                                   "automation-as-verifier"
+                                               ],
+                           "currentStatus":  "EXPERIMENTAL"
+                       },
+                       {
+                           "runtimeEvidence":  "Returns MONITORING_PASS (6/6 checks). Readonly. doesNotMutateState: true. Prototype only.",
+                           "installabilityEvidence":  "Repo-local only. Not packaged as standalone module.",
+                           "id":  "CAT-03",
+                           "allowedPackageUse":  [
+                                                     "Prototype monitoring reference",
+                                                     "Safety boundary documentation",
+                                                     "Readonly governance state inspection"
+                                                 ],
+                           "evidenceBasis":  "H21-B prototype created. H21-C bug fixed (syntax + PLUGIN_PRODUCTION). MONITORING_PASS confirmed.",
+                           "requiresDRY27Test":  true,
+                           "name":  "monitoring-scripts",
+                           "path":  "scripts/monitoring/",
+                           "fileCount":  1,
+                           "forbiddenClaims":  [
+                                                   "phase-closure-evidence",
+                                                   "verifier-replacement",
+                                                   "automation-as-production",
+                                                   "state-mutation-authority",
+                                                   "alert-as-PASS"
+                                               ],
+                           "currentStatus":  "EXPERIMENTAL"
+                       },
+                       {
+                           "runtimeEvidence":  "session-rotation-handoff.json updates natively each closure. Source evidence hashes verified.",
+                           "installabilityEvidence":  "Handoff format validated across 5+ rotations. nativeGenerated field added for integrity.",
+                           "id":  "CAT-04",
+                           "allowedPackageUse":  [
+                                                     "Session rotation handoff",
+                                                     "Phase state tracking",
+                                                     "Evidence chain maintenance",
+                                                     "Verifier result storage"
+                                                 ],
+                           "evidenceBasis":  "H18 session rotation handoff established. Multiple successful rotations (H18-\u003eDRY25-\u003eH19-\u003eDRY26-\u003eH20-\u003eH21).",
+                           "requiresDRY27Test":  false,
+                           "name":  "session-rotation-assets",
+                           "path":  "governance/factory-state/",
+                           "fileCount":  75,
+                           "forbiddenClaims":  [
+                                                   "full-context-inheritance",
+                                                   "thread-context-as-evidence",
+                                                   "compressed-summary-as-fact"
+                                               ],
+                           "currentStatus":  "STABLE"
+                       },
+                       {
+                           "runtimeEvidence":  "Path lookup bug fixed in DRY25-S0. No hardcoded absolute paths.",
+                           "installabilityEvidence":  "validate-resource-pack.ps1 validates manifest, SHA256, required assets, policies, schemas, verifier modules.",
+                           "id":  "CAT-05",
+                           "allowedPackageUse":  [
+                                                     "Fresh fixture bootstrap validation",
+                                                     "Manifest integrity verification",
+                                                     "Resource pack completeness check"
+                                                 ],
+                           "evidenceBasis":  "DRY25-S0 path lookup repair. Relative path resolution validated. Works in fresh fixture.",
+                           "requiresDRY27Test":  false,
+                           "name":  "bootstrap-validators",
+                           "path":  "factory-resource-pack/bootstrap/",
+                           "fileCount":  5,
+                           "forbiddenClaims":  [
+                                                   "absolute-path-dependency",
+                                                   "long-conversation-memory-dependency"
+                                               ],
+                           "currentStatus":  "STABLE"
+                       },
+                       {
+                           "runtimeEvidence":  "All schemas resolve. MANIFEST cross-references valid.",
+                           "installabilityEvidence":  "Schemas are JSON, portable, no external dependencies.",
+                           "id":  "CAT-06",
+                           "allowedPackageUse":  [
+                                                     "Schema validation",
+                                                     "Manifest-based integrity checking",
+                                                     "Portable format specification"
+                                                 ],
+                           "evidenceBasis":  "MANIFEST.sha256 validated across phases. Schema structure stable since H18.",
+                           "requiresDRY27Test":  false,
+                           "name":  "manifests-and-schemas",
+                           "path":  "factory-resource-pack/schemas/ + MANIFEST.json",
+                           "fileCount":  8,
+                           "forbiddenClaims":  [
+                                                   "schema-as-verifier",
+                                                   "manifest-as-evidence-source"
+                                               ],
+                           "currentStatus":  "STABLE"
+                       },
+                       {
+                           "runtimeEvidence":  "None. Automation scheduling is DESIGN_FEASIBLE_IMPLEMENTATION_HYPOTHETICAL (H21-A).",
+                           "installabilityEvidence":  "Files exist. Not tested as running Codex automation.",
+                           "id":  "CAT-07",
+                           "allowedPackageUse":  [
+                                                     "Automation design reference",
+                                                     "Template/schema scaffolding",
+                                                     "Safety boundary documentation"
+                                                 ],
+                           "evidenceBasis":  "H21-B created: policy, template, schema, 2 samples, README, DESIGN. Structural only.",
+                           "requiresDRY27Test":  true,
+                           "name":  "automation-plugin-assets",
+                           "path":  "codex-factory-plugin/automation/",
+                           "fileCount":  8,
+                           "forbiddenClaims":  [
+                                                   "runtime-automation-verified",
+                                                   "scheduled-monitoring-verified",
+                                                   "automation-mutates-governance",
+                                                   "automation-as-verifier-gate"
+                                               ],
+                           "currentStatus":  "EXPERIMENTAL"
+                       }
+                   ]
+}

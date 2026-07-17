@@ -1,0 +1,63 @@
+﻿{
+    "timestamp":  "2026-06-25T22:34:11+08:00",
+    "findings":  [
+                     {
+                         "category":  "Default User Path Clarity",
+                         "finding":  "No single entry point. 16 top-level files overwhelm new users. User needs to know: README first, then USAGE_QUICKSTART, but no explicit \u0027START_HERE\u0027 marker.",
+                         "recommendation":  "Add DAILY_USE.md as the single entry point. Reference other docs from there.",
+                         "severity":  "HIGH"
+                     },
+                     {
+                         "category":  "Cognitive Overhead",
+                         "finding":  "POSITIONING.md (384 words) + EVIDENCE_BASIS.md (200 words) + BOUNDARY.md (200 words) overlap significantly. All three discuss what v0.4 is/isn\u0027t.",
+                         "recommendation":  "Consolidate positioning/boundary/evidence into POSITIONING.md. Keep EVIDENCE_BASIS for detailed benchmark data.",
+                         "severity":  "MEDIUM"
+                     },
+                     {
+                         "category":  "Noise / Duplication",
+                         "finding":  "Draft duplicates: CHANGELOG_DRAFT.md (1266 bytes) and INSTALL_DRAFT.md (830 bytes) coexist with RC versions CHANGELOG.md and INSTALL.md. Confusing.",
+                         "recommendation":  "Remove CHANGELOG_DRAFT.md and INSTALL_DRAFT.md from RC. Keep only RC versions.",
+                         "severity":  "HIGH"
+                     },
+                     {
+                         "category":  "Default Path",
+                         "finding":  "Factory Lite Core is default (Tier 0) but explanation is spread across README, POSITIONING, and manual-index.json.",
+                         "recommendation":  "DAILY_USE.md should state this once, clearly, at the top.",
+                         "severity":  "MEDIUM"
+                     },
+                     {
+                         "category":  "Installation Clarity",
+                         "finding":  "INSTALL.md (411 bytes, ~50 words) is concise but works. INSTALL_DRAFT.md (830 bytes) is redundant.",
+                         "recommendation":  "Remove INSTALL_DRAFT.md. INSTALL.md is sufficient.",
+                         "severity":  "LOW"
+                     },
+                     {
+                         "category":  "Claim Safety",
+                         "finding":  "DO_NOT_CLAIM_UNIVERSAL_QUALITY.md (609 bytes) is a good gate. Positioning preserved correctly.",
+                         "recommendation":  "Keep as-is. Effective anti-overclaiming guard.",
+                         "severity":  "LOW"
+                     },
+                     {
+                         "category":  "Release Status Clarity",
+                         "finding":  "RELEASE_NOTES_RC.md + CHANGELOG.md + VALIDATION_CHECKLIST.md — three files about release status. Could be two.",
+                         "recommendation":  "Merge VALIDATION_CHECKLIST into RELEASE_NOTES_RC or remove standalone checklist.",
+                         "severity":  "LOW"
+                     },
+                     {
+                         "category":  "Minimal Context",
+                         "finding":  "No MINIMAL_CONTEXT_PACKET exists. User must read ~1800 words across 16 files to understand v0.4 baseline.",
+                         "recommendation":  "Create MINIMAL_CONTEXT_PACKET.md under 1500 words as the single daily-use reference.",
+                         "severity":  "HIGH"
+                     }
+                 ],
+    "issueCounts":  {
+                        "LOW":  3,
+                        "BLOCKING":  0,
+                        "NIT":  0,
+                        "MEDIUM":  2,
+                        "HIGH":  3
+                    },
+    "summary":  "RC is functional but has usability issues: too many files (16 top-level), draft duplicates, no single entry point. Core mechanisms are well-structured. Primary fixes: add DAILY_USE.md, MINIMAL_CONTEXT_PACKET.md, remove draft duplicates, consolidate overlapping docs.",
+    "phase":  "FACTORY-V04-P2-A",
+    "title":  "RC Usability Audit"
+}

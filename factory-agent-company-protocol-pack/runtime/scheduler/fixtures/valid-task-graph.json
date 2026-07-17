@@ -1,0 +1,8 @@
+﻿{"graphId":"tg-ag3-valid","phaseId":"FACTORY-AGENT-3","projectId":"factory-agent-3-demo","maxParallelAgents":4,"tasks":[
+  {"taskId":"t1","taskTitle":"Architect design","roleNeeded":"Architect","expectedOutputs":["design/architecture.md"],"status":"pending","riskLevel":"medium","parallelizable":false},
+  {"taskId":"t2","taskTitle":"Build auth module","roleNeeded":"Builder","dependencies":["t1"],"expectedOutputs":["packages/auth/src/login.ts"],"status":"pending","riskLevel":"low","parallelizable":true,"module":"auth"},
+  {"taskId":"t3","taskTitle":"Build payment module","roleNeeded":"Builder","dependencies":["t1"],"expectedOutputs":["packages/pay/src/checkout.ts"],"status":"pending","riskLevel":"medium","parallelizable":true,"module":"payments"},
+  {"taskId":"t4","taskTitle":"Integration","roleNeeded":"Integration Lead","dependencies":["t2","t3"],"expectedOutputs":["_integrate/merged.ts"],"status":"pending","riskLevel":"high","parallelizable":false,"integrationCheckpoint":"cross-module-merge"},
+  {"taskId":"t5","taskTitle":"Review all modules","roleNeeded":"Reviewer","dependencies":["t4"],"expectedOutputs":["review/review-report.md"],"status":"pending","riskLevel":"medium","parallelizable":false},
+  {"taskId":"t6","taskTitle":"Verify all gates","roleNeeded":"Verifier","dependencies":["t5"],"expectedOutputs":["verify/verifier-result.json"],"status":"pending","riskLevel":"low","parallelizable":false}
+]}

@@ -1,0 +1,92 @@
+﻿{
+    "role":  "builder",
+    "forkContext":  false,
+    "exportedApiSurface":  [
+                               "packages/risk-classifier/src/classifier.ts",
+                               "packages/risk-classifier/src/risk-alerter.ts",
+                               "packages/risk-classifier/src/risk-evaluator.ts",
+                               "packages/risk-classifier/src/risk-events.ts",
+                               "packages/risk-classifier/src/risk-history.ts",
+                               "packages/risk-classifier/src/risk-policy.ts",
+                               "packages/risk-classifier/src/risk-reporter.ts",
+                               "packages/risk-classifier/src/risk-severity.ts",
+                               "packages/risk-classifier/src/risk-types.ts",
+                               "packages/risk-classifier/src/types.ts"
+                           ],
+    "forbiddenImports":  [
+                             {
+                                 "target":  "../../scripts/*",
+                                 "reason":  "Workers must not import scripts"
+                             }
+                         ],
+    "isReadOnly":  false,
+    "agentId":  "dry23-builder-risk-classifier",
+    "nativeGenerated":  true,
+    "evidencePath":  "governance/diagnosis/",
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-snapshot-manager",
+                                       "targetScope":  "packages/snapshot-manager/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                       "targetScope":  "packages/diagnosis-engine/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-evidence-collector",
+                                       "targetScope":  "packages/evidence-collector/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                       "targetScope":  "packages/diagnosis-reporter/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-verify-gate",
+                                       "targetScope":  "packages/verify-gate/"
+                                   }
+                               ],
+    "workerId":  "dry23-builder-risk-classifier",
+    "scope":  {
+                  "ownedFiles":  [
+                                     "packages/risk-classifier/src/classifier.ts",
+                                     "packages/risk-classifier/src/risk-alerter.ts",
+                                     "packages/risk-classifier/src/risk-evaluator.ts",
+                                     "packages/risk-classifier/src/risk-events.ts",
+                                     "packages/risk-classifier/src/risk-history.ts",
+                                     "packages/risk-classifier/src/risk-policy.ts",
+                                     "packages/risk-classifier/src/risk-reporter.ts",
+                                     "packages/risk-classifier/src/risk-severity.ts",
+                                     "packages/risk-classifier/src/risk-types.ts",
+                                     "packages/risk-classifier/src/types.ts"
+                                 ],
+                  "forbiddenDirectories":  [
+                                               "governance/factory-state/",
+                                               "outputs/"
+                                           ],
+                  "ownedDirectories":  [
+                                           "packages/risk-classifier/"
+                                       ]
+              },
+    "phase":  "DRY23-A",
+    "integrationHandoffPath":  "packages/dry23-integration-hub/src/integration-hub.ts",
+    "transcriptPath":  "",
+    "allowedImports":  [
+
+                       ],
+    "generatedAt":  "2026-06-24T00:38:00+08:00"
+}

@@ -1,0 +1,55 @@
+﻿{
+    "not_blocked":  true,
+    "warnings":  [
+                     "Attach Packet v3 next_recommended is stale (shows P4 from older snapshot) — phase-close refresh not yet run after P6",
+                     "Snapshot date (2026-06-28 07:55) predates P6 completion (13:00) — expected, but worth noting",
+                     "This is a fresh thread within existing Codex desktop app, not a brand-new desktop launch — still qualifies as valid fresh-window for P7 purposes"
+                 ],
+    "section":  "G",
+    "generated_at":  "2026-06-28T10:05:50+08:00",
+    "overall_verdict":  "TRUE_FRESH_WINDOW_VALIDATED_WITH_WARNINGS",
+    "questions_answered":  [
+                               {
+                                   "verdict":  "MOUNT_WORKED",
+                                   "question":  "1. Did true fresh-window mount work?",
+                                   "answer":  "YES. Mount readiness 10/10. All scripts executed without fallback. Attach Packet v3 FRESH. Snapshot FRESH."
+                               },
+                               {
+                                   "verdict":  "SHORT_COMMAND_SUFFICIENT",
+                                   "question":  "2. Did short command suffice?",
+                                   "answer":  "YES. User provided only the P7 specification attachment. No long history summary needed. All context derived from external conversation space files."
+                               },
+                               {
+                                   "verdict":  "BALANCED_SUFFICIENT",
+                                   "question":  "3. Did BALANCED snapshot suffice?",
+                                   "answer":  "YES. SNAP-FW-20260628-075508 (BALANCED) provided frozen_conclusions, strategy_flags, completed_phases, next_recommended — sufficient for fresh-window continuation."
+                               },
+                               {
+                                   "verdict":  "CORRECT_BUT_STALE_SNAPSHOT_CONTENT",
+                                   "question":  "4. Did Attach Packet v3 correctly reflect current state?",
+                                   "answer":  "PARTIALLY. Attach Packet v3 is FRESH and correctly references snapshot + base packet + SQLite index. However, next_recommended still says \u0027P4\u0027 (stale from snapshot date). Phase-close refresh would fix this."
+                               },
+                               {
+                                   "verdict":  "DRIFT_PREVENTED",
+                                   "question":  "5. Did Direction Guard prevent drift?",
+                                   "answer":  "YES. DG v3 correctly blocked all wrong directions (v0.5 release, cloud, multi-agent default, micro-phases, Build Pro default, coding-before-Bootstrap). 8/8 correct blocks."
+                               },
+                               {
+                                   "verdict":  "STALE_CONTEXT_PREVENTED",
+                                   "question":  "6. Did P6 phase close integration prevent stale context?",
+                                   "answer":  "YES. Phase-close gate is defined (12 steps). Mount readiness check validates freshness. P5 limitation is preserved (SAME_WINDOW, not true fresh-window). P6 completed recognized."
+                               },
+                               {
+                                   "verdict":  "MINIMAL_MANUAL_BURDEN",
+                                   "question":  "7. What remains manual?",
+                                   "answer":  "User must: 1) Open new thread, 2) Select Factory project, 3) Provide short command. Everything else (mount readiness, DG, Attach Packet, Snapshot) is automated."
+                               },
+                               {
+                                   "verdict":  "USEFUL_FOR_DAY_TO_DAY",
+                                   "question":  "8. Is external conversation space useful enough for day-to-day Factory continuation?",
+                                   "answer":  "YES. With mount readiness 10/10, DG v3 active, Attach Packet v3, Snapshot Packs, and phase-ledger, a fresh window can correctly determine: current phase, frozen strategies, completed phases, blocked directions, and next steps — without user pasting history."
+                               }
+                           ],
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "verdict_id":  "FACTORY-CONTEXT-SPACE-P7-TRUE-FRESH-WINDOW-USABILITY-VERDICT"
+}

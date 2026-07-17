@@ -1,0 +1,12 @@
+﻿{
+  "phase": "FACTORY-CONTEXT-SPACE-P1-B",
+  "title": "Local Index Scope Definition",
+  "timestamp": "2026-06-28T00:55:00+08:00",
+  "verdict": "PASS",
+  "scope_definition": "factory-context-space/LOCAL_INDEX_SCOPE.md",
+  "data_model": "factory-context-space/DATA_MODEL.md",
+  "entity_types": 9,
+  "trust_tiers": 7,
+  "storage": "JSONL",
+  "local_only": true
+}

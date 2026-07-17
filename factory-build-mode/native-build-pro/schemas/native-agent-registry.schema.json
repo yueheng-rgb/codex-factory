@@ -1,0 +1,52 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "native-agent-registry.schema.json",
+  "title": "Native Agent Registry",
+  "description": "Schema for tracking native spawned agents in Codex Factory Build Pro mode",
+  "type": "object",
+  "required": ["phase", "projectId", "agents", "summary"],
+  "properties": {
+    "phase": {"type": "string", "description": "Factory phase identifier"},
+    "projectId": {"type": "string"},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "agents": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/agentRecord"}
+    },
+    "summary": {"$ref": "#/definitions/registrySummary"}
+  },
+  "definitions": {
+    "agentRecord": {
+      "type": "object",
+      "required": ["id", "nickname", "role", "nativeSpawned", "forkContext", "status"],
+      "properties": {
+        "id": {"type": "string", "description": "Agent UUID from spawn_agent"},
+        "nickname": {"type": "string"},
+        "role": {"type": "string", "enum": ["orchestrator", "worker-backend", "worker-frontend", "worker-test", "worker-verify"]},
+        "nativeSpawned": {"type": "boolean"},
+        "forkContext": {"type": "boolean"},
+        "capsule": {"type": "object"},
+        "writeScope": {"type": "array", "items": {"type": "string"}},
+        "spawnedAt": {"type": "string", "format": "date-time"},
+        "handoffAt": {"type": "string", "format": "date-time"},
+        "closedAt": {"type": "string", "format": "date-time"},
+        "status": {"type": "string", "enum": ["active", "completed", "stale", "orphan", "error"]},
+        "outputFiles": {"type": "integer"},
+        "writeScopeViolations": {"type": "integer"},
+        "closeReceiptExists": {"type": "boolean"}
+      }
+    },
+    "registrySummary": {
+      "type": "object",
+      "properties": {
+        "total": {"type": "integer"},
+        "completed": {"type": "integer"},
+        "active": {"type": "integer"},
+        "stale": {"type": "integer"},
+        "orphan": {"type": "integer"},
+        "totalViolations": {"type": "integer"},
+        "verdict": {"type": "string"}
+      }
+    }
+  }
+}

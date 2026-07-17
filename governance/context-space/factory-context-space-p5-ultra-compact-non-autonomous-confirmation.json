@@ -1,0 +1,37 @@
+﻿{
+  "confirmation_id": "FACTORY-CONTEXT-SPACE-P5-ULTRA-COMPACT-NON-AUTONOMOUS-CONFIRMATION",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "sub_step": "D",
+  "conclusion": "ULTRA_COMPACT CONFIRMED as non-autonomous — quick-status only",
+  "evidence": {
+    "p4_benchmark": "P4 tested ULTRA_COMPACT across all snapshot types. It retains only: phase_id, status, timestamp, verdict. It drops: frozen_conclusions, current_strategy, active_risks, next_recommended, blocked_phases, freshness metadata.",
+    "p4_r1_coverage": "P4-R1 confirmed ULTRA_COMPACT drops all strategy-critical fields across NBP and QA snapshot types.",
+    "fresh_window_simulation": "Loading only ULTRA_COMPACT: Codex would know current phase name and status, but would have ZERO frozen conclusions, ZERO strategy flags, ZERO active risks, and ZERO next-phase guidance. Cannot continue autonomously."
+  },
+  "ultra_compact_retains": [
+    "phase_id",
+    "phase_status (completed/in_progress/pending)",
+    "timestamp",
+    "verdict (PASS/FAIL/PENDING)"
+  ],
+  "ultra_compact_drops": [
+    "frozen_conclusions (CRITICAL — all 14 lost)",
+    "current_strategy flags (CRITICAL)",
+    "active_risks (CRITICAL)",
+    "next_recommended phases (CRITICAL)",
+    "blocked_phases (CRITICAL)",
+    "freshnessStatus + sourceOfTruthPaths (CRITICAL)",
+    "direction guard rules (CRITICAL)"
+  ],
+  "valid_use": "QUICK STATUS CHECK ONLY — 'What phase are we in? Is it PASS?' No continuation decisions.",
+  "invalid_use": "AUTONOMOUS CONTINUATION — 'Based on this snapshot, what should I do next?' BLOCKED by DG-011.",
+  "direction_guard_rule": {
+    "rule_id": "DG-011",
+    "rule": "ULTRA_COMPACT snapshot cannot be used for autonomous continuation decisions",
+    "type": "block",
+    "frozen": true,
+    "rationale": "Missing frozen_conclusions, strategy flags, and risks makes autonomous continuation unsafe"
+  },
+  "decision": "ULTRA_COMPACT remains quick-status only. No revision needed."
+}

@@ -1,0 +1,431 @@
+﻿{
+    "passed":  82,
+    "timestamp":  "2026-06-24T17:14:05.3168186+08:00",
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\phase6c-h18-resource-pack-foundation-verify.ps1",
+    "verdict":  "FAIL",
+    "totalChecks":  84,
+    "phase":  "H18",
+    "checks":  [
+                   {
+                       "Label":  "PARENT_PHASE_DRY24",
+                       "Pass":  false,
+                       "Detail":  "actual=H18"
+                   },
+                   {
+                       "Label":  "DRY24_P1_PASS",
+                       "Pass":  true,
+                       "Detail":  "status=PASS"
+                   },
+                   {
+                       "Label":  "H18_A0_INVENTORY_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_DRY25_ARTIFACTS",
+                       "Pass":  false,
+                       "Detail":  "Found 2"
+                   },
+                   {
+                       "Label":  "NO_H19_ARTIFACTS",
+                       "Pass":  true,
+                       "Detail":  "Found 0"
+                   },
+                   {
+                       "Label":  "NO_FINAL_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PACK_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MANIFEST_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MANIFEST_VALID_JSON",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MANIFEST_HAS_ASSETS",
+                       "Pass":  true,
+                       "Detail":  "count=5"
+                   },
+                   {
+                       "Label":  "MANIFEST_HAS_CATEGORIES",
+                       "Pass":  true,
+                       "Detail":  "count=17"
+                   },
+                   {
+                       "Label":  "MANIFEST_SCORING_GATE",
+                       "Pass":  true,
+                       "Detail":  "ref=factory-resource-pack/SCORING_SYSTEM_GATE.md"
+                   },
+                   {
+                       "Label":  "MANIFEST_SHA256_MATCH",
+                       "Pass":  true,
+                       "Detail":  "stored=AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8 computed=AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8"
+                   },
+                   {
+                       "Label":  "CATEGORY_core",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CATEGORY_protocols",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CATEGORY_policies",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CATEGORY_schemas",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CATEGORY_verifier-modules",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CATEGORY_negative-fixtures",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CATEGORY_session-rotation",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CATEGORY_role-model",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CATEGORY_bootstrap",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CORE_ASSET_factoryctl.ps1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CORE_ASSET_register-agent.ps1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CORE_ASSET_record-progress.ps1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CORE_ASSET_generate-handoff.ps1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CORE_ASSET_handoff-verify.ps1",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_SCORING_IN_CORE",
+                       "Pass":  true,
+                       "Detail":  "Found 0"
+                   },
+                   {
+                       "Label":  "NO_FAILURE_ROUTER_IN_CORE",
+                       "Pass":  true,
+                       "Detail":  "Found 0"
+                   },
+                   {
+                       "Label":  "POLICY_decision-priority-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_evidence-acceptance-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_native-generation-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_context-compression-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_agent-spawn-failure-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_worker-contract.schema.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_evidence-entry.schema.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_progress-event.schema.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "VERIFIER_MODULE_parent-phase-check.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "VERIFIER_MODULE_hard-floor-check.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "VERIFIER_MODULE_negative-control-check.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "VERIFIER_MODULE_scope-isolation-check.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "VERIFIER_MODULE_no-generic-fail-check.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "VERIFIER_MODULE_session-rotation-readiness-check.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_main-agent-scheduling-protocol.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_worker-reporting-protocol.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_integrator-verifier-boundary.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_p0-p1-p2-decision-protocol.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_evidence-hierarchy.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_claim-classification.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PROTOCOL_scoring-system-policy.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "TEMPLATE_H-phase-template.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "TEMPLATE_DRY-phase-template.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "TEMPLATE_p-repair-template.md",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEG_FIXTURE_TEMPLATE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEG_FIXTURE_SCHEMA",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_MODEL_ORG",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLE_MATRIX_JSON",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "BOOTSTRAP_VALIDATE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "BOOTSTRAP_CHECKLIST",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SESSION_ROTATION_PROTOCOL",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCORING_SYSTEM_GATE_DOC",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "BOUNDARY_DOC",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_PARSE_agent-spawn-failure-policy",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_PARSE_context-compression-policy",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_PARSE_decision-priority-policy",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_PARSE_evidence-acceptance-policy",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POLICY_PARSE_native-generation-policy",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_PARSE_evidence-entry.schema",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_PARSE_progress-event.schema",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMA_PARSE_worker-contract.schema",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\MANIFEST.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\bootstrap\\VALIDATION_RESULT.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\deprecated\\deprecated-module-index.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\negative-fixtures\\negative-fixture-schema.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\policies\\agent-spawn-failure-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\policies\\context-compression-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\policies\\decision-priority-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\policies\\evidence-acceptance-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\policies\\native-generation-policy.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\role-model\\agent-role-matrix.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\schemas\\evidence-entry.schema.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\schemas\\progress-event.schema.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEVAL_EXPR_\\schemas\\worker-contract.schema.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNVERIFIED_CLAIMS",
+                       "Pass":  true,
+                       "Detail":  "Structurally verified via H18-A0 inventory"
+                   }
+               ],
+    "failed":  2
+}

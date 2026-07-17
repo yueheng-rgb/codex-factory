@@ -1,0 +1,28 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "runtime-risk-profile.schema.json",
+  "title": "Runtime Risk Profile",
+  "description": "Risk classification for a task based on project surface plan, task description, file changes, and keywords.",
+  "type": "object",
+  "required": ["profileId", "taskDescription", "riskLevel", "riskReasons", "humanAuditRequired", "createdAt"],
+  "properties": {
+    "profileId": { "type": "string" },
+    "taskDescription": { "type": "string" },
+    "projectType": { "type": "string" },
+    "surfacePlanId": { "type": "string" },
+    "riskLevel": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL", "L_CLASS"] },
+    "riskReasons": { "type": "array", "items": { "type": "string" } },
+    "affectedSurfaces": { "type": "array", "items": { "type": "string" } },
+    "criticalFields": { "type": "array", "items": { "type": "string" } },
+    "requiredReviewers": { "type": "array", "items": { "type": "string" }, "description": "Roles required to review: security, architect, verifier, human" },
+    "requiredTests": { "type": "array", "items": { "type": "string" } },
+    "humanAuditRequired": { "type": "boolean" },
+    "humanAuditReason": { "type": "string" },
+    "implementationBlockers": { "type": "array", "items": { "type": "string" }, "description": "Must be resolved before implementation" },
+    "verifierRequirements": { "type": "array", "items": { "type": "string" } },
+    "invariantsSuggested": { "type": "array", "items": { "type": "string" } },
+    "enforcementStatus": { "type": "string", "enum": ["ALLOWED", "BLOCKED", "CONDITIONAL"] },
+    "blockedReason": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}

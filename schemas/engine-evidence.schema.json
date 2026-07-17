@@ -1,0 +1,29 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Engine Evidence Binding",
+  "description": "Structured evidence from external engine runs for gate decision binding",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["engine_id", "run_status", "target_project", "started_at"],
+  "properties": {
+    "evidence_id": { "type": "string", "description": "Unique evidence record ID" },
+    "engine_id": { "type": "string", "enum": ["semgrep","autocannon","playwright","codeql","k6","firecrawl-reader"] },
+    "engine_version": { "type": "string" },
+    "run_status": { "type": "string", "enum": ["RUN","TOOL_UNAVAILABLE","TOOL_FAILED","SKIPPED","PROJECT_START_FAILED","MODULE_RESOLUTION_FAILED"] },
+    "target_project": { "type": "string" },
+    "target_url_or_path": { "type": "string" },
+    "command_redacted": { "type": "string", "description": "Command with secrets redacted" },
+    "started_at": { "type": "string", "format": "date-time" },
+    "duration_seconds": { "type": "number" },
+    "result_summary": { "type": "string" },
+    "findings": { "type": "array", "items": { "type": "object" } },
+    "findings_count": { "type": "integer" },
+    "severity_summary": { "type": "object" },
+    "parser_status": { "type": "string", "enum": ["OK","NO_INPUT","PARSE_ERROR","EMPTY_RESULT"] },
+    "non_claims": { "type": "array", "items": { "type": "string" } },
+    "skip_reason": { "type": "string" },
+    "failure_classification": { "type": "string" },
+    "secret_present": { "type": "boolean", "description": "Whether the engine required secrets/API keys" },
+    "source_origin": { "type": "string", "description": "For reader tools: must be 'firecrawl_reader' not 'canonical_search'" }
+  }
+}

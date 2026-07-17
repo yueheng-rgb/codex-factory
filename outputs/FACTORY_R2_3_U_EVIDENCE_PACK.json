@@ -1,0 +1,170 @@
+﻿{
+    "phase":  "R2.3-U",
+    "mode":  "live_search",
+    "provider":  "zhipuai",
+    "search_invoked":  true,
+    "query_list":  [
+                       "Fastify official documentation file upload multipart @fastify/multipart best practices",
+                       "Node.js secure file upload best practices security validation type checking size limits 2024 2025",
+                       "Fastify multipart file upload example with file type validation size limit error handling"
+                   ],
+    "runtime_timestamp":  "2026-07-11T00:42:48+08:00",
+    "sources":  [
+                    {
+                        "title":  "GitHub - fastify/fastify-multipart: Multipart support for Fastify",
+                        "url":  "https://github.com/fastify/fastify-multipart",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "reference_project",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "GitHub - moredevs-srl/fastify-multipart: Multipart support for Fastify",
+                        "url":  "https://github.com/moredevs-srl/fastify-multipart",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "reference_project",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "GitHub - likev/fastify-multipart: Multipart support for Fastify",
+                        "url":  "https://github.com/likev/fastify-multipart",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "reference_project",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "Enhance fileupload UI for multipart/form-data · Issue #667 · fastify/fastify-swagger · GitHub",
+                        "url":  "https://github.com/fastify/fastify-swagger/issues/667",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "reference_project",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "xxx.multipart.MaxUploadSizeExceededException: Maximum upload size of 52428800  exceeded；",
+                        "url":  "https://www.51cto.com/article/726524.html",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "other",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "[dvwa] file upload",
+                        "url":  "https://blog.csdn.net/qq_35433968/article/details/137820576",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "article",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "One article to understand large file upload",
+                        "url":  "https://www.cnblogs.com/youzhibing/p/17551643.html",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "article",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "public r\u003cstring\u003e upload(multipartfile file)中r报红",
+                        "url":  "https://blog.csdn.net/weixin_45894926/article/details/135011519",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "article",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "Node-RED学习笔记——multipart file文件上传",
+                        "url":  "https://blog.csdn.net/qq_41895114/article/details/108677833",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "article",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "Spring Boot + Multipart 文件上传：为什么你的应用在 10MB 后会失败",
+                        "url":  "https://www.cnblogs.com/youzhibing/p/17551643.html",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "article",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "揭秘文件上传漏洞之操作原理（Thoughts on File Upload Vulnerabilities）",
+                        "url":  "https://www.freebuf.com/articles/web/385543.html",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "other",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "you can upload from 1 to 3 files. maximum file siz",
+                        "url":  "https://blog.csdn.net/weixin_45894926/article/details/135011519",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "article",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    },
+                    {
+                        "title":  "php multipartfile,Spring对分段文件上传（multipart file upload）的支持",
+                        "url":  "https://blog.csdn.net/qq_41895114/article/details/108677833",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true,
+                        "source_type":  "article",
+                        "freshness_note":  "Retrieved 2026-07-11",
+                        "relevance_note":  "Directly relevant to Fastify secure file upload"
+                    }
+                ],
+    "quality_gate":  {
+                         "overall_passed":  false,
+                         "per_query_verdicts":  [
+                                                    "reject",
+                                                    "reject",
+                                                    "reject"
+                                                ],
+                         "per_query_scores":  [
+                                                  "13/16",
+                                                  "10/16",
+                                                  "12/16"
+                                              ]
+                     },
+    "secret_safety":  {
+                          "key_leaked":  false,
+                          "secret_provided":  true
+                      },
+    "downstream_readonly":  {
+                                "evidence_pack_is_only_source":  true,
+                                "implementer_blocked_from_provider":  true
+                            },
+    "budget_consumed":  {
+                            "queries_used":  3,
+                            "sources_found":  13,
+                            "within_budget":  false
+                        }
+}

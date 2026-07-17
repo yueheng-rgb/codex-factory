@@ -1,0 +1,203 @@
+﻿{
+    "passed":  32,
+    "checkedAt":  "2026-06-25T00:38:38+08:00",
+    "command":  "live-runtime-6-verify",
+    "totalChecks":  32,
+    "phase":  "LIVE-RUNTIME-6",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "LR5",
+                       "result":  true,
+                       "name":  "LR5_PASS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "carriers",
+                       "result":  true,
+                       "name":  "CARRIER_EXISTS",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "9",
+                       "result":  true,
+                       "name":  "CARRIER_9",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "verified=3",
+                       "result":  true,
+                       "name":  "CARRIER_VERIFIED",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "fallback OK",
+                       "result":  true,
+                       "name":  "CARRIER_SAFE_FALLBACK",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "policy",
+                       "result":  true,
+                       "name":  "POLICY_EXISTS",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "matrix",
+                       "result":  true,
+                       "name":  "MATRIX_EXISTS",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "exec schema",
+                       "result":  true,
+                       "name":  "EXEC_SCHEMA",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "startup schema",
+                       "result":  true,
+                       "name":  "STARTUP_SCHEMA",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "no mutate",
+                       "result":  true,
+                       "name":  "POLICY_NO_MUTATE",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "no PASS",
+                       "result":  true,
+                       "name":  "POLICY_NO_PASS",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "no ZIP",
+                       "result":  true,
+                       "name":  "POLICY_NO_ZIP",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "no phase",
+                       "result":  true,
+                       "name":  "POLICY_NO_PHASE",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "no auto win",
+                       "result":  true,
+                       "name":  "POLICY_NO_AUTO_WIN",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "builder",
+                       "result":  true,
+                       "name":  "PACKET_BUILDER",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "validator",
+                       "result":  true,
+                       "name":  "PACKET_VALIDATOR",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "packet",
+                       "result":  true,
+                       "name":  "PACKET_EXISTS",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "packets dir",
+                       "result":  true,
+                       "name":  "PACKETS_DIR",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "count=2",
+                       "result":  true,
+                       "name":  "PACKETS_1",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "startup script",
+                       "result":  true,
+                       "name":  "STARTUP_SCRIPT",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "sim",
+                       "result":  true,
+                       "name":  "SIM_EXISTS",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "8",
+                       "result":  true,
+                       "name":  "SIM_8",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "all match",
+                       "result":  true,
+                       "name":  "SIM_MATCH",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "neg",
+                       "result":  true,
+                       "name":  "NEG_EXISTS",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "28",
+                       "result":  true,
+                       "name":  "NEG_28",
+                       "id":  27
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_0",
+                       "id":  28
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL",
+                       "id":  29
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EC",
+                       "id":  30
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GF",
+                       "id":  31
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PC",
+                       "id":  32
+                   }
+               ],
+    "failed":  0
+}

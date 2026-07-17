@@ -1,0 +1,100 @@
+﻿{
+    "nativeGenerated":  true,
+    "verdict":  "PASS",
+    "generatedAt":  "2026-06-24T20:35:04+08:00",
+    "frozenClaims":  [
+                         {
+                             "status":  "VERIFIED_FACT",
+                             "claim":  "Resource pack validates in fresh fixture",
+                             "evidence":  "DRY25 portability, MANIFEST.sha256 across H18-H22",
+                             "id":  "FZ-01",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "PARTIALLY_VERIFIED",
+                             "claim":  "Skill scaffold installability",
+                             "evidence":  "DRY26 structural, DRY27 fixture — no live install",
+                             "id":  "FZ-02",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "VERIFIED_FACT",
+                             "claim":  "Plugin validates as EXPERIMENTAL",
+                             "evidence":  "H19→H22 status chain, DRY27 fixture",
+                             "id":  "FZ-03",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "VERIFIED_FACT",
+                             "claim":  "MCP preserves machine-readable FAIL",
+                             "evidence":  "H20 prototype design, DRY27-C structural",
+                             "id":  "FZ-04",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "VERIFIED_FACT",
+                             "claim":  "Monitoring is readonly",
+                             "evidence":  "H21-B prototype, doesNotMutateState=true, DRY27-D verified",
+                             "id":  "FZ-05",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "VERIFIED_FACT",
+                             "claim":  "Artifact-based handoff is primary",
+                             "evidence":  "H18→DRY27 session rotations, nativeGenerated chain",
+                             "id":  "FZ-06",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "VERIFIED_FACT",
+                             "claim":  "Compressed summary is not evidence",
+                             "evidence":  "Architectural rule, H18 handoff protocol",
+                             "id":  "FZ-07",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "VERIFIED_FACT",
+                             "claim":  "Scoring system is not PASS/FAIL gate",
+                             "evidence":  "H18-A0 exclusion, H18 scoring gate enforced",
+                             "id":  "FZ-08",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "PARTIALLY_VERIFIED",
+                             "claim":  "Plugin install/sideload works",
+                             "evidence":  "DRY27-B fixture simulation — no live test",
+                             "id":  "FZ-09",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "VERIFIED_FACT",
+                             "claim":  "Cross-project sync preserves SHA",
+                             "evidence":  "DRY27-B A→B copy, SHA matched",
+                             "id":  "FZ-10",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                             "claim":  "Automation scheduling works",
+                             "evidence":  "DESIGN_FEASIBLE_IMPLEMENTATION_HYPOTHETICAL — no runtime test",
+                             "id":  "FZ-11",
+                             "frozenAt":  "H23"
+                         },
+                         {
+                             "status":  "REJECTED_OR_UNSUPPORTED",
+                             "claim":  "Thread full context inheritance",
+                             "evidence":  "Architecturally excluded. Compressed summaries untrusted.",
+                             "id":  "FZ-12",
+                             "frozenAt":  "H23"
+                         }
+                     ],
+    "phase":  "H23-B",
+    "summary":  {
+                    "hypothesis":  1,
+                    "verifiedFact":  7,
+                    "rejected":  1,
+                    "remainingUnverified":  2,
+                    "partiallyVerified":  2,
+                    "total":  12
+                }
+}

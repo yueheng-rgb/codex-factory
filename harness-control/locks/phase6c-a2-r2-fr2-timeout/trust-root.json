@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  145,
+    "frozenAt":  "2026-06-19T14:39:29.5488596+08:00",
+    "runId":  "phase6c-a2-r2-fr2-timeout",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\phase6c-a2-r2-fr2-timeout\\trust-root.json",
+    "controlPlaneLockSha256":  "f13ac83af90eded508e3f4ffaedca3db7990ea8d5befa2b03943d5eeb6482006",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "25eebc36cec29df0203eb3e76b12034e3ab4d723b47ac97a12d36dcbb17ae27f"
+}

@@ -1,0 +1,34 @@
+﻿{
+  "phase": "FACTORY-RELEASE-READINESS-0",
+  "section": "A",
+  "title": "Readiness Evidence Intake",
+  "timestamp": "2026-06-28T17:10:00+08:00",
+  "evidence": [
+    {"phase":"BUILD-0","category":"Build Mode MVP","status":"SUPPORTED"},
+    {"phase":"BUILD-1/2","category":"External Memory + Context Packets","status":"SUPPORTED"},
+    {"phase":"PRO-2/BUILD-7/8","category":"Native Build Pro conditional","status":"SUPPORTED"},
+    {"phase":"CONTEXT-SPACE-0~P7","category":"Context Space long-horizon continuity","status":"SUPPORTED"},
+    {"phase":"PACKAGE-QA-GATE-0","category":"Package QA final handoff gate","status":"SUPPORTED"},
+    {"phase":"REALWORLD-1","category":"Build Lite real project safety (Bookstore)","status":"SUPPORTED"},
+    {"phase":"REALWORLD-2","category":"Build Lite real project safety (TCM Django)","status":"SUPPORTED"},
+    {"phase":"REALWORLD-2-LESSONS-0","category":"Security/Deploy Gate + Test Repair Policy","status":"SUPPORTED"},
+    {"phase":"PACK-STAGING-P3","category":"Security/Deploy Gate in staging","status":"SUPPORTED"},
+    {"phase":"PACK-STAGING-P4","category":"One-command install toolchain","status":"SUPPORTED"},
+    {"phase":"PACK-STAGING-P5","category":"Usability real trial (safe fixtures)","status":"SUPPORTED"},
+    {"phase":"PACK-STAGING-P6","category":"CLI wrapper + output contract","status":"SUPPORTED"},
+    {"phase":"PACK-STAGING-P6-R1","category":"Coverage self-audit clean","status":"SUPPORTED"},
+    {"category":"Factory superiority over vanilla Codex","status":"NOT_PROVEN"},
+    {"category":"Production deployment readiness","status":"NOT_PROVEN"},
+    {"category":"v0.5 release","status":"BLOCKED"}
+  ],
+  "rejected_claims": [
+    "P6-R1 staging = v0.5 release",
+    "REALWORLD-2 proves Factory superiority",
+    "local working-copy = production readiness",
+    "one-command install = deployment",
+    "Snapshot = verifier evidence",
+    "Security/Deploy Gate = deploy permission",
+    "Package QA = product correctness proof"
+  ],
+  "status": "EVIDENCE_CLASSIFIED"
+}

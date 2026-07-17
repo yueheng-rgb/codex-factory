@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  98,
+    "frozenAt":  "2026-06-18T23:05:41.8275418+08:00",
+    "runId":  "redteam-20260618-230444-validator-idemp",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\redteam-20260618-230444-validator-idemp\\trust-root.json",
+    "controlPlaneLockSha256":  "323441a6415926d22a814ff528d60e1c354ac2f03daef617125b6e7a7153d4dc",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "462937ecdda744a53baaaa2c43d25d593e42f973bcf08c4d363b0e5d009df3d7"
+}

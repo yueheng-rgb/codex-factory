@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  58,
+    "frozenAt":  "2026-06-20T18:48:07.6902202+08:00",
+    "runId":  "u1-r1-negative-isolation",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\u1-r1-negative-isolation\\trust-root.json",
+    "controlPlaneLockSha256":  "6b0b1dc9a52b232e37dd5dfaa45dde2bc220bbec55c3cc2426e0bda0c3731741",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "ae4d36e76fae4db28bdbeca8eecb4a4216e72c27a9566ce046a97853a63ff64a"
+}

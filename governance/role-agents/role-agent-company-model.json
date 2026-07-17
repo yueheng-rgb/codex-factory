@@ -1,0 +1,127 @@
+﻿{
+    "orgChart":  {
+                     "Database":  {
+                                      "coordinates":  [
+                                                          "Backend",
+                                                          "Architect",
+                                                          "Security"
+                                                      ],
+                                      "reports":  [
+
+                                                  ]
+                                  },
+                     "Security":  {
+                                      "coordinates":  [
+                                                          "Backend",
+                                                          "Database",
+                                                          "Architect",
+                                                          "PM"
+                                                      ],
+                                      "reports":  [
+
+                                                  ]
+                                  },
+                     "Backend":  {
+                                     "coordinates":  [
+                                                         "Frontend",
+                                                         "Architect",
+                                                         "Integrator",
+                                                         "QA",
+                                                         "Security"
+                                                     ],
+                                     "reports":  [
+
+                                                 ]
+                                 },
+                     "Auditor":  {
+                                     "coordinates":  [
+                                                         "PM",
+                                                         "Verifier"
+                                                     ],
+                                     "reports":  [
+
+                                                 ]
+                                 },
+                     "PM":  {
+                                "coordinates":  [
+                                                    "all_roles"
+                                                ],
+                                "reports":  [
+                                                "Architect",
+                                                "Integrator"
+                                            ]
+                            },
+                     "QA":  {
+                                "coordinates":  [
+                                                    "Frontend",
+                                                    "Backend",
+                                                    "Verifier"
+                                                ],
+                                "reports":  [
+
+                                            ]
+                            },
+                     "Verifier":  {
+                                      "coordinates":  [
+                                                          "PM",
+                                                          "Auditor"
+                                                      ],
+                                      "reports":  [
+
+                                                  ]
+                                  },
+                     "Frontend":  {
+                                      "coordinates":  [
+                                                          "Backend",
+                                                          "Architect",
+                                                          "Integrator",
+                                                          "QA"
+                                                      ],
+                                      "reports":  [
+
+                                                  ]
+                                  },
+                     "Integrator":  {
+                                        "coordinates":  [
+                                                            "Frontend",
+                                                            "Backend",
+                                                            "QA",
+                                                            "PM"
+                                                        ],
+                                        "reports":  [
+
+                                                    ]
+                                    },
+                     "Architect":  {
+                                       "coordinates":  [
+                                                           "Integrator",
+                                                           "PM"
+                                                       ],
+                                       "reports":  [
+                                                       "Frontend",
+                                                       "Backend",
+                                                       "Database"
+                                                   ]
+                                   }
+                 },
+    "version":  "1.0.0",
+    "implementationRoles":  [
+                                "Frontend",
+                                "Backend",
+                                "Database"
+                            ],
+    "readOnlyRoles":  [
+                          "Verifier",
+                          "Auditor",
+                          "Explorer"
+                      ],
+    "description":  "Software company model: PM orchestrates, Architect designs, Integrator reconciles, Builders implement, QA/Security review, Verifier/Auditor check. Main Agent = PM. All roles route through Manual Router + Proof-of-Read.",
+    "schemaId":  "role-agent-company-model",
+    "reviewRoles":  [
+                        "QA",
+                        "Security",
+                        "Integrator",
+                        "Architect"
+                    ],
+    "generatedAt":  "2026-06-25T16:07:33+08:00"
+}

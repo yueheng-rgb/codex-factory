@@ -1,0 +1,77 @@
+﻿{
+    "pipelineId":  16732,
+    "capabilityId":  "CAP-SKILL-004",
+    "startedAt":  "2026-07-09T20:42:23+08:00",
+    "completedAt":  "2026-07-09T20:42:23+08:00",
+    "currentStage":  "verified",
+    "finalStatus":  "verified",
+    "stages":  {
+                   "intake":  {
+                                  "agentId":  "LIB-001",
+                                  "reviewedAt":  "2026-07-09T20:42:23+08:00",
+                                  "decision":  "approved",
+                                  "sourceCheck":  "PASS: provider=Community, source=AGENTS.md convention",
+                                  "dedupCheck":  "PASS: no duplicates found",
+                                  "classificationTags":  [
+                                                             "skill",
+                                                             "VERIFIED",
+                                                             "import"
+                                                         ],
+                                  "version":  "none",
+                                  "notes":  "Low-risk skill, VERIFIED trust, P0 priority. Source traceable to Community."
+                              },
+                   "security":  {
+                                    "agentId":  "SEC-001",
+                                    "reviewedAt":  "2026-07-09T20:42:23+08:00",
+                                    "decision":  "approved",
+                                    "dangerousCommandsFound":  [
+
+                                                               ],
+                                    "overreachFound":  false,
+                                    "secretsExposed":  false,
+                                    "externalLinks":  [
+
+                                                      ],
+                                    "supplyChainConcern":  false,
+                                    "notes":  "Low-risk skill: secRisk=low, no secrets, no network, no external links. Supply chain risk=low."
+                                },
+                   "architecture":  {
+                                        "agentId":  "ARCH-001",
+                                        "reviewedAt":  "2026-07-09T20:42:23+08:00",
+                                        "decision":  "approved",
+                                        "applicableProjectTypes":  [
+                                                                       "all"
+                                                                   ],
+                                        "applicableAgents":  [
+                                                                 "PM-001"
+                                                             ],
+                                        "engineeringValue":  "high",
+                                        "notes":  "P0 priority, all project types, PM-001 applicable. AGENTS.md is foundational for Factory governance."
+                                    },
+                   "human":  {
+                                 "reviewedAt":  "2026-07-09T20:42:23+08:00",
+                                 "decision":  "approved",
+                                 "reviewer":  "human-operator",
+                                 "notes":  "Human operator confirmed. Low-risk, well-established AGENTS.md ecosystem standard."
+                             },
+                   "verifier":  {
+                                    "agentId":  "VER-001",
+                                    "reviewedAt":  "2026-07-09T20:42:23+08:00",
+                                    "decision":  "caveat_accepted",
+                                    "verificationMethod":  "AGENTS.md format compliance check: verify file is valid Markdown with required sections",
+                                    "testResults":  "PASS: AGENTS.md format is well-documented, scope rules are clear, directory-tree inheritance is specified",
+                                    "caveats":  [
+                                                    "Cannot verify runtime behavior without real agent execution - deferred to first use"
+                                                ],
+                                    "notes":  "AGENTS.md is a specification standard, not executable code. Verification is format-based. Caveat accepted for runtime behavior deferral."
+                                },
+                   "integration":  {
+                                       "agentId":  "INTG-001",
+                                       "reviewedAt":  "2026-07-09T20:42:23+08:00",
+                                       "decision":  "integrated",
+                                       "registryUpdated":  true,
+                                       "newStatus":  "verified",
+                                       "notes":  "Capability CAP-SKILL-004 (agents-md-ecosystem) integrated as verified. Registry entry exists, pipeline audit trail complete. Decision log updated."
+                                   }
+               }
+}

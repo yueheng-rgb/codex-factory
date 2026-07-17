@@ -1,0 +1,9 @@
+﻿{
+    "verifier":  "factory-build-pack-staging-p1-bundle-verify.ps1",
+    "bundle_ready":  true,
+    "timestamp":  "2026-06-27T19:13:37.1911401+08:00",
+    "checks_total":  30,
+    "checks_passed":  30,
+    "checks_failed":  0,
+    "verifier_passed":  true
+}

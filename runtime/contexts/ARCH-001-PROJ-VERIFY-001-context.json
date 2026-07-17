@@ -1,0 +1,87 @@
+﻿{
+    "contextId":  "CTX-PROJ-VERIFY-001-ARCH-001-PHASE-VERIFY-001",
+    "projectId":  "PROJ-VERIFY-001",
+    "phaseId":  "PHASE-VERIFY-001",
+    "agentId":  "ARCH-001",
+    "taskId":  "",
+    "role":  "Architect Agent",
+    "category":  "Design",
+    "agentType":  "on-demand",
+    "allowedWriteScopes":  [
+                               "projects/{projectId}/docs/architecture/",
+                               "projects/{projectId}/docs/api/",
+                               "projects/{projectId}/docs/db/"
+                           ],
+    "forbiddenActions":  [
+                             "write_production_code",
+                             "write_implementation_code",
+                             "modify_running_system",
+                             "override_PM_gate",
+                             "design_beyond_first_slice_unless_requested"
+                         ],
+    "permissions":  {
+                        "read":  [
+                                     "all_project_files",
+                                     "governance_files",
+                                     "research_packets"
+                                 ],
+                        "write":  [
+                                      "design_docs_only"
+                                  ],
+                        "execute":  [
+                                        "shell_command(read)",
+                                        "apply_patch(design docs)",
+                                        "spawn_agent(sub-research)"
+                                    ]
+                    },
+    "allowedSkills":  {
+                          "required":  [
+                                           "codex-factory",
+                                           "product-architecture",
+                                           "backend-api-design",
+                                           "database-schema-design"
+                                       ],
+                          "optional":  [
+                                           "openai-docs"
+                                       ],
+                          "forbidden":  [
+                                            "imagegen",
+                                            "browser",
+                                            "spreadsheets"
+                                        ]
+                      },
+    "requiredInputs":  [
+                           "router_output",
+                           "user_requirements",
+                           "research_packets",
+                           "existing_codebase_if_applicable"
+                       ],
+    "requiredOutputs":  [
+                            {
+                                "name":  "architecture_proposal",
+                                "fields":  [
+                                               "architecture",
+                                               "apiEndpoints",
+                                               "dbSchema",
+                                               "pageTree",
+                                               "designDecisions",
+                                               "firstSliceScope"
+                                           ]
+                            }
+                        ],
+    "handoffRequired":  true,
+    "evidenceLevel":  "HIGH",
+    "failurePolicy":  {
+                          "unclearRequirements":  "request_clarification_from_PM",
+                          "conflictingConstraints":  "escalate_to_PM_with_options",
+                          "unknownTech":  "request_research_from_RSRC-001",
+                          "overEngineering":  "self_correct_per_anti_overengineering_rules",
+                          "maxRetries":  2
+                      },
+    "createdAt":  "2026-07-05T21:38:57+08:00",
+    "status":  "ACTIVATED",
+    "canReadProjects":  true,
+    "canWriteDesign":  true,
+    "canWriteCode":  false,
+    "canSpawnAgents":  true
+}

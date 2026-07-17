@@ -1,0 +1,51 @@
+﻿{
+    "question":  "Under what conditions should multi-agent become the default for Codex Factory in large-project context?",
+    "currentState":  "Multi-agent is NOT default. It must be earned through evidence.",
+    "nativeGenerated":  true,
+    "whatCannotDecide":  [
+                             "Small/medium benchmark results alone",
+                             "Factory self-building experience alone",
+                             "User preference or emotion",
+                             "Sunk cost of prior multi-agent development",
+                             "Theoretical arguments without benchmark evidence"
+                         ],
+    "decisionCriteria":  [
+                             {
+                                 "met":  false,
+                                 "threshold":  "At least ONE benchmark on a 50+ feature, 5+ independent module project showing multi-agent beats both Vanilla and v0.4 Factory Lite",
+                                 "criterion":  "Large-project benchmark evidence",
+                                 "evidenceNeeded":  "FACTORY-AGENT-8 benchmark results"
+                             },
+                             {
+                                 "met":  "UNKNOWN",
+                                 "threshold":  "Multi-agent produces fewer integration defects, better architecture preservation, and higher test coverage than Vanilla",
+                                 "criterion":  "Quality improvement",
+                                 "evidenceNeeded":  "Benchmark comparison data"
+                             },
+                             {
+                                 "met":  "UNKNOWN",
+                                 "threshold":  "Agent coordination overhead is less than 30% of total project time; net time benefit over Vanilla is positive or neutral with quality gain",
+                                 "criterion":  "Overhead acceptable",
+                                 "evidenceNeeded":  "Timing data from benchmarks"
+                             },
+                             {
+                                 "met":  "UNKNOWN",
+                                 "threshold":  "Multi-agent does not make small/medium projects worse (it just may not be the default for those)",
+                                 "criterion":  "No regression on small projects",
+                                 "evidenceNeeded":  "Regression test suite"
+                             },
+                             {
+                                 "met":  "NOT_APPLICABLE",
+                                 "threshold":  "If benchmark shows multi-agent WORSE than Vanilla on 3+ independent large projects, it should be deprecated for large projects too",
+                                 "criterion":  "Falsification threshold",
+                                 "evidenceNeeded":  "Negative result protocol"
+                             }
+                         ],
+    "phase":  "FACTORY-AGENT-0-F",
+    "falsificationProtocol":  {
+                                  "minimumWorseThreshold":  "3 independent large-project benchmarks where v0.5 underperforms Vanilla",
+                                  "rule":  "If FACTORY-AGENT-8 shows v0.5 Agent Company mode is WORSE than Vanilla on a large project benchmark, multi-agent must NOT become default",
+                                  "whatHappensIfFalsified":  "Multi-agent is deprecated as a large-project strategy. Codex Factory remains v0.4 Process Integrity Layer only. Research into alternative large-project strategies continues."
+                              },
+    "generatedAt":  "2026-06-26T01:03:37.0880322+08:00"
+}

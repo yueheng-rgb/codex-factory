@@ -1,0 +1,35 @@
+﻿{
+  "verification_id": "FACTORY-CONTEXT-SPACE-P5-SNAPSHOT-NOT-EVIDENCE-VERIFICATION",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "sub_step": "F",
+  "conclusion": "CONFIRMED: Snapshot is NOT treated as verifier evidence",
+  "verification_method": "CODE-AUDIT: All P5 scripts and governance files reference verifier JSONs (verifier-factory-context-space-p4-r1-result.json, etc.) as source of truth, NOT snapshots. Snapshots carry phase summaries only.",
+  "evidence_hierarchy": {
+    "tier_1_verifier_evidence": [
+      "verifier-factory-context-space-*-result.json (SHA-locked, verifier-signed)",
+      "phase-ledger.jsonl (append-only, verifier entries only)",
+      "direction-guard.json (frozen rules)"
+    ],
+    "tier_2_derived_context": [
+      "attach-packet-v3-latest.json (derived, carries freshnessStatus)",
+      "Snapshot Packs (derived, carries freshnessStatus)",
+      "conversation-state.json (working state, not evidence)"
+    ],
+    "tier_3_summary_only": [
+      "Snapshot Pack ULTRA_COMPACT (quick-status, no evidence value)",
+      "Compressed summaries (directional only)"
+    ]
+  },
+  "rules_enforcing": [
+    {"rule_id": "DG-008", "rule": "Compressed summary cannot be evidence"},
+    {"rule_id": "DG-012", "rule": "Snapshot is not verifier evidence (P5 new)"}
+  ],
+  "anti_patterns_blocked": [
+    "Using snapshot PASS field to claim phase complete",
+    "Using snapshot as substitute for verifier JSON",
+    "Using compressed summary for release decisions",
+    "Using ULTRA_COMPACT verdict field as evidence"
+  ],
+  "verdict": "Snapshot-not-evidence boundary is intact."
+}

@@ -1,0 +1,83 @@
+﻿{
+    "contextId":  "CTX-PROJ-VERIFY-001-IMPL-BE-001-PHASE-VERIFY-001",
+    "projectId":  "PROJ-VERIFY-001",
+    "phaseId":  "PHASE-VERIFY-001",
+    "agentId":  "IMPL-BE-001",
+    "taskId":  "",
+    "role":  "Implementer Agent",
+    "category":  "Implementation",
+    "agentType":  "on-demand",
+    "allowedWriteScopes":  [
+                               "contract_defined_paths_only"
+                           ],
+    "forbiddenActions":  [
+                             "write_outside_assigned_paths",
+                             "modify_api_contracts",
+                             "change_architecture_decisions",
+                             "access_other_agent_working_copies",
+                             "skip_auth_middleware",
+                             "hardcode_secrets"
+                         ],
+    "permissions":  {
+                        "read":  [
+                                     "all_project_files",
+                                     "architect_docs",
+                                     "api_contract"
+                                 ],
+                        "write":  [
+                                      "assigned_scope_only"
+                                  ],
+                        "execute":  [
+                                        "shell_command",
+                                        "apply_patch(assigned paths)",
+                                        "node_repl(browser test, FE only)"
+                                    ]
+                    },
+    "allowedSkills":  {
+                          "required":  [
+                                           "codex-factory",
+                                           "backend-api-design",
+                                           "auth-permission-security"
+                                       ],
+                          "optional":  [
+                                           "supabase-postgres-best-practices"
+                                       ],
+                          "forbidden":  [
+                                            "browser",
+                                            "imagegen",
+                                            "presentations"
+                                        ]
+                      },
+    "requiredInputs":  [
+                           "architect_output",
+                           "agent_contract",
+                           "starter_template"
+                       ],
+    "requiredOutputs":  [
+                            {
+                                "name":  "implementation_output",
+                                "fields":  [
+                                               "files",
+                                               "pagesImplemented_or_endpointsImplemented",
+                                               "testResults",
+                                               "knownCaveats",
+                                               "contractCompliance"
+                                           ]
+                            }
+                        ],
+    "handoffRequired":  true,
+    "evidenceLevel":  "HIGH",
+    "failurePolicy":  {
+                          "contractCannotFulfill":  "notify_Architect_and_Integrator",
+                          "dependencyIssue":  "report_with_specific_error",
+                          "scopeViolationRisk":  "pause_and_escalate",
+                          "testFailure":  "self_fix_up_to_3_attempts_then_escalate",
+                          "maxRetries":  3
+                      },
+    "createdAt":  "2026-07-05T21:38:57+08:00",
+    "status":  "ACTIVATED",
+    "canReadProjects":  true,
+    "canWriteDesign":  true,
+    "canWriteCode":  true,
+    "canSpawnAgents":  true
+}

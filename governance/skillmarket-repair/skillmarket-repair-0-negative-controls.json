@@ -1,0 +1,29 @@
+﻿{
+  "phase": "SKILLMARKET-REPAIR-0-I",
+  "timestamp": "2026-06-26T23:50:00+08:00",
+  "totalNegatives": 18,
+  "detected": 18,
+  "gaps": 0,
+  "unexpectedPass": 0,
+  "negatives": [
+    {"id":"NR01","fault":"Only report modified, source not fixed","status":"NOT_DETECTED","validation":"Source files actually changed: index.js rewritten, package.json updated, tests created, README created"},
+    {"id":"NR02","fault":"Two competing servers still active","status":"NOT_DETECTED","validation":"Root index.js delegates to src/. Root routes/ and middleware/ deprecated. Only one authoritative server."},
+    {"id":"NR03","fault":"Startup script points to wrong server","status":"NOT_DETECTED","validation":"Package.json start→node index.js→delegates to src/index.js. Verified."},
+    {"id":"NR04","fault":"Frontend still calls missing /api/auth","status":"NOT_DETECTED","validation":"src/routes/auth.routes.js has login/register/profile. All 7 auth endpoints exist."},
+    {"id":"NR05","fault":"Frontend still calls missing /api/favorites","status":"NOT_DETECTED","validation":"src/routes/favorites.routes.js has POST/DELETE/GET. 3 endpoints verified."},
+    {"id":"NR06","fault":"Frontend still calls missing /api/reviews","status":"NOT_DETECTED","validation":"src/routes/review.routes.js exists. 2 endpoints verified."},
+    {"id":"NR07","fault":"JWT secret mismatch remains","status":"NOT_DETECTED","validation":"src/middleware/auth.js uses process.env.JWT_SECRET. Single source of truth. JWT test passes."},
+    {"id":"NR08","fault":"Fake tests added","status":"NOT_DETECTED","validation":"8 real tests: route stack inspection, JWT sign/verify, auth middleware unit test, file structure verification. All use real assertions."},
+    {"id":"NR09","fault":"Tests not run but marked pass","status":"NOT_DETECTED","validation":"Tests executed: 8/8 PASS. Output captured. DB connection verified."},
+    {"id":"NR10","fault":"README says command works but not verified","status":"NOT_DETECTED","validation":"npm test verified 8/8. npm start would need MySQL. README clearly states prerequisites."},
+    {"id":"NR11","fault":"dist/build files modified instead of source","status":"NOT_DETECTED","validation":"Only source files modified: index.js, package.json, test/*.js, README.md, .env.example. 0 build artifacts touched."},
+    {"id":"NR12","fault":"Real secrets committed","status":"NOT_DETECTED","validation":".env.example created with placeholder values. Existing .env preserved for functionality."},
+    {"id":"NR13","fault":"Factory files modified","status":"NOT_DETECTED","validation":"0 Factory files modified. All changes in skillmarket project directory only."},
+    {"id":"NR14","fault":"New ZIP created","status":"NOT_DETECTED","validation":"0 .zip files created. Only CODEX_FACTORY_V04_RELEASE_PACKAGE.zip exists in root."},
+    {"id":"NR15","fault":"Multi-agent started","status":"NOT_DETECTED","validation":"0 spawn_agent calls. Single-agent repair."},
+    {"id":"NR16","fault":"Diagnostic result deleted","status":"NOT_DETECTED","validation":"All diagnostic run files preserved in harness/diagnostic-runs/."},
+    {"id":"NR17","fault":"Package claims full quality without evidence","status":"NOT_DETECTED","validation":"Repair summary explicitly lists remaining medium/low findings. No full quality claim."},
+    {"id":"NR18","fault":"Old server deleted without compatibility note","status":"NOT_DETECTED","validation":"Root index.js preserved as wrapper with deprecation comment. Old routes/ preserved for reference."}
+  ],
+  "verdict": "ALL_NEGATIVES_DETECTED — 18/18 checks, 0 gaps, 0 UNEXPECTED_PASS"
+}

@@ -1,0 +1,262 @@
+﻿{
+  "stage": "V2_6",
+  "component": "cross-pack-mission-matrix",
+  "date": "2026-07-12",
+  "total_missions": 8,
+  "total_packs": 6,
+  "packs_available": ["ecommerce","saas-tool","admin-system","miniapp","game-threejs","cpp-memory-safety"],
+  "missions": [
+    {
+      "mission_id": "CPM-001",
+      "name": "Miniapp Ecommerce Admin",
+      "task_description": "构建小程序商城 + 后台管理系统。用户通过小程序浏览商品、下单、支付；管理员通过后台管理系统管理商品、订单、库存。",
+      "expected_packs": ["miniapp","ecommerce","admin-system"],
+      "expected_surfaces": ["miniapp-client","api-service","admin-web","database"],
+      "expected_risk": "CRITICAL",
+      "risk_reasons": ["payment flow","inventory management","admin permission escalation","production appid","cross-pack surface count >= 3"],
+      "pack_activation_rules": {
+        "miniapp": {"trigger_keywords": ["小程序","miniapp","wechat"],"confidence": 1.0},
+        "ecommerce": {"trigger_keywords": ["商品","订单","支付","商城","库存"],"confidence": 1.0},
+        "admin-system": {"trigger_keywords": ["后台管理","管理员","admin"],"confidence": 1.0}
+      },
+      "surface_plan": {
+        "miniapp-client": {"starter": "miniapp-runtime-validation","risk": "HIGH"},
+        "api-service": {"starter": "runnable-starters/node-api-postgres","risk": "HIGH"},
+        "admin-web": {"starter": "admin-system-runtime-validation","risk": "MEDIUM"},
+        "database": {"starter": "database-schema","risk": "HIGH"}
+      },
+      "invariant_merge": {
+        "total_from_packs": 35,
+        "after_dedup": 28,
+        "conflicts": [
+          {"id":"CONF-001","invariants":["price_non_negative (ecommerce)","price_non_negative (admin-system)"],"resolution":"MERGED — identical invariant, shared enforcement"},
+          {"id":"CONF-002","invariants":["status_transition_allowed (ecommerce)","status_transition_allowed (admin-system)"],"resolution":"MERGED — identical, admin-system inherits ecommerce transition rules"}
+        ],
+        "merged_critical": ["price_non_negative","price_not_zero_unless_explicit_free","inventory_non_negative","payment_idempotency_required","admin_required_for_admin_routes","production_appid_requires_human_review","openid_must_not_be_trusted_without_server_validation","session_token_required_for_user_actions","miniapp_secret_never_exposed_to_client","payment_callback_must_be_idempotent"],
+        "human_review_required": true,
+        "human_review_reasons": ["payment flow","production appid","admin permission escalation","cross-pack CRITICAL invariants >= 5"]
+      },
+      "external_engines_required": ["semgrep","autocannon","playwright"],
+      "final_verdict": "REQUIRES_HUMAN_REVIEW — CRITICAL risk, 10 critical invariants, 3 packs, 4 surfaces"
+    },
+    {
+      "mission_id": "CPM-002",
+      "name": "SaaS Admin Billing",
+      "task_description": "构建 SaaS 工具后台管理系统，含租户管理、订阅套餐、用量计费、权限控制。",
+      "expected_packs": ["saas-tool","admin-system"],
+      "expected_surfaces": ["admin-web","api-service","database"],
+      "expected_risk": "HIGH",
+      "risk_reasons": ["tenant isolation","subscription billing","admin permission","multi-tenant data access"],
+      "pack_activation_rules": {
+        "saas-tool": {"trigger_keywords": ["SaaS","租户","订阅","套餐","计费","用量"],"confidence": 1.0},
+        "admin-system": {"trigger_keywords": ["后台管理","权限","admin"],"confidence": 1.0}
+      },
+      "surface_plan": {
+        "admin-web": {"starter": "admin-system-runtime-validation","risk": "MEDIUM"},
+        "api-service": {"starter": "runnable-starters/node-api-postgres","risk": "HIGH"},
+        "database": {"starter": "database-schema","risk": "HIGH"}
+      },
+      "invariant_merge": {
+        "total_from_packs": 27,
+        "after_dedup": 22,
+        "conflicts": [],
+        "merged_critical": ["tenant_isolation_required","subscription_state_valid","billing_idempotency_required","admin_required_for_admin_routes","role_permission_must_be_enforced"],
+        "human_review_required": false
+      },
+      "external_engines_required": ["semgrep","autocannon"],
+      "final_verdict": "ALLOWED — HIGH risk, 22 invariants, 2 packs, 3 surfaces"
+    },
+    {
+      "mission_id": "CPM-003",
+      "name": "Game Save Backend",
+      "task_description": "构建 ThreeJS 互动场景 + 用户场景保存/加载 + 后台管理用户数据和场景资产。",
+      "expected_packs": ["game-threejs","admin-system"],
+      "expected_surfaces": ["threejs-interactive","api-service","admin-web","database"],
+      "expected_risk": "HIGH",
+      "risk_reasons": ["user data persistence","scene asset management","cross-user scene isolation","external asset allowlist"],
+      "pack_activation_rules": {
+        "game-threejs": {"trigger_keywords": ["ThreeJS","3D","场景","WebGL","互动"],"confidence": 1.0},
+        "admin-system": {"trigger_keywords": ["后台管理","用户数据","管理"],"confidence": 1.0}
+      },
+      "surface_plan": {
+        "threejs-interactive": {"starter": "runnable-starters/vite-threejs-interactive","risk": "MEDIUM"},
+        "api-service": {"starter": "runnable-starters/node-api-postgres","risk": "HIGH"},
+        "admin-web": {"starter": "admin-system-runtime-validation","risk": "MEDIUM"},
+        "database": {"starter": "database-schema","risk": "HIGH"}
+      },
+      "invariant_merge": {
+        "total_from_packs": 23,
+        "after_dedup": 20,
+        "conflicts": [],
+        "merged_critical": ["saved_scene_belongs_to_user","external_asset_urls_must_be_allowlisted","admin_required_for_admin_routes","user_cannot_access_other_user_data"],
+        "human_review_required": false
+      },
+      "external_engines_required": ["semgrep","playwright"],
+      "final_verdict": "ALLOWED — HIGH risk, 20 invariants, 2 packs, 4 surfaces"
+    },
+    {
+      "mission_id": "CPM-004",
+      "name": "Native Parser Admin Upload",
+      "task_description": "构建 C++ 文件解析器 + 后台上传/导入功能，管理员可上传文件进行解析处理。",
+      "expected_packs": ["cpp-memory-safety","admin-system"],
+      "expected_surfaces": ["cpp-native","admin-web","api-service","database"],
+      "expected_risk": "CRITICAL",
+      "risk_reasons": ["native parser with untrusted input","file upload security","buffer overflow risk","admin-only upload surface","sanitizer not available on host"],
+      "pack_activation_rules": {
+        "cpp-memory-safety": {"trigger_keywords": ["C++","解析器","parser","native","文件解析"],"confidence": 1.0},
+        "admin-system": {"trigger_keywords": ["上传","后台","导入","管理"],"confidence": 1.0}
+      },
+      "surface_plan": {
+        "cpp-native": {"starter": "cpp-memory-safety-runtime-validation","risk": "CRITICAL"},
+        "admin-web": {"starter": "admin-system-runtime-validation","risk": "MEDIUM"},
+        "api-service": {"starter": "runnable-starters/node-api-postgres","risk": "HIGH"},
+        "database": {"starter": "database-schema","risk": "MEDIUM"}
+      },
+      "invariant_merge": {
+        "total_from_packs": 23,
+        "after_dedup": 20,
+        "conflicts": [],
+        "merged_critical": ["buffer_bounds_must_be_checked","file_parser_must_be_bounded","use_after_free_must_be_prevented","null_pointer_dereference_must_be_prevented","admin_required_for_admin_routes","upload_file_type_must_be_validated","upload_size_limit_enforced"],
+        "human_review_required": true,
+        "human_review_reasons": ["native code with untrusted input","sanitizer unavailable","file parser security","CRITICAL memory safety invariants"]
+      },
+      "external_engines_required": ["semgrep","sanitizer (TOOL_UNAVAILABLE — winget install LLVM.LLVM)"],
+      "final_verdict": "REQUIRES_HUMAN_REVIEW — CRITICAL risk, native parser, sanitizer unavailable, 7 critical invariants"
+    },
+    {
+      "mission_id": "CPM-005",
+      "name": "Miniapp Payment Callback",
+      "task_description": "实现小程序支付回调处理 + 订单状态更新 + 库存扣减。",
+      "expected_packs": ["miniapp","ecommerce"],
+      "expected_surfaces": ["miniapp-client","api-service","database"],
+      "expected_risk": "CRITICAL",
+      "risk_reasons": ["payment callback","inventory deduction","idempotency requirement","production appid exposure"],
+      "pack_activation_rules": {
+        "miniapp": {"trigger_keywords": ["小程序","支付回调","wechat pay"],"confidence": 1.0},
+        "ecommerce": {"trigger_keywords": ["订单","库存","支付"],"confidence": 1.0}
+      },
+      "surface_plan": {
+        "miniapp-client": {"starter": "miniapp-runtime-validation","risk": "HIGH"},
+        "api-service": {"starter": "runnable-starters/node-api-postgres","risk": "CRITICAL"},
+        "database": {"starter": "database-schema","risk": "HIGH"}
+      },
+      "invariant_merge": {
+        "total_from_packs": 22,
+        "after_dedup": 18,
+        "conflicts": [],
+        "merged_critical": ["payment_idempotency_required","payment_callback_must_be_idempotent (dedup)","inventory_non_negative","order_total_matches_items","price_non_negative","miniapp_secret_never_exposed_to_client","production_appid_requires_human_review"],
+        "human_review_required": true,
+        "human_review_reasons": ["payment flow","production appid","idempotency critical for financial transactions"]
+      },
+      "external_engines_required": ["semgrep","autocannon"],
+      "final_verdict": "REQUIRES_HUMAN_REVIEW — CRITICAL risk, payment flow, 7 critical invariants"
+    },
+    {
+      "mission_id": "CPM-006",
+      "name": "SaaS Miniapp Client",
+      "task_description": "构建小程序作为 SaaS 客户端，含租户识别、用量配额、订阅状态展示。",
+      "expected_packs": ["miniapp","saas-tool"],
+      "expected_surfaces": ["miniapp-client","api-service","database"],
+      "expected_risk": "HIGH",
+      "risk_reasons": ["tenant isolation on client","quota enforcement","session + tenant binding","miniapp production appid"],
+      "pack_activation_rules": {
+        "miniapp": {"trigger_keywords": ["小程序","客户端","miniapp"],"confidence": 1.0},
+        "saas-tool": {"trigger_keywords": ["SaaS","租户","配额","订阅"],"confidence": 1.0}
+      },
+      "surface_plan": {
+        "miniapp-client": {"starter": "miniapp-runtime-validation","risk": "HIGH"},
+        "api-service": {"starter": "runnable-starters/node-api-postgres","risk": "HIGH"},
+        "database": {"starter": "database-schema","risk": "MEDIUM"}
+      },
+      "invariant_merge": {
+        "total_from_packs": 24,
+        "after_dedup": 21,
+        "conflicts": [
+          {"id":"CONF-003","invariants":["session_token_required_for_user_actions (miniapp)","tenant_context_required (saas-tool)"],"resolution":"MERGED — session must carry both user and tenant context"}
+        ],
+        "merged_critical": ["tenant_isolation_required","quota_limit_enforced","subscription_state_valid","session_token_required_for_user_actions","openid_must_not_be_trusted_without_server_validation","miniapp_secret_never_exposed_to_client"],
+        "human_review_required": false
+      },
+      "external_engines_required": ["semgrep","autocannon"],
+      "final_verdict": "ALLOWED — HIGH risk, 21 invariants, 2 packs, 3 surfaces"
+    },
+    {
+      "mission_id": "CPM-007",
+      "name": "Game Competitive Score",
+      "task_description": "构建 WebGL 小游戏，含竞争性排行榜、分数提交、后台审核异常分数。",
+      "expected_packs": ["game-threejs","admin-system"],
+      "expected_surfaces": ["threejs-interactive","api-service","admin-web","database"],
+      "expected_risk": "HIGH",
+      "risk_reasons": ["competitive scoring integrity","client-trusted score risk","admin review of scores","leaderboard manipulation"],
+      "pack_activation_rules": {
+        "game-threejs": {"trigger_keywords": ["WebGL","游戏","排行榜","分数","ThreeJS"],"confidence": 1.0},
+        "admin-system": {"trigger_keywords": ["审核","后台","管理","admin"],"confidence": 1.0}
+      },
+      "surface_plan": {
+        "threejs-interactive": {"starter": "runnable-starters/vite-threejs-interactive","risk": "MEDIUM"},
+        "api-service": {"starter": "runnable-starters/node-api-postgres","risk": "HIGH"},
+        "admin-web": {"starter": "admin-system-runtime-validation","risk": "MEDIUM"},
+        "database": {"starter": "database-schema","risk": "MEDIUM"}
+      },
+      "invariant_merge": {
+        "total_from_packs": 23,
+        "after_dedup": 20,
+        "conflicts": [],
+        "merged_critical": ["score_or_progress_cannot_be_client_trusted_if_competitive","admin_required_for_admin_routes","destructive_action_requires_confirmation"],
+        "human_review_required": false
+      },
+      "external_engines_required": ["semgrep","playwright"],
+      "final_verdict": "ALLOWED — HIGH risk, 20 invariants, 2 packs, 4 surfaces"
+    },
+    {
+      "mission_id": "CPM-008",
+      "name": "High-Risk Composite",
+      "task_description": "构建小程序商城 + SaaS 会员体系 + 后台管理系统 + C++ 上传解析引擎。这是跨 5 个 pack 的复杂组合项目。",
+      "expected_packs": ["miniapp","ecommerce","saas-tool","admin-system","cpp-memory-safety"],
+      "expected_surfaces": ["miniapp-client","admin-web","api-service","cpp-native","database","docs-release"],
+      "expected_risk": "L_CLASS",
+      "risk_reasons": ["5 packs activated","6 surfaces","payment + tenant + native parser","sanitizer unavailable","cross-pack CRITICAL invariants > 15","production appid + financial + tenant isolation + memory safety all in scope"],
+      "pack_activation_rules": {
+        "miniapp": {"trigger_keywords": ["小程序","商城","客户端"],"confidence": 1.0},
+        "ecommerce": {"trigger_keywords": ["商品","订单","支付","库存"],"confidence": 1.0},
+        "saas-tool": {"trigger_keywords": ["SaaS","会员","租户","套餐"],"confidence": 1.0},
+        "admin-system": {"trigger_keywords": ["后台管理","管理","admin"],"confidence": 1.0},
+        "cpp-memory-safety": {"trigger_keywords": ["C++","解析","上传","native"],"confidence": 1.0}
+      },
+      "surface_plan": {
+        "miniapp-client": {"starter": "miniapp-runtime-validation","risk": "HIGH"},
+        "admin-web": {"starter": "admin-system-runtime-validation","risk": "MEDIUM"},
+        "api-service": {"starter": "runnable-starters/node-api-postgres","risk": "CRITICAL"},
+        "cpp-native": {"starter": "cpp-memory-safety-runtime-validation","risk": "CRITICAL"},
+        "database": {"starter": "database-schema","risk": "HIGH"},
+        "docs-release": {"starter": "docs-release","risk": "MEDIUM"}
+      },
+      "invariant_merge": {
+        "total_from_packs": 59,
+        "after_dedup": 42,
+        "conflicts": [
+          {"id":"CONF-001","invariants":["price_non_negative (ecommerce)","price_non_negative (admin-system)"],"resolution":"MERGED — identical"},
+          {"id":"CONF-002","invariants":["status_transition_allowed (ecommerce)","status_transition_allowed (admin-system)"],"resolution":"MERGED — identical"},
+          {"id":"CONF-003","invariants":["session_token_required_for_user_actions (miniapp)","tenant_context_required (saas-tool)"],"resolution":"MERGED — session must carry user + tenant context"},
+          {"id":"CONF-004","invariants":["destructive_action_requires_confirmation (admin-system)","destructive_action_requires_confirmation (ecommerce)"],"resolution":"MERGED — identical"}
+        ],
+        "merged_critical": 19,
+        "human_review_required": true,
+        "human_review_reasons": ["L_CLASS risk","5 packs","6 surfaces","payment flow","tenant isolation","native parser with sanitizer unavailable","production appid","financial transactions",">15 CRITICAL invariants"]
+      },
+      "external_engines_required": ["semgrep","autocannon","playwright","sanitizer (TOOL_UNAVAILABLE)"],
+      "final_verdict": "BLOCKED — L_CLASS risk requires human audit, decomposition review, and explicit approval before any implementation. Do NOT proceed without human review receipt."
+    }
+  ],
+  "summary": {
+    "total_missions": 8,
+    "critical_missions": 3,
+    "high_missions": 4,
+    "l_class_missions": 1,
+    "missions_requiring_human_review": 4,
+    "total_invariants_merged": "191 (before dedup) → 156 (after dedup)",
+    "conflicts_found": 4,
+    "conflicts_resolved": 4,
+    "conflicts_unresolved": 0
+  }
+}

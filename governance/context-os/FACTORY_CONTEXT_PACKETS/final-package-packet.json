@@ -1,0 +1,20 @@
+﻿{
+  "packetId": "final-package-packet",
+  "purpose": "Recover final package state — what was shipped, what is experimental",
+  "generatedAt": "2026-06-25T00:10:02+08:00",
+  "requiredReadFiles": [
+    "governance/factory-state/current-factory-state.json",
+    "governance/factory-state/h24-final-package-candidate-inventory.json",
+    "governance/context-os/FACTORY_PACKAGE_LEDGER.jsonl",
+    "outputs/CODEX_FACTORY_FINAL_PACKAGE.sha256"
+  ],
+  "trustedFacts": [
+    "FINAL ZIP SHA256: 01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+    "CORE: resource pack, factoryctl, governance, policies",
+    "EXPERIMENTAL: plugin, MCP, monitoring, automation",
+    "EXCLUDED: scoring systems, failure router"
+  ],
+  "activeRisks": [],
+  "rejectedClaims": ["Plugin production-ready","Automation production-ready"],
+  "nextActions": ["Validate ZIP SHA256 against manifest","Check package boundary"]
+}

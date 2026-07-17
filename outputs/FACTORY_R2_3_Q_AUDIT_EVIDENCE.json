@@ -1,0 +1,37 @@
+﻿{
+  "auditId": "R2.3-Q-AUDIT-001",
+  "date": "2026-07-11",
+  "prior_classification": "A_LIVE_SEARCH_CONNECTED_AND_EP_VERIFIED",
+  "corrected_classification": "A_PROVIDER_LIVE_PROVIDER_API_CONNECTED_AND_EP_VERIFIED",
+  "search_status": "SEARCH_TOOL_INVOCATION_NOT_VERIFIED",
+  "reality_check": {
+    "provider_live_api_connected": true,
+    "provider_response_real": true,
+    "evidence_pack_written": true,
+    "quality_gate_passed": true,
+    "web_search_tool_invoked": false,
+    "source_backed_results_present": false,
+    "llm_knowledge_answer_only": true,
+    "secret_safety_passed": true,
+    "key_leaked": false
+  },
+  "reason_for_correction": "Evidence Pack contains LLM knowledge answer captured via chat API, not web search results with external URLs. Request payload was plain chat completion without web_search tool. Provider API connection is proven; web search tool invocation is NOT.",
+  "r2_3_r_required": true,
+  "r2_3_r_test_plan": [
+    "Use correct ZhipuAI web_search tool invocation format",
+    "Verify response contains tool_calls with external URLs/titles/snippets",
+    "Evidence Pack must have real external source URLs (not API endpoint)",
+    "Quality Gate must reject LLM knowledge answers mislabeled as search results"
+  ],
+  "changed_files": [
+    "outputs/FACTORY_R2_3_Q_LIVE_EVIDENCE_PACK.json",
+    "governance/search-invocations/search-invocation-index.jsonl",
+    "outputs/FACTORY_R2_3_Q_LIVE_SMOKE_FINAL_REPORT.md"
+  ],
+  "files_must_not_change": [
+    "Agent access control",
+    "Direction registry",
+    "Router/Planner guard",
+    "Skill registry"
+  ]
+}

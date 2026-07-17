@@ -1,0 +1,8 @@
+﻿{
+    "build8Window":  "3 agents shown = 3 created = correct",
+    "oldWindow30plus":  "30+ likely = cumulative across many phases, most completed/closed",
+    "subPhase":  "C_UI_COUNT_INTERPRETATION",
+    "policy":  "Never use UI count as active agent count. Always audit lifecycle individually.",
+    "finding":  "UI agent count is cumulative creation count per window, NOT active agent count",
+    "phase":  "FACTORY-BUILD-8-P1"
+}

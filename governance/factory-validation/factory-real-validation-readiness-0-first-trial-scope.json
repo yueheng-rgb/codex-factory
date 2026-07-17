@@ -1,0 +1,11 @@
+﻿{
+    "sub_step":  "C",
+    "fail_criteria":  "Safety boundary crossed; wrong output; phase-ledger stale; direction guard stale",
+    "trial_sequence_steps":  12,
+    "excluded_behaviors":  10,
+    "pass_criteria":  "All 12 behaviors produce expected output; no safety boundary crossed",
+    "behaviors_to_validate":  12,
+    "warn_criteria":  "Expected output with caveat (non-blocking)",
+    "works_with_sub_step_B":  true,
+    "title":  "First Trial Validation Scope"
+}

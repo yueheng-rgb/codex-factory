@@ -1,0 +1,25 @@
+﻿{
+    "expectedBuilders":  [
+                             "ag4-b1",
+                             "ag4-b2"
+                         ],
+    "submittedHandoffs":  [
+                              "ag4-b1",
+                              "ag4-b2"
+                          ],
+    "expectedOutputs":  [
+                            "mod1/login.ts",
+                            "mod2/checkout.ts"
+                        ],
+    "actualOutputs":  [
+                          "mod1/login.ts",
+                          "mod2/checkout.ts"
+                      ],
+    "readyForIntegration":  true,
+    "blockers":  [
+
+                 ],
+    "openAgents":  [
+
+                   ]
+}

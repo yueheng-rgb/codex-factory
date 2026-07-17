@@ -1,0 +1,12 @@
+﻿{
+    "phase_close_id": "FACTORY-BUILD-REALWORLD-2-P2-PHASE-CLOSE-CONTEXT-UPDATE",
+    "generated_at": "2026-06-28T10:30:01+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P2",
+    "section": "K",
+    "updates_succeeded": 16,
+    "mount_readiness_post_close": {"ready": true, "checks_passed": 10, "checks_total": 10},
+    "snapshots_refreshed": 8,
+    "attach_packet_regenerated": true,
+    "direction_guard_updated": true,
+    "verdict": "PHASE_CLOSE_COMPLETE"
+}

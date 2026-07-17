@@ -1,0 +1,40 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "C",
+  "title": "User Requirement Entry Contract",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "contract_file": "factory-workflow/USER_REQUIREMENT_ENTRY_CONTRACT.md",
+  "trigger_phrases_cn": [
+    "用工厂模式做这个项目",
+    "使用 Codex Factory 接手",
+    "用 v0.5 做这个项目",
+    "帮我做这个项目",
+    "接手这个文件夹",
+    "做一个 XXX 系统/平台/应用",
+    "帮我开发一个...",
+    "新建一个项目...",
+    "构建/打包/部署这个项目"
+  ],
+  "trigger_phrases_en": [
+    "use Factory mode for this project",
+    "use Codex Factory to take over",
+    "use v0.5 for this project",
+    "help me build this project",
+    "take over this folder",
+    "build a XXX system/platform/app"
+  ],
+  "auto_detection_conditions": [
+    "Factory is installed (.codex-factory/ exists) AND user gives project requirement",
+    "AGENTS.md references Factory in project tree",
+    "Complexity keywords detected: 系统, 平台, 管理, 后台, API, 数据库, 全栈, 前后端, CRUD, 权限, 用户系统"
+  ],
+  "non_trigger_conditions": [
+    "User asking general question",
+    "User editing single file",
+    "User asking about Factory itself (meta)",
+    "User explicitly says 不用 Factory or skip Factory"
+  ],
+  "expected_response_format": "Factory Boot Summary",
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_C_USER_REQUIREMENT_ENTRY_CONTRACT_REPORT.md"
+}

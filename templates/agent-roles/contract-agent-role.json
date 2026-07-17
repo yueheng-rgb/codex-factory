@@ -1,0 +1,13 @@
+﻿{
+    "forbiddenActions":  [
+                             "modify-source",
+                             "modify-closed-reports",
+                             "create-source-files"
+                         ],
+    "allowedActions":  [
+                           "read-domain-pack",
+                           "write-contract",
+                           "read-verifier-pack"
+                       ],
+    "role":  "contract"
+}

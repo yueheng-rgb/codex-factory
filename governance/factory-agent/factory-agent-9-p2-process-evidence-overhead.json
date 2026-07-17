@@ -1,0 +1,40 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P2",
+  "step": "H_PROCESS_EVIDENCE_OVERHEAD",
+  "timestamp": "2026-06-26T20:29:29.9885117+08:00",
+  "dimensions": {
+    "processQuality": {
+      "label": "Process Quality (agent artifacts, governance, transparency)",
+      "comparison": [
+        {"aspect":"multi-agent coordination","vanilla":"N/A (single agent)","v04":"N/A (single agent)","v05old":"7 agents, orchestrator, capsules, handoffs","p1":"4 agents, P1 runtime, capsules, lifecycle"},
+        {"aspect":"verifier gate","vanilla":"38/38 basic","v04":"35/35 v0.4","v05old":"Present","p1":"67/67 R1 + lifecycle reconcile"},
+        {"aspect":"negative controls","vanilla":"None","v04":"None","v05old":"55/55","p1":"38/38 R1 + 32/32 AG5P1"},
+        {"aspect":"contamination logging","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"},
+        {"aspect":"evidence preservation","vanilla":"Basic","v04":"Proof-of-read","v05old":"Capsules, handoffs, close receipts","p1":"Evidence lock, lifecycle reconcile, policy defect intake"}
+      ],
+      "analysis": "Vanilla and v0.4 have minimal process infrastructure. Old v0.5 has rich but heavy process (7 agents). P1 has leaner process (4 agents) with comparable governance rigor."
+    },
+    "evidenceQuality": {
+      "label": "Evidence Quality (verifiability, machine-readability, transcript completeness)",
+      "comparison": [
+        {"aspect":"verifier JSON","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present (verifier-factory-agent-8-p1-r1-result.json)"},
+        {"aspect":"test output captured","vanilla":"66/66","v04":"76/76","v05old":"Present","p1":"247/247 with full vitest log"},
+        {"aspect":"agent registry","vanilla":"None","v04":"None","v05old":"registry/","p1":"registry/ + lifecycle/"},
+        {"aspect":"progress tracking","vanilla":"None","v04":"None","v05old":"Present","p1":"AGENT_PROGRESS.jsonl"},
+        {"aspect":"handoff artifacts","vanilla":"None","v04":"None","v05old":"handoffs/","p1":"handoffs/ + close-receipts/"}
+      ],
+      "analysis": "P1 has the strongest evidence quality: full test log capture, agent registry with lifecycle reconciliation, and verifier result JSON. Old v0.5 has good process evidence but with 7-agent overhead."
+    },
+    "overhead": {
+      "label": "Process Overhead (agent count, spawn rounds, human intervention)",
+      "comparison": [
+        {"aspect":"agents used","vanilla":1,"v04":1,"v05old":7,"p1":4},
+        {"aspect":"spawn rounds","vanilla":0,"v04":0,"v05old":"multiple","p1":2},
+        {"aspect":"fork_context requirement","vanilla":"N/A","v04":"N/A","v05old":"N/A","p1":"false (met)"},
+        {"aspect":"human intervention","vanilla":"Minimal","v04":"Minimal","v05old":"Some","p1":"Some (reviewer block, lifecycle reconcile, R1 repair)"},
+        {"aspect":"process artifacts","vanilla":0,"v04":5,"v05old":30,"p1":20}
+      ],
+      "analysis": "P1's overhead (4 agents, 2 spawn rounds) is significantly lower than old v0.5 (7 agents, multiple rounds). P1's human intervention is higher due to BLOCKED_BY_REVIEWER path, but this is a process integrity cost, not a product quality cost."
+    }
+  }
+}

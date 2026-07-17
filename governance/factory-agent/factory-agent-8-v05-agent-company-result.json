@@ -1,0 +1,113 @@
+﻿{
+    "phase":  "FACTORY-AGENT-8",
+    "complexityFloors":  {
+                             "dbTablesActual":  15,
+                             "testFilesActual":  22,
+                             "sourceFilesActual":  71,
+                             "exportsFloor":  300,
+                             "exportsActual":  185,
+                             "endpointsActual":  35,
+                             "sourceFilesFloor":  80,
+                             "dbTablesFloor":  15,
+                             "endpointsFloor":  40,
+                             "testFilesFloor":  20
+                         },
+    "phaseName":  "OpsFlow Enterprise Lite v0.5 Agent Company RUN-LP-C",
+    "recommendedNextPhase":  "FACTORY-AGENT-9",
+    "caveats":  [
+                    "Module coverage: 11/13 full (user, search partial)",
+                    "Export count (185) below floor (300)",
+                    "API endpoints (35) below floor (40)",
+                    "Error code variety (16) below floor (30)",
+                    "v0.4 release ZIP not verified in verifier run"
+                ],
+    "productMetrics":  {
+                           "healthCheck":  "200 OK",
+                           "apiEndpoints":  35,
+                           "dbTables":  15,
+                           "testFiles":  22,
+                           "tsSourceFiles":  71,
+                           "testsPassed":  207,
+                           "totalTests":  207,
+                           "exports":  185
+                       },
+    "agentCompanyMode":  true,
+    "noClaims":  {
+                     "v04ZipModified":  false,
+                     "finalZipCreated":  false,
+                     "independentComparison":  false,
+                     "v05Superiority":  false,
+                     "multiAgentEffectiveness":  false
+                 },
+    "spawnedAgents":  [
+                          {
+                              "status":  "completed",
+                              "role":  "builder",
+                              "agentId":  "run-lp-c-builder-db",
+                              "nickname":  "McClintock"
+                          },
+                          {
+                              "status":  "completed",
+                              "role":  "builder",
+                              "agentId":  "run-lp-c-builder-backend",
+                              "nickname":  "Plato"
+                          },
+                          {
+                              "status":  "completed",
+                              "role":  "builder",
+                              "agentId":  "run-lp-c-builder-frontend",
+                              "nickname":  "Ptolemy"
+                          },
+                          {
+                              "status":  "completed",
+                              "role":  "builder",
+                              "agentId":  "run-lp-c-builder-tests",
+                              "nickname":  "Ampere"
+                          },
+                          {
+                              "readOnly":  true,
+                              "status":  "completed",
+                              "role":  "reviewer",
+                              "agentId":  "run-lp-c-reviewer",
+                              "nickname":  "Carver"
+                          },
+                          {
+                              "readOnly":  true,
+                              "status":  "completed",
+                              "role":  "verifier",
+                              "agentId":  "run-lp-c-verifier",
+                              "nickname":  "Raman"
+                          },
+                          {
+                              "readOnly":  true,
+                              "status":  "completed",
+                              "role":  "integrity-checker",
+                              "agentId":  "run-lp-c-integrity",
+                              "nickname":  "Linnaeus"
+                          }
+                      ],
+    "verdict":  "PASS",
+    "gateResults":  {
+                        "integrityChecker":  "PASS_WITH_CAVEAT",
+                        "verifier":  "PASS",
+                        "reviewer":  "PASS_WITH_CAVEAT"
+                    },
+    "verifierResult":  {
+                           "path":  "governance/factory-agent/verifier-factory-agent-8-result.json",
+                           "verdict":  "PASS",
+                           "checksFailed":  0,
+                           "checksWarned":  0,
+                           "checksPassed":  25
+                       },
+    "agentCompanyVersion":  "v0.5",
+    "runId":  "FACTORY-AGENT-8-RUN-LP-C-V05-AGENT-COMPANY",
+    "negativeControls":  {
+                             "gaps":  0,
+                             "detected":  60,
+                             "total":  60,
+                             "executed":  60
+                         },
+    "parentStatus":  "PASS",
+    "timestamp":  "2026-06-26T18:08:57.1401299+08:00",
+    "parentPhase":  "FACTORY-AGENT-7"
+}

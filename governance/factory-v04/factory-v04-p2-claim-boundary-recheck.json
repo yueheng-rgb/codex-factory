@@ -1,0 +1,68 @@
+﻿[
+    {
+        "note":  "Only in forbidden-claims/anti-claim context",
+        "pass":  true,
+        "id":  "F01",
+        "check":  "No universal quality claim"
+    },
+    {
+        "note":  "Only in \u0027Does NOT Support\u0027 section",
+        "pass":  true,
+        "id":  "F02",
+        "check":  "No \u0027always beats Vanilla\u0027 claim"
+    },
+    {
+        "note":  "Only as \u0027NOT a final release\u0027",
+        "pass":  true,
+        "id":  "F03",
+        "check":  "No final release claim"
+    },
+    {
+        "note":  "NOT found affirmatively",
+        "pass":  true,
+        "id":  "F04",
+        "check":  "No POR=correctness claim"
+    },
+    {
+        "note":  "Only in \u0027Never claim\u0027 section",
+        "pass":  true,
+        "id":  "F05",
+        "check":  "No process=product quality claim"
+    },
+    {
+        "note":  "Only in \u0027Never claim\u0027 section",
+        "pass":  true,
+        "id":  "F06",
+        "check":  "10-role not default"
+    },
+    {
+        "note":  "Not found anywhere",
+        "pass":  true,
+        "id":  "F07",
+        "check":  "No plugin production-ready claim"
+    },
+    {
+        "note":  "Not found anywhere",
+        "pass":  true,
+        "id":  "F08",
+        "check":  "No automation new-context claim"
+    },
+    {
+        "note":  "Present in EVIDENCE_BASIS + MCP",
+        "pass":  true,
+        "id":  "F09",
+        "check":  "EVAL-13 INCONCLUSIVE preserved"
+    },
+    {
+        "note":  "PROCESS_INTEGRITY_LAYER confirmed",
+        "pass":  true,
+        "id":  "F10",
+        "check":  "POSITIONING process integrity"
+    },
+    {
+        "note":  "RELEASE_CANDIDATE_NOT_FINAL in README+DAILY_USE",
+        "pass":  true,
+        "id":  "F11",
+        "check":  "RC status clear"
+    }
+]

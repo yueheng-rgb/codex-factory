@@ -1,0 +1,16 @@
+﻿{
+  "phase": "FACTORY-STATE-DASHBOARD-0",
+  "section": "A",
+  "title": "Dashboard Scope Lock",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "inherited_baselines": {
+    "user_handoff_0": "PASS",
+    "factory_default_workflow_0": "PASS (60/60)",
+    "factory_project_isolation_0": "PASS (48/48)"
+  },
+  "in_scope": ["Dashboard Data Model", "CLI Dashboard Contract", "Markdown Dashboard Format", "Agent Ledger View", "Path Visibility Contract", "Health & Warning Rules", "Prototype Script", "Simulation (10 scenarios)", "Integration Points", "Strategy Decision", "Negative Controls (31)", "Verifier"],
+  "excluded": ["Web UI", "Cloud service", "Graphical application", "New release", "v0.5 zip modification", "v0.6 creation", "Real project validation"],
+  "goal": "Make Factory state visible via local CLI/Markdown/JSON",
+  "report": "outputs/FACTORY_STATE_DASHBOARD_0_A_SCOPE_LOCK_REPORT.md"
+}

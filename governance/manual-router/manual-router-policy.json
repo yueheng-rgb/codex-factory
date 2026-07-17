@@ -1,0 +1,44 @@
+﻿{
+    "budgets":  {
+                    "high_risk":  10000,
+                    "medium":  6000,
+                    "small":  3000
+                },
+    "schemaId":  "manual-router-policy",
+    "generatedAt":  "2026-06-25T15:59:08+08:00",
+    "version":  "1.0.0",
+    "rules":  [
+                  {
+                      "id":  "MRP-01",
+                      "rule":  "Every major action must query the Page Router for required pages"
+                  },
+                  {
+                      "id":  "MRP-02",
+                      "rule":  "Required pages must be read and proof-of-read receipt generated before action proceeds"
+                  },
+                  {
+                      "id":  "MRP-03",
+                      "rule":  "Missing required page blocks action until read or risk-accepted"
+                  },
+                  {
+                      "id":  "MRP-04",
+                      "rule":  "Risk pages are read when corresponding risk signal is active"
+                  },
+                  {
+                      "id":  "MRP-05",
+                      "rule":  "Page budget per action: small\u003c3KB, medium\u003c6KB, P0/high-risk up to 10KB"
+                  },
+                  {
+                      "id":  "MRP-06",
+                      "rule":  "Always-on constitution is loaded in every session; report if \u003e2KB"
+                  },
+                  {
+                      "id":  "MRP-07",
+                      "rule":  "Proof-of-read does NOT prove understanding or correctness"
+                  },
+                  {
+                      "id":  "MRP-08",
+                      "rule":  "Manual Router does NOT mutate governance state"
+                  }
+              ]
+}

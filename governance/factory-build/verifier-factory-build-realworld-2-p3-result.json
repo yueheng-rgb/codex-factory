@@ -1,0 +1,136 @@
+﻿{
+    "passed":  25,
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-REALWORLD-2-P3",
+    "generated_at":  "2026-06-28T10:39:19+08:00",
+    "verdict":  "PASS",
+    "total_checks":  25,
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P3",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-001",
+                       "desc":  "P2 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-002",
+                       "desc":  "Context scope lock JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-003",
+                       "desc":  "Test failure inventory JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-004",
+                       "desc":  "Django alignment JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-005",
+                       "desc":  "Repair plan JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-006",
+                       "desc":  "Implemented repairs JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-007",
+                       "desc":  "Rerun validation JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-008",
+                       "desc":  "Security regression JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-009",
+                       "desc":  "P3 assessment JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-010",
+                       "desc":  "Phase close JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-011",
+                       "desc":  "Original unchanged"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-012",
+                       "desc":  "No deploy/remote"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-013",
+                       "desc":  "No production DB"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-014",
+                       "desc":  "No secret printed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-015",
+                       "desc":  "No real secrets in config"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-016",
+                       "desc":  "No NBP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-017",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-018",
+                       "desc":  "No v0.5"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-019",
+                       "desc":  "Neg controls JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-020",
+                       "desc":  "Neg controls 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-021",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-022",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-023",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-024",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P3-V-025",
+                       "desc":  "No manual PASS-only"
+                   }
+               ],
+    "failed":  0
+}

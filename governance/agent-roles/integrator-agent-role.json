@@ -1,0 +1,23 @@
+﻿{
+    "forbiddenActions":  [
+                             "modify-worker-source",
+                             "modify-closed-reports",
+                             "bypass-H10-verification",
+                             "integrate-without-handoff"
+                         ],
+    "soleIntegrator":  true,
+    "mustCheck":  [
+                      "all-workers-H10-PASS",
+                      "all-workers-H8-PASS",
+                      "handoff-complete",
+                      "freeze-manifests-exist",
+                      "RUN_STATE-chain-valid"
+                  ],
+    "allowedActions":  [
+                           "read-worker-outputs",
+                           "merge-to-canonical",
+                           "write-integration-ledger",
+                           "verify-integration"
+                       ],
+    "role":  "integrator"
+}

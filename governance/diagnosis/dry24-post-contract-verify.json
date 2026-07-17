@@ -1,0 +1,23 @@
+{
+  "phase": "DRY24-A",
+  "snapshotType": "post-contract",
+  "generatedAt": "2026-06-24T16:17:17.827367+08:00",
+  "buildersCompleted": 6,
+  "buildersTotalFilesCreated": 41,
+  "buildersTotalExports": 369,
+  "floorsMet": {
+    "sourceFiles": 309,
+    "floor": 90,
+    "met": true
+  },
+  "agentsActive": [
+    "dry24-builder-reliability",
+    "dry24-builder-contracts",
+    "dry24-builder-context",
+    "dry24-builder-decision",
+    "dry24-builder-progress",
+    "dry24-builder-drift"
+  ],
+  "allForkContextFalse": true,
+  "verdict": "PASS"
+}

@@ -1,0 +1,29 @@
+﻿{
+  "stage": "V2_6",
+  "component": "cross-pack-engine-matrix",
+  "date": "2026-07-12",
+  "engines": {
+    "semgrep": {"version":"1.169.0","available":true},
+    "autocannon": {"version":"8.0.0","available":true,"via":"npx"},
+    "playwright": {"version":"1.61.1","available":true,"chromium":"149.0.7827.55 (v1228)"},
+    "sanitizer_asan": {"available":false,"install":"winget install LLVM.LLVM"},
+    "sanitizer_ubsan": {"available":false,"install":"winget install LLVM.LLVM"},
+    "firecrawl": {"available":false,"status":"READER_ONLY_NOT_CANONICAL_SEARCH"}
+  },
+  "mission_engine_map": [
+    {"mission_id":"CPM-001","semgrep":"APPLICABLE","autocannon":"APPLICABLE","playwright":"APPLICABLE","sanitizer":"NOT_APPLICABLE"},
+    {"mission_id":"CPM-002","semgrep":"APPLICABLE","autocannon":"APPLICABLE","playwright":"NOT_APPLICABLE","sanitizer":"NOT_APPLICABLE"},
+    {"mission_id":"CPM-003","semgrep":"APPLICABLE","autocannon":"NOT_APPLICABLE","playwright":"APPLICABLE","sanitizer":"NOT_APPLICABLE"},
+    {"mission_id":"CPM-004","semgrep":"APPLICABLE","autocannon":"NOT_APPLICABLE","playwright":"NOT_APPLICABLE","sanitizer":"REQUIRED_BUT_UNAVAILABLE"},
+    {"mission_id":"CPM-005","semgrep":"APPLICABLE","autocannon":"APPLICABLE","playwright":"NOT_APPLICABLE","sanitizer":"NOT_APPLICABLE"},
+    {"mission_id":"CPM-006","semgrep":"APPLICABLE","autocannon":"APPLICABLE","playwright":"NOT_APPLICABLE","sanitizer":"NOT_APPLICABLE"},
+    {"mission_id":"CPM-007","semgrep":"APPLICABLE","autocannon":"NOT_APPLICABLE","playwright":"APPLICABLE","sanitizer":"NOT_APPLICABLE"},
+    {"mission_id":"CPM-008","semgrep":"APPLICABLE","autocannon":"APPLICABLE","playwright":"APPLICABLE","sanitizer":"REQUIRED_BUT_UNAVAILABLE"}
+  ],
+  "engine_run_summary": {
+    "semgrep_runs_possible": 8,
+    "autocannon_runs_possible": 4,
+    "playwright_runs_possible": 4,
+    "sanitizer_runs_possible": 0
+  }
+}

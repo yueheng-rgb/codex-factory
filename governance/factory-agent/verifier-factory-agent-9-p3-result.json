@@ -1,0 +1,215 @@
+﻿{
+    "verifier":  "factory-agent-9-p3-strategy-decision-freeze-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+    "passRatio":  "41/41",
+    "total":  41,
+    "pass":  41,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "v0.4-zip-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "v0.4-zip-sha256"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "no-new-zip"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "no-v05-package"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "final-package-unchanged"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "ag9p2-pass-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "ag9-historical-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "evidence-freeze-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "claim-freeze-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "keep-cut-defer-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "v05-release-gate-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "second-benchmark-gate-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "real-project-boundary-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "next-step-options-exist"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "vanilla-product-lead-preserved"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "p1-composite-lead-preserved"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "p1-not-declared-product-winner"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "multi-agent-not-default"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "old-10-role-not-restored"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "7-agent-cut-as-default"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "v05-release-blocked"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "v05-prep-not-recommended"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "second-benchmark-has-criteria"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "second-benchmark-has-falsification"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "5-options-presented"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "recommendation-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "user-decision-path-included"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "no-product-modified"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "no-benchmark-started"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "main-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negative-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-json-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-36-total"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-all-detected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-zero-gaps"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-unexpected-pass"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-fail-not-triggered"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-generic-fail"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-expectedClass-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-manual-pass-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:50:37.3956222+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-preclassified-only"
+                   }
+               ]
+}

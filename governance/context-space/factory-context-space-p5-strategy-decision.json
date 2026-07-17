@@ -1,0 +1,47 @@
+﻿{
+  "decision_id": "FACTORY-CONTEXT-SPACE-P5-STRATEGY-DECISION",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "sub_step": "I",
+  "questions_answered": [
+    {
+      "question": "1. Are Snapshot Packs usable for real fresh-window continuation?",
+      "answer": "YES, with qualification. Same-window simulation confirms mechanism works: Snapshot Pack loads frozen_conclusions, strategy flags, active risks, and next-phase guidance. Direction Guard v3 correctly blocks all forbidden claims. The mechanism is proven. True fresh-window trial (separate Codex instance) is recommended for P6 or user acceptance testing but is NOT required for P5 PASS.",
+      "verdict": "MECHANISM PROVEN"
+    },
+    {
+      "question": "2. Is BALANCED confirmed as default?",
+      "answer": "YES. BALANCED preserves all critical fields (frozen_conclusions, strategy flags, risks, next-phase) while being ~60% smaller than FULL. Sufficient for fresh-window mount. No reason to revise.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "question": "3. Is local context-space sufficient for now?",
+      "answer": "YES. Local Snapshot Packs + Attach Packet v3 + P2 SQLite index provide sufficient context for fresh-window continuation. No cloud dependency needed.",
+      "verdict": "LOCAL SUFFICIENT"
+    },
+    {
+      "question": "4. Should cloud remain deferred?",
+      "answer": "YES. No evidence that cloud adds value beyond local Snapshot Packs at current scale. User preference is LOCAL_ONLY. Cloud remains deferred unless user explicitly chooses sync.",
+      "verdict": "CLOUD DEFERRED"
+    },
+    {
+      "question": "5. Should next phase be P6, CLOUD-0, REALWORLD-2-P1, or user review?",
+      "answer": "P6 (Snapshot Auto-Refresh + Phase Close Integration) is recommended. REALWORLD-2-P1 is valid if user prioritizes project validation. CLOUD-0 is NOT recommended. v0.5 release is NOT recommended.",
+      "verdict": "P6 RECOMMENDED, REALWORLD-2-P1 VALID ALTERNATIVE"
+    }
+  ],
+  "recommended_next": "CONTEXT-SPACE-P6 / Snapshot Auto-Refresh + Phase Close Integration",
+  "valid_alternatives": ["REALWORLD-2-P1 (if user prioritizes project validation)"],
+  "not_recommended": ["CLOUD-0", "v0.5 release", "Native Build Pro as default"],
+  "strategy_frozen": [
+    "BALANCED = fresh-window default",
+    "ULTRA_COMPACT = quick-status only, not autonomous",
+    "CLOUD = deferred",
+    "Build Lite = default",
+    "Native Build Pro = conditional",
+    "multi-agent = rejected",
+    "v0.5 = blocked",
+    "Snapshot ≠ evidence",
+    "Direction Guard v3 = active and blocking correctly"
+  ]
+}

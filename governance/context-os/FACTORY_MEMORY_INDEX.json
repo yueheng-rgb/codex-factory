@@ -1,0 +1,536 @@
+﻿{
+    "version":  "1.0.0",
+    "entries":  [
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+                        "sourceArtifactPaths":  [
+                                                    "outputs/CODEX_FACTORY_FINAL_PACKAGE.zip",
+                                                    "governance/factory-state/verifier-final-prep-result.json"
+                                                ],
+                        "allowedUse":  "phase_recovery",
+                        "memoryId":  "MEM-0001",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "package_state",
+                        "forbiddenUse":  "do_not_regenerate",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "FINAL-PREP",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "FINAL package created and validated"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "B5C693CDEB5020E7",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/current-factory-state.json"
+                                                ],
+                        "allowedUse":  "startup_verification",
+                        "memoryId":  "MEM-0002",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "package_state",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "FINAL",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "finalZipExists: true, SHA256: 01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "0A608BAC9684AC1F",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/verifier-final-prep-result.json"
+                                                ],
+                        "allowedUse":  "phase_recovery",
+                        "memoryId":  "MEM-0003",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "phase_result",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "FINAL-PREP",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "FINAL-PREP: PASS, 20/20 negatives, 13/13 checks"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "6E7D95A63DD54E58;EF18B9FE493AF2EB",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/verifier-live-runtime-0-result.json",
+                                                    "outputs/LIVE_RUNTIME_0_AGENT_CONTEXT_RISK_DISCOVERY_REPORT.md"
+                                                ],
+                        "allowedUse":  "phase_recovery",
+                        "memoryId":  "MEM-0004",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "phase_result",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "LIVE-RUNTIME-0",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "LIVE-RUNTIME-0: PASS, agent+context risk discovery complete"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "682BDDE78C2659CF;14C192F9B6D6C47F",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/verifier-live-runtime-1-result.json",
+                                                    "governance/factory-state/agent-active-archive-index.json"
+                                                ],
+                        "allowedUse":  "phase_recovery",
+                        "memoryId":  "MEM-0005",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "gap_closure",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "LIVE-RUNTIME-1",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "LIVE-RUNTIME-1: all P0 gaps closed, 0 unsafe-stale agents"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "8D413D54EADFD389;C687D2A7AD38F4D3",
+                        "sourceArtifactPaths":  [
+                                                    "governance/agent-os/agent-state-machine.json",
+                                                    "governance/agent-os/agent-role-policy.json"
+                                                ],
+                        "allowedUse":  "agent_lifecycle_recovery",
+                        "memoryId":  "MEM-0006",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "agent_lifecycle",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "LIVE-RUNTIME-2",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "Agent OS established: 15-state lifecycle, 8 roles, authority matrix"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "D3FFAFFAC5437E43",
+                        "sourceArtifactPaths":  [
+                                                    "governance/agent-os/AGENT_EVENTS.jsonl"
+                                                ],
+                        "allowedUse":  "event_chain_verification",
+                        "memoryId":  "MEM-0007",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "agent_lifecycle",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "LIVE-RUNTIME-2",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "Agent OS event bus: AGENT_EVENTS.jsonl active, hash-chained"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "746FF8A5D409B88A",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/verifier-live-runtime-2-result.json"
+                                                ],
+                        "allowedUse":  "phase_recovery",
+                        "memoryId":  "MEM-0008",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "phase_result",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "LIVE-RUNTIME-2",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "LIVE-RUNTIME-2: PASS, 45/45 verifier checks"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "6EA6FDE43605390E",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/h24-final-package-candidate-inventory.json"
+                                                ],
+                        "allowedUse":  "capability_boundary",
+                        "memoryId":  "MEM-0009",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "capability_claim",
+                        "forbiddenUse":  "claim_production_ready",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "H24",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "Plugin is EXPERIMENTAL, not production-ready"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "MEDIUM",
+                        "sourceSha256":  "D230607C90C6AAA7",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/h20-mcp-capability-revalidation.json"
+                                                ],
+                        "allowedUse":  "capability_reference",
+                        "memoryId":  "MEM-0010",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "capability_claim",
+                        "forbiddenUse":  "claim_production_ready",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "H20",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "MCP factory verifier prototype exists, EXPERIMENTAL"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "MEDIUM",
+                        "sourceSha256":  "B251B1E1262A3C90",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/verifier-h21-result.json"
+                                                ],
+                        "allowedUse":  "capability_reference",
+                        "memoryId":  "MEM-0011",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "capability_claim",
+                        "forbiddenUse":  "claim_production_ready",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "H21",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "Monitoring prototype only — runtime automation scheduling untested"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "584C5560AE9F5DEA",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/h24-p2-conversation-branching-policy-integration.json"
+                                                ],
+                        "allowedUse":  "startup_verification",
+                        "memoryId":  "MEM-0012",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "decision",
+                        "forbiddenUse":  "claim_full_inheritance",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "H24-P2",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "No full context inheritance claim — artifact-based handoff only"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "C78829C5EF973E2B",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/h24-p1-conversation-branching-feasibility.json"
+                                                ],
+                        "allowedUse":  "startup_verification",
+                        "memoryId":  "MEM-0013",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "decision",
+                        "forbiddenUse":  "claim_auto_window",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "H24-P1",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "No automatic window creation claim unless verified"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "B0911A0E81F87C3C",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/session-rotation-handoff.json",
+                                                    "factory-resource-pack/session-rotation/"
+                                                ],
+                        "allowedUse":  "session_rotation_recovery",
+                        "memoryId":  "MEM-0014",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "decision",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "H24-P1",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "Session rotation: artifact-based, first-compact rule enforced"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "MEDIUM",
+                        "sourceSha256":  "B5C693CDEB5020E7",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/current-factory-state.json"
+                                                ],
+                        "allowedUse":  "capability_boundary",
+                        "memoryId":  "MEM-0015",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "caveat",
+                        "forbiddenUse":  "claim_production_ready",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "FINAL",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "Plugin remains EXPERIMENTAL — not production-ready"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "MEDIUM",
+                        "sourceSha256":  "B5C693CDEB5020E7",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/current-factory-state.json"
+                                                ],
+                        "allowedUse":  "capability_boundary",
+                        "memoryId":  "MEM-0016",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "caveat",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "FINAL",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "Automation claims bounded: none marked production-ready without evidence"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "MEDIUM",
+                        "sourceSha256":  "B6D7BB51681E1693",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/live-runtime-0-risk-taxonomy.json"
+                                                ],
+                        "allowedUse":  "risk_awareness",
+                        "memoryId":  "MEM-0017",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "risk_discovery",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "LIVE-RUNTIME-0",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "16 deception types classified, 8 occurred+repaired, 8 never occurred"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "MEDIUM",
+                        "sourceSha256":  "B6D7BB51681E1693",
+                        "sourceArtifactPaths":  [
+                                                    "governance/factory-state/live-runtime-0-risk-taxonomy.json"
+                                                ],
+                        "allowedUse":  "risk_awareness",
+                        "memoryId":  "MEM-0018",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "risk_discovery",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "LIVE-RUNTIME-0",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "16 unknown risks identified: 2 P0, 7 P1, 6 P2, 1 P3"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "PLACEHOLDER_NO_ARTIFACT_YET",
+                        "sourceArtifactPaths":  [
+                                                    "factory-resource-pack/session-rotation/"
+                                                ],
+                        "allowedUse":  "session_rotation_recovery",
+                        "memoryId":  "MEM-0019",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "policy",
+                        "forbiddenUse":  "",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "H24-P1",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "FIRST_COMPACT_REQUIRES_ROTATION_BEFORE_NEW_MAJOR_PHASE"
+                    },
+                    {
+                        "riskSignals":  [
+
+                                        ],
+                        "confidence":  "HIGH",
+                        "sourceSha256":  "A8DDFE8CC65D9551",
+                        "sourceArtifactPaths":  [
+                                                    "factory-resource-pack/context-compression/",
+                                                    "governance/factory-state/evidence-hierarchy-policy.json"
+                                                ],
+                        "allowedUse":  "evidence_validation",
+                        "memoryId":  "MEM-0020",
+                        "supersedes":  [
+
+                                       ],
+                        "type":  "policy",
+                        "forbiddenUse":  "use_compressed_summary",
+                        "sourceEvidenceType":  "artifact",
+                        "lastValidatedAt":  "2026-06-25T00:09:34+08:00",
+                        "supersededBy":  [
+
+                                         ],
+                        "phase":  "H17",
+                        "createdAt":  "2026-06-25T00:09:34+08:00",
+                        "validityStatus":  "CURRENT",
+                        "claim":  "COMPRESSED_SUMMARY_NOT_EVIDENCE"
+                    }
+                ],
+    "nativeGenerated":  true,
+    "schemaId":  "FACTORY_MEMORY_INDEX",
+    "generatedDuringPhase":  "LIVE-RUNTIME-3-B",
+    "totalEntries":  20,
+    "generatedAt":  "2026-06-25T00:15:22+08:00"
+}

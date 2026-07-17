@@ -1,0 +1,13 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "J",
+  "title": "Lifecycle Interaction",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "interaction_file": "factory-isolation/LIFECYCLE_INTERACTION.md",
+  "statuses": ["ACTIVE", "PAUSED", "ARCHIVED", "FROZEN", "DELETED", "MIGRATED", "UNKNOWN_NEEDS_CONFIRMATION"],
+  "core_principle": "No automatic cross-project effects from any status change",
+  "gated_transitions": ["DELETED (requires PROJECT DELETION protocol)", "MIGRATED (requires new identity creation)"],
+  "audit_trail": "Every transition logged with projectId, fromStatus, toStatus, timestamp, reason",
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_J_LIFECYCLE_INTERACTION_REPORT.md"
+}

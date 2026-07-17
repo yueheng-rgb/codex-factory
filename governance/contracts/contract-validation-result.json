@@ -1,0 +1,37 @@
+﻿{
+    "total":  6,
+    "passed":  6,
+    "failed":  0,
+    "results":  [
+                    {
+                        "file":  "dry23-builder-diagnosis-engine.worker-contract.json",
+                        "status":  "PASS",
+                        "reason":  ""
+                    },
+                    {
+                        "file":  "dry23-builder-diagnosis-reporter.worker-contract.json",
+                        "status":  "PASS",
+                        "reason":  ""
+                    },
+                    {
+                        "file":  "dry23-builder-evidence-collector.worker-contract.json",
+                        "status":  "PASS",
+                        "reason":  ""
+                    },
+                    {
+                        "file":  "dry23-builder-risk-classifier.worker-contract.json",
+                        "status":  "PASS",
+                        "reason":  ""
+                    },
+                    {
+                        "file":  "dry23-builder-snapshot-manager.worker-contract.json",
+                        "status":  "PASS",
+                        "reason":  ""
+                    },
+                    {
+                        "file":  "dry23-builder-verify-gate.worker-contract.json",
+                        "status":  "PASS",
+                        "reason":  ""
+                    }
+                ]
+}

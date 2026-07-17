@@ -1,0 +1,20 @@
+﻿{
+  "id": "agent-uuid-from-spawn_agent",
+  "nickname": "agent-nickname",
+  "role": "worker-backend|worker-frontend|worker-test|worker-verify",
+  "nativeSpawned": true,
+  "forkContext": false,
+  "capsule": {
+    "task": "description of assigned task",
+    "scope": ["file-paths"],
+    "rules": ["rule1", "rule2"]
+  },
+  "writeScope": ["file-path-1", "file-path-2"],
+  "spawnedAt": "ISO-8601",
+  "handoffAt": "ISO-8601",
+  "closedAt": "ISO-8601",
+  "status": "completed",
+  "outputFiles": 0,
+  "writeScopeViolations": 0,
+  "closeReceiptExists": true
+}

@@ -1,0 +1,23 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P3",
+  "step": "D_V05_RELEASE_GATE",
+  "timestamp": "2026-06-26T20:49:10.4368522+08:00",
+  "status": "BLOCKED",
+  "requiredGates": [
+    {"gate":"Product quality superiority proven","status":"NOT_MET","detail":"Vanilla 85 > P1 84. v0.5 package cannot claim product quality improvement."},
+    {"gate":"Second benchmark PASS","status":"NOT_MET","detail":"OpsFlow Enterprise Lite is insufficient. Larger benchmark needed to test generalization."},
+    {"gate":"Multi-agent not default claim","status":"MET","detail":"AGENT-9-P2/P3 explicitly state CONDITIONAL, not default."},
+    {"gate":"Process/evidence benefit documented","status":"MET","detail":"AGENT-9-P2 evidence: P1 process 80 vs Vanilla 40, evidence 82 vs 45."},
+    {"gate":"No unrepaired policy defects","status":"MET","detail":"AGENT-5-P1 repaired all known policy defects."},
+    {"gate":"Runtime P1 finalized","status":"NOT_MET","detail":"P1 runtime is proven for 13-module project only. Needs larger validation."},
+    {"gate":"Package manifest defined","status":"NOT_MET","detail":"No v0.5 package manifest exists. Would need CORE_PACKAGED/Optional/DEPRECATED classification."},
+    {"gate":"User acceptance","status":"NOT_MET","detail":"v0.5 release requires explicit user approval."}
+  ],
+  "verdict": "V05_RELEASE_BLOCKED",
+  "minimumForUnblock": [
+    "Second benchmark PASS on larger project (>50 modules)",
+    "P1 product quality >= Vanilla on that benchmark OR",
+    "Explicit user decision to release as PROCESS_TOOL (not product quality tool)"
+  ],
+  "experimentalPackAlternative": "P1 runtime could be released as FACTORY-AGENT-RUNTIME-P1-EXPERIMENTAL (non-default, no product quality claim). This is a separate gate from v0.5 release."
+}

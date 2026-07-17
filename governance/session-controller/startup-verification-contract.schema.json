@@ -1,0 +1,14 @@
+﻿{
+  "schemaId": "startup-verification-contract.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:34:03+08:00",
+  "requiredFields": ["contractId","carrierType","requiredChecks","blockingChecks","outputVerificationCommands","completionCriteria"],
+  "requiredChecks": ["read_current_factory_state","validate_final_zip_sha256","run_factoryctl_verify","run_cross_session_reconciliation","run_capacity_preflight","confirm_no_new_phase_artifacts","confirm_compressed_summary_not_evidence","confirm_rejected_claims_remain_rejected"],
+  "outputVerdicts": ["STARTUP_VERIFICATION_PASS","STARTUP_VERIFICATION_BLOCKED","STARTUP_VERIFICATION_ERROR"],
+  "rules": {
+    "failBlocksNewPhase": true,
+    "cannotMarkPhasePASS": true,
+    "cannotMutateGovernanceState": true,
+    "producesOnlyOwnResultArtifact": true
+  }
+}

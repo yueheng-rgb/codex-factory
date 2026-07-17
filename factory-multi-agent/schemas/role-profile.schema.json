@@ -1,0 +1,21 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "role-profile.schema.json",
+  "title": "Role Profile",
+  "type": "object",
+  "required": ["roleId", "roleName", "mission", "allowedInputs", "allowedPaths", "allowedTools", "forbiddenActions", "requiredEvidence", "outputSchema", "handoffTo", "failureModes", "escalationRules"],
+  "properties": {
+    "roleId": { "type": "string", "enum": ["router", "architect", "implementer-backend", "implementer-frontend", "test-verifier", "security-gate", "package-qa", "memory-context", "integrator"] },
+    "roleName": { "type": "string" },
+    "mission": { "type": "string" },
+    "allowedInputs": { "type": "array", "items": { "type": "string" } },
+    "allowedPaths": { "type": "array", "items": { "type": "string" } },
+    "allowedTools": { "type": "array", "items": { "type": "string" } },
+    "forbiddenActions": { "type": "array", "items": { "type": "string" } },
+    "requiredEvidence": { "type": "array", "items": { "type": "string" } },
+    "outputSchema": { "type": "object" },
+    "handoffTo": { "type": "array", "items": { "type": "string" } },
+    "failureModes": { "type": "array", "items": { "type": "string" } },
+    "escalationRules": { "type": "array", "items": { "type": "string" } }
+  }
+}

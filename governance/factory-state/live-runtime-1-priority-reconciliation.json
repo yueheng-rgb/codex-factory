@@ -1,0 +1,62 @@
+﻿{
+    "title":  "Priority Reconciliation",
+    "subPhase":  "A",
+    "nativeGenerated":  true,
+    "discrepancy":  {
+                        "issue":  "Capacity preflight classified as P0 in keyFindings but listed as P1 in recommendation gaps",
+                        "resolvedBy":  "Evidence re-evaluation",
+                        "source":  "LIVE-RUNTIME-0 findings vs recommendation"
+                    },
+    "phase":  "LIVE-RUNTIME-1",
+    "decision":  {
+                     "allP0Gaps":  [
+                                       "Agent lifecycle",
+                                       "Capacity preflight",
+                                       "Cross-session reconciliation"
+                                   ],
+                     "p1Gaps":  [
+                                    "Automation rotation watcher (plan only)"
+                                ],
+                     "rationale":  "Capacity preflight elevated to P0 based on DRY23-P1 evidence: spawn failure caused by capacity exhaustion directly triggered Main Agent fallback, the Factory\u0027s most severe historical failure mode"
+                 },
+    "resolvedPriorities":  [
+                               {
+                                   "evidence":  [
+                                                    "AGENT_REGISTRY.json: 0 agents have archived field",
+                                                    "AGENT_PROGRESS.jsonl: 34 close events vs 62 creates"
+                                                ],
+                                   "rationale":  "28/67 agents never formally closed; no archive field exists; no mechanism to distinguish active/stale/completed agents; 34 close events for 62 creates (0.55 ratio)",
+                                   "gap":  "Agent archive/quarantine/close lifecycle",
+                                   "severity":  "P0"
+                               },
+                               {
+                                   "evidence":  [
+                                                    "DRY23-P1: spawn failure → BLOCKING_MAIN_AGENT_UNDECLARED_FALLBACK",
+                                                    "FACTORY_TASK_QUEUE.json: 3 tasks, all stale",
+                                                    "67 agents spawned across 13 phases with no capacity check"
+                                                ],
+                                   "rationale":  "DRY23-P1 spawn failure (agent thread limit reached) directly triggered undeclared Main Agent fallback — 34 files written to worker scopes without contract. Capacity exhaustion is a P0 trigger for the Factory\u0027s most dangerous failure mode. FACTORY_TASK_QUEUE is stale (3 tasks, last from DRY19-B). No mechanism exists to check capacity before spawning.",
+                                   "gap":  "Capacity preflight",
+                                   "severity":  "P0"
+                               },
+                               {
+                                   "evidence":  [
+                                                    "H13-D: manual state repair required",
+                                                    "No reconciliation script exists in any phase"
+                                                ],
+                                   "rationale":  "Multiple session rotations (20+) have occurred without automated reconciliation. H13-D state repair was manual. No cross-session consistency check exists between current-factory-state.json, session-rotation-handoff.json, verifier results, and final ZIP manifest.",
+                                   "gap":  "Cross-session state reconciliation",
+                                   "severity":  "P0"
+                               },
+                               {
+                                   "evidence":  [
+                                                    "H21: MONITORING_PASS but prototype only",
+                                                    "run-factory-state-monitor.ps1 exists but no rotation triggers"
+                                                ],
+                                   "rationale":  "H21 monitoring prototype exists but is passive. Runtime scheduling untested. Rotation-aware triggering not implemented. This is important but not P0 because manual session rotation is reliable (20+ proven transitions). Can be a plan/stub in LIVE-RUNTIME-1.",
+                                   "gap":  "Automation rotation watcher",
+                                   "severity":  "P1"
+                               }
+                           ],
+    "generatedAt":  "2026-06-24T23:53:01+08:00"
+}

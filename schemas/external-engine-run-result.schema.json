@@ -1,0 +1,61 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codex-factory/schemas/external-engine-run-result.schema.json",
+  "title": "External Engine Run Result",
+  "description": "Standardized result from running an external engine.",
+  "type": "object",
+  "required": ["run_id", "engine_id", "status", "timestamp"],
+  "properties": {
+    "run_id": { "type": "string" },
+    "engine_id": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["CLEAN", "FINDINGS_PRESENT", "TOOL_UNAVAILABLE", "TOOL_FAILED", "SKIPPED", "TIMEOUT"]
+    },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "command_executed": { "type": "string" },
+    "execution_time_ms": { "type": "integer" },
+    "findings_count": { "type": "integer" },
+    "findings_by_severity": {
+      "type": "object",
+      "properties": {
+        "ERROR": { "type": "integer" },
+        "WARNING": { "type": "integer" },
+        "INFO": { "type": "integer" }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rule_id": { "type": "string" },
+          "severity": { "type": "string" },
+          "file": { "type": "string" },
+          "line": { "type": "integer" },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "raw_output_summary": { "type": "string" },
+    "threshold_results": {
+      "type": "object",
+      "properties": {
+        "requests": { "type": "integer" },
+        "error_rate": { "type": "number" },
+        "p95_ms": { "type": "number" },
+        "threshold_passed": { "type": "boolean" }
+      }
+    },
+    "evidence_binding": {
+      "type": "object",
+      "properties": {
+        "evidence_type": { "type": "string" },
+        "evidence_summary": { "type": "string" },
+        "evidence_files": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "skip_reason": { "type": "string" },
+    "error_message": { "type": "string" }
+  }
+}

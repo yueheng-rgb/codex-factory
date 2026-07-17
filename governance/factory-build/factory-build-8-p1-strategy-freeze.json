@@ -1,0 +1,11 @@
+﻿{
+    "NATIVE_BUILD_PRO":  "KEEP_CONDITIONAL - proven for medium projects, requires spawn_agent",
+    "BUILD_LITE":  "KEEP_AS_PRACTICAL_DEFAULT - best single-dev cost/benefit",
+    "TEN_ROLE":  "REJECTED - never proven",
+    "subPhase":  "E_STRATEGY_FREEZE",
+    "VANILLA":  "KEEP - simplest, always available",
+    "phase":  "FACTORY-BUILD-8-P1",
+    "SEVEN_AGENT":  "REJECTED - never proven",
+    "MULTI_AGENT_DEFAULT":  "REJECTED - CONDITIONAL only",
+    "V05":  "BLOCKED - insufficient evidence"
+}

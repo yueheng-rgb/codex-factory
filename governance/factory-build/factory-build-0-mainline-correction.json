@@ -1,0 +1,70 @@
+﻿{
+    "phase": "FACTORY-BUILD-0",
+    "subPhase": "A_MAINLINE_CORRECTION",
+    "date": "2026-06-27",
+    "corrections": [
+        {
+            "id": "MC01",
+            "issue": "Diagnostic Pack drift: Diagnostic Pack became perceived as main product",
+            "correction": "Diagnostic Pack is a safety gate and evidence-augmentation layer, NOT the main product. Main product is the Build Harness.",
+            "evidence": "AGENT-9-P3: Diagnostic Pack has process value but no product quality superiority over Vanilla"
+        },
+        {
+            "id": "MC02",
+            "issue": "SkillMarket as ongoing project: SkillMarket repair consumed mainline attention",
+            "correction": "SkillMarket is an evidence object from a real-project trial. It is NOT an ongoing product or main project. No further repair.",
+            "evidence": "14 defects found, 8/8 repair tests pass, diagnostic accuracy confirmed — trial complete"
+        },
+        {
+            "id": "MC03",
+            "issue": "Multi-agent abandoned: Multi-agent work was deprioritized after not beating Vanilla",
+            "correction": "Multi-agent remains a candidate mechanism for complex project production. Not default, but not abandoned. 4-agent P1 shows process benefits.",
+            "evidence": "AGENT-9-P3: 4-agent P1 KEEP CONDITIONALLY. Complex project production may benefit from agent work allocation."
+        },
+        {
+            "id": "MC04",
+            "issue": "Tiny phases proliferation: Many small diagnostic/repair phases consumed cycles without advancing mainline",
+            "correction": "Each subsequent phase must cover complete large-block objectives. No more small diagnostic-only phases. User explicitly demands larger phases.",
+            "evidence": "User directive: 每步尽量多做一点, 不要给大量小指令, 不要边做边忘主线"
+        },
+        {
+            "id": "MC05",
+            "issue": "Release/ZIP confusion: CODEX_FACTORY_V04_RELEASE_PACKAGE and FINAL_PACKAGE were created without clear build capability backing",
+            "correction": "Release packaging is an output of proven build capability, not a goal in itself. Build harness must prove capability before release.",
+            "evidence": "EVIDENCE_INDEX.md: Phase chain shows diagnostic value but no build harness evidence"
+        },
+        {
+            "id": "MC06",
+            "issue": "Benchmark without purpose: Second benchmark considered without clear build capability baseline",
+            "correction": "Benchmark compares outcomes after build harness is operational. Benchmark is a measurement tool, not a build mechanism.",
+            "evidence": "AGENT-9-P2: Benchmark scoring has methodology value but is not a production engine"
+        },
+        {
+            "id": "MC07",
+            "issue": "Core goal forgotten: Codex Factory's ultimate goal is to help Codex achieve its ceiling on complex projects, not to audit them",
+            "correction": "Primary goal: Enable Codex to build truly complex projects. Diagnostic Pack is a stage-gate, not the destination.",
+            "evidence": "Original Factory charter: verify and build Codex Factory to make Codex capable of more complex projects"
+        }
+    ],
+    "mainlineResetPrinciples": [
+        "Complex project production is the mainline",
+        "Diagnostic Pack is a gate, not the product",
+        "Multi-agent is a candidate mechanism, not default",
+        "Large phases over small tasks",
+        "Build capability before release packaging",
+        "External memory and continuation are required for complex projects",
+        "SkillMarket is closed as evidence object"
+    ],
+    "forbiddenContinuations": [
+        "Continuing Diagnostic Pack as main product",
+        "Continuing SkillMarket repair",
+        "Starting small patch phases",
+        "Creating v0.5 release",
+        "Declaring multi-agent default",
+        "Ignoring AGENT-9/P2/P3 evidence",
+        "Abandoning complex project production mainline",
+        "Treating Diagnostic Pack success as Factory completion",
+        "Converting mainline into audit tool",
+        "Continuing many small phases"
+    ]
+}

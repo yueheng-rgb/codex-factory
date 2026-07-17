@@ -1,0 +1,50 @@
+﻿{
+    "workflows":  {
+                      "soloDeveloper":  {
+                                            "mode":  "Build Lite",
+                                            "description":  "Single developer building a project with factory assistance",
+                                            "steps":  [
+                                                          "1. User describes project → Codex runs Project Expertise Flow",
+                                                          "2. User confirms architecture → Codex enters Build Lite",
+                                                          "3. Codex creates task graph, initializes .codex-factory/",
+                                                          "4. Codex executes tasks sequentially, updating memory",
+                                                          "5. Verifier runs at checkpoints",
+                                                          "6. User reviews output, can request iteration"
+                                                      ],
+                                            "contextPacket":  "OPTIONAL — user can request REVIEWER_PACKET for review"
+                                        },
+                      "teamLead":  {
+                                       "mode":  "Native Build Pro",
+                                       "description":  "Team lead building complex multi-module project",
+                                       "steps":  [
+                                                     "1. User describes complex project → Codex suggests Build Pro",
+                                                     "2. User CONFIRMS Build Pro → Codex verifies prerequisites",
+                                                     "3. Readiness gate + Memory Quality gate must PASS",
+                                                     "4. Context packet generated for PHASE_START_PACKET",
+                                                     "5. Codex decomposes into parallel task groups",
+                                                     "6. For each spawn: AGENT_START_PACKET generated + validated",
+                                                     "7. Agents execute with write scope enforcement",
+                                                     "8. Close receipts + handoffs at each agent completion",
+                                                     "9. Diagnostic gate at iteration boundaries",
+                                                     "10. Final verifier + negative controls before declaring done"
+                                                 ],
+                                       "contextPacket":  "REQUIRED — at phase start, each spawn, recovery"
+                                   }
+                  },
+    "title":  "User Workflow Draft",
+    "userRoles":  [
+                      "Solo Developer (Build Lite)",
+                      "Team Lead (Build Pro)",
+                      "Reviewer/QA",
+                      "Project Manager"
+                  ],
+    "section":  "G",
+    "status":  "DRAFT",
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "date":  "2026-06-27",
+    "manualBurden":  {
+                         "buildPro":  "Moderate — user must confirm Build Pro, review context packets, check agent lifecycle",
+                         "buildLite":  "Minimal — user mainly reviews output",
+                         "recommendation":  "Build Pro manual burden ~2x Build Lite but acceptable for complex projects"
+                     }
+}

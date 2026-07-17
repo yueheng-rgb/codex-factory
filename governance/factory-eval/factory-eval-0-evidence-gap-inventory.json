@@ -1,0 +1,118 @@
+﻿{
+    "needsCodexSelfCheck":  [
+                                "Manual router / proof-of-read feasibility",
+                                "Role agent model design",
+                                "Thread/fork automation schema",
+                                "Agent lifecycle native support"
+                            ],
+    "generatedAt":  "2026-06-25T15:46:22+08:00",
+    "needsWebSearch":  [
+                           "DeepSeek 1M context",
+                           "CrewAI/Coze/AutoGen platforms",
+                           "Codex thread/fork docs",
+                           "Codex MCP memory status"
+                       ],
+    "risks":  [
+                  {
+                      "prob":  "HIGH",
+                      "risk":  "Factory becomes self-referential",
+                      "severity":  "P0"
+                  },
+                  {
+                      "prob":  "MEDIUM",
+                      "risk":  "Factory manual too complex for Codex",
+                      "severity":  "P0"
+                  },
+                  {
+                      "prob":  "MEDIUM",
+                      "risk":  "Codex skips reading artifacts",
+                      "severity":  "P0"
+                  },
+                  {
+                      "prob":  "HIGH",
+                      "risk":  "Proof-of-read missing",
+                      "severity":  "P0"
+                  },
+                  {
+                      "prob":  "MEDIUM",
+                      "risk":  "Professional agents drift",
+                      "severity":  "P1"
+                  },
+                  {
+                      "prob":  "MEDIUM",
+                      "risk":  "Skill routing overcomplicates work",
+                      "severity":  "P1"
+                  },
+                  {
+                      "prob":  "MEDIUM",
+                      "risk":  "Multi-agent overhead \u003e benefits",
+                      "severity":  "P1"
+                  },
+                  {
+                      "prob":  "LOW",
+                      "risk":  "Metrics gaming",
+                      "severity":  "P1"
+                  },
+                  {
+                      "prob":  "UNKNOWN",
+                      "risk":  "Real project quality not improved",
+                      "severity":  "P0"
+                  },
+                  {
+                      "prob":  "LOW",
+                      "risk":  "Hidden human assistance dependency",
+                      "severity":  "P1"
+                  }
+              ],
+    "schemaId":  "factory-eval-0-evidence-gap-inventory",
+    "evidenceGaps":  [
+                         {
+                             "desc":  "Factory never tested on non-Factory project",
+                             "gap":  "Real project benchmark",
+                             "action":  "FACTORY-EVAL-4 through EVAL-8",
+                             "severity":  "P0"
+                         },
+                         {
+                             "desc":  "Thread/fork tools exist, untested for live carrier",
+                             "gap":  "Automatic carrier creation",
+                             "action":  "FACTORY-EVAL-2 Codex self-check",
+                             "severity":  "P1"
+                         },
+                         {
+                             "desc":  "No evidence in repo; external claims",
+                             "gap":  "DeepSeek 1M context claims",
+                             "action":  "FACTORY-EVAL-1 web search",
+                             "severity":  "P1"
+                         },
+                         {
+                             "desc":  "No artifact exists",
+                             "gap":  "Manual router / proof-of-read",
+                             "action":  "FACTORY-EVAL-2",
+                             "severity":  "P0"
+                         },
+                         {
+                             "desc":  "No artifact exists; core hypothesis",
+                             "gap":  "Role-specialized agent model",
+                             "action":  "FACTORY-EVAL-3",
+                             "severity":  "P0"
+                         },
+                         {
+                             "desc":  "Prototype only",
+                             "gap":  "MCP Memory production readiness",
+                             "action":  "Future live-runtime",
+                             "severity":  "P2"
+                         },
+                         {
+                             "desc":  "All SCHEDULED_MODE_SIMULATION",
+                             "gap":  "Automation real scheduling",
+                             "action":  "Requires real setup",
+                             "severity":  "P2"
+                         },
+                         {
+                             "desc":  "Compressed summary from prior window not trusted",
+                             "gap":  "Half-way handoff limitation",
+                             "action":  "Artifact verification per protocol",
+                             "severity":  "P1"
+                         }
+                     ]
+}

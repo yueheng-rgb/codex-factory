@@ -1,0 +1,196 @@
+﻿{
+    "passed":  37,
+    "timestamp":  "2026-06-26T00:37:44.1373195+08:00",
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\factory-v04-release-zip-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  37,
+    "phase":  "FACTORY-V04-RELEASE-ZIP",
+    "checks":  [
+                   {
+                       "Label":  "OLD_FINAL_PACKAGE_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "OLD_FINAL_UNCHANGED",
+                       "Pass":  true,
+                       "Detail":  "Not modified by this phase"
+                   },
+                   {
+                       "Label":  "V04_P2_REPORT_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "RELEASE_GATE_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "USER_CONFIRMATION_RECEIVED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "GATE_ALLOWED_ACTION",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "STAGING_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MANIFEST_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "VERSION_0.4.0",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "STATUS_RELEASED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POSITIONING",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "QUALITY_CONDITIONAL",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "EVAL13_PRESERVED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNIVERSAL_QUALITY",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_10ROLE_DEFAULT",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "FORBIDDEN_CLAIMS_EXIST",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "RELEASE_ZIP_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ZIP_SIZE_GT_ZERO",
+                       "Pass":  true,
+                       "Detail":  "size=40452"
+                   },
+                   {
+                       "Label":  "ZIP_SHA_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "POSTZIP_VALIDATION_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "DAILY_USE_IN_STAGING",
+                       "Pass":  true,
+                       "Detail":  "Found at staging root"
+                   },
+                   {
+                       "Label":  "MINIMAL_CONTEXT_IN_STAGING",
+                       "Pass":  true,
+                       "Detail":  "Found at staging/core/"
+                   },
+                   {
+                       "Label":  "RELEASE_SUMMARY_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_OLD_FINAL_IN_STAGING",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_BENCHMARK_PRODUCT_IN_STAGING",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVE_SUMMARY_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_36",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_EXECUTED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_DETECTED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_GAPS_0",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_A_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_B_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_C_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_D_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_E_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_F_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_G_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   }
+               ],
+    "failed":  0
+}

@@ -1,0 +1,83 @@
+﻿{
+    "contextId":  "CTX-PROJ-SIM-001-AUD-001-PHASE-SIM-001",
+    "projectId":  "PROJ-SIM-001",
+    "phaseId":  "PHASE-SIM-001",
+    "agentId":  "AUD-001",
+    "taskId":  "",
+    "role":  "Drift Auditor Agent",
+    "category":  "Quality",
+    "agentType":  "on-demand",
+    "allowedWriteScopes":  [
+                               "projects/{projectId}/reports/drift/"
+                           ],
+    "forbiddenActions":  [
+                             "write_code",
+                             "mark_PASS",
+                             "fix_issues",
+                             "modify_contracts",
+                             "override_PM_decisions"
+                         ],
+    "permissions":  {
+                        "read":  [
+                                     "all_project_files",
+                                     "all_contracts",
+                                     "agent_ledger"
+                                 ],
+                        "write":  [
+                                      "drift_reports_only"
+                                  ],
+                        "execute":  [
+                                        "shell_command(read-only analysis)",
+                                        "apply_patch(drift reports)"
+                                    ]
+                    },
+    "allowedSkills":  {
+                          "required":  [
+                                           "codex-factory"
+                                       ],
+                          "optional":  [
+
+                                       ],
+                          "forbidden":  [
+                                            "imagegen",
+                                            "browser",
+                                            "documents",
+                                            "spreadsheets",
+                                            "pdf"
+                                        ]
+                      },
+    "requiredInputs":  [
+                           "project_intent_contract",
+                           "architecture_contract",
+                           "feature_contracts",
+                           "non_goal_contract",
+                           "current_project_state",
+                           "agent_handoff_ledger"
+                       ],
+    "requiredOutputs":  [
+                            {
+                                "name":  "drift_report",
+                                "fields":  [
+                                               "driftDetected",
+                                               "drifts",
+                                               "gapInventory",
+                                               "roleComplianceAudit",
+                                               "evidenceChainAudit"
+                                           ]
+                            }
+                        ],
+    "handoffRequired":  true,
+    "evidenceLevel":  "HIGH",
+    "failurePolicy":  {
+                          "driftDetected":  "flag_report_severity_do_not_fix",
+                          "evidenceChainBroken":  "escalate_to_PM",
+                          "contractMissing":  "report_gap_request_contract_creation",
+                          "maxRetries":  1
+                      },
+    "createdAt":  "2026-07-05T21:38:50+08:00",
+    "status":  "ACTIVATED",
+    "canReadProjects":  true,
+    "canWriteDesign":  false,
+    "canWriteCode":  false,
+    "canSpawnAgents":  true
+}

@@ -1,0 +1,30 @@
+﻿{
+    "receipt_path":  "reviews/V3_0-REV-001-local-named.json",
+    "overall":  "PASS",
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "check":  "receipt_valid_json"
+                   },
+                   {
+                       "detail":  "Mode: True",
+                       "status":  "PASS",
+                       "check":  "identity_mode_present"
+                   },
+                   {
+                       "detail":  "Can upgrade to local_named_reviewer or signed_local_receipt",
+                       "status":  "INFO",
+                       "check":  "identity_upgrade_available"
+                   },
+                   {
+                       "detail":  "Non-claims present: True",
+                       "status":  "PASS",
+                       "check":  "non_claims_required_for_risk"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "no_production_exaggeration"
+                   }
+               ]
+}
+

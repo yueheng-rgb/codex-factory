@@ -1,0 +1,19 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Review Session",
+  "description": "A human review session containing multiple review receipts.",
+  "type": "object",
+  "required": ["session_id","created_at","reviewer_role","reviewer_name_or_alias","reviews"],
+  "properties": {
+    "session_id": {"type":"string","description":"Unique session ID, e.g. SESS-20260712-001"},
+    "created_at": {"type":"string","format":"date-time"},
+    "closed_at": {"type":"string","format":"date-time"},
+    "reviewer_role": {"type":"string"},
+    "reviewer_name_or_alias": {"type":"string"},
+    "reviews": {"type":"array","items":{"$ref":"./human-review-receipt.schema.json"}},
+    "session_status": {"type":"string","enum":["OPEN","CLOSED","ABANDONED"]},
+    "linked_artifact_store_index": {"type":"string"},
+    "linked_audit_ledger_entries": {"type":"array","items":{"type":"string"}},
+    "session_notes": {"type":"string"}
+  }
+}

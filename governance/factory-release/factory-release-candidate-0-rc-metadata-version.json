@@ -1,0 +1,21 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "D",
+    "title": "RC Metadata and VERSION Update",
+    "timestamp": "2026-06-28T20:30:00+08:00",
+    "rc_identity": {
+        "name": "codex-factory-core-v0.9.0-pre-RC0",
+        "artifactType": "RELEASE_CANDIDATE",
+        "version": "0.9.0-pre-rc0",
+        "rcNumber": 0
+    },
+    "flags": {
+        "releaseAllowed": false,
+        "v05Package": false,
+        "finalRelease": false,
+        "rcCandidate": true,
+        "rcRequiresUserApproval": true
+    },
+    "metadata_file": "factory-release/RC0_METADATA.json",
+    "section_verdict": "COMPLETE"
+}

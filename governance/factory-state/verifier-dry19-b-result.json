@@ -1,0 +1,161 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-dry19-b-live-negative-controls-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  30,
+    "passed":  30,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "DRY19-B-P1 report exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "Parent positive recheck exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "Parent source hash snapshot exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "Task queue shows DRY19-B started+done"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "21 negative runs exist"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "Group A has 6"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "Group B has 8"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "Group C has 7"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "No preclassified-only"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "Every negative has fault-manifest.json"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "Every negative has before/after SHA256"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "Every negative has command/transcript/exitCode"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "All-negative-evidence.json has 21 entries"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "Target-gate negatives have targetScenarioId"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  16,
+                       "desc":  "All target negs classify FAIL_TARGET_GATE"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  17,
+                       "desc":  "No generic FAIL in classifications"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  18,
+                       "desc":  "Control negatives classify non-generic"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  19,
+                       "desc":  "Metric-padding classifies FAIL_CONTRACT_DRIFT"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  20,
+                       "desc":  "Worker-isolation classifies FAIL_PROFILE_BOUNDARY_VIOLATION"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  21,
+                       "desc":  "Preclassified-only classifies FAIL_MISSING_EVIDENCE"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  22,
+                       "desc":  "Missing-targetScenarioId classifies correctly"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  23,
+                       "desc":  "H8-P2: all 21 negatives have full evidence"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  24,
+                       "desc":  "H11: alias map 0 WEAK/PARTIAL"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  25,
+                       "desc":  "Parent hash unchanged"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  26,
+                       "desc":  "Report sanitizer passes"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  27,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  28,
+                       "desc":  "Closed reports unchanged"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  29,
+                       "desc":  "DRY2-C through DRY13-C paused"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  30,
+                       "desc":  "DRY20-A not started"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T13:28:56.601+08:00"
+}

@@ -1,0 +1,295 @@
+﻿{
+    "verifier":  "factory-agent-5-p1-benchmark-floor-policy-repair-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+    "passRatio":  "57/57",
+    "total":  57,
+    "pass":  57,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "v0.4-release-zip-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "v0.4-release-zip-sha256-matches"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "no-new-zip-in-outputs"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "no-v0.5-artifacts"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "old-final-package-unchanged"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "ag8p1-r1-result-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "ag8p1-r1-verdict-preserved"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "ag8p1-r1-block-preserved"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "ag8p1-original-blocked-still-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "policy-defect-intake-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "policy-defect-intake-has-2-defects"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "policy-defect-intake-preserves-block"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "policy-defect-intake-preserves-r1"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "policy-defect-no-product-modified"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "metric-validity-audit-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "audit-has-14-metrics"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "audit-has-strong-hard-floors"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "audit-identifies-gameable-metrics"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "repaired-policy-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "repaired-policy-11-hard-floors"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "repaired-policy-3-diagnostic"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "repaired-policy-anti-gaming-defined"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "repaired-policy-meaningful-defs"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "source-file-count-not-hard-blocker"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "export-count-not-hard-blocker"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "source-file-count-is-diagnostic"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "export-count-is-diagnostic"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "fairness-plan-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "fairness-plan-4-runs"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "fairness-plan-constraints-defined"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "anti-gaming-policy-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "anti-gaming-11-rules"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "anti-gaming-meaningful-defs"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "ag9p2-instructions-exist"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "ag9p2-7-questions"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "ag9p2-4-runs"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "no-product-modified"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "no-new-benchmark-started"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "no-multi-agent-effectiveness-claimed"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "summary-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negative-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "intake-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "audit-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "policy-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "fairness-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "antigaming-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "ag9p2-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-json-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-32-total"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-all-detected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-zero-gaps"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-unexpected-pass"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-fail-not-triggered"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-generic-fail"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-expectedClass-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-manual-pass-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:24:28.0730016+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-preclassified-only"
+                   }
+               ]
+}

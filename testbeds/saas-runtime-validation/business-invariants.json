@@ -1,0 +1,30 @@
+﻿{ "source": "governance/expert-packs/saas-tool/saas-tool-pack.json", "source_version": "1.0.0", "activated_pack_id": "saas-tool",
+  "invariants": [
+    { "invariant_id":"tenant_data_isolation","enforced_in":"tenant.service.ts + routes/all.ts","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"user_cannot_access_other_tenant_data","enforced_in":"tenant.service.ts:assertTenantAccess","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"subscription_status_controls_access","enforced_in":"subscription.service.ts:assertSubscriptionActive","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"expired_subscription_cannot_generate","enforced_in":"subscription.service.ts:assertCanGenerate","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"usage_quota_non_negative","enforced_in":"subscription.service.ts:decrementQuota","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"quota_decrement_must_be_atomic","enforced_in":"subscription.service.ts:decrementQuota","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"generation_cost_must_be_recorded","enforced_in":"generation.service.ts:generate","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"generation_history_belongs_to_tenant","enforced_in":"generation.service.ts:getGenerationHistory","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"api_key_never_exposed_to_client","enforced_in":"generation.service.ts:listApiKeys + routes","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"provider_key_server_side_only","enforced_in":"generation.service.ts:getProviderKeyRedacted + routes","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"billing_webhook_idempotency_required","enforced_in":"generation.service.ts:processBillingEvent","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"rate_limit_enforced_per_user_or_tenant","enforced_in":"generation.service.ts:checkRateLimit + routes","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"admin_required_for_plan_change","enforced_in":"subscription.service.ts:changePlan","test_coverage":"tests/saas-validation.test.ts"},
+    { "invariant_id":"deleted_workspace_cannot_generate","enforced_in":"tenant.service.ts:deleteWorkspace + assertWorkspaceActive","test_coverage":"tests/saas-validation.test.ts"}
+  ],
+  "risk_rule_source_refs": [
+    {"rule_id":"SAAS-R001","validated_by":"Tenant isolation tests"},
+    {"rule_id":"SAAS-R002","validated_by":"Subscription access tests"},
+    {"rule_id":"SAAS-R003","validated_by":"Quota decrement tests"},
+    {"rule_id":"SAAS-R004","validated_by":"API key redaction tests"},
+    {"rule_id":"SAAS-R005","validated_by":"Provider key server-side tests"},
+    {"rule_id":"SAAS-R006","validated_by":"Webhook idempotency tests"},
+    {"rule_id":"SAAS-R007","validated_by":"Generation cost recording tests"},
+    {"rule_id":"SAAS-R008","validated_by":"Rate limit tests"},
+    {"rule_id":"SAAS-R009","validated_by":"Admin plan change tests"},
+    {"rule_id":"SAAS-R010","validated_by":"Design-only — content ownership in pack scope"}
+  ]
+}

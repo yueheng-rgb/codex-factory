@@ -1,0 +1,120 @@
+﻿{
+    "simulationDate":  "2026-07-09T20:19:12+08:00",
+    "factoryRoot":  "C:\\Codex_App_Factory",
+    "totalTests":  10,
+    "passCount":  9,
+    "mismatchCount":  1,
+    "allPassed":  false,
+    "tests":  [
+                  {
+                      "TestLabel":  "A: FE agent + shadcn-ui-blocks (write scope)",
+                      "AgentId":  "IMPL-FE-001",
+                      "CapabilityId":  "CAP-TMPL-004",
+                      "Decision":  "ALLOW_WITH_CONTROLS",
+                      "AcceptDecisions":  "ALLOW|ALLOW_WITH_CONTROLS",
+                      "Passed":  true,
+                      "Reason":  "ALLOW: Capability \u0027CAP-TMPL-004\u0027 is permitted for agent \u0027IMPL-FE-001\u0027 in project \u0027PROJ-SIM-001\u0027. Controls: write_scope_confirmed",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; CAP_STATUS: PASS (import); AGENT_ELIGIBILITY: PASS; PROJECT_TYPE: PASS; SECRETS: PASS; FILE_WRITE: PASS; NETWORK: PASS; CLOUD: PASS; LOCAL_RUNNER: PASS; FINAL: ALLOW_WITH_CONTROLS",
+                      "CapInfo":  "shadcn-ui-blocks (template, VERIFIED, import)"
+                  },
+                  {
+                      "TestLabel":  "B: FE agent + stitch-mcp (action=monitor)",
+                      "AgentId":  "IMPL-FE-001",
+                      "CapabilityId":  "CAP-MCP-001",
+                      "Decision":  "MONITOR_ONLY",
+                      "AcceptDecisions":  "MONITOR_ONLY",
+                      "Passed":  true,
+                      "Reason":  "MONITOR_ONLY: Capability \u0027CAP-MCP-001\u0027 recommended action is \u0027monitor\u0027 — observe only, do not invoke",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; ACTION_MONITOR: MONITOR_ONLY",
+                      "CapInfo":  "stitch-mcp (mcp_server, TRUSTED, monitor)"
+                  },
+                  {
+                      "TestLabel":  "C: Research agent + web-search-fallback (monitor)",
+                      "AgentId":  "RSRC-001",
+                      "CapabilityId":  "CAP-SRCH-009",
+                      "Decision":  "MONITOR_ONLY",
+                      "AcceptDecisions":  "MONITOR_ONLY|ALLOW_WITH_CONTROLS",
+                      "Passed":  true,
+                      "Reason":  "MONITOR_ONLY: Capability \u0027CAP-SRCH-009\u0027 recommended action is \u0027monitor\u0027 — observe only, do not invoke",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; ACTION_MONITOR: MONITOR_ONLY",
+                      "CapInfo":  "zhihu-juejin-csdn (search_provider, AVAILABLE, monitor)"
+                  },
+                  {
+                      "TestLabel":  "D: Verifier + api-contract-verifier",
+                      "AgentId":  "VER-001",
+                      "CapabilityId":  "CAP-VER-007",
+                      "Decision":  "ALLOW",
+                      "AcceptDecisions":  "ALLOW|ALLOW_WITH_CONTROLS",
+                      "Passed":  true,
+                      "Reason":  "ALLOW: Capability \u0027CAP-VER-007\u0027 is permitted for agent \u0027VER-001\u0027 in project \u0027PROJ-SIM-001\u0027",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; CAP_STATUS: PASS (import); AGENT_ELIGIBILITY: PASS; PROJECT_TYPE: PASS; SECRETS: PASS; FILE_WRITE: PASS; NETWORK: PASS; CLOUD: PASS; LOCAL_RUNNER: PASS; FINAL: ALLOW",
+                      "CapInfo":  "api-contract-verifier (verifier, TRUSTED, import)"
+                  },
+                  {
+                      "TestLabel":  "E: FE agent + security-scanner-mcp (SEC-only)",
+                      "AgentId":  "IMPL-FE-001",
+                      "CapabilityId":  "CAP-MCP-012",
+                      "Decision":  "MONITOR_ONLY",
+                      "AcceptDecisions":  "REJECT",
+                      "Passed":  false,
+                      "Reason":  "MONITOR_ONLY: Capability \u0027CAP-MCP-012\u0027 recommended action is \u0027monitor\u0027 — observe only, do not invoke",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; ACTION_MONITOR: MONITOR_ONLY",
+                      "CapInfo":  "security-scanner-mcp (mcp_server, AVAILABLE, monitor)"
+                  },
+                  {
+                      "TestLabel":  "F: FE agent + cloud-provider-mcp (QUARANTINE)",
+                      "AgentId":  "IMPL-FE-001",
+                      "CapabilityId":  "CAP-MCP-014",
+                      "Decision":  "REJECT",
+                      "AcceptDecisions":  "REJECT",
+                      "Passed":  true,
+                      "Reason":  "REJECT: Capability \u0027CAP-MCP-014\u0027 is in QUARANTINE",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; CAP_STATUS: FAIL (quarantine)",
+                      "CapInfo":  "cloud-provider-mcp (mcp_server, AVAILABLE, quarantine)"
+                  },
+                  {
+                      "TestLabel":  "G: FE agent + cloud-queue-service (QUARANTINE as reject proxy)",
+                      "AgentId":  "IMPL-FE-001",
+                      "CapabilityId":  "CAP-CLD-004",
+                      "Decision":  "REJECT",
+                      "AcceptDecisions":  "REJECT",
+                      "Passed":  true,
+                      "Reason":  "REJECT: Capability \u0027CAP-CLD-004\u0027 is in QUARANTINE",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; CAP_STATUS: FAIL (quarantine)",
+                      "CapInfo":  "cloud-queue-service (cloud_service, VERIFIED, quarantine)"
+                  },
+                  {
+                      "TestLabel":  "H: Research agent + github-mcp (needs token, no auth)",
+                      "AgentId":  "RSRC-001",
+                      "CapabilityId":  "CAP-MCP-005",
+                      "Decision":  "REJECT",
+                      "AcceptDecisions":  "REJECT",
+                      "Passed":  true,
+                      "Reason":  "REJECT: Capability \u0027CAP-MCP-005\u0027 requires secrets (GitHub token) but no auth configured",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; CAP_STATUS: PASS (import); AGENT_ELIGIBILITY: PASS; PROJECT_TYPE: PASS; SECRETS: FAIL",
+                      "CapInfo":  "github-mcp (mcp_server, VERIFIED, import)"
+                  },
+                  {
+                      "TestLabel":  "I: DB agent + supabase-managed-db (cloud, action=monitor)",
+                      "AgentId":  "IMPL-DB-001",
+                      "CapabilityId":  "CAP-CLD-001",
+                      "Decision":  "MONITOR_ONLY",
+                      "AcceptDecisions":  "REJECT|MONITOR_ONLY",
+                      "Passed":  true,
+                      "Reason":  "MONITOR_ONLY: Capability \u0027CAP-CLD-001\u0027 recommended action is \u0027monitor\u0027 — observe only, do not invoke",
+                      "GateChecks":  "CAP_EXISTS: PASS; AGENT_EXISTS: PASS; ACTION_MONITOR: MONITOR_ONLY",
+                      "CapInfo":  "supabase-managed-db (cloud_service, TRUSTED, monitor)"
+                  },
+                  {
+                      "TestLabel":  "J: FE agent + CAP-GHOST-999 (unknown ID)",
+                      "AgentId":  "IMPL-FE-001",
+                      "CapabilityId":  "CAP-GHOST-999",
+                      "Decision":  "REJECT",
+                      "AcceptDecisions":  "REJECT",
+                      "Passed":  true,
+                      "Reason":  "REJECT: Capability \u0027CAP-GHOST-999\u0027 not found in registry",
+                      "GateChecks":  "CAP_EXISTS: FAIL",
+                      "CapInfo":  "NOT_FOUND"
+                  }
+              ]
+}

@@ -1,0 +1,110 @@
+﻿
+> node-api-postgres@1.0.0 test
+> vitest run
+
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Codex_App_Factory/runnable-starters/node-api-postgres[39m
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mHealth endpoint[2m > [22m[2mGET /health returns ok
+[22m[39m[REQ] GET /health
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mHealth endpoint[2m > [22m[2mGET /health returns ok
+[22m[39m[RES] GET /health 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mAuth endpoint[2m > [22m[2mPOST /auth/login with valid credentials returns token
+[22m[39m[REQ] POST /auth/login
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mAuth endpoint[2m > [22m[2mPOST /auth/login with valid credentials returns token
+[22m[39m[RES] POST /auth/login 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mAuth endpoint[2m > [22m[2mPOST /auth/login with invalid password returns 401
+[22m[39m[REQ] POST /auth/login
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mAuth endpoint[2m > [22m[2mPOST /auth/login with invalid password returns 401
+[22m[39m[RES] POST /auth/login 401
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mAuth endpoint[2m > [22m[2mPOST /auth/login with missing fields returns 400
+[22m[39m[REQ] POST /auth/login
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mAuth endpoint[2m > [22m[2mPOST /auth/login with missing fields returns 400
+[22m[39m[RES] POST /auth/login 400
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)
+[22m[39m[REQ] POST /auth/login
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)
+[22m[39m[RES] POST /auth/login 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records returns paginated list
+[22m[39m[REQ] GET /records
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records returns paginated list
+[22m[39m[RES] GET /records 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records with search filters results
+[22m[39m[REQ] GET /records?search=test
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records with search filters results
+[22m[39m[RES] GET /records?search=test 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mPOST /records creates a new record
+[22m[39m[REQ] POST /records
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mPOST /records creates a new record
+[22m[39m[RES] POST /records 201
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mPOST /records with empty title returns 400
+[22m[39m[REQ] POST /records
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mPOST /records with empty title returns 400
+[22m[39m[RES] POST /records 400
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records/:id returns a single record
+[22m[39m[REQ] GET /records?limit=1
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records/:id returns a single record
+[22m[39m[RES] GET /records?limit=1 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records/:id returns a single record
+[22m[39m[REQ] GET /records/rec-1783787343386-87ogx57
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records/:id returns a single record
+[22m[39m[RES] GET /records/rec-1783787343386-87ogx57 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records/:id with non-existent id returns 404
+[22m[39m[REQ] GET /records/nonexistent
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records/:id with non-existent id returns 404
+[22m[39m[RES] GET /records/nonexistent 404
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mPATCH /records/:id updates status
+[22m[39m[REQ] GET /records?limit=1
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mPATCH /records/:id updates status
+[22m[39m[RES] GET /records?limit=1 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mPATCH /records/:id updates status
+[22m[39m[REQ] PATCH /records/rec-1783787343386-87ogx57
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mPATCH /records/:id updates status
+[22m[39m[RES] PATCH /records/rec-1783787343386-87ogx57 200
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records without auth returns 401
+[22m[39m[REQ] GET /records
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mRecords CRUD (authenticated)[2m > [22m[2mGET /records without auth returns 401
+[22m[39m[RES] GET /records 401
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mError format[2m > [22m[2mUnknown route returns 404 with unified format
+[22m[39m[REQ] GET /nonexistent
+
+[90mstdout[2m | tests/api.test.ts[2m > [22m[2mError format[2m > [22m[2mUnknown route returns 404 with unified format
+[22m[39m[RES] GET /nonexistent 404
+
+ [32m✓[39m tests/api.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 110[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m13 passed[39m[22m[90m (13)[39m
+[2m   Start at [22m 00:29:02
+[2m   Duration [22m 646ms[2m (transform 79ms, setup 0ms, collect 220ms, tests 110ms, environment 0ms, prepare 111ms)[22m
+

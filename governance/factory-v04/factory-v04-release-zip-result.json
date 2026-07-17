@@ -1,0 +1,11 @@
+﻿{
+    "verdict":  "PASS",
+    "version":  "0.4.0",
+    "phase":  "FACTORY-V04-RELEASE-ZIP",
+    "generatedAt":  "2026-06-26T00:37:22.9535065+08:00",
+    "nativeGenerated":  true,
+    "status":  "RELEASED",
+    "zipSha256":  "FF5EE6A652524B1B0F6DB100DDEB48B740E2D4F9A42E428EC43D161D5D1B1FCE",
+    "fileCount":  47,
+    "zipPath":  "CODEX_FACTORY_V04_RELEASE_PACKAGE.zip"
+}

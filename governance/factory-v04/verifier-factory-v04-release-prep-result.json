@@ -1,0 +1,179 @@
+﻿{
+    "passed":  28,
+    "timestamp":  "2026-06-25T22:29:17+08:00",
+    "title":  "Verifier — v0.4 RC Release Prep",
+    "verdict":  "PASS",
+    "phase":  "FACTORY-V04-RELEASE-PREP-H",
+    "total":  28,
+    "checks":  [
+                   {
+                       "detail":  "01640C0A9257E613",
+                       "result":  "PASS",
+                       "name":  "FINAL package SHA unchanged",
+                       "id":  "H01"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "FINAL package exists",
+                       "id":  "H02"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no new final ZIP",
+                       "id":  "H03"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no v0.4 release ZIP",
+                       "id":  "H04"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "FACTORY-V04-P1 PASS exists",
+                       "id":  "H05"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "RC directory exists",
+                       "id":  "H06"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "RC manifest exists",
+                       "id":  "H07"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "RC manifest SHA exists",
+                       "id":  "H08"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "version 0.4.0-rc",
+                       "id":  "H09"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "status RC_NOT_FINAL",
+                       "id":  "H10"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "finalZipCreated false",
+                       "id":  "H11"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "releaseZipCreated false",
+                       "id":  "H12"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "user confirmation required",
+                       "id":  "H13"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "positioning PROCESS_INTEGRITY_LAYER",
+                       "id":  "H14"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "quality CONDITIONAL",
+                       "id":  "H15"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Manual Router default",
+                       "id":  "H16"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Proof-of-Read default",
+                       "id":  "H17"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "quality-gap triggers exist",
+                       "id":  "H18"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Reviewer exists",
+                       "id":  "H19"
+                   },
+                   {
+                       "detail":  "Archived",
+                       "result":  "PASS",
+                       "name":  "10-role not default",
+                       "id":  "H20"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "deferred modules remain deferred",
+                       "id":  "H21"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "EVAL-8 and EVAL-13 both represented",
+                       "id":  "H22"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "forbidden claims audit passes",
+                       "id":  "H23"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "RC validation passes",
+                       "id":  "H24"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "user review guide exists",
+                       "id":  "H25"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "old FINAL package unchanged",
+                       "id":  "H26"
+                   },
+                   {
+                       "detail":  "33/33",
+                       "result":  "PASS",
+                       "name":  "negatives 0 gaps",
+                       "id":  "H27"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no anti-patterns in negatives",
+                       "id":  "H28"
+                   }
+               ],
+    "failed":  0
+}

@@ -1,0 +1,19 @@
+﻿{
+  "phase": "FACTORY-EVAL-9",
+  "title": "Factory v0.4 Keep-Cut-Defer Decision Result",
+  "status": "COMPLETED",
+  "verifierResult": "23/23 PASS",
+  "negativeControls": "26/26 PASS, 0 gaps",
+  "createdAt": "2026-06-25T20:10:00+08:00",
+  "evidenceBase": "FACTORY-EVAL-8 independent comparison",
+  "decisions": {
+    "keep": ["Always-On Constitution", "Manual Router", "Proof-of-Read", "Required-Reading Gate", "Evidence Hierarchy", "Contamination Logging", "Anti-Gaming Controls", "Context Budget Policy"],
+    "keepOptional": ["Independent Evaluator Rubric", "Session Controller", "3-Role Core Model", "Reviewer merged role", "Plugin/Skill Scaffold"],
+    "cut": ["10-role Company Model", "Specialist Roles (Frontend/Backend/DB/QA/Security separate)"],
+    "rework": ["Verifier (merge into Reviewer)", "Auditor (merge into Reviewer)", "Handoff Format (simplify)"],
+    "defer": ["Context OS", "MCP Memory", "Automation Watcher", "Cross-role Contracts", "Drift Detection", "Role Skill Profiles", "Final Packaging Machinery"]
+  },
+  "defaultOperatingModel": "Factory Lite Core — Manual Router + POR + Constitution. No role model by default. 3-role model optional. 10-role model archived.",
+  "recommendedNextPhase": "STOP / User Review. EVAL-9 decisions require user confirmation before FACTORY-V04-PREP or FACTORY-EVAL-10.",
+  "closure": "FACTORY-EVAL-9 PASS. 26 Factory mechanisms classified. v0.4 roadmap defined. Awaiting user confirmation to proceed to v0.4 packaging or second benchmark."
+}

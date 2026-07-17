@@ -1,0 +1,10 @@
+﻿{
+    "reproduction_id": "FACTORY-BUILD-REALWORLD-2-P4-REMAINING-FAILURE-REPRODUCTION",
+    "generated_at": "2026-06-28T10:43:53+08:00", "phase": "FACTORY-BUILD-REALWORLD-2-P4", "section": "B",
+    "reproduction_results": [
+        {"test": "test_transaction_log_generated_on_add", "isolated_run": "FAIL", "error": "AssertionError: unexpectedly None", "stable": true, "order_dependent": false},
+        {"test": "test_doctor_cannot_verify_insufficient_balance", "isolated_run": "ERROR", "error": "TransactionManagementError: An error occurred in the current transaction", "stable": true, "order_dependent": false},
+        {"test": "test_doctor_monthly_estimated_amount", "isolated_run": "FAIL", "error": "Couldn't find '140.00' — second POST uses old field names (missed in P3 fix)", "stable": true, "order_dependent": false, "fixable": true}
+    ],
+    "verdict": "REPRODUCED_ALL_3"
+}

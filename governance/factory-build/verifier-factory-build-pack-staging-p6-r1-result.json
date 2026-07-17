@@ -1,0 +1,166 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P6-R1",
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-PACK-STAGING-P6-R1",
+    "generated_at":  "2026-06-28T17:06:54+08:00",
+    "verdict":  "PASS",
+    "total_checks":  31,
+    "passed":  31,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "P6 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "P6-R1 result exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "Strategy decision exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "VERSION.json in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "BOUNDARY.md in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "Build Lite in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "Security/Deploy Gate in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "Package QA Gate in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "Context Space in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Test Repair Policy in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "factory.ps1 in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "install/bootstrap/preflight/close in source"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "P6-R1 staging bundle exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "P6-R1 SHA exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "Phase-ledger NOT in bundle"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "No .env in bundle"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "releaseAllowed=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "v05Package=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "Bundle name contains STAGING"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "Bundle name contains P6-R1"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "MANIFEST.json exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "MANIFEST.sha256 exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "No Factory superiority overclaim"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "Negative controls: 42 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "Negative controls: all DEFENCE_HELD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "Verifier exists"
+                   }
+               ]
+}

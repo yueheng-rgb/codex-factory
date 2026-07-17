@@ -1,0 +1,9 @@
+﻿{
+    "lifecycleStates":  9,
+    "section":  "J",
+    "foreignBlocked":  true,
+    "isolationRules":  8,
+    "multiAgentOnlyActive":  true,
+    "destructiveRequiresConfirm":  true,
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0"
+}

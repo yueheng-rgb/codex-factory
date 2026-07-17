@@ -1,0 +1,19 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Search Adapter Input",
+  "description": "Schema for external search results imported into Factory via read-only adapter",
+  "type": "object",
+  "required": ["query", "provider", "sourceRefs", "claimedFacts"],
+  "properties": {
+    "query": { "type": "string", "description": "Original search question or topic" },
+    "provider": { "type": "string", "enum": ["human_manual", "glm_search_manual", "chatgpt_search_manual", "claude_search_manual", "perplexity_manual", "search_engine_manual", "official_docs_manual", "community_sources_manual", "paper_search_manual", "repo_search_manual"] },
+    "providerConfidence": { "type": "string", "enum": ["high", "medium", "low", "unknown"] },
+    "rawResult": { "type": "string", "description": "Raw search result text" },
+    "sourceRefs": { "type": "array", "items": { "type": "object", "properties": { "title": {"type":"string"}, "url": {"type":"string"}, "publishDate": {"type":"string"}, "sourceType": {"type":"string", "enum": ["official_docs", "community", "ai_generated", "academic", "blog", "unknown"]}, "trustLevel": {"type":"string", "enum": ["VERIFIED","TRUSTED","AVAILABLE","CAUTION","UNTRUSTED"]} } } },
+    "claimedFacts": { "type": "array", "items": { "type": "object", "properties": { "claim": {"type":"string"}, "certainty": {"type":"string", "enum": ["confirmed","likely","uncertain","disputed"]}, "sourceIndex": {"type":"integer"} } } },
+    "codeSnippets": { "type": "array", "items": { "type": "string" } },
+    "uncertainty": { "type": "string" },
+    "userNotes": { "type": "string" },
+    "importedAt": { "type": "string", "format": "date-time" }
+  }
+}

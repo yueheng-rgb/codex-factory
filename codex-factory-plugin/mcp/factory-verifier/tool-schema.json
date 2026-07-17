@@ -1,0 +1,77 @@
+﻿{
+    "mcpServer": {
+        "name": "factory-verifier",
+        "version": "0.1.0-scaffold",
+        "description": "Codex Factory verification tools exposed via MCP"
+    },
+    "tools": [
+        {
+            "name": "factoryctl_verify",
+            "description": "Run factoryctl verify and return machine-readable results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "phase": {
+                        "type": "string",
+                        "description": "Phase to verify (default: latest)",
+                        "default": "latest"
+                    }
+                }
+            },
+            "outputSchema": {
+                "type": "object",
+                "properties": {
+                    "verdict": {"type": "string", "enum": ["PASS","FAIL","PASS_WITH_CAVEATS"]},
+                    "totalChecks": {"type": "integer"},
+                    "modules": {"type": "array"},
+                    "checkedAt": {"type": "string", "format": "date-time"}
+                }
+            }
+        },
+        {
+            "name": "validate_resource_pack",
+            "description": "Validate resource pack integrity (MANIFEST, SHA256, assets, policies, schemas)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "packPath": {
+                        "type": "string",
+                        "description": "Path to factory-resource-pack directory"
+                    }
+                },
+                "required": ["packPath"]
+            },
+            "outputSchema": {
+                "type": "object",
+                "properties": {
+                    "overallVerdict": {"type": "string", "enum": ["PASS","FAIL"]},
+                    "totalChecks": {"type": "integer"},
+                    "failureCount": {"type": "integer"},
+                    "checks": {"type": "array"}
+                }
+            }
+        },
+        {
+            "name": "validate_handoff",
+            "description": "Validate session rotation handoff integrity",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "handoffPath": {
+                        "type": "string",
+                        "description": "Path to session-rotation-handoff.json"
+                    }
+                }
+            },
+            "outputSchema": {
+                "type": "object",
+                "properties": {
+                    "verdict": {"type": "string", "enum": ["PASS","FAIL"]},
+                    "checks": {"type": "array"},
+                    "sourceEvidenceHashes": {"type": "object"}
+                }
+            }
+        }
+    ]
+}
+

@@ -1,0 +1,173 @@
+﻿{
+    "passed":  27,
+    "checkedAt":  "2026-06-25T17:22:59+08:00",
+    "command":  "factory-eval-5-verify",
+    "totalChecks":  27,
+    "phase":  "FACTORY-EVAL-5",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "SHA match: True",
+                       "result":  true,
+                       "name":  "FINAL_SHA",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "No extra ZIPs",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "EVAL-4 verifier exists",
+                       "result":  true,
+                       "name":  "EVAL4_PASS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "Directory exists",
+                       "result":  true,
+                       "name":  "VANILLA_DIR",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "Metadata exists",
+                       "result":  true,
+                       "name":  "RUN_METADATA",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "Factory assistance: False",
+                       "result":  true,
+                       "name":  "FACTORY_DISABLED",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "Product dir exists",
+                       "result":  true,
+                       "name":  "PRODUCT_EXISTS",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "server.js exists",
+                       "result":  true,
+                       "name":  "SERVER_EXISTS",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "README.md exists",
+                       "result":  true,
+                       "name":  "README_EXISTS",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "tests/ exists",
+                       "result":  true,
+                       "name":  "TESTS_EXIST",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "public/ exists",
+                       "result":  true,
+                       "name":  "FRONTEND_EXISTS",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "Artifact inventory exists",
+                       "result":  true,
+                       "name":  "INVENTORY",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "Runtime/test result exists",
+                       "result":  true,
+                       "name":  "RUNTIME_TEST",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "Requirements mapping exists",
+                       "result":  true,
+                       "name":  "REQ_MAPPING",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "Intervention log exists",
+                       "result":  true,
+                       "name":  "INTERVENTION_LOG",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "Contamination log exists",
+                       "result":  true,
+                       "name":  "CONTAMINATION_LOG",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "Manual Router not used",
+                       "result":  true,
+                       "name":  "NO_MANUAL_ROUTER",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "Proof-of-read not used",
+                       "result":  true,
+                       "name":  "NO_PROOF_READ",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "Role agents not used",
+                       "result":  true,
+                       "name":  "NO_ROLE_AGENTS",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "Agent OS not used",
+                       "result":  true,
+                       "name":  "NO_AGENT_OS",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "Context OS/MCP not used",
+                       "result":  true,
+                       "name":  "NO_CONTEXT_OS",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "No Factory code in product",
+                       "result":  true,
+                       "name":  "NO_FACTORY_CODE",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "No Factory effectiveness claim",
+                       "result":  true,
+                       "name":  "NO_EFFECTIVENESS",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "No comparison claim",
+                       "result":  true,
+                       "name":  "NO_COMPARISON",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "Negatives: 28",
+                       "result":  true,
+                       "name":  "NEGATIVES_COUNT",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "Passed: 28",
+                       "result":  true,
+                       "name":  "NEGATIVES_PASSED",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "Gaps: 0",
+                       "result":  true,
+                       "name":  "NEGATIVES_GAPS",
+                       "id":  27
+                   }
+               ],
+    "failed":  0
+}

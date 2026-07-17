@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-RECOVERY-0","section":"H","title":"Recovery Script MVP","script":"factory-recovery/scripts/factory-recovery-scan.ps1","schema":"factory-recovery/schemas/recovery-plan.schema.json","tested":true,"supports":["DryRun","Force","LEVEL_0-3 classification","auto-repair LEVEL_1","plan generation","operation blocking"]}

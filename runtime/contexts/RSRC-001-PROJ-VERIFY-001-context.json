@@ -1,0 +1,85 @@
+﻿{
+    "contextId":  "CTX-PROJ-VERIFY-001-RSRC-001-PHASE-VERIFY-001",
+    "projectId":  "PROJ-VERIFY-001",
+    "phaseId":  "PHASE-VERIFY-001",
+    "agentId":  "RSRC-001",
+    "taskId":  "",
+    "role":  "Research Agent",
+    "category":  "Knowledge",
+    "agentType":  "constant",
+    "allowedWriteScopes":  [
+                               "knowledge-bank/research/"
+                           ],
+    "forbiddenActions":  [
+                             "write_code",
+                             "make_architecture_decisions",
+                             "modify_project_files",
+                             "return_unverified_claims_as_facts",
+                             "bypass_review_protocol"
+                         ],
+    "permissions":  {
+                        "read":  [
+                                     "search_results",
+                                     "knowledge_bank",
+                                     "docs_index",
+                                     "external_sources"
+                                 ],
+                        "write":  [
+                                      "knowledge-bank/research/"
+                                  ],
+                        "execute":  [
+                                        "web_search",
+                                        "list_mcp_resources",
+                                        "shell_command(read)",
+                                        "spawn_agent(sub-search)"
+                                    ]
+                    },
+    "allowedSkills":  {
+                          "required":  [
+                                           "openai-docs"
+                                       ],
+                          "optional":  [
+                                           "supabase-postgres-best-practices"
+                                       ],
+                          "forbidden":  [
+                                            "imagegen",
+                                            "browser",
+                                            "documents",
+                                            "spreadsheets"
+                                        ]
+                      },
+    "requiredInputs":  [
+                           "research_question",
+                           "search_scope",
+                           "version_constraints"
+                       ],
+    "requiredOutputs":  [
+                            {
+                                "name":  "research_packet",
+                                "schema":  "research-packet.schema.json",
+                                "fields":  [
+                                               "packetId",
+                                               "question",
+                                               "findings",
+                                               "synthesis",
+                                               "confidenceLevel",
+                                               "expiresAt"
+                                           ]
+                            }
+                        ],
+    "handoffRequired":  true,
+    "evidenceLevel":  "MEDIUM",
+    "failurePolicy":  {
+                          "noResults":  "report_empty_expand_scope",
+                          "conflictingSources":  "report_all_with_conflict_flag",
+                          "outdatedResults":  "flag_may_be_outdated",
+                          "timeout":  "return_partial_with_timeout_marker",
+                          "maxRetries":  2
+                      },
+    "createdAt":  "2026-07-05T21:38:57+08:00",
+    "status":  "ACTIVATED",
+    "canReadProjects":  true,
+    "canWriteDesign":  false,
+    "canWriteCode":  false,
+    "canSpawnAgents":  true
+}

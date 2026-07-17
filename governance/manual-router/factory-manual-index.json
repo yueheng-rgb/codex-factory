@@ -1,0 +1,336 @@
+﻿{
+    "version":  "1.0.0",
+    "pages":  [
+                  {
+                      "path":  "factory-resource-pack/constitution/",
+                      "requiredForActions":  [
+                                                 "all"
+                                             ],
+                      "estimatedTokenCost":  500,
+                      "category":  "constitution",
+                      "isAuthoritative":  true,
+                      "pageId":  "CONST-001",
+                      "requiredForRoles":  [
+                                               "all"
+                                           ],
+                      "title":  "Factory Constitution",
+                      "isAlwaysOnCandidate":  true
+                  },
+                  {
+                      "path":  "governance/context-os/context-source-policy.json",
+                      "requiredForActions":  [
+                                                 "verify_phase",
+                                                 "context_recovery"
+                                             ],
+                      "estimatedTokenCost":  800,
+                      "category":  "evidence_hierarchy",
+                      "isAuthoritative":  true,
+                      "pageId":  "EVID-001",
+                      "requiredForRoles":  [
+                                               "verifier",
+                                               "auditor"
+                                           ],
+                      "title":  "Evidence Hierarchy",
+                      "isAlwaysOnCandidate":  true
+                  },
+                  {
+                      "path":  "governance/agent-os/agent-lifecycle.schema.json",
+                      "requiredForActions":  [
+                                                 "spawn_agent",
+                                                 "close_agent"
+                                             ],
+                      "estimatedTokenCost":  600,
+                      "category":  "agent_lifecycle",
+                      "isAuthoritative":  true,
+                      "pageId":  "AGNT-001",
+                      "requiredForRoles":  [
+                                               "main",
+                                               "builder"
+                                           ],
+                      "title":  "Agent Lifecycle Policy",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/agent-os/agent-authority-matrix.json",
+                      "requiredForActions":  [
+                                                 "spawn_agent",
+                                                 "role_agent_assignment"
+                                             ],
+                      "estimatedTokenCost":  500,
+                      "category":  "agent_lifecycle",
+                      "isAuthoritative":  true,
+                      "pageId":  "AGNT-002",
+                      "requiredForRoles":  [
+                                               "main"
+                                           ],
+                      "title":  "Agent Authority Matrix",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/agent-os/agent-role-policy.json",
+                      "requiredForActions":  [
+                                                 "role_agent_assignment"
+                                             ],
+                      "estimatedTokenCost":  400,
+                      "category":  "role_policy",
+                      "isAuthoritative":  true,
+                      "pageId":  "AGNT-003",
+                      "requiredForRoles":  [
+                                               "main",
+                                               "architect"
+                                           ],
+                      "title":  "Agent Role Policy",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/agent-os/worker-handoff.schema.json",
+                      "requiredForActions":  [
+                                                 "create_worker_contract",
+                                                 "integrate_worker_results"
+                                             ],
+                      "estimatedTokenCost":  500,
+                      "category":  "worker_reporting",
+                      "isAuthoritative":  true,
+                      "pageId":  "WRKR-001",
+                      "requiredForRoles":  [
+                                               "builder",
+                                               "integrator"
+                                           ],
+                      "title":  "Worker Handoff Protocol",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/agent-os/worker-reporting-protocol.md",
+                      "requiredForActions":  [
+                                                 "integrate_worker_results"
+                                             ],
+                      "estimatedTokenCost":  600,
+                      "category":  "worker_reporting",
+                      "isAuthoritative":  true,
+                      "pageId":  "WRKR-002",
+                      "requiredForRoles":  [
+                                               "integrator",
+                                               "verifier"
+                                           ],
+                      "title":  "Worker Reporting Protocol",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "factory-resource-pack/contracts/",
+                      "requiredForActions":  [
+                                                 "create_worker_contract",
+                                                 "verify_phase"
+                                             ],
+                      "estimatedTokenCost":  700,
+                      "category":  "contract_enforcement",
+                      "isAuthoritative":  true,
+                      "pageId":  "CTRC-001",
+                      "requiredForRoles":  [
+                                               "verifier",
+                                               "integrator"
+                                           ],
+                      "title":  "Contract Enforcement Policy",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "factory-resource-pack/verification/",
+                      "requiredForActions":  [
+                                                 "verify_phase",
+                                                 "close_phase"
+                                             ],
+                      "estimatedTokenCost":  800,
+                      "category":  "verifier_policy",
+                      "isAuthoritative":  true,
+                      "pageId":  "VERF-001",
+                      "requiredForRoles":  [
+                                               "verifier",
+                                               "auditor"
+                                           ],
+                      "title":  "Verifier Policy",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "factory-resource-pack/negative-controls/",
+                      "requiredForActions":  [
+                                                 "verify_phase",
+                                                 "close_phase"
+                                             ],
+                      "estimatedTokenCost":  600,
+                      "category":  "negative_controls",
+                      "isAuthoritative":  true,
+                      "pageId":  "NEGC-001",
+                      "requiredForRoles":  [
+                                               "verifier"
+                                           ],
+                      "title":  "Negative Controls Policy",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/context-os/context-query-protocol.json",
+                      "requiredForActions":  [
+                                                 "context_recovery",
+                                                 "session_rotation"
+                                             ],
+                      "estimatedTokenCost":  500,
+                      "category":  "context_recovery",
+                      "isAuthoritative":  true,
+                      "pageId":  "CTXR-001",
+                      "requiredForRoles":  [
+                                               "main",
+                                               "verifier"
+                                           ],
+                      "title":  "Context Recovery Protocol",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/session-controller/session-controller-policy.json",
+                      "requiredForActions":  [
+                                                 "session_rotation"
+                                             ],
+                      "estimatedTokenCost":  500,
+                      "category":  "manual_rotation",
+                      "isAuthoritative":  true,
+                      "pageId":  "ROTA-001",
+                      "requiredForRoles":  [
+                                               "main"
+                                           ],
+                      "title":  "Manual Rotation Protocol",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/automation-os/rotation-ux-flow.json",
+                      "requiredForActions":  [
+                                                 "session_rotation"
+                                             ],
+                      "estimatedTokenCost":  600,
+                      "category":  "manual_rotation",
+                      "isAuthoritative":  true,
+                      "pageId":  "ROTA-002",
+                      "requiredForRoles":  [
+                                               "main"
+                                           ],
+                      "title":  "Rotation UX Flow",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "final-package-dry-run/FINAL_PACKAGE_BOUNDARY.md",
+                      "requiredForActions":  [
+                                                 "final_packaging"
+                                             ],
+                      "estimatedTokenCost":  700,
+                      "category":  "final_package_boundary",
+                      "isAuthoritative":  true,
+                      "pageId":  "FINA-001",
+                      "requiredForRoles":  [
+                                               "main",
+                                               "verifier"
+                                           ],
+                      "title":  "Final Package Boundary",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "codex-factory-plugin/skills/",
+                      "requiredForActions":  [
+                                                 "role_agent_assignment"
+                                             ],
+                      "estimatedTokenCost":  400,
+                      "category":  "skill_plugin_usage",
+                      "isAuthoritative":  false,
+                      "pageId":  "SKIL-001",
+                      "requiredForRoles":  [
+                                               "architect"
+                                           ],
+                      "title":  "Skill Plugin Usage Policy",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/factory-eval/factory-eval-0-recommended-roadmap.json",
+                      "requiredForActions":  [
+                                                 "benchmark_run"
+                                             ],
+                      "estimatedTokenCost":  600,
+                      "category":  "benchmark_evaluation",
+                      "isAuthoritative":  true,
+                      "pageId":  "BENC-001",
+                      "requiredForRoles":  [
+                                               "main",
+                                               "verifier"
+                                           ],
+                      "title":  "Benchmark Evaluation Policy",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/context-os/FACTORY_RISK_LEDGER.jsonl",
+                      "requiredForActions":  [
+                                                 "verify_phase",
+                                                 "context_recovery"
+                                             ],
+                      "estimatedTokenCost":  400,
+                      "category":  "risk_handling",
+                      "isAuthoritative":  true,
+                      "pageId":  "RISK-001",
+                      "requiredForRoles":  [
+                                               "verifier",
+                                               "auditor",
+                                               "main"
+                                           ],
+                      "title":  "Risk Handling Policy",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "factory-resource-pack/context-compression/",
+                      "requiredForActions":  [
+                                                 "context_recovery",
+                                                 "session_rotation"
+                                             ],
+                      "estimatedTokenCost":  300,
+                      "category":  "evidence_hierarchy",
+                      "isAuthoritative":  true,
+                      "pageId":  "COMP-001",
+                      "requiredForRoles":  [
+                                               "main",
+                                               "verifier"
+                                           ],
+                      "title":  "Compressed Summary Policy",
+                      "isAlwaysOnCandidate":  true
+                  },
+                  {
+                      "path":  "governance/session-controller/startup-verification-contract.schema.json",
+                      "requiredForActions":  [
+                                                 "session_rotation",
+                                                 "context_recovery"
+                                             ],
+                      "estimatedTokenCost":  500,
+                      "category":  "context_recovery",
+                      "isAuthoritative":  true,
+                      "pageId":  "STRT-001",
+                      "requiredForRoles":  [
+                                               "main",
+                                               "verifier"
+                                           ],
+                      "title":  "Startup Verification Contract",
+                      "isAlwaysOnCandidate":  false
+                  },
+                  {
+                      "path":  "governance/factory-eval/factory-eval-0-current-state-inventory.json",
+                      "requiredForActions":  [
+                                                 "benchmark_run",
+                                                 "verify_phase"
+                                             ],
+                      "estimatedTokenCost":  700,
+                      "category":  "benchmark_evaluation",
+                      "isAuthoritative":  true,
+                      "pageId":  "EVAL-001",
+                      "requiredForRoles":  [
+                                               "verifier",
+                                               "auditor"
+                                           ],
+                      "title":  "Evidence Reset Report",
+                      "isAlwaysOnCandidate":  false
+                  }
+              ],
+    "totalPages":  20,
+    "generatedAt":  "2026-06-25T15:59:08+08:00",
+    "phase":  "FACTORY-EVAL-2-A",
+    "schemaId":  "factory-manual-index"
+}

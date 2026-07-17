@@ -1,0 +1,52 @@
+﻿{
+  "schemaId": "agent-lifecycle.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T23:59:40+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-A",
+  "nativeGenerated": true,
+  "lifecycleStates": [
+    "CREATED",
+    "CONTRACTED",
+    "SPAWN_REQUESTED",
+    "SPAWNED",
+    "RUNNING",
+    "HEARTBEAT",
+    "HANDOFF_SUBMITTED",
+    "INTEGRATION_REQUESTED",
+    "INTEGRATED",
+    "VERIFIED",
+    "CLOSED",
+    "ARCHIVED",
+    "FAILED",
+    "REPLACED",
+    "QUARANTINED"
+  ],
+  "transitions": {
+    "CREATED": ["CONTRACTED", "FAILED"],
+    "CONTRACTED": ["SPAWN_REQUESTED", "FAILED"],
+    "SPAWN_REQUESTED": ["SPAWNED", "FAILED"],
+    "SPAWNED": ["RUNNING", "FAILED"],
+    "RUNNING": ["HEARTBEAT", "HANDOFF_SUBMITTED", "FAILED"],
+    "HEARTBEAT": ["RUNNING", "HANDOFF_SUBMITTED", "FAILED"],
+    "HANDOFF_SUBMITTED": ["INTEGRATION_REQUESTED", "FAILED"],
+    "INTEGRATION_REQUESTED": ["INTEGRATED", "FAILED"],
+    "INTEGRATED": ["VERIFIED", "FAILED"],
+    "VERIFIED": ["CLOSED", "FAILED"],
+    "CLOSED": ["ARCHIVED"],
+    "FAILED": ["REPLACED", "QUARANTINED"],
+    "REPLACED": ["CREATED"],
+    "QUARANTINED": ["ARCHIVED"]
+  },
+  "requiredEvidencePerTransition": {
+    "CREATED_to_CONTRACTED": ["contractExists"],
+    "CONTRACTED_to_SPAWN_REQUESTED": ["capacityPreflightResult"],
+    "SPAWNED_to_RUNNING": ["spawnConfirmation"],
+    "RUNNING_to_HANDOFF_SUBMITTED": ["artifactPaths", "transcriptPath", "evidenceSha256"],
+    "HANDOFF_SUBMITTED_to_INTEGRATION_REQUESTED": ["handoffExists"],
+    "INTEGRATED_to_VERIFIED": ["verifierResult"],
+    "VERIFIED_to_CLOSED": ["closeReceipt"],
+    "CLOSED_to_ARCHIVED": ["archiveReceipt"],
+    "any_to_FAILED": ["failureEvidence"],
+    "FAILED_to_QUARANTINED": ["quarantineReceipt"]
+  }
+}

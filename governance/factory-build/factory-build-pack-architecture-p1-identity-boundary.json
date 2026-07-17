@@ -1,0 +1,51 @@
+﻿{
+    "version":  "0.9.0-pre",
+    "title":  "Pack Identity and Boundary",
+    "packId":  "codex-factory-core",
+    "identity":  {
+                     "whatNot":  [
+                                     "A release package",
+                                     "v0.5",
+                                     "A product replacement for Codex",
+                                     "Model memory expansion",
+                                     "A multi-agent default system",
+                                     "SkillMarket / DevFlow / SkillForge / AtlasOps"
+                                 ],
+                     "fallbackMode":  "Vanilla Codex (always available)",
+                     "what":  "A structured build harness that layers Build Mode, External Memory, Memory Quality, Context Packets, Agent Lifecycle, Diagnostic Gates, and Verifier on top of Codex",
+                     "defaultMode":  "Build Lite (single-agent structured build)",
+                     "conditionalMode":  "Native Build Pro (multi-agent with lifecycle — user must confirm)"
+                 },
+    "label":  "Codex Factory Core — Build Harness Pack (Pre-Release Architecture)",
+    "boundary":  {
+                     "packNotRelease":  "This architecture describes a pack layout. No release ZIP is created in this phase.",
+                     "includes":  [
+                                      "Build Mode MVPs",
+                                      "External Memory infrastructure",
+                                      "Memory Quality policies + verification",
+                                      "Context Packet schema/generator/validator",
+                                      "Agent Lifecycle registry/handoff/close-receipt",
+                                      "Diagnostic Gate + Recovery Drill",
+                                      "Verifier + Negative Controls",
+                                      "Governance templates",
+                                      "Starter/blueprint integration",
+                                      "User workflow docs"
+                                  ],
+                     "excludes":  [
+                                      "Product source code",
+                                      "Trial artifacts (NexusDesk etc.)",
+                                      "Benchmark results",
+                                      "Release ZIPs",
+                                      "v0.5 package",
+                                      "SkillMarket",
+                                      "DevFlow",
+                                      "SkillForge",
+                                      "AtlasOps",
+                                      "FINAL package",
+                                      "v0.4 release",
+                                      "factory-diagnostic-pack (separate optional pack)"
+                                  ]
+                 },
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "section":  "B"
+}

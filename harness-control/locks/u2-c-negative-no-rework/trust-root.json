@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  83,
+    "frozenAt":  "2026-06-20T19:58:15.9558701+08:00",
+    "runId":  "u2-c-negative-no-rework",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\u2-c-negative-no-rework\\trust-root.json",
+    "controlPlaneLockSha256":  "f93fd9b0563aa3da451a0230488f2c3918cf07478a69ffb07f0d698cd4938721",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "b889938240f455510c8d1c105b51d2a6d4f3304d9b067b81f3c544d5f89f9ead"
+}

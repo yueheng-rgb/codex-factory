@@ -1,0 +1,104 @@
+﻿{
+    "created":  1783703349,
+    "id":  "202607110109088f56b74eebf74665",
+    "request_id":  "r2-3-w-task3b-010859",
+    "search_intent":  [
+                          {
+                              "intent":  "SEARCH_ALWAYS",
+                              "keywords":  "token rotation httponly cookie secure samesite fastify/jwt",
+                              "query":  "@fastify/jwt refresh token rotation httpOnly cookie secure sameSite b"
+                          }
+                      ],
+    "search_result":  [
+                          {
+                              "content":  "一､Token 的定义与概念1.1 Token 是什么?Token(令牌)是一个用于身份认证的凭证,通常是由服务器生成并返回给客户端｡客户端在后续请求中携带该 Token,服务器通过解析 Token 验证用户身份,从而决定是否授权访问资源｡Token 的一个显著特点是其 无状态性,这意味着服务器不需要存储关于用户会话的数据,而是通过解析客户端携带的 Token 来获取所有的身份信息｡1.2 ",
+                              "icon":  "",
+                              "link":  "https://cloud.tencent.com/developer/article/2625669",
+                              "media":  "腾讯云",
+                              "publish_date":  "2026-07-11",
+                              "refer":  "ref_1",
+                              "title":  "Java实现JWT的Token认证机制"
+                          },
+                          {
+                              "content":  "JWT是基于JSON格式的,通常由三部分组成:头部(Header)､负载(Payload)和签名(Signature)｡\n代码:\n使用Session进行身份验证和授权的示例:\n# 服务器端\nfrom flask import Flask, request, session\n\napp = Flask(__name__)\napp.secret_key = \u0027secret-key\u0027  # 设置Session加密密钥\n\n@app.route(\u0027/login\u0027, methods=[\u0027POST\u0027])\ndef login():\n    # 根据用户名和密码进行身份验证\n    username = request.form[\u0027username\u0027]\n    password = request.form[\u0027password\u0027]\n    if verify_credentials(username, password):\n        session[\u0027username\u0027] = username  # 将用户名保存在Session中\n        return \u0027Login ",
+                              "icon":  "",
+                              "link":  "https://cloud.tencent.com/developer/article/2562638",
+                              "media":  "腾讯云",
+                              "publish_date":  "2026-07-11",
+                              "refer":  "ref_2",
+                              "title":  "Session和JWT (JSON Web Token) 两种不同的身份验证和授权机制详解"
+                          },
+                          {
+                              "content":  "本项目演示了三种常见的Web认证方式:Cookie认证､Session认证和JWTToken认证｡通过SpringBoot后端和Vue3前端的实现,展示了不同认证机制的工作原理和使用场景｡",
+                              "icon":  "",
+                              "link":  "https://cloud.tencent.com/developer/article/2595332",
+                              "media":  "腾讯云",
+                              "publish_date":  "2026-07-11",
+                              "refer":  "ref_3",
+                              "title":  "【 Web认证 】Cookie、Session 与 JWT Token:Web 认证机制的原理、实现与对比"
+                          },
+                          {
+                              "content":  "这篇文章,我就结合 Sa-Token 的实现,把这件事彻底拆开｡如果你们项目里也在做 Web 登录､前后端分离､APP / 小程序鉴权,这篇会很有用｡\n为什么“记住我”总容易被做成半成品\n说实话,这种需求在 Demo 里特别好做｡产品说要一个“记住我”,前端传个布尔值,后端接一下,页面上看着就像完成了｡\n但到了真实项目里,问题马上就会冒出来:\n• 浏览器端和前后端分离端,能力根本不是一回事｡\n• ",
+                              "icon":  "",
+                              "link":  "https://cloud.tencent.com/developer/article/2662728",
+                              "media":  "腾讯云",
+                              "publish_date":  "2026-07-11",
+                              "refer":  "ref_4",
+                              "title":  "Sa-Token 记住我机制,讲透 Cookie 和 Token"
+                          },
+                          {
+                              "content":  "在讲这几个专业术语之前,我们先看一下这样的场景:你去银行准备办理业务,柜台工作人员礼貌地问你:“请问您要办理什么业务?”你说:“我要查询我还有多少余额｡”等工作人员处理完之后,你紧接着说:“我还想转账 1000 块钱｡”这时候,工作人员一脸茫然地看着你:“请问您是谁?需要办理什么业务?”此时你开始懵逼了,不是刚刚已经办理过业务嘛,怎么还要确认我的身份?",
+                              "icon":  "",
+                              "link":  "https://cloud.tencent.com/developer/article/2554974",
+                              "media":  "腾讯云",
+                              "publish_date":  "2026-07-11",
+                              "refer":  "ref_5",
+                              "title":  "Cookie、Session、Token、JWT 是什么?万字图解带你一次搞懂!看完这篇,你连老奶奶都能教"
+                          },
+                          {
+                              "content":  "基于Token的身份验证用来替代传统的cookie+session身份验证方法中的session。JWT是啥?JWT就是一个字符串,经过加密处理与校验处理的字符串,形式为:A.B.CA由JWT头部...",
+                              "icon":  "",
+                              "link":  "https://blog.csdn.net/hmillet/article/details/78204770",
+                              "media":  "",
+                              "publish_date":  "2017-10-11",
+                              "refer":  "ref_6",
+                              "title":  "基于Token的身份验证——JWT_jwttoken header填什么?-CSDN博客"
+                          },
+                          {
+                              "content":  "文章浏览阅读2k次,点赞2次,收藏10次。本文详细介绍了JWT(JSON Web Token)的原理和工作流程,包括其在身份验证和信息交换中的应用。探讨了JWT的结构、优缺点,并提供...",
+                              "icon":  "",
+                              "link":  "https://blog.csdn.net/qq_38207970/article/details/84860829",
+                              "media":  "",
+                              "publish_date":  "2018-12-06",
+                              "refer":  "ref_7",
+                              "title":  "SpringBoot集成JWT实现token验证_jwt.create().withaudience-CSDN博客"
+                          },
+                          {
+                              "content":  "社区首页 \u003e 专栏 \u003e 【SpringBoot】45、SpringBoot中整合JWT实现Token验证(注解篇)「建议收藏」 举报 文章被收录于专栏: 全栈程序员必看 全栈程序员必看 关联问题 换一批 大家好,又见面了,我是你们的朋友全栈君。 前言 上篇文章,我们已经在 SpringBoot 中整合了 JWT 并实现了 Token 验证,那我们在实际应用中就会发现,如果每个 视图层(controller)都手动验证 token,代码就会显得特别臃肿,本篇文章主要为了解决该问题。 javascript AI代码解释 复制 package com . asurplus . common . annotation ; import java . lang . annotation . * ; /** * 自定义注解 验证 token */ @ Target ( ElementType . METHOD ) @ Retention ( RetentionPolicy . RUNTIME ) @Documented public @ interface JwtToken { } 我们创建了一个名为 JwtToken 的注解,它没有任何参数,解释一下注解上面的一些注解: @Target(ElementType.METHOD),Target 说明了 Annotation 所修饰的对象范围,METHOD 用于描述方法 @Retention(RetentionPolicy.RUNTIME),运行时注解,注解不仅被保存到class文件中,jvm加载class文件之后,仍然存在 @Documented,元注解,表明这个注解应该被 javadoc 工具记录 2、拦截器 javascript AI代码解释 复制 package com . asurplus . common . config ; import com . asurplus . common . jwt . JwtUtil ; import com . asurplus . common . utils . ResponseResult ; import org . springframework . stereotype . Component ; import org . springframework . web . ",
+                              "icon":  "",
+                              "link":  "https://cloud.tencent.com/developer/article/2062508",
+                              "media":  "腾讯云",
+                              "publish_date":  "2022-07-30",
+                              "refer":  "ref_8",
+                              "title":  "【SpringBoot】45、SpringBoot中整合JWT实现Token验证(注解篇)「建议收藏」-腾讯云开发者社区-腾讯云"
+                          },
+                          {
+                              "content":  "JWT为生成登录token和验证token 内置方法总览 获取token public function getToken(int $id, string $type, array $params = []): array 解析token public function parseToken(string $jwt): array 验证token public function verifyToken() 获取token并放入令牌桶 public function createToken(int $id, string $type, array $params = []) 使用方法 获取登录token use crmeb\\utils\\JwtAuth;$jwt = app()-\u003emake(JwtAuth::class);$uid = 10;$type = \u0027user\u0027;$token = $jwt-\u003ecreateToken($uid, $type);var_dump($token); 解析token提取uid use crmeb\\utils\\JwtAuth;use Firebase\\JWT\\ExpiredException;$jwt = app()-\u003emake(JwtAuth::class);$token = \u0027token\u0027;//解析token[$uid, $type] = $jwt-\u003eparseToken($token);//验证token是否过期try { $jwt-\u003everifyToken();} catch (ExpiredException $e) { //可以做过期的逻辑处理} catch (\\Throwable $e) { //其他错误处理}//没有任何错误返回uidreturn $uid; {{cateWiki.like_num}}人点赞 0人点赞 评论({{cateWiki.comment_num}}) 最新 最早 {{cateWiki.page_view_num}}人看过该文档 评论(0) 最新 最早 683人看过 登录/注册 即可发表评论 评论 (自评) 删除 回复 回复 (自评) 删除 回复 大纲 ▶ ▶ 搜索结果 为您找到{{wikiCount}}条结果 位置:",
+                              "icon":  "",
+                              "link":  "https://doc.crmeb.com/single/v5/8024",
+                              "media":  "",
+                              "publish_date":  "2026-06-26",
+                              "refer":  "ref_9",
+                              "title":  "标准版 v5.0JWT工具 - CRMEB文档"
+                          },
+                          {
+                              "content":  "优质文章,第一时间送达 66套java从入门到精通实战课程分享 Jwt 全称是: json web token 。它将用户信息加密到 token 里,服务器不保存任何用户信息。服务器通过使用保存的密钥验证 token 的正确性,只要正确即通过验证。 优点 简洁: 可以通过 URL 、 POST 参数或者在 HTTP header 发送,因为数据量小,传输速度也很快; 自包含:负载中可以包含用户所需要的信息,避免了多次查询数据库; 因为 Token 是以 JSON 加密的形式保存在客户端的,所以 JWT 是跨语言的,原则上任何 web 形式都支持; 不需要在服务端保存会话信息,特别适用于分布式微服务。 缺点 无法作废已颁布的令牌; 不易应对数据过期。 一、Jwt消息构成 1.1 组成 一个 token 分3部分,按顺序为 头部( header ) 载荷( payload ) 签证( signature ) 三部分之间用 . 号做分隔。例如: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYzdiY2IzMS02ODFlLTRlZGYtYmU3Yy0wOTlkODAzM2VkY2UiLCJleHAiOjE1Njk3Mjc4OTF9.wweMzyB3tSQK34Jmez36MmC5xpUh15Ni3vOV_SGCzJ8 1.2 header Jwt 的头部承载两部分信息: 声明类型,这里是 Jwt 声明加密的算法 通常直接使用  HMAC SHA256 Jwt 里验证和签名使用的算法列表如下: JWS 算法名称 HS256 HMAC256 HS384 HMAC384 HS512 HMAC512 RS256 RSA256 RS384 RSA384 RS512 RSA512 ES256 ECDSA256 ES384 ECDSA384 ES512 ECDSA512 1.3 playload 载荷就是存放有效信息的地方。基本上填 2 种类型数据 标准中注册的声明的数据; 自定义数据。 由这2部分内部做 base64 加密。 标准中注册的声明 (建议但不强制使用) iss: jwt签发者 sub: jwt所面向的用户 aud: 接收jwt的一方 exp: jwt的过期时间,这个过期时间必须要大于签发时间 nbf: 定义在什么时间之",
+                              "icon":  "",
+                              "link":  "https://jishuin.proginn.com/p/763bfbd358f7",
+                              "media":  "",
+                              "publish_date":  "2020-12-28",
+                              "refer":  "ref_10",
+                              "title":  "SpringBoot集成JWT实现token验证-技术圈"
+                          }
+                      ]
+}

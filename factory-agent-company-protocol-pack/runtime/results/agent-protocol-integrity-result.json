@@ -1,0 +1,244 @@
+﻿{
+    "manifestPath":  "C:\\Codex_App_Factory\\harness\\runs\\factory-agent-2-runtime-hardening-simulation\\suite-manifest.json",
+    "suiteEnd":  "2026-06-26T01:39:51.2195718+08:00",
+    "overall":  "FAIL",
+    "verdict":  "AGENT_PROTOCOL_BLOCKED",
+    "artifactsChecked":  33,
+    "blockingCount":  5,
+    "warningCount":  0,
+    "errorCount":  0,
+    "passCount":  28,
+    "results":  [
+                    {
+                        "script":  "validate-worker-capsule.ps1",
+                        "overall":  "PASS",
+                        "tc":  19,
+                        "pc":  19,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-capsule.ps1",
+                        "overall":  "PASS",
+                        "tc":  19,
+                        "pc":  19,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-capsule.ps1",
+                        "overall":  "PASS",
+                        "tc":  19,
+                        "pc":  19,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-capsule.ps1",
+                        "overall":  "PASS",
+                        "tc":  19,
+                        "pc":  19,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-capsule.ps1",
+                        "overall":  "PASS",
+                        "tc":  19,
+                        "pc":  19,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-capsule.ps1",
+                        "overall":  "PASS",
+                        "tc":  19,
+                        "pc":  19,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-capsule.ps1",
+                        "overall":  "PASS",
+                        "tc":  19,
+                        "pc":  19,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-capsule.ps1",
+                        "overall":  "PASS",
+                        "tc":  19,
+                        "pc":  19,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-progress-report.ps1",
+                        "overall":  "FAIL",
+                        "tc":  13,
+                        "pc":  11,
+                        "fc":  2
+                    },
+                    {
+                        "script":  "validate-worker-handoff.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-handoff.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-worker-handoff.ps1",
+                        "overall":  "FAIL",
+                        "tc":  13,
+                        "pc":  10,
+                        "fc":  3
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "PASS",
+                        "tc":  13,
+                        "pc":  13,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "validate-agent-close-receipt.ps1",
+                        "overall":  "FAIL",
+                        "tc":  14,
+                        "pc":  12,
+                        "fc":  2
+                    },
+                    {
+                        "script":  "check-scope-isolation.ps1",
+                        "overall":  "PASS",
+                        "tc":  6,
+                        "pc":  6,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "check-scope-isolation.ps1",
+                        "overall":  "FAIL",
+                        "tc":  6,
+                        "pc":  4,
+                        "fc":  2
+                    },
+                    {
+                        "script":  "check-evidence-integrity.ps1",
+                        "overall":  "PASS",
+                        "tc":  7,
+                        "pc":  7,
+                        "fc":  0
+                    },
+                    {
+                        "script":  "check-evidence-integrity.ps1",
+                        "overall":  "FAIL",
+                        "tc":  6,
+                        "pc":  2,
+                        "fc":  4
+                    }
+                ]
+}

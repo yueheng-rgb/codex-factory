@@ -1,0 +1,32 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "A",
+  "title": "AB-0 Evidence Intake and Scope Lock",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "inherited": {
+    "RELEASE_READINESS_0": "PASS 29/29",
+    "PACK_STAGING_P7": "PASS 39/39",
+    "v0_5": "BLOCKED",
+    "BLOCK_001": "ACTIVE — no A/B evidence",
+    "releaseAllowed": false,
+    "v05Package": false
+  },
+  "purpose": {
+    "primary": "Matched comparison evidence collection for BLOCK-001",
+    "is": ["matched safe-task comparison", "fair prompt design", "structured scoring", "honest assessment"],
+    "is_not": ["v0.5 release", "RC package creation", "production deployment", "Factory superiority proof", "BLOCK-001 final resolution"]
+  },
+  "limitations": [
+    "One A/B trial cannot prove universal superiority",
+    "Evidence can support or weaken release readiness only",
+    "Synthetic task may not generalize to all project types",
+    "Single-run results are indicative, not conclusive"
+  ],
+  "rejected_claims": [
+    "AB-0 = v0.5 release",
+    "AB-0 result = Factory superiority proven",
+    "Single trial = BLOCK-001 resolved",
+    "Synthetic task = production validation"
+  ],
+  "status": "EVIDENCE_INTAKE_AND_SCOPE_LOCKED"
+}

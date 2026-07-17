@@ -1,0 +1,17 @@
+﻿{
+    "version":  "1.0.0",
+    "ruleCount":  19,
+    "underBudget":  true,
+    "phase":  "FACTORY-EVAL-2-B",
+    "generatedAt":  "2026-06-25T15:59:08+08:00",
+    "schemaId":  "factory-always-on-constitution",
+    "categories":  [
+                       "evidence",
+                       "action",
+                       "factory",
+                       "role",
+                       "rotation"
+                   ],
+    "sha256":  "C52C732F9965361D09324476E40B8384D504FAD9CD735DA12632D4C2B36BDE90",
+    "sizeBytes":  1278
+}

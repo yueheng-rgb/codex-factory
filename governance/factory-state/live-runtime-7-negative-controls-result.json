@@ -1,0 +1,286 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "id":  "N01",
+                          "name":  "compacted_memory_used",
+                          "fault":  "Old compacted conversation memory used as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: conversation memory not available in new carrier",
+                          "target":  "Recovery drill"
+                      },
+                      {
+                          "id":  "N02",
+                          "name":  "compressed_summary_trusted",
+                          "fault":  "Compressed summary accepted as source of truth",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: compressed summary classified FORBIDDEN",
+                          "target":  "Context OS/MCP Memory"
+                      },
+                      {
+                          "id":  "N03",
+                          "name":  "watcher_as_verifier",
+                          "fault":  "Watcher alert treated as verifier PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: watcher does not mark PASS",
+                          "target":  "Controller policy"
+                      },
+                      {
+                          "id":  "N04",
+                          "name":  "controller_as_verifier",
+                          "fault":  "Controller packet treated as verifier PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: controller does not mark PASS",
+                          "target":  "Controller policy"
+                      },
+                      {
+                          "id":  "N05",
+                          "name":  "startup_verification_skipped",
+                          "fault":  "Startup verification skipped",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: startup verification mandatory",
+                          "target":  "Startup contract"
+                      },
+                      {
+                          "id":  "N06",
+                          "name":  "startup_fail_continues",
+                          "fault":  "Startup verification FAIL allows continuation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: fails block continuation",
+                          "target":  "Startup contract"
+                      },
+                      {
+                          "id":  "N07",
+                          "name":  "auto_major_phase",
+                          "fault":  "New carrier starts major phase automatically",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: cannot start new major phase",
+                          "target":  "Controller policy"
+                      },
+                      {
+                          "id":  "N08",
+                          "name":  "fork_full_inheritance",
+                          "fault":  "Fork/new thread claims full context inheritance",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: REJECTED claim",
+                          "target":  "Carrier capability"
+                      },
+                      {
+                          "id":  "N09",
+                          "name":  "auto_window_no_proof",
+                          "fault":  "Automatic window creation claimed without proof",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: REJECTED claim",
+                          "target":  "Carrier capability"
+                      },
+                      {
+                          "id":  "N10",
+                          "name":  "mcp_no_evidence_paths",
+                          "fault":  "MCP memory output lacks evidence paths",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: evidence paths required",
+                          "target":  "MCP Memory output"
+                      },
+                      {
+                          "id":  "N11",
+                          "name":  "mcp_overrides_verifier",
+                          "fault":  "MCP memory conflict overrides verifier JSON",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: verifier JSON authoritative",
+                          "target":  "DRL-03 conflict scenario"
+                      },
+                      {
+                          "id":  "N12",
+                          "name":  "context_os_conflict_ignored",
+                          "fault":  "Context OS conflict ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: conflict must be resolved",
+                          "target":  "DRL-03 conflict scenario"
+                      },
+                      {
+                          "id":  "N13",
+                          "name":  "stale_context_accepted",
+                          "fault":  "Stale context packet accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: stale detected and blocked",
+                          "target":  "DRL-02 stale scenario"
+                      },
+                      {
+                          "id":  "N14",
+                          "name":  "stale_handoff_accepted",
+                          "fault":  "Stale handoff accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: stale \u003e48h blocked",
+                          "target":  "DRL-02 stale scenario"
+                      },
+                      {
+                          "id":  "N15",
+                          "name":  "zip_sha_mismatch_ignored",
+                          "fault":  "Final ZIP SHA mismatch ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: SHA256 must match",
+                          "target":  "Startup contract"
+                      },
+                      {
+                          "id":  "N16",
+                          "name":  "plugin_production",
+                          "fault":  "Plugin marked production-ready",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: plugin remains EXPERIMENTAL",
+                          "target":  "current-factory-state.json"
+                      },
+                      {
+                          "id":  "N17",
+                          "name":  "rejected_verified",
+                          "fault":  "Rejected claim becomes verified",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: rejected stays rejected",
+                          "target":  "DRL-04 clean scenario"
+                      },
+                      {
+                          "id":  "N18",
+                          "name":  "pkt_no_read_files",
+                          "fault":  "Startup packet omits required read files",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: PACKET_HAS_ISSUES",
+                          "target":  "Execution packet validator"
+                      },
+                      {
+                          "id":  "N19",
+                          "name":  "pkt_no_verifier_cmds",
+                          "fault":  "Startup packet omits verifier commands",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: MISSING_VERIFIER_COMMANDS",
+                          "target":  "Execution packet validator"
+                      },
+                      {
+                          "id":  "N20",
+                          "name":  "pkt_no_mcp",
+                          "fault":  "Startup packet omits MCP queries",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: MCP queries required",
+                          "target":  "Execution packet builder"
+                      },
+                      {
+                          "id":  "N21",
+                          "name":  "pkt_no_rejected_claims",
+                          "fault":  "Startup packet omits rejected claims",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: rejected claims must be present",
+                          "target":  "Execution packet"
+                      },
+                      {
+                          "id":  "N22",
+                          "name":  "controller_mutate_phase",
+                          "fault":  "Controller mutates currentTrustedPhase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: cannot mutate state",
+                          "target":  "Controller policy"
+                      },
+                      {
+                          "id":  "N23",
+                          "name":  "watcher_mutate_phase",
+                          "fault":  "Watcher mutates currentTrustedPhase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: doesNotMutateState=true",
+                          "target":  "Watcher policy"
+                      },
+                      {
+                          "id":  "N24",
+                          "name":  "mini_modifies_final",
+                          "fault":  "Mini-task modifies FINAL package",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: doesNotModifyFinalPackage=true",
+                          "target":  "LR7-D mini-task"
+                      },
+                      {
+                          "id":  "N25",
+                          "name":  "mini_creates_zip",
+                          "fault":  "Mini-task creates ZIP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: doesNotCreateZip=true",
+                          "target":  "LR7-D mini-task"
+                      },
+                      {
+                          "id":  "N26",
+                          "name":  "continuation_marks_pass",
+                          "fault":  "Safe continuation marks phase PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: doesNotMarkPhasePass=true",
+                          "target":  "LR7-D mini-task"
+                      },
+                      {
+                          "id":  "N27",
+                          "name":  "agent_os_break_ignored",
+                          "fault":  "Agent OS event chain break ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: event chain integrity checked",
+                          "target":  "Agent OS accountability bus"
+                      },
+                      {
+                          "id":  "N28",
+                          "name":  "capacity_risk_ignored",
+                          "fault":  "Capacity preflight risk ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: P0 capacity risk flagged",
+                          "target":  "Watcher CHK07"
+                      },
+                      {
+                          "id":  "N29",
+                          "name":  "reconciliation_mismatch_ignored",
+                          "fault":  "Cross-session reconciliation mismatch ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: reconciliation mismatch flagged",
+                          "target":  "Watcher CHK08 / DRL-03"
+                      },
+                      {
+                          "id":  "N30",
+                          "name":  "markdown_only_pass",
+                          "fault":  "Markdown-only recovery PASS accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED: machine-readable JSON required",
+                          "target":  "Verifier"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  30,
+    "schemaId":  "live-runtime-7-negative-controls-result",
+    "totalNegatives":  30,
+    "phase":  "LIVE-RUNTIME-7-E",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T00:44:33+08:00"
+}

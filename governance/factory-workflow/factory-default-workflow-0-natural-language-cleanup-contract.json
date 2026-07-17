@@ -1,0 +1,25 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "G",
+  "title": "Natural Language Cleanup Contract",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "contract_file": "factory-workflow/NATURAL_LANGUAGE_CLEANUP_CONTRACT.md",
+  "trigger_phrases": {
+    "cn": ["删除该项目缓存", "清理项目", "清除 Factory 缓存", "重置项目状态", "忘记这个项目"],
+    "en": ["delete this project cache", "clean up the project", "clear Factory cache", "reset project state", "forget this project"]
+  },
+  "protocol_steps": [
+    {"step": 1, "name": "Interpret the Request", "action": "Map natural language to scope"},
+    {"step": 2, "name": "Produce Cleanup PLAN", "action": "Never execute immediately"},
+    {"step": 3, "name": "Require Explicit Confirmation", "action": "User must type 确认执行"},
+    {"step": 4, "name": "Execute Only Confirmed Items", "action": "Only remove items in plan"}
+  ],
+  "safety_tiers": {
+    "never_delete": ["Project source code", "CORE_EVIDENCE", "User documents", "Git history", "Configuration with secrets"],
+    "require_confirmation": ["Factory state files", "Build artifacts", "Cache files", "External conversation spaces"],
+    "safe_auto_clean": ["Stale temp files", "Orphaned harness outputs"]
+  },
+  "key_principle": "删除该项目缓存 must NEVER be interpreted as delete project source",
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_G_NATURAL_LANGUAGE_CLEANUP_CONTRACT_REPORT.md"
+}

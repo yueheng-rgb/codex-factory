@@ -1,0 +1,156 @@
+﻿{
+    "totalChecks":  29,
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Next 3 major phases JSON exists",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "J: Negative controls JSON exists",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "Multi-agent NOT declared default",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "E: Build agent model report exists",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "Total: 30, Gaps: 0",
+                               "description":  "Negative controls executed with 0 gaps",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "External memory roadmap JSON exists",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "F: External memory roadmap report exists",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "Mode boundary clarification JSON exists",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "Mainline correction JSON exists",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "G: Mode boundary clarification report exists",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "C: Target product definition report exists",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "Modified files in skillmarket-repair/: 0",
+                               "description":  "SkillMarket repair NOT restarted",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "Modified product files: 0",
+                               "description":  "No product code modified",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "B: Build capability inventory report exists",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "I: Next phase instruction draft exists",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "New ZIPs: 0",
+                               "description":  "No ZIP created",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "Build agent model JSON exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "H: Next 3 major phases report exists",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "Diagnostic Pack NOT treated as main product",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "Build harness workflow JSON exists",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "Negative controls report exists",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "",
+                               "description":  "User preference for larger phases recorded",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "Target product definition JSON exists",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "New benchmark artifacts: 0",
+                               "description":  "No benchmark started",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Build capability inventory JSON exists",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "D: Build harness workflow report exists",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "A: Mainline correction report exists",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "K: Verifier script exists",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "v0.5 files: 0",
+                               "description":  "No v0.5 package created",
+                               "pass":  true
+                           }
+               },
+    "verdict":  "PASS",
+    "passCount":  29,
+    "phase":  "FACTORY-BUILD-0",
+    "timestamp":  "2026-06-27T00:15:31+08:00",
+    "failCount":  0,
+    "verifier":  "factory-build-0-mainline-reset-verify.ps1"
+}

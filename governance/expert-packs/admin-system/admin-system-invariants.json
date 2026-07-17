@@ -1,0 +1,136 @@
+﻿{
+  "pack": "admin-system",
+  "version": "1.0.0",
+  "invariants": [
+    {
+      "invariant_id": "admin_required_for_admin_routes",
+      "description": "All /admin routes must require authentication and admin role",
+      "severity": "CRITICAL",
+      "category": "authentication",
+      "enforcement_point": "route-layer",
+      "test_required": true,
+      "example_violation": "Unauthenticated user accessing /admin/users",
+      "example_valid": "401/403 returned for unauthenticated or non-admin access"
+    },
+    {
+      "invariant_id": "role_permission_must_be_enforced",
+      "description": "Every admin action must check the current user role permissions before executing",
+      "severity": "CRITICAL",
+      "category": "permission",
+      "enforcement_point": "route-layer",
+      "test_required": true,
+      "example_violation": "Operator accessing super-admin-only endpoint without permission check",
+      "example_valid": "403 Forbidden when role lacks required permission"
+    },
+    {
+      "invariant_id": "ordinary_admin_cannot_escalate_role",
+      "description": "Non-super-admin roles cannot escalate their own or others' role level",
+      "severity": "CRITICAL",
+      "category": "permission",
+      "enforcement_point": "service-layer",
+      "test_required": true,
+      "example_violation": "Admin with OPERATOR role changing their role to SUPER_ADMIN",
+      "example_valid": "403 Forbidden when non-super-admin attempts role escalation"
+    },
+    {
+      "invariant_id": "destructive_action_requires_confirmation",
+      "description": "Delete, batch delete, and irreversible state changes must require explicit confirmation",
+      "severity": "CRITICAL",
+      "category": "safety",
+      "enforcement_point": "service-layer",
+      "test_required": true,
+      "example_violation": "DELETE /api/users/5 succeeds without confirmation token",
+      "example_valid": "DELETE requires confirmation_token in body or header"
+    },
+    {
+      "invariant_id": "deleted_record_not_listed_by_default",
+      "description": "Soft-deleted records must not appear in default list queries unless explicitly requested",
+      "severity": "HIGH",
+      "category": "data-integrity",
+      "enforcement_point": "repository-layer",
+      "test_required": true,
+      "example_violation": "GET /api/products returns archived/deleted products without explicit filter",
+      "example_valid": "GET /api/products only returns non-deleted; ?includeDeleted=true shows all"
+    },
+    {
+      "invariant_id": "status_transition_allowed",
+      "description": "Entity status transitions must follow defined state machine rules; invalid transitions rejected",
+      "severity": "HIGH",
+      "category": "business-logic",
+      "enforcement_point": "service-layer",
+      "test_required": true,
+      "example_violation": "Changing order status from DRAFT directly to SHIPPED without CONFIRMED",
+      "example_valid": "DRAFT -> CONFIRMED -> SHIPPED -> DELIVERED (valid path)"
+    },
+    {
+      "invariant_id": "protected_fields_cannot_be_modified_without_permission",
+      "description": "Sensitive fields (price, role, permissions, status) require specific permissions to modify",
+      "severity": "CRITICAL",
+      "category": "permission",
+      "enforcement_point": "route-layer",
+      "test_required": true,
+      "example_violation": "Operator updating product price without price:write permission",
+      "example_valid": "403 when user lacks field-specific write permission"
+    },
+    {
+      "invariant_id": "batch_operation_must_be_scoped",
+      "description": "Batch operations must specify scope (filters, IDs, limit) and return affected count",
+      "severity": "HIGH",
+      "category": "safety",
+      "enforcement_point": "service-layer",
+      "test_required": true,
+      "example_violation": "POST /api/batch-delete with no filter — deletes everything",
+      "example_valid": "POST /api/batch-delete requires filter + maxAffected limit"
+    },
+    {
+      "invariant_id": "audit_log_required_for_sensitive_actions",
+      "description": "Create, update, delete, status change, role change, and export operations must create audit log entries",
+      "severity": "HIGH",
+      "category": "audit",
+      "enforcement_point": "service-layer",
+      "test_required": true,
+      "example_violation": "Deleting a user without creating audit_log record with operator_id and timestamp",
+      "example_valid": "Every sensitive action creates audit_log entry with actor, action, target, timestamp, details"
+    },
+    {
+      "invariant_id": "export_requires_permission",
+      "description": "Data export (CSV, Excel, JSON) must require explicit export permission",
+      "severity": "HIGH",
+      "category": "permission",
+      "enforcement_point": "route-layer",
+      "test_required": true,
+      "example_violation": "Any admin can export all user data without export permission",
+      "example_valid": "403 when user lacks export:read permission"
+    },
+    {
+      "invariant_id": "import_requires_validation",
+      "description": "All imported data must pass schema validation, uniqueness checks, and business rules before insertion",
+      "severity": "HIGH",
+      "category": "data-integrity",
+      "enforcement_point": "service-layer",
+      "test_required": true,
+      "example_violation": "CSV import inserts rows with invalid emails or duplicate IDs",
+      "example_valid": "Import validates each row; rejects invalid rows with line-level errors"
+    },
+    {
+      "invariant_id": "pagination_limit_enforced",
+      "description": "All list endpoints must enforce pagination with a maximum page size limit",
+      "severity": "MEDIUM",
+      "category": "performance",
+      "enforcement_point": "repository-layer",
+      "test_required": true,
+      "example_violation": "GET /api/products returns 50,000 records with no pagination",
+      "example_valid": "Default pageSize=20, max pageSize=100 enforced"
+    },
+    {
+      "invariant_id": "search_filter_must_be_whitelisted",
+      "description": "Search and filter parameters must be validated against a whitelist of allowed fields; raw SQL injection prevented",
+      "severity": "HIGH",
+      "category": "security",
+      "enforcement_point": "route-layer",
+      "test_required": true,
+      "example_violation": "GET /api/products?search=1;DROP TABLE users;-- executing raw SQL",
+      "example_valid": "search parameter validated against allowed columns; parameterized queries used"
+    }
+  ]
+}

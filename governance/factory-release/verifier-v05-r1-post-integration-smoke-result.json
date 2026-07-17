@@ -1,0 +1,127 @@
+﻿{
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE",
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-29T01:07:07+08:00",
+    "checks":  {
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "No real validation",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "R1 SHA matches expected",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "Verified in Section D",
+                               "description":  "All 7 theory phases included",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "No expectedClass/generic FAIL",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "No cloud/deploy",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "R1 package exists",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Original v0.5 preserved",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "Overclaim audit exists",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Scope lock exists",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "11/11 PASS",
+                               "description":  "No overclaim",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "No v0.6",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "Handoff readiness decision exists",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "Hash/extraction report exists",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "R1 integration PASS exists",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "25/27 PASS, 2 cloud boundary docs (acceptable)",
+                               "description":  "No forbidden content",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "36 controls",
+                               "description":  "Negative controls 0 gaps",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "CLI discoverability report exists",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "Safe command smoke exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "factoryctl.ps1 present, factory.ps1 documented as target",
+                               "description":  "CLI name reconciled",
+                               "pass":  true
+                           },
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Behavior fixture smoke exists",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "No manual PASS-only",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "Metadata/manifest report exists",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "Seven-phase inclusion report exists",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "Forbidden content audit exists",
+                               "pass":  true
+                           }
+               }
+}

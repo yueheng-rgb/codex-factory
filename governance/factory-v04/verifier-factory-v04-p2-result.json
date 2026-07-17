@@ -1,0 +1,228 @@
+﻿{
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "name":  "Old FINAL package SHA unchanged",
+                        "id":  "V01",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "No new final ZIP created",
+                        "id":  "V02",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "No v0.4 release ZIP",
+                        "id":  "V03",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "RC status: RELEASE_CANDIDATE_NOT_FINAL",
+                        "id":  "V04",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "FACTORY-V04-RELEASE-PREP PASS exists",
+                        "id":  "V05",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Usability audit exists",
+                        "id":  "V06",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "DAILY_USE.md exists",
+                        "id":  "V07",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "MINIMAL_CONTEXT_PACKET.md exists",
+                        "id":  "V08",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "USAGE_QUICKSTART repaired (no Draft)",
+                        "id":  "V09",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "INSTALL.md references DAILY_USE",
+                        "id":  "V10",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "README.md has DAILY_USE as entry point",
+                        "id":  "V11",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "USER_REVIEW_GUIDE references DAILY_USE",
+                        "id":  "V12",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Scripts accept PackRoot parameter",
+                        "id":  "V13",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Smoke test supports JSON output",
+                        "id":  "V14",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "No draft duplicates (CHANGELOG_DRAFT/INSTALL_DRAFT)",
+                        "id":  "V15",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "VALIDATION_CHECKLIST merged into RELEASE_NOTES_RC",
+                        "id":  "V16",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Redundancy reduction report exists",
+                        "id":  "V17",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Claim/boundary recheck passes",
+                        "id":  "V18",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "P2 validation passes",
+                        "id":  "V19",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "P2 smoke test passes",
+                        "id":  "V20",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Manifest p2UsabilityChecked = true",
+                        "id":  "V21",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Manifest dailyUseGuide = DAILY_USE.md",
+                        "id":  "V22",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Manifest minimalContextPacket present",
+                        "id":  "V23",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Manifest releaseZipCreated = false",
+                        "id":  "V24",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Manifest finalZipCreated = false",
+                        "id":  "V25",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "No universal quality claim",
+                        "id":  "V26",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "EVAL-13 INCONCLUSIVE preserved",
+                        "id":  "V27",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "10-role not default (Tier 0 = 0 roles)",
+                        "id":  "V28",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Archive NOT in daily path",
+                        "id":  "V29",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Deferred NOT in daily path",
+                        "id":  "V30",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Negative controls 28/28 PASS",
+                        "id":  "V31",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "No UNEXPECTED_PASS in negatives",
+                        "id":  "V32",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "No generic FAIL in negatives",
+                        "id":  "V33",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "MANIFEST.sha256 matches MANIFEST.json",
+                        "id":  "V34",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Scripts do NOT contain ZIP creation",
+                        "id":  "V35",
+                        "pass":  true
+                    },
+                    {
+                        "result":  "PASS",
+                        "name":  "Reviewer checklist is readonly",
+                        "id":  "V36",
+                        "pass":  true
+                    }
+                ],
+    "totalChecks":  36,
+    "allPassed":  true,
+    "verdict":  "FACTORY-V04-P2: PASS",
+    "packRoot":  "C:\\Codex_App_Factory\\factory-resource-pack-v0.4-rc",
+    "passCount":  36,
+    "phase":  "FACTORY-V04-P2-J",
+    "timestamp":  "2026-06-25T22:46:15+08:00",
+    "failCount":  0
+}

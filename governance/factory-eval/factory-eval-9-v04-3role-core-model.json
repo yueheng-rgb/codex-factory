@@ -1,0 +1,62 @@
+﻿{
+  "phase": "FACTORY-EVAL-9-C",
+  "title": "3-Role Core Model — Architect, Builder, Reviewer",
+  "createdAt": "2026-06-25T20:06:00+08:00",
+  "evidenceBase": "EVAL-8: 3-role recommendation to replace 10-role. Provides structure without process theater.",
+  "roles": [
+    {
+      "roleId": "architect",
+      "name": "Architect",
+      "type": "planning",
+      "activation": "Conditional — project complexity threshold",
+      "ownedScopes": ["system-architecture", "API-contract-design", "data-model-blueprint", "component-tree", "technology-stack-selection"],
+      "forbiddenScopes": ["implementation-code", "test-code", "verification-judgment"],
+      "estimatedOverhead": "~150ms",
+      "outputs": ["architecture decision record", "API contract", "data model", "component tree"]
+    },
+    {
+      "roleId": "builder",
+      "name": "Builder",
+      "type": "implementation",
+      "activation": "Default — always active",
+      "ownedScopes": ["frontend-implementation", "backend-implementation", "database-schema", "test-code", "documentation"],
+      "forbiddenScopes": ["verification-judgment", "independent-evaluation"],
+      "estimatedOverhead": "0ms (default Codex flow)",
+      "outputs": ["product code", "tests", "README"]
+    },
+    {
+      "roleId": "reviewer",
+      "name": "Reviewer",
+      "type": "review",
+      "activation": "Conditional — auth/RBAC or user request",
+      "readonly": true,
+      "ownedScopes": ["test-execution", "security-review", "process-verification", "evidence-audit", "requirements-validation"],
+      "forbiddenScopes": ["implementation-code", "architecture-redesign"],
+      "estimatedOverhead": "~200ms",
+      "outputs": ["test results", "security review", "verification report", "audit trail validation"],
+      "note": "Merges former QA + Verifier + Auditor into single readonly review role"
+    }
+  ],
+  "handoffs": [
+    {
+      "from": "architect",
+      "to": "builder",
+      "artifacts": ["architecture decision record", "API contract", "data model", "component tree"],
+      "format": "minimal — single JSON with artifact list + POR receipt"
+    },
+    {
+      "from": "builder",
+      "to": "reviewer",
+      "artifacts": ["product code", "tests", "README"],
+      "format": "minimal — builder hands off completed product"
+    },
+    {
+      "from": "reviewer",
+      "to": "builder",
+      "artifacts": ["test results", "security findings", "verification gaps"],
+      "format": "findings report — builder fixes issues"
+    }
+  ],
+  "totalOverheadEstimate": "~350ms for full 3-role cycle (vs ~1555ms for 10-role)",
+  "comparisonTo10role": "3-role model preserves the architectural review and quality review benefits of the company model while eliminating: 7 redundant roles, 8 cross-role contracts, 5 unnecessary handoffs, and role drift tracking overhead."
+}

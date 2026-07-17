@@ -1,0 +1,20 @@
+﻿{
+    "gate_final_id": "FACTORY-BUILD-REALWORLD-2-P2-SECURITY-DEPLOY-GATE-FINAL-RECHECK",
+    "generated_at": "2026-06-28T10:29:39+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P2",
+    "section": "H",
+    "checks": [
+        {"id": "FINAL-001", "desc": "No real secrets in working-copy safe config", "pass": true},
+        {"id": "FINAL-002", "desc": "No secret values in any report", "pass": true},
+        {"id": "FINAL-003", "desc": "Deploy scripts not executable with real credentials", "pass": true},
+        {"id": "FINAL-004", "desc": ".gitignore protects deploy_*.py, remote_*.py, *_audit*.py", "pass": true},
+        {"id": "FINAL-005", "desc": ".gitignore protects .env, db.sqlite3, *.pem, *.key", "pass": true},
+        {"id": "FINAL-006", "desc": "User rotation checklist exists", "pass": true},
+        {"id": "FINAL-007", "desc": "SECURITY.md exists with production checklist", "pass": true},
+        {"id": "FINAL-008", "desc": "No production connection occurred", "pass": true},
+        {"id": "FINAL-009", "desc": "No deploy command executed", "pass": true},
+        {"id": "FINAL-010", "desc": "Risks classified (CODEX vs USER)", "pass": true}
+    ],
+    "verdict": "SECURITY_DEPLOY_GATE_FINAL_PASS",
+    "all_checks_pass": true
+}

@@ -1,0 +1,20 @@
+﻿{
+  "fixtureId": "REGRESSION-NEG-003",
+  "description": "Negative mock/dry_run mislabeled test — dry_run mode MUST be rejected regardless of source quality",
+  "testType": "negative_mock_dryrun_mislabeled",
+  "expectedResult": "REJECT — Classification D — response_not_dry_run FATAL",
+  "intakePacket": {
+    "sourceRefs": [
+      {
+        "title": "Next.js Documentation",
+        "url": "https://nextjs.org/docs",
+        "sourceType": "official_docs",
+        "snippet": "Official Next.js documentation."
+      }
+    ],
+    "provider": "glm_search",
+    "claimedFacts": []
+  },
+  "searchInvoked": false,
+  "actualMode": "dry_run"
+}

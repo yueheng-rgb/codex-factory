@@ -1,0 +1,42 @@
+﻿{
+  "confirmation_id": "FACTORY-CONTEXT-SPACE-P5-BALANCED-COMPRESSION-DEFAULT-CONFIRMATION",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "sub_step": "C",
+  "conclusion": "BALANCED CONFIRMED as fresh-window default",
+  "evidence": {
+    "p4_benchmark": "P4 tested 4 compression levels across 4 snapshot types. BALANCED preserved all critical fields (frozen_conclusions, current_strategy, active_risks, next_recommended, blocked_phases) while reducing size by ~60% vs FULL.",
+    "p4_r1_coverage": "P4-R1 extended benchmark to 24 snapshots across 6 types x 4 compression levels. BALANCED consistently passed freshness validation across all 24.",
+    "fresh_window_simulation": "Loading a BALANCED Snapshot Pack provides: frozen_conclusions (all 14), current_strategy flags (all), active_risks (all non-legacy), next_recommended phases (2), blocked_phases (all). Sufficient for fresh-window continuation."
+  },
+  "balanded_retains": [
+    "frozen_conclusions (14 items)",
+    "current_strategy flags",
+    "active_risks (non-legacy)",
+    "next_recommended phases",
+    "blocked_phases",
+    "freshnessStatus + sourceOfTruthPaths",
+    "current_phase + last_completed_phase"
+  ],
+  "balanded_drops": [
+    "Full phase-ledger history (summarized instead)",
+    "Full risk-ledger history (summarized instead)",
+    "Intermediate sub-step details",
+    "Legacy rotation warnings (archived)",
+    "Raw benchmark data"
+  ],
+  "balanded_sufficient_for": [
+    "Fresh-window mount",
+    "Direction guard consultation",
+    "Strategy flag awareness",
+    "Risk awareness",
+    "Next-phase recommendation"
+  ],
+  "balanded_insufficient_for": [
+    "Full phase audit (needs FULL or P2 index)",
+    "Detailed risk traceability (needs FULL or P2 index)",
+    "Release decision with full evidence (needs FULL)",
+    "Verifier evidence (snapshot is NEVER evidence)"
+  ],
+  "decision": "BALANCED remains default. No revision needed."
+}

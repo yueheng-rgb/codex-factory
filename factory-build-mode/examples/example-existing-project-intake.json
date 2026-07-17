@@ -1,0 +1,13 @@
+﻿{
+    "projectType": "EXISTING",
+    "existingProject": {
+        "projectPath": "C:/projects/my-ecommerce-app",
+        "projectGoal": "DIAGNOSE_THEN_BUILD",
+        "knownIssues": ["Auth tokens not verified server-side", "Missing rate limiting", "Report claims 12 DB tables but schema has 9"],
+        "userPriority": "Fix critical security issues first, then complete missing features",
+        "allowedModificationScope": ["backend/auth/", "backend/middleware/", "database/schema.sql"],
+        "forbiddenPaths": ["frontend/build/", "node_modules/"],
+        "reportDocsPath": "C:/projects/my-ecommerce-app/docs/project-report.docx",
+        "continueFromStage": "DIAGNOSTIC_GATE"
+    }
+}

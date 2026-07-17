@@ -1,0 +1,24 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P7",
+  "section": "F",
+  "title": "User Instruction Clarity Audit",
+  "timestamp": "2026-06-28T17:20:00+08:00",
+  "audit_items": [
+    {"item": "QUICKSTART.md has copy-paste examples", "status": "PASS"},
+    {"item": "factory.ps1 help outputs all commands", "status": "PASS"},
+    {"item": "Error messages are actionable", "status": "PASS"},
+    {"item": "Chinese user-facing docs present", "status": "PASS"},
+    {"item": "Not-release warning in all output", "status": "PASS"},
+    {"item": "Install-not-deployment warning in install output", "status": "PASS"},
+    {"item": "Secret rotation boundary documented", "status": "PASS"},
+    {"item": "Next-command hints in phase-close output", "status": "PASS"},
+    {"item": "Gate trigger explanation in Security Gate output", "status": "PASS"},
+    {"item": "Package QA read-only nature explained", "status": "PASS"}
+  ],
+  "summary": {
+    "total": 10,
+    "pass": 10,
+    "fail": 0
+  },
+  "status": "USER_INSTRUCTION_CLARITY_PASS"
+}

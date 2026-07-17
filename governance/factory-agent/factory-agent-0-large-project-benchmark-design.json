@@ -1,0 +1,131 @@
+﻿{
+    "keyMeasures":  [
+                        {
+                            "higherIsBetter":  true,
+                            "description":  "Percentage of specified features actually implemented",
+                            "measure":  "requirements_coverage"
+                        },
+                        {
+                            "higherIsBetter":  true,
+                            "description":  "Did Codex simplify the architecture to reduce workload?",
+                            "measure":  "architecture_complexity_preserved"
+                        },
+                        {
+                            "higherIsBetter":  false,
+                            "description":  "Cross-module bugs found post-completion",
+                            "measure":  "integration_defects"
+                        },
+                        {
+                            "higherIsBetter":  true,
+                            "description":  "Auth, validation, permission checks correctly implemented",
+                            "measure":  "security_correctness"
+                        },
+                        {
+                            "higherIsBetter":  true,
+                            "description":  "Tests cover real failure modes, not just happy paths",
+                            "measure":  "test_realism"
+                        },
+                        {
+                            "higherIsBetter":  true,
+                            "description":  "Code clarity, modularity, documentation quality",
+                            "measure":  "maintainability"
+                        },
+                        {
+                            "higherIsBetter":  false,
+                            "description":  "Context compression events during development",
+                            "measure":  "context_pressure"
+                        },
+                        {
+                            "higherIsBetter":  false,
+                            "description":  "Number of repair phases/rework cycles needed",
+                            "measure":  "repair_count"
+                        },
+                        {
+                            "higherIsBetter":  false,
+                            "description":  "Number of times user had to intervene",
+                            "measure":  "human_intervention"
+                        },
+                        {
+                            "higherIsBetter":  false,
+                            "description":  "(v0.5 only) Time spent on spawn/contract/handoff vs actual coding",
+                            "measure":  "agent_overhead"
+                        },
+                        {
+                            "higherIsBetter":  false,
+                            "description":  "(v0.5 only) Agent claims completion but verifier shows gaps",
+                            "measure":  "false_completion"
+                        }
+                    ],
+    "candidateProjectTypes":  [
+                                  "Enterprise admin dashboard",
+                                  "Multi-tenant SaaS platform",
+                                  "E-commerce marketplace",
+                                  "Content management system with workflow",
+                                  "API gateway with multiple services"
+                              ],
+    "benchmarkGoal":  "Compare Vanilla Codex, v0.4 Factory Lite Core, and v0.5 Agent Company Mode on a genuinely large project",
+    "projectSelectionCriteria":  [
+                                     "50+ distinct features or user stories",
+                                     "5+ independent modules that can be assigned to different agents",
+                                     "Full-stack: frontend + backend + database + auth + API",
+                                     "Realistic complexity: not a toy app, not a copy-paste CRUD"
+                                 ],
+    "phase":  "FACTORY-AGENT-0-G",
+    "generatedAt":  "2026-06-26T01:03:37.0880322+08:00",
+    "nativeGenerated":  true,
+    "minimumEvidenceForConclusion":  "All 3 RUNs completed on the same project specification with independent quality assessment",
+    "runs":  [
+                 {
+                     "measures":  [
+                                      "requirements_coverage",
+                                      "architecture_complexity_preserved",
+                                      "integration_defects",
+                                      "security_correctness",
+                                      "test_realism",
+                                      "maintainability",
+                                      "context_pressure",
+                                      "repair_count",
+                                      "human_intervention"
+                                  ],
+                     "run":  "RUN-1",
+                     "description":  "Single Main Agent handles entire project without Factory mechanisms",
+                     "mode":  "Vanilla Codex"
+                 },
+                 {
+                     "measures":  [
+                                      "requirements_coverage",
+                                      "architecture_complexity_preserved",
+                                      "integration_defects",
+                                      "security_correctness",
+                                      "test_realism",
+                                      "maintainability",
+                                      "context_pressure",
+                                      "repair_count",
+                                      "human_intervention",
+                                      "process_integrity_score"
+                                  ],
+                     "run":  "RUN-2",
+                     "description":  "Single developer with Manual Router, Proof-of-Read, Evidence Hierarchy, Contamination Logging",
+                     "mode":  "v0.4 Factory Lite Core"
+                 },
+                 {
+                     "measures":  [
+                                      "requirements_coverage",
+                                      "architecture_complexity_preserved",
+                                      "integration_defects",
+                                      "security_correctness",
+                                      "test_realism",
+                                      "maintainability",
+                                      "context_pressure",
+                                      "repair_count",
+                                      "human_intervention",
+                                      "agent_overhead",
+                                      "false_completion",
+                                      "spawn_failure_count"
+                                  ],
+                     "run":  "RUN-3",
+                     "description":  "Orchestrator + 2-4 Builders + Integrator + Verifier with fork_context:false, owned scopes, contracts, handoffs",
+                     "mode":  "v0.5 Agent Company Mode"
+                 }
+             ]
+}

@@ -1,0 +1,100 @@
+﻿{
+    "assets":  [
+                   {
+                       "sourcePath":  "scripts/factoryctl.ps1",
+                       "forbiddenAssumptions":  [
+                                                    "Not on system PATH",
+                                                    "May need repo-local invocation"
+                                                ],
+                       "stability":  "stable",
+                       "sourcePhase":  "H12",
+                       "category":  "core",
+                       "h18A0DispositionSource":  "H18-A0 inventory",
+                       "allowedUse":  "Factory control plane entrypoint: status, agents, progress, watch. Repo-local.",
+                       "disposition":  "CORE_PACKAGED",
+                       "packPath":  "core/factoryctl/factoryctl.ps1",
+                       "required":  true
+                   },
+                   {
+                       "sourcePath":  "scripts/register-agent.ps1",
+                       "h18A0DispositionSource":  "H18-A0 inventory",
+                       "stability":  "stable",
+                       "sourcePhase":  "H14",
+                       "category":  "core",
+                       "allowedUse":  "Register spawned agents in AGENT_REGISTRY.json",
+                       "disposition":  "CORE_PACKAGED",
+                       "packPath":  "core/agent-tracking/register-agent.ps1",
+                       "required":  true
+                   },
+                   {
+                       "sourcePath":  "scripts/record-progress.ps1",
+                       "h18A0DispositionSource":  "H18-A0 inventory",
+                       "stability":  "stable",
+                       "sourcePhase":  "H14",
+                       "category":  "core",
+                       "allowedUse":  "Record agent progress events in AGENT_PROGRESS.jsonl",
+                       "disposition":  "CORE_PACKAGED",
+                       "packPath":  "core/agent-tracking/record-progress.ps1",
+                       "required":  true
+                   },
+                   {
+                       "sourcePath":  "scripts/generate-handoff.ps1",
+                       "h18A0DispositionSource":  "H18-A0 inventory",
+                       "stability":  "stable",
+                       "sourcePhase":  "H13-D",
+                       "category":  "core",
+                       "allowedUse":  "Generate session rotation handoff JSON",
+                       "disposition":  "CORE_PACKAGED",
+                       "packPath":  "core/handoff/generate-handoff.ps1",
+                       "required":  true
+                   },
+                   {
+                       "sourcePath":  "scripts/phase6c-session-rotation-handoff-verify.ps1",
+                       "h18A0DispositionSource":  "H18-A0 inventory",
+                       "stability":  "stable",
+                       "sourcePhase":  "H13-D",
+                       "category":  "core",
+                       "allowedUse":  "Verify session rotation handoff integrity",
+                       "disposition":  "CORE_PACKAGED",
+                       "packPath":  "core/handoff/handoff-verify.ps1",
+                       "required":  true
+                   }
+               ],
+    "version":  "0.1.0",
+    "boundaryRules":  [
+                          "Do not package scoring systems as core PASS/FAIL gates",
+                          "Do not package unverified Codex capability claims as facts",
+                          "Do not package compressed summaries as evidence",
+                          "Failure-router excluded from core/runnable pack",
+                          "Historical evidence not rewritten",
+                          "No final delivery ZIP created during H18"
+                      ],
+    "phase":  "H18",
+    "generatedAt":  "2026-06-24T16:56:18.1792869+08:00",
+    "nativeGenerated":  true,
+    "categories":  [
+                       "core",
+                       "optional-modules",
+                       "reference-archive",
+                       "deprecated",
+                       "excluded",
+                       "role-model",
+                       "protocols",
+                       "policies",
+                       "schemas",
+                       "verifier-modules",
+                       "negative-fixtures",
+                       "session-rotation",
+                       "context-compression",
+                       "agent-lifecycle",
+                       "decision-protocol",
+                       "diagnosis",
+                       "bootstrap"
+                   ],
+    "scoringSystemGate":  {
+                              "reference":  "factory-resource-pack/SCORING_SYSTEM_GATE.md",
+                              "rule":  "No core module may emit PASS/FAIL based on computed score. All gating must be verifier-based and evidence-backed.",
+                              "enforced":  true
+                          },
+    "h18A0InventoryRef":  "governance/factory-state/h18-a0-legacy-capability-inventory.json"
+}

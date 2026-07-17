@@ -1,0 +1,53 @@
+﻿{
+    "date":  "2026-07-09T20:32:14+08:00",
+    "passCount":  9,
+    "failCount":  0,
+    "allPassed":  true,
+    "scenarios":  [
+                      {
+                          "Scenario":  "A: ARCH-only design, low-risk baseline",
+                          "Passed":  true,
+                          "Detail":  "Allowed=10 Monitor=5 Rejected=2"
+                      },
+                      {
+                          "Scenario":  "A2: PM-inclusive design detects CAP-SKILL-099 pending_human",
+                          "Passed":  true,
+                          "Detail":  "PendingH=1"
+                      },
+                      {
+                          "Scenario":  "B: DB agent + high-risk MCP, no sandbox → pending_sandbox",
+                          "Passed":  true,
+                          "Detail":  "PendingS=1"
+                      },
+                      {
+                          "Scenario":  "C: Network-restricted blocks/monitors MCPs",
+                          "Passed":  true,
+                          "Detail":  "MCPs blocked/monitored: 3"
+                      },
+                      {
+                          "Scenario":  "D: Research + search providers (monitor_only)",
+                          "Passed":  true,
+                          "Detail":  "Monitor=4 Rejected=5"
+                      },
+                      {
+                          "Scenario":  "E: CAP-SKILL-099 pending_human (no confirmation)",
+                          "Passed":  true,
+                          "Detail":  "Total pendingH=1"
+                      },
+                      {
+                          "Scenario":  "F: CAP-SKILL-099 ALLOWED after confirmation",
+                          "Passed":  true,
+                          "Detail":  "Total allowed=8"
+                      },
+                      {
+                          "Scenario":  "G: Monitor-only cap NOT invocable",
+                          "Passed":  true,
+                          "Detail":  "Decision: MONITOR_ONLY"
+                      },
+                      {
+                          "Scenario":  "H: Cloud service blocked in local-first",
+                          "Passed":  true,
+                          "Detail":  "Decision: MONITOR_ONLY"
+                      }
+                  ]
+}

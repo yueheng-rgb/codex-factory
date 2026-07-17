@@ -1,0 +1,19 @@
+﻿{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Remote Runner Profile",
+    "description": "Codex Factory V3.1 remote/sandbox runner abstraction profile",
+    "type": "object",
+    "required": ["runner_id", "runner_type", "isolation_level", "status"],
+    "properties": {
+        "runner_id": { "type": "string" },
+        "runner_type": { "type": "string", "enum": ["local", "local-isolated-workspace", "remote-placeholder", "container-placeholder"] },
+        "isolation_level": { "type": "string", "enum": ["directory", "process", "container", "vm", "none"] },
+        "status": { "type": "string", "enum": ["AVAILABLE", "PLACEHOLDER", "NOT_IMPLEMENTED", "DISABLED"] },
+        "description": { "type": "string" },
+        "limitations": { "type": "array", "items": { "type": "string" } },
+        "supported_commands": { "type": "array", "items": { "type": "string" } },
+        "artifact_capture": { "type": "boolean" },
+        "snapshot_aware": { "type": "boolean" },
+        "non_claims": { "type": "array", "items": { "type": "string" } }
+    }
+}

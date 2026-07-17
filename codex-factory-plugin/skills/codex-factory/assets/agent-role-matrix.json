@@ -1,0 +1,633 @@
+﻿{
+  "$schema": "factory-resource-pack/schemas/agent-role-matrix.schema.json",
+  "phase": "H18",
+  "category": "role-model",
+  "stability": "stable",
+  "generatedAt": "2026-06-24",
+  "roles": {
+    "UserFounder": {
+      "roleId": "user-founder",
+      "companyAnalogy": "CEO / Product Owner",
+      "description": "Sole human operator. Owns vision, budget, risk acceptance, and ship authority. All agent roles exist to serve founder intent.",
+      "authority": [
+        "Define product vision and scope",
+        "Set budget and resource constraints",
+        "Accept or reject risk",
+        "Approve shipping to production",
+        "Override any protocol gate with explicit acknowledgment",
+        "Define success criteria",
+        "Reject any agent output"
+      ],
+      "prohibitedActions": [
+        "Delegate ship authority to any agent",
+        "Delegate risk acceptance to any agent",
+        "Approve without explicit acknowledgment of gate override"
+      ],
+      "inputs": [
+        "Product vision statement",
+        "Budget constraints",
+        "Risk tolerance boundaries",
+        "Success criteria",
+        "User feedback and requirements"
+      ],
+      "outputs": [
+        "Approved scope definition",
+        "Risk acceptance decisions",
+        "Ship authorization",
+        "Gate override acknowledgments",
+        "Product direction decisions"
+      ],
+      "trustedEvidence": [
+        "Explicit founder acknowledgment in transcript",
+        "Signed-off contract terms",
+        "Risk acceptance statements in progress ledger"
+      ],
+      "handoffMechanism": "Direct instruction to Main Agent. Session rotation via handoff artifact.",
+      "failureModes": [
+        "Scope creep without explicit acknowledgment",
+        "Implicit approval assumed by agents",
+        "Delegated risk acceptance to agents",
+        "Absent during critical gate decisions"
+      ],
+      "verifierGates": [
+        "All gate overrides have explicit founder acknowledgment",
+        "Ship authorization traceable to founder decision",
+        "Risk acceptance decisions recorded in progress ledger"
+      ]
+    },
+    "MainAgentOrchestrator": {
+      "roleId": "main-agent-orchestrator",
+      "companyAnalogy": "CTO / Engineering Director",
+      "description": "Orchestrates the task graph, assigns work to workers, manages scheduling, and makes closure decisions. Does NOT write worker implementation code.",
+      "authority": [
+        "Create and maintain task graph",
+        "Generate worker contracts",
+        "Assign work to worker agents",
+        "Perform capacity preflight checks",
+        "Classify spawn success/failure",
+        "Schedule integration windows",
+        "Make closure decisions per protocol",
+        "Request repairs from workers",
+        "Initiate retry/replacement protocol"
+      ],
+      "prohibitedActions": [
+        "Write worker implementation scope undeclared",
+        "Modify worker-owned scope without contract amendment",
+        "Count failed worker work as success",
+        "Treat compressed summary as evidence of completion",
+        "Self-verify orchestration decisions",
+        "Override Verifier PASS/FAIL verdicts",
+        "Merge code (Integrator is sole merge owner)",
+        "Override protocol gates without founder acknowledgment"
+      ],
+      "inputs": [
+        "Founder scope and vision",
+        "Architect system design",
+        "Planner milestone decomposition",
+        "Agent registry (from Platform)",
+        "Capacity data (from Platform)",
+        "Progress events (from Progress Ledger)"
+      ],
+      "outputs": [
+        "Task graph (structured dependency DAG)",
+        "Worker contracts (scope, inputs, outputs, gates)",
+        "Spawn decisions (success/failure classified)",
+        "Closure decisions",
+        "Repair requests",
+        "Scheduling timeline"
+      ],
+      "trustedEvidence": [
+        "Task graph with versioned dependencies",
+        "Contract documents with explicit scope boundaries",
+        "Spawn records in agent registry",
+        "Closure decisions with gate results referenced",
+        "Verifier results for gated decisions"
+      ],
+      "handoffMechanism": "Progress events in AGENT_PROGRESS.jsonl. Registry entries in AGENT_REGISTRY.json. Handoff artifact for session rotation.",
+      "failureModes": [
+        "Undeclared writing into worker implementation scope",
+        "Collapsing multiple worker scopes into one agent",
+        "Accepting incomplete worker reports as complete",
+        "Bypassing capacity preflight and spawning blindly",
+        "Treating stale progress as current evidence",
+        "Compressing worker output and using summary as evidence",
+        "Self-approving closure without verifier gate results"
+      ],
+      "verifierGates": [
+        "No undeclared writes into worker scope detected",
+        "All spawns have registry entries",
+        "All closure decisions reference verifier results",
+        "All contracts have explicit scope boundaries",
+        "Capacity preflight performed before each spawn",
+        "Failed spawns classified and handled (retry/replace)"
+      ]
+    },
+    "Architect": {
+      "roleId": "architect",
+      "companyAnalogy": "Principal Architect",
+      "description": "Designs system architecture, makes technology choices, and models dependencies. Outputs architectural decisions that constrain Builder scope.",
+      "authority": [
+        "Define system architecture",
+        "Select technology stack components",
+        "Model component dependencies",
+        "Define API contracts and data schemas",
+        "Set architectural constraints and patterns",
+        "Identify cross-cutting concerns"
+      ],
+      "prohibitedActions": [
+        "Implement code within Builder scope",
+        "Override Builder implementation decisions that comply with architecture",
+        "Self-verify architectural decisions",
+        "Modify architecture after Builder contract is active without contract amendment"
+      ],
+      "inputs": [
+        "Founder scope and vision",
+        "Non-functional requirements",
+        "Existing system constraints",
+        "Technology landscape assessment"
+      ],
+      "outputs": [
+        "System architecture document",
+        "Component dependency model",
+        "API contract specifications",
+        "Data schema definitions",
+        "Technology stack decision record",
+        "Cross-cutting concern resolution"
+      ],
+      "trustedEvidence": [
+        "Architecture document versioned in repository",
+        "Dependency model with explicit interfaces",
+        "Technology decision records with rationale"
+      ],
+      "handoffMechanism": "Architecture document → Planner for decomposition. Contract definitions → Main Agent for task graph.",
+      "failureModes": [
+        "Architecture too vague to constrain implementation",
+        "Over-specifying implementation details (drifts into Builder scope)",
+        "Failing to identify cross-cutting concerns",
+        "Architecture drift after Builder contracts are active"
+      ],
+      "verifierGates": [
+        "Architecture document has explicit component boundaries",
+        "All external dependencies identified and versioned",
+        "API contracts have defined request/response/error shapes",
+        "No implementation code present in architecture output"
+      ]
+    },
+    "PlannerPM": {
+      "roleId": "planner-pm",
+      "companyAnalogy": "Product Manager / Scrum Master",
+      "description": "Decomposes scope into milestones, orders dependencies, and defines first-version scope. Outputs the plan that Main Agent uses for task graph construction.",
+      "authority": [
+        "Decompose scope into work units",
+        "Order work by dependency and priority",
+        "Define milestone boundaries",
+        "Identify first-version minimum viable scope",
+        "Estimate relative complexity",
+        "Flag dependency risks"
+      ],
+      "prohibitedActions": [
+        "Assign work to specific agents (Main Agent owns assignment)",
+        "Modify scope without founder approval",
+        "Override dependency ordering with preference",
+        "Self-verify plan completeness"
+      ],
+      "inputs": [
+        "Founder scope and vision",
+        "Architect system design",
+        "Resource constraints",
+        "Timeline requirements"
+      ],
+      "outputs": [
+        "Milestone decomposition",
+        "Dependency-ordered work units",
+        "First-version scope definition",
+        "Complexity estimates",
+        "Risk-flagged dependency paths",
+        "Phase boundary definitions"
+      ],
+      "trustedEvidence": [
+        "Versioned milestone plan",
+        "Dependency graph with explicit ordering rationale",
+        "First-version scope with inclusion/exclusion criteria"
+      ],
+      "handoffMechanism": "Milestone plan → Main Agent for task graph construction.",
+      "failureModes": [
+        "Missing dependency in ordering",
+        "Underestimating cross-module coupling",
+        "Over-decomposing (atomizing work unnecessarily)",
+        "Failing to flag circular dependency risks"
+      ],
+      "verifierGates": [
+        "All work units have explicit dependencies listed",
+        "First-version scope has clear boundaries",
+        "No circular dependencies in ordering",
+        "All cross-cutting concerns from Architect are addressed"
+      ]
+    },
+    "Builder": {
+      "roleId": "builder",
+      "companyAnalogy": "Senior Engineer",
+      "description": "Implements code within a scoped contract. Produces implementation artifacts, transcripts, and completion reports. Does not self-verify.",
+      "authority": [
+        "Implement code within contract scope",
+        "Make implementation-level design decisions",
+        "Choose implementation patterns consistent with architecture",
+        "Write tests within scope",
+        "Report completion with evidence"
+      ],
+      "prohibitedActions": [
+        "Self-verify own work as PASS",
+        "Modify scope beyond contract boundaries",
+        "Merge code (Integrator is sole merge owner)",
+        "Modify architecture decisions",
+        "Claim completion without registry entry + progress event + transcript + contract output",
+        "Bypass verifier gates"
+      ],
+      "inputs": [
+        "Worker contract (scope, inputs, outputs, gates)",
+        "Architecture constraints",
+        "API contracts and data schemas",
+        "Existing codebase context"
+      ],
+      "outputs": [
+        "Implementation code (within contract scope)",
+        "Transcript of implementation session",
+        "Registry entry (via Platform)",
+        "Progress event (via Progress Ledger)",
+        "Contract output artifacts",
+        "Completion report"
+      ],
+      "trustedEvidence": [
+        "Complete transcript of implementation session",
+        "Registry entry with agent ID and timestamp",
+        "Progress event with phase and completion data",
+        "Contract output artifacts (files, code, configuration)",
+        "Verifier result (externally produced)"
+      ],
+      "handoffMechanism": "Completion report → Integrator. Contract output artifacts → Integration hub. Transcript → Verifier.",
+      "failureModes": [
+        "Vague completion report without evidence chain",
+        "Missing progress event before completion claim",
+        "Stale progress (progress event timestamp predates actual work)",
+        "Artifact without transcript",
+        "Transcript without artifact",
+        "Self-reported PASS without verifier check",
+        "Scope creep beyond contract boundaries"
+      ],
+      "verifierGates": [
+        "Registry entry exists and matches agent ID",
+        "Progress event exists with valid timestamp",
+        "Transcript is complete and covers claimed scope",
+        "Contract outputs exist and match contract specification",
+        "No scope boundary violations detected"
+      ]
+    },
+    "Integrator": {
+      "roleId": "integrator",
+      "companyAnalogy": "Release Manager",
+      "description": "Sole merge owner. Owns the integration hub scope. Manages the dependency graph, declares repairs, and ensures merge integrity. Cannot self-verify merges.",
+      "authority": [
+        "Merge code into integration hub (sole owner)",
+        "Manage dependency graph during integration",
+        "Declare repairs needed on worker outputs",
+        "Resolve merge conflicts",
+        "Request worker rework",
+        "Reject incomplete or broken integrations"
+      ],
+      "prohibitedActions": [
+        "Self-verify merges",
+        "Modify worker implementation scope",
+        "Accept worker output that fails integrity checks",
+        "Merge without all dependency gates satisfied",
+        "Override Verifier PASS/FAIL on integration integrity",
+        "Write implementation code within worker scope"
+      ],
+      "inputs": [
+        "Worker completion reports",
+        "Contract output artifacts from all workers",
+        "Dependency graph",
+        "Verifier results on worker outputs",
+        "Integration contract from Main Agent"
+      ],
+      "outputs": [
+        "Integrated codebase (merge result)",
+        "Merge conflict resolution records",
+        "Repair declarations",
+        "Integration integrity report",
+        "Dependency graph with merge state"
+      ],
+      "trustedEvidence": [
+        "Merge commit with traceable parent SHAs",
+        "Conflict resolution records with rationale",
+        "Verifier results on integration integrity",
+        "Dependency graph showing all inputs merged"
+      ],
+      "handoffMechanism": "Integrated codebase → Verifier for final gate check. Integration report → Main Agent for closure decision.",
+      "failureModes": [
+        "Silent merge conflicts not documented",
+        "Merging without all worker contracts satisfied",
+        "Self-approving merge integrity",
+        "Modifying worker code during merge (should declare repair instead)",
+        "Bypassing dependency order during integration",
+        "Accepting stale worker outputs"
+      ],
+      "verifierGates": [
+        "All worker contracts satisfied before merge",
+        "All merge conflicts resolved and documented",
+        "No worker code modified during merge (repairs declared separately)",
+        "Dependency graph integrity maintained post-merge",
+        "Integration integrity verifier PASS obtained"
+      ]
+    },
+    "Verifier": {
+      "roleId": "verifier",
+      "companyAnalogy": "QA Director / Auditor",
+      "description": "Readonly verifier. Checks all gates against evidence. Produces JSON verdicts. Does not modify implementation. Veto authority on PASS/FAIL.",
+      "authority": [
+        "Verify all gates with readonly access",
+        "Produce PASS/FAIL JSON verdicts",
+        "Veto completion claims that fail gates",
+        "Request additional evidence",
+        "Flag evidence chain gaps",
+        "Reject insufficient evidence"
+      ],
+      "prohibitedActions": [
+        "Modify implementation code",
+        "Modify configuration or infrastructure",
+        "Produce PASS/FAIL based on computed score",
+        "Produce manual PASS-only verdict",
+        "Produce expectedClass-only verdict",
+        "Produce generic FAIL without specific gate failure",
+        "Accept summary as evidence without corroboration",
+        "Accept compressed context as primary evidence"
+      ],
+      "inputs": [
+        "Gate definitions from contract",
+        "Worker transcripts",
+        "Registry entries",
+        "Progress events",
+        "Contract output artifacts",
+        "Evidence chain from all sources"
+      ],
+      "outputs": [
+        "JSON verdict (PASS/FAIL per gate)",
+        "Gate-by-gate evidence assessment",
+        "Evidence chain gap report",
+        "Specific failure reasons for each FAIL",
+        "Timestamped verifier run record"
+      ],
+      "trustedEvidence": [
+        "Verifier JSON result (machine-readable)",
+        "Gate-by-gate assessment with specific evidence references",
+        "Timestamp and verifier run ID"
+      ],
+      "handoffMechanism": "JSON verdict → Main Agent (for closure). JSON verdict → Integrator (for merge decisions). Gap report → Auditor (for process audit).",
+      "failureModes": [
+        "Accepting insufficient evidence as sufficient",
+        "Missing a gate in verification run",
+        "Producing verdict without checking all evidence sources",
+        "Drift into implementation modification",
+        "Using stale gate definitions",
+        "Generic FAIL without specific reasons"
+      ],
+      "verifierGates": [
+        "All gates in contract are checked",
+        "Each PASS has specific evidence reference",
+        "Each FAIL has specific gate identifier and reason",
+        "Verdict is machine-readable JSON",
+        "No score-based gating detected",
+        "Verdict timestamp is after all evidence timestamps"
+      ]
+    },
+    "Auditor": {
+      "roleId": "auditor",
+      "companyAnalogy": "Compliance Officer",
+      "description": "Audits process adherence, detects protocol drift, and reports governance violations. Readonly observer that produces compliance reports.",
+      "authority": [
+        "Audit process adherence to protocols",
+        "Detect protocol drift",
+        "Report governance violations",
+        "Flag evidence chain weaknesses",
+        "Recommend process improvements"
+      ],
+      "prohibitedActions": [
+        "Modify implementation or configuration",
+        "Override Verifier verdicts",
+        "Change protocol rules unilaterally",
+        "Block closure directly (reports to Main Agent and Founder)"
+      ],
+      "inputs": [
+        "All protocol documents",
+        "Progress ledger",
+        "Agent registry",
+        "Verifier results",
+        "Closure decisions",
+        "Session transcripts"
+      ],
+      "outputs": [
+        "Compliance audit report",
+        "Protocol drift detection report",
+        "Governance violation report",
+        "Evidence chain weakness report",
+        "Process improvement recommendations"
+      ],
+      "trustedEvidence": [
+        "Audit report referencing specific protocol clauses",
+        "Drift detection with before/after comparison",
+        "Violation reports with specific agent and action"
+      ],
+      "handoffMechanism": "Audit report → Main Agent and Founder.",
+      "failureModes": [
+        "Drift into prescribing instead of auditing",
+        "Missing protocol violations due to shallow audit",
+        "Accepting protocol workarounds as compliant",
+        "Failing to cross-reference multiple evidence sources"
+      ],
+      "verifierGates": [
+        "Audit covers all active protocols",
+        "Each finding has specific protocol reference",
+        "Recommendations are actionable and scoped",
+        "Audit timestamp is current"
+      ]
+    },
+    "PlatformFactoryctl": {
+      "roleId": "platform-factoryctl",
+      "companyAnalogy": "DevOps / Platform Engineering",
+      "description": "Owns the factory control plane: agent registry, progress ledger, handoff state, tooling, and infrastructure. Provides runtime services to all other roles.",
+      "authority": [
+        "Maintain agent registry (AGENT_REGISTRY.json)",
+        "Record progress events (AGENT_PROGRESS.jsonl)",
+        "Generate handoff artifacts",
+        "Verify handoff integrity",
+        "Provide capacity data",
+        "Manage tooling and scripts"
+      ],
+      "prohibitedActions": [
+        "Modify protocol rules",
+        "Override Verifier verdicts",
+        "Modify agent scope or role definitions",
+        "Accept unregistered agents",
+        "Lose or corrupt progress events"
+      ],
+      "inputs": [
+        "Agent spawn events (from Main Agent)",
+        "Progress reports (from all agents)",
+        "Handoff requests (session rotation)",
+        "Capacity queries"
+      ],
+      "outputs": [
+        "AGENT_REGISTRY.json (current agent state)",
+        "AGENT_PROGRESS.jsonl (progress event log)",
+        "Handoff artifacts",
+        "Capacity reports",
+        "Handoff verification results"
+      ],
+      "trustedEvidence": [
+        "AGENT_REGISTRY.json with all entries timestamped",
+        "AGENT_PROGRESS.jsonl append-only log",
+        "Handoff artifacts with integrity checksums"
+      ],
+      "handoffMechanism": "Self-contained platform state. Registry and progress ledger are the source of truth for agent state.",
+      "failureModes": [
+        "Registry entries missing or stale",
+        "Progress events written after the fact",
+        "Handoff artifacts with missing fields",
+        "Corrupted append-only log",
+        "Capacity data inaccurate"
+      ],
+      "verifierGates": [
+        "All active agents have registry entries",
+        "Progress ledger is append-only (no modifications detected)",
+        "Handoff artifacts pass integrity verification",
+        "Registry and ledger are in sync"
+      ]
+    },
+    "MemoryHandoffProgressLedger": {
+      "roleId": "memory-handoff-progress-ledger",
+      "companyAnalogy": "Institutional Knowledge DB",
+      "description": "Provides session continuity through handoff artifacts, progress events, and institutional memory. Ensures no information is lost across session boundaries.",
+      "authority": [
+        "Store and serve session handoff artifacts",
+        "Maintain progress event history",
+        "Provide context for session rotation",
+        "Preserve institutional knowledge"
+      ],
+      "prohibitedActions": [
+        "Modify historical progress events",
+        "Summarize evidence in a lossy way",
+        "Serve compressed context as primary evidence",
+        "Delete or alter handoff artifacts"
+      ],
+      "inputs": [
+        "Handoff artifacts from Platform",
+        "Progress events from all agents",
+        "Session transcripts",
+        "Closure decisions"
+      ],
+      "outputs": [
+        "Session continuity context",
+        "Historical progress timeline",
+        "Handoff artifact retrieval",
+        "Institutional knowledge queries"
+      ],
+      "trustedEvidence": [
+        "Unmodified progress event log",
+        "Handoff artifacts with integrity checksums",
+        "Complete (not compressed) transcripts"
+      ],
+      "handoffMechanism": "Provides context to new sessions via handoff artifacts. Progress ledger is the canonical timeline.",
+      "failureModes": [
+        "Lossy compression of evidence",
+        "Missing handoff artifacts breaking session continuity",
+        "Stale progress events not flagged as stale",
+        "Context window overflow causing truncation"
+      ],
+      "verifierGates": [
+        "All handoff artifacts pass integrity checks",
+        "Progress events are append-only",
+        "No evidence loss detected across sessions",
+        "Compressed context marked as UNTRUSTED_CLAIM"
+      ]
+    },
+    "ContractGovernanceLayer": {
+      "roleId": "contract-governance-layer",
+      "companyAnalogy": "Legal / Governance",
+      "description": "Defines contracts, enforces authority boundaries, and maintains protocol rules. The governance layer is the binding framework that all agents operate within.",
+      "authority": [
+        "Define contract templates",
+        "Enforce authority boundaries",
+        "Maintain protocol rules",
+        "Validate contract compliance",
+        "Prevent scope boundary violations"
+      ],
+      "prohibitedActions": [
+        "Modify contracts after they are active without amendment protocol",
+        "Override protocol rules without founder acknowledgment",
+        "Relax authority boundaries without governance review",
+        "Execute implementation code"
+      ],
+      "inputs": [
+        "Protocol documents",
+        "Authority definitions",
+        "Founder governance decisions",
+        "Contract templates"
+      ],
+      "outputs": [
+        "Active contracts with scope boundaries",
+        "Authority boundary enforcement rules",
+        "Protocol version registry",
+        "Contract compliance validation"
+      ],
+      "trustedEvidence": [
+        "Versioned contract documents",
+        "Authority boundary definitions",
+        "Protocol rule registry with change history"
+      ],
+      "handoffMechanism": "Contracts → Main Agent for task graph. Authority boundaries → all agents as constraints.",
+      "failureModes": [
+        "Contracts with ambiguous scope boundaries",
+        "Authority boundaries too permissive",
+        "Protocol rules that conflict with each other",
+        "Missing amendment protocol for active contracts"
+      ],
+      "verifierGates": [
+        "All contracts have explicit scope boundaries",
+        "All contracts reference specific protocol clauses",
+        "Authority boundaries are non-overlapping between conflicting roles",
+        "No active contract with ambiguous terms"
+      ]
+    }
+  },
+  "crossRoleRules": {
+    "separationOfConcerns": [
+      "Builder ≠ Verifier (must be different agents)",
+      "Builder ≠ Integrator (must be different agents)",
+      "Integrator ≠ Verifier (must be different agents)",
+      "Architect ≠ Builder for same module (may be same agent but not for same module)",
+      "Main Agent ≠ Builder for any module (Main Agent must not write implementation)",
+      "Auditor ≠ any role being audited for the same audit run"
+    ],
+    "evidenceChainRequirements": [
+      "Every completion claim must have: registry entry + progress event + transcript + contract output",
+      "Every PASS must be backed by verifier JSON result",
+      "Summary alone is never sufficient evidence",
+      "Compressed context is never primary evidence",
+      "Manual PASS-only verdicts are invalid",
+      "ExpectedClass-only verdicts are invalid"
+    ],
+    "handoffProtocol": [
+      "All handoffs must include: agent ID, phase, status, evidence references, next steps",
+      "Progress events must precede completion claims",
+      "Registry entries must be current at time of handoff",
+      "Stale progress invalidates completion claims"
+    ],
+    "closureRequirements": [
+      "All verifier gates PASS (or founder override acknowledged)",
+      "All P0 failures resolved",
+      "All P1 failures repaired before next phase",
+      "All P2 caveats recorded",
+      "Integrator merge complete and verified",
+      "Evidence chain complete for all claims"
+    ]
+  }
+}

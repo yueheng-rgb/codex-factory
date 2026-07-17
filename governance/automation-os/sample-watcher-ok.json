@@ -1,0 +1,27 @@
+﻿{
+    "evidencePaths":  [
+                          "governance/factory-state/current-factory-state.json"
+                      ],
+    "doesNotMutateState":  true,
+    "checkedAt":  "2026-06-25T00:24:52+08:00",
+    "verdict":  "WATCHER_OK",
+    "riskSignals":  [
+
+                    ],
+    "recommendedAction":  {
+                              "userActionRequired":  false,
+                              "action":  "Continue",
+                              "startupPacketPath":  null
+                          },
+    "checks":  [
+                   {
+                       "result":  "PASS",
+                       "checkId":  "CHK01",
+                       "target":  "State loads",
+                       "riskSeverity":  "P0"
+                   }
+               ],
+    "alerts":  [
+
+               ]
+}

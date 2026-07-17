@@ -1,0 +1,42 @@
+﻿{
+    "checks":  [
+                   {
+                       "result":  "PASS",
+                       "check":  "MEMORY_QUALITY_HIERARCHY.md accessible"
+                   },
+                   {
+                       "result":  "PASS",
+                       "check":  "MEMORY_INGESTION_POLICY.md accessible"
+                   },
+                   {
+                       "result":  "PASS",
+                       "check":  "MEMORY_FILTERING_DECAY.md accessible"
+                   },
+                   {
+                       "result":  "PASS",
+                       "check":  "SUMMARY_VERIFICATION.md accessible"
+                   },
+                   {
+                       "result":  "PASS",
+                       "check":  "generate-context-packet.ps1 smoke-tested"
+                   },
+                   {
+                       "result":  "PASS",
+                       "check":  "validate-context-packet.ps1 smoke-tested (21/21)"
+                   },
+                   {
+                       "result":  "PASS",
+                       "check":  "No compressed-summary as evidence policy active"
+                   },
+                   {
+                       "result":  "PASS",
+                       "check":  "No self-report as truth policy active"
+                   }
+               ],
+    "allowsTrial":  true,
+    "gate":  "MEMORY_QUALITY",
+    "section":  "A",
+    "date":  "2026-06-27",
+    "phase":  "FACTORY-BUILD-PRO-2",
+    "status":  "PASS"
+}

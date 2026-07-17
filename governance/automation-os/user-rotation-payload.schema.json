@@ -1,0 +1,42 @@
+﻿{
+    "properties":  {
+                       "doesNotMutateState":  {
+                                                  "const":  true,
+                                                  "type":  "boolean"
+                                              },
+                       "userActionRequired":  {
+                                                  "type":  "boolean"
+                                              },
+                       "cannotMarkPass":  {
+                                              "const":  true,
+                                              "type":  "boolean"
+                                          },
+                       "cannotCreateFinalZIP":  {
+                                                    "const":  true,
+                                                    "type":  "boolean"
+                                                },
+                       "newWindowRequired":  {
+                                                 "type":  "boolean"
+                                             }
+                   },
+    "schemaId":  "user-rotation-payload",
+    "version":  "1.0.0",
+    "required":  [
+                     "title",
+                     "severity",
+                     "reason",
+                     "evidencePaths",
+                     "startupPacketPath",
+                     "executionPacketPath",
+                     "requiredReadFiles",
+                     "mcpQueries",
+                     "verifierCommands",
+                     "copyPastePromptForNewWindow",
+                     "oldWindowAllowedActions",
+                     "newWindowRequiredActions",
+                     "forbiddenAssumptions",
+                     "userActionRequired",
+                     "doesNotMutateState",
+                     "cannotMarkPass"
+                 ]
+}

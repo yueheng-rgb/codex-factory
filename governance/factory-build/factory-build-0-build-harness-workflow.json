@@ -1,0 +1,99 @@
+﻿{
+    "phase": "FACTORY-BUILD-0",
+    "subPhase": "D_BUILD_HARNESS_WORKFLOW",
+    "date": "2026-06-27",
+    "workflow": {
+        "name": "Build Harness Production Pipeline",
+        "stages": [
+            {
+                "stage": 0,
+                "name": "INTAKE",
+                "input": "User project path, description, or requirements doc",
+                "actions": ["Read project files", "Extract requirements", "Detect existing codebase vs greenfield"],
+                "output": "Project manifest with type, tech stack, scope",
+                "gate": "Proof-of-Read: confirm understanding before proceeding"
+            },
+            {
+                "stage": 1,
+                "name": "CLASSIFY",
+                "input": "Project manifest from Stage 0",
+                "actions": ["Count files/apps", "Detect auth/DB/API presence", "Assess complexity: SIMPLE/MODERATE/COMPLEX", "Assess risk: auth/financial/compliance"],
+                "output": "Complexity classification + risk assessment",
+                "gate": "Classification confirmed by verifier"
+            },
+            {
+                "stage": 2,
+                "name": "ROUTE",
+                "input": "Classification from Stage 1 + user goal",
+                "actions": ["Select mode: Vanilla / Build Lite / Build Pro", "If user goal is diagnosis only → skip to Diagnostic Gate", "If user goal is build → continue to Stage 3"],
+                "output": "Mode selection with rationale",
+                "gate": "Mode selection recorded in state file"
+            },
+            {
+                "stage": 3,
+                "name": "BLUEPRINT",
+                "input": "Requirements + classification + architecture reference",
+                "actions": ["Generate page tree", "Generate API outline", "Generate DB schema sketch", "Define permission boundaries", "Define first-version scope"],
+                "output": "Architecture blueprint document",
+                "gate": "Blueprint passes complexity-appropriate completeness check"
+            },
+            {
+                "stage": 4,
+                "name": "TASK_GRAPH",
+                "input": "Blueprint from Stage 3",
+                "actions": ["Decompose into task nodes", "Establish dependency order", "Assign file ownership per node", "Estimate effort per node"],
+                "output": "Dependency-ordered task graph with file ownership",
+                "gate": "Task graph completeness: all blueprint items covered"
+            },
+            {
+                "stage": 5,
+                "name": "BUILD",
+                "input": "Task graph from Stage 4",
+                "actions": [
+                    "If SIMPLE: single-agent Vanilla execution",
+                    "If MODERATE: Build Lite (single-agent with harness guidance)",
+                    "If COMPLEX: Build Pro (4-agent P1 with work allocation)"
+                ],
+                "output": "Implemented codebase",
+                "gate": "All task nodes marked complete with evidence"
+            },
+            {
+                "stage": 6,
+                "name": "DIAGNOSTIC_GATE",
+                "input": "Completed codebase from Stage 5",
+                "actions": ["Select diagnostic mode based on complexity", "Run readonly checklist", "Flag gaps (no auto-fix)"],
+                "output": "Diagnostic report with gap list",
+                "gate": "0 critical gaps → proceed. Critical gaps → Stage 7 (repair)"
+            },
+            {
+                "stage": 7,
+                "name": "REPAIR",
+                "input": "Diagnostic gap list from Stage 6",
+                "actions": ["User reviews gaps", "User approves repair scope", "Targeted repair only approved items"],
+                "output": "Fixed codebase + re-verified diagnostic",
+                "gate": "Diagnostic re-run: gaps closed"
+            },
+            {
+                "stage": 8,
+                "name": "DELIVER",
+                "input": "Verified codebase from Stage 6/7",
+                "actions": ["Generate handoff packet", "Update state file with final status", "Output one-command run instruction", "Generate milestone report"],
+                "output": "Ready-to-run project + handoff packet + state file",
+                "gate": "One-command startup verified"
+            }
+        ]
+    },
+    "diagnosticGateIntegration": {
+        "when": "After BUILD stage, before DELIVER",
+        "how": "Readonly. Diagnostic Pack runs Quick/Student/Full mode based on complexity. Reports gaps. Does NOT auto-fix.",
+        "repairRule": "User must explicitly approve repair scope. Diagnostic → STOP → user decision → targeted repair → re-verify."
+    },
+    "stateFileLocations": {
+        "projectState": "{project}/.codex-factory/state.json",
+        "architectureMap": "{project}/.codex-factory/architecture-map.json",
+        "taskGraph": "{project}/.codex-factory/task-graph.json",
+        "decisionLog": "{project}/.codex-factory/decisions.md",
+        "riskRegister": "{project}/.codex-factory/risks.json",
+        "handoffPacket": "{project}/.codex-factory/handoff-packet.md"
+    }
+}

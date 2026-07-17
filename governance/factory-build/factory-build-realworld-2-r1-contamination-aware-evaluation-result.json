@@ -1,0 +1,36 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-R1",
+  "title": "Contamination-Aware Evaluation Correction — Final",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "verdict": "PASS",
+  "verifier_checks": 34,
+  "verifier_passed": 34,
+  "verifier_failed": 0,
+  "sub_phases": {
+    "R1-A": {"status": "COMPLETE", "deliverable": "Evidence Reclassification (8 supported, 5 not-proven, 3 partial)"},
+    "R1-B": {"status": "COMPLETE", "deliverable": "Cross-Window Contamination Note (6 types)"},
+    "R1-C": {"status": "COMPLETE", "deliverable": "Factory Value Boundary (10 demonstrated, 7 not)"},
+    "R1-D": {"status": "COMPLETE", "deliverable": "Future Baseline Design (RUN-A vs RUN-B)"},
+    "R1-E": {"status": "COMPLETE", "deliverable": "Strategy Update (v0.5 blocked, BL default, NBP conditional)"},
+    "R1-F": {"status": "COMPLETE", "deliverable": "Negative Controls (25)"},
+    "R1-G": {"status": "COMPLETE", "deliverable": "Verifier (34/34 PASS)"}
+  },
+  "key_correction": "REALWORLD-2 demonstrated Factory safety-process discipline — NOT reasoning superiority over vanilla Codex",
+  "unchanged": [
+    "v0.5 blocked",
+    "Build Lite default",
+    "Native Build Pro conditional",
+    "Security/deploy gates active",
+    "Secret masking mandatory",
+    "Original project intact",
+    "No deploy scripts executed",
+    "No production connections"
+  ],
+  "next_options": [
+    "REALWORLD-2-P1: working-copy local validation",
+    "Contamination-aware baseline comparison (RUN-A vs RUN-B)",
+    "User-accepted practical release standard"
+  ],
+  "report_path": "outputs/FACTORY_BUILD_REALWORLD_2_R1_CONTAMINATION_AWARE_EVALUATION_REPORT.md",
+  "status": "COMPLETE"
+}

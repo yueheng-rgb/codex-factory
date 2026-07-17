@@ -1,0 +1,215 @@
+﻿{
+    "passed":  34,
+    "checkedAt":  "2026-06-25T00:11:47+08:00",
+    "command":  "live-runtime-3-verify",
+    "totalChecks":  34,
+    "phase":  "LIVE-RUNTIME-3",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "ZIP OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "LR2",
+                       "result":  true,
+                       "name":  "LR2_EXISTS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "No MCP memory",
+                       "result":  true,
+                       "name":  "NO_MCP_MEMORY_SERVER",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "No prod watcher",
+                       "result":  true,
+                       "name":  "NO_PROD_WATCHER",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "memory schema",
+                       "result":  true,
+                       "name":  "MEMORY_SCHEMA",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "source policy",
+                       "result":  true,
+                       "name":  "SOURCE_POLICY",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "confidence",
+                       "result":  true,
+                       "name":  "CONFIDENCE_POLICY",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "retention",
+                       "result":  true,
+                       "name":  "RETENTION_POLICY",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "redaction",
+                       "result":  true,
+                       "name":  "REDACTION_POLICY",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "index",
+                       "result":  true,
+                       "name":  "MEMORY_INDEX",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "phase ledger",
+                       "result":  true,
+                       "name":  "PHASE_LEDGER",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "decision ledger",
+                       "result":  true,
+                       "name":  "DECISION_LEDGER",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "risk ledger",
+                       "result":  true,
+                       "name":  "RISK_LEDGER",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "agent ledger",
+                       "result":  true,
+                       "name":  "AGENT_LEDGER",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "package ledger",
+                       "result":  true,
+                       "name":  "PACKAGE_LEDGER",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "6/6 packets",
+                       "result":  true,
+                       "name":  "ALL_PACKETS",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "current packet",
+                       "result":  true,
+                       "name":  "CURRENT_PACKET",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "index builder",
+                       "result":  true,
+                       "name":  "INDEX_BUILDER",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "query",
+                       "result":  true,
+                       "name":  "QUERY_SCRIPT",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "query protocol",
+                       "result":  true,
+                       "name":  "QUERY_PROTOCOL",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "entries=20",
+                       "result":  true,
+                       "name":  "MEMORY_ENTRIES_20",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "all entries have source paths",
+                       "result":  true,
+                       "name":  "ALL_HAVE_SOURCES",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "no FORBIDDEN entries",
+                       "result":  true,
+                       "name":  "NO_FORBIDDEN_INDEXED",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "simulation",
+                       "result":  true,
+                       "name":  "STARTUP_SIM",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "steps=10/10",
+                       "result":  true,
+                       "name":  "STARTUP_10_10",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "negatives",
+                       "result":  true,
+                       "name":  "NEGATIVES_EXIST",
+                       "id":  27
+                   },
+                   {
+                       "detail":  "count=28",
+                       "result":  true,
+                       "name":  "NEGATIVES_28",
+                       "id":  28
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_ZERO_GAPS",
+                       "id":  29
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL_PASS",
+                       "id":  30
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EXPECTEDCLASS",
+                       "id":  31
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GENERIC_FAIL",
+                       "id":  32
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PRECLASSIFIED",
+                       "id":  33
+                   },
+                   {
+                       "detail":  "CONSISTENT",
+                       "result":  true,
+                       "name":  "RECON_CONSISTENT",
+                       "id":  34
+                   }
+               ],
+    "failed":  0
+}

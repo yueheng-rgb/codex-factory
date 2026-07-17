@@ -1,0 +1,26 @@
+﻿[
+    {
+        "timestamp":  "2026-06-27T15:44:30.5356645+08:00",
+        "to":  "product-builder-1",
+        "from":  "orchestrator",
+        "handoffId":  "HO-PB-001",
+        "context":  "Iteration 1-3 product code tasks",
+        "status":  "ACKNOWLEDGED"
+    },
+    {
+        "timestamp":  "2026-06-27T15:44:30.5356645+08:00",
+        "to":  "test-docs-builder-1",
+        "from":  "orchestrator",
+        "handoffId":  "HO-TD-001",
+        "context":  "Test writing tasks",
+        "status":  "ACKNOWLEDGED"
+    },
+    {
+        "timestamp":  "2026-06-27T15:44:30.5356645+08:00",
+        "to":  "reviewer-verifier-1",
+        "from":  "orchestrator",
+        "handoffId":  "HO-RV-001",
+        "context":  "Integration + diagnostics + verification",
+        "status":  "ACKNOWLEDGED"
+    }
+]

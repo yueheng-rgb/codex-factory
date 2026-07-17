@@ -1,0 +1,43 @@
+﻿{
+  "smokeTestId": "R2.3-P-SMOKE-001",
+  "date": "2026-07-10",
+  "status": "BLOCKED_WAITING_FOR_USER_SECRET",
+  "classification": "B_LIVE_PROVIDER_READY_NOT_EXECUTED",
+  "gates": {
+    "provider_selection": {
+      "status": "COMPLETE",
+      "selected_provider": "GLM Search (ZhipuAI)",
+      "provider_tool_id": "TOOL-GLM-SEARCH-001",
+      "fallback_providers": ["Tavily Search", "Jina Reader"]
+    },
+    "secret_gate": {
+      "status": "BLOCKED",
+      "keys_checked": 7,
+      "keys_present": 0,
+      "keys_missing": ["ZHIPUAI_API_KEY","GLM_API_KEY","TAVILY_API_KEY","EXA_API_KEY","BRAVE_SEARCH_API_KEY","JINA_API_KEY","FIRECRAWL_API_KEY"]
+    },
+    "human_approval": {
+      "status": "BLOCKED",
+      "approval_received": false,
+      "required_statement": "approve live_search_smoke_test"
+    },
+    "tool_permission_gate": {
+      "status": "PENDING",
+      "cannot_proceed_without": ["secret_gate","human_approval"]
+    }
+  },
+  "planned_smoke_test": {
+    "query": "Next.js official documentation routing handler App Router",
+    "query_type": "public_low_risk",
+    "provider": "glm_search",
+    "mode": "live_api",
+    "expected_outcome_if_unblocked": {
+      "ledger_mode": "live_api",
+      "ledger_decision": "ALLOW_WITH_CONTROLS",
+      "secret_present": true,
+      "result_count_gt_0": true,
+      "key_stored": false,
+      "new_classification": "C_LIVE_SEARCH_CONNECTED_SMOKE_ONLY"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P7",
+  "section": "B",
+  "title": "Clean Trial Environment Design",
+  "timestamp": "2026-06-28T17:20:00+08:00",
+  "environment": {
+    "type": "FRESH_EXTRACTION",
+    "source_bundle": "outputs/codex-factory-core-v0.9.0-pre-P6-R1-STAGING.zip",
+    "extraction_target": "harness/build-mode/pack-staging-p7-clean-user-trial/extracted/",
+    "no_pre_existing_factory": true,
+    "no_deploy_traces": true,
+    "no_real_projects": true
+  },
+  "fixtures": [
+    {
+      "id": "FIXTURE-1",
+      "name": "fresh-simple-project",
+      "path": "harness/build-mode/pack-staging-p7-clean-user-trial/fixtures/fresh-simple-project/",
+      "description": "Clean project with no Factory installed, no deploy traces",
+      "properties": {
+        "has_factory": false,
+        "has_deploy_traces": false,
+        "has_secrets": false,
+        "project_type": "simple-web-app",
+        "expected_mode": "Build Lite default",
+        "expected_security_gate": "NOT_TRIGGERED",
+        "expected_context_space": "NOT_REQUIRED",
+        "expected_package_qa": "REQUIRED_ON_HANDOFF"
+      }
+    },
+    {
+      "id": "FIXTURE-2",
+      "name": "fresh-deployed-trace-project",
+      "path": "harness/build-mode/pack-staging-p7-clean-user-trial/fixtures/fresh-deployed-trace-project/",
+      "description": "Project with deployment traces (.env.production, deploy config)",
+      "properties": {
+        "has_factory": false,
+        "has_deploy_traces": true,
+        "has_secrets": false,
+        "project_type": "deployed-web-app",
+        "expected_mode": "Build Lite default",
+        "expected_security_gate": "TRIGGERED_BLOCKING",
+        "expected_context_space": "NOT_REQUIRED",
+        "expected_package_qa": "REQUIRED_ON_HANDOFF"
+      }
+    },
+    {
+      "id": "FIXTURE-3",
+      "name": "fresh-long-horizon-project",
+      "path": "harness/build-mode/pack-staging-p7-clean-user-trial/fixtures/fresh-long-horizon-project/",
+      "description": "Multi-session project requiring Context Space continuity",
+      "properties": {
+        "has_factory": false,
+        "has_deploy_traces": false,
+        "has_secrets": false,
+        "project_type": "long-horizon-multi-session",
+        "expected_mode": "Build Lite default",
+        "expected_security_gate": "NOT_TRIGGERED",
+        "expected_context_space": "REQUIRED",
+        "expected_package_qa": "REQUIRED_ON_HANDOFF"
+      }
+    }
+  ],
+  "safety": {
+    "no_real_projects": true,
+    "no_real_env": true,
+    "no_secrets": true,
+    "no_deployment": true,
+    "no_remote_commands": true,
+    "no_production_db": true,
+    "all_fixtures_synthetic": true
+  },
+  "status": "ENVIRONMENT_DESIGNED"
+}

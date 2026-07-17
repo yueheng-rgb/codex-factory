@@ -1,0 +1,17 @@
+﻿{
+    "policy": "agent-allocation",
+    "version": "0.1.0",
+    "defaultAgentCount": 1,
+    "maxAgentCount": 4,
+    "allocationRules": {
+        "VANILLA_BUILD": {"agentCount": 1, "roles": ["all"]},
+        "BUILD_LITE": {"agentCount": 1, "roles": ["all"], "harnessGuidance": true},
+        "BUILD_REVIEWER": {"agentCount": 1, "roles": ["all"], "reviewerVerifier": true},
+        "BUILD_CONTINUATION": {"agentCount": 1, "roles": ["all"], "stateManagement": true},
+        "BUILD_PRO_4_AGENT": {"agentCount": 4, "roles": ["architect", "backend", "frontend", "verifier"], "requiresApproval": true},
+        "DIAGNOSTIC_ONLY": {"agentCount": 1, "roles": ["reviewer"], "buildDisabled": true}
+    },
+    "forbiddenModes": ["7-agent", "10-role"],
+    "writeScopeRule": "disjoint-only",
+    "stateGovernance": ".codex-factory/state.json is mandatory for multi-agent"
+}

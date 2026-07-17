@@ -1,0 +1,21 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "K",
+    "title": "Strategy Decision",
+    "timestamp": "2026-06-28T20:37:00+08:00",
+    "questions": {
+        "q1_rc0_safe": {"answer": "YES", "detail": "RC-0 created with all exclusions, SHA verified, smoke passed"},
+        "q2_smoke_pass": {"answer": "YES", "detail": "Extraction and safety gate smoke both PASS"},
+        "q3_boundaries_preserved": {"answer": "YES", "detail": "All release flags verified correct"},
+        "q4_what_remains": {"answer": "All 4 blockers still active", "details": ["BLOCK-001: More AB trial diversity", "BLOCK-002: Production deployment validation", "BLOCK-003: Local-production bridge", "BLOCK-004: Explicit user approval"]},
+        "q5_next": {"answer": "RC-USER-REVIEW-0", "rationale": "RC-0 ready for user inspection; further RC iterations premature without feedback"},
+        "q6_v05_blocked": {"answer": "YES", "detail": "All four blockers remain active"}
+    },
+    "decision": {
+        "rc0_status": "Candidate created, ready for user review",
+        "v05_status": "BLOCKED",
+        "recommended_next": "RC-USER-REVIEW-0",
+        "not_recommended": ["v0.5 release", "production deployment", "RC-SMOKE-1 before user review"]
+    },
+    "section_verdict": "COMPLETE"
+}

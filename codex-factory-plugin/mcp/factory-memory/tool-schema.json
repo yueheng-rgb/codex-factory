@@ -1,0 +1,74 @@
+﻿{
+  "schemaId": "factory-memory-mcp-tool-schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:15:47+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-4-B",
+  "nativeGenerated": true,
+  "serverName": "factory-memory",
+  "status": "PROTOTYPE_LOCAL_ONLY",
+  "tools": [
+    {
+      "name": "factory.memory.currentState",
+      "description": "Return current factory state from Context OS memory index",
+      "input": {},
+      "output": {
+        "currentTrustedPhase": "string",
+        "finalPackageStatus": "string",
+        "finalZipPath": "string",
+        "finalZipSha256": "string",
+        "pluginScaffoldStatus": "string",
+        "agentOSEstablished": "boolean",
+        "contextOSEstablished": "boolean",
+        "sourceArtifactPaths": ["string"],
+        "confidence": "string",
+        "verifierResultPaths": ["string"]
+      },
+      "rules": ["readOnly","noStateMutation","evidencePathsRequired","confidenceRequired"]
+    },
+    {
+      "name": "factory.memory.search",
+      "description": "Search Context OS memory by query, type, phase, or confidence",
+      "input": {"query":"string","type":"string?","phase":"string?","confidenceThreshold":"string?"},
+      "output": {"memoryEntries":"array","evidencePaths":"array","confidence":"string","validityStatus":"string","riskSignals":"array"},
+      "rules": ["forbiddenConfidenceNeverReturned","staleFlagged","verifierJsonOverrides","compressedSummaryNeverReturned"]
+    },
+    {
+      "name": "factory.memory.openRisks",
+      "description": "Return open risks, rejected claims, and experimental components",
+      "input": {},
+      "output": {"activeRisks":"array","rejectedClaims":"array","hypothesisClaims":"array","experimentalComponents":"array","recommendedNextAction":"string"},
+      "rules": ["evidenceBacked","noConversationMemory"]
+    },
+    {
+      "name": "factory.memory.buildStartupPacket",
+      "description": "Build a startup context packet for new windows",
+      "input": {},
+      "output": {"requiredReadFiles":"array","trustedFacts":"array","activeRisks":"array","rejectedClaims":"array","verifierCommands":"array","sourceMemoryIds":"array","startupVerificationRequired":"boolean"},
+      "rules": ["zeroConversationMemory","artifactBasedOnly","compressedSummaryNotUsed"]
+    },
+    {
+      "name": "factory.memory.validate",
+      "description": "Validate memory index integrity",
+      "input": {},
+      "output": {"memoryIndexValidity":"string","shaValidity":"string","missingSourceArtifacts":"array","staleMemoryConflicts":"array","forbiddenSourceDetections":"array"},
+      "rules": ["noMutation","evidencePathsChecked"]
+    },
+    {
+      "name": "factory.verify",
+      "description": "Run factoryctl verify and return machine-readable result",
+      "input": {},
+      "output": {"verdict":"string","totalChecks":"number","modules":"array","evidencePaths":"array"},
+      "rules": ["FAILremainsFAIL","noPASSconversion","mutationForbidden","experimentalOnly"]
+    }
+  ],
+  "globalRules": {
+    "outputMustBeJson": true,
+    "failRemainsFail": true,
+    "evidencePathsRequired": true,
+    "noStateMutation": true,
+    "noPhasePASSbyMCP": true,
+    "configurableRepoPath": true,
+    "noHardcodedAbsolutePaths": true,
+    "notProductionReady": true
+  }
+}

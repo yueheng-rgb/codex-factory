@@ -1,0 +1,31 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P4",
+  "section": "L",
+  "title": "User Burden Benchmark",
+  "timestamp": "2026-06-28T13:52:00+08:00",
+  "benchmark": {
+    "p3_burden": {
+      "description": "Before P4: user needed to know paths, scripts, and manual workflow steps",
+      "estimated_commands": "5-8 separate commands with full paths",
+      "estimated_docs_to_read": "3-5 files before starting",
+      "failure_modes": "Wrong script path, missed gate check, manual phase-close"
+    },
+    "p4_burden": {
+      "description": "After P4: one-command chain with minimal path knowledge",
+      "actual_commands": 4,
+      "command_chain": [
+        "install-codex-factory.ps1 -SourcePath <pack> -Mode COPY_TO_PROJECT",
+        "factory-bootstrap.ps1 -FactoryPath <target>",
+        "factory-preflight.ps1 -FactoryPath <target>",
+        "factory-phase-close.ps1 -PhaseId <id> -PhaseName <name> -Verdict PASS"
+      ],
+      "docs_to_read": "QUICKSTART.md (30-second start)",
+      "reduction": "estimated 60-70% reduction in user operational burden"
+    },
+    "usability_smoke": "18/18 PASS",
+    "install_modes": 3,
+    "bootstrap_checks": 18,
+    "preflight_checks": 12
+  },
+  "status": "BENCHMARK_COMPLETE"
+}

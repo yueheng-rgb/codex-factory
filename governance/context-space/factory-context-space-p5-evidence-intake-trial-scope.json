@@ -1,0 +1,62 @@
+﻿{
+  "intake_id": "FACTORY-CONTEXT-SPACE-P5-EVIDENCE-INTAKE-TRIAL-SCOPE",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "phase_title": "Fresh Window Real Mount + Snapshot Usability Trial",
+  "predecessor_phases": [
+    {"phase": "CONTEXT-SPACE-0", "verdict": "PASS", "checks": 48, "passed": 48},
+    {"phase": "MOUNT-TRIAL-R1", "verdict": "PASS", "checks": 0, "note": "Corrected freshness defect"},
+    {"phase": "P1", "verdict": "PASS", "checks": 0, "note": "JSONL local index + query packet + direction guard"},
+    {"phase": "P2", "verdict": "PASS", "checks": 0, "note": "SQLite + FTS5 + 76 entries + 53 relations"},
+    {"phase": "P3", "verdict": "PASS", "checks": 40, "passed": 40, "note": "Snapshot Packs + Attach Packet v3 + DG v3"},
+    {"phase": "P4", "verdict": "PASS", "checks": 35, "passed": 35, "note": "Compression benchmark, 16 initial snapshots"},
+    {"phase": "P4-R1", "verdict": "PASS", "checks": 20, "passed": 20, "note": "Coverage repair: 24/24 snapshots, verifier hardened"}
+  ],
+  "frozen_conclusions_carried_forward": [
+    "BALANCED is default compression for fresh-window",
+    "ULTRA_COMPACT is quick-status only, NOT for autonomous continuation",
+    "FULL compression reserved for risk/release snapshots",
+    "CLOUD deferred indefinitely",
+    "Build Lite = default",
+    "Native Build Pro = conditional only",
+    "multi-agent default = rejected",
+    "v0.5 = blocked",
+    "Diagnostic Gate = support gate",
+    "Package QA Gate = final ZIP/package handoff gate",
+    "Context Packet required for Native Build Pro / long-horizon / recovery",
+    "External conversation space = filtered working context, not model memory expansion",
+    "New Codex window is not strict isolation",
+    "Finding issues does not prove Factory is smarter than normal Codex"
+  ],
+  "p5_core_objectives": [
+    "1. Verify fresh window can use Fresh Window Snapshot to mount onto mainline",
+    "2. Verify Attach Packet v3 correctly loads Snapshot, falls back to query-v2 when needed",
+    "3. Verify Direction Guard v3 blocks wrong directions",
+    "4. Verify BALANCED as fresh-window default compression level is sufficient",
+    "5. Verify ULTRA_COMPACT cannot be used for autonomous continuation",
+    "6. Verify Snapshot is not treated as verifier evidence",
+    "7. Verify new window does not resurrect old conclusions",
+    "8. Verify user only needs short command to mount and continue",
+    "9. Form decision: enter P6, CLOUD-0, REALWORLD-2-P1, or user review"
+  ],
+  "p5_explicitly_forbidden": [
+    "Cloud deployment",
+    "Server purchase",
+    "Domain purchase",
+    "Network usage",
+    "v0.5 release",
+    "Release ZIP creation",
+    "REALWORLD-2-P1 start",
+    "Native Build Pro start",
+    "Real project modification",
+    "Old package modification",
+    "Snapshot treated as verifier evidence",
+    "External conversation space called model memory expansion",
+    "Compressed summary treated as evidence",
+    "Micro-phase splitting"
+  ],
+  "trial_design": "SAME-WINDOW SIMULATION. P5 is executed within current Codex session. Fresh-window behavior is SIMULATED by: (a) generating a BALANCED Snapshot Pack as would be produced at phase close, (b) loading it as if from a new window with no prior context, (c) validating that all direction guard rules still hold, (d) testing edge cases (stale, missing, poisoned). A true fresh-window trial in a separate Codex instance remains recommended but is NOT required for P5 PASS.",
+  "scope_boundary": "P5 validates the MECHANISM. It does not validate production deployment, cloud sync, or multi-window coordination. Those are P6+ concerns.",
+  "trial_phases": ["A-SCOPE", "B-MOUNT-CMD", "C-BALANCED", "D-ULTRA_COMPACT", "E-DG-V3", "F-SNAPSHOT-NOT-EVIDENCE", "G-FALLBACK", "H-USER-BURDEN", "I-STRATEGY", "J-NEGATIVE", "K-VERIFIER"],
+  "verifier_gate": "P5 can PASS only if it proves or honestly limits the real fresh-window usability of Snapshot Packs, validates BALANCED default, rejects ULTRA_COMPACT autonomous use, confirms Direction Guard v3 blocks forbidden drift, and preserves all safety/strategy boundaries without faking fresh-window evidence."
+}

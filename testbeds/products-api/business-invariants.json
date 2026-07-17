@@ -1,0 +1,44 @@
+﻿{
+  "specId": "BIS-PRODUCTS-API-001",
+  "profileId": "RRP-PRODUCTS-API-TESTBED",
+  "riskLevel": "HIGH",
+  "invariants": [
+    {
+      "invariantId": "INV-001",
+      "name": "price_non_negative",
+      "category": "financial",
+      "description": "Product price must never be negative",
+      "scope": "Product.price",
+      "checkType": "pre-condition",
+      "severity": "BLOCKER",
+      "rule": "When creating or updating a product, price >= 0",
+      "testExpression": "expect(product.price).toBeGreaterThanOrEqual(0)"
+    },
+    {
+      "invariantId": "INV-005",
+      "name": "status_transition_allowed",
+      "category": "state-machine",
+      "description": "Status changes must follow allowed transitions",
+      "scope": "Product.status",
+      "checkType": "pre-condition",
+      "severity": "BLOCKER",
+      "rule": "active -> inactive, discontinued; inactive -> active, discontinued; discontinued -> (none)",
+      "testExpression": "expect(allowedTransitions[fromStatus]).toContain(toStatus)"
+    },
+    {
+      "invariantId": "INV-006",
+      "name": "archived_entity_not_mutable",
+      "category": "data-integrity",
+      "description": "Discontinued products cannot be modified",
+      "scope": "Product with status=discontinued",
+      "checkType": "pre-condition",
+      "severity": "BLOCKER",
+      "rule": "If product.status === 'discontinued', reject all PATCH operations",
+      "testExpression": "PATCH /api/products/{discontinuedId} -> 400 VALIDATION_ERROR"
+    }
+  ],
+  "invariantCount": 3,
+  "blockerCount": 3,
+  "criticalCount": 0,
+  "requiredTests": ["unit-tests", "edge-case-tests", "invariant-tests"]
+}

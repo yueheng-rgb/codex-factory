@@ -1,0 +1,28 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "H",
+  "title": "Phase Close Ingestion Integration",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "integration": {
+    "trigger": "factory.ps1 phase-close",
+    "flow": [
+      "1. Phase close runs verifier as normal",
+      "2. If verifier PASS: generate minimal phase-result memory record using TPL-001",
+      "3. Run validator (VAL-001 through VAL-015) on the memory record",
+      "4. If validator PASS or PASS_WITH_WARNINGS: write to External Conversation Space",
+      "5. If validator BLOCKED: log rejection, do not write, surface blocking issues",
+      "6. Generate Snapshot if Context Space active (use minimal Snapshot format)",
+      "7. Generate Attach Packet if required (use minimal Attach Packet format)",
+      "8. Update phase ledger with minimal summary (≤ 500 chars)"
+    ],
+    "phase_close_output": {
+      "always": ["verifier result", "phase ledger update"],
+      "conditional": ["memory record (if validator passes)", "Snapshot (if Context Space active)", "Attach Packet (if NBP/long-horizon)"]
+    },
+    "failure_handling": {
+      "validator_blocked": "Log rejection with reason. Do not write memory record. Surface to user.",
+      "evidence_path_missing": "BLOCKED by VAL-001. Memory record rejected until path fixed."
+    }
+  },
+  "status": "PHASE_CLOSE_INTEGRATION_DEFINED"
+}

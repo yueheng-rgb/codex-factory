@@ -1,0 +1,44 @@
+﻿{
+    "packetId":  "TPP-PROJ-VERIFY-001-verification-VER-001-20260710004736",
+    "packetType":  "tool-permission-packet",
+    "generatedAt":  "2026-07-10T00:47:36+08:00",
+    "projectId":  "PROJ-VERIFY-001",
+    "phaseId":  "verification",
+    "agentId":  "VER-001",
+    "projectType":  "fullstack-admin",
+    "allowedTools":  [
+                         {
+                             "sandboxMode":  "dryRun",
+                             "name":  "Local CLI Verifier",
+                             "toolId":  "TOOL-CLI-VER-001"
+                         },
+                         {
+                             "sandboxMode":  "dryRun",
+                             "name":  "Node.js Runtime SDK",
+                             "toolId":  "TOOL-NODE-SDK-001"
+                         },
+                         {
+                             "sandboxMode":  "disposable",
+                             "name":  "Playwright Verifier",
+                             "toolId":  "TOOL-PLAYWRIGHT-VER-001"
+                         }
+                     ],
+    "blockedTools":  [
+
+                     ],
+    "pendingHumanTools":  [
+
+                          ],
+    "pendingSandboxTools":  [
+
+                            ],
+    "dryRunTools":  [
+
+                    ],
+    "forbiddenToolActions":  [
+
+                             ],
+    "toolRiskSummary":  "Tool risk levels: medium, low, low",
+    "sandboxInstructions":  "Disposable sandbox workspace required for fileWrite tools. dryRun mode for readonly tools.",
+    "humanApprovalInstructions":  "Human must approve any tool marked pendingHuman before execution."
+}

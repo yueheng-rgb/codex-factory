@@ -1,0 +1,212 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "Compressed summary indexed as authoritative memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "compressed_summary_indexed",
+                          "id":  "N01",
+                          "target":  "context-source-policy.json FORBIDDEN sources"
+                      },
+                      {
+                          "fault":  "Worker selfAssessment indexed as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "worker_selfAssessment",
+                          "id":  "N02",
+                          "target":  "context-source-policy.json FORBIDDEN worker selfAssessment"
+                      },
+                      {
+                          "fault":  "Markdown-only PASS indexed as trusted fact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_only_PASS",
+                          "id":  "N03",
+                          "target":  "context-source-policy.json FORBIDDEN markdown-only PASS"
+                      },
+                      {
+                          "fault":  "Memory entry missing source artifact path",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "memory_missing_source",
+                          "id":  "N04",
+                          "target":  "context-memory.schema.json sourceArtifactPaths required"
+                      },
+                      {
+                          "fault":  "Memory entry missing SHA",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "memory_missing_sha",
+                          "id":  "N05",
+                          "target":  "context-memory.schema.json sourceSha256 required"
+                      },
+                      {
+                          "fault":  "Stale memory overrides verifier JSON",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "stale_overrides_verifier",
+                          "id":  "N06",
+                          "target":  "context-source-policy.json HIGHEST overrides"
+                      },
+                      {
+                          "fault":  "Stale memory overrides current-factory-state",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "stale_overrides_state",
+                          "id":  "N07",
+                          "target":  "context-source-policy.json stateOverridesMemory"
+                      },
+                      {
+                          "fault":  "Rejected claim marked VERIFIED_FACT in memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "rejected_as_VERIFIED",
+                          "id":  "N08",
+                          "target":  "context-memory.schema.json validityStatus REJECTED"
+                      },
+                      {
+                          "fault":  "Experimental claim marked production-ready in memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "experimental_as_production",
+                          "id":  "N09",
+                          "target":  "context-source-policy.json forbiddenUse"
+                      },
+                      {
+                          "fault":  "Plugin marked production-ready from memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "plugin_production_memory",
+                          "id":  "N10",
+                          "target":  "FACTORY_MEMORY_INDEX.json plugin entry"
+                      },
+                      {
+                          "fault":  "Automatic window creation claim accepted in memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "auto_window_accepted",
+                          "id":  "N11",
+                          "target":  "FACTORY_CURRENT_CONTEXT_PACKET.json rejectedClaims"
+                      },
+                      {
+                          "fault":  "Full context inheritance claim accepted in memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "full_inheritance_accepted",
+                          "id":  "N12",
+                          "target":  "FACTORY_CURRENT_CONTEXT_PACKET.json rejectedClaims"
+                      },
+                      {
+                          "fault":  "Final package SHA mismatch ignored in memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "sha_mismatch_ignored",
+                          "id":  "N13",
+                          "target":  "context-memory.schema.json shaRequiredForAllEntries"
+                      },
+                      {
+                          "fault":  "Agent OS event hash break ignored in memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "event_hash_break_ignored",
+                          "id":  "N14",
+                          "target":  "context-source-policy.json event chain HIGHEST source"
+                      },
+                      {
+                          "fault":  "Worker handoff without transcript indexed as trusted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "handoff_no_transcript",
+                          "id":  "N15",
+                          "target":  "context-source-policy.json transcript required"
+                      },
+                      {
+                          "fault":  "Close receipt missing but agent memory marked closed",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "close_receipt_missing",
+                          "id":  "N16",
+                          "target":  "context-memory.schema.json sourceArtifactsMustExist"
+                      },
+                      {
+                          "fault":  "Open risk omitted from context packet",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "open_risk_omitted",
+                          "id":  "N17",
+                          "target":  "FACTORY_CURRENT_CONTEXT_PACKET.json activeRisks"
+                      },
+                      {
+                          "fault":  "Startup packet omits verifier commands",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "startup_no_verifier_cmds",
+                          "id":  "N18",
+                          "target":  "startup-packet.json verifierCommands"
+                      },
+                      {
+                          "fault":  "Context packet uses conversation memory as source",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "packet_uses_conversation",
+                          "id":  "N19",
+                          "target":  "context-source-policy.json LOW sources"
+                      },
+                      {
+                          "fault":  "Query output lacks evidence paths",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "query_no_evidence_paths",
+                          "id":  "N20",
+                          "target":  "context-query-protocol.json outputAlwaysIncludesEvidencePaths"
+                      },
+                      {
+                          "fault":  "Query output converts alert to PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "query_converts_alert",
+                          "id":  "N21",
+                          "target":  "context-query-protocol.json staleMemoryNeverReturnedAsTruth"
+                      },
+                      {
+                          "fault":  "Memory conflict not requiring reconciliation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "conflict_no_reconciliation",
+                          "id":  "N22",
+                          "target":  "context-query-protocol.json conflictRequiresReconciliation"
+                      },
+                      {
+                          "fault":  "Old superseded phase state used as current",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "superseded_as_current",
+                          "id":  "N23",
+                          "target":  "context-memory.schema.json supersededNeverUsedAsCurrent"
+                      },
+                      {
+                          "fault":  "Context OS modifies FINAL package",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "context_OS_modifies_FINAL",
+                          "id":  "N24",
+                          "target":  "FINAL boundary"
+                      },
+                      {
+                          "fault":  "Context OS creates new final ZIP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "context_OS_creates_ZIP",
+                          "id":  "N25",
+                          "target":  "FINAL boundary"
+                      },
+                      {
+                          "fault":  "expectedClass-only accepted as memory evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "expectedClass_as_memory",
+                          "id":  "N26",
+                          "target":  "context-source-policy.json FORBIDDEN expectedClass-only"
+                      },
+                      {
+                          "fault":  "Manual PASS accepted as memory evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "manual_PASS_as_memory",
+                          "id":  "N27",
+                          "target":  "context-source-policy.json FORBIDDEN manual PASS"
+                      },
+                      {
+                          "fault":  "Generic FAIL used in memory validation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "generic_FAIL_used",
+                          "id":  "N28",
+                          "target":  "context-memory.schema.json rules"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "subPhase":  "E-negative-controls",
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  28,
+    "totalNegatives":  28,
+    "phase":  "LIVE-RUNTIME-3",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T00:11:28+08:00"
+}

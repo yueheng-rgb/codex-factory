@@ -1,0 +1,20 @@
+﻿{
+  "projectId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "projectName": "demo-project",
+  "rootPath": "C:\\demo-project",
+  "workingCopyPath": "C:\\demo-project",
+  "factoryInstallPath": "C:\\demo-project\\.codex-factory",
+  "externalConversationSpacePath": "C:\\demo-project\\external-conversation-space",
+  "governancePath": "C:\\demo-project\\governance",
+  "outputsPath": "C:\\demo-project\\outputs",
+  "agentLedgerPath": "C:\\demo-project\\governance\\agent-ledger.jsonl",
+  "cleanupStatePath": "C:\\demo-project\\governance\\cleanup-state.json",
+  "createdAt": "2026-06-01T00:00:00+08:00",
+  "lastMountedAt": "2026-06-29T10:00:00+08:00",
+  "status": "ACTIVE",
+  "parentProjectId": null,
+  "sourceProjectId": null,
+  "pathFingerprint": "abc123def456",
+  "contentFingerprint": "aaa111bbb222",
+  "userConfirmedIdentity": true
+}

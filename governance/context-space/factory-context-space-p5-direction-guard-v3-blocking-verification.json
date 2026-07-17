@@ -1,0 +1,42 @@
+﻿{
+  "verification_id": "FACTORY-CONTEXT-SPACE-P5-DIRECTION-GUARD-V3-BLOCKING-VERIFICATION",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "sub_step": "E",
+  "conclusion": "Direction Guard v3 CORRECTLY BLOCKS all forbidden claims",
+  "dg_v3_rules_tested": [
+    {"rule_id": "DG-001", "rule": "No pre-coding before Bootstrap", "tested": true, "blocks": true},
+    {"rule_id": "DG-002", "rule": "Build Lite is default", "tested": true, "blocks": true},
+    {"rule_id": "DG-003", "rule": "Native Build Pro is conditional", "tested": true, "blocks": true},
+    {"rule_id": "DG-004", "rule": "v0.5 release blocked", "tested": true, "blocks": true},
+    {"rule_id": "DG-005", "rule": "Multi-agent is NOT default", "tested": true, "blocks": true},
+    {"rule_id": "DG-006", "rule": "No cloud without local MVP proof", "tested": true, "blocks": true},
+    {"rule_id": "DG-007", "rule": "No micro-phase splitting", "tested": true, "blocks": true},
+    {"rule_id": "DG-008", "rule": "Compressed summary cannot be evidence", "tested": true, "blocks": true},
+    {"rule_id": "DG-009", "rule": "Completed phases cannot show as pending", "tested": true, "blocks": true},
+    {"rule_id": "DG-010", "rule": "Attach Packet must carry freshnessStatus", "tested": true, "blocks": true},
+    {"rule_id": "DG-011", "rule": "ULTRA_COMPACT not autonomous (P5 new)", "tested": true, "blocks": true},
+    {"rule_id": "DG-012", "rule": "Snapshot is not verifier evidence (P5 new)", "tested": true, "blocks": true},
+    {"rule_id": "DG-013", "rule": "Fresh window must validate freshness before mount (P5 new)", "tested": true, "blocks": true}
+  ],
+  "forbidden_claims_tested": [
+    "release v0.5 now",
+    "cloud deploy",
+    "Build Pro as default",
+    "multi-agent as default",
+    "diagnostic as mainline",
+    "packaging as mainline",
+    "Package QA bypass",
+    "Snapshot as PASS evidence",
+    "external conversation space as model memory expansion",
+    "strict new-window isolation claimed",
+    "REALWORLD-2 proves Factory smarter",
+    "ULTRA_COMPACT for autonomous continuation",
+    "poisoned Build Pro default in snapshot",
+    "stale snapshot accepted without fallback"
+  ],
+  "all_blocked": true,
+  "no_false_positives": true,
+  "no_false_negatives": true,
+  "verdict": "DG v3 is complete and correct. 13 rules, all frozen, all blocking correctly."
+}

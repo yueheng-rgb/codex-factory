@@ -1,0 +1,79 @@
+﻿{
+    "architecture":  {
+                         "quality-gates/":  {
+                                                "description":  "Diagnostic + recovery + negative controls",
+                                                "requiredFor":  "Build Pro",
+                                                "contents":  [
+                                                                 "diagnostic-gate/",
+                                                                 "recovery-drill/",
+                                                                 "negative-controls/"
+                                                             ]
+                                            },
+                         "context-packets/":  {
+                                                  "description":  "Context packet generation + validation",
+                                                  "requiredFor":  "Build Pro",
+                                                  "contents":  [
+                                                                   "schema/",
+                                                                   "generator/",
+                                                                   "validator/",
+                                                                   "role-profiles/"
+                                                               ]
+                                              },
+                         "memory-quality/":  {
+                                                 "description":  "Memory quality infrastructure",
+                                                 "requiredFor":  "Build Pro",
+                                                 "contents":  [
+                                                                  "quality-hierarchy/",
+                                                                  "ingestion-policy/",
+                                                                  "filtering-decay/",
+                                                                  "summary-verification/"
+                                                              ]
+                                             },
+                         "agent-lifecycle/":  {
+                                                  "description":  "Native agent lifecycle management",
+                                                  "requiredFor":  "Build Pro",
+                                                  "contents":  [
+                                                                   "registry/",
+                                                                   "handoff/",
+                                                                   "close-receipt/",
+                                                                   "write-scope/",
+                                                                   "metrics/"
+                                                               ]
+                                              },
+                         "optional/":  {
+                                           "description":  "Optional add-ons",
+                                           "requiredFor":  "NONE",
+                                           "contents":  [
+                                                            "reviewer-verifier-diagnostic-pack/",
+                                                            "vanilla-baseline-tools/"
+                                                        ]
+                                       },
+                         "core/":  {
+                                       "contents":  [
+                                                        "build-mode-mvp/",
+                                                        "task-graph/",
+                                                        "verifier-base/",
+                                                        "external-memory/"
+                                                    ],
+                                       "description":  "Build mode essentials"
+                                   }
+                     },
+    "packName":  "codex-factory-core",
+    "section":  "F",
+    "packVersion":  "0.9.0-pre",
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "date":  "2026-06-27",
+    "exclusionsFromPack":  [
+                               "Product source code",
+                               "Trial artifacts",
+                               "Benchmark results",
+                               "Release ZIPs",
+                               "v0.5 package",
+                               "SkillMarket/DevFlow/SkillForge/AtlasOps",
+                               "FINAL package",
+                               "v0.4 release"
+                           ],
+    "status":  "DRAFT",
+    "title":  "Pack Architecture Draft",
+    "note":  "This is a DRAFT architecture. No release ZIP will be created. Actual pack assembly deferred to FACTORY-BUILD-PACK-ARCHITECTURE-P1."
+}

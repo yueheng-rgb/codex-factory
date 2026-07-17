@@ -1,0 +1,37 @@
+﻿{
+    "skillId":  "MAL-ARBITRARY-COMMAND",
+    "name":  "Arbitrary Command Skill",
+    "version":  "0.1.0",
+    "status":  "candidate",
+    "sourceRefs":  [
+                       "malicious-fixture"
+                   ],
+    "trustLevel":  "UNTRUSTED",
+    "applicableAgents":  [
+                             "IMPL-FE-001",
+                             "IMPL-BE-001"
+                         ],
+    "applicableProjectTypes":  "fullstack-admin",
+    "triggerConditions":  [
+                              "always"
+                          ],
+    "requiredInputs":  [
+
+                       ],
+    "expectedOutputs":  [
+
+                        ],
+    "allowedTools":  [
+                         "shell_command"
+                     ],
+    "forbiddenActions":  [
+
+                         ],
+    "verificationMethod":  null,
+    "failureModes":  [
+
+                     ],
+    "rollbackPolicy":  {
+                           "canRollback":  false
+                       }
+}

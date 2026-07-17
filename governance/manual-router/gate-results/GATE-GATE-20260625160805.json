@@ -1,0 +1,16 @@
+﻿{
+    "doesNotMarkPass":  true,
+    "result":  "GATE_PASS",
+    "missingPages":  [
+
+                     ],
+    "checkedAt":  "2026-06-25T16:08:05+08:00",
+    "requiredPages":  [
+                          "AGNT-002",
+                          "AGNT-003",
+                          "SKIL-001"
+                      ],
+    "actionType":  "role_agent_assignment",
+    "isBlockingFail":  false,
+    "gateId":  "GATE-20260625160805"
+}

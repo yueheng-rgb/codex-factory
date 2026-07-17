@@ -1,0 +1,44 @@
+﻿{
+  "stage": "V2_8",
+  "manifest_type": "frozen_trunk",
+  "manifest_date": "2026-07-17",
+  "manifest_version": "1.0.0",
+  "frozen_files": [
+    {"path":"AGENTS.md","category":"governance_core","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE — core search/multi-agent/verifier doctrine. Append-only for stage index.","notes":"Contains R2.4 search baseline, BOOT-001, factory bootstrap gate, deprecated directions"},
+    {"path":"APP_TYPE_ROUTER.md","category":"governance_core","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE — 7 project types, routing rules. Extend via project-surface-model only.","notes":"Core project type classification"},
+    {"path":"STACK_DECISION_GUIDE.md","category":"governance_core","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE — technology stack decisions. Extend via expert packs only.","notes":"Stack recommendations per project type"},
+    {"path":"governance/expert-packs/registry.json","category":"expert_pack_registry","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"APPEND — add new packs, never remove active packs. Mark deprecated only.","notes":"6 packs ACTIVE: ecommerce, saas-tool, admin-system, miniapp, game-threejs, cpp-memory-safety"},
+    {"path":"governance/project-surface-model/","category":"project_surface_model","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE — 10 surface types, multi-surface routing. Extend surface list only.","notes":"Surface model from R2.12"},
+    {"path":"runtime/pre-build-research-gate.ps1","category":"search_pipeline","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE — search gate entry point. P0/P1/P2 classification.","notes":"Search doctrine enforcement"},
+    {"path":"runtime/search-doctrine-regression-tests.ps1","category":"search_pipeline","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE","notes":"Regression tests for search doctrine"},
+    {"path":"runtime/search-result-quality-gate.ps1","category":"search_pipeline","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE","notes":"Quality Gate v5"},
+    {"path":"governance/agent-os/","category":"multi_agent","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE — worker capsule, contract, handoff, lifecycle, task-graph schemas","notes":"Multi-agent governance core"},
+    {"path":"runtime/runtime-risk-classifier.ps1","category":"risk","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE — keyword/rules updates allowed, architecture freeze","notes":"R2.13 risk classifier"},
+    {"path":"runtime/risk-enforcement-gate.ps1","category":"risk","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE — gate logic updates allowed","notes":"R2.13 risk enforcement gate"},
+    {"path":"runtime/risk-enforcement-gate-v2.ps1","category":"risk","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE","notes":"R2.14 automated gate detection"},
+    {"path":"runtime/risk-enforcement-gate-v3.ps1","category":"risk","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE","notes":"R3.0+ external engine integration"},
+    {"path":"runtime/business-invariant-engine.ps1","category":"risk","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE","notes":"R2.13 business invariant engine"},
+    {"path":"runtime/automated-gate-detector.ps1","category":"risk","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE","notes":"R2.14 automated gate detection"},
+    {"path":"runtime/human-review-console.ps1","category":"human_review","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE — review schema, console interface","notes":"V2.2 human review console"},
+    {"path":"runtime/human-review-gate.ps1","category":"human_review","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE","notes":"Human review gate enforcement"},
+    {"path":"runtime/resume-gate.ps1","category":"trusted_memory","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE — stale reference, stale tool state, deprecated lock detection","notes":"V2.6 resume gate stress validated"},
+    {"path":"runtime/memory-admission-gate.ps1","category":"trusted_memory","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE","notes":"Compression summary defense"},
+    {"path":"runtime/gate-evidence-binder.ps1","category":"evidence","last_verified_phase":"V2_8","allowed_to_modify":false,"modification_policy":"FREEZE","notes":"R2.14 evidence binding"},
+    {"path":"runtime/production-readiness-checker.ps1","category":"production","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE — check items can be added","notes":"V2.7 production readiness checker"},
+    {"path":"runtime/external-engine-broker.ps1","category":"external_engines","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE — add engines, update parsers","notes":"R3.0 external engine broker"},
+    {"path":"runtime/external-engine-registry.ps1","category":"external_engines","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE","notes":"Engine registry"},
+    {"path":"runtime/starter-type-consistency-check.ps1","category":"quality","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE","notes":"R2.12 starter type consistency"},
+    {"path":"runtime/project-surface-router.ps1","category":"project_routing","last_verified_phase":"V2_8","allowed_to_modify":true,"modification_policy":"CALIBRATE","notes":"R2.12 project surface router"}
+  ],
+  "summary": {
+    "total_frozen_files": 25,
+    "freeze_category": 14,
+    "calibrate_category": 11,
+    "core_frozen": ["AGENTS.md","APP_TYPE_ROUTER.md","STACK_DECISION_GUIDE.md","search pipeline","multi-agent governance","human review console","trusted memory","evidence binding"]
+  },
+  "non_claims": [
+    "This manifest tracks governance/runtime files, not testbeds or starters",
+    "CALIBRATE files can be updated for rules/bugfixes but architecture remains frozen",
+    "FREEZE files require explicit stage-level approval to modify"
+  ]
+}

@@ -1,0 +1,261 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P3",
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-PACK-STAGING-P3",
+    "generated_at":  "2026-06-28T13:46:36+08:00",
+    "verdict":  "PASS",
+    "total_checks":  50,
+    "passed":  50,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "REALWORLD-2-LESSONS-0 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "PACK-STAGING-P2 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "P3 evidence intake exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "VERSION.json updated with Security/Deploy Gate flags"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "VERSION releaseAllowed=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "VERSION v05Package=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "VERSION status=STAGING_NOT_RELEASE"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "BOUNDARY.md updated with P3"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "security-deploy-gate/ module exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Gate spec exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "User rotation boundary policy exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "Real deployed project workflow exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "User rotation checklist exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "security-deploy-gate-check.ps1 exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "Test Repair Policy exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "Test repair prompt exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "Build Lite README updated with P3"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "Context Space README updated"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "security-deploy-gate prompt"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "real-deployed-workflow prompt"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "package-qa prompts preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "Smoke tests exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "Smoke tests PASS (26/26)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "MANIFEST.json refreshed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "MANIFEST.sha256 exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "P3 staging bundle exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "P3 SHA exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "Extraction smoke passed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "Strategy update exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "Security/Deploy Gate required for deployed projects"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "Package QA final handoff gate preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "Context Space long-horizon requirement preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "Build Lite default preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V034",
+                       "desc":  "Native Build Pro conditional preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V035",
+                       "desc":  "v0.5 blocked preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V036",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V037",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V038",
+                       "desc":  "No real project files included"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V039",
+                       "desc":  "No secrets included"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V040",
+                       "desc":  "No Factory superiority overclaim"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V041",
+                       "desc":  "No production readiness overclaim"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V042",
+                       "desc":  "Negative controls: 58 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V043",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V044",
+                       "desc":  "Negative controls: all DEFENCE_HELD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V045",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V046",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V047",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V048",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V049",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V050",
+                       "desc":  "Verifier script exists"
+                   }
+               ]
+}

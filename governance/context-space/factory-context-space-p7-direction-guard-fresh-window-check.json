@@ -1,0 +1,61 @@
+﻿{
+    "no_false_negatives":  true,
+    "all_blocked_correctly":  true,
+    "dg_version":  "3.0.0",
+    "snapshot_used":  "SNAP-FW-20260628-075508.json",
+    "section":  "E",
+    "check_id":  "FACTORY-CONTEXT-SPACE-P7-DIRECTION-GUARD-FRESH-WINDOW-CHECK",
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "generated_at":  "2026-06-28T10:05:07+08:00",
+    "verdict":  "DIRECTION_GUARD_V3_CORRECTLY_PREVENTING_WRONG_DIRECTIONS",
+    "checks_performed":  [
+                             {
+                                 "rule":  "DG-004",
+                                 "verdict":  "BLOCKED",
+                                 "expected_block":  true,
+                                 "check":  "v0.5 release"
+                             },
+                             {
+                                 "rule":  "DG-006",
+                                 "verdict":  "BLOCKED",
+                                 "expected_block":  true,
+                                 "check":  "cloud deploy buy server"
+                             },
+                             {
+                                 "rule":  "DG-005",
+                                 "verdict":  "BLOCKED",
+                                 "expected_block":  true,
+                                 "check":  "multi-agent default"
+                             },
+                             {
+                                 "rule":  "DG-007",
+                                 "verdict":  "BLOCKED",
+                                 "expected_block":  true,
+                                 "check":  "micro phase splitting"
+                             },
+                             {
+                                 "rule":  "DG-008",
+                                 "verdict":  "BLOCKED",
+                                 "expected_block":  true,
+                                 "check":  "summary as evidence"
+                             },
+                             {
+                                 "rule":  "DG-012",
+                                 "verdict":  "BLOCKED",
+                                 "expected_block":  true,
+                                 "check":  "Snapshot as verifier evidence"
+                             },
+                             {
+                                 "rule":  "DG-001",
+                                 "verdict":  "BLOCKED",
+                                 "expected_block":  true,
+                                 "check":  "start coding before Bootstrap"
+                             },
+                             {
+                                 "rule":  "DG-003",
+                                 "verdict":  "BLOCKED",
+                                 "expected_block":  true,
+                                 "check":  "Build Pro default"
+                             }
+                         ]
+}

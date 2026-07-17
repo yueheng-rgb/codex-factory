@@ -1,0 +1,94 @@
+﻿{
+    "phase":  "FACTORY-AGENT-1-B",
+    "nativeGenerated":  true,
+    "tenRoleComparison":  {
+                              "v05CandidateRoleCount":  7,
+                              "v04RoleCount":  10,
+                              "removed":  [
+                                              "PM (collapsed into Orchestrator)",
+                                              "DevOps (collapsed into Orchestrator)",
+                                              "Knowledge Mgmt (collapsed into Orchestrator)"
+                                          ],
+                              "added":  [
+                                            "Integrity Checker (new guardrail role)",
+                                            "Reviewer (split from Verifier)"
+                                        ]
+                          },
+    "coreCoordinationRoles":  5,
+    "keyRules":  [
+                     "Main Agent coordinates; does not silently implement worker scope",
+                     "Architect defines architecture; does not implement broad product code",
+                     "Builder writes assigned scope only",
+                     "Integration Lead is sole merge owner",
+                     "Reviewer checks quality gaps; readonly by default",
+                     "Verifier checks machine evidence; readonly",
+                     "Integrity Checker audits process integrity; readonly"
+                 ],
+    "roles":  [
+                  {
+                      "forkContext":  false,
+                      "canSpawnAgents":  true,
+                      "canMarkPass":  "orchestrator_gates_only",
+                      "type":  "CORE_COORDINATION",
+                      "canWriteProductCode":  false,
+                      "role":  "Main Agent / Orchestrator",
+                      "guardrailReadonly":  false
+                  },
+                  {
+                      "forkContext":  false,
+                      "canSpawnAgents":  false,
+                      "canMarkPass":  false,
+                      "type":  "CORE_COORDINATION",
+                      "canWriteProductCode":  "shared_types_and_stubs_only",
+                      "role":  "Architect",
+                      "guardrailReadonly":  false
+                  },
+                  {
+                      "forkContext":  false,
+                      "canSpawnAgents":  false,
+                      "canMarkPass":  "self_report_only",
+                      "type":  "CORE_COORDINATION",
+                      "canWriteProductCode":  "owned_scope_only",
+                      "role":  "Builder Agent",
+                      "guardrailReadonly":  false
+                  },
+                  {
+                      "forkContext":  false,
+                      "canSpawnAgents":  false,
+                      "canMarkPass":  false,
+                      "type":  "CORE_COORDINATION",
+                      "canWriteProductCode":  "integration_hub_only",
+                      "role":  "Integration Lead",
+                      "guardrailReadonly":  false
+                  },
+                  {
+                      "forkContext":  false,
+                      "canSpawnAgents":  false,
+                      "canMarkPass":  "review_gates_only",
+                      "type":  "CORE_COORDINATION",
+                      "canWriteProductCode":  false,
+                      "role":  "Reviewer",
+                      "guardrailReadonly":  true
+                  },
+                  {
+                      "forkContext":  false,
+                      "canSpawnAgents":  false,
+                      "canMarkPass":  "verifier_gates_only",
+                      "type":  "GUARDRAIL",
+                      "canWriteProductCode":  false,
+                      "role":  "Verifier",
+                      "guardrailReadonly":  true
+                  },
+                  {
+                      "forkContext":  false,
+                      "canSpawnAgents":  false,
+                      "canMarkPass":  "integrity_gates_only",
+                      "type":  "GUARDRAIL",
+                      "canWriteProductCode":  false,
+                      "role":  "Integrity Checker",
+                      "guardrailReadonly":  true
+                  }
+              ],
+    "guardrailRoles":  2,
+    "generatedAt":  "2026-06-26T01:17:37.6172139+08:00"
+}

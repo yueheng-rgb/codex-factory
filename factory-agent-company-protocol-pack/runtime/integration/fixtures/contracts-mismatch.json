@@ -1,0 +1,18 @@
+﻿{
+    "contracts":  [
+                      {
+                          "consumerAuthAssumption":  "bearer-token",
+                          "requestSchemaHash":  "abc123",
+                          "producer":  "ag4-b1",
+                          "consumerRequestSchemaHash":  "xyz999",
+                          "consumerErrorShapeHash":  "err789",
+                          "responseSchemaHash":  "def456",
+                          "contractId":  "ct-auth",
+                          "consumerResponseSchemaHash":  "def456",
+                          "authAssumption":  "bearer-token",
+                          "errorShapeHash":  "err789",
+                          "consumer":  "ag4-int",
+                          "endpoint":  "POST /auth/login"
+                      }
+                  ]
+}

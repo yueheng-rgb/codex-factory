@@ -1,0 +1,16 @@
+﻿{
+    "risks":  [
+                  {
+                      "mitigation":  "Verify P1 PASS first",
+                      "description":  "PRO-2 started before P1 complete",
+                      "id":  "R001",
+                      "severity":  "CRITICAL"
+                  },
+                  {
+                      "mitigation":  "Enforce SUMMARY_VERIFICATION",
+                      "description":  "Compressed summary as evidence",
+                      "id":  "R002",
+                      "severity":  "HIGH"
+                  }
+              ]
+}

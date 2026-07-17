@@ -1,0 +1,141 @@
+﻿{
+    "passed":  26,
+    "timestamp":  "2026-06-24T17:53:28.7719459+08:00",
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\phase6c-dry25-resource-pack-portability-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  26,
+    "phase":  "DRY25",
+    "checks":  [
+                   {
+                       "Label":  "PARENT_PHASE_H18",
+                       "Pass":  true,
+                       "Detail":  "currentTrustedPhase=H18"
+                   },
+                   {
+                       "Label":  "H18_PASS_EXISTS",
+                       "Pass":  true,
+                       "Detail":  "h18Status=PASS"
+                   },
+                   {
+                       "Label":  "DRY25_S0_PASS_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_H19_ARTIFACTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_FINAL_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "FIXTURE_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PACK_INSTALLED_IN_FIXTURE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MANIFEST_SHA256_FIXTURE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "BOOTSTRAP_VALIDATION_FIXTURE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_ABSOLUTE_PATH_DEPS",
+                       "Pass":  true,
+                       "Detail":  "absolutePathRefs=0"
+                   },
+                   {
+                       "Label":  "MINI_MISSION_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MINI_MISSION_CONTRACTS",
+                       "Pass":  true,
+                       "Detail":  "count=2"
+                   },
+                   {
+                       "Label":  "MINI_MISSION_SRC",
+                       "Pass":  true,
+                       "Detail":  "count=8"
+                   },
+                   {
+                       "Label":  "MINI_MISSION_PROGRESS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MINI_MISSION_HANDOFF",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MINI_MISSION_DEP_GRAPH",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_PASS",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS"
+                   },
+                   {
+                       "Label":  "NEGATIVES_ZERO_GAPS",
+                       "Pass":  true,
+                       "Detail":  "gaps=0"
+                   },
+                   {
+                       "Label":  "NEGATIVES_COUNT_GE16",
+                       "Pass":  true,
+                       "Detail":  "count=20"
+                   },
+                   {
+                       "Label":  "NO_SCORING_AS_PASS",
+                       "Pass":  true,
+                       "Detail":  "Verified by bootstrap"
+                   },
+                   {
+                       "Label":  "NO_COMPRESSED_SUMMARY_AS_EVIDENCE",
+                       "Pass":  true,
+                       "Detail":  "Verified by bootstrap"
+                   },
+                   {
+                       "Label":  "NO_UNVERIFIED_CLAIMS",
+                       "Pass":  true,
+                       "Detail":  "Verified"
+                   },
+                   {
+                       "Label":  "NO_MANUAL_PASS",
+                       "Pass":  true,
+                       "Detail":  "Verified"
+                   },
+                   {
+                       "Label":  "NO_GENERIC_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Verified"
+                   },
+                   {
+                       "Label":  "POLICIES_PARSE_FIXTURE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SCHEMAS_PARSE_FIXTURE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   }
+               ],
+    "failed":  0
+}

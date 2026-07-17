@@ -1,0 +1,11 @@
+﻿{
+    "demo_id": "V3_3-INTAKE-DEMO-001",
+    "demo_name": "No Remote Artifact",
+    "run_id": "demo-no-artifact",
+    "artifact_provided": false,
+    "verifier_result": "REMOTE_ARTIFACT_NOT_PROVIDED",
+    "claim_gate_result": "REMOTE_RUN_REQUIRED",
+    "expected": "REMOTE_RUN_REQUIRED — no artifact, no verification",
+    "match": true,
+    "non_claims": ["No artifact zip present", "REMOTE_RUN_REQUIRED is correct state"]
+}

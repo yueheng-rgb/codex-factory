@@ -1,0 +1,33 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "search-invocation.schema.json",
+  "title": "Search Invocation Ledger Entry",
+  "description": "Records every search adapter invocation. NEVER stores raw query content or API keys.",
+  "type": "object",
+  "required": ["invocationId", "projectId", "agentId", "provider", "mode", "decision", "timestamp"],
+  "properties": {
+    "invocationId": { "type": "string", "pattern": "^SRCH-INV-\\d{8}-\\d{3}$" },
+    "projectId": { "type": "string" },
+    "phaseId": { "type": "string" },
+    "agentId": { "type": "string" },
+    "requestId": { "type": "string" },
+    "provider": { "type": "string", "enum": ["glm_search", "human_manual", "chatgpt", "claude", "perplexity", "search_engine"] },
+    "mode": { "type": "string", "enum": ["manual", "dry_run", "live_api"] },
+    "queryHash": { "type": "string", "description": "SHA256 hash of query for dedup — raw query NOT stored" },
+    "rawQueryStored": { "type": "boolean", "default": false },
+    "resultCount": { "type": "integer" },
+    "sourceCount": { "type": "integer" },
+    "decision": {
+      "type": "string",
+      "enum": ["ALLOW_WITH_CONTROLS", "PENDING_HUMAN", "REJECT", "DOWNGRADED_TO_DRY_RUN", "DOWNGRADED_TO_MANUAL", "LIVE_API_NOT_EXECUTED_BY_POLICY"]
+    },
+    "secretPresent": { "type": "boolean" },
+    "networkBoundary": { "type": "string" },
+    "humanApproval": { "type": "boolean" },
+    "qualityScore": { "type": "integer" },
+    "qualityVerdict": { "type": "string" },
+    "downgradedFrom": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "caveats": { "type": "array", "items": { "type": "string" } }
+  }
+}

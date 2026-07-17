@@ -1,0 +1,51 @@
+﻿{
+  "package_qa_gate_version": "1.0.0",
+  "assignment_profile": {
+    "$schema": "assignment-profile-schema.json",
+    "profile_id": "string (required)",
+    "student_name": "string (required)",
+    "student_id": "string (required)",
+    "project_name": "string (required)",
+    "expected_zip_pattern": "string (regex, required)",
+    "expected_report_file": "string (glob, required)",
+    "expected_source_dir": "string (required)",
+    "expected_sql_file": "string (glob, optional)",
+    "expected_readme": "string (glob, optional)",
+    "instructor_name": "string (optional)",
+    "course_name": "string (optional)",
+    "deadline": "string (ISO date, optional)"
+  },
+  "qa_result": {
+    "$schema": "qa-result-schema.json",
+    "gate_version": "string (required)",
+    "timestamp": "string (ISO datetime, required)",
+    "package_path": "string (required)",
+    "assignment_profile": "string (path to profile, required)",
+    "overall_status": "enum [PASS, PASS_WITH_WARNINGS, BLOCKED, ERROR]",
+    "checks": {
+      "process_trace": "object",
+      "assignment_matching": "object",
+      "artifact_completeness": "object",
+      "technical_correctness": "object",
+      "structural_hygiene": "object"
+    },
+    "blocking_findings": "array",
+    "warning_findings": "array",
+    "info_findings": "array",
+    "repair_suggestions": "array",
+    "overrides": "array",
+    "duration_ms": "number"
+  },
+  "finding": {
+    "$schema": "finding-schema.json",
+    "id": "string (auto-generated)",
+    "category": "enum [process_trace, assignment_matching, artifact_completeness, technical_correctness, structural_hygiene]",
+    "severity": "enum [BLOCKING, WARNING, INFO]",
+    "check_name": "string",
+    "description": "string",
+    "file_path": "string (relative to package root)",
+    "line_number": "number (optional)",
+    "evidence": "string (snippet, 200 chars max)",
+    "suggestion": "string"
+  }
+}

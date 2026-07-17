@@ -1,0 +1,280 @@
+﻿{
+    "verifier":  "factory-agent-diagnostic-pack-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T21:26:46.9815765+08:00",
+    "passRatio":  "54/54",
+    "total":  54,
+    "pass":  54,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9003906+08:00",
+                       "pass":  true,
+                       "name":  "ag9p3-pass-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9263910+08:00",
+                       "pass":  true,
+                       "name":  "ag9p3-verifier-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9303896+08:00",
+                       "pass":  true,
+                       "name":  "ag9p3-verifier-pass"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9333908+08:00",
+                       "pass":  true,
+                       "name":  "no-v05-directory"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9333908+08:00",
+                       "pass":  true,
+                       "name":  "no-v05-zip"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9383882+08:00",
+                       "pass":  true,
+                       "name":  "no-new-release-zip"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9403908+08:00",
+                       "pass":  true,
+                       "name":  "no-product-modified-flag"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9403908+08:00",
+                       "pass":  true,
+                       "name":  "multi-agent-default-rejected-flag-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9413906+08:00",
+                       "pass":  true,
+                       "name":  "no-default-declared-flag"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9443989+08:00",
+                       "pass":  true,
+                       "name":  "vanilla-lead-vanilla-score-85-5"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9443989+08:00",
+                       "pass":  true,
+                       "name":  "vanilla-lead-v05-score-80-0"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9453894+08:00",
+                       "pass":  true,
+                       "name":  "vanilla-lead-v05-not-beat-vanilla"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9453894+08:00",
+                       "pass":  true,
+                       "name":  "vanilla-lead-v05-superior-rejected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9467952+08:00",
+                       "pass":  true,
+                       "name":  "diagnostic-pack-dir-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9467952+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-README-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9467952+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-BOUNDARY-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9477961+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-DAILY_USE-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9477961+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-when-to-use-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9477961+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-when-not-to-use-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9487993+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-reviewer-verifier-checklist-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9487993+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-evidence-hierarchy-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9487993+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-anti-deception-checklist-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9487993+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-contamination-checklist-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9487993+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-floor-check-policy-md"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9497962+08:00",
+                       "pass":  true,
+                       "name":  "doc-exists-MANIFEST-json"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9537953+08:00",
+                       "pass":  true,
+                       "name":  "boundary-states-optional"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9547967+08:00",
+                       "pass":  true,
+                       "name":  "boundary-not-product-quality"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9557950+08:00",
+                       "pass":  true,
+                       "name":  "boundary-reviewer-readonly"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9557950+08:00",
+                       "pass":  true,
+                       "name":  "readme-multi-agent-not-default"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9567962+08:00",
+                       "pass":  true,
+                       "name":  "boundary-multi-agent-not-default"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9567962+08:00",
+                       "pass":  true,
+                       "name":  "readme-no-product-superiority"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9577966+08:00",
+                       "pass":  true,
+                       "name":  "boundary-no-product-superiority"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9587957+08:00",
+                       "pass":  true,
+                       "name":  "readme-vanilla-product-leader"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9597963+08:00",
+                       "pass":  true,
+                       "name":  "boundary-vanilla-product-leader"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9607956+08:00",
+                       "pass":  true,
+                       "name":  "checklist-reviewer-readonly"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9617962+08:00",
+                       "pass":  true,
+                       "name":  "dailyuse-reviewer-readonly"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9627948+08:00",
+                       "pass":  true,
+                       "name":  "readme-v05-blocked"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9627948+08:00",
+                       "pass":  true,
+                       "name":  "boundary-v05-blocked"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9637947+08:00",
+                       "pass":  true,
+                       "name":  "readme-forbidden-claims-section"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9647937+08:00",
+                       "pass":  true,
+                       "name":  "boundary-forbidden-patterns-section"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9647937+08:00",
+                       "pass":  true,
+                       "name":  "evidence-hierarchy-tiers-present"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9657946+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-included"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9667948+08:00",
+                       "pass":  true,
+                       "name":  "floor-checks-included"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9667948+08:00",
+                       "pass":  true,
+                       "name":  "contamination-checks-included"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9677949+08:00",
+                       "pass":  true,
+                       "name":  "when-to-use-activation-criteria"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9688121+08:00",
+                       "pass":  true,
+                       "name":  "when-not-to-use-skip-criteria"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9708006+08:00",
+                       "pass":  true,
+                       "name":  "manifest-strategy-multi-agent"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9708006+08:00",
+                       "pass":  true,
+                       "name":  "manifest-strategy-v05-blocked"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9737960+08:00",
+                       "pass":  true,
+                       "name":  "manifest-strategy-vanilla-leader"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9747961+08:00",
+                       "pass":  true,
+                       "name":  "manifest-strategy-p1-not-proven"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9767961+08:00",
+                       "pass":  true,
+                       "name":  "manifest-forbidden-claims"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9777959+08:00",
+                       "pass":  true,
+                       "name":  "manifest-readonly"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9777959+08:00",
+                       "pass":  true,
+                       "name":  "manifest-optional"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T21:26:46.9787961+08:00",
+                       "pass":  true,
+                       "name":  "manifest-no-spawn-agent"
+                   }
+               ]
+}

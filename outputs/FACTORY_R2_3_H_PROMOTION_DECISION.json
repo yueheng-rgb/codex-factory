@@ -1,0 +1,8 @@
+﻿{
+    "decisionId":  "PROMO-R2.3-H-001",
+    "skillId":  "CAP-SKILL-004",
+    "timestamp":  "2026-07-10T00:29:13+08:00",
+    "verdict":  "runtimeVerified",
+    "allConditionsMet":  true,
+    "note":  "auditPassed was prerequisite; runtimeVerified confirmed by live trial behavior evidence"
+}

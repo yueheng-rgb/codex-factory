@@ -1,0 +1,227 @@
+﻿{
+    "passed":  36,
+    "checkedAt":  "2026-06-25T00:44:59+08:00",
+    "command":  "live-runtime-7-verify",
+    "totalChecks":  36,
+    "phase":  "LIVE-RUNTIME-7",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "LR2",
+                       "result":  true,
+                       "name":  "LR2_PASS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "LR3",
+                       "result":  true,
+                       "name":  "LR3_PASS",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "LR4",
+                       "result":  true,
+                       "name":  "LR4_PASS",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "LR5",
+                       "result":  true,
+                       "name":  "LR5_PASS",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "LR6",
+                       "result":  true,
+                       "name":  "LR6_RESULT",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "32/32",
+                       "result":  true,
+                       "name":  "LR6_32",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "neg exists",
+                       "result":  true,
+                       "name":  "LR6_NEG_28",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "scenarios",
+                       "result":  true,
+                       "name":  "SCENARIOS_EXIST",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "4",
+                       "result":  true,
+                       "name":  "SCENARIOS_4",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "DRL-01 compact",
+                       "result":  true,
+                       "name":  "DRILL01",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "DRL-02 stale",
+                       "result":  true,
+                       "name":  "DRILL02",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "DRL-03 conflict",
+                       "result":  true,
+                       "name":  "DRILL03",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "DRL-04 clean",
+                       "result":  true,
+                       "name":  "DRILL04",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "summary",
+                       "result":  true,
+                       "name":  "DRILL_SUMMARY",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "allPass",
+                       "result":  true,
+                       "name":  "DRILL_ALL_PASS",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "no conv memory",
+                       "result":  true,
+                       "name":  "NO_CONV_MEMORY",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "no compressed",
+                       "result":  true,
+                       "name":  "NO_COMPRESSED",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "carrier sim",
+                       "result":  true,
+                       "name":  "CARRIER_SIM",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "recovered",
+                       "result":  true,
+                       "name":  "CARRIER_RECOVERED",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "note",
+                       "result":  true,
+                       "name":  "SAFE_NOTE",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "readonly",
+                       "result":  true,
+                       "name":  "NOTE_READONLY",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "no modify",
+                       "result":  true,
+                       "name":  "NOTE_NO_MODIFY",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "no ZIP",
+                       "result":  true,
+                       "name":  "NOTE_NO_ZIP",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "no phase",
+                       "result":  true,
+                       "name":  "NOTE_NO_PHASE",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "neg",
+                       "result":  true,
+                       "name":  "NEG_EXISTS",
+                       "id":  27
+                   },
+                   {
+                       "detail":  "30",
+                       "result":  true,
+                       "name":  "NEG_30",
+                       "id":  28
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_GAPS_0",
+                       "id":  29
+                   },
+                   {
+                       "detail":  "CTX OS",
+                       "result":  true,
+                       "name":  "CTX_OS",
+                       "id":  30
+                   },
+                   {
+                       "detail":  "watcher",
+                       "result":  true,
+                       "name":  "WATCHER",
+                       "id":  31
+                   },
+                   {
+                       "detail":  "controller",
+                       "result":  true,
+                       "name":  "CONTROLLER",
+                       "id":  32
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL",
+                       "id":  33
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EC",
+                       "id":  34
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GF",
+                       "id":  35
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PC",
+                       "id":  36
+                   }
+               ],
+    "failed":  0
+}

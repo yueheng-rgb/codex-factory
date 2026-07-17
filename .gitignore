@@ -1,0 +1,19 @@
+﻿# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+dist/
+build/
+*.zip
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Workspace run artifacts (large)
+workspaces/runs/

@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-V05-R1-INTEGRATION-PLAN","section":"C","title":"Feature Selection","must_integrate":13,"should_integrate":7,"defer":["Web UI","cloud","production deploy","v0.6 expansion","real validation until R1 exists"]}

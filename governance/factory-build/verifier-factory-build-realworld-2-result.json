@@ -1,0 +1,8 @@
+﻿{
+    "verifier":  "factory-build-realworld-2-tcm-project-ledger-intake-verify.ps1",
+    "passed":  50,
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-27T20:40:27+08:00",
+    "failed":  0,
+    "total_checks":  50
+}

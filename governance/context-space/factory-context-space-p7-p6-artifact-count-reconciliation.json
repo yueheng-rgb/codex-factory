@@ -1,0 +1,89 @@
+﻿{
+    "reconciliation_id":  "FACTORY-CONTEXT-SPACE-P7-P6-ARTIFACT-COUNT-RECONCILIATION",
+    "correct_category_count":  9,
+    "recommendation":  "Minor documentation clarification recommended but do NOT reopen P6. Update P6 report to clarify \u00279 categories\u0027 or \u002716 artifacts\u0027.",
+    "correct_file_count":  16,
+    "does_this_affect_p6_pass_rationale":  "P6 verifier (38/38 PASS) tests concrete file existence, not report wording. The 9-vs-16 discrepancy is a report prose issue, not a verifier gap.",
+    "section":  "F",
+    "generated_at":  "2026-06-28T10:05:34+08:00",
+    "analysis":  {
+                     "interpretation_1":  {
+                                              "categories":  [
+                                                                 "Ledgers (5: phase, risk, + 3 others)",
+                                                                 "SQLite Index",
+                                                                 "Snapshot Packs (8 types = 1 category)",
+                                                                 "Attach Packet",
+                                                                 "Direction Guard",
+                                                                 "Evidence Index",
+                                                                 "Conversation State",
+                                                                 "Active Thread",
+                                                                 "Query Packet"
+                                                             ],
+                                              "description":  "\u00279\u0027 refers to 9 categories of artifacts, not individual file counts",
+                                              "count":  9
+                                          },
+                     "interpretation_2":  {
+                                              "description":  "\u00279\u0027 is a naming/category count error — should be \u00279 categories\u0027 or \u002716+ files\u0027",
+                                              "breakdown":  "5 ledgers (phase-ledger.jsonl, risk-ledger.jsonl, evidence-index.json, conversation-state.json, active-thread.json) + SQLite index (context-index-v2.db) + 8 Snapshots (SNAP-FW, SNAP-CD, SNAP-PS, SNAP-US, SNAP-RSK, SNAP-RD, SNAP-NBP, SNAP-QA) + Attach Packet (attach-packet-v3-latest.json) + direction guard (direction-guard.json) = 5+1+8+1+1 = 16",
+                                              "actual_file_count":  16
+                                          }
+                 },
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "categories":  [
+                       {
+                           "category":  "Phase Ledgers",
+                           "files":  [
+                                         "phase-ledger.jsonl",
+                                         "risk-ledger.jsonl"
+                                     ],
+                           "count":  2
+                       },
+                       {
+                           "category":  "State Files",
+                           "files":  [
+                                         "evidence-index.json",
+                                         "conversation-state.json",
+                                         "active-thread.json"
+                                     ],
+                           "count":  3
+                       },
+                       {
+                           "category":  "SQLite Index",
+                           "files":  [
+                                         "context-index-v2.db"
+                                     ],
+                           "count":  1
+                       },
+                       {
+                           "category":  "Snapshot Packs",
+                           "files":  [
+                                         "SNAP-FW",
+                                         "SNAP-CD",
+                                         "SNAP-PS",
+                                         "SNAP-US",
+                                         "SNAP-RSK",
+                                         "SNAP-RD",
+                                         "SNAP-NBP",
+                                         "SNAP-QA"
+                                     ],
+                           "count":  8
+                       },
+                       {
+                           "category":  "Attach Packet",
+                           "files":  [
+                                         "attach-packet-v3-latest.json"
+                                     ],
+                           "count":  1
+                       },
+                       {
+                           "category":  "Direction Guard",
+                           "files":  [
+                                         "direction-guard.json"
+                                     ],
+                           "count":  1
+                       }
+                   ],
+    "p6_report_claim":  "\u00279 context-space artifacts: 5 ledgers, SQLite index, 8 Snapshot Packs, Attach Packet v3, and direction guard\u0027",
+    "does_this_affect_p6_pass":  false,
+    "issue":  "The P6 report says \u00279 artifacts\u0027 but the enumeration appears inconsistent. 5 ledgers + SQLite index + 8 Snapshot Packs + Attach Packet v3 + direction guard = 16 items if counting individually, or 5 categories if counting categories."
+}

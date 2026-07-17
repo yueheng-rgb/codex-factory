@@ -1,0 +1,345 @@
+﻿{
+    "verifier":  "factory-agent-8-p1-r1-closure-deficit-repair-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+    "passRatio":  "67/67",
+    "total":  67,
+    "pass":  67,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "v0.4-release-zip-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "v0.4-release-zip-sha256-matches"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-new-zip-in-outputs"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-v0.5-artifacts"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "ag8p1-phase-gate-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "ag8p1-reviewer-verifier-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "ag8p1-mid-run-floor-check-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "ag8p1-pre-closure-floor-check-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "lifecycle-reconcile-result-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "boyle-evidence-lock-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "boyle-late-capsule-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "boyle-late-handoff-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "boyle-late-close-receipt-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "lifecycle-recheck-result-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "pre-repair-evidence-lock-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "evidence-lock-preserves-blocked"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "evidence-lock-first-failure-preserved"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "evidence-lock-lifecycle-was-late"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "floor-metric-audit-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "floor-audit-records-source-defect"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "floor-audit-records-export-defect"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "floor-audit-no-gaming"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "floor-audit-block-preserved"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "repair-plan-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "repair-plan-strategy-legitimate"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "repair-plan-no-gaming-allowed"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "repair-execution-log-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "post-repair-test-output-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "post-repair-tests-247-pass"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "post-repair-test-files-23"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "post-repair-no-failures"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "post-repair-floor-recheck-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "floor-recheck-source-77"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "floor-recheck-records-unmet"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "floor-recheck-no-gaming"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "reviewer-verifier-recheck-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "reviewer-recheck-cannot-clear"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "reviewer-recheck-block-preserved"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "reviewer-recheck-no-gaming-files"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "post-repair-phase-gate-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "phase-gate-records-defects"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "phase-gate-not-clears-block"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-prior-run-copied"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-empty-files-game-source"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-comment-only-files"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-re-export-only-files"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-fake-exports"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-fake-endpoints"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-fake-tests"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-multi-agent-effectiveness-claimed"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "no-independent-comparison-started"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-json-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-38-total"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-all-detected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-zero-gaps"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-no-unexpected-pass"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-no-fail-not-triggered"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-no-generic-fail"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-no-expectedClass-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-no-manual-pass-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "negative-controls-no-preclassified-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "r1-summary-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "r1-negative-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "r1-preflight-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "r1-floor-audit-report-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "governance-result-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:15:23.2582593+08:00",
+                       "pass":  true,
+                       "name":  "governance-result-parent-preserved"
+                   }
+               ]
+}

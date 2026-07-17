@@ -1,0 +1,80 @@
+﻿{
+  "stage": "V2_6",
+  "component": "invariant-merge-matrix",
+  "date": "2026-07-12",
+  "merge_rules": {
+    "dedup": "Same invariant_id across packs → merge into one, keep highest severity",
+    "semantic_overlap": "Different invariant_ids with overlapping semantics → flag NEEDS_RECONCILIATION",
+    "severity_escalation": "If any pack declares an invariant CRITICAL, merged result is CRITICAL",
+    "human_review_escalation": "If any pack requires human_review for an invariant, merged result requires human_review",
+    "no_downgrade": "Lower-risk pack cannot downgrade a CRITICAL invariant from another pack",
+    "cross_pack_threshold": ">=3 packs activated → auto-escalate to L_CLASS if any CRITICAL invariant present"
+  },
+  "conflict_types": {
+    "TYPE_IDENTICAL": "Same invariant, same semantics → MERGED",
+    "TYPE_SEMANTIC_OVERLAP": "Different IDs but overlapping concern → MERGED with composite enforcement",
+    "TYPE_SEVERITY_CONFLICT": "Same invariant, different severity levels → USE_HIGHEST",
+    "TYPE_UNRESOLVABLE": "Directly contradictory invariants → BLOCKED, needs human resolution"
+  },
+  "conflicts": [
+    {
+      "conflict_id": "CONF-001",
+      "type": "TYPE_IDENTICAL",
+      "invariant": "price_non_negative",
+      "packs": ["ecommerce","admin-system"],
+      "resolution": "MERGED",
+      "merged_severity": "CRITICAL (source: ecommerce)"
+    },
+    {
+      "conflict_id": "CONF-002",
+      "type": "TYPE_IDENTICAL",
+      "invariant": "status_transition_allowed",
+      "packs": ["ecommerce","admin-system","saas-tool"],
+      "resolution": "MERGED",
+      "merged_severity": "HIGH"
+    },
+    {
+      "conflict_id": "CONF-003",
+      "type": "TYPE_SEMANTIC_OVERLAP",
+      "invariants": ["session_token_required_for_user_actions (miniapp)", "tenant_context_required (saas-tool)"],
+      "resolution": "MERGED — session must carry both user and tenant context",
+      "merged_severity": "CRITICAL"
+    },
+    {
+      "conflict_id": "CONF-004",
+      "type": "TYPE_IDENTICAL",
+      "invariant": "destructive_action_requires_confirmation",
+      "packs": ["admin-system","ecommerce"],
+      "resolution": "MERGED",
+      "merged_severity": "HIGH"
+    }
+  ],
+  "global_invariant_index": {
+    "CRITICAL": [
+      "price_non_negative","price_not_zero_unless_explicit_free","inventory_non_negative",
+      "order_total_matches_items","payment_idempotency_required","payment_callback_must_be_idempotent",
+      "admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role",
+      "buffer_bounds_must_be_checked","file_parser_must_be_bounded","use_after_free_must_be_prevented",
+      "null_pointer_dereference_must_be_prevented",
+      "openid_must_not_be_trusted_without_server_validation","session_token_required_for_user_actions",
+      "miniapp_secret_never_exposed_to_client","production_appid_requires_human_review",
+      "tenant_isolation_required","billing_idempotency_required",
+      "score_or_progress_cannot_be_client_trusted_if_competitive"
+    ],
+    "HIGH": [
+      "status_transition_allowed","archived_entity_not_mutable","user_cannot_modify_protected_fields",
+      "destructive_action_requires_confirmation","batch_operation_must_be_scoped","audit_log_required_for_sensitive_actions",
+      "upload_file_type_must_be_validated","upload_size_limit_enforced",
+      "form_input_must_be_validated","admin_api_requires_permission",
+      "external_asset_urls_must_be_allowlisted","saved_scene_belongs_to_user",
+      "subscription_state_valid","quota_limit_enforced",
+      "sanitizer_toolchain_integration_required","thread_safety_if_multithreaded","double_free_must_be_prevented"
+    ]
+  },
+  "cross_pack_invariant_coverage": {
+    "total_unique_invariants": 69,
+    "invariants_in_multiple_packs": 7,
+    "max_invariants_in_single_mission": 42,
+    "min_invariants_in_single_mission": 18
+  }
+}

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Inventory Admin</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #f5f5f5; color: #333; padding: 20px; }
+h1 { margin-bottom: 20px; color: #1a1a2e; }
+.controls { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+input, select, button { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+button { background: #1a1a2e; color: white; border: none; cursor: pointer; }
+button:hover { background: #333; }
+button.danger { background: #c0392b; }
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eee; }
+th { background: #1a1a2e; color: white; }
+tr:hover { background: #f9f9f9; }
+.status { padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+.status-DRAFT { background: #ffeaa7; color: #856404; }
+.status-ACTIVE { background: #d4edda; color: #155724; }
+.status-DISCONTINUED { background: #f8d7da; color: #721c24; }
+.status-ARCHIVED { background: #e2e3e5; color: #383d41; }
+.form-panel { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: none; }
+.form-panel.active { display: block; }
+.form-row { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.form-row label { min-width: 80px; line-height: 34px; }
+.error { color: #c0392b; padding: 10px; background: #f8d7da; border-radius: 6px; margin-bottom: 10px; display: none; }
+.error.active { display: block; }
+</style>
+</head>
+<body>
+<h1>Mini Inventory Admin</h1>
+<div id="error" class="error"></div>
+<div class="controls">
+  <button onclick="showForm()">+ New Item</button>
+  <input id="search" placeholder="Search..." oninput="loadItems()" />
+  <select id="statusFilter" onchange="loadItems()">
+    <option value="">All Status</option>
+    <option>DRAFT</option><option>ACTIVE</option><option>DISCONTINUED</option><option>ARCHIVED</option>
+  </select>
+  <button onclick="loadItems()">Refresh</button>
+</div>
+<div id="form" class="form-panel">
+  <h3 id="formTitle">New Item</h3>
+  <input type="hidden" id="editId" />
+  <div class="form-row"><label>Name</label><input id="fName" /></div>
+  <div class="form-row"><label>Description</label><input id="fDesc" /></div>
+  <div class="form-row"><label>Price</label><input id="fPrice" type="number" step="0.01" min="0" /></div>
+  <div class="form-row"><label>Explicit Free</label><input id="fExplicitFree" type="checkbox" /></div>
+  <div class="form-row"><label>Inventory</label><input id="fInventory" type="number" min="0" /></div>
+  <div class="form-row"><label>Category</label><input id="fCategory" value="general" /></div>
+  <div class="form-row">
+    <button onclick="saveItem()">Save</button>
+    <button onclick="hideForm()" style="background:#999">Cancel</button>
+  </div>
+</div>
+<table>
+  <thead><tr><th>ID</th><th>Name</th><th>Price</th><th>Inventory</th><th>Status</th><th>Category</th><th>Actions</th></tr></thead>
+  <tbody id="itemsBody"></tbody>
+</table>
+<script>
+const API = "http://localhost:3100/api/items";
+function showError(msg) { const e=document.getElementById("error"); e.textContent=msg; e.classList.add("active"); setTimeout(()=>e.classList.remove("active"),5000); }
+function showForm(id) {
+  document.getElementById("form").classList.add("active");
+  if (id) {
+    document.getElementById("formTitle").textContent="Edit Item";
+    fetch(API+"/"+id).then(r=>r.json()).then(d=>{
+      const i=d.data; document.getElementById("editId").value=i.id;
+      document.getElementById("fName").value=i.name; document.getElementById("fDesc").value=i.description||"";
+      document.getElementById("fPrice").value=i.price; document.getElementById("fExplicitFree").checked=i.explicitFree;
+      document.getElementById("fInventory").value=i.inventory; document.getElementById("fCategory").value=i.category||"general";
+    });
+  } else {
+    document.getElementById("formTitle").textContent="New Item"; document.getElementById("editId").value="";
+    document.getElementById("fName").value=""; document.getElementById("fDesc").value="";
+    document.getElementById("fPrice").value="0"; document.getElementById("fExplicitFree").checked=true;
+    document.getElementById("fInventory").value="0"; document.getElementById("fCategory").value="general";
+  }
+}
+function hideForm() { document.getElementById("form").classList.remove("active"); }
+function saveItem() {
+  const id=document.getElementById("editId").value;
+  const body={name:document.getElementById("fName").value,description:document.getElementById("fDesc").value,
+    price:Number(document.getElementById("fPrice").value),explicitFree:document.getElementById("fExplicitFree").checked,
+    inventory:Number(document.getElementById("fInventory").value),category:document.getElementById("fCategory").value};
+  const method=id?"PATCH":"POST"; const url=id?API+"/"+id:API;
+  fetch(url,{method,headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+    .then(r=>r.json()).then(d=>{if(d.ok){hideForm();loadItems();}else{showError(d.error?.message||"Save failed");}})
+    .catch(e=>showError(e.message));
+}
+function changeStatus(id,status) {
+  fetch(API+"/"+id+"/status",{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({status})})
+    .then(r=>r.json()).then(d=>{if(d.ok)loadItems();else showError(d.error?.message);});
+}
+function adjustInv(id,delta) {
+  fetch(API+"/"+id+"/inventory",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({delta})})
+    .then(r=>r.json()).then(d=>{if(d.ok)loadItems();else showError(d.error?.message);});
+}
+function loadItems() {
+  const q=document.getElementById("search").value; const s=document.getElementById("statusFilter").value;
+  fetch(API+"?page=1&pageSize=50&search="+encodeURIComponent(q)+(s?"&status="+s:""))
+    .then(r=>r.json()).then(d=>{
+      const t=document.getElementById("itemsBody"); t.innerHTML="";
+      (d.data?.items||[]).forEach(i=>{
+        const tr=document.createElement("tr");
+        tr.innerHTML=`<td>${i.id}</td><td>${i.name}</td><td>$${i.price.toFixed(2)}</td><td>${i.inventory}</td>
+          <td><span class="status status-${i.status}">${i.status}</span></td><td>${i.category}</td>
+          <td><button onclick="showForm('${i.id}')">Edit</button>
+          <button onclick="adjustInv('${i.id}',1)">+1</button>
+          <button onclick="adjustInv('${i.id}',-1)">-1</button>
+          ${i.status!=="ARCHIVED"?`<button onclick="changeStatus('${i.id}','ARCHIVED')" class="danger">Archive</button>`:""}</td>`;
+        t.appendChild(tr);
+      });
+    }).catch(e=>showError(e.message));
+}
+loadItems();
+</script>
+</body>
+</html>

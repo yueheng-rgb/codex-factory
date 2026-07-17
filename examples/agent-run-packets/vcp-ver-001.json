@@ -1,0 +1,18 @@
+﻿{
+    "packetId":  "VCP-PROJ-BATCH-IMPORT-001-PHASE-R2.3-I-20260710003746",
+    "packetType":  "verification-command-packet",
+    "projectId":  "PROJ-BATCH-IMPORT-001",
+    "phaseId":  "PHASE-R2.3-I",
+    "requiredChecks":  [
+                           "Verify CAP-SKILL-004 is in loadedSkillRefs",
+                           "Verify CAP-SKILL-004 forbiddenActions are not violated",
+                           "Verify CAP-SKILL-013 is in loadedSkillRefs",
+                           "Verify CAP-SKILL-013 forbiddenActions are not violated",
+                           "Verify CAP-SKILL-014 is in loadedSkillRefs",
+                           "Verify CAP-SKILL-014 forbiddenActions are not violated",
+                           "Verify CAP-SKILL-015 is in loadedSkillRefs",
+                           "Verify CAP-SKILL-015 forbiddenActions are not violated",
+                           "Verify handoff contains all required fields",
+                           "Verify skill usage ledger has entries for all loaded skills"
+                       ]
+}

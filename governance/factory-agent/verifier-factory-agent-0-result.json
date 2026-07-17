@@ -1,0 +1,151 @@
+﻿{
+    "passed":  28,
+    "timestamp":  "2026-06-26T01:04:11.1928912+08:00",
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\factory-agent-0-large-project-agent-mode-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  28,
+    "phase":  "FACTORY-AGENT-0",
+    "checks":  [
+                   {
+                       "Label":  "V04_ZIP_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "V04_ZIP_SHA256_MATCH",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "OLD_FINAL_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_NEW_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ARTIFACT_factory-agent-0-objective-reset.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ARTIFACT_factory-agent-0-historical-agent-evidence-inventory.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ARTIFACT_factory-agent-0-role-agent-failure-analysis.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ARTIFACT_factory-agent-0-large-project-agent-requirements.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ARTIFACT_factory-agent-0-v05-agent-company-architecture-draft.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ARTIFACT_factory-agent-0-multi-agent-default-decision-framework.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ARTIFACT_factory-agent-0-large-project-benchmark-design.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ARTIFACT_factory-agent-0-v05-roadmap.json",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_A_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_B_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_C_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_D_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_E_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_F_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_G_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "REPORT_H_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "INTENDED_USE_LARGE_PROJECTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "ROLES_LT_10",
+                       "Pass":  true,
+                       "Detail":  "totalRoles=5"
+                   },
+                   {
+                       "Label":  "MULTI_AGENT_NOT_DEFAULT",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVE_SUMMARY_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_30",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_EXECUTED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_GAPS_0",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_V05_PACKAGE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   }
+               ],
+    "failed":  0
+}

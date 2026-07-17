@@ -1,0 +1,25 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-F",
+  "title": "Mode Selection",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "selected_modes": {
+    "build_lite": true,
+    "context_packet": true,
+    "diagnostic_gate": true,
+    "security_deploy_gate": true,
+    "native_build_pro": false,
+    "multi_agent": false,
+    "build_pro": false,
+    "v0_5_package": false,
+    "release_zip": false
+  },
+  "gates": {
+    "security_gate": "BLOCK secret display",
+    "deploy_gate": "BLOCK remote execution",
+    "modification_gate": "BLOCK original path writes",
+    "diagnostic_gate": "Post-audit verification"
+  },
+  "next_phase_after_approval": "REALWORLD-2-P1 working-copy local validation",
+  "report_path": "outputs/FACTORY_BUILD_REALWORLD_2_F_MODE_SELECTION_REPORT.md",
+  "status": "COMPLETE"
+}

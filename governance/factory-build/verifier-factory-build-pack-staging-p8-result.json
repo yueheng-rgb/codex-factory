@@ -1,0 +1,236 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P8",
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-PACK-STAGING-P8",
+    "generated_at":  "2026-06-28T20:03:49+08:00",
+    "verdict":  "PASS",
+    "total_checks":  45,
+    "passed":  45,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "Memory Quality P2 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "Memory Quality P3 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "P8 evidence intake exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "VERSION flags updated"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "memory-quality/ policies exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "memory-quality/ schemas exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "memory-quality/ templates exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "memory-quality/ prompts exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "memory-quality/ workflows exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Cleanup planner in runtime"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "Module structure exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "Schema/templates integration exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "Validator integration exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "Cleanup planner integration exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "CLI integration exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "Phase close integration exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "User workflow update exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "Prompt pack update exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "Integration smoke exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "Manifest/bundle exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "Extraction smoke exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "Strategy decision exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "Minimal mode scoped to ingestion only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "Socratic Gate scoped to high-risk"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "Cleanup default is PLAN"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "DELETE requires confirmation"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "Core evidence protected"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "Security/Deploy Gate preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "Package QA preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "Context Space preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "Test Repair Policy preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "v0.5 blocked preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "releaseAllowed=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V034",
+                       "desc":  "v05Package=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V035",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V036",
+                       "desc":  "No RC"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V037",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V038",
+                       "desc":  "Negative controls: 45 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V039",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V040",
+                       "desc":  "Negative controls: all DEFENCE_HELD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V041",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V042",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V043",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V044",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V045",
+                       "desc":  "Verifier script exists"
+                   }
+               ]
+}

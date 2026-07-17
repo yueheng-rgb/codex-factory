@@ -1,0 +1,36 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reader-extractor.schema.json",
+  "title": "Reader / Extractor Abstraction",
+  "description": "Abstraction layer for reading and extracting content from URLs or documents. Supports manual, dry_run, and future external readers.",
+  "type": "object",
+  "required": ["extractorId", "providerType", "mode", "input"],
+  "properties": {
+    "extractorId": { "type": "string", "pattern": "^EXTR-\\d{4}$" },
+    "providerType": {
+      "type": "string",
+      "enum": ["manual_excerpt", "local_markdown", "dry_run_fixture", "jina_reader", "firecrawl", "tavily_extract", "exa_context", "kimi_crawl"],
+      "description": "Which reader/extractor to use"
+    },
+    "mode": { "type": "string", "enum": ["manual", "dry_run", "live_api"] },
+    "input": {
+      "type": "object",
+      "properties": {
+        "urls": { "type": "array", "items": { "type": "string", "format": "uri" } },
+        "manualExcerpts": { "type": "array", "items": { "type": "string" }, "description": "Human-provided content excerpts" },
+        "localMarkdownPaths": { "type": "array", "items": { "type": "string" }, "description": "Paths to local markdown files" }
+      }
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "extractedContent": { "type": "array", "items": { "type": "object", "properties": { "url": {"type": "string"}, "title": {"type": "string"}, "content": {"type": "string"}, "wordCount": {"type": "integer"}, "extractedAt": {"type": "string", "format": "date-time"} } } },
+        "extractionMethod": { "type": "string" },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "apiRequired": { "type": "boolean", "default": false },
+    "secretsRequired": { "type": "boolean", "default": false },
+    "networkBoundary": { "type": "string", "enum": ["no_network", "external_api"] }
+  }
+}

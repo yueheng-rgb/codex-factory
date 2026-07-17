@@ -1,0 +1,15 @@
+﻿{
+  "query": "Fastify v5 route validation best practices",
+  "provider": "official_docs_manual",
+  "providerConfidence": "high",
+  "rawResult": "Fastify v5 recommends using JSON Schema for route validation via the schema option...",
+  "sourceRefs": [
+    {"title": "Fastify Validation Docs", "url": "https://fastify.dev/docs/latest/Reference/Validation-and-Serialization/", "publishDate": "2025-06-01", "sourceType": "official_docs", "trustLevel": "VERIFIED"}
+  ],
+  "claimedFacts": [
+    {"claim": "Fastify v5 uses JSON Schema for route validation", "certainty": "confirmed", "sourceIndex": 0},
+    {"claim": "Validation is opt-in per route", "certainty": "confirmed", "sourceIndex": 0}
+  ],
+  "uncertainty": "None — official documentation",
+  "userNotes": "From Fastify official docs, verified 2026-07"
+}

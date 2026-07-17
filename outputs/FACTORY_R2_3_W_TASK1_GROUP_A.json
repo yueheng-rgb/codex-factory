@@ -1,0 +1,54 @@
+﻿{
+    "hallucination_risk":  "MODERATE — unsure about exact API surface of @fastify/multipart v8+",
+    "dependency_choice":  "@fastify/multipart + @fastify/static",
+    "task":  "Fastify File Upload / Multipart",
+    "group":  "A_NO_SEARCH",
+    "source_count":  0,
+    "sources":  [
+
+                ],
+    "source_backed":  false,
+    "design_plan":  {
+                        "rejected_alternatives":  [
+                                                      "busboy directly — fastify-multipart wraps it, no need to use directly",
+                                                      "multer — Express middleware, not Fastify native",
+                                                      "stream-based vs buffer — stream preferred for large files but buffer simpler for small"
+                                                  ],
+                        "minimal_test":  [
+                                             "Test: POST /upload with multipart file",
+                                             "Test: rejects oversized file",
+                                             "Test: rejects disallowed MIME type",
+                                             "Test: path traversal filename sanitized"
+                                         ],
+                        "adopted_approach":  "Fastify @fastify/multipart plugin + Node.js fs/path for file storage",
+                        "implementation_plan":  [
+                                                    "1. npm i @fastify/multipart @fastify/static",
+                                                    "2. Register @fastify/multipart with fileSize limit (e.g., 5MB)",
+                                                    "3. Create POST /upload route using request.file()",
+                                                    "4. Generate safe filenames with crypto.randomUUID()",
+                                                    "5. Validate MIME type whitelist",
+                                                    "6. Pipe file stream to fs.createWriteStream",
+                                                    "7. Return { url, filename, size }",
+                                                    "8. Add GET /files/:name via @fastify/static or custom route"
+                                                ],
+                        "UNSURE_items":  [
+                                             "@fastify/multipart exact API: is it request.file() or request.parts() or request.files()?",
+                                             "Does @fastify/multipart need separate @fastify/static or can it serve on its own?",
+                                             "What is the exact fileSize option key name: \u0027limits.fileSize\u0027 or \u0027fileSize\u0027 direct?",
+                                             "Does @fastify/multipart v8+ use async iterator or callback?"
+                                         ],
+                        "risk_list":  [
+                                          "File size limits not configured → DoS risk",
+                                          "File type validation missing → security risk",
+                                          "Filename collisions on disk",
+                                          "Path traversal in filename",
+                                          "Large file memory exhaustion if buffered",
+                                          "Missing cleanup of partial uploads"
+                                      ],
+                        "dependency_choice":  [
+                                                  "@fastify/multipart (latest)",
+                                                  "@fastify/static (for serving uploads)",
+                                                  "Node.js built-in: fs, path, crypto (for random filenames)"
+                                              ]
+                    }
+}

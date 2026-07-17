@@ -1,0 +1,10 @@
+﻿import { Router, Request, Response } from 'express';
+import { authenticate, auditLog } from '../middleware/auth';
+import * as svc from '../services/articles';
+const router = Router();
+router.use(authenticate);
+router.get('/', (req, res) => { res.json({ success: true, data: svc.listArticles(req.user.organizationId) }); });
+router.get('/search', (req, res) => { const q = (req.query.q as string)||''; res.json({ success: true, data: svc.searchArticles(req.user.organizationId, q) }); });
+router.post('/', (req, res) => { const a = svc.createArticle({...req.body,authorId:req.user.userId,organizationId:req.user.organizationId}) as any; auditLog(req,'CREATE','article',a.id); res.json({success:true,data:a}); });
+router.put('/:id', (req, res) => { const a = svc.updateArticle(req.params.id, req.body) as any; auditLog(req,'UPDATE','article',req.params.id); res.json({success:true,data:a}); });
+export default router;

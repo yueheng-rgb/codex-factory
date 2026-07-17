@@ -1,0 +1,21 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "L",
+  "title": "Default Workflow Simulation",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "simulation_dir": "harness/default-workflow/default-workflow-0-simulation/",
+  "scenarios": [
+    {"id": 1, "name": "Empty project folder + requirement", "verdict": "PASS"},
+    {"id": 2, "name": "Project with Factory installed", "verdict": "PASS"},
+    {"id": 3, "name": "Small project -> Build Lite", "verdict": "PASS"},
+    {"id": 4, "name": "Large fullstack -> multi-agent question required", "verdict": "PASS"},
+    {"id": 5, "name": "Deployed trace -> Security/Deploy Gate", "verdict": "PASS"},
+    {"id": 6, "name": "删除该项目缓存 -> cleanup PLAN only", "verdict": "PASS"},
+    {"id": 7, "name": "Final handoff -> full paths required", "verdict": "PASS"},
+    {"id": 8, "name": "CLI name mismatch -> warning generated", "verdict": "PASS"}
+  ],
+  "total_scenarios": 8,
+  "all_pass": true,
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_L_SIMULATION_REPORT.md"
+}

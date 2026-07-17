@@ -1,0 +1,23 @@
+﻿{
+    "demo": "DEMO-001",
+    "runner_type": "sandbox",
+    "task": "Simple Regression Run — products-api testbed",
+    "isolated_workspace": "workspaces/runs/RUN-20260717-150848-2596",
+    "tests_run": 23,
+    "tests_passed": 23,
+    "tests_failed": 0,
+    "exit_code": 0,
+    "final_status": "PASS",
+    "artifact_bound": true,
+    "artifact_paths": [
+        "artifacts/runs/DEMO-001-150926/stdout.log",
+        "artifacts/runs/DEMO-001-150926/run-record.json"
+    ],
+    "snapshot_verified": true,
+    "non_claims": [
+        "This is a V3.0 RC runner, NOT a production cloud platform",
+        "Isolation is directory-level, NOT VM/container-level",
+        "Do NOT use for production deployment or sensitive data"
+    ],
+    "known_issue": "execution-runner.ps1 has path nesting bug for stderr; resolved in retry run DEMO-001-150926"
+}

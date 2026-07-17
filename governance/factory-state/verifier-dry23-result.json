@@ -1,0 +1,133 @@
+﻿{
+    "checks":  [
+                   {
+                       "detail":  "DRY23/POSITIVE_NEGATIVE_CLOSED",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "current_trusted_phase_dry23"
+                   },
+                   {
+                       "detail":  "H17 files=0, DRY24 files=0",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_h17_or_dry24_artifacts"
+                   },
+                   {
+                       "detail":  "ZIPs=88",
+                       "caveat":  "",
+                       "result":  "PASS_WITH_CAVEATS",
+                       "check":  "no_final_zip"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "factoryctl_repo_local_commands"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "Repo-local scripts/factoryctl.ps1 used",
+                       "result":  "PASS_WITH_CAVEATS",
+                       "check":  "factoryctl_path_binary"
+                   },
+                   {
+                       "detail":  "4 snapshots",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "verify_snapshots_4"
+                   },
+                   {
+                       "detail":  "10 agents",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "dry23_agents_native"
+                   },
+                   {
+                       "detail":  "14 events",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "dry23_progress_events"
+                   },
+                   {
+                       "detail":  "6",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "contracts_exist"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "dependency_graph"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "factory_diagnosis"
+                   },
+                   {
+                       "detail":  "native=True",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "session_handoff"
+                   },
+                   {
+                       "detail":  "16 files",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "negative_controls"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "output_reports"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_manual_pass_only"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_expected_class_only"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_generic_fail"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_runner_sabotage"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_post_hoc_contract"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_fake_complexity"
+                   }
+               ],
+    "verdict":  "PASS_WITH_CAVEATS",
+    "passCount":  18,
+    "generatedAt":  "2026-06-24T00:53:58.4379871+08:00",
+    "caveatCount":  2,
+    "phase":  "DRY23",
+    "totalChecks":  20,
+    "failCount":  0,
+    "exitCode":  0,
+    "verifierPath":  "scripts/phase6c-dry23-verify-gated-full-mission-verify.ps1"
+}

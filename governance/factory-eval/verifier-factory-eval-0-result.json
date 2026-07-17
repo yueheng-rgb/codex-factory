@@ -1,0 +1,143 @@
+﻿{
+    "passed":  22,
+    "checkedAt":  "2026-06-25T15:47:07+08:00",
+    "command":  "factory-eval-0-verify",
+    "totalChecks":  22,
+    "phase":  "FACTORY-EVAL-0",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "inventory",
+                       "result":  true,
+                       "name":  "INV_EXISTS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "11",
+                       "result":  true,
+                       "name":  "INV_LR_11",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "SHA ok",
+                       "result":  true,
+                       "name":  "INV_SHA_OK",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "matrix",
+                       "result":  true,
+                       "name":  "CAP_EXISTS",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "21",
+                       "result":  true,
+                       "name":  "CAP_21",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "not proven",
+                       "result":  true,
+                       "name":  "CAP_NOT_PROVEN",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "gaps",
+                       "result":  true,
+                       "name":  "GAP_EXISTS",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "8",
+                       "result":  true,
+                       "name":  "GAP_8",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "10",
+                       "result":  true,
+                       "name":  "RISK_10",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "search items",
+                       "result":  true,
+                       "name":  "GAP_SEARCH",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "selfcheck items",
+                       "result":  true,
+                       "name":  "GAP_SELFCHECK",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "roadmap",
+                       "result":  true,
+                       "name":  "ROAD_EXISTS",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "9",
+                       "result":  true,
+                       "name":  "ROAD_9",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "neg",
+                       "result":  true,
+                       "name":  "NEG_EXISTS",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "20",
+                       "result":  true,
+                       "name":  "NEG_20",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_GAPS",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EC",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GF",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PC",
+                       "id":  22
+                   }
+               ],
+    "failed":  0
+}

@@ -1,0 +1,60 @@
+﻿{
+    "files":  [
+                  {
+                      "file":  "store.js",
+                      "purpose":  "Shared in-memory state (stockLevels, reservations, auditEvents, idempotencyKeys)"
+                  },
+                  {
+                      "file":  "auditWriter.js",
+                      "purpose":  "Creates and stores audit events"
+                  },
+                  {
+                      "file":  "rejectStaleVersion.js",
+                      "purpose":  "Optimistic concurrency guard"
+                  },
+                  {
+                      "file":  "applyInbound.js",
+                      "purpose":  "Inbound stock application with idempotency"
+                  },
+                  {
+                      "file":  "applyOutbound.js",
+                      "purpose":  "Outbound stock with availability check"
+                  },
+                  {
+                      "file":  "reserveStock.js",
+                      "purpose":  "Stock reservation with reservable check"
+                  },
+                  {
+                      "file":  "releaseReservation.js",
+                      "purpose":  "Reservation release and stock restore"
+                  },
+                  {
+                      "file":  "transferStock.js",
+                      "purpose":  "Atomic inter-SKU transfer"
+                  },
+                  {
+                      "file":  "inventoryEngine.js",
+                      "purpose":  "Composite engine wiring all rules with getState()"
+                  }
+              ],
+    "timestamp":  "2026-06-22T14:22:15.1699809+08:00",
+    "role":  "Inventory Rules and State Engine",
+    "designNotes":  [
+                        "All state held in-memory via Maps and arrays",
+                        "Every mutation creates an audit event",
+                        "Optimistic concurrency via version field checked by rejectStaleVersion",
+                        "Idempotency enforced via Set of used keys on inbound",
+                        "reserved field tracks active reservations separate from available",
+                        "available = onHand - reserved always holds",
+                        "Transfers are not truly atomic across SKUs but both ops happen in one synchronous call"
+                    ],
+    "worker":  2,
+    "workspace":  "runs/h5-mini-inventory-ops-hardened-run/worker-2-workspace/",
+    "invariants":  [
+                       "available \u003e= 0 always",
+                       "onHand \u003e= reserved always",
+                       "available + reserved === onHand (when no reservations pending fulfillment)",
+                       "version increments on every mutation",
+                       "No duplicate idempotency key accepted"
+                   ]
+}

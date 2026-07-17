@@ -1,0 +1,104 @@
+﻿{
+    "created":  1783703337,
+    "id":  "20260711010856b542e99059804c44",
+    "request_id":  "r2-3-w-task3-groupc-010847",
+    "search_intent":  [
+                          {
+                              "intent":  "SEARCH_ALWAYS",
+                              "keywords":  "jwt token refresh best practice 2025 httponly cookie rotation",
+                              "query":  "JWT access refresh token best practice 2025 httpOnly cookie rotation "
+                          }
+                      ],
+    "search_result":  [
+                          {
+                              "content":  "Here are 6 public repositories matching this topic... Language: Java Filter by language Spring Security Refresh Token using JWT in Spring Boot example with HttpOnly Cookie - Expire and Renew JWT ",
+                              "icon":  "",
+                              "link":  "https://github.com/topics/jwt-refresh-token?l=java",
+                              "media":  "",
+                              "publish_date":  "2024-02-04",
+                              "refer":  "ref_1",
+                              "title":  "jwt-refresh-token · GitHub Topics · GitHub"
+                          },
+                          {
+                              "content":  " 身份验证 :客户端在后续请求中,将JWT令牌放入HTTP Header的 Authorization 字段中发送给服务器｡服务器验证令牌的有效性(包括签名､过期时间等),并根据令牌中的信息进行后续的逻辑操作｡ 4. JWT的应用场景 身份验证 :JWT可以作为身份验证机制,替代传统的Cookie和Session方式｡ 前后端分离 ",
+                              "icon":  "",
+                              "link":  "http://www.jiucaiyuan.net/?post=288",
+                              "media":  "",
+                              "publish_date":  "2025-04-10",
+                              "refer":  "ref_2",
+                              "title":  "JWT身份验证介绍 - 随笔记录"
+                          },
+                          {
+                              "content":  "功能介绍 JSON Web Token(缩写 JWT)是目前最流行的跨域认证解决方案｡本工具提供在线解码的功能 下载快捷方式 问题反馈 输入JWT Token: 举个例子 解码Token 重置 JWT标准载荷 头部/Header: 复制头部 载荷/Payload: ",
+                              "icon":  "",
+                              "link":  "https://tooltt.com/jwt-decode/",
+                              "media":  "",
+                              "publish_date":  "2026-06-09",
+                              "refer":  "ref_3",
+                              "title":  "JWT Token在线解析解码 - ToolTT在线工具箱"
+                          },
+                          {
+                              "content":  "// 你的密钥,用于签名和验证令牌const secretKey = \u0027your-secret-key\u0027;// 载荷数据,通常包含用户信息或其他有效负载const payload = { userId: \u002712345\u0027, username: \u0027exampleUser\u0027};// 创建令牌,设置有效期(例如:1小时)const token = jwt.sign(payload, secretKey, { expiresIn: \u00271h\u0027 }); 3. 将生成的令牌发送给客户端: res.json({ token }); 4. 客户端将令牌存储在本地(如cookie或localStorage),并在后续请求中将其附加到请求头中: Authorization: Bearer your-jwt-token 5. 服务器端验证令牌: const verifyToken = (req, res, next) =\u003e { const token = req.headers[\u0027authorization\u0027]; if (!token) { return res.status(403).send(\u0027No token provided.\u0027); } jwt.verify(token, secretKey, (err, decoded) =\u003e { if (err) { return res.status(401).send(\u0027Unauthorized: Invalid token.\u0027);",
+                              "icon":  "",
+                              "link":  "https://www.5axxw.com/questions/simple/04xfck",
+                              "media":  "",
+                              "publish_date":  "2026-06-13",
+                              "refer":  "ref_4",
+                              "title":  "如何使用JWT进行身份验证 - 我爱学习网"
+                          },
+                          {
+                              "content":  "\"XSS攻击通常指的是通过利用网页开发时留下的漏洞,通过巧妙的方法注入恶意指令代码到网页,使用户加载并执行攻击者恶意制造的网页程序｡这些恶意网页程序通常是JavaScript,但实际上也可以包括Java､VBScript､ActiveX､ Flash 或者甚至是普通的HTML｡攻击成功后,攻击者可能得到包括但不限于更高的权限(如执行一些操作)､私密网页内容､会话和cookie等各种内容｡",
+                              "icon":  "",
+                              "link":  "https://baike.baidu.com/item/XSS%E6%94%BB%E5%87%BB/954065",
+                              "media":  "百度百科",
+                              "publish_date":  "2024-03-28",
+                              "refer":  "ref_5",
+                              "title":  "XSS攻击"
+                          },
+                          {
+                              "content":  "上一篇说了net core中生成jwt: http://www.tnblog.net/aojiancc2/article/details/2815 现在说说怎么来验证前台传递的jwt,其实很简单,最主要的就是验证token的有效性和是否过期 /// \u003csummary\u003e /// 验证身份 验证签名的有效性 /// \u003c/summary\u003e /// \u003cparam name=\"encodeJwt\"\u003e \u003c/param\u003e /// \u003cparam name=\"validatePayLoad\"\u003e 自定义各类验证; 是否包含那种申明,或者申明的值,例如:payLoad[\"aud\"]?.ToStri //再其次 进行自定义的验证 success = success \u0026\u0026 validatePayLoad(payLoad); return success; } 使用的时候直接调用这个方法就行了 [ HttpGet( \"{token}/{page}/{rows}\" ) ] public string Get ( string token, int ? page, int ? rows ) { //不需要自定义验证的就不传递即可 bool isvilidate = tokenHelper.Validate(token); //需要额外自定义验证的就自己写 bool isvilidate2 = tokenHelper.Validate(token, a =\u003e a[ \"iss\" ] == \"TNBLOG\" \u0026\u0026 a[ \"aud\" ] == \"AXJ\" ); if (isvilidate2 == false ) { return \"验证的,处理可以验证token,还可以顺便取一个想要的数据,当然其实这样把相关逻辑混到一起也增加代码的耦合性,当时可以提高一点效率不用在重新解析一次数据,当然这个数据也可以通前台传递过来,所以怎么用还是看实际情况,这里只是封装一下提供这样一个方法,用的时候也可以用。 使用: [HttpGet( \"{token}/{page}/{rows}\" )] public ReturnModel\u003c List \u003cDTO_Article\u003e\u003e Get(string token, int? page, int? rows) { ReturnModel\u003c List \u003cDTO_Article\u003e\u003e r",
+                              "icon":  "",
+                              "link":  "http://tnblog.net/aojiancc2/article/details/2845",
+                              "media":  "",
+                              "publish_date":  "2019-11-17",
+                              "refer":  "ref_6",
+                              "title":  "net core使用jwt二:验证前台传递的token - 剑轩的专栏 - TNBLOG"
+                          },
+                          {
+                              "content":  "SpringBoot集成Auth0 JWT的示例代码 目录前言session认证与Token认证session认证Token认证JWT简介JWT定义JWT的类库具体实现JWT配置JWT工具类测试接口 前言 说说JWT,先说下互联网服务常见的http://两种用户认证方式: session认证与Token认证 session认证 传统的Session认证的大体流程可以表示为用户提供用户名和密码登录后由服务器存储一份用户登录信息并传递给浏览器保存为Cookie,并在下次请求中根据Cookie来识别用户,但这种方式缺陷明显: Session都是保存在内存中,随着认证用户的增多,服务端的开销明显增大 保存在内存中的Session限制了分布式的应用 Cookie容易被截获伪造 Token认证 Token 泛指身份验证时使用的令牌,Token鉴权机制从某些角度而言与Cookie是一个作用,其目的是让后台知道请求是来自于受信的客户端,其通过实现了某种算法加密的Token字符串来完成鉴权工作,其优点在于: 服务器不需要保存 Session 数据(无状态),容易实现扩展 有效避免Cookie被截获引发的CSRF攻击 可以存储一些业务逻辑所必要的非敏感信息 便于传输,其构成非常简单,字节占用小 JWT简介 JWT定义 JWT全称为json web token,也就是 Json 格式的 web token,可以这么理解: Token // 个人证件 JWT // 个人身份证 JWT数据结构 JWT由三段字符串组成,中间用.分隔,如下: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInNjb3BlIjo4LCJleHAiOjE3MTU3NDAyMjIsImlhdCI6MTYyOTM0MDIyMn0.wuRsF5wvLHbDF_21Pocas8SeXQ315rgBl6wm1LRL2bQ JWT 的三个部分依次如下: Header(头部)// Header 部分是一个 JSON 对象,描述 JWT 的元数据,通常是下面的样子。 Payload(负载)// Payload 部分是一个 JSON 对象,用来存放实际需要传递的数据 Signature(签名)// Signature 部分是对前两部分的签名,防止数据篡改 第一段字符串Header:",
+                              "icon":  "",
+                              "link":  "https://www.finclip.com/news/f/40863.html",
+                              "media":  "",
+                              "publish_date":  "2022-12-17",
+                              "refer":  "ref_7",
+                              "title":  "SpringBoot集成Auth0 JWT的示例代码- 小程序工具 - FinClip官网"
+                          },
+                          {
+                              "content":  "简介 当用户登录时,如果有 token 并且没有过期,则得到用户信息,如果 token过期,或者是新用户,则生成一个token具体业务自已看着办,这里只讨论使用下面是为用户颁发 token 首先 composer 安装 firebase/php-jwt composer require firebase/php-jwt github地址:https://github.com/firebase/php-jwt 使用 当用户登录时,如果有 token 并且没有过期,则得到用户信息,如果 token过期,或者是新用户,则生成一个token具体业务自已看着办,这里只讨论使用 首先引入jwt库: use \\ Firebase \\ JWT \\ JWT ; //导入JWT 下面是为用户颁发 token public function getToken () { $key = \"huang\" ; //这里是自定义的一个随机字串,应该写在config文件中的,解密时也会用,相当 于加密中常用的 盐salt $token = [ \"iss\" =\u003e \"\" , //签发者 可以为空 \"aud\" =\u003e \"\" , //面象的用户,可以为空 \"iat\" =\u003e time(), //签发时间 \"nbf\" =\u003e time()+ 100 , //在什么时候jwt开始生效 (这里表示生成100秒后才生效) \"exp\" =\u003e time()+ 7200 , //token 过期时间 \"uid\" =\u003e 123 //记录的userid的信息,这里是自已添加上去的,如果有其它信息,可以再添加数组的键值对 ]; $jwt = JWT::encode($token,$key, \"HS256\" ); //根据参数生成了 token return json([ \"token\" =\u003e$jwt ]);} 上面生成了token并返回给的客户端,以后客户端再访问时,就带上 token 信息,就可以知道用户的信息了 方法如下 public function check () { $jwt = input( \"token\" ); //上一步中返回给用户的token $key = \"huang\" ; //上一个方法中的 $key 本应该配置在 config文件中的 $info = JWT::decode($jwt,$key,[ \"HS2",
+                              "icon":  "",
+                              "link":  "https://www.luowebs.com/Skill_desc/35/706.html",
+                              "media":  "",
+                              "publish_date":  "2020-05-25",
+                              "refer":  "ref_8",
+                              "title":  "tp5使用jwt生成token,做api的用户认证-ThinkPHP-萝卜网络博客"
+                          },
+                          {
+                              "content":  "As of today, there is no built-in solution for automatic Refresh Tokenrotation. This guide will help you to achieve this in your application. Ourgoal is to add zero-config support for built-in providers eventually. Let usknow if you would like to help. What is refresh token rotation? Refresh token rotation is the practice of updating an access_token on behalf of the user, without requiring interaction (ie.: re-authenticating). access_token s are usually issued for a limited time. After they expire, the service verifying them will igfollowing guides that comes from thefact, that - for security reasons - refresh_token s are usually only usableonce. Meaning that after a successful refresh, the refresh_token will beinvalidated and cannot be used again. Therefore, in some cases, arace-condition might otails.Depending on the session strategy , the refresh_token can be persisted either in an encrypted JWT inside a cookie or in a database. JWT strategy While using a cookie to store the refresh",
+                              "icon":  "",
+                              "link":  "https://authjs.dev/guides/refresh-token-rotation",
+                              "media":  "",
+                              "publish_date":  "2026-05-25",
+                              "refer":  "ref_9",
+                              "title":  "Auth.js  Refresh Token Rotation"
+                          },
+                          {
+                              "content":  "优质文章,第一时间送达 66套java从入门到精通实战课程分享 Jwt 全称是: json web token 。它将用户信息加密到 token 里,服务器不保存任何用户信息。服务器通过使用保存的密钥验证 token 的正确性,只要正确即通过验证。 优点 简洁: 可以通过 URL 、 POST 参数或者在 HTTP header 发送,因为数据量小,传输速度也很快; 自包含:负载中可以包含用户所需要的信息,避免了多次查询数据库; 因为 Token 是以 JSON 加密的形式保存在客户端的,所以 JWT 是跨语言的,原则上任何 web 形式都支持; 不需要在服务端保存会话信息,特别适用于分布式微服务。 缺点 无法作废已颁布的令牌; 不易应对数据过期。 一、Jwt消息构成 1.1 组成 一个 token 分3部分,按顺序为 头部( header ) 载荷( payload ) 签证( signature ) 三部分之间用 . 号做分隔。例如: eyJ0eXAiOiJKV1QiLCJhbGc面向的用户 aud: 接收jwt的一方 exp: jwt的过期时间,这个过期时间必须要大于签发时间 nbf: 定义在什么时间之前,该jwt都是不可用的. iat: jwt的签发时间 jti: jwt的唯一身份标识,主要用来作为一次性token,从而回避重放攻击。 自定义数据:存放我们想放在 token 中存放的 key-value 值 1.4 signature Jwt 的第三部分是一个签证信息,这个签证信息由三部分组成 base64 加密后的 header 和 base64 加密后的 payload 连接组成的字符串,然后通过 header 中声明的加密方式rvlet.HandlerInterceptor; import org.springframework.web.servlet.ModelAndView; import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.lang.reflect.Method;  * @title: JwtInterceptor  * @Author gjt  * @Description: publi",
+                              "icon":  "",
+                              "link":  "https://jishuin.proginn.com/p/763bfbd358f7",
+                              "media":  "",
+                              "publish_date":  "2020-12-28",
+                              "refer":  "ref_10",
+                              "title":  "SpringBoot集成JWT实现token验证-技术圈"
+                          }
+                      ]
+}

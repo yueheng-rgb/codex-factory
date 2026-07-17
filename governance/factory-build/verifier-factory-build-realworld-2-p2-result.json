@@ -1,0 +1,216 @@
+﻿{
+    "passed":  41,
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-REALWORLD-2-P2",
+    "generated_at":  "2026-06-28T10:30:21+08:00",
+    "verdict":  "PASS",
+    "total_checks":  41,
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P2",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-001",
+                       "desc":  "P1 PASS exists (verifier JSON)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-002",
+                       "desc":  "P1 verifier shows PASS 46/46"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-003",
+                       "desc":  "Context scope lock JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-004",
+                       "desc":  "Context scope lock report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-005",
+                       "desc":  "Working copy safety recheck JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-006",
+                       "desc":  "Test root-cause JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-007",
+                       "desc":  "Test root-cause report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-008",
+                       "desc":  "Dependency compatibility plan JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-009",
+                       "desc":  "Security hardening plan JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-010",
+                       "desc":  "Security hardening plan report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-011",
+                       "desc":  "Implemented hardening JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-012",
+                       "desc":  "Implemented hardening report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-013",
+                       "desc":  ".env.example sanitized"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-014",
+                       "desc":  ".gitignore enhanced"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-015",
+                       "desc":  "deploy/ with safe templates exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-016",
+                       "desc":  "SECURITY.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-017",
+                       "desc":  "requirements.txt exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-018",
+                       "desc":  "CREDENTIAL_ROTATION_CHECKLIST.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-019",
+                       "desc":  "Rerun validation JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-020",
+                       "desc":  "Final security gate JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-021",
+                       "desc":  "User action checklist JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-022",
+                       "desc":  "User action checklist report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-023",
+                       "desc":  "P2 assessment result JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-024",
+                       "desc":  "P2 assessment report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-025",
+                       "desc":  "Phase close JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-026",
+                       "desc":  "Phase close report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-027",
+                       "desc":  "Original project unchanged"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-028",
+                       "desc":  "No deploy/remote command"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-029",
+                       "desc":  "No production DB access"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-030",
+                       "desc":  "No secret values printed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-031",
+                       "desc":  "No real secrets in safe config"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-032",
+                       "desc":  "No Native Build Pro"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-033",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-034",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-035",
+                       "desc":  "Negative controls JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-036",
+                       "desc":  "Negative controls: 0 triggered, 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-037",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-038",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-039",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-040",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P2-V-041",
+                       "desc":  "No manual PASS-only"
+                   }
+               ],
+    "failed":  0
+}

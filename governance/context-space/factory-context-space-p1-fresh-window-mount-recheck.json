@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-CONTEXT-SPACE-P1-A",
+  "title": "Fresh Window Mount Recheck",
+  "timestamp": "2026-06-28T00:45:00+08:00",
+  "mount_version": "0.2.0",
+  "mount_count_before": 7,
+  "mount_count_after": 8,
+  "verdict": "PASS",
+  "checks": {
+    "context_space_0_complete": "PASS",
+    "mount_trial_r1_complete": "PASS",
+    "not_recommending_context_space_0_en": "PASS",
+    "freshness_status_fresh": "PASS",
+    "source_of_truth_paths_present": "PASS"
+  },
+  "freshness_status": "FRESH",
+  "freshness_warnings": 0,
+  "source_of_truth_paths_count": 5,
+  "direction_guard_status": "PASS"
+}

@@ -1,0 +1,49 @@
+{
+  "policyId": "H17-EVIDENCE-HIERARCHY-POLICY",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T15:05:59.982826+08:00",
+  "generatedDuringPhase": "H17-A",
+  "nativeGenerated": true,
+  "hierarchy": {
+    "HIGHEST": {
+      "description": "Machine-readable, verifiable, SHA256-backed evidence",
+      "sources": [
+        "verifier JSON result (verifier-*.json)",
+        "factoryctl verify --json output",
+        "transcript/result logs",
+        "AGENT_REGISTRY.json entries",
+        "AGENT_PROGRESS.jsonl events",
+        "SHA256 evidence chains",
+        "source artifacts with file paths",
+        "official Codex documentation for capability claims"
+      ]
+    },
+    "MEDIUM": {
+      "description": "Human-readable reports backed by machine-readable evidence",
+      "sources": [
+        "markdown reports (only if backed by verifier JSON)",
+        "session-rotation-handoff.json",
+        "current-factory-state.json"
+      ],
+      "rule": "Cannot be sole evidence for PASS/FAIL verdict"
+    },
+    "LOW": {
+      "description": "Natural language, compressed, or subjective sources",
+      "sources": [
+        "Codex natural-language summary",
+        "compressed context summary",
+        "user memory",
+        "assistant intuition"
+      ],
+      "rule": "Cannot be used as evidence for any gate decision"
+    },
+    "FORBIDDEN_AS_SOLE_EVIDENCE": [
+      "manual_PASS",
+      "expectedClass_only",
+      "compressed_summary",
+      "markdown_only_PASS",
+      "claim_without_artifact_path"
+    ]
+  },
+  "generatedAtRepairedDuringPhase": "H17-P1"
+}

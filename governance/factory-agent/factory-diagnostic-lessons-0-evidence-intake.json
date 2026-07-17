@@ -1,0 +1,21 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-LESSONS-0",
+  "subPhase": "A_EVIDENCE_INTAKE",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "sourcePhases": [
+    {"phase":"FACTORY-AGENT-DIAGNOSTIC-PACK","verdict":"PASS","checks":"54/54","created":"Reviewer-Verifier Diagnostic Pack v1.0"},
+    {"phase":"FACTORY-DIAGNOSTIC-SMOKE-0","verdict":"PASS","checks":"48/48","action":"Readonly diagnostic on SkillMarket (217 files, 4 apps, 10 DB tables)"},
+    {"phase":"SKILLMARKET-REPAIR-0","verdict":"PASS","checks":"40/40","action":"Repaired critical+high findings only"}
+  ],
+  "evidenceClassification": {
+    "diagnosticPackUseful": {"classification":"SUPPORTED","evidence":"Found 14 findings including 2 critical, 3 high. Diagnostic checklist systematic coverage. Would miss two-server issue without structured review."},
+    "diagnosticFindsRealDefects": {"classification":"SUPPORTED","evidence":"F01 two servers, F02 API mismatch — both confirmed by source inspection. Not false positives."},
+    "repairConfirmsDiagnosticAccuracy": {"classification":"SUPPORTED","evidence":"All 5 critical+high findings were actionable. Repair succeeded 40/40. 8/8 tests pass."},
+    "readonlyAvoidsUnnecessaryModification": {"classification":"SUPPORTED","evidence":"Diagnostic found 14 findings without touching product code. Repair only fixed scope specified."},
+    "diagnosticPackBetterThanMultiAgentForThisUseCase": {"classification":"SUPPORTED","evidence":"Single-agent readonly diagnostic found 14 findings. Multi-agent would add coordination overhead without better detection for this project class."},
+    "skillmarketIsEvidenceObject": {"classification":"CONFIRMED","evidence":"Project is a university course assignment. Not a Codex Factory artifact. Not a production project."},
+    "fullSkillmarketRepairNotMainline": {"classification":"CONFIRMED","evidence":"Medium/low findings remain but main goal is Codex Factory improvement, not SkillMarket perfection."}
+  },
+  "noFurtherSkillmarketRepairNeeded": true,
+  "skillmarketEvidencePreserved": true
+}

@@ -1,0 +1,47 @@
+﻿{
+    "remainingCaveats":  [
+                             "EVAL-13 INCONCLUSIVE",
+                             "Two-benchmark limitation",
+                             "Conditional quality improvement"
+                         ],
+    "validationCommand":  "powershell -File scripts/validate.ps1",
+    "whatV04IsNot":  [
+                         "Universal product quality guarantee",
+                         "Replacement for developer skill or judgment",
+                         "10-role organizational model (archived, not default)",
+                         "Context OS / MCP Memory / Automation (deferred to future versions)",
+                         "Benchmark-proven quality improvement (EVAL-13 remains INCONCLUSIVE)"
+                     ],
+    "whatV04Is":  [
+                      "Process Integrity Layer for Codex-assisted development",
+                      "Audit trail and evidence discipline framework",
+                      "Contamination control and anti-gaming mechanisms",
+                      "Manual Router and Proof-of-Read as default core modules",
+                      "Evidence Hierarchy for trustworthy decision-making"
+                  ],
+    "nativeGenerated":  true,
+    "nextRecommendedUse":  "Apply v0.4 to a real project to gather additional evidence",
+    "evidenceLimitations":  [
+                                "Based on 2 benchmarks (EVAL-8, EVAL-13)",
+                                "EVAL-13 remains INCONCLUSIVE",
+                                "Product quality improvement is CONDITIONAL, not guaranteed",
+                                "Further benchmarks may refine or contradict current evidence"
+                            ],
+    "releaseInfo":  {
+                        "status":  "RELEASED",
+                        "sha256":  "FF5EE6A652524B1B0F6DB100DDEB48B740E2D4F9A42E428EC43D161D5D1B1FCE",
+                        "version":  "0.4.0",
+                        "fileCount":  47,
+                        "zipPath":  "CODEX_FACTORY_V04_RELEASE_PACKAGE.zip"
+                    },
+    "phase":  "FACTORY-V04-RELEASE-ZIP-G",
+    "defaultUsePath":  "Install factory-resource-pack-v0.4-release/ to project root. Follow docs/DAILY_USE.md.",
+    "rollbackNote":  "Remove the extracted factory-resource-pack-v0.4-release/ directory. No system-level changes are made.",
+    "installSteps":  [
+                         "Extract CODEX_FACTORY_V04_RELEASE_PACKAGE.zip to your project",
+                         "Run .\\scripts\\validate.ps1 to verify integrity",
+                         "Read docs/DAILY_USE.md for daily workflow",
+                         "Read docs/MINIMAL_CONTEXT_PACKET.md for new session startup"
+                     ],
+    "generatedAt":  "2026-06-26T00:37:11.7339720+08:00"
+}

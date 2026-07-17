@@ -1,0 +1,23 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agent-contract.schema.json",
+  "title": "Agent Contract",
+  "type": "object",
+  "required": ["contractId", "agentId", "agentRole", "projectId", "phase", "assignedPaths", "forbiddenPaths", "allowedTools", "forbiddenActions", "requiredOutputs", "handoffTo", "createdAt"],
+  "properties": {
+    "contractId": { "type": "string", "format": "uuid" },
+    "agentId": { "type": "string" },
+    "agentRole": { "type": "string" },
+    "projectId": { "type": "string", "format": "uuid" },
+    "phase": { "type": "string" },
+    "assignedPaths": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "forbiddenPaths": { "type": "array", "items": { "type": "string" } },
+    "allowedTools": { "type": "array", "items": { "type": "string" } },
+    "forbiddenActions": { "type": "array", "items": { "type": "string" } },
+    "requiredOutputs": { "type": "array", "items": { "type": "string" } },
+    "handoffTo": { "type": "array", "items": { "type": "string" } },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "status": { "type": "string", "enum": ["ACTIVE", "COMPLETED", "REJECTED", "EXPIRED", "CANCELLED"] }
+  }
+}

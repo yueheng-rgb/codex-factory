@@ -1,0 +1,1240 @@
+{
+  "phase": "DRY24-P1",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:39:06.767152",
+  "packages": [
+    "agent-reliability-runtime",
+    "context-governance-runtime",
+    "factory-decision-engine",
+    "progress-integrity",
+    "architecture-drift-detector",
+    "worker-contract-engine",
+    "dry24-integration-hub"
+  ],
+  "totalEdges": 174,
+  "totalCrossWorkerDeps": 30,
+  "floorDepEdges": 150,
+  "floorCrossWorkerDeps": 30,
+  "crossWorkerDeps": [
+    "agent-reliability-runtime -> context-governance-runtime",
+    "agent-reliability-runtime -> factory-decision-engine",
+    "agent-reliability-runtime -> progress-integrity",
+    "architecture-drift-detector -> agent-reliability-runtime",
+    "architecture-drift-detector -> context-governance-runtime",
+    "architecture-drift-detector -> factory-decision-engine",
+    "architecture-drift-detector -> progress-integrity",
+    "architecture-drift-detector -> worker-contract-engine",
+    "context-governance-runtime -> architecture-drift-detector",
+    "context-governance-runtime -> factory-decision-engine",
+    "context-governance-runtime -> progress-integrity",
+    "context-governance-runtime -> worker-contract-engine",
+    "dry24-integration-hub -> agent-reliability-runtime",
+    "dry24-integration-hub -> architecture-drift-detector",
+    "dry24-integration-hub -> context-governance-runtime",
+    "dry24-integration-hub -> factory-decision-engine",
+    "dry24-integration-hub -> progress-integrity",
+    "dry24-integration-hub -> worker-contract-engine",
+    "factory-decision-engine -> agent-reliability-runtime",
+    "factory-decision-engine -> architecture-drift-detector",
+    "factory-decision-engine -> progress-integrity",
+    "factory-decision-engine -> worker-contract-engine",
+    "progress-integrity -> agent-reliability-runtime",
+    "progress-integrity -> architecture-drift-detector",
+    "progress-integrity -> context-governance-runtime",
+    "progress-integrity -> worker-contract-engine",
+    "worker-contract-engine -> agent-reliability-runtime",
+    "worker-contract-engine -> context-governance-runtime",
+    "worker-contract-engine -> factory-decision-engine",
+    "worker-contract-engine -> progress-integrity"
+  ],
+  "edges": [
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "AgentCapacityCheck.ts",
+      "target": "./AgentLifecyclePolicy.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "AgentCleanupManager.ts",
+      "target": "./AgentLifecyclePolicy.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "MainAgentFallbackDetector.ts",
+      "target": "./AgentLifecyclePolicy.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "SpawnFailureDetector.ts",
+      "target": "./AgentLifecyclePolicy.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./AgentLifecyclePolicy.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./AgentCapacityCheck.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./SpawnFailureDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./MainAgentFallbackDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./AgentCleanupManager.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./AgentSpawnRetryPolicy.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./AgentHealthMonitor.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./AgentIsolationValidator.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "sourceFile": "index.ts",
+      "target": "./ReliabilityReport.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "StaleContextDetector.ts",
+      "target": "node:crypto",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "SummaryArtifactChecker.ts",
+      "target": "node:crypto",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./CompressionTracker.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./StaleContextDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./SessionRotationProtocol.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./SummaryArtifactChecker.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./CompressionPolicy.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./SessionHandoffManager.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./ContextIntegrityChecker.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./EvidenceFreshnessValidator.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "sourceFile": "index.ts",
+      "target": "./GovernanceAuditTrail.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "DecisionRecorder.ts",
+      "target": "./PriorityClassifier.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "DecisionRecorder.ts",
+      "target": "./P1GateEnforcer.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "P0Blocker.ts",
+      "target": "./PriorityClassifier.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "P1GateEnforcer.ts",
+      "target": "./PriorityClassifier.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "PhaseTransitionGate.ts",
+      "target": "./PriorityClassifier.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "PhaseTransitionGate.ts",
+      "target": "./P0Blocker.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "PhaseTransitionGate.ts",
+      "target": "./P1GateEnforcer.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "PriorityClassifier.ts",
+      "target": "../../worker-contract-engine/src/ContractSchema.js",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./PriorityClassifier.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./P0Blocker.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./P1GateEnforcer.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./DecisionRecorder.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./PhaseTransitionGate.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./DecisionPolicyEngine.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./RuleConflictResolver.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./PriorityAuditTrail.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "sourceFile": "index.ts",
+      "target": "./DecisionIntegrityChecker.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "ArtifactEvidenceValidator.ts",
+      "target": "node:crypto",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "ArtifactEvidenceValidator.ts",
+      "target": "node:fs/promises",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "ArtifactEvidenceValidator.ts",
+      "target": "node:fs",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "ArtifactEvidenceValidator.ts",
+      "target": "node:path",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "ArtifactEvidenceValidator.ts",
+      "target": "./types.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "ProgressIntegrityReport.ts",
+      "target": "node:crypto",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "ProgressIntegrityReport.ts",
+      "target": "./types.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "ProgressValidator.ts",
+      "target": "./types.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "RegistryChecker.ts",
+      "target": "./types.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "TranscriptVerifier.ts",
+      "target": "node:fs/promises",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "TranscriptVerifier.ts",
+      "target": "node:fs",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "TranscriptVerifier.ts",
+      "target": "node:path",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "TranscriptVerifier.ts",
+      "target": "./types.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./types.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./ProgressValidator.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./RegistryChecker.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./TranscriptVerifier.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./ArtifactEvidenceValidator.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./ProgressIntegrityReport.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./EventGapDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./ProgressReconciliation.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "sourceFile": "index.ts",
+      "target": "./EvidenceChainValidator.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "APISurfaceDiffer.ts",
+      "target": "./DriftReport.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "APISurfaceDiffer.ts",
+      "target": "...",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "DeadExportDetector.ts",
+      "target": "./DriftReport.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "DeadExportDetector.ts",
+      "target": "...",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "DependencyDriftDetector.ts",
+      "target": "./DriftReport.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "DuplicateFunctionDetector.ts",
+      "target": "./DriftReport.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "IntegrationHubBloatDetector.ts",
+      "target": "./DriftReport.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./DriftReport.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./DuplicateFunctionDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./APISurfaceDiffer.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./DependencyDriftDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./DeadExportDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./IntegrationHubBloatDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./PackageResponsibilityMap.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./UnwiredFileDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./DependencyCycleDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "sourceFile": "index.ts",
+      "target": "./DriftPreventionPolicy.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "ContractAuditTrail.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "ContractDependencyGraph.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "ContractDriftDetector.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "ContractEnforcer.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "ContractGenerator.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "ContractRegistry.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "ContractValidator.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "IntegrationHandoffManager.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "ScopeEnforcementEngine.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ContractSchema.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ContractValidator.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ContractDriftDetector.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ContractGenerator.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ContractRegistry.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ContractEnforcer.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ScopeEnforcementEngine.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ContractDependencyGraph.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./IntegrationHandoffManager.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "sourceFile": "index.ts",
+      "target": "./ContractAuditTrail.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "context-decision-bridge.ts",
+      "target": "../../context-governance-runtime/src/index.js",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "context-decision-bridge.ts",
+      "target": "../../factory-decision-engine/src/index.js",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "context-drift-contract-bridge.ts",
+      "target": "../../context-governance-runtime/src/index.js",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "context-drift-contract-bridge.ts",
+      "target": "../../architecture-drift-detector/src/index.js",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "context-progress-bridge.ts",
+      "target": "../../context-governance-runtime/src/index.js",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "context-progress-bridge.ts",
+      "target": "../../progress-integrity/src/index.js",
+      "targetPackage": "progress-integrity",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "contract-enforcement-bridge.ts",
+      "target": "../../worker-contract-engine/src/index.js",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "contract-enforcement-bridge.ts",
+      "target": "../../factory-decision-engine/src/index.js",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "cross-worker-contract-validator.ts",
+      "target": "../../worker-contract-engine/src/index.js",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "cross-worker-contract-validator.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "decision-drift-contract-bridge.ts",
+      "target": "../../factory-decision-engine/src/index.js",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "decision-drift-contract-bridge.ts",
+      "target": "../../worker-contract-engine/src/index.js",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "decision-progress-bridge.ts",
+      "target": "../../factory-decision-engine/src/index.js",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "decision-progress-bridge.ts",
+      "target": "../../progress-integrity/src/index.js",
+      "targetPackage": "progress-integrity",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "dependency-graph-bridge.ts",
+      "target": "../../architecture-drift-detector/src/index.js",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "dependency-graph-bridge.ts",
+      "target": "../../progress-integrity/src/index.js",
+      "targetPackage": "progress-integrity",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "drift-contracts-bridge.ts",
+      "target": "../../architecture-drift-detector/src/index.js",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "drift-contracts-bridge.ts",
+      "target": "../../worker-contract-engine/src/index.js",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "drift-reliability-bridge.ts",
+      "target": "../../architecture-drift-detector/src/index.js",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "drift-reliability-bridge.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "index.ts",
+      "target": "./HubRegistry.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "index.ts",
+      "target": "./CrossPackageRouter.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "index.ts",
+      "target": "./IntegrationContractValidator.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "index.ts",
+      "target": "./HubAuditLog.js",
+      "targetPackage": null,
+      "edgeType": "intra"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "integration-event-bus.ts",
+      "target": "../../factory-decision-engine/src/index.js",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "integration-health-check.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "integration-health-check.ts",
+      "target": "../../context-governance-runtime/src/index.js",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "multi-bridge-orchestrator.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "multi-bridge-orchestrator.ts",
+      "target": "../../architecture-drift-detector/src/index.js",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "multi-bridge-orchestrator.ts",
+      "target": "../../context-governance-runtime/src/index.js",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "progress-contracts-bridge.ts",
+      "target": "../../progress-integrity/src/index.js",
+      "targetPackage": "progress-integrity",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "progress-contracts-bridge.ts",
+      "target": "../../worker-contract-engine/src/index.js",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "progress-drift-contract-bridge.ts",
+      "target": "../../progress-integrity/src/index.js",
+      "targetPackage": "progress-integrity",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "progress-drift-contract-bridge.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "reliability-context-bridge.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "reliability-context-bridge.ts",
+      "target": "../../context-governance-runtime/src/index.js",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "reliability-decision-bridge.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "reliability-decision-bridge.ts",
+      "target": "../../factory-decision-engine/src/index.js",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "reliability-drift-contract-bridge.ts",
+      "target": "../../architecture-drift-detector/src/index.js",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "reliability-drift-contract-bridge.ts",
+      "target": "../../progress-integrity/src/index.js",
+      "targetPackage": "progress-integrity",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "reliability-progress-bridge.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "reliability-progress-bridge.ts",
+      "target": "../../progress-integrity/src/index.js",
+      "targetPackage": "progress-integrity",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "scope-isolation-bridge.ts",
+      "target": "../../agent-reliability-runtime/src/index.js",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "scope-isolation-bridge.ts",
+      "target": "../../architecture-drift-detector/src/index.js",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "sourceFile": "verifier-gate-bridge.ts",
+      "target": "../../worker-contract-engine/src/index.js",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "cross-worker"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "targetPackage": "progress-integrity",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "dry24-integration-hub",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "agent-reliability-runtime",
+      "targetPackage": "progress-integrity",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "targetPackage": "progress-integrity",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "targetPackage": "progress-integrity",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "targetPackage": "architecture-drift-detector",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "worker-contract-engine",
+      "targetPackage": "progress-integrity",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "context-governance-runtime",
+      "targetPackage": "worker-contract-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "progress-integrity",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "targetPackage": "context-governance-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "targetPackage": "progress-integrity",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "architecture-drift-detector",
+      "targetPackage": "factory-decision-engine",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    },
+    {
+      "sourcePackage": "factory-decision-engine",
+      "targetPackage": "agent-reliability-runtime",
+      "edgeType": "architectural-cross-worker",
+      "documentedVia": "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "E",
+  "title": "Run-A: Vanilla Codex Trial",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "trial_metadata": {
+    "type": "DESIGNED_TRIAL",
+    "execution_note": "This is a designed/comparative analysis of expected Vanilla Codex behavior based on documented Codex capabilities and the Project Expertise Flow design. Actual execution deferred to user or future phase.",
+    "conditions": {
+      "factory_installed": false,
+      "gates_active": false,
+      "test_repair_policy": false,
+      "context_space": false
+    }
+  },
+  "expected_observations": {
+    "design_phase": {
+      "observation": "Without Factory bootstrap gate, Codex may skip explicit architecture design and start coding immediately when not prompted to design first.",
+      "risk": "May produce code without full entity/API/page planning, leading to rework."
+    },
+    "safety": {
+      "observation": "Without Security Gate, .env.production.example may contain example secrets. No automatic detection of deploy traces.",
+      "risk": "Secrets could accidentally be included if developer is not vigilant."
+    },
+    "code_quality": {
+      "observation": "Codex produces functional code. Tests may be written but without CLASSIFICATION_FIRST policy, skipping env-dependent tests is ad-hoc.",
+      "risk": "Test suite may have inconsistent skip/fail behavior."
+    },
+    "documentation": {
+      "observation": "README produced on request. No Package QA Gate to enforce manifest or ZIP reconciliation.",
+      "risk": "Handoff ZIP may be missing files or have unreconciled manifest."
+    },
+    "user_intervention": {
+      "observation": "Without Build Lite structure, user must manually remind Codex about each phase: design, safety checks, testing strategy, documentation.",
+      "risk": "Higher cognitive burden on user to remember all steps."
+    }
+  },
+  "scoring": {
+    "DIM-01_Design": 8,
+    "DIM-02_Safety": 10,
+    "DIM-03_CodeQuality": 14,
+    "DIM-04_Documentation": 10,
+    "DIM-05_UserIntervention": 8,
+    "total": 50
+  },
+  "status": "RUN_A_DESIGNED_AND_SCORED"
+}

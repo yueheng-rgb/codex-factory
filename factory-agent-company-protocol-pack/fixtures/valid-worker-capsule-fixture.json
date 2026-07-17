@@ -1,0 +1,50 @@
+﻿{
+  "capsuleId": "builder-1-capsule",
+  "agentId": "builder-1",
+  "role": "Builder",
+  "taskId": "task-auth-module",
+  "spawnedAt": "2026-06-26T08:00:00+08:00",
+  "ownedScope": [
+    "src/modules/auth/",
+    "src/modules/auth/tests/",
+    "src/shared/types/auth.d.ts"
+  ],
+  "forbiddenScope": [
+    "src/modules/payments/",
+    "src/modules/admin/",
+    "src/modules/dashboard/",
+    "config/secrets/",
+    "*.env*",
+    "_integrate/"
+  ],
+  "forkContext": false,
+  "expectedOutputs": [
+    "src/modules/auth/login.ts",
+    "src/modules/auth/register.ts",
+    "src/modules/auth/session.ts",
+    "src/modules/auth/tests/login.test.ts",
+    "src/modules/auth/tests/register.test.ts"
+  ],
+  "handoffRequirements": {
+    "fileList": [
+      "src/modules/auth/login.ts",
+      "src/modules/auth/register.ts",
+      "src/modules/auth/session.ts",
+      "src/modules/auth/tests/login.test.ts",
+      "src/modules/auth/tests/register.test.ts"
+    ],
+    "sha256": true,
+    "transcriptRef": "harness/transcripts/builder-1-transcript.md",
+    "contractChecklist": [
+      "POST /auth/login matches contract",
+      "POST /auth/register matches contract",
+      "GET /auth/session matches contract",
+      "All error responses match error schema",
+      "All types imported from shared/, not redefined"
+    ]
+  },
+  "dependencies": [
+    "shared/types/auth.d.ts"
+  ],
+  "architectContractRef": "sha256:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"
+}

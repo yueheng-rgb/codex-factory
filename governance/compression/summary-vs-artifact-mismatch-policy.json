@@ -1,0 +1,45 @@
+{
+  "policyId": "H17-C-SUMMARY-VS-ARTIFACT-MISMATCH-DETECTION-POLICY",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T02:19:28.466143+08:00",
+  "generatedDuringPhase": "H17-C",
+  "nativeGenerated": true,
+  "mismatchTypes": [
+    {
+      "type": "CLAIMED_FILE_MISSING",
+      "description": "Summary claims file exists but path not found",
+      "riskSignal": "SUMMARY_VS_ARTIFACT_MISMATCH"
+    },
+    {
+      "type": "CLAIMED_EXPORT_MISSING",
+      "description": "Summary claims export count but actual differs",
+      "riskSignal": "SUMMARY_VS_ARTIFACT_MISMATCH"
+    },
+    {
+      "type": "CLAIMED_PASS_WITHOUT_RESULT",
+      "description": "Summary claims PASS but verifier shows FAIL",
+      "riskSignal": "SUMMARY_USED_AS_EVIDENCE"
+    },
+    {
+      "type": "COMPRESSED_CLAIM_WITHOUT_PATH",
+      "description": "Compressed summary makes claim without artifact path",
+      "riskSignal": "SUMMARY_USED_AS_EVIDENCE"
+    },
+    {
+      "type": "NATURAL_LANGUAGE_VS_JSON_MISMATCH",
+      "description": "NL verdict differs from JSON",
+      "riskSignal": "SUMMARY_VS_ARTIFACT_MISMATCH"
+    },
+    {
+      "type": "AGENT_COUNT_MISMATCH",
+      "description": "Summary agent count differs from registry",
+      "riskSignal": "SUMMARY_VS_ARTIFACT_MISMATCH"
+    }
+  ],
+  "detectionScript": "scripts/compression/check-summary-vs-artifact.ps1",
+  "rules": {
+    "mismatchBlocksPhaseTransition": true,
+    "compressedSummaryCannotOverrideArtifact": true,
+    "summaryClaimsRequireArtifactPath": true
+  }
+}

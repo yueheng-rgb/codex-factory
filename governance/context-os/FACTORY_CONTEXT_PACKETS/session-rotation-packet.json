@@ -1,0 +1,21 @@
+﻿{
+  "packetId": "session-rotation-packet",
+  "purpose": "Session rotation — what a new window needs to verify before continuing",
+  "generatedAt": "2026-06-25T00:10:02+08:00",
+  "requiredReadFiles": [
+    "governance/factory-state/session-rotation-handoff.json",
+    "governance/factory-state/current-factory-state.json",
+    "governance/context-os/FACTORY_MEMORY_INDEX.json",
+    "outputs/CODEX_FACTORY_FINAL_PACKAGE.sha256"
+  ],
+  "trustedFacts": [
+    "currentTrustedPhase: FINAL",
+    "FIRST_COMPACT_REQUIRES_ROTATION",
+    "COMPRESSED_SUMMARY_NOT_EVIDENCE",
+    "NEW_WINDOW_REQUIRES_ARTIFACT_STARTUP_VERIFICATION"
+  ],
+  "activeRisks": [],
+  "rejectedClaims": ["Full context inheritance","Automatic window creation"],
+  "nextActions": ["Run startup verification","Validate manifest SHA","Check factoryctl verify","Confirm no new phase artifacts"],
+  "verifierCommands": ["powershell -File scripts/factoryctl.ps1 verify -Json"]
+}

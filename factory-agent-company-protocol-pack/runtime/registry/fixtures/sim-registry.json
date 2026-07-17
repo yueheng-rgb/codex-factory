@@ -1,0 +1,25 @@
+﻿[
+    {
+        "value":  [
+                      {
+                          "phase":  "FACTORY-AGENT-3",
+                          "status":  "ACTIVE",
+                          "agentId":  "ag3-builder-1",
+                          "role":  "Builder"
+                      },
+                      {
+                          "phase":  "FACTORY-AGENT-3",
+                          "status":  "ACTIVE",
+                          "agentId":  "ag3-builder-2",
+                          "role":  "Builder"
+                      }
+                  ],
+        "Count":  2
+    },
+    {
+        "phase":  "FACTORY-AGENT-3",
+        "status":  "ACTIVE",
+        "agentId":  "ag3-reviewer",
+        "role":  "Reviewer"
+    }
+]

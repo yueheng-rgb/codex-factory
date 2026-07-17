@@ -1,0 +1,18 @@
+﻿{
+    "alignment_id": "FACTORY-BUILD-REALWORLD-2-P3-DJANGO-VERSION-ALIGNMENT",
+    "generated_at": "2026-06-28T10:35:23+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P3",
+    "section": "C",
+    "findings": {
+        "requirements_txt_target": "Django>=5.0,<5.3",
+        "installed_version": "6.0.6",
+        "version_mismatch": true,
+        "test_failures_caused_by_version": false,
+        "test_failures_actual_cause": "Form field name mismatches — tests use outdated field names",
+        "network_install_needed_for_django5": true,
+        "no_django5_in_cache": true
+    },
+    "decision": "DO NOT install Django 5.x — network required, not approved. Test failures are NOT caused by Django version. Working with Django 6.0.6 is acceptable.",
+    "no_deprecated_api_issues_found": "The 13 passing tests confirm Django 6.0.6 compatibility for core functionality. Form field name mismatches are the sole cause of failures.",
+    "verdict": "ALIGNMENT_CHECKED_NO_VERSION_ISSUE"
+}

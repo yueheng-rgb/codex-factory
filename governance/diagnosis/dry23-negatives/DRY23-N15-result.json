@@ -1,0 +1,13 @@
+﻿{
+    "timestamp":  "2026-06-24T00:49:43.3225363+08:00",
+    "negativeId":  "DRY23-N15",
+    "verifyOutput":  "{\r\n    \"command\":  \"verify\",\r\n    \"phase\":  \"latest\",\r\n    \"verdict\":  \"PASS\",\r\n    \"totalChecks\":  29,\r\n    \"modules\":  [\r\n                    {\r\n                        \"verdict\":  \"PASS_WITH_CAVEATS\",\r\n                        \"checks\":  10\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  3\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    }\r\n                ],\r\n    \"checkedAt\":  \"2026-06-24T00:49:43+08:00\"\r\n}",
+    "faultManifest":  {
+                          "id":  "DRY23-N15",
+                          "name":  "Diagnosis-Verdict Mismatch",
+                          "timestamp":  "2026-06-24T00:49:36.5309220+08:00",
+                          "expectedFailureClass":  "DIAGNOSIS_VERDICT_MISMATCH",
+                          "targetGate":  "diagnosis-verdict-consistency-check",
+                          "category":  "automated_diagnosis"
+                      }
+}

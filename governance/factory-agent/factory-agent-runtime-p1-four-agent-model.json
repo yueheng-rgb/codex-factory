@@ -1,0 +1,113 @@
+﻿{
+    "reduction":  "7 -\u003e 4 (43% reduction)",
+    "agentCount":  4,
+    "document":  "four-agent-model",
+    "version":  "P1-candidate",
+    "previousModelAgentCount":  7,
+    "replacedRoles":  {
+                          "verifier":  "merged into reviewer-verifier",
+                          "integrityChecker":  "merged into reviewer-verifier",
+                          "builderDb":  "merged into product-builder",
+                          "builderFrontend":  "merged into product-builder",
+                          "builderBackend":  "merged into product-builder",
+                          "builderTests":  "merged into test-integration-docs-builder",
+                          "reviewer":  "merged into reviewer-verifier"
+                      },
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "timestamp":  "2026-06-26T18:47:10.6462604+08:00",
+    "status":  "NOT_DEFAULT_NOT_PROVEN",
+    "agents":  [
+                   {
+                       "id":  "agent-1",
+                       "responsibilities":  [
+                                                "Task graph creation and maintenance",
+                                                "Mid-run complexity floor enforcement",
+                                                "Spawn decisions with capacity preflight",
+                                                "Lifecycle tracking and agent registry",
+                                                "Closure gate decision (blocked/allowed)"
+                                            ],
+                       "spawnTrigger":  "Automatic on phase start",
+                       "forbidden":  [
+                                         "Writing implementation code in builder scope",
+                                         "Self-passing phase closure",
+                                         "Modifying builder deliverables without handoff"
+                                     ],
+                       "midRunChecks":  [
+                                            "endpointCount",
+                                            "moduleCoverage",
+                                            "exportCount",
+                                            "sourceFileCount",
+                                            "testFileCount",
+                                            "overheadBudget"
+                                        ],
+                       "role":  "orchestrator",
+                       "title":  "Orchestrator"
+                   },
+                   {
+                       "id":  "agent-2",
+                       "responsibilities":  [
+                                                "Database schema and services",
+                                                "API routes and middleware",
+                                                "Frontend pages and components",
+                                                "Shared types and constants",
+                                                "Server entry point"
+                                            ],
+                       "capsuleRequired":  true,
+                       "forbidden":  [
+                                         "Writing test files (owned by Test Builder)",
+                                         "Writing README/docs (owned by Test Builder)",
+                                         "Self-verifying own output",
+                                         "Modifying orchestrator-owned artifacts"
+                                     ],
+                       "role":  "product-builder",
+                       "title":  "Product Implementation Builder",
+                       "scope":  "product/server/ product/shared/ product/client/ product/vite.config.ts product/index.html"
+                   },
+                   {
+                       "id":  "agent-3",
+                       "responsibilities":  [
+                                                "Test suite creation",
+                                                "API contract/integration tests",
+                                                "README.md and documentation",
+                                                "Seed and verify scripts",
+                                                "package.json config maintenance"
+                                            ],
+                       "capsuleRequired":  true,
+                       "forbidden":  [
+                                         "Modifying product implementation code without handoff",
+                                         "Changing API behavior silently",
+                                         "Self-verifying own output"
+                                     ],
+                       "role":  "test-integration-docs-builder",
+                       "title":  "Test / Integration / Docs Builder",
+                       "scope":  "product/tests/ product/scripts/ product/README.md product/package.json product/tsconfig.json product/vitest.config.ts"
+                   },
+                   {
+                       "id":  "agent-4",
+                       "responsibilities":  [
+                                                "Product quality review (endpoints, modules, error states)",
+                                                "Evidence integrity verification",
+                                                "Contamination and scope violation detection",
+                                                "Anti-deception gate",
+                                                "Closure-critical caveat flagging"
+                                            ],
+                       "readOnly":  true,
+                       "forbidden":  [
+                                         "Writing any implementation code",
+                                         "Modifying product files",
+                                         "Self-passing without evidence"
+                                     ],
+                       "closureCriticalCaveats":  [
+                                                      "endpointDeficit",
+                                                      "moduleDeficit",
+                                                      "testDeficit",
+                                                      "floorMiss",
+                                                      "qualityGap",
+                                                      "contaminationDetected",
+                                                      "hiddenFallbackDetected"
+                                                  ],
+                       "role":  "reviewer-verifier",
+                       "title":  "Reviewer-Verifier (combined)"
+                   }
+               ]
+}

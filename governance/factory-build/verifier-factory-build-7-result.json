@@ -1,0 +1,202 @@
+﻿{
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V00",
+                        "desc":  "BUILD-6 PASS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "Trial directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "Capability gate exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "Capability: NATIVE_SPAWN_AVAILABLE"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "External memory initialized"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "Memory files \u003e= 8"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "Agent capsules exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "Write scope map exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "Decision log exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "Native spawn evidence: 4 agents"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "fork_context:false used"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "Worker handoffs recorded"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "Worker close receipts exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "refunds.js route exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "coupons.js route exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "analytics.js route exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "moderation.js route exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "refunds page exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "coupons page exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "analytics page exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "moderation page exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "Test runner exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "API docs exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "Integration result exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V24",
+                        "desc":  "Diagnostic result exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V25",
+                        "desc":  "Recovery result exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V26",
+                        "desc":  "Integration: 10/10 PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V27",
+                        "desc":  "No BUILD-5 product modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V28",
+                        "desc":  "No v0.5 package"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V29",
+                        "desc":  "No release ZIP"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V30",
+                        "desc":  "No multi-agent default claim"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V31",
+                        "desc":  "No simulated claimed as native"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V32",
+                        "desc":  "Native spawn limitation recorded"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V33",
+                        "desc":  "No SkillMarket modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V34",
+                        "desc":  "No DevFlow modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V35",
+                        "desc":  "No UNEXPECTED_PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V36",
+                        "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V37",
+                        "desc":  "No generic FAIL"
+                    }
+                ],
+    "totalChecks":  38,
+    "nativeSpawnNote":  "Native spawn_agent WAS available. 4 real workers spawned with fork_context:false.",
+    "overall":  "PASS",
+    "phase":  "FACTORY-BUILD-7",
+    "date":  "2026-06-27T11:12:31.9130400+08:00",
+    "verifier":  "factory-build-7-native-spawn-agent-trial-verify.ps1",
+    "failedChecks":  0,
+    "passedChecks":  38
+}

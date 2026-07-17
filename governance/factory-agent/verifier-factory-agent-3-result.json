@@ -1,0 +1,295 @@
+﻿{
+    "phase":  "FACTORY-AGENT-3",
+    "verdict":  "PASS",
+    "totalChecks":  57,
+    "passed":  57,
+    "failed":  0,
+    "timestamp":  "2026-06-26T01:49:52.9751202+08:00",
+    "checks":  [
+                   {
+                       "Label":  "V04_ZIP_OK",
+                       "Pass":  true,
+                       "Detail":  "v0.4 ZIP SHA256"
+                   },
+                   {
+                       "Label":  "NO_NEW_ZIP",
+                       "Pass":  true,
+                       "Detail":  "No new release ZIP"
+                   },
+                   {
+                       "Label":  "AGENT2_PASS",
+                       "Pass":  true,
+                       "Detail":  "AGENT-2 verifier exists"
+                   },
+                   {
+                       "Label":  "SCH_DIR",
+                       "Pass":  true,
+                       "Detail":  "Scheduler dir"
+                   },
+                   {
+                       "Label":  "LCM_DIR",
+                       "Pass":  true,
+                       "Detail":  "Lifecycle dir"
+                   },
+                   {
+                       "Label":  "REG_DIR",
+                       "Pass":  true,
+                       "Detail":  "Registry dir"
+                   },
+                   {
+                       "Label":  "SCRIPT_create-task-graph",
+                       "Pass":  true,
+                       "Detail":  "create-task-graph exists"
+                   },
+                   {
+                       "Label":  "JSON_create-task-graph",
+                       "Pass":  true,
+                       "Detail":  "create-task-graph outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_create-task-graph",
+                       "Pass":  true,
+                       "Detail":  "create-task-graph no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-capacity-preflight",
+                       "Pass":  true,
+                       "Detail":  "check-capacity-preflight exists"
+                   },
+                   {
+                       "Label":  "JSON_check-capacity-preflight",
+                       "Pass":  true,
+                       "Detail":  "check-capacity-preflight outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_check-capacity-preflight",
+                       "Pass":  true,
+                       "Detail":  "check-capacity-preflight no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_create-spawn-decision",
+                       "Pass":  true,
+                       "Detail":  "create-spawn-decision exists"
+                   },
+                   {
+                       "Label":  "JSON_create-spawn-decision",
+                       "Pass":  true,
+                       "Detail":  "create-spawn-decision outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_create-spawn-decision",
+                       "Pass":  true,
+                       "Detail":  "create-spawn-decision no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_validate-spawn-decision",
+                       "Pass":  true,
+                       "Detail":  "validate-spawn-decision exists"
+                   },
+                   {
+                       "Label":  "JSON_validate-spawn-decision",
+                       "Pass":  true,
+                       "Detail":  "validate-spawn-decision outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_validate-spawn-decision",
+                       "Pass":  true,
+                       "Detail":  "validate-spawn-decision no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-dependency-readiness",
+                       "Pass":  true,
+                       "Detail":  "check-dependency-readiness exists"
+                   },
+                   {
+                       "Label":  "JSON_check-dependency-readiness",
+                       "Pass":  true,
+                       "Detail":  "check-dependency-readiness outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_check-dependency-readiness",
+                       "Pass":  true,
+                       "Detail":  "check-dependency-readiness no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_register-agent",
+                       "Pass":  true,
+                       "Detail":  "register-agent exists"
+                   },
+                   {
+                       "Label":  "JSON_register-agent",
+                       "Pass":  true,
+                       "Detail":  "register-agent outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_register-agent",
+                       "Pass":  true,
+                       "Detail":  "register-agent no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_record-agent-progress",
+                       "Pass":  true,
+                       "Detail":  "record-agent-progress exists"
+                   },
+                   {
+                       "Label":  "JSON_record-agent-progress",
+                       "Pass":  true,
+                       "Detail":  "record-agent-progress outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_record-agent-progress",
+                       "Pass":  true,
+                       "Detail":  "record-agent-progress no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_record-agent-handoff",
+                       "Pass":  true,
+                       "Detail":  "record-agent-handoff exists"
+                   },
+                   {
+                       "Label":  "JSON_record-agent-handoff",
+                       "Pass":  true,
+                       "Detail":  "record-agent-handoff outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_record-agent-handoff",
+                       "Pass":  true,
+                       "Detail":  "record-agent-handoff no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_close-agent",
+                       "Pass":  true,
+                       "Detail":  "close-agent exists"
+                   },
+                   {
+                       "Label":  "JSON_close-agent",
+                       "Pass":  true,
+                       "Detail":  "close-agent outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_close-agent",
+                       "Pass":  true,
+                       "Detail":  "close-agent no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-agent-lifecycle",
+                       "Pass":  true,
+                       "Detail":  "check-agent-lifecycle exists"
+                   },
+                   {
+                       "Label":  "JSON_check-agent-lifecycle",
+                       "Pass":  true,
+                       "Detail":  "check-agent-lifecycle outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_check-agent-lifecycle",
+                       "Pass":  true,
+                       "Detail":  "check-agent-lifecycle no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_quarantine-stale-agent",
+                       "Pass":  true,
+                       "Detail":  "quarantine-stale-agent exists"
+                   },
+                   {
+                       "Label":  "JSON_quarantine-stale-agent",
+                       "Pass":  true,
+                       "Detail":  "quarantine-stale-agent outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_quarantine-stale-agent",
+                       "Pass":  true,
+                       "Detail":  "quarantine-stale-agent no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_query-agent-registry",
+                       "Pass":  true,
+                       "Detail":  "query-agent-registry exists"
+                   },
+                   {
+                       "Label":  "JSON_query-agent-registry",
+                       "Pass":  true,
+                       "Detail":  "query-agent-registry outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_query-agent-registry",
+                       "Pass":  true,
+                       "Detail":  "query-agent-registry no hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_run-orchestrator-runtime-suite",
+                       "Pass":  true,
+                       "Detail":  "run-orchestrator-runtime-suite exists"
+                   },
+                   {
+                       "Label":  "JSON_run-orchestrator-runtime-suite",
+                       "Pass":  true,
+                       "Detail":  "run-orchestrator-runtime-suite outputs JSON"
+                   },
+                   {
+                       "Label":  "NOHC_run-orchestrator-runtime-suite",
+                       "Pass":  true,
+                       "Detail":  "run-orchestrator-runtime-suite no hardcode"
+                   },
+                   {
+                       "Label":  "TASK_VALID",
+                       "Pass":  true,
+                       "Detail":  "Valid task graph"
+                   },
+                   {
+                       "Label":  "TASK_CYCLE",
+                       "Pass":  true,
+                       "Detail":  "Task cycle blocked"
+                   },
+                   {
+                       "Label":  "CAP_VALID",
+                       "Pass":  true,
+                       "Detail":  "Capacity valid"
+                   },
+                   {
+                       "Label":  "CAP_OVERLOAD",
+                       "Pass":  true,
+                       "Detail":  "Capacity overload blocked"
+                   },
+                   {
+                       "Label":  "SPAWN_VALID",
+                       "Pass":  true,
+                       "Detail":  "Spawn valid"
+                   },
+                   {
+                       "Label":  "SPAWN_NOCX",
+                       "Pass":  true,
+                       "Detail":  "Spawn no trigger blocked"
+                   },
+                   {
+                       "Label":  "SIM_DIR",
+                       "Pass":  true,
+                       "Detail":  "Simulation dir"
+                   },
+                   {
+                       "Label":  "SUITE_RESULT",
+                       "Pass":  true,
+                       "Detail":  "Suite result"
+                   },
+                   {
+                       "Label":  "NEG_SUMMARY",
+                       "Pass":  true,
+                       "Detail":  "Neg summary"
+                   },
+                   {
+                       "Label":  "NO_BENCHMARK",
+                       "Pass":  true,
+                       "Detail":  "No benchmark"
+                   },
+                   {
+                       "Label":  "NO_V05",
+                       "Pass":  true,
+                       "Detail":  "No v0.5"
+                   },
+                   {
+                       "Label":  "ARCHIVED_10",
+                       "Pass":  true,
+                       "Detail":  "10-role archived"
+                   }
+               ]
+}

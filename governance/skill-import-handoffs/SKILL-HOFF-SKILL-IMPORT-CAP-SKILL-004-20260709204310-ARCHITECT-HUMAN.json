@@ -1,0 +1,10 @@
+﻿{
+    "handoffId":  "SKILL-HOFF-SKILL-IMPORT-CAP-SKILL-004-20260709204310-ARCHITECT-HUMAN",
+    "timestamp":  "2026-07-09T20:43:11+08:00",
+    "pipelineId":  "SKILL-IMPORT-CAP-SKILL-004-20260709204310",
+    "capabilityId":  "CAP-SKILL-004",
+    "fromRole":  "ARCHITECT",
+    "toRole":  "HUMAN",
+    "decision":  "approved",
+    "summary":  "Architecture review passed"
+}

@@ -1,0 +1,43 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CI Artifact Store Index",
+  "description": "Index of all CI artifact entries in a run or store.",
+  "type": "object",
+  "required": ["store_version","created_at","run_id","artifacts"],
+  "properties": {
+    "store_version": {"type":"string","const":"2.1.0"},
+    "created_at": {"type":"string","format":"date-time"},
+    "run_id": {"type":"string"},
+    "run_description": {"type":"string"},
+    "factory_version": {"type":"string"},
+    "total_artifacts": {"type":"integer"},
+    "passed": {"type":"integer"},
+    "failed": {"type":"integer"},
+    "skipped": {"type":"integer"},
+    "total_tests": {"type":"integer"},
+    "total_tests_passed": {"type":"integer"},
+    "total_tests_failed": {"type":"integer"},
+    "directory_snapshot": {
+      "type":"object",
+      "properties": {
+        "hash": {"type":"string"},
+        "files_count": {"type":"integer"},
+        "captured_at": {"type":"string","format":"date-time"}
+      }
+    },
+    "artifacts": {
+      "type":"array",
+      "items": {"$ref":"./ci-artifact-entry.schema.json"}
+    },
+    "audit_ledger_entries": {
+      "type":"array",
+      "items":{"type":"string"},
+      "description":"Cross-reference audit ledger entry IDs"
+    },
+    "traceability_matrix": {
+      "type":"object",
+      "description":"Mapping of report claims to artifact IDs",
+      "additionalProperties": {"type":"array","items":{"type":"string"}}
+    }
+  }
+}

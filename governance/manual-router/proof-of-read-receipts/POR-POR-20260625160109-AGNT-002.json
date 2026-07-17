@@ -1,0 +1,18 @@
+﻿{
+    "pagePath":  "governance/agent-os/agent-authority-matrix.json",
+    "extractedRules":  [
+                           "Evidence rules per constitution",
+                           "Page-specific rules"
+                       ],
+    "isProofOfUnderstanding":  false,
+    "doesNotMutateState":  true,
+    "agentId":  "SYSTEM_EVENT",
+    "isProofOfCorrectness":  false,
+    "readAt":  "2026-06-25T16:01:09+08:00",
+    "pageExists":  true,
+    "isProofOfAccess":  true,
+    "pageId":  "AGNT-002",
+    "receiptId":  "POR-20260625160109-AGNT-002",
+    "actionType":  "simulation_prep",
+    "cannotMarkPass":  true
+}

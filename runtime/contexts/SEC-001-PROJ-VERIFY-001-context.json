@@ -1,0 +1,78 @@
+﻿{
+    "contextId":  "CTX-PROJ-VERIFY-001-SEC-001-PHASE-VERIFY-001",
+    "projectId":  "PROJ-VERIFY-001",
+    "phaseId":  "PHASE-VERIFY-001",
+    "agentId":  "SEC-001",
+    "taskId":  "",
+    "role":  "Security Agent",
+    "category":  "Quality",
+    "agentType":  "on-demand",
+    "allowedWriteScopes":  [
+                               "projects/{projectId}/reports/security/"
+                           ],
+    "forbiddenActions":  [
+                             "modify_source_code",
+                             "print_secrets_in_output",
+                             "execute_deployment",
+                             "mark_PASS_with_unresolved_HIGH_severity"
+                         ],
+    "permissions":  {
+                        "read":  [
+                                     "all_project_files"
+                                 ],
+                        "write":  [
+                                      "security_reports_only"
+                                  ],
+                        "execute":  [
+                                        "shell_command(grep, rg)",
+                                        "apply_patch(security reports)"
+                                    ]
+                    },
+    "allowedSkills":  {
+                          "required":  [
+                                           "codex-factory",
+                                           "auth-permission-security"
+                                       ],
+                          "optional":  [
+                                           "openai-docs"
+                                       ],
+                          "forbidden":  [
+                                            "browser",
+                                            "imagegen",
+                                            "documents",
+                                            "spreadsheets"
+                                        ]
+                      },
+    "requiredInputs":  [
+                           "all_project_files",
+                           "gate_configuration",
+                           "security_rule_library"
+                       ],
+    "requiredOutputs":  [
+                            {
+                                "name":  "security_report",
+                                "fields":  [
+                                               "secretsFound",
+                                               "vulnerabilities",
+                                               "deployReadiness",
+                                               "gateVerdict",
+                                               "recommendations",
+                                               "checksRun"
+                                           ]
+                            }
+                        ],
+    "handoffRequired":  true,
+    "evidenceLevel":  "HIGH",
+    "failurePolicy":  {
+                          "secretFound":  "BLOCK_immediately_report_do_not_print_secret",
+                          "falsePositive":  "document_as_known_false_positive_PASS_with_note",
+                          "cannotScan":  "report_as_unscanned",
+                          "maxRetries":  1
+                      },
+    "createdAt":  "2026-07-05T21:38:57+08:00",
+    "status":  "ACTIVATED",
+    "canReadProjects":  true,
+    "canWriteDesign":  false,
+    "canWriteCode":  false,
+    "canSpawnAgents":  true
+}

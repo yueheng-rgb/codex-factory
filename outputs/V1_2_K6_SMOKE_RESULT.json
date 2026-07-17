@@ -1,0 +1,21 @@
+﻿{
+  "engine": "k6",
+  "version": null,
+  "run_status": "TOOL_UNAVAILABLE",
+  "target_project": "all",
+  "started_at": "2026-07-11T15:30:00",
+  "result_summary": "k6 CLI not installed on this machine. Install via: choco install k6 (Windows, admin) or download from grafana.com.",
+  "findings": [],
+  "findings_count": 0,
+  "parser_status": "NO_INPUT",
+  "skip_reason": "INSTALL_REQUIRED — k6 CLI must be installed separately",
+  "failure_classification": "TOOL_UNAVAILABLE",
+  "install_instructions": "choco install k6 (Windows, admin) or download from https://grafana.com/docs/k6/latest/set-up/install-k6/",
+  "non_claims": [
+    "k6 not available on this machine",
+    "No fake PASS — correctly reported as TOOL_UNAVAILABLE",
+    "Performance testing limited to autocannon for now",
+    "k6 results would still be dev-environment measurements — not production capacity proof"
+  ],
+  "secret_present": false
+}

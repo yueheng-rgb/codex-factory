@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  19,
+    "frozenAt":  "2026-06-18T22:12:04.2601143+08:00",
+    "runId":  "debug-t53",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\debug-t53\\trust-root.json",
+    "controlPlaneLockSha256":  "adc1e2fc0dba8d88668b10dda7b08717c6ba591146eecead4509a3ead59a795d",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "6a31ed4e4216252b0905ecbcee629a73ee44c68c6a2708dac782581d1fe0396f"
+}

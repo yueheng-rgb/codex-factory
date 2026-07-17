@@ -1,0 +1,78 @@
+﻿{
+    "modes":  [
+                  {
+                      "description":  "Single-agent structured build with harness. Suitable for solo developers and standard-complexity projects.",
+                      "triggers":  [
+                                       "User says \u0027build a project\u0027",
+                                       "No parallel task dependencies",
+                                       "Single codebase scope",
+                                       "Estimated \u003c50 source files"
+                                   ],
+                      "nativeAgent":  "FORBIDDEN",
+                      "contextPacket":  "OPTIONAL",
+                      "requires":  [
+                                       "Build Mode MVPs + External Memory",
+                                       "Verifier",
+                                       "Negative Controls",
+                                       "Summary Verification"
+                                   ],
+                      "mode":  "Build Lite",
+                      "status":  "DEFAULT"
+                  },
+                  {
+                      "requires":  [
+                                       "All Build Lite requirements",
+                                       "Context Packets (REQUIRED)",
+                                       "Agent Lifecycle Registry",
+                                       "Handoff Protocol",
+                                       "Close Receipts",
+                                       "Write Scope Map",
+                                       "Diagnostic Gate",
+                                       "Recovery Drill",
+                                       "Memory Quality Policies"
+                                   ],
+                      "triggers":  [
+                                       "User explicitly requests multi-agent",
+                                       "Project has parallel task dependencies",
+                                       "Multi-module architecture",
+                                       "Estimated \u003e50 source files",
+                                       "Long-horizon (3+ iterations)"
+                                   ],
+                      "description":  "Multi-agent native spawn with lifecycle management. Suitable for complex, multi-module, long-horizon projects.",
+                      "status":  "CONDITIONAL — requires user approval",
+                      "mode":  "Native Build Pro",
+                      "nativeAgent":  "REQUIRED",
+                      "userApprovalRequired":  "YES — must confirm before any spawn_agent call",
+                      "contextPacket":  "REQUIRED"
+                  },
+                  {
+                      "description":  "Standard Codex without factory harness. Always available as baseline.",
+                      "triggers":  [
+                                       "Default Codex behavior"
+                                   ],
+                      "nativeAgent":  "NOT_APPLICABLE",
+                      "contextPacket":  "NOT_APPLICABLE",
+                      "requires":  [
+                                       "None"
+                                   ],
+                      "mode":  "Vanilla",
+                      "status":  "PRODUCT_LEADER"
+                  }
+              ],
+    "section":  "E",
+    "selectorRules":  [
+                          "Build Lite is the DEFAULT — triggered automatically for \u0027build a project\u0027 requests",
+                          "Native Build Pro requires EXPLICIT user confirmation — never auto-triggered",
+                          "If user says \u0027use multi-agent\u0027 or \u0027use Build Pro\u0027, suggest Build Lite first and confirm",
+                          "Vanilla is always available — user can skip factory entirely",
+                          "v0.5 release does NOT change these rules"
+                      ],
+    "forbiddenTriggers":  [
+                              "Project complexity alone does NOT trigger Native Build Pro",
+                              "Agent count alone does NOT justify Native Build Pro upgrade",
+                              "Benchmark results alone do NOT change mode defaults"
+                          ],
+    "date":  "2026-06-27",
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "title":  "Mode Selector Policy Update"
+}

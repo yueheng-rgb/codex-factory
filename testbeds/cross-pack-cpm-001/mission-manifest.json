@@ -1,0 +1,113 @@
+{
+  "mission_id": "CPM-001",
+  "name": "Miniapp Ecommerce Admin",
+  "task_description": "构建完整的微信小程序电商商城 + PC Web 管理后台系统。用户端：小程序商品浏览、购物车、下单、支付、订单查看。管理端：PC 后台管理商品、订单、用户、权限。",
+  "expected_packs": ["miniapp", "ecommerce", "admin-system"],
+  "activated_packs": ["miniapp", "ecommerce", "admin-system"],
+  "expected_surfaces": {
+    "miniapp": ["WeChat Mini Program frontend", "WeChat login (OPENID server-side)", "Product browsing", "Cart", "Order creation", "Payment (WeChat Pay)", "Order tracking"],
+    "ecommerce": ["Product CRUD API", "Order state machine", "Inventory management", "Cart API", "Payment API", "Idempotency layer"],
+    "admin-system": ["Next.js admin dashboard", "Product management UI", "Order management UI", "User/Role management", "Audit log viewer", "RBAC middleware"]
+  },
+  "detected_surfaces": {
+    "miniapp": ["WeChat Mini Program frontend", "WeChat login (OPENID server-side)", "Product browsing", "Cart", "Order creation", "Payment (WeChat Pay)", "Order tracking"],
+    "ecommerce": ["Product CRUD API", "Order state machine", "Inventory management", "Cart API", "Payment API", "Idempotency layer"],
+    "admin-system": ["Next.js admin dashboard", "Product management UI", "Order management UI", "User/Role management", "Audit log viewer", "RBAC middleware"]
+  },
+  "expected_risk": "high",
+  "detected_risk": "high",
+  "invariants_merged": [
+    {"id": "I01", "pack": "miniapp", "invariant": "微信登录 OPENID 必须服务端处理，小程序端不接触 AppSecret", "source": "miniapp-starter"},
+    {"id": "I02", "pack": "miniapp", "invariant": "小程序前端只做展示和 API 调用，不做权限判断", "source": "miniapp-blueprint"},
+    {"id": "I03", "pack": "miniapp", "invariant": "Token 有过期时间 (≤ 24h)，过期自动跳转登录", "source": "auth-permission-boundary"},
+    {"id": "I04", "pack": "miniapp", "invariant": "所有 API 请求携带 token，服务端校验", "source": "auth-permission-boundary"},
+    {"id": "I05", "pack": "miniapp", "invariant": "小程序密钥 (AppSecret) 只在服务端环境变量，不入前端代码", "source": "GLOBAL_CODEX_RULES"},
+    {"id": "I06", "pack": "ecommerce", "invariant": "商品 CRUD 完整生命周期 (列表/详情/新建/编辑/删除)", "source": "feature-completeness"},
+    {"id": "I07", "pack": "ecommerce", "invariant": "订单状态机: pending→paid→shipped→completed，含退款路径 pending→refunding→refunded，任何状态→cancelled", "source": "database-consistency-and-transaction"},
+    {"id": "I08", "pack": "ecommerce", "invariant": "库存扣减使用条件 UPDATE + 事务，禁止 SELECT-then-UPDATE 竞态", "source": "database-consistency-and-transaction"},
+    {"id": "I09", "pack": "ecommerce", "invariant": "防重复提交: 订单表 idempotency_key 唯一约束", "source": "database-consistency-and-transaction"},
+    {"id": "I10", "pack": "ecommerce", "invariant": "支付需要真实微信商户 AppID，不可 mock 通过", "source": "STACK_DECISION_GUIDE"},
+    {"id": "I11", "pack": "ecommerce", "invariant": "金额字段使用 DECIMAL 或 INTEGER(分)，禁止 FLOAT/DOUBLE", "source": "database-consistency-and-transaction"},
+    {"id": "I12", "pack": "ecommerce", "invariant": "购物车数量变更必须原子操作", "source": "database-consistency-and-transaction"},
+    {"id": "I13", "pack": "ecommerce", "invariant": "订单创建与库存扣减在同一事务中", "source": "database-consistency-and-transaction"},
+    {"id": "I14", "pack": "ecommerce", "invariant": "订单状态非法流转必须报错，不可静默接受", "source": "database-consistency-and-transaction"},
+    {"id": "I15", "pack": "admin-system", "invariant": "RBAC 至少 admin/user 两种角色，服务端校验每个 API", "source": "auth-permission-boundary"},
+    {"id": "I16", "pack": "admin-system", "invariant": "API 统一响应格式: { success: boolean, data?: T, error?: { code, message } }", "source": "backend-api-contract"},
+    {"id": "I17", "pack": "admin-system", "invariant": "列表分页规范: { page, limit, total, totalPages }", "source": "backend-api-contract"},
+    {"id": "I18", "pack": "admin-system", "invariant": "资源归属检查: 普通管理员只能操作本组织/本人数据", "source": "auth-permission-boundary"},
+    {"id": "I19", "pack": "admin-system", "invariant": "管理员敏感操作记录审计日志 (操作人/时间/操作类型/IP)", "source": "auth-permission-boundary"},
+    {"id": "I20", "pack": "admin-system", "invariant": "权限提升操作需要二次验证或超级管理员权限", "source": "auth-permission-boundary"},
+    {"id": "I21", "pack": "admin-system", "invariant": "前端隐藏按钮 ≠ 权限控制，403 必须从服务端返回", "source": "auth-permission-boundary"},
+    {"id": "I22", "pack": "cross-cutting", "invariant": "每个数据展示区域实现四态: loading (骨架屏) / empty (引导) / error (重试) / success", "source": "error-empty-loading-states"},
+    {"id": "I23", "pack": "cross-cutting", "invariant": "每个表单/按钮实现四态: idle / submitting (disabled+文案) / success (toast+跳转) / failed (toast+保留输入)", "source": "frontend-state-and-form-logic"},
+    {"id": "I24", "pack": "cross-cutting", "invariant": "所有数据库表含审计字段: created_at, updated_at", "source": "GLOBAL_CODEX_RULES"},
+    {"id": "I25", "pack": "cross-cutting", "invariant": "外键必须建索引，WHERE/JOIN/ORDER BY 常用字段建索引", "source": "database-consistency-and-transaction"},
+    {"id": "I26", "pack": "cross-cutting", "invariant": ".env.example 提供，真实密钥不入 git (.gitignore 含 .env)", "source": "GLOBAL_CODEX_RULES"},
+    {"id": "I27", "pack": "cross-cutting", "invariant": "一条明确命令可运行/预览整个系统 (npm run dev 或等效)", "source": "GLOBAL_CODEX_RULES"},
+    {"id": "I28", "pack": "cross-cutting", "invariant": "管理后台响应式布局，小程序适配微信设计规范", "source": "GLOBAL_CODEX_RULES"}
+  ],
+  "conflicts_resolved": [
+    {
+      "type": "auth_model_overlap",
+      "packs": ["miniapp", "admin-system"],
+      "description": "小程序使用微信 OPENID + 自签发 token；管理后台使用 JWT + 用户名密码。两个 auth 域共享同一用户表但登录方式不同。",
+      "resolution": "用户表增加 auth_provider 字段 (wechat / password)，统一 token 校验中间件支持两种 token 类型。后台管理员通过小程序 OPENID 绑定或独立账号创建。"
+    },
+    {
+      "type": "order_visibility",
+      "packs": ["miniapp", "admin-system"],
+      "description": "用户在小程序下单，管理员在后台看到订单。订单表需同时支持用户视角 (我的订单) 和管理员视角 (全量/筛选)。",
+      "resolution": "订单 API 根据 token role 区分：user 角色返回 user_id 匹配的订单，admin 角色返回全量订单并支持筛选。"
+    },
+    {
+      "type": "product_publish_flow",
+      "packs": ["ecommerce", "admin-system"],
+      "description": "商品在后台创建后需要发布到小程序可见。需区分草稿/已发布/已下架状态。",
+      "resolution": "商品表增加 status 字段 (draft / published / archived)。小程序端只查询 status=published 的商品。管理后台可管理全部状态。"
+    },
+    {
+      "type": "payment_callback",
+      "packs": ["miniapp", "ecommerce"],
+      "description": "微信支付回调 (notify_url) 必须由服务端处理，更新订单状态。支付结果通过 API 返回小程序。",
+      "resolution": "支付回调端点 /api/payment/wechat-notify 在服务端独立处理，验签后更新订单状态。小程序轮询订单状态或通过回调参数跳转。"
+    }
+  ],
+  "human_review_required": true,
+  "human_review_status": "REVIEW_REQUIRED_NOT_RUN",
+  "human_review_reasons": [
+    "payment flow: 微信支付集成需要真实商户 AppID、API v3 密钥、证书，不可 mock",
+    "production appid: 小程序 AppID 和 AppSecret 来自微信开放平台，需开发者提供",
+    "admin permission escalation: 管理员角色权限边界需人工审核，防止越权提升",
+    "database schema: 订单/支付/库存/退款表设计需审核事务边界",
+    "auth bridge: 小程序 OPENID 用户与管理后台管理员的绑定/解绑逻辑"
+  ],
+  "external_engines_required": [
+    "semgrep: 安全扫描 — 检测密钥泄露、SQL 注入、XSS、权限缺失",
+    "autocannon: 压力测试 — 订单创建/库存扣减并发场景",
+    "playwright: E2E 测试 — 管理后台页面流程 + API contract 验证"
+  ],
+  "final_verdict": "REQUIRES_HUMAN_REVIEW",
+  "verdict_rationale": "本 mission 同时激活 miniapp/ecommerce/admin-system 三个 pack，涉及支付、库存扣减、权限管理、审计日志等高风险领域。根据 Factory v2.6 安全规则，以下条件触发强制人工审核: (a) 支付流程需要真实凭证，(b) 管理员权限提升路径需验证，(c) 生产环境 AppID 不可 mock。在人工确认上述 5 项 review reasons 之前，禁止生成实现代码。",
+  "pack_details": {
+    "miniapp": {
+      "type": "miniapp",
+      "frontend": "原生微信小程序 (WXML + WXSS + JS/TS)",
+      "backend": "共享 ecommerce API 服务",
+      "auth": "微信登录 → code2session → OPENID → 自签发 token",
+      "key_constraint": "AppSecret 只在服务端，前端不可见"
+    },
+    "ecommerce": {
+      "type": "ecommerce",
+      "backend": "Node.js + Fastify + PostgreSQL + Prisma",
+      "core_tables": ["users", "products", "cart_items", "orders", "order_items", "payments", "inventory_logs", "audit_logs"],
+      "key_constraint": "所有金额/库存操作必须在事务中，使用条件 UPDATE + 唯一约束防重复"
+    },
+    "admin-system": {
+      "type": "fullstack-admin",
+      "frontend": "Next.js (App Router) + TypeScript + shadcn/ui + Tailwind CSS",
+      "backend": "共享 ecommerce API 服务 + 独立 admin API 端点",
+      "auth": "JWT + bcrypt 密码哈希 + RBAC 中间件",
+      "key_constraint": "每个管理 API 端点必须校验权限，审计日志不可删除"
+    }
+  }
+}

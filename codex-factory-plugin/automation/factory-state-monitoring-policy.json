@@ -1,0 +1,39 @@
+﻿{
+    "phase": "H21-B",
+    "version": "0.1.0-prototype",
+    "title": "Factory State Monitoring Policy",
+    "description": "Governs automated monitoring of Factory governance state",
+    "rules": [
+        "Monitoring is READONLY by default — no mutation allowed without explicit phase",
+        "Monitoring alert is NOT verifier PASS — it is a signal requiring human verification",
+        "Monitoring result is NOT phase closure evidence by itself",
+        "Monitoring cannot update currentTrustedPhase",
+        "Monitoring cannot mark any phase PASS or FAIL",
+        "Monitoring cannot create final ZIP",
+        "Monitoring cannot archive or modify evidence",
+        "Monitoring cannot suppress verifier FAIL",
+        "Monitoring can only RECOMMEND action — never enforce",
+        "All monitoring outputs must be machine-readable JSON"
+    ],
+    "checks": [
+        {"id":"PHASE_MISMATCH","description":"currentTrustedPhase != expected","severity":"ALERT"},
+        {"id":"ALLOWED_MISMATCH","description":"allowedNextPhase mismatch","severity":"ALERT"},
+        {"id":"FINAL_ZIP_EARLY","description":"final ZIP exists before closure","severity":"ALERT"},
+        {"id":"MANIFEST_SHA_MISMATCH","description":"MANIFEST.sha256 does not match","severity":"ALERT"},
+        {"id":"FACTORYCTL_FAIL","description":"factoryctl verify returns FAIL","severity":"ALERT"},
+        {"id":"STALE_AGENTS","description":"Active agents without recent progress","severity":"WARN"},
+        {"id":"MISSING_HANDOFF","description":"session-rotation-handoff.json missing","severity":"ALERT"},
+        {"id":"COMPRESSED_EVIDENCE","description":"Compressed summary used as evidence","severity":"ALERT"},
+        {"id":"PLUGIN_PRODUCTION","description":"Plugin marked production-ready prematurely","severity":"ALERT"},
+        {"id":"AUTO_MUTATION","description":"Automation mutated governance state","severity":"BLOCK"}
+    ],
+    "outputSchema": {
+        "verdict": {"enum":["MONITORING_PASS","MONITORING_ALERT","MONITORING_ERROR"]},
+        "checkedAt": {"type":"string","format":"date-time"},
+        "checks": {"type":"array"},
+        "alerts": {"type":"array"},
+        "evidencePaths": {"type":"array"},
+        "recommendedAction": {"type":"string"},
+        "doesNotMutateState": {"type":"boolean","const":true}
+    }
+}

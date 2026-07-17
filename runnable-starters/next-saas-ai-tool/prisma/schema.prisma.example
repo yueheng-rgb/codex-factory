@@ -1,0 +1,77 @@
+﻿// Prisma Schema — SaaS / AI Tool
+// ⚠️ 示例文件。真实项目：
+// 1. 重命名为 schema.prisma  2. 配置 DATABASE_URL  3. npx prisma migrate dev
+//
+// ⚠️ 正式项目扣减额度必须使用事务或原子更新：
+// 错误做法：SELECT quota FROM users → 判断 → UPDATE quota = quota - 1
+// 正确做法：UPDATE users SET quota_used = quota_used + 1 WHERE id = ? AND quota_total - quota_used >= 1
+// 如果 affected rows = 0 → 额度不足，回滚事务
+
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql"; url = env("DATABASE_URL") }
+
+model User {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  passwordHash String   @map("password_hash")
+  displayName  String?
+  role         String   @default("user")
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  quota        UserQuota?
+  history      GenerationHistory[]
+  apiLogs      ApiLog[]
+  auditLogs    AuditLog[]
+  @@map("users")
+}
+
+model UserQuota {
+  id        String   @id @default(uuid())
+  userId    String   @unique @map("user_id")
+  total     Int      @default(100)
+  used      Int      @default(0)
+  updatedAt DateTime @updatedAt @map("updated_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@map("user_quotas")
+}
+
+model GenerationHistory {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  topic     String
+  style     String?
+  content   String
+  model     String
+  status    String   @default("success")
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId, createdAt])
+  @@map("generation_history")
+}
+
+model ApiLog {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  endpoint   String
+  method     String
+  statusCode Int      @map("status_code")
+  durationMs Int      @map("duration_ms")
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId, createdAt])
+  @@map("api_logs")
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  action     String
+  targetType String   @map("target_type")
+  targetId   String   @map("target_id")
+  detail     String?
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId, createdAt])
+  @@map("audit_logs")
+}

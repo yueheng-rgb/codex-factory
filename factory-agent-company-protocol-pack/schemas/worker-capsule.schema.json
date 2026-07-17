@@ -1,0 +1,243 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-app-factory/schemas/worker-capsule.schema.json",
+  "title": "Worker Capsule",
+  "description": "Defines the isolation boundary and operational contract for a single Builder agent spawned by the Orchestrator. Every Builder MUST receive a valid worker capsule before beginning work.",
+  "type": "object",
+  "required": [
+    "capsuleId",
+    "phase",
+    "agentId",
+    "role",
+    "forkContext",
+    "ownedScope",
+    "forbiddenScope",
+    "allowedImports",
+    "forbiddenImports",
+    "expectedOutputs",
+    "requiredEvidence",
+    "handoffRequirements",
+    "closeConditions",
+    "antiDeceptionChecks",
+    "escalationTriggers",
+    "assignedBy",
+    "assignedAt",
+    "contractVersion"
+  ],
+  "properties": {
+    "capsuleId": {
+      "type": "string",
+      "description": "Globally unique identifier for this capsule instance. Format: capsule-{phase}-{agentId}-{timestamp}.",
+      "pattern": "^capsule-[a-z0-9]+-[a-z0-9]+-[0-9]{14}$"
+    },
+    "phase": {
+      "type": "string",
+      "description": "The factory phase this capsule belongs to (e.g., FACTORY-AGENT-1, FACTORY-AGENT-2).",
+      "minLength": 1
+    },
+    "agentId": {
+      "type": "string",
+      "description": "The unique agent identifier assigned to this worker.",
+      "minLength": 1
+    },
+    "role": {
+      "type": "string",
+      "description": "Functional role of the agent (e.g., SCHEMAS-PROTOCOLS, STARTER-KIT, BLUEPRINT-DESIGN).",
+      "minLength": 1
+    },
+    "forkContext": {
+      "type": "boolean",
+      "const": false,
+      "description": "MUST be false. Forking context is forbidden in the factory-agent model; every agent starts from a clean capsule."
+    },
+    "ownedScope": {
+      "type": "array",
+      "description": "List of filesystem paths this agent is authorized to read and write. All output MUST fall within these paths.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "forbiddenScope": {
+      "type": "array",
+      "description": "List of filesystem paths this agent MUST NOT touch. Violation triggers quarantine and escalation.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "allowedImports": {
+      "type": "array",
+      "description": "Approved dependencies, modules, and protocols the agent may use.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "forbiddenImports": {
+      "type": "array",
+      "description": "Explicitly disallowed imports. Attempting to use any triggers contract violation.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "expectedOutputs": {
+      "type": "array",
+      "description": "Concrete deliverables the agent must produce. Every item must exist at handoff time.",
+      "items": {
+        "type": "object",
+        "required": ["path", "description"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Relative path within ownedScope to the deliverable."
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Human-readable description of what this deliverable must contain."
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "requiredEvidence": {
+      "type": "array",
+      "description": "List of evidence types the agent MUST produce to prove work was genuinely done.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "handoffRequirements": {
+      "type": "object",
+      "required": ["fileList", "sha256", "transcriptRef", "contractChecklist"],
+      "properties": {
+        "fileList": {
+          "type": "boolean",
+          "const": true,
+          "description": "MUST be true. Handoff must include a complete file manifest."
+        },
+        "sha256": {
+          "type": "boolean",
+          "const": true,
+          "description": "MUST be true. Every file in handoff must include a SHA256 checksum."
+        },
+        "transcriptRef": {
+          "type": "boolean",
+          "const": true,
+          "description": "MUST be true. A transcript reference proving agent activity must be included."
+        },
+        "contractChecklist": {
+          "type": "boolean",
+          "const": true,
+          "description": "MUST be true. Every contract item must be checked off with evidence."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Hard requirements for a valid handoff. All four booleans MUST be true."
+    },
+    "closeConditions": {
+      "type": "array",
+      "description": "Conditions that trigger agent closure (COMPLETED, FAILED, STALE, REPLACED).",
+      "items": {
+        "type": "object",
+        "required": ["reason", "condition"],
+        "properties": {
+          "reason": {
+            "type": "string",
+            "enum": ["COMPLETED", "FAILED", "STALE", "REPLACED"],
+            "description": "The close reason this condition maps to."
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Description of the triggering condition."
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "antiDeceptionChecks": {
+      "type": "array",
+      "description": "Checklist of anti-deception rules applicable to this capsule.",
+      "items": {
+        "type": "object",
+        "required": ["checkId", "description", "severity"],
+        "properties": {
+          "checkId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Unique identifier for this check."
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What this check validates."
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["P0", "P1", "P2"],
+            "description": "P0 = integrity violation (block), P1 = quality violation (warn), P2 = advisory."
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "escalationTriggers": {
+      "type": "array",
+      "description": "Conditions that trigger escalation to the Orchestrator or human operator.",
+      "items": {
+        "type": "object",
+        "required": ["triggerId", "condition", "escalationPath", "severity"],
+        "properties": {
+          "triggerId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Unique identifier for this escalation trigger."
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Description of what triggers the escalation."
+          },
+          "escalationPath": {
+            "type": "string",
+            "enum": ["ORCHESTRATOR", "HUMAN_OPERATOR", "SECURITY_AUDIT"],
+            "description": "Where the escalation is routed."
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["P0", "P1", "P2"],
+            "description": "Severity level of the trigger."
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "assignedBy": {
+      "type": "string",
+      "description": "The agentId of the Orchestrator who created this capsule.",
+      "minLength": 1
+    },
+    "assignedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of capsule creation."
+    },
+    "contractVersion": {
+      "type": "string",
+      "description": "Semantic version of the capsule contract. Capsule validation fails if consumer expects a different version.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    }
+  },
+  "additionalProperties": false
+}

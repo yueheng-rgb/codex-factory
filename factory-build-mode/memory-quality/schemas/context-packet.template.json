@@ -1,0 +1,15 @@
+﻿{
+  "packetId": "{project}-{phase}-{role}-{timestamp}",
+  "generatedAt": "",
+  "targetAudience": "",
+  "evidenceLevel": "L4",
+  "sections": {
+    "criticalState": {},
+    "decisions": [],
+    "risks": [],
+    "rejectedClaims": [],
+    "evidenceReferences": [],
+    "forbiddenActions": [],
+    "nextSteps": []
+  }
+}

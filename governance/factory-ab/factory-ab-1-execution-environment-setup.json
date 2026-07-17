@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-AB-1","section":"E","title":"Execution Environment Setup","timestamp":"2026-06-28T18:30:00+08:00","environment":{"harness_root":"harness/ab-1/","run_a":"harness/ab-1/run-a-vanilla/","run_b":"harness/ab-1/run-b-factory/","isolation":"Separate directories, no cross-contamination, fresh sessions"},"status":"ENVIRONMENT_READY"}

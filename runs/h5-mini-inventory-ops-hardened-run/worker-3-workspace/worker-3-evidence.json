@@ -1,0 +1,88 @@
+﻿{
+  "worker": "worker-3",
+  "role": "HTTP / CLI / Persistence",
+  "workspace": "worker-3-workspace",
+  "completed": "2026-06-22T06:25:00.000Z",
+  "files": {
+    "store.js": {
+      "exports": [
+        "addItem", "getItems", "getItem",
+        "getStock", "getStockLevel", "setStock",
+        "inbound", "outbound",
+        "reserve", "releaseReservation", "getReservations",
+        "transfer",
+        "getAdjustments", "getAudit",
+        "exportState", "importState",
+        "generateReport"
+      ],
+      "dependencies": ["../worker-1-workspace/src/itemTypes (createSKU)"],
+      "notes": "In-memory state singleton. All operations are synchronous."
+    },
+    "persistence.js": {
+      "exports": ["saveState", "loadState"],
+      "dependencies": ["fs", "path (built-in)"],
+      "notes": "JSON file persistence. Creates parent directories as needed."
+    },
+    "seedData.js": {
+      "exports": ["seedSampleData"],
+      "dependencies": ["./store"],
+      "notes": "Creates 5 sample SKUs: SKU-001 through SKU-005. Idempotent (skips existing)."
+    },
+    "server.js": {
+      "exports": ["startServer"],
+      "dependencies": ["./store", "./persistence"],
+      "runtime": "node server.js (default port 3456 or PORT env)",
+      "routes": {
+        "GET /health": "200 { status: 'ok' }",
+        "GET /api/items": "200 [SKU...]",
+        "GET /api/stock": "200 [{ skuId, quantity }...]",
+        "POST /api/inbound": "201 adjustment | 200 idempotent",
+        "POST /api/outbound": "201 adjustment",
+        "POST /api/reserve": "201 reservation",
+        "POST /api/release": "200 reservation",
+        "POST /api/transfer": "201 adjustment",
+        "GET /api/adjustments": "200 [adjustment...]",
+        "GET /api/audit": "200 [auditEvent...]",
+        "GET /api/export": "200 state JSON",
+        "POST /api/import": "200 { status: 'imported' }",
+        "GET /api/report.md": "200 text/markdown"
+      },
+      "features": ["CORS headers", "JSON body parsing", "Error handling with detail messages"],
+      "notes": "Node.js http module only, no express. Handles OPTIONS preflight."
+    },
+    "cli.js": {
+      "exports": ["handleCli"],
+      "dependencies": ["./store", "./seedData", "./persistence"],
+      "commands": {
+        "seed": "Create 5 sample items with stock",
+        "inbound <skuId> <qty>": "Process inbound",
+        "outbound <skuId> <qty>": "Process outbound",
+        "export": "Print full state JSON",
+        "report": "Print markdown report"
+      },
+      "features": ["Auto-load from .inventory-state.json", "Auto-save after mutations", "Cross-process state persistence"],
+      "notes": "Uses store directly (no HTTP). Auto-persists to .inventory-state.json."
+    }
+  },
+  "testResults": {
+    "cli_seed": "PASS - Creates 5 items with stock 100/500/50/200/30",
+    "cli_inbound": "PASS - SKU-001 +50 → 150",
+    "cli_outbound": "PASS - SKU-002 -10 → 490",
+    "cli_report": "PASS - Generates markdown with summary table",
+    "server_health": "PASS - 200 { status: 'ok' }",
+    "server_items": "PASS - 200 returns item array",
+    "server_stock": "PASS - 200 returns stock array",
+    "server_import": "PASS - 200 imports state from JSON",
+    "server_inbound": "PASS - 201 creates adjustment",
+    "server_inbound_idempotent": "PASS - 200 skips duplicate key",
+    "server_outbound": "PASS - 201 creates adjustment",
+    "server_reserve": "PASS - 201 creates reservation with UUID",
+    "server_release": "PASS - 200 releases reservation, restores stock",
+    "server_transfer": "PASS - 201 transfers stock between SKUs",
+    "server_adjustments": "PASS - 200 returns adjustment history",
+    "server_audit": "PASS - 200 returns audit log",
+    "server_export": "PASS - 200 returns full state JSON",
+    "server_report": "PASS - 200 returns text/markdown",
+    "all_endpoints": "PASS - 12/12 routes responding correctly"
+  }
+}

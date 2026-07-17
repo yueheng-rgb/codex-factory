@@ -1,0 +1,68 @@
+﻿
+=== Mount Readiness Check v1.0.0 ===
+
+=== Mount Readiness: READY ===
+Checks passed: 10 / 10
+{
+    "issues":  [
+
+               ],
+    "timestamp":  "2026-06-28T09:58:59+08:00",
+    "check_version":  "1.0.0",
+    "ready":  true,
+    "checks_total":  10,
+    "checks_passed":  10,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "MRC-001",
+                       "desc":  "phase-ledger.jsonl exists and has entries"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-002",
+                       "desc":  "All 8 snapshot types exist with freshnessStatus=FRESH"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-003",
+                       "desc":  "Attach Packet v3 exists with freshnessStatus=FRESH"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-004",
+                       "desc":  "direction-guard lastCompletedPhase matches latest completed phase-ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-005",
+                       "desc":  "SQLite index v2 timestamp is recent"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-006",
+                       "desc":  "No snapshots with freshnessStatus=STALE"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-007",
+                       "desc":  "No duplicate phase entries in phase-ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-008",
+                       "desc":  "evidence-index.json exists with entries"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-009",
+                       "desc":  "All frozen strategy flags preserved in direction-guard"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "MRC-010",
+                       "desc":  "No active blockers that would prevent mount"
+                   }
+               ],
+    "user_command_if_ready":  "加载最新 Snapshot，判断当前方向"
+}

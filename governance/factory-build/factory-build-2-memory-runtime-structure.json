@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-BUILD-2","subPhase":"A_MEMORY_RUNTIME_STRUCTURE","verdict":"PASS","directory":"factory-build-mode/runtime/memory/","principles":["file-based MVP","conversation memory untrusted after rotation","compressed summaries not evidence","memory guides but cannot replace verifier"]}

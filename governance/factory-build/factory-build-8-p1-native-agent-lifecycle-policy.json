@@ -1,0 +1,20 @@
+﻿{
+    "phase":  "FACTORY-BUILD-8-P1",
+    "subPhase":  "D_LIFECYCLE_POLICY",
+    "rules":  [
+                  "Spawn with fork_context:false",
+                  "Scoped capsule required",
+                  "Write-scope map required",
+                  "Handoff required before close",
+                  "Close receipt required",
+                  "Audit after close: no stale/orphan/active",
+                  "UI count != active count",
+                  "Record agent IDs and fork_context"
+              ],
+    "forbidden":  [
+                      "Closing phase with active agents",
+                      "Handoff notification = close evidence",
+                      "Simulated roles claimed native",
+                      "UI count as lifecycle truth"
+                  ]
+}

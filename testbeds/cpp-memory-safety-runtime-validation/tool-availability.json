@@ -1,0 +1,70 @@
+﻿{
+    "overall":  {
+                    "valgrind_available":  false,
+                    "compiler_available":  false,
+                    "asan_available":  false,
+                    "cmake_available":  false,
+                    "ubsan_available":  false,
+                    "tsan_available":  false
+                },
+    "tools":  [
+                  {
+                      "limitation":  "TOOL_UNAVAILABLE — g++ not found in PATH or not installed",
+                      "path":  null,
+                      "version":  null,
+                      "name":  "g++",
+                      "available":  false
+                  },
+                  {
+                      "limitation":  "TOOL_UNAVAILABLE — clang not found in PATH or not installed",
+                      "path":  null,
+                      "version":  null,
+                      "name":  "clang",
+                      "available":  false
+                  },
+                  {
+                      "limitation":  "TOOL_UNAVAILABLE — clang++ not found in PATH or not installed",
+                      "path":  null,
+                      "version":  null,
+                      "name":  "clang++",
+                      "available":  false
+                  },
+                  {
+                      "limitation":  "TOOL_UNAVAILABLE — cmake not found in PATH or not installed",
+                      "path":  null,
+                      "version":  null,
+                      "name":  "cmake",
+                      "available":  false
+                  },
+                  {
+                      "limitation":  "TOOL_UNAVAILABLE — no C++ compiler available",
+                      "path":  null,
+                      "name":  "ASan (AddressSanitizer)",
+                      "version":  null,
+                      "available":  false
+                  },
+                  {
+                      "limitation":  "TOOL_UNAVAILABLE — no C++ compiler available; requires g++ or clang with -fsanitize=undefined",
+                      "path":  null,
+                      "name":  "UBSan (UndefinedBehaviorSanitizer)",
+                      "version":  null,
+                      "available":  false
+                  },
+                  {
+                      "limitation":  "TOOL_UNAVAILABLE — no C++ compiler available; requires g++ or clang with -fsanitize=thread",
+                      "path":  null,
+                      "name":  "TSan (ThreadSanitizer)",
+                      "version":  null,
+                      "available":  false
+                  },
+                  {
+                      "limitation":  "TOOL_UNAVAILABLE — valgrind not found in PATH or not installed",
+                      "path":  null,
+                      "version":  null,
+                      "name":  "valgrind",
+                      "available":  false
+                  }
+              ],
+    "timestamp":  "2026-07-12T01:10:06+08:00",
+    "hostname":  "ZHUANZ"
+}

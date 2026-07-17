@@ -1,0 +1,32 @@
+﻿{
+    "phase":  "6C-H11",
+    "summary":  {
+                    "requiresRerun":  0,
+                    "partialCount":  1,
+                    "exactCount":  0,
+                    "strongCount":  0,
+                    "blockerCount":  1,
+                    "weakCount":  0,
+                    "totalMappings":  1,
+                    "invalidCount":  0
+                },
+    "runId":  "h11-fixture",
+    "aliasMappings":  [
+                          {
+                              "criticalInvariantCategory":  "authorization",
+                              "sourceEvidence":  [
+                                                     "file.js:incident_assignment"
+                                                 ],
+                              "rerunRequired":  false,
+                              "actualScenarioId":  "incident_assignment",
+                              "intendedScenarioId":  "unauthorized_close_rejected",
+                              "requiresDirectScenario":  true,
+                              "intendedInvariant":  "unauthorized_role_cannot_close",
+                              "negativeId":  "neg-4",
+                              "equivalenceJustification":  "Same workflow chain but indirect coverage. This is a critical authorization invariant.",
+                              "acceptedForClosure":  true,
+                              "aliasStrength":  "PARTIAL"
+                          }
+                      ],
+    "createdAt":  "2026-06-22T23:16:40.5062924+08:00"
+}

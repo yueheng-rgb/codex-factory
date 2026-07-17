@@ -1,0 +1,189 @@
+﻿{
+    "verificationId":  "VERIFY-R2.3-H-001",
+    "timestamp":  "2026-07-10T00:29:13+08:00",
+    "total":  30,
+    "passed":  30,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "id":  "V-001",
+                       "description":  "CAP-SKILL-004 loaded by skill-content-loader",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-002",
+                       "description":  "Permission gate ALLOW_WITH_CONTROLS",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-003",
+                       "description":  "Audit status pass (risk 0/100)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-004",
+                       "description":  "ExecutionContext has loadedSkillRefs",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-005",
+                       "description":  "AGENTS.md detected (2 files)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-006",
+                       "description":  "Build command extracted",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-007",
+                       "description":  "Test command extracted",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-008",
+                       "description":  "Lint command extracted",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-009",
+                       "description":  "Security boundaries (4+)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-010",
+                       "description":  "Directory rules (3)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-011",
+                       "description":  "Conventions (3)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-012",
+                       "description":  "Forbidden actions (9)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-013",
+                       "description":  "Handoff fields (6)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-014",
+                       "description":  "User instruction priority",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-015",
+                       "description":  "Contract PIC (build/test/lint)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-016",
+                       "description":  "Contract AC (conventions)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-017",
+                       "description":  "Contract FC (directory rules)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-018",
+                       "description":  "Contract NGC (security)",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-019",
+                       "description":  "Nested AGENTS.md scope override",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-020",
+                       "description":  "Conflict warning generated",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-021",
+                       "description":  "Task: try/catch used",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-022",
+                       "description":  "Task: /status added",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-023",
+                       "description":  "Task: test suite updated",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-024",
+                       "description":  "Task: handoff recorded",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-025",
+                       "description":  "Task: AGENTS.md directory rules followed",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-026",
+                       "description":  "Task: security boundaries followed",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-027",
+                       "description":  "Skill usage ledger has entries",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-028",
+                       "description":  "Handoff file written",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-029",
+                       "description":  "Behavior diff: 12 sig differences",
+                       "status":  "PASS",
+                       "passed":  true
+                   },
+                   {
+                       "id":  "V-030",
+                       "description":  "No security boundary drift",
+                       "status":  "PASS",
+                       "passed":  true
+                   }
+               ]
+}

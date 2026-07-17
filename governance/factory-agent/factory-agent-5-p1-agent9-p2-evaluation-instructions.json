@@ -1,0 +1,41 @@
+﻿{
+    "constraints":  [
+                        "Do not start new benchmark",
+                        "Do not modify product code",
+                        "Do not create v0.5 package",
+                        "Do not claim multi-agent effectiveness without evidence",
+                        "Use only existing run data and repaired policy"
+                    ],
+    "evaluationPolicy":  {
+                             "historicalContext":  "AGENT-8-P1-R1 policy defect records (PD-01, PD-02)",
+                             "complexityPolicy":  "AGENT-5-P1 repaired complexity policy (v2.0-repaired)",
+                             "baseline":  "AGENT-9 historical result: Vanilla 85.5, v0.4 66.0, old v0.5 80.0, Verdict MULTI_AGENT_NO_BENEFIT",
+                             "rubric":  "AGENT-5 original rubric"
+                         },
+    "targetPhase":  "FACTORY-AGENT-9-P2",
+    "step":  "F_AGENT9_P2_EVALUATION_INSTRUCTIONS",
+    "antiGamingInEvaluation":  [
+                                   "Source file count is diagnostic, not hard blocker",
+                                   "Export count is diagnostic, not hard blocker",
+                                   "Test file count is diagnostic, not hard blocker",
+                                   "All evaluations must reference AGENT-5-P1 meaningful-definitions",
+                                   "Gaming signals must be reported in evaluation"
+                               ],
+    "phase":  "FACTORY-AGENT-5-P1",
+    "timestamp":  "2026-06-26T20:21:48.3941709+08:00",
+    "questions":  [
+                      "Does P1 beat old v0.5 under repaired policy?",
+                      "Does P1 beat v0.4 under repaired policy?",
+                      "Does P1 beat Vanilla under repaired policy?",
+                      "Does repaired 4-agent mode show product benefit, process benefit, both, or neither?",
+                      "Does P1 justify another benchmark?",
+                      "Should multi-agent remain not-default, conditional, or proceed to further testing?",
+                      "Did policy repair change interpretation of AGENT-8-P1/R1?"
+                  ],
+    "evaluationRuns":  [
+                           "RUN-LP-A (Vanilla)",
+                           "RUN-LP-B (v0.4 Factory Lite)",
+                           "old RUN-LP-C (7-agent)",
+                           "RUN-LP-C-P1 (4-agent after R1)"
+                       ]
+}

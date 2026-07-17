@@ -1,0 +1,16 @@
+﻿{
+    "template": "task-graph",
+    "version": "0.1.0",
+    "projectName": "",
+    "tasks": [],
+    "taskSchema": {
+        "id": "",
+        "name": "",
+        "description": "",
+        "dependsOn": [],
+        "fileOwnership": [],
+        "estimatedEffort": "",
+        "status": "PENDING",
+        "agentAssigned": ""
+    }
+}

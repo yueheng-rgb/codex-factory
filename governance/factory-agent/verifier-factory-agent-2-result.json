@@ -1,0 +1,380 @@
+﻿{
+    "phase":  "FACTORY-AGENT-2",
+    "verdict":  "PASS",
+    "totalChecks":  74,
+    "passed":  74,
+    "failed":  0,
+    "timestamp":  "2026-06-26T01:42:33.5683574+08:00",
+    "checks":  [
+                   {
+                       "Label":  "V04_ZIP_EXISTS",
+                       "Pass":  true,
+                       "Detail":  "v0.4 ZIP exists on Desktop"
+                   },
+                   {
+                       "Label":  "V04_ZIP_SHA256",
+                       "Pass":  true,
+                       "Detail":  "Desktop SHA256: FF5EE6A652524B1B0F6DB100DDEB48B740E2D4F9A42E428EC43D161D5D1B1FCE"
+                   },
+                   {
+                       "Label":  "OLD_FINAL_EXISTS",
+                       "Pass":  true,
+                       "Detail":  "Old final-package/ exists"
+                   },
+                   {
+                       "Label":  "NO_NEW_ZIP",
+                       "Pass":  true,
+                       "Detail":  "No new ZIP created in last 24h"
+                   },
+                   {
+                       "Label":  "AGENT1_PASS",
+                       "Pass":  true,
+                       "Detail":  "AGENT-1 verifier result"
+                   },
+                   {
+                       "Label":  "AGENT1_PACK",
+                       "Pass":  true,
+                       "Detail":  "Protocol pack manifest"
+                   },
+                   {
+                       "Label":  "PREFLIGHT_JSON",
+                       "Pass":  true,
+                       "Detail":  "Preflight JSON"
+                   },
+                   {
+                       "Label":  "PREFLIGHT_RPT",
+                       "Pass":  true,
+                       "Detail":  "Preflight report"
+                   },
+                   {
+                       "Label":  "RUNTIME_DIR",
+                       "Pass":  true,
+                       "Detail":  "Runtime directory"
+                   },
+                   {
+                       "Label":  "RUNTIME_SCRIPTS_DIR",
+                       "Pass":  true,
+                       "Detail":  "Runtime scripts dir"
+                   },
+                   {
+                       "Label":  "RUNTIME_FIXTURES_DIR",
+                       "Pass":  true,
+                       "Detail":  "Runtime fixtures dir"
+                   },
+                   {
+                       "Label":  "RUNTIME_RESULTS_DIR",
+                       "Pass":  true,
+                       "Detail":  "Runtime results dir"
+                   },
+                   {
+                       "Label":  "SCRIPT_validate-worker-capsule.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-capsule.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_validate-worker-capsule.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-capsule.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_validate-worker-capsule.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-capsule.ps1 outputs JSON"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_validate-worker-capsule.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-capsule.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "SCRIPT_validate-progress-report.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-progress-report.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_validate-progress-report.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-progress-report.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_validate-progress-report.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-progress-report.ps1 outputs JSON"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_validate-progress-report.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-progress-report.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "SCRIPT_validate-worker-status-report.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-status-report.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_validate-worker-status-report.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-status-report.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_validate-worker-status-report.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-status-report.ps1 outputs JSON"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_validate-worker-status-report.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-status-report.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "SCRIPT_validate-worker-handoff.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-handoff.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_validate-worker-handoff.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-handoff.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_validate-worker-handoff.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-handoff.ps1 outputs JSON"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_validate-worker-handoff.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-worker-handoff.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "SCRIPT_validate-agent-close-receipt.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-agent-close-receipt.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_validate-agent-close-receipt.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-agent-close-receipt.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_validate-agent-close-receipt.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-agent-close-receipt.ps1 outputs JSON"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_validate-agent-close-receipt.ps1",
+                       "Pass":  true,
+                       "Detail":  "validate-agent-close-receipt.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-scope-isolation.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-scope-isolation.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_check-scope-isolation.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-scope-isolation.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_check-scope-isolation.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-scope-isolation.ps1 outputs JSON"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_check-scope-isolation.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-scope-isolation.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-evidence-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-evidence-integrity.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_check-evidence-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-evidence-integrity.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_check-evidence-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-evidence-integrity.ps1 outputs JSON"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_check-evidence-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-evidence-integrity.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-agent-protocol-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-agent-protocol-integrity.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_check-agent-protocol-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-agent-protocol-integrity.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_check-agent-protocol-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-agent-protocol-integrity.ps1 outputs JSON"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_check-agent-protocol-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-agent-protocol-integrity.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "SCRIPT_run-agent-runtime-suite.ps1",
+                       "Pass":  true,
+                       "Detail":  "run-agent-runtime-suite.ps1 exists"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_HARDCODE_run-agent-runtime-suite.ps1",
+                       "Pass":  true,
+                       "Detail":  "run-agent-runtime-suite.ps1 has no hardcoded absolute paths"
+                   },
+                   {
+                       "Label":  "SCRIPT_JSON_OUT_run-agent-runtime-suite.ps1",
+                       "Pass":  true,
+                       "Detail":  "Suite runner delegates JSON output to check-agent-protocol-integrity.ps1 (which does output JSON)"
+                   },
+                   {
+                       "Label":  "SCRIPT_NO_ZIP_run-agent-runtime-suite.ps1",
+                       "Pass":  true,
+                       "Detail":  "run-agent-runtime-suite.ps1 does not create ZIP"
+                   },
+                   {
+                       "Label":  "CAPSULE_VALID_PASS",
+                       "Pass":  true,
+                       "Detail":  "Valid capsule passes"
+                   },
+                   {
+                       "Label":  "CAPSULE_INVALID_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Invalid capsule blocked"
+                   },
+                   {
+                       "Label":  "PROGRESS_VALID_PASS",
+                       "Pass":  true,
+                       "Detail":  "Valid progress passes"
+                   },
+                   {
+                       "Label":  "PROGRESS_INVALID_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Invalid progress blocked"
+                   },
+                   {
+                       "Label":  "STATUS_VALID_PASS",
+                       "Pass":  true,
+                       "Detail":  "Valid status passes"
+                   },
+                   {
+                       "Label":  "STATUS_INVALID_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Invalid status blocked"
+                   },
+                   {
+                       "Label":  "HANDOFF_VALID_PASS",
+                       "Pass":  true,
+                       "Detail":  "Valid handoff passes"
+                   },
+                   {
+                       "Label":  "HANDOFF_INVALID_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Invalid handoff blocked"
+                   },
+                   {
+                       "Label":  "RECEIPT_VALID_PASS",
+                       "Pass":  true,
+                       "Detail":  "Valid receipt passes"
+                   },
+                   {
+                       "Label":  "RECEIPT_INVALID_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Invalid receipt blocked"
+                   },
+                   {
+                       "Label":  "SCOPE_VALID_PASS",
+                       "Pass":  true,
+                       "Detail":  "Valid scope passes"
+                   },
+                   {
+                       "Label":  "SCOPE_INVALID_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Invalid scope blocked"
+                   },
+                   {
+                       "Label":  "EVIDENCE_VALID_PASS",
+                       "Pass":  true,
+                       "Detail":  "Valid evidence passes"
+                   },
+                   {
+                       "Label":  "EVIDENCE_INVALID_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Invalid evidence blocked"
+                   },
+                   {
+                       "Label":  "SUITE_RESULT_EXISTS",
+                       "Pass":  true,
+                       "Detail":  "Suite result exists"
+                   },
+                   {
+                       "Label":  "SUITE_DETECTS_INVALID",
+                       "Pass":  true,
+                       "Detail":  "Suite detected 5 blocking issues"
+                   },
+                   {
+                       "Label":  "SIM_DIR_EXISTS",
+                       "Pass":  true,
+                       "Detail":  "Simulation directory"
+                   },
+                   {
+                       "Label":  "SIM_REPORT_EXISTS",
+                       "Pass":  true,
+                       "Detail":  "Simulation report"
+                   },
+                   {
+                       "Label":  "NEG_SUMMARY_EXISTS",
+                       "Pass":  true,
+                       "Detail":  "Negative summary JSON"
+                   },
+                   {
+                       "Label":  "NEG_DETECTED_EQ_TOTAL",
+                       "Pass":  true,
+                       "Detail":  "Detected 40/40"
+                   },
+                   {
+                       "Label":  "NEG_GAPS_ZERO",
+                       "Pass":  true,
+                       "Detail":  "Gaps: 0"
+                   },
+                   {
+                       "Label":  "NEG_NO_UNEXPECTED_PASS",
+                       "Pass":  true,
+                       "Detail":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "Label":  "NEG_NO_FAIL_TARGET_NOT_TRIGGERED",
+                       "Pass":  true,
+                       "Detail":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "Label":  "NO_BENCHMARK",
+                       "Pass":  true,
+                       "Detail":  "No benchmark runs"
+                   },
+                   {
+                       "Label":  "NO_V05_PACKAGE",
+                       "Pass":  true,
+                       "Detail":  "No v0.5 package"
+                   },
+                   {
+                       "Label":  "TEN_ROLE_ARCHIVED",
+                       "Pass":  true,
+                       "Detail":  "10-role model archived"
+                   }
+               ]
+}

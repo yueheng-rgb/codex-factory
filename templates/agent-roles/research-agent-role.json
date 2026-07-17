@@ -1,0 +1,14 @@
+﻿{
+    "forbiddenActions":  [
+                             "modify-source",
+                             "modify-closed-reports",
+                             "handwrite-PASS-evidence"
+                         ],
+    "allowedActions":  [
+                           "read-repo",
+                           "search-web",
+                           "read-docs",
+                           "write-research-notes"
+                       ],
+    "role":  "research"
+}

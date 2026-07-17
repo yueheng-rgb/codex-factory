@@ -1,0 +1,367 @@
+﻿{
+    "roles":  [
+                  {
+                      "prohibited":  [
+                                         "write_worker_scope",
+                                         "bypass_integrator",
+                                         "self_verify",
+                                         "undeclared_fallback"
+                                     ],
+                      "acceptedEvidence":  [
+                                               "contractSha256",
+                                               "spawnConfirmation",
+                                               "workerHandoff",
+                                               "integratorResult"
+                                           ],
+                      "aliases":  [
+                                      "Main Agent"
+                                  ],
+                      "authority":  [
+                                        "spawn_agent",
+                                        "assign_contract",
+                                        "monitor_heartbeat",
+                                        "request_handoff",
+                                        "declare_phase_complete"
+                                    ],
+                      "requiredOutputs":  [
+                                              "schedulingDecisions",
+                                              "taskGraph"
+                                          ],
+                      "verifierGates":  [
+                                            "NO_UNDECLARED_FALLBACK",
+                                            "ALL_WORKERS_CLOSED",
+                                            "CAPACITY_PREFLIGHT_PASS"
+                                        ],
+                      "role":  "orchestrator",
+                      "requiredInputs":  [
+                                             "capacityPreflightResult",
+                                             "workerContracts"
+                                         ],
+                      "failureModes":  [
+                                           "spawn_failure",
+                                           "undeclared_fallback",
+                                           "stale_assignment"
+                                       ],
+                      "closeCondition":  "all workers closed and archived"
+                  },
+                  {
+                      "prohibited":  [
+                                         "write_other_worker_scope",
+                                         "merge_integration",
+                                         "self_verify",
+                                         "claim_PASS"
+                                     ],
+                      "acceptedEvidence":  [
+                                               "artifactFiles",
+                                               "transcriptLog",
+                                               "hashChain"
+                                           ],
+                      "aliases":  [
+                                      "Worker"
+                                  ],
+                      "authority":  [
+                                        "write_contract_scope",
+                                        "report_progress",
+                                        "submit_handoff"
+                                    ],
+                      "requiredOutputs":  [
+                                              "artifactPaths",
+                                              "transcriptPath",
+                                              "handoffReport",
+                                              "evidenceSha256"
+                                          ],
+                      "verifierGates":  [
+                                            "ARTIFACTS_EXIST",
+                                            "EXPORTS_REAL",
+                                            "NO_SCOPE_CONTAMINATION"
+                                        ],
+                      "role":  "builder",
+                      "requiredInputs":  [
+                                             "workerContract",
+                                             "scopeBoundary"
+                                         ],
+                      "failureModes":  [
+                                           "scope_contamination",
+                                           "missing_artifact",
+                                           "fake_export",
+                                           "empty_file"
+                                       ],
+                      "closeCondition":  "handoff submitted + verified by integrator"
+                  },
+                  {
+                      "prohibited":  [
+                                         "write_worker_scope",
+                                         "self_verify",
+                                         "undeclared_repair",
+                                         "skip_handoff_check"
+                                     ],
+                      "acceptedEvidence":  [
+                                               "handoffTranscripts",
+                                               "dependencyEdgeVerification",
+                                               "mergeSha256"
+                                           ],
+                      "aliases":  [
+
+                                  ],
+                      "authority":  [
+                                        "collect_handoffs",
+                                        "merge_results",
+                                        "resolve_conflicts",
+                                        "request_verification"
+                                    ],
+                      "requiredOutputs":  [
+                                              "integrationResult",
+                                              "mergeArtifactPaths",
+                                              "conflictResolutionLog"
+                                          ],
+                      "verifierGates":  [
+                                            "ALL_HANDOFFS_COLLECTED",
+                                            "NO_UNDECLARED_REPAIR",
+                                            "MERGE_CONSISTENT"
+                                        ],
+                      "role":  "integrator",
+                      "requiredInputs":  [
+                                             "allWorkerHandoffs",
+                                             "dependencyGraph"
+                                         ],
+                      "failureModes":  [
+                                           "incomplete_collection",
+                                           "undeclared_repair",
+                                           "bypassed"
+                                       ],
+                      "closeCondition":  "all handoffs collected and merged"
+                  },
+                  {
+                      "prohibited":  [
+                                         "write_implementation",
+                                         "mutate_state",
+                                         "downgrade_FAIL_to_caveat",
+                                         "manual_PASS_only"
+                                     ],
+                      "acceptedEvidence":  [
+                                               "artifactSha256",
+                                               "exportAnalysis",
+                                               "hashChainValidation"
+                                           ],
+                      "aliases":  [
+
+                                  ],
+                      "authority":  [
+                                        "read_artifacts",
+                                        "run_verification",
+                                        "issue_PASS_or_FAIL",
+                                        "block_closure"
+                                    ],
+                      "requiredOutputs":  [
+                                              "verifierResult",
+                                              "checkDetails",
+                                              "evidencePaths"
+                                          ],
+                      "verifierGates":  [
+                                            "NO_MANUAL_PASS",
+                                            "NO_GENERIC_FAIL",
+                                            "FAIL_MODULE_COUNT"
+                                        ],
+                      "role":  "verifier",
+                      "requiredInputs":  [
+                                             "integrationResult",
+                                             "artifactPaths",
+                                             "evidenceHashes"
+                                         ],
+                      "failureModes":  [
+                                           "manual_PASS",
+                                           "expectedClass_only",
+                                           "generic_FAIL",
+                                           "preclassified_only"
+                                       ],
+                      "closeCondition":  "verification complete with machine-readable result"
+                  },
+                  {
+                      "prohibited":  [
+                                         "write_implementation",
+                                         "mutate_state",
+                                         "downgrade_risk",
+                                         "ignore_gaps"
+                                     ],
+                      "acceptedEvidence":  [
+                                               "eventHashChain",
+                                               "roleBoundaryLog",
+                                               "closeReceipts"
+                                           ],
+                      "aliases":  [
+
+                                  ],
+                      "authority":  [
+                                        "audit_evidence_gaps",
+                                        "detect_role_violations",
+                                        "check_hash_chain",
+                                        "flag_risks"
+                                    ],
+                      "requiredOutputs":  [
+                                              "auditReport",
+                                              "gapInventory",
+                                              "riskSignals",
+                                              "boundaryViolations"
+                                          ],
+                      "verifierGates":  [
+                                            "EVIDENCE_GAPS_ADDRESSED",
+                                            "ROLE_BOUNDARIES_CLEAN",
+                                            "HASH_CHAIN_VALID"
+                                        ],
+                      "role":  "auditor",
+                      "requiredInputs":  [
+                                             "eventChain",
+                                             "allAgentRecords",
+                                             "verifierResults",
+                                             "archiveIndex"
+                                         ],
+                      "failureModes":  [
+                                           "gap_ignored",
+                                           "violation_suppressed",
+                                           "stale_audit"
+                                       ],
+                      "closeCondition":  "audit report generated with 0 unaddressed gaps"
+                  },
+                  {
+                      "prohibited":  [
+                                         "write_code",
+                                         "mutate_state",
+                                         "claim_PASS",
+                                         "drive_architecture"
+                                     ],
+                      "acceptedEvidence":  [
+                                               "fileReferences",
+                                               "searchResults",
+                                               "codePatterns"
+                                           ],
+                      "aliases":  [
+
+                                  ],
+                      "authority":  [
+                                        "read_codebase",
+                                        "search_files",
+                                        "report_findings"
+                                    ],
+                      "requiredOutputs":  [
+                                              "findingsReport",
+                                              "evidencePaths"
+                                          ],
+                      "verifierGates":  [
+                                            "NO_FABRICATED_PATHS",
+                                            "FINDINGS_BACKED_BY_FILES"
+                                        ],
+                      "role":  "explorer",
+                      "requiredInputs":  [
+                                             "explorationScope"
+                                         ],
+                      "failureModes":  [
+                                           "fabricated_path",
+                                           "unverified_claim",
+                                           "scope_creep"
+                                       ],
+                      "closeCondition":  "findings delivered"
+                  },
+                  {
+                      "prohibited":  [
+                                         "write_implementation",
+                                         "mutate_state",
+                                         "claim_truth",
+                                         "omit_risk_signals"
+                                     ],
+                      "acceptedEvidence":  [
+                                               "eventHashChain",
+                                               "artifactSha256",
+                                               "stateMachineTransitions"
+                                           ],
+                      "aliases":  [
+                                      "Memory/Recorder"
+                                  ],
+                      "authority":  [
+                                        "append_events",
+                                        "record_evidence",
+                                        "maintain_index",
+                                        "generate_receipts"
+                                    ],
+                      "requiredOutputs":  [
+                                              "eventEntries",
+                                              "receiptEntries",
+                                              "indexUpdates"
+                                          ],
+                      "verifierGates":  [
+                                            "HASH_CHAIN_VALID",
+                                            "ALL_EVENTS_RECORDED",
+                                            "RECEIPTS_GENERATED"
+                                        ],
+                      "role":  "recorder",
+                      "requiredInputs":  [
+                                             "eventData",
+                                             "evidenceHashes",
+                                             "agentLifecycleStates"
+                                         ],
+                      "failureModes":  [
+                                           "broken_hash_chain",
+                                           "missing_event",
+                                           "duplicate_event"
+                                       ],
+                      "closeCondition":  "all events recorded with valid hash chain"
+                  },
+                  {
+                      "prohibited":  [
+                                         "mutate_governance",
+                                         "advance_phase_without_verifier",
+                                         "bypass_capacity_preflight"
+                                     ],
+                      "acceptedEvidence":  [
+                                               "verifierJson",
+                                               "stateJson",
+                                               "sha256chain"
+                                           ],
+                      "aliases":  [
+                                      "factoryctl"
+                                  ],
+                      "authority":  [
+                                        "run_verification",
+                                        "check_state",
+                                        "report_status",
+                                        "block_unsafe_ops"
+                                    ],
+                      "requiredOutputs":  [
+                                              "verificationOutput",
+                                              "statusReport",
+                                              "riskSignals"
+                                          ],
+                      "verifierGates":  [
+                                            "FACTORYCTL_RETURNS_JSON",
+                                            "STATUS_ACCURATE",
+                                            "VERIFY_OPERATIONAL"
+                                        ],
+                      "role":  "platform",
+                      "requiredInputs":  [
+                                             "factoryState",
+                                             "archiveIndex",
+                                             "preflightResult"
+                                         ],
+                      "failureModes":  [
+                                           "stale_cache",
+                                           "path_not_found",
+                                           "permission_error"
+                                       ],
+                      "closeCondition":  "verification complete"
+                  }
+              ],
+    "version":  "1.0.0",
+    "generatedDuringPhase":  "LIVE-RUNTIME-2-A",
+    "generatedAt":  "2026-06-24T23:59:40+08:00",
+    "nativeGenerated":  true,
+    "schemaId":  "agent-role-policy",
+    "coreRules":  [
+                      "agent_report_not_truth",
+                      "evidence_required_not_claimed",
+                      "verifier_not_writer",
+                      "integrator_sole_merge_owner",
+                      "builder_contract_scope_only",
+                      "auditor_readonly",
+                      "recorder_append_only",
+                      "platform_verification_operational"
+                  ]
+}

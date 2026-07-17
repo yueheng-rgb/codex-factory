@@ -1,0 +1,27 @@
+﻿{
+    "phase": "H20-D",
+    "tasks": [
+        {
+            "id": "factoryctl-verify-periodic",
+            "description": "Periodic factoryctl verify",
+            "feasibility": "PARTIALLY_VERIFIED",
+            "schedule": "TBD",
+            "mutationAllowed": false,
+            "evidenceWeight": "signal-only"
+        },
+        {
+            "id": "state-drift-monitor",
+            "description": "Factory state drift detection",
+            "feasibility": "HYPOTHESIS_REQUIRES_VALIDATION",
+            "schedule": "TBD",
+            "mutationAllowed": false,
+            "evidenceWeight": "signal-only"
+        }
+    ],
+    "rules": [
+        "Automation alert is not verifier PASS",
+        "Monitoring must not mutate governance state",
+        "Automation is not closure evidence",
+        "All automation tasks require H21+ stress testing"
+    ]
+}

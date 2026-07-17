@@ -1,0 +1,21 @@
+{
+  "phase": "DRY24-P1",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:39:50.760744",
+  "investigation": {
+    "incident": "Wegener (dry24-builder-decision) wrote to ContractSchema.ts outside owned scope",
+    "file": "packages/worker-contract-engine/src/ContractSchema.ts",
+    "fileOwnedBy": "Epicurus (dry24-builder-contracts)",
+    "modifiedBy": "Wegener (dry24-builder-decision)",
+    "fileSize": 639,
+    "resolution": "Both builders' writes conflicted. File now correctly owned by Epicurus (contracts builder) after repair.",
+    "classification": "NON_BLOCKING_REPAIRED_BEFORE_CLOSURE",
+    "repairedBy": "Integrator during DRY24-P1 reconciliation",
+    "repairAction": "ContractSchema.ts ownership restored to worker-contract-engine scope; Wegener writes reverted from that file.",
+    "doesNotAffectComplexityEvidence": true,
+    "doesNotAffectCrossWorkerDeps": true,
+    "reasonNotBlocking": "Contamination was detected, classified, and repaired before closure. No permanent scope violation remains."
+  },
+  "verifierNote": "Original DRY24 verifier reported 16/16 PASS but missed this cross-scope write because file-level scope isolation was not checked.",
+  "h17CandidateHardening": "Add file-level scope ownership check to factoryctl verify"
+}

@@ -1,0 +1,166 @@
+﻿{
+    "overallVerdict":  "INCONCLUSIVE — WITH LEAN TOWARD \u0027v0.4 CORE DOES NOT ADD MEASURABLE PRODUCT QUALITY FOR THIS PROJECT TYPE\u0027",
+    "v04MechanismAssessment":  {
+                                   "manualRouter":  {
+                                                        "productImpact":  "Classified project correctly. No measurable product quality advantage over Vanilla\u0027s implicit classification.",
+                                                        "applied":  true
+                                                    },
+                                   "contextBudget":  {
+                                                         "productImpact":  "Passive tracking. No direct product quality impact.",
+                                                         "applied":  true
+                                                     },
+                                   "proofOfRead":  {
+                                                       "productImpact":  "Provides audit trail. Did not prevent any known quality gaps (both runs equally correct on most dimensions).",
+                                                       "applied":  true
+                                                   },
+                                   "contaminationLogging":  {
+                                                                "productImpact":  "Benchmark integrity mechanism. No product quality impact.",
+                                                                "applied":  true
+                                                            },
+                                   "constitution":  {
+                                                        "productImpact":  "Mixed. Anti-overengineering rule may have discouraged richer UI in RUN-E. Security/completion rules followed by both runs.",
+                                                        "applied":  true
+                                                    },
+                                   "evidenceHierarchy":  {
+                                                             "productImpact":  "Helps evaluation integrity. No direct product quality impact.",
+                                                             "applied":  true
+                                                         },
+                                   "antiGaming":  {
+                                                      "productImpact":  "Prevents score inflation. No product quality impact.",
+                                                      "applied":  true
+                                                  },
+                                   "requiredReadingGate":  {
+                                                               "productImpact":  "Ensured spec was read. Did not produce better outcomes — RUN-D also read the spec.",
+                                                               "applied":  true
+                                                           }
+                               },
+    "executiveSummary":  "RUN-D (Vanilla) scored 99/100. RUN-E (v0.4 Factory Lite Core) scored 95/100. The 4-point difference is entirely attributable to UI implementation depth (D09: 5 vs 2). Without UI, scores would be 94 vs 93 — statistically identical. v0.4 Factory Lite Core mechanisms did NOT produce a measurable product quality improvement over Vanilla Codex for the LedgerFlow Lite benchmark.",
+    "recommendation":  "USER REVIEW",
+    "generalizabilityAssessment":  {
+                                       "acrossTwoBenchmarks":  "With EVAL-8 (first benchmark) and EVAL-13 (LedgerFlow), v0.4 has now been tested on two benchmarks. EVAL-8 showed Factory Lite Core underperforming (55 vs 88). EVAL-13 shows a closer result (95 vs 99) but still no measurable product quality advantage.",
+                                       "consistentFinding":  "Across both benchmarks, v0.4 Factory Lite Core mechanisms provide PROCESS-LEVEL benefits (audit trail, contamination control, anti-gaming) but do not consistently produce PRODUCT-LEVEL quality improvements over Vanilla Codex.",
+                                       "caveats":  [
+                                                       "RUN-E used sql.js (WASM) due to environmental constraint — this is not a v0.4 design choice",
+                                                       "RUN-E\u0027s minimal UI may reflect anti-overengineering rules working as designed",
+                                                       "RUN-D\u0027s UI richness required more code (22 files vs 12) — complexity vs quality tradeoff",
+                                                       "Two benchmarks is limited evidence. More benchmarks needed for robust generalizability claim."
+                                                   ]
+                                   },
+    "recommendationOptions":  [
+                                  {
+                                      "suitable":  false,
+                                      "reason":  "Evidence does not support clear v0.4 advantage. Two benchmarks show v0.4 Core does not improve product quality. Releasing v0.4 as \u0027improves quality\u0027 would be misleading.",
+                                      "option":  "FACTORY-V04-RELEASE-PREP"
+                                  },
+                                  {
+                                      "suitable":  true,
+                                      "reason":  "The 3-role optional model was deferred. Testing whether Architect+Builder+Reviewer adds value (especially for UI quality) is the logical next question. RUN-E\u0027s UI gap might be addressed by a dedicated reviewer role.",
+                                      "option":  "FACTORY-EVAL-14 / Optional 3-role second benchmark"
+                                  },
+                                  {
+                                      "suitable":  true,
+                                      "reason":  "v0.4 draft could benefit from: (1) clearer guidance on when UI investment is appropriate despite anti-overengineering, (2) recognition that process mechanisms ≠ product quality, (3) framing v0.4 as \u0027process integrity layer\u0027 rather than \u0027quality improvement layer\u0027",
+                                      "option":  "FACTORY-V04-P1 / Draft repair"
+                                  },
+                                  {
+                                      "suitable":  true,
+                                      "reason":  "Two benchmarks is limited evidence. Third benchmark with different project type would strengthen conclusions.",
+                                      "option":  "FACTORY-EVAL-10-P1 / more benchmarks"
+                                  },
+                                  {
+                                      "suitable":  true,
+                                      "reason":  "Mixed evidence. User should decide direction based on their priorities: process integrity vs product quality vs role model testing.",
+                                      "option":  "USER REVIEW"
+                                  }
+                              ],
+    "phase":  "FACTORY-EVAL-13-J",
+    "timestamp":  "2026-06-25T22:11:24+08:00",
+    "scores":  {
+                   "RUN-E":  {
+                                 "label":  "v0.4 Factory Lite Core",
+                                 "score":  95,
+                                 "max":  100
+                             },
+                   "RUN-D":  {
+                                 "label":  "Vanilla Codex",
+                                 "score":  99,
+                                 "max":  100
+                             },
+                   "delta":  {
+                                 "direction":  "RUN-D leads",
+                                 "points":  4,
+                                 "primaryDriver":  "UI implementation depth (D09)"
+                             }
+               },
+    "verdictRationale":  [
+                             "Product quality scores are effectively identical when controlling for UI (94 vs 93)",
+                             "The 4-point gap favoring Vanilla is in UI depth, not in core functionality",
+                             "v0.4\u0027s unique contributions (POR, evidence hierarchy, anti-gaming) are evaluation-integrity tools, not product-quality tools",
+                             "The anti-overengineering rules in the Constitution may have actively suppressed UI investment in RUN-E",
+                             "Process overhead (~375ms) is negligible and non-disruptive",
+                             "No blockers found in either run"
+                         ],
+    "title":  "v0.4 Factory Lite Core Effectiveness Conclusion — LedgerFlow Benchmark",
+    "dimensionAnalysis":  [
+                              {
+                                  "insight":  "Both implement all 16 FRs",
+                                  "RUN_D":  24,
+                                  "dim":  "D01 - Requirement Coverage",
+                                  "RUN_E":  24
+                              },
+                              {
+                                  "insight":  "RUN-E wins: has pagination. RUN-D lacks pagination (-1)",
+                                  "RUN_D":  15,
+                                  "dim":  "D02 - API Contract",
+                                  "RUN_E":  16
+                              },
+                              {
+                                  "insight":  "RUN-D wins: richer schema (type, notes)",
+                                  "RUN_D":  10,
+                                  "dim":  "D03 - DB Schema",
+                                  "RUN_E":  9
+                              },
+                              {
+                                  "insight":  "Both correct and server-side",
+                                  "RUN_D":  12,
+                                  "dim":  "D04 - Financial Calc",
+                                  "RUN_E":  12
+                              },
+                              {
+                                  "insight":  "RUN-D wins: submit from rejected also works (bonus flexibility)",
+                                  "RUN_D":  10,
+                                  "dim":  "D05 - Workflow",
+                                  "RUN_E":  9
+                              },
+                              {
+                                  "insight":  "Both solid: bcrypt, JWT, server-side permissions",
+                                  "RUN_D":  10,
+                                  "dim":  "D06 - Auth",
+                                  "RUN_E":  10
+                              },
+                              {
+                                  "insight":  "Both complete. RUN-E has cleaner helper function",
+                                  "RUN_D":  5,
+                                  "dim":  "D07 - Audit Trail",
+                                  "RUN_E":  5
+                              },
+                              {
+                                  "insight":  "Both correct. RUN-D CSV has extra columns",
+                                  "RUN_D":  5,
+                                  "dim":  "D08 - Dashboard/Export",
+                                  "RUN_E":  5
+                              },
+                              {
+                                  "insight":  "RUN-D has full SPA. RUN-E has API landing page only. THIS IS THE DECISIVE GAP.",
+                                  "RUN_D":  5,
+                                  "dim":  "D09 - UI/UX",
+                                  "RUN_E":  2
+                              },
+                              {
+                                  "insight":  "Both have real tests and README",
+                                  "RUN_D":  3,
+                                  "dim":  "D10 - Tests/Docs",
+                                  "RUN_E":  3
+                              }
+                          ]
+}

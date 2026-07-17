@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  89,
+    "frozenAt":  "2026-06-20T20:15:47.4140647+08:00",
+    "runId":  "u3-c-negative-drift",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\u3-c-negative-drift\\trust-root.json",
+    "controlPlaneLockSha256":  "2708f8d06b76fb2cc07a932186165135c2dc1e064178f448af782a60a016fd93",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "9a8a9a6419ff3d970068d15c59fb4ea8ec84285264a2ef3e9d5fbb14501b395f"
+}

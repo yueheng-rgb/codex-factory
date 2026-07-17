@@ -1,0 +1,70 @@
+﻿{
+  "handoff_version": "1.0.0",
+  "mission_id": "CPM-001",
+  "worker_id": "CPM-001-WORKER-C",
+  "worker_role": "Integration Ledger, Review Notes, Semgrep Run",
+  "handoff_to": "CPM-001-INTEGRATOR",
+  "timestamp": "2026-07-12T23:05:00+08:00",
+
+  "status": "PARTIAL_DELIVERY",
+
+  "artifacts_delivered": [
+    {
+      "file": "integration-ledger.json",
+      "path": "testbeds/cross-pack-cpm-001/integration-ledger.json",
+      "description": "Structured integration ledger tracking all worker handoffs, conflicts, stale references, and integration status",
+      "status": "COMPLETE"
+    },
+    {
+      "file": "review-notes.md",
+      "path": "testbeds/cross-pack-cpm-001/review-notes.md",
+      "description": "Human review preparation document covering risk summary, invariants, test coverage, code review checklist, and REVIEW_REQUIRED_NOT_RUN declaration",
+      "status": "COMPLETE"
+    },
+    {
+      "file": "semgrep-result.txt",
+      "path": "testbeds/cross-pack-cpm-001/semgrep-result.txt",
+      "description": "Semgrep scan output — TOOL_UNAVAILABLE: semgrep not installed in this environment, scan not executed",
+      "status": "COMPLETE_WITH_LIMITATION"
+    },
+    {
+      "file": "worker-handoff-C.json",
+      "path": "testbeds/cross-pack-cpm-001/worker-handoff-C.json",
+      "description": "This handoff file",
+      "status": "COMPLETE"
+    }
+  ],
+
+  "blockers": [
+    {
+      "blocker_id": "BLK-001",
+      "description": "Worker A has not delivered test harness and test suite. Cannot validate test coverage or run semgrep against source.",
+      "depends_on": "CPM-001-WORKER-A",
+      "severity": "BLOCKING"
+    },
+    {
+      "blocker_id": "BLK-002",
+      "description": "Worker B has not delivered tech-contract.md, risk-register.md, and invariant-contracts.json. Cannot cross-reference invariants or validate contracts.",
+      "depends_on": "CPM-001-WORKER-B",
+      "severity": "BLOCKING"
+    },
+    {
+      "blocker_id": "BLK-003",
+      "description": "semgrep is not available in this environment. Must be installed before scan can run.",
+      "depends_on": "ENVIRONMENT",
+      "severity": "BLOCKING"
+    }
+  ],
+
+  "notes_for_integrator": [
+    "All ledger entries are honest — no fake pass, no fabricated results.",
+    "handoffs_received are marked NOT_RECEIVED because Workers A and B have not yet created files in testbeds/cross-pack-cpm-001/.",
+    "conflicts_detected is empty because cross-referencing requires A and B artifacts.",
+    "semgrep scan is TOOL_UNAVAILABLE — the npm semgrep package is not installed.",
+    "review-notes.md explicitly declares REVIEW_REQUIRED_NOT_RUN — no approval is fabricated.",
+    "Once A and B deliver, re-run Worker C: update integration-ledger.json, re-attempt semgrep, refresh review-notes.md."
+  ],
+
+  "next_worker": "CPM-001-INTEGRATOR",
+  "next_action": "Wait for A and B delivery, then perform full integration review using all artifacts and this ledger."
+}

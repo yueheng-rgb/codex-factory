@@ -1,0 +1,291 @@
+﻿{
+    "timestamp":  "2026-06-25T22:42:50+08:00",
+    "failCount":  0,
+    "totalNegatives":  28,
+    "passCount":  28,
+    "phase":  "FACTORY-V04-P2-I",
+    "errorCount":  0,
+    "allPassed":  true,
+    "negatives":  [
+                      {
+                          "id":  "N01",
+                          "targetP2Check":  "P2 must NOT create ZIP",
+                          "name":  "No release ZIP created",
+                          "faultManifest":  "FACTORY-V04-P2 creates release ZIP",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "ZIP file found in outputs with P2 timestamp"
+                      },
+                      {
+                          "id":  "N02",
+                          "targetP2Check":  "FINAL package SHA must match",
+                          "name":  "Old FINAL package unchanged",
+                          "faultManifest":  "P2 modifies old FINAL package",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "SHA mismatch on old FINAL package"
+                      },
+                      {
+                          "id":  "N03",
+                          "targetP2Check":  "MANIFEST.status must stay RELEASE_CANDIDATE_NOT_FINAL",
+                          "name":  "RC NOT marked final",
+                          "faultManifest":  "RC status changed to final",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "MANIFEST.status = final"
+                      },
+                      {
+                          "id":  "N04",
+                          "targetP2Check":  "No affirmative universal quality claim in RC .md",
+                          "name":  "No universal quality claim",
+                          "faultManifest":  "P2 introduces universal quality claim",
+                          "actualOutput":  "0 affirmative \u0027universally improves\u0027 lines found (only in forbidden-claims warnings)",
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Found \u0027v0.4 universally improves quality\u0027"
+                      },
+                      {
+                          "id":  "N05",
+                          "targetP2Check":  "EVAL-13 INCONCLUSIVE must appear in evidence docs",
+                          "name":  "EVAL-13 INCONCLUSIVE preserved",
+                          "faultManifest":  "P2 removes EVAL-13 INCONCLUSIVE caveat",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "EVAL-13 INCONCLUSIVE missing"
+                      },
+                      {
+                          "id":  "N06",
+                          "targetP2Check":  "POR must say NOT proof of correctness",
+                          "name":  "POR does NOT claim correctness",
+                          "faultManifest":  "POR disclaimer: proves correctness",
+                          "actualOutput":  "MCP warns against POR=correctness; schema requires NOT-proof disclaimer; POR policy has boundary",
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "POR claims correctness"
+                      },
+                      {
+                          "id":  "N07",
+                          "targetP2Check":  "Tier 0 must have 0 roles",
+                          "name":  "10-role NOT default",
+                          "faultManifest":  "10-role marked as default in manual-index",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Tier 0 has \u003e 0 roles"
+                      },
+                      {
+                          "id":  "N08",
+                          "targetP2Check":  "DAILY_USE must NOT require archive/",
+                          "name":  "Archive NOT in daily path",
+                          "faultManifest":  "DAILY_USE.md references archive/",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "DAILY_USE requires archive/"
+                      },
+                      {
+                          "id":  "N09",
+                          "targetP2Check":  "DAILY_USE must NOT require deferred/",
+                          "name":  "Deferred NOT in daily path",
+                          "faultManifest":  "DAILY_USE.md references deferred/",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "DAILY_USE requires deferred/"
+                      },
+                      {
+                          "id":  "N10",
+                          "targetP2Check":  "Quickstart must reference DAILY_USE as entry point",
+                          "name":  "Quickstart does NOT require whole manual",
+                          "faultManifest":  "USAGE_QUICKSTART requires reading all docs",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Quickstart demands reading everything"
+                      },
+                      {
+                          "id":  "N11",
+                          "targetP2Check":  "core/MINIMAL_CONTEXT_PACKET.md must exist",
+                          "name":  "MINIMAL_CONTEXT_PACKET present",
+                          "faultManifest":  "MCP file deleted",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "MCP file missing"
+                      },
+                      {
+                          "id":  "N12",
+                          "targetP2Check":  "DAILY_USE.md must exist",
+                          "name":  "DAILY_USE present",
+                          "faultManifest":  "DAILY_USE.md deleted",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "DAILY_USE.md missing"
+                      },
+                      {
+                          "id":  "N13",
+                          "targetP2Check":  "Scripts must not create ZIP files",
+                          "name":  "Scripts do NOT create ZIP",
+                          "faultManifest":  "validate-draft.ps1 creates ZIP",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "ZIP created by scripts"
+                      },
+                      {
+                          "id":  "N14",
+                          "targetP2Check":  "Scripts must be readonly",
+                          "name":  "Scripts do NOT mutate product code",
+                          "faultManifest":  "scripts modify benchmark .js/.json files",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Script contains Set-Content/Out-File to product code"
+                      },
+                      {
+                          "id":  "N15",
+                          "targetP2Check":  "Scripts must accept PackRoot parameter",
+                          "name":  "Scripts have PackRoot param",
+                          "faultManifest":  "validate-draft.ps1 hardcodes path",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "No PackRoot parameter"
+                      },
+                      {
+                          "id":  "N16",
+                          "targetP2Check":  "smoke-test.ps1 must have OutputJson parameter",
+                          "name":  "Smoke test supports JSON output",
+                          "faultManifest":  "smoke-test.ps1 has no JSON output",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "No OutputJson param"
+                      },
+                      {
+                          "id":  "N17",
+                          "targetP2Check":  "validate-draft.ps1 exit 0 with 0 errors",
+                          "name":  "Validation passes",
+                          "faultManifest":  "validate-draft.ps1 returns errors",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Validation has errors"
+                      },
+                      {
+                          "id":  "N18",
+                          "targetP2Check":  "smoke-test.ps1 must exist and run",
+                          "name":  "Smoke test exists and runs",
+                          "faultManifest":  "smoke-test.ps1 deleted",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "smoke-test.ps1 missing or broken"
+                      },
+                      {
+                          "id":  "N19",
+                          "targetP2Check":  "Claim audit JSON must exist",
+                          "name":  "Claim audit exists",
+                          "faultManifest":  "factory-v04-p2-claim-boundary-recheck.json missing",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Claim recheck file missing"
+                      },
+                      {
+                          "id":  "N20",
+                          "targetP2Check":  "MANIFEST.sha256 must match current MANIFEST.json",
+                          "name":  "Manifest SHA updated",
+                          "faultManifest":  "MANIFEST.sha256 stale",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "SHA mismatch"
+                      },
+                      {
+                          "id":  "N21",
+                          "targetP2Check":  "releaseZipCreated must be false",
+                          "name":  "releaseZipCreated is false",
+                          "faultManifest":  "MANIFEST.releaseZipCreated = true",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "releaseZipCreated = true"
+                      },
+                      {
+                          "id":  "N22",
+                          "targetP2Check":  "finalZipCreated must be false",
+                          "name":  "finalZipCreated is false",
+                          "faultManifest":  "MANIFEST.finalZipCreated = true",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "finalZipCreated = true"
+                      },
+                      {
+                          "id":  "N23",
+                          "targetP2Check":  "No \u0027production ready\u0027 near \u0027plugin\u0027",
+                          "name":  "No plugin production-ready claim",
+                          "faultManifest":  "plugin production-ready claim in docs",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "plugin production-ready found"
+                      },
+                      {
+                          "id":  "N24",
+                          "targetP2Check":  "No \u0027automation creates new context\u0027",
+                          "name":  "No automation new-context claim",
+                          "faultManifest":  "automation creates new context in docs",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "automation new-context found"
+                      },
+                      {
+                          "id":  "N25",
+                          "targetP2Check":  "reviewer-checklist.readonly must be true",
+                          "name":  "Reviewer is readonly",
+                          "faultManifest":  "reviewer-checklist allows code mutation",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Reviewer not readonly"
+                      },
+                      {
+                          "id":  "N26",
+                          "targetP2Check":  "Quality gap trigger file must exist",
+                          "name":  "Quality gap triggers present",
+                          "faultManifest":  "quality-gap-trigger-policy.json deleted",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "QG triggers missing"
+                      },
+                      {
+                          "id":  "N27",
+                          "targetP2Check":  "EVIDENCE_BASIS.md must exist with both evals",
+                          "name":  "Benchmark evidence preserved",
+                          "faultManifest":  "EVIDENCE_BASIS.md deleted",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Evidence deleted"
+                      },
+                      {
+                          "id":  "N28",
+                          "targetP2Check":  "factory-eval directory contents preserved",
+                          "name":  "Historical evidence preserved",
+                          "faultManifest":  "governance/factory-eval/ files deleted",
+                          "actualOutput":  true,
+                          "resultClass":  "RISK_CORRECTLY_DETECTED",
+                          "result":  "PASS",
+                          "expectedRiskSignal":  "Historical eval files deleted"
+                      }
+                  ]
+}

@@ -1,0 +1,187 @@
+﻿{
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0",
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-29T01:01:06+08:00",
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Runtime script integration",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "Feature smoke",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "82 files from 7 phases",
+                               "description":  "All 7 theory phases integrated",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "Dashboard/recovery/evidence",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "",
+                               "description":  "No cloud/deploy",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "Metadata update",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Manifest/hash",
+                               "pass":  true
+                           },
+                   "V35":  {
+                               "detail":  "",
+                               "description":  "No manual PASS-only",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "File integration",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "R1 integration plan PASS",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "R1 package creation",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "Multi-agent integration",
+                               "pass":  true
+                           },
+                   "V32":  {
+                               "detail":  "",
+                               "description":  "projectId required",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "Original v0.5 SHA preserved",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "R1 package exists",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "Default workflow integration",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "CLI smoke",
+                               "pass":  true
+                           },
+                   "V34":  {
+                               "detail":  "47 controls",
+                               "description":  "Negative controls 0 gaps",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "",
+                               "description":  "R1 SHA file exists",
+                               "pass":  true
+                           },
+                   "V30":  {
+                               "detail":  "",
+                               "description":  "Multi-agent requires confirmation",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "Workspace assembly",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "Extraction smoke",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "Strategy decision",
+                               "pass":  true
+                           },
+                   "V31":  {
+                               "detail":  "",
+                               "description":  "Cleanup PLAN default",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "Source package preservation",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "Forbidden content audit",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "",
+                               "description":  "No real validation",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "Scope lock exists",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "",
+                               "description":  "Build Lite preserved",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "User approval recorded",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "Isolation/lifecycle/cleanup",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "CLI canonicalization",
+                               "pass":  true
+                           },
+                   "V36":  {
+                               "detail":  "",
+                               "description":  "No expectedClass/generic FAIL",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "Release notes/handoff",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "",
+                               "description":  "No v0.6",
+                               "pass":  true
+                           },
+                   "V33":  {
+                               "detail":  "",
+                               "description":  "Dashboard not primary evidence",
+                               "pass":  true
+                           }
+               }
+}

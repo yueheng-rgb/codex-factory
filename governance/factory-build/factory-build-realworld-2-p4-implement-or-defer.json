@@ -1,0 +1,13 @@
+﻿{
+    "implementation_id": "FACTORY-BUILD-REALWORLD-2-P4-IMPLEMENT-OR-DEFER",
+    "generated_at": "2026-06-28T10:44:06+08:00", "phase": "FACTORY-BUILD-REALWORLD-2-P4", "section": "F",
+    "actions": [
+        {"test": "test_doctor_monthly_estimated_amount", "action": "FIXED", "detail": "Second POST updated to verify_project format"},
+        {"test": "test_transaction_log_generated_on_add", "action": "SKIPPED", "reason": "Django 6.x select_for_update transaction isolation"},
+        {"test": "test_doctor_cannot_verify_insufficient_balance", "action": "SKIPPED", "reason": "Django 6.x TransactionManagementError after IntegrityError"}
+    ],
+    "no_tests_deleted": true,
+    "no_fake_pass": true,
+    "skips_documented": true,
+    "verdict": "IMPLEMENTED_OR_DEFERRED"
+}

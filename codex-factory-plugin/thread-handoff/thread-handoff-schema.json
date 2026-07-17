@@ -1,0 +1,27 @@
+﻿{
+    "phase": "H20-C",
+    "verdict": "PARTIALLY_VERIFIED",
+    "claims": [
+        {
+            "claim": "Threads can complement session rotation",
+            "classification": "VERIFIED_FACT",
+            "evidence": "App context lists create_thread, fork_thread, handoff_thread tools"
+        },
+        {
+            "claim": "Thread handoff can replace artifact handoff",
+            "classification": "REJECTED_OR_UNSUPPORTED",
+            "evidence": "Threads lack SHA256 evidence; verifier requires JSON state"
+        },
+        {
+            "claim": "Threads provide full context inheritance",
+            "classification": "HYPOTHESIS_REQUIRES_VALIDATION",
+            "evidence": "fork_context flag exists but behavior under compression unknown"
+        },
+        {
+            "claim": "Thread handoff is suitable for coordination layer",
+            "classification": "PARTIALLY_VERIFIED",
+            "evidence": "Thread tools exist; integration with artifact handoff not tested"
+        }
+    ],
+    "recommendation": "Use threads as complementary coordination layer. Artifact-based handoff remains primary."
+}

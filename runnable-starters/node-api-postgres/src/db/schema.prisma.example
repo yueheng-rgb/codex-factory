@@ -1,0 +1,145 @@
+﻿// Prisma Schema — API / Backend Service
+// ⚠️ 示例文件。真实项目：
+// 1. 重命名为 schema.prisma  2. 配置 DATABASE_URL  3. npx prisma migrate dev
+//
+// ⚠️ 真实项目必须使用事务和原子操作：
+// 错误做法：SELECT → 在代码中判断 → UPDATE
+// 正确做法：UPDATE ... WHERE ... RETURNING ...，在事务中执行
+//
+// ⚠️ 次数、余额、库存、核销类操作必须使用原子更新或事务：
+// 错误做法：SELECT quota FROM users → 判断 → UPDATE quota = quota - 1
+// 正确做法：UPDATE users SET quota_used = quota_used + 1 WHERE id = ? AND quota_total - quota_used >= 1
+//
+// ⚠️ 权限必须在服务端校验，前端隐藏按钮 ≠ 权限。
+// ⚠️ 审计日志不可随意删除，仅追加，不可修改。
+
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql"; url = env("DATABASE_URL") }
+
+// ============ 用户与权限 ============
+
+model User {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  passwordHash String   @map("password_hash")
+  displayName  String?
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  userRoles    UserRole[]
+  records      BusinessRecord[]
+  auditLogs    AuditLog[]
+  apiLogs      ApiRequestLog[]
+  idempotencyKeys IdempotencyKey[]
+  @@map("users")
+}
+
+model Role {
+  id          String     @id @default(uuid())
+  name        String     @unique
+  description String?
+  createdAt   DateTime   @default(now()) @map("created_at")
+  userRoles   UserRole[]
+  permissions RolePermission[]
+  @@map("roles")
+}
+
+model Permission {
+  id          String     @id @default(uuid())
+  code        String     @unique
+  description String?
+  createdAt   DateTime   @default(now()) @map("created_at")
+  rolePermissions RolePermission[]
+  @@map("permissions")
+}
+
+model UserRole {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  roleId    String   @map("role_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  @@unique([userId, roleId])
+  @@map("user_roles")
+}
+
+model RolePermission {
+  id           String     @id @default(uuid())
+  roleId       String     @map("role_id")
+  permissionId String     @map("permission_id")
+  createdAt    DateTime   @default(now()) @map("created_at")
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  @@unique([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+// ============ 业务记录 ============
+
+model BusinessRecord {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  status      String   @default("pending")
+  remark      String   @default("")
+  createdBy   String   @map("created_by")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  user        User     @relation(fields: [createdBy], references: [id])
+  @@index([status])
+  @@index([createdAt])
+  @@index([createdBy, createdAt])
+  @@map("business_records")
+}
+
+// ============ 审计日志（不可删除，仅追加） ============
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  actorId    String   @map("actor_id")
+  action     String
+  targetType String   @map("target_type")
+  targetId   String   @map("target_id")
+  beforeJson String?  @map("before_json")  // JSON snapshot before change
+  afterJson  String?  @map("after_json")   // JSON snapshot after change
+  detail     String?
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       User     @relation(fields: [actorId], references: [id])
+  @@index([actorId, createdAt])
+  @@index([targetType, targetId])
+  @@map("audit_logs")
+}
+
+// ============ API 请求日志 ============
+
+model ApiRequestLog {
+  id         String   @id @default(uuid())
+  method     String
+  path       String
+  statusCode Int      @map("status_code")
+  durationMs Int      @map("duration_ms")
+  userId     String?  @map("user_id")
+  ipAddress  String?  @map("ip_address")
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       User?    @relation(fields: [userId], references: [id])
+  @@index([userId, createdAt])
+  @@index([createdAt])
+  @@map("api_request_logs")
+}
+
+// ============ 幂等 Key ============
+
+model IdempotencyKey {
+  id           String   @id @default(uuid())
+  key          String   @unique
+  userId       String   @map("user_id")
+  scope        String
+  responseJson String   @map("response_json")
+  expiresAt    DateTime @map("expires_at")
+  createdAt    DateTime @default(now()) @map("created_at")
+  user         User     @relation(fields: [userId], references: [id])
+  @@index([key])
+  @@index([userId, scope])
+  @@map("idempotency_keys")
+}

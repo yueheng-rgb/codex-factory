@@ -1,0 +1,22 @@
+﻿{
+  "phase": "FACTORY-STATE-DASHBOARD-0",
+  "section": "B",
+  "title": "Dashboard Data Model",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "model_file": "factory-dashboard/STATE_DASHBOARD_DATA_MODEL.md",
+  "schema_file": "factory-dashboard/schemas/state-dashboard.schema.json",
+  "total_fields": 24,
+  "categories": {
+    "identity": 9,
+    "phase": 4,
+    "blockers_risks": 2,
+    "gates": 1,
+    "memory_context": 3,
+    "warnings": 3,
+    "agent_ledger": 1,
+    "recommendation": 1
+  },
+  "health_indicators": ["HEALTHY", "WARNING", "CRITICAL", "UNKNOWN"],
+  "report": "outputs/FACTORY_STATE_DASHBOARD_0_B_DATA_MODEL_REPORT.md"
+}

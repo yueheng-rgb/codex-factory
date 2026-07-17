@@ -1,0 +1,12 @@
+﻿{
+    "unexpectedPassCount":  0,
+    "results":  [
+
+                ],
+    "targetNotTriggered":  0,
+    "targetTriggered":  0,
+    "failTargetNotTriggeredCount":  0,
+    "phase":  "DRY23-B",
+    "totalNegatives":  0,
+    "generatedAt":  "2026-06-24T00:49:50.3735342+08:00"
+}

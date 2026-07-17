@@ -1,0 +1,219 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "section":  "D",
+    "dependencyRules":  [
+                            "No module depends on trial/product artifacts",
+                            "L0 modules have no internal dependencies — usable standalone",
+                            "L1-L4 modules depend upward — L4 depends on L3→L2→L1→L0",
+                            "Build Lite uses: L0 + L1(Summary Verification only) + L4(Negative Controls only)",
+                            "Build Pro uses: all layers"
+                        ],
+    "title":  "Module Boundary and Dependency Map",
+    "modules":  [
+                    {
+                        "description":  "Core structured build harness",
+                        "dependsOn":  [
+
+                                      ],
+                        "boundary":  "Product-agnostic — orchestrates build but does not contain product code",
+                        "requiredBy":  [
+                                           "ALL"
+                                       ],
+                        "module":  "Build Mode",
+                        "layer":  "L0"
+                    },
+                    {
+                        "description":  "File-based project state in .codex-factory/",
+                        "dependsOn":  [
+
+                                      ],
+                        "boundary":  "Project state layer — NOT model memory expansion",
+                        "requiredBy":  [
+                                           "ALL"
+                                       ],
+                        "module":  "External Memory",
+                        "layer":  "L0"
+                    },
+                    {
+                        "description":  "Task decomposition for parallel execution",
+                        "dependsOn":  [
+                                          "Build Mode"
+                                      ],
+                        "boundary":  "Task decomposition only — not product logic",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Task Graph",
+                        "layer":  "L0"
+                    },
+                    {
+                        "description":  "Automated checklist verification",
+                        "dependsOn":  [
+
+                                      ],
+                        "boundary":  "Read-only verification — does not modify products",
+                        "requiredBy":  [
+                                           "ALL"
+                                       ],
+                        "module":  "Verifier",
+                        "layer":  "L0"
+                    },
+                    {
+                        "description":  "L0-L5 evidence classification",
+                        "dependsOn":  [
+                                          "External Memory"
+                                      ],
+                        "boundary":  "Quality classification — not product judgment",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Memory Quality Hierarchy",
+                        "layer":  "L1"
+                    },
+                    {
+                        "description":  "What enters memory",
+                        "dependsOn":  [
+                                          "Memory Quality"
+                                      ],
+                        "boundary":  "Filter policy — not content censorship",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Memory Ingestion",
+                        "layer":  "L1"
+                    },
+                    {
+                        "description":  "Noise/redundancy filtering",
+                        "dependsOn":  [
+                                          "Memory Ingestion"
+                                      ],
+                        "boundary":  "Decay rules — automated enforcement TBD",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Memory Filtering/Decay",
+                        "layer":  "L1"
+                    },
+                    {
+                        "description":  "No claim without evidence path",
+                        "dependsOn":  [
+                                          "Memory Quality"
+                                      ],
+                        "boundary":  "Evidence gate — not fact-checking",
+                        "requiredBy":  [
+                                           "ALL"
+                                       ],
+                        "module":  "Summary Verification",
+                        "layer":  "L1"
+                    },
+                    {
+                        "description":  "JSON Schema for packets",
+                        "dependsOn":  [
+                                          "Memory Quality"
+                                      ],
+                        "boundary":  "Data contract — not business logic",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Context Packet Schema",
+                        "layer":  "L2"
+                    },
+                    {
+                        "description":  "generate-context-packet.ps1",
+                        "dependsOn":  [
+                                          "Schema",
+                                          "External Memory"
+                                      ],
+                        "boundary":  "Generates minimal context — never product code",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Context Packet Generator",
+                        "layer":  "L2"
+                    },
+                    {
+                        "description":  "validate-context-packet.ps1 (21 checks)",
+                        "dependsOn":  [
+                                          "Schema"
+                                      ],
+                        "boundary":  "Validates structure + anti-deception — not correctness",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Context Packet Validator",
+                        "layer":  "L2"
+                    },
+                    {
+                        "description":  "6 role-specific profiles",
+                        "dependsOn":  [
+                                          "Schema"
+                                      ],
+                        "boundary":  "Role profiles — not authorization",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Role Context Filtering",
+                        "layer":  "L2"
+                    },
+                    {
+                        "description":  "Track all spawned agents",
+                        "dependsOn":  [
+
+                                      ],
+                        "boundary":  "Lifecycle tracking — not orchestration",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Agent Registry",
+                        "layer":  "L3"
+                    },
+                    {
+                        "description":  "Structured context transfer",
+                        "dependsOn":  [
+                                          "Agent Registry"
+                                      ],
+                        "boundary":  "Context transfer — spawn_agent stays native",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Handoff Protocol",
+                        "layer":  "L3"
+                    },
+                    {
+                        "description":  "Auditable agent closure",
+                        "dependsOn":  [
+                                          "Agent Registry"
+                                      ],
+                        "boundary":  "Closure audit — not agent control",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Close Receipt",
+                        "layer":  "L3"
+                    },
+                    {
+                        "description":  "12-point pre-iteration gate",
+                        "dependsOn":  [
+                                          "Verifier"
+                                      ],
+                        "boundary":  "Support gate — NOT mainline product",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Diagnostic Gate",
+                        "layer":  "L4"
+                    },
+                    {
+                        "description":  "Agent lifecycle recovery test",
+                        "dependsOn":  [
+                                          "Diagnostic Gate"
+                                      ],
+                        "boundary":  "Recovery test — not disaster recovery",
+                        "requiredBy":  [
+                                           "Build Pro"
+                                       ],
+                        "module":  "Recovery Drill",
+                        "layer":  "L4"
+                    }
+                ]
+}

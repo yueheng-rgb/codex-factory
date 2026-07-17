@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "6C-U1",
+  "runId": "u1-r1",
+  "phase": "Phase 6C-U1",
+  "createdAt": "2026-06-20T18:38:00Z",
+  "tasks": [
+    {
+      "taskId": "T-001",
+      "workerId": "worker-1",
+      "role": "builder-agent",
+      "title": "Provider module — create src/utils.ts",
+      "ownedPaths": [
+        "workspace/worker-1/src/utils.ts",
+        "worker-interface-manifests/worker-1-interface-manifest.json"
+      ],
+      "allowedPaths": [
+        "workspace/worker-1/**",
+        "worker-interface-manifests/worker-1-interface-manifest.json"
+      ],
+      "forbiddenPaths": [
+        "workspace/worker-2/**",
+        "canonical-integrated/**"
+      ],
+      "exports": [
+        "module.utils.formatDate",
+        "module.utils.makeRunLabel",
+        "module.utils.validateRunId"
+      ],
+      "imports": [],
+      "acceptanceIds": ["AC-001","AC-002","AC-003"],
+      "dependencies": []
+    },
+    {
+      "taskId": "T-002",
+      "workerId": "worker-2",
+      "role": "builder-agent",
+      "title": "Service module — create src/app.ts",
+      "ownedPaths": [
+        "workspace/worker-2/src/app.ts",
+        "worker-interface-manifests/worker-2-interface-manifest.json"
+      ],
+      "allowedPaths": [
+        "workspace/worker-2/**",
+        "worker-interface-manifests/worker-2-interface-manifest.json"
+      ],
+      "forbiddenPaths": [
+        "workspace/worker-1/**",
+        "canonical-integrated/**"
+      ],
+      "exports": [
+        "module.app.buildSummary",
+        "module.app.buildAuditLine"
+      ],
+      "imports": [
+        "module.utils.formatDate",
+        "module.utils.makeRunLabel"
+      ],
+      "acceptanceIds": ["AC-004","AC-005","AC-006"],
+      "dependencies": ["T-001"]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-h12-a-state-cache-hygiene-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  14,
+    "passed":  14,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "DRY19-A-P5 report exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "DRY19-A final recorded as PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "DRY19-B recorded as UNBLOCKED_NOT_STARTED"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "current-factory-state.json exists and validates"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "evidence-preservation-index.json exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "cleanup-candidate-manifest.json exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "No protected evidence marked safeToDelete"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "No closed report modified (H10 exists)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "No closed report modified (H11 exists)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "No closed report modified (DRY18-B exists)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "DRY2-C through DRY13-C remain paused"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "DRY19-B not started"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "No generic FAIL classifications"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T11:49:47.636+08:00"
+}

@@ -1,0 +1,6 @@
+﻿{"phase":"H24-P2","basis":"Artifact-based handoff only","decisionId":"D-001","decision":"No full context inheritance"}
+{"phase":"H24-P1","basis":"Compressed summary not evidence","decisionId":"D-002","decision":"First-compact requires rotation"}
+{"phase":"H19","basis":"No runtime verification","decisionId":"D-003","decision":"Plugin remains EXPERIMENTAL"}
+{"phase":"LIVE-RUNTIME-1","basis":"DRY23-P1 spawn failure evidence","decisionId":"D-004","decision":"Capacity preflight is P0"}
+{"phase":"LIVE-RUNTIME-0","basis":"Gap closure priority","decisionId":"D-005","decision":"Agent OS before Context OS"}
+{"phase":"LIVE-RUNTIME-0","basis":"P0 gaps must close first","decisionId":"D-006","decision":"LIVE-RUNTIME-1 recommended over Agent/Context OS"}

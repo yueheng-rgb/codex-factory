@@ -1,0 +1,33 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "L",
+  "title": "Strategy Decision",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "decisions": {
+    "q1_minimal_helps": {
+      "question": "Does Minimal Mode help memory quality?",
+      "answer": "YES — Enforcing ≤500 char records with evidence_path, caveat, and validation prevents low-quality summaries, overclaims, and contamination from entering memory pool."
+    },
+    "q2_evidence": {
+      "question": "What evidence supports it?",
+      "answer": "AB-0 correction (design ≠ execution) and AB-0-R1 (separate scoring) demonstrate the contamination risk. P4/P4-R1 demonstrated compression coverage needs verifier constraint. Simulation (10 scenarios) shows validator correctly blocks 6/6 invalid records."
+    },
+    "q3_risks": {
+      "question": "What risks remain?",
+      "answer": "Over-minimization could lose nuance if caveats are too short. Validator may have false positives. Socratic Gate could be misused if trigger conditions are too broad. Normal user answers must NOT become minimal."
+    },
+    "q4_cleanup_next": {
+      "question": "Should cleanup/retention be next?",
+      "answer": "RECOMMENDED — Memory Quality P3 (Retention/Cleanup: user-controlled forget, stale record retirement, deduplication) is logical next step after ingestion quality is established."
+    },
+    "q5_staging_integration": {
+      "question": "Should this be integrated into staging?",
+      "answer": "YES — Once validated, minimal ingestion policy, schema, templates, and validator should be integrated into PACK-STAGING-P8 for the next staging bundle."
+    },
+    "q6_v05_blocked": {
+      "question": "Does v0.5 remain blocked?",
+      "answer": "YES — v0.5 remains BLOCKED. Memory quality is an internal optimization, not a release criterion change. 3 CRITICAL/HIGH blockers still active."
+    }
+  },
+  "status": "STRATEGY_DECIDED"
+}

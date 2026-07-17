@@ -1,0 +1,31 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-R1-A",
+  "title": "Evidence Reclassification",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "reclassification": {
+    "supported": [
+      "safe readonly intake discipline",
+      "secret values masked",
+      "no production connection",
+      "no deploy scripts executed",
+      "original project intact",
+      "Build Lite + gates appropriate",
+      "risks identified and categorized",
+      "next-step plan produced"
+    ],
+    "not_proven": [
+      "Factory smarter than vanilla Codex",
+      "vanilla Codex would not find same issues",
+      "new window is clean isolation",
+      "v0.5 release quality reached",
+      "Native Build Pro needed"
+    ],
+    "partial": [
+      "real-world validation value (no comparative baseline)",
+      "staging bundle usability (replicable without Factory)",
+      "security workflow value (no comparative advantage measured)"
+    ]
+  },
+  "report_path": "outputs/FACTORY_BUILD_REALWORLD_2_R1_A_EVIDENCE_RECLASSIFICATION_REPORT.md",
+  "status": "COMPLETE"
+}

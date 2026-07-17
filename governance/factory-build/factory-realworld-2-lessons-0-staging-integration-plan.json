@@ -1,0 +1,45 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "I",
+  "title": "Staging Pack Integration Plan",
+  "timestamp": "2026-06-28T10:59:00+08:00",
+  "integration_targets": [
+    {
+      "target": "Security/Deploy Gate → Staging Pack",
+      "action": "Include Security/Deploy Gate result JSON in staging bundle",
+      "priority": "HIGH",
+      "phase": "FACTORY-BUILD-PACK-STAGING-P3"
+    },
+    {
+      "target": "Test Repair Policy → Staging Pack",
+      "action": "Include test classification/repair policy in staging documentation",
+      "priority": "MEDIUM",
+      "phase": "FACTORY-BUILD-PACK-STAGING-P3"
+    },
+    {
+      "target": "User Secret Rotation Boundary → Staging Pack",
+      "action": "Include rotation checklist template in staging bundle for realworld projects",
+      "priority": "HIGH",
+      "phase": "FACTORY-BUILD-PACK-STAGING-P3"
+    },
+    {
+      "target": "REALWORLD-2 Lessons → Staging Pack",
+      "action": "Include phase-lessons JSON as reference evidence in staging documentation",
+      "priority": "MEDIUM",
+      "phase": "FACTORY-BUILD-PACK-STAGING-P3"
+    },
+    {
+      "target": "Context Space Requirements → Staging Pack",
+      "action": "Staging pack must verify Context Space freshness before packaging",
+      "priority": "LOW",
+      "phase": "FACTORY-BUILD-PACK-STAGING-P3"
+    }
+  ],
+  "optional_realworld3": {
+    "description": "If user chooses REALWORLD-3, staging pack should auto-include Security/Deploy Gate and updated policies from lessons",
+    "trigger": "User explicitly requests REALWORLD-3",
+    "status": "OPTIONAL — not required now"
+  },
+  "next_phase": "FACTORY-BUILD-PACK-STAGING-P3",
+  "status": "INTEGRATION_PLAN_COMPLETE"
+}

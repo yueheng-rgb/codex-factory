@@ -1,0 +1,33 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "B",
+  "title": "Default Startup Protocol",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "protocol_file": "factory-workflow/DEFAULT_FACTORY_STARTUP_PROTOCOL.md",
+  "steps": [
+    {"step": 1, "name": "Factory Presence Detection", "action": "check for .codex-factory/"},
+    {"step": 2, "name": "Installation Recommendation", "action": "offer v0.5 install if missing"},
+    {"step": 3, "name": "Read AGENTS.md", "action": "apply project-level instructions"},
+    {"step": 4, "name": "Factory Bootstrap", "action": "Router + Stack Decision"},
+    {"step": 5, "name": "Router / Project Type Detection", "action": "classify simple vs complex"},
+    {"step": 6, "name": "Preflight", "action": "workspace state, blockers"},
+    {"step": 7, "name": "Code Gate", "action": "do NOT write code yet"},
+    {"step": 8, "name": "Text Discussion", "action": "project type, complexity, risks, mode, multi-agent"},
+    {"step": 9, "name": "Multi-Agent Decision Gate", "action": "mandatory question for large projects"},
+    {"step": 10, "name": "Proceed After Mode Decision", "action": "only after confirmation"}
+  ],
+  "defaults": {
+    "build_mode": "Build Lite",
+    "native_build_pro": "conditional only",
+    "multi_agent": "requires explicit user confirmation"
+  },
+  "anti_bypass": [
+    "用户急着要成品 is not a reason to skip",
+    "我已经有思路了 is not a reason to skip",
+    "直接生成压缩包 is not a reason to skip",
+    "先写代码 is not a reason to skip",
+    "Only explicit 跳过 Factory 分析，直接实现 can bypass"
+  ],
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_B_DEFAULT_STARTUP_PROTOCOL_REPORT.md"
+}

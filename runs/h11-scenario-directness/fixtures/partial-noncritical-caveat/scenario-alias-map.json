@@ -1,0 +1,31 @@
+﻿{
+    "phase":  "6C-H11",
+    "summary":  {
+                    "requiresRerun":  0,
+                    "partialCount":  1,
+                    "exactCount":  0,
+                    "strongCount":  0,
+                    "blockerCount":  0,
+                    "weakCount":  0,
+                    "totalMappings":  1,
+                    "invalidCount":  0
+                },
+    "runId":  "h11-fixture",
+    "aliasMappings":  [
+                          {
+                              "sourceEvidence":  [
+                                                     "file.js:s3_indirect"
+                                                 ],
+                              "rerunRequired":  false,
+                              "actualScenarioId":  "s3_indirect",
+                              "intendedScenarioId":  "s3",
+                              "requiresDirectScenario":  false,
+                              "intendedInvariant":  "ir_3_noncritical",
+                              "negativeId":  "neg-3",
+                              "equivalenceJustification":  "Indirect coverage of a non-critical invariant. Acceptable with caveat.",
+                              "acceptedForClosure":  true,
+                              "aliasStrength":  "PARTIAL"
+                          }
+                      ],
+    "createdAt":  "2026-06-22T23:16:40.5062924+08:00"
+}

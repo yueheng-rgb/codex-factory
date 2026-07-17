@@ -1,0 +1,23 @@
+﻿{
+    "sections":  {
+                     "safeContinuation":  "After startup verification PASS, narrow continuation only",
+                     "whatYouNeedToDo":  "Open new Codex window, paste startup packet, run startup verification",
+                     "whatHappened":  "Automation watcher detected rotation risk",
+                     "verifierCommands":  [
+                                              "factoryctl verify --json",
+                                              "cross-session reconciliation",
+                                              "startup verification contract"
+                                          ],
+                     "startupPacket":  "Copy from governance/automation-os/latest-rotation-recommendation.json",
+                     "forbiddenAssumptions":  [
+                                                  "automatic window creation",
+                                                  "full context inheritance",
+                                                  "compressed summary as evidence",
+                                                  "automation alert = PASS"
+                                              ]
+                 },
+    "schemaId":  "user-action-payload-template",
+    "generatedAt":  "2026-06-25T00:53:41+08:00",
+    "version":  "1.0.0",
+    "purpose":  "Template for user-facing rotation alert payload"
+}

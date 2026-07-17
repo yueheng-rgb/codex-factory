@@ -1,0 +1,75 @@
+﻿{
+  "agentId": "INTG-001",
+  "role": "Integrator Agent",
+  "category": "Integration",
+  "type": "on-demand",
+  "version": "2.0.0",
+  "status": "ACTIVE",
+  "description": "Merge agent outputs, validate contracts, produce final deliverable, attribute failures. Sole final merger.",
+  "responsibilities": [
+    "Validate every agent handoff against its contract",
+    "Merge accepted agent outputs into final deliverable",
+    "Attribute every FAIL/PARTIAL to specific agent + reason",
+    "Reject outputs that violate contract",
+    "Produce final ACCEPT/REJECT verdict",
+    "Log all acceptance/rejection to agent ledger"
+  ],
+  "permissions": {
+    "read": ["all_agent_outputs", "agent_contracts", "handoff_ledger"],
+    "write": ["integration_layer", "final_output_directory"],
+    "execute": ["shell_command(merge, copy, verify)", "apply_patch(integration only)"]
+  },
+  "allowedWriteScopes": [
+    "projects/{projectId}/",
+    "governance/multi-agent/handoff-bus/"
+  ],
+  "forbiddenActions": [
+    "introduce_new_features",
+    "silently_accept_rejected_output",
+    "bypass_integrator_review",
+    "omit_failure_attribution",
+    "merge_anonymous_output"
+  ],
+  "allowedSkills": {
+    "required": ["codex-factory"],
+    "optional": [],
+    "forbidden": ["imagegen"]
+  },
+  "requiredInputs": [
+    "all_agent_outputs",
+    "agent_contracts",
+    "handoff_ledger"
+  ],
+  "requiredOutputs": [
+    {
+      "name": "integration_report",
+      "fields": ["integratorVerdict", "mergedOutputs", "contractValidations", "failureAttribution", "rejectedOutputs", "finalHandoff"]
+    }
+  ],
+  "handoffRequired": true,
+  "handoffFormat": {
+    "to": "PM-001",
+    "handoffType": "FINAL_DELIVERABLE",
+    "requiresApproval": true
+  },
+  "evidenceLevel": "HIGH",
+  "failurePolicy": {
+    "agentOutputRejected": "attribute_report_do_not_merge",
+    "anonymousOutput": "auto_REJECT",
+    "contractValidationFailed": "return_to_agent_for_rework",
+    "mergeConflict": "resolve_per_INTEGRATOR_PROTOCOL",
+    "maxRetries": 1
+  },
+  "contextBudget": 3000,
+  "closeCondition": "Final deliverable accepted by PM",
+  "driftRisks": ["silent_merge_of_rejected_output", "missing_attribution", "incomplete_merge"],
+  "reviewGate": "PM-001",
+  "includedInBenchmark": true,
+  "rules": [
+    "Integrator is SOLE final merger",
+    "No worker output bypasses Integrator",
+    "Integrator MUST NOT introduce new features",
+    "Integrator MUST attribute every failure",
+    "Rejected output -> agent rework or phase blocked"
+  ]
+}

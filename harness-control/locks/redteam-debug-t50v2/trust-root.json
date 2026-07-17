@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  6,
+    "frozenAt":  "2026-06-18T21:45:52.0439001+08:00",
+    "runId":  "redteam-debug-t50v2",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\redteam-debug-t50v2\\trust-root.json",
+    "controlPlaneLockSha256":  "d605a36da35b22b19b273664a397f84f1ede2d08bf9734a682e00e8b3570e22c",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "6a31ed4e4216252b0905ecbcee629a73ee44c68c6a2708dac782581d1fe0396f"
+}

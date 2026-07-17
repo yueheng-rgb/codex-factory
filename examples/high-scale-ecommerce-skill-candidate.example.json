@@ -1,0 +1,71 @@
+﻿{
+  "skillId": "SKILL-CAND-ecommerce-inventory",
+  "skillName": "ecommerce-inventory-patterns",
+  "displayName": "E-Commerce Inventory Deduction Patterns",
+  "triggerConditions": [
+    {
+      "condition": "项目需求包含库存管理、库存扣减、商品数量管理",
+      "projectTypes": ["fullstack-admin", "saas-tool"],
+      "keywords": ["库存", "stock", "inventory", "扣减", "deduction", "超卖", "overselling", "商品数量", "quantity"]
+    },
+    {
+      "condition": "项目涉及订单创建且需要扣减商品数量",
+      "projectTypes": ["fullstack-admin", "saas-tool"],
+      "keywords": ["订单", "order", "下单", "购买", "purchase"]
+    }
+  ],
+  "instructions": "# E-Commerce Inventory Deduction Patterns\n\n## Core Rule\n库存扣减必须使用数据库条件UPDATE，禁止先SELECT再UPDATE。\n\n## Implementation Checklist\n1. 库存扣减SQL: `UPDATE inventory SET stock = stock - :qty WHERE product_id = :pid AND stock >= :qty`\n2. 扣减必须与订单创建在同一数据库事务中\n3. 扣减后检查affected rows: =0表示库存不足, >0表示成功\n4. 使用PostgreSQL的RETURNING子句获取最新库存值\n\n## When NOT to apply\n- 项目复杂度S/M: 直接用条件UPDATE，不要引入Redis\n- 没有库存概念的项目: 不适用\n\n## Anti-Patterns (MUST avoid)\n- ❌ 先SELECT再UPDATE\n- ❌ 应用层锁控制库存\n- ❌ S/M项目引入Redis库存缓存\n\n## Sources\nBased on: Alibaba Cloud high-concurrency inventory best practices, Meituan inventory system design.",
+  "requiredInputs": ["项目需求中是否包含库存管理", "项目复杂度评估(S/M/L/XL)", "预计QPS(如果>5000需要Redis方案)"],
+  "expectedOutputs": [
+    {
+      "name": "inventory_schema",
+      "description": "库存表的DDL设计",
+      "format": "SQL (Prisma/Drizzle schema or raw SQL)"
+    },
+    {
+      "name": "deduction_logic",
+      "description": "库存扣减的业务逻辑代码",
+      "format": "TypeScript/JavaScript"
+    },
+    {
+      "name": "architecture_decision",
+      "description": "是否需要Redis库存缓存的决策记录",
+      "format": "Markdown"
+    }
+  ],
+  "allowedTools": ["shell_command", "apply_patch"],
+  "forbiddenActions": [
+    "使用SELECT+UPDATE模式扣减库存",
+    "在S/M项目中建议使用Redis",
+    "跳过事务保护直接扣减库存"
+  ],
+  "verifierRequired": true,
+  "trustLevel": "UNVERIFIED",
+  "sourceRefs": [
+    {
+      "type": "knowledge_capsule",
+      "refId": "CAP-ecommerce-inventory-deduction"
+    },
+    {
+      "type": "research_packet",
+      "refId": "RSRC-20260705-001"
+    },
+    {
+      "type": "official_docs",
+      "url": "https://www.postgresql.org/docs/current/sql-update.html"
+    }
+  ],
+  "status": "candidate",
+  "assessments": {
+    "architect": "PENDING",
+    "security": "PENDING",
+    "verifier": "PENDING",
+    "integrator": "PENDING"
+  },
+  "dependencies": [],
+  "conflicts": ["skill-legacy-inventory-select-then-update"],
+  "applicableAgentRoles": ["ARCH-001", "IMPL-BE-001", "IMPL-DB-001"],
+  "createdAt": "2026-07-05T15:00:00+08:00",
+  "createdBy": "LIB-001",
+  "version": "0.1.0"
+}

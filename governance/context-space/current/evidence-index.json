@@ -1,0 +1,83 @@
+﻿{
+    "updated_at":  "2026-06-28T09:55:56+08:00",
+    "entries":  [
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T09:40:12+08:00",
+                        "verifier_result_path":  "governance/context-space/verifier-factory-context-space-p4-r1-result.json",
+                        "phase_id":  "FACTORY-CONTEXT-SPACE-P4-R1"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T09:50:46+08:00",
+                        "verifier_result_path":  "governance/context-space/verifier-factory-context-space-p5-result.json",
+                        "phase_id":  "FACTORY-CONTEXT-SPACE-P5"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T10:19:42+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-REALWORLD-2-P1"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T10:29:42+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-REALWORLD-2-P2"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T10:38:26+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-REALWORLD-2-P3"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T10:45:22+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-REALWORLD-2-P4"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T10:49:30+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-REALWORLD-2-P5"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T10:58:37+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-REALWORLD-2-LESSONS-0"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T13:47:02+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-PACK-STAGING-P3"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T13:53:59+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-PACK-STAGING-P4"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T16:53:08+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-PACK-STAGING-P5"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T17:00:37+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-PACK-STAGING-P6"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "timestamp":  "2026-06-28T17:07:01+08:00",
+                        "verifier_result_path":  "N/A",
+                        "phase_id":  "FACTORY-BUILD-PACK-STAGING-P6-R1"
+                    }
+                ]
+}

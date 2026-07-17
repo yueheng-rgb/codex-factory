@@ -1,0 +1,72 @@
+﻿{
+  "realityCheckId": "SEARCH-REALITY-CHECK-001",
+  "date": "2026-07-10",
+  "classification": "B_LIVE_PROVIDER_READY_NOT_EXECUTED",
+  "summary": "Zero API keys across 7 providers. Zero successful live_api invocations. Zero real outbound requests. All evidence from manual input or dry_run mock fixtures. Live provider code paths exist but are correctly gated.",
+  "evidence": {
+    "q1_api_keys": {
+      "total_providers_checked": 7,
+      "keys_present": 0,
+      "keys_missing": 7,
+      "providers": {
+        "GLM": {"ZHIPUAI_API_KEY": false, "GLM_API_KEY": false},
+        "Tavily": {"TAVILY_API_KEY": false},
+        "Exa": {"EXA_API_KEY": false},
+        "Brave": {"BRAVE_SEARCH_API_KEY": false},
+        "Firecrawl": {"FIRECRAWL_API_KEY": false},
+        "Jina": {"JINA_API_KEY": false}
+      },
+      "env_files_non_example": 0
+    },
+    "q2_live_api_invocations": {
+      "total_entries": 82,
+      "live_api_total": 9,
+      "live_api_allow_with_controls": 0,
+      "live_api_secret_present": 0,
+      "live_api_result_count_gt_0": 0,
+      "live_api_breakdown": {
+        "REJECT": 3,
+        "PENDING_HUMAN": 6
+      }
+    },
+    "q3_outbound_request": {
+      "adapter_has_invoke_restmethod_code": true,
+      "adapter_has_api_url": true,
+      "code_path_ever_triggered_with_real_key": false,
+      "real_http_request_count": 0,
+      "real_provider_response_count": 0,
+      "fake_key_simulation_attempts": 1
+    },
+    "q4_evidence_source": {
+      "actual_sources": ["manual", "dry_run"],
+      "mode_distribution": {"manual": 39, "dry_run": 34, "live_api": 9},
+      "live_api_as_active_path_in_loop": false,
+      "simulation_scenarios": 12,
+      "simulation_using_real_data": 0
+    },
+    "q5_report_overstatements": {
+      "total_hits": 5,
+      "active_claims": 0,
+      "deprecated_context": 5,
+      "corrections_needed": false,
+      "r2_3_o_reports_accurate": true
+    }
+  },
+  "correct_terminology": {
+    "acceptable": [
+      "Search Framework / Adapter Ready",
+      "External Search Provider Adapter MVP",
+      "Evidence Search Loop (manual/dry_run)",
+      "live_api code path ready (gated)",
+      "LIVE_PROVIDER_READY_NOT_EXECUTED"
+    ],
+    "forbidden": [
+      "search engine connected",
+      "live search available",
+      "real-time search operational",
+      "First Real API completed",
+      "GLM live integration complete",
+      "external search provider connected"
+    ]
+  }
+}

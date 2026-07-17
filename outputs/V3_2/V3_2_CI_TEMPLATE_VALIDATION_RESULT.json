@@ -1,0 +1,41 @@
+﻿{
+    "non_claims":  [
+                       "This is static/local validation only",
+                       "Template has NOT been executed on GitHub",
+                       "ACT_UNAVAILABLE — no local act dry-run"
+                   ],
+    "timestamp":  "2026-07-17T16:28:00.6069365+08:00",
+    "validation_id":  "V3_2-CI-TEMPLATE-VALIDATION-001",
+    "overall":  "CI_TEMPLATE_VALID",
+    "checks":  [
+                   {
+                       "detail":  "name=True on=True jobs=True dispatch=True",
+                       "status":  "PASS",
+                       "check":  "yaml_structure"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "artifact_upload_step"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "secret_scan_step"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "no_embedded_secrets"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "no_forbidden_commands"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "frozen_trunk_aware"
+                   },
+                   {
+                       "status":  "UNAVAILABLE",
+                       "check":  "act_available"
+                   }
+               ]
+}

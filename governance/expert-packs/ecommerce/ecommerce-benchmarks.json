@@ -1,0 +1,50 @@
+﻿{
+  "pack": "ecommerce",
+  "version": "1.0.0",
+  "benchmarks": [
+    {
+      "benchmark_id": "ECOM-B1",
+      "description": "Simple product display page, no transactions — ecommerce product catalog browsing",
+      "expected_surfaces": ["public-web"],
+      "expected_risk_level": "LOW",
+      "expected_invariants": [],
+      "runnable_or_design_only": "runnable",
+      "human_audit_required": false,
+      "external_engines_expected": [],
+      "success_criteria": "Product list renders, no transaction logic involved"
+    },
+    {
+      "benchmark_id": "ECOM-B2",
+      "description": "Product inventory admin backend — CRUD with inventory adjustment",
+      "expected_surfaces": ["admin-web","api-service","database"],
+      "expected_risk_level": "HIGH",
+      "expected_invariants": ["inventory_non_negative","stock_delta_must_be_audited"],
+      "runnable_or_design_only": "runnable",
+      "human_audit_required": false,
+      "external_engines_expected": ["semgrep"],
+      "success_criteria": "Admin can CRUD products, adjust inventory, invariants enforced"
+    },
+    {
+      "benchmark_id": "ECOM-B3",
+      "description": "Full store with cart, orders, payment callback — complete ecommerce flow",
+      "expected_surfaces": ["public-web","admin-web","api-service","database","background-worker","docs-release"],
+      "expected_risk_level": "CRITICAL",
+      "expected_invariants": ["price_non_negative","inventory_non_negative","order_total_matches_items","payment_idempotency_required","paid_order_cannot_be_modified_without_refund_flow","refund_amount_cannot_exceed_paid_amount"],
+      "runnable_or_design_only": "design_only",
+      "human_audit_required": true,
+      "external_engines_expected": ["semgrep","autocannon","playwright"],
+      "success_criteria": "Complete surface plan, risk profile, invariant spec, engine plan, and human audit checklist"
+    },
+    {
+      "benchmark_id": "ECOM-B4",
+      "description": "Mini-program store with admin backend — WeChat/Alipay miniapp ecommerce",
+      "expected_surfaces": ["miniapp","admin-web","api-service","database","background-worker","docs-release"],
+      "expected_risk_level": "L_CLASS",
+      "expected_invariants": ["price_non_negative","inventory_non_negative","order_total_matches_items","payment_idempotency_required","user_cannot_modify_price","admin_required_for_price_change","refund_amount_cannot_exceed_paid_amount"],
+      "runnable_or_design_only": "design_only",
+      "human_audit_required": true,
+      "external_engines_expected": ["semgrep","autocannon","codeql"],
+      "success_criteria": "L_CLASS handling: decomposition plan, surface plan, all invariants, required reviewers, human audit required"
+    }
+  ]
+}

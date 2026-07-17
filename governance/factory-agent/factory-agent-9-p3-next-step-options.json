@@ -1,0 +1,103 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P3",
+  "step": "G_NEXT_STEP_OPTIONS",
+  "timestamp": "2026-06-26T20:49:29.5240087+08:00",
+  "options": [
+    {
+      "id": "OPTION_A",
+      "name": "FACTORY-AGENT-10 / Second Benchmark",
+      "purpose": "Test whether multi-agent product benefit appears on a larger project",
+      "pros": [
+        "Only way to resolve 'project too small' hypothesis",
+        "Could prove or disprove multi-agent definitively",
+        "AGENT-9-P2 already identified the exact hypothesis"
+      ],
+      "cons": [
+        "Significant time investment (new implementation)",
+        "Risk of sunk cost if result is again no product benefit",
+        "Requires designing and executing new benchmark"
+      ],
+      "riskOfSunkCost": "MODERATE",
+      "evidenceNeeded": "P1 product-only >= Vanilla on >50-module project",
+      "recommended": "CONDITIONAL",
+      "condition": "Only if user wants to definitively resolve multi-agent question"
+    },
+    {
+      "id": "OPTION_B",
+      "name": "FACTORY-AGENT-PACK-PREP / Experimental Conditional Agent Pack",
+      "purpose": "Package P1 as non-default experimental process/evidence layer",
+      "pros": [
+        "Captures real process/evidence benefit now",
+        "Clear labeling prevents misuse as product quality tool",
+        "Allows real-world testing without full commitment"
+      ],
+      "cons": [
+        "May create false impression of product readiness",
+        "Requires careful manifest/classification design",
+        "Without second benchmark, no generalization evidence"
+      ],
+      "releaseBoundary": "EXPERIMENTAL only. Must be labeled: NOT FOR PRODUCT QUALITY. Process/evidence tool only.",
+      "recommended": "CONDITIONAL",
+      "condition": "Only if labeled EXPERIMENTAL, non-default, no product quality claim"
+    },
+    {
+      "id": "OPTION_C",
+      "name": "FACTORY-AGENT-DIAGNOSTIC-PACK / Reviewer-Verifier Diagnostic Mode",
+      "purpose": "Extract the most proven guardrail (Reviewer-Verifier) without full multi-agent implementation",
+      "pros": [
+        "Lowest overhead of all multi-agent-derived options",
+        "Reviewer-Verifier has proven value: caught BLOCKED_BY_REVIEWER",
+        "Can be used standalone on any project",
+        "No spawn_agent required"
+      ],
+      "cons": [
+        "Only extracts one piece of multi-agent value",
+        "Does not capture process/evidence framework benefit",
+        "May be too narrow to justify separate package"
+      ],
+      "recommended": "YES",
+      "condition": "Package as v0.4 add-on or standalone diagnostic tool. Lowest risk, highest proven value."
+    },
+    {
+      "id": "OPTION_D",
+      "name": "STOP Agent Line / Use v0.4 + real projects",
+      "purpose": "Avoid further sunk cost; focus on v0.4 Factory Lite which is proven and operational",
+      "pros": [
+        "Zero additional cost",
+        "v0.4 is proven and shipped",
+        "Vanilla + v0.4 cover all proven use cases",
+        "Prevents chasing unproven multi-agent benefit"
+      ],
+      "cons": [
+        "Abandons process/evidence infrastructure investment",
+        "Reviewer-Verifier and negative controls frameworks are real value",
+        "Does not answer 'what if project is larger' question"
+      ],
+      "recommended": "NO",
+      "condition": "Too extreme. Keep proven pieces (Reviewer-Verifier, negative controls, v0.4). Cut only unproven pieces (7-agent, 10-role)."
+    },
+    {
+      "id": "OPTION_E",
+      "name": "USER REVIEW / Pause for decision",
+      "purpose": "Present options to user for value-based decision: product quality vs evidence/traceability",
+      "pros": [
+        "Respects user as decision-maker",
+        "Values trade-off is subjective",
+        "Prevents agent from making strategic decisions"
+      ],
+      "cons": [
+        "Delays closure",
+        "User may not have full context without recommendation"
+      ],
+      "recommended": "YES_IN_COMBINATION",
+      "condition": "Present with a clear recommendation, not as an empty choice."
+    }
+  ],
+  "recommendation": {
+    "primary": "OPTION_C + OPTION_E",
+    "rationale": "Reviewer-Verifier diagnostic mode has the highest proven-value-to-overhead ratio. Package as standalone diagnostic tool. Present options A, B, C to user for strategic decision.",
+    "secondary": "OPTION_A if user wants definitive multi-agent answer",
+    "avoid": ["OPTION_D (too extreme, loses proven value)", "Unconditional OPTION_B (risks product quality misrepresentation)"],
+    "recommendedNextPhase": "User decision between FACTORY-AGENT-10 (second benchmark) or FACTORY-AGENT-DIAGNOSTIC-PACK (extract Reviewer-Verifier)"
+  }
+}

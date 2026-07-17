@@ -1,0 +1,33 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "failure-lesson.schema.json",
+  "title": "Failure Lesson",
+  "description": "Structured record of a project failure for knowledge bank",
+  "type": "object",
+  "required": ["lessonId", "title", "domain", "severity", "symptom", "rootCause", "solution", "detectedBy", "date", "tags", "prevention"],
+  "properties": {
+    "lessonId": {
+      "type": "string",
+      "pattern": "^FAIL-[a-f0-9-]+$",
+      "description": "e.g. FAIL-20260703-001"
+    },
+    "title": { "type": "string", "description": "Short, actionable title" },
+    "domain": {
+      "type": "string",
+      "enum": ["miniapp", "fullstack", "backend", "frontend", "database", "devops", "security", "architecture", "testing", "process", "agent-collaboration"]
+    },
+    "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"] },
+    "symptom": { "type": "string", "description": "What the developer/user observed" },
+    "rootCause": { "type": "string", "description": "The underlying cause, not the symptom" },
+    "solution": { "type": "string", "description": "How it was fixed or should be fixed" },
+    "detectedBy": { "type": "string", "description": "Agent ID or 'user'" },
+    "projectId": { "type": "string" },
+    "projectType": { "type": "string", "enum": ["content-site", "fullstack-admin", "saas-tool", "api-service", "miniapp", "mobile-app", "threejs-interactive"] },
+    "date": { "type": "string", "format": "date" },
+    "tags": { "type": "array", "items": { "type": "string" }, "description": "Searchable tags" },
+    "prevention": { "type": "string", "description": "How to prevent this in future projects" },
+    "relatedLessons": { "type": "array", "items": { "type": "string" }, "description": "Related lesson IDs" },
+    "affectedSkill": { "type": "string", "description": "Skill that should be updated based on this lesson" },
+    "status": { "type": "string", "enum": ["OPEN", "RESOLVED", "SUPERSEDED"], "default": "OPEN" }
+  }
+}

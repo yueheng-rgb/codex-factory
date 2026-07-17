@@ -1,0 +1,115 @@
+﻿// Prisma Schema 示例
+//
+// ⚠️ 这是示例文件，不是真实的 Prisma schema。
+// 真实项目接入数据库时：
+// 1. 重命名本文件为 schema.prisma
+// 2. 配置 DATABASE_URL 环境变量
+// 3. 运行 npx prisma migrate dev
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ===== 用户与权限 =====
+
+model Account {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  passwordHash String @map("password_hash")
+  displayName String?
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  roles     AccountRole[]
+  auditLogs AuditLog[]   @relation("Actor")
+
+  @@map("accounts")
+}
+
+model Role {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  label     String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  accounts  AccountRole[]
+  permissions RolePermission[]
+
+  @@map("roles")
+}
+
+model Permission {
+  id        String   @id @default(uuid())
+  action    String   // read / create / update / delete / manage
+  resource  String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  roles     RolePermission[]
+
+  @@map("permissions")
+}
+
+model RolePermission {
+  roleId       String @map("role_id")
+  permissionId String @map("permission_id")
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model AccountRole {
+  accountId String @map("account_id")
+  roleId    String @map("role_id")
+
+  account Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  role    Role    @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([accountId, roleId])
+  @@map("account_roles")
+}
+
+// ===== 业务记录 =====
+
+model BusinessRecord {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  status      String   @default("pending") // pending / active / completed / archived / cancelled
+  priority    String   @default("medium")  // low / medium / high
+  remark      String?
+  createdBy   String   @map("created_by")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@index([createdBy])
+  @@map("business_records")
+}
+
+// ===== 审计日志 =====
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  actorId    String   @map("actor_id")
+  action     String   // create / update / delete / login / logout
+  targetType String   @map("target_type")
+  targetId   String   @map("target_id")
+  detail     String?
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  actor Account @relation("Actor", fields: [actorId], references: [id])
+
+  @@index([actorId])
+  @@index([targetType, targetId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}

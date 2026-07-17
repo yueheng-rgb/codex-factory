@@ -1,0 +1,72 @@
+﻿{
+  "test_id": "V1_3_ENGINE_RELIABILITY_FINAL",
+  "generated": "2026-07-11",
+  "description": "Final external engine reliability check across all 6 engines",
+  "engine_checks": [
+    {
+      "engine_id": "semgrep",
+      "version": "1.169.0",
+      "status": "AVAILABLE",
+      "last_run": "2026-07-11",
+      "targets_tested": 5,
+      "all_clean": true,
+      "evidence_binding": "COMPLETE — engine matrix v1.2",
+      "reliability": "HIGH — consistently available across all targets"
+    },
+    {
+      "engine_id": "autocannon",
+      "version": "8.0.0",
+      "status": "AVAILABLE",
+      "last_run": "2026-07-11",
+      "targets_tested": 1,
+      "skipped_targets": ["admin-system-runtime-validation (MODULE_RESOLUTION_FAILED)"],
+      "evidence_binding": "PARTIAL — 1 target skipped due to tsx/Node v24 issue",
+      "reliability": "MEDIUM — available but server-start dependency causes skips"
+    },
+    {
+      "engine_id": "playwright",
+      "version": "1.61.1",
+      "status": "AVAILABLE",
+      "last_run": "2026-07-11",
+      "targets_tested": 0,
+      "failed_targets": ["BROWSER_VERSION_MISMATCH — chromium binary missing"],
+      "evidence_binding": "TOOL_FAILED — correctly classified, not fake PASS",
+      "reliability": "LOW — package available but browser binaries mismatched"
+    },
+    {
+      "engine_id": "codeql",
+      "version": null,
+      "status": "TOOL_UNAVAILABLE",
+      "reason": "INSTALL_REQUIRED — CLI not installed",
+      "evidence_binding": "SKIPPED_WITH_REASON",
+      "reliability": "N/A — requires user installation",
+      "install_command": "Download from github.com/github/codeql-cli-binaries"
+    },
+    {
+      "engine_id": "k6",
+      "version": null,
+      "status": "TOOL_UNAVAILABLE",
+      "reason": "INSTALL_REQUIRED — CLI not installed",
+      "evidence_binding": "SKIPPED_WITH_REASON",
+      "reliability": "N/A — requires user installation",
+      "install_command": "choco install k6"
+    },
+    {
+      "engine_id": "firecrawl-reader",
+      "version": null,
+      "status": "TOOL_UNAVAILABLE",
+      "reason": "API_KEY_MISSING + NOT_INSTALLED",
+      "evidence_binding": "SKIPPED_WITH_REASON — READER only, not canonical search",
+      "reliability": "N/A — requires API key and npm install",
+      "boundary": "LOCKED — Firecrawl is READER only, never canonical search"
+    }
+  ],
+  "summary": {
+    "total_engines": 6,
+    "available": 3,
+    "reliable": 1,
+    "unavailable_with_reason": 3,
+    "no_fake_pass": true,
+    "all_skipped_have_reason": true
+  }
+}

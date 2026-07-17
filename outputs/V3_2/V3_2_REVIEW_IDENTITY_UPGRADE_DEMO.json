@@ -1,0 +1,25 @@
+﻿{
+    "bridge_id": "ID-BRIDGE-20260717-162827-2804",
+    "identity_mode": "signed_local_receipt",
+    "receipt_path": "reviews/V3_1-REV-CRITICAL-001.json",
+    "reviewer_alias": "Factory-V3_2-Reviewer",
+    "gpg_available": false,
+    "gpg_signature": "",
+    "gpg_status": "GPG_UNAVAILABLE",
+    "receipt_hash": "SIMULATED-HASH-CF4E5B9D",
+    "max_allowed_decision": "ALLOWED_FOR_REVIEW",
+    "artifact_binding": [
+        "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stdout.log",
+        "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stderr.log"
+    ],
+    "gate_result": "ALLOWED_FOR_REVIEW",
+    "non_claims": [
+        "signed_local_receipt uses SIMULATED hash, NOT cryptographic signing",
+        "This is NOT a real external identity verification",
+        "ALLOWED_FOR_REVIEW is the max decision for local identity modes",
+        "PRODUCTION_APPROVED requires external_identity_required (NOT implemented)",
+        "gpg_signature_optional is UNAVAILABLE in this environment",
+        "signed_local_receipt is NOT company-level human approval",
+        "local_named_reviewer alias is NOT verified identity"
+    ]
+}

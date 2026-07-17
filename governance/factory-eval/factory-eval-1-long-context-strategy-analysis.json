@@ -1,0 +1,28 @@
+﻿{
+    "recommendation":  "Do NOT rely on long-context as replacement for external memory or routing. The Factory approach (external index + routing + verification) is complementary and necessary even with 1M context.",
+    "whatGoesWhere":  {
+                          "inManualRouter":  "Page pointers, required reading maps, phase-to-file routing",
+                          "inContextOS":  "Phase history, agent ledger, decision log, risk register",
+                          "inLongContext":  "Active task specification, current code being edited, recent conversation",
+                          "inMCPMemory":  "Queryable indexes, cross-session state, evidence paths",
+                          "neverInContext":  "Entire Factory manual, all governance files, all verifier scripts"
+                      },
+    "coreFinding":  "Long-context models (1M+ tokens) do NOT eliminate the need for external memory, routing, or proof-of-read. Context window = attention budget, not comprehension guarantee.",
+    "schemaId":  "factory-eval-1-long-context-strategy-analysis",
+    "phase":  "FACTORY-EVAL-1-E",
+    "factoryApproach":  {
+                            "approach":  "External memory + routing + verification",
+                            "contextOS":  "Indexes content externally; Codex queries what it needs",
+                            "mcpMemory":  "Provides query layer; doesn\u0027t load everything into context",
+                            "proofOfRead":  "Verifies content was processed; doesn\u0027t assume attention = comprehension",
+                            "manualRouter":  "Points Codex to correct pages; doesn\u0027t load all pages"
+                        },
+    "whyLongContextIsNotEnough":  [
+                                      "Attention dilution: more tokens = less attention per token",
+                                      "Needle-in-haystack: finding specific info in 1M tokens is probabilistic",
+                                      "No persistence: context window resets between sessions/compactions",
+                                      "No audit: can\u0027t prove Codex actually processed specific content",
+                                      "Cost: filling context with reference material burns token budget"
+                                  ],
+    "generatedAt":  "2026-06-25T15:53:44+08:00"
+}

@@ -1,0 +1,29 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "E",
+  "title": "User Forget Boundary",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "boundary": {
+    "user_can_forget": [
+      "CACHE: old snapshots, intermediate outputs, working drafts",
+      "STALE: retired claims, superseded decisions, resolved blockers",
+      "DUPLICATE: lower-tier copies of same evidence",
+      "Entire project Context Space (with PLAN → CONFIRM)"
+    ],
+    "user_cannot_forget_without_explicit_flag": [
+      "CORE_EVIDENCE: verifier results, final reports, SHA256, governance JSONs — requires --force-evidence"
+    ],
+    "user_cannot_forget_ever": [
+      "Real project files (not in Context Space scope)",
+      "Production data or databases",
+      "System-level Codex configuration"
+    ],
+    "forget_is_not": [
+      "Security erase or cryptographic wipe",
+      "Proof of deletion for compliance",
+      "Removal from backups or version control",
+      "Retroactive — deleted records may exist in old snapshots until those snapshots age out"
+    ]
+  },
+  "status": "USER_FORGET_BOUNDARY_DEFINED"
+}

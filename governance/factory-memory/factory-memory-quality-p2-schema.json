@@ -1,0 +1,25 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "C",
+  "title": "Memory Record Schema",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "schema_version": "1.0.0",
+  "memory_record_schema": {
+    "required_fields": ["record_id", "timestamp", "category", "summary", "evidence_path", "status"],
+    "optional_fields": ["caveat", "score", "related_phases", "retired_reason", "socratic_triggered"],
+    "fields": {
+      "record_id": {"type": "string", "format": "MEM-{category}-{timestamp}-{hash4}", "description": "Unique memory record identifier"},
+      "timestamp": {"type": "string", "format": "ISO8601", "description": "When the record was created"},
+      "category": {"type": "enum", "values": ["PHASE_RESULT", "BLOCKER_UPDATE", "DECISION", "RISK", "EVIDENCE", "POLICY", "LESSON", "RETIRED"], "description": "Record category"},
+      "summary": {"type": "string", "max_chars": 500, "description": "Minimal self-contained summary. What happened, what was decided, what evidence supports it."},
+      "evidence_path": {"type": "string", "description": "Path to source artifact (report, JSON, verifier output) that supports this record"},
+      "status": {"type": "enum", "values": ["ACTIVE", "PARTIAL", "RETIRED", "SUPERSEDED"], "description": "Current status of this record"},
+      "caveat": {"type": "string", "max_chars": 200, "description": "Required if claim is partial, conditional, design-only, or local-only"},
+      "score": {"type": "object", "description": "Optional numeric score with max and evidence reference"},
+      "related_phases": {"type": "array", "description": "List of related phase IDs"},
+      "retired_reason": {"type": "string", "description": "Required if status=RETIRED"},
+      "socratic_triggered": {"type": "boolean", "description": "Whether Socratic Gate was triggered for this record"}
+    }
+  },
+  "status": "SCHEMA_DEFINED"
+}

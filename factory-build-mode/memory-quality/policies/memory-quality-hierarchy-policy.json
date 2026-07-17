@@ -1,0 +1,17 @@
+﻿{
+    "levels":  [
+                   "L0:Raw Conversation",
+                   "L1:Self-Report",
+                   "L2:Artifact Claim",
+                   "L3:State File",
+                   "L4:Verifiable Evidence",
+                   "L5:Cross-Verified Evidence"
+               ],
+    "rules":  [
+                  "L0-L1 never sole evidence",
+                  "L2 requires \u0027unverified\u0027 caveat",
+                  "L3 trust but verify",
+                  "L4 authoritative",
+                  "L5 freezable"
+              ]
+}

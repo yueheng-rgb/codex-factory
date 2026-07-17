@@ -1,0 +1,81 @@
+﻿{
+    "task":  "Admin Dashboard RBAC Permissions Design",
+    "group":  "C_STRUCTURED_SEARCH",
+    "hallucination_risk":  "LOW-MODERATE — core RBAC model confirmed; Fastify-specific integration is from general knowledge",
+    "source_count":  3,
+    "sources":  [
+                    {
+                        "title":  "seeden/rbac — Hierarchical RBAC for Node.js",
+                        "url":  "https://github.com/seeden/rbac",
+                        "type":  "github_repo"
+                    },
+                    {
+                        "title":  "RBAC深入理解 — 知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/660475724",
+                        "type":  "article"
+                    },
+                    {
+                        "title":  "RBAC基于角色的权限访问控制 — CSDN",
+                        "url":  "https://blog.csdn.net/honor_zhang/article/details/118488984",
+                        "type":  "article"
+                    }
+                ],
+    "source_backed":  true,
+    "UNSURE_resolved":  [
+                            "No well-maintained Fastify RBAC plugin exists → custom implementation is appropriate choice",
+                            "JWT role claim format: array of role IDs is standard practice",
+                            "Permission caching: per-request DB lookup is acceptable for MVP; Redis cache for scale",
+                            "Role hierarchy: implement as role.parent_id self-reference"
+                        ],
+    "design_plan":  {
+                        "minimal_test":  [
+                                             "admin can CRUD all → 200",
+                                             "editor can read+write own resources → 200, cross-scope → 403",
+                                             "viewer read-only → POST returns 403",
+                                             "no-role user → 403",
+                                             "expired JWT → 401",
+                                             "permission change mid-session → reflected after token refresh"
+                                         ],
+                        "rejected_alternatives":  [
+                                                      "CASL — good library but adds complexity; ABAC-style subject-action-object may be overkill",
+                                                      "accesscontrol npm — confirmed unmaintained (last publish 2018)",
+                                                      "seeden/rbac — GitHub repo exists but not actively maintained, last commit ~2020",
+                                                      "Ory Keto — Go-based, not Node.js native, operational overhead",
+                                                      "OPA/Rego — policy-as-code, too heavy for admin dashboard MVP"
+                                                  ],
+                        "dependency_choice":  [
+                                                  "@fastify/jwt for token verification",
+                                                  "Custom RBAC service (no heavy npm package; seeden/rbac exists but unmaintained since 2020)",
+                                                  "Database: roles, permissions, role_permissions tables",
+                                                  "JWT claims carry role IDs; permissions resolved at middleware"
+                                              ],
+                        "implementation_plan":  [
+                                                    "1. Define resource:action permission strings: \u0027users:read\u0027, \u0027users:write\u0027, \u0027reports:export\u0027",
+                                                    "2. roles table: id, name, description, created_at",
+                                                    "3. permissions table: id, resource, action, description",
+                                                    "4. role_permissions junction: role_id, permission_id",
+                                                    "5. Fastify decorator: fastify.decorate(\u0027guard\u0027, (requiredPerm) =\u003e preHandler)",
+                                                    "6. preHandler: extract JWT, load user roles, check permission intersection",
+                                                    "7. Option: cache role-permission map with short TTL to avoid per-request DB hit"
+                                                ],
+                        "search_gaps":  [
+                                            "No Fastify-specific RBAC plugin found (ecosystem gap)",
+                                            "No official Fastify RBAC recommendation in search results",
+                                            "Most RBAC articles are generic, not Fastify/Node.js implementation guides"
+                                        ],
+                        "adopted_approach":  "RBAC with resource:action permission model + Fastify preHandler hook",
+                        "key_source_backed_items":  [
+                                                        "seeden/rbac confirmed as existing Node.js RBAC lib but unmaintained",
+                                                        "No dominant Fastify RBAC plugin in search results → custom implementation is reasonable approach",
+                                                        "Chinese tech community RBAC resources (Zhihu, CSDN) confirm RBAC as standard pattern",
+                                                        "RBAC model: user→role→permission is consistently described across sources"
+                                                    ],
+                        "risk_list":  [
+                                          "Custom RBAC implementation risks: permission string parsing bugs, role hierarchy edge cases",
+                                          "No widely-adopted Fastify-native RBAC plugin found in search — ecosystem gap",
+                                          "JWT role claim not invalidated on permission change → needs token versioning or short TTL",
+                                          "Frontend must not be the sole permission gate",
+                                          "Row-level data isolation (tenant/owner) needs separate middleware beyond RBAC"
+                                      ]
+                    }
+}

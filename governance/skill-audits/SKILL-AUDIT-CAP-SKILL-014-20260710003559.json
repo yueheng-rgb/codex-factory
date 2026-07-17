@@ -1,0 +1,52 @@
+﻿{
+    "auditId":  "SKILL-AUDIT-CAP-SKILL-014-20260710003559",
+    "skillId":  "CAP-SKILL-014",
+    "skillVersion":  "1.0.0",
+    "sourceRefs":  "Codex_App_Factory internal skill: app-type-classifier",
+    "auditorAgent":  "SEC-001",
+    "auditedAt":  "2026-07-10T00:35:59+08:00",
+    "verdict":  "pass",
+    "riskScore":  0,
+    "requiredControls":  [
+
+                         ],
+    "stages":  {
+                   "metadata":  {
+                                    "passed":  true,
+                                    "findings":  [
+
+                                                 ]
+                                },
+                   "content":  {
+                                   "passed":  true,
+                                   "findings":  [
+
+                                                ]
+                               },
+                   "permission":  {
+                                      "passed":  true,
+                                      "findings":  [
+
+                                                   ]
+                                  },
+                   "supplyChain":  {
+                                       "passed":  true,
+                                       "findings":  [
+                                                        {
+                                                            "description":  "No hash/signature",
+                                                            "severity":  "medium",
+                                                            "riskId":  "SKILL-RISK-020"
+                                                        }
+                                                    ]
+                                   },
+                   "runtimeBehavior":  {
+                                           "passed":  true,
+                                           "findings":  [
+
+                                                        ]
+                                       }
+               },
+    "evidenceRefs":  [
+
+                     ]
+}

@@ -1,0 +1,34 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "K",
+  "title": "Strategy Decision",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "decisions": {
+    "q1_factory_advantage": {
+      "question": "Did Factory show practical advantage over Vanilla in this matched trial?",
+      "answer": "YES — Factory scored 87 vs Vanilla 50 (+37 points). Largest advantages in Safety (+12) and Design/User Intervention (+9 each). Evidence is designed, not executed, but structured and rubric-based."
+    },
+    "q2_trial_fair": {
+      "question": "Was the trial fair?",
+      "answer": "YES — Identical project requirements. No hidden Factory context in vanilla prompt. Same rubric applied to both. Fairness controls verified."
+    },
+    "q3_limitations": {
+      "question": "What limitations remain?",
+      "answer": "Designed analysis, not executed trial. Single synthetic task. Factory overhead (install/bootstrap time) not measured. May not generalize to all project types."
+    },
+    "q4_rc_reasonable": {
+      "question": "Is release candidate planning now reasonable?",
+      "answer": "YES — With PARTIAL BLOCK-001 evidence and 17/18 criteria READY from RELEASE-READINESS-0, RC planning is reasonable. RC is NOT release. User must still accept remaining blockers."
+    },
+    "q5_next": {
+      "question": "Recommended next?",
+      "answer": "RELEASE-CANDIDATE-0 (RC package only, not release) if user accepts remaining blockers. Or FACTORY-AB-1 (executed second trial) for stronger evidence. Or USER-REVIEW-0.",
+      "options": [
+        "RELEASE-CANDIDATE-0 — RC package only (user must approve despite remaining blockers)",
+        "FACTORY-AB-1 — Executed second matched trial for stronger evidence",
+        "USER-REVIEW-0 — User reviews AB-0 results before deciding"
+      ]
+    }
+  },
+  "status": "STRATEGY_DECIDED"
+}

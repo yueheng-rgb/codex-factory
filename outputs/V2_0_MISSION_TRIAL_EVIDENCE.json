@@ -1,0 +1,72 @@
+﻿{
+  "release": "Codex Factory v2.0.0",
+  "mission_id": "V2_0_RC_INVENTORY_SUBSCRIPTION_ADMIN",
+  "mission_path": "missions/inventory-subscription-admin",
+  "mission_verdict": "PASS",
+  "expert_packs_activated": ["admin-system","ecommerce","saas-tool"],
+  "invariants_enforced": {
+    "total": 16,
+    "admin-system": ["admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role","destructive_action_requires_confirmation","audit_log_required_for_sensitive_actions","protected_fields_cannot_be_modified_without_permission"],
+    "ecommerce": ["price_non_negative","inventory_non_negative","stock_delta_must_be_audited","archived_product_not_sellable","admin_required_for_price_change","status_transition_allowed"],
+    "saas-tool": ["tenant_data_isolation","subscription_status_controls_access","usage_quota_non_negative","quota_decrement_must_be_atomic"]
+  },
+  "tests": {
+    "total": 48,
+    "mission_tests": 38,
+    "mission_passed": 38,
+    "negative_controls": 10,
+    "negative_controls_blocked": 10
+  },
+  "multi_agent": {
+    "workers": 3,
+    "all_verified": true,
+    "conflicts": 0,
+    "stale_handoffs": 0,
+    "fake_pass": 0
+  },
+  "compression_defense": {
+    "errors_injected": 3,
+    "errors_detected": 3,
+    "resume_gate_result": "QUARANTINED",
+    "critical_errors": ["Search Agent as Future Default"],
+    "high_errors": ["stale metric 101/101"],
+    "medium_errors": ["codeql AVAILABLE false claim"]
+  },
+  "external_engines": {
+    "semgrep": {"result":"CLEAN","findings":0,"rules":210,"files":7},
+    "autocannon": {"result":"SKIPPED","reason":"tsx/Node v24 env limitation"},
+    "playwright": {"result":"NOT_APPLICABLE","reason":"No UI surface"},
+    "codeql": {"result":"TOOL_UNAVAILABLE","reason":"INSTALL_REQUIRED"},
+    "k6": {"result":"TOOL_UNAVAILABLE","reason":"INSTALL_REQUIRED"},
+    "firecrawl-reader": {"result":"NOT_APPLICABLE","reason":"Not canonical search"}
+  },
+  "production_readiness": {
+    "level": "PARTIAL",
+    "score": 55,
+    "top_gaps": ["In-memory store","No Docker/container","No Postgres","No migration runner"]
+  },
+  "mission_benchmark": {
+    "surfaces_expected": ["api-service","database","admin-web","docs-release"],
+    "surfaces_detected": ["api-service","database","docs-release"],
+    "surfaces_accuracy": "3/4",
+    "packs_expected": ["admin-system","ecommerce","saas-tool"],
+    "packs_detected": ["admin-system","ecommerce","saas-tool"],
+    "packs_accuracy": "3/3",
+    "risk_expected": "CRITICAL",
+    "risk_detected": "CRITICAL",
+    "risk_score": 65,
+    "invariants_expected": 16,
+    "invariants_detected": 16,
+    "mission_verdict": "PASS"
+  },
+  "boundary_rules": {
+    "all_maintained": true,
+    "compression_not_trusted": true,
+    "no_deprecated_reopened": true,
+    "no_fake_pass": true,
+    "no_production_claims": true,
+    "no_secrets_exposed": true,
+    "firecrawl_not_canonical_search": true,
+    "frozen_trunk_unmodified": true
+  }
+}

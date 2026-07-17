@@ -1,0 +1,17 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "G",
+  "title": "Cleanup Isolation",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "isolation_file": "factory-isolation/CLEANUP_ISOLATION.md",
+  "rules": [
+    {"id": 1, "rule": "Resolve project identity first", "enforcement": "Show project name+id before any action"},
+    {"id": 2, "rule": "Scope all paths to project", "enforcement": "Reject paths outside project tree"},
+    {"id": 3, "rule": "Never cross project boundaries", "enforcement": "Warn and remove foreign paths from plan"},
+    {"id": 4, "rule": "Global cache requires separate scope", "enforcement": "Escalated confirmation with affected project list"},
+    {"id": 5, "rule": "Project deletion separately gated", "enforcement": "Requires explicit name confirmation, evidence preservation option"}
+  ],
+  "cleanup_state_path": "{governancePath}/cleanup-state.json",
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_G_CLEANUP_ISOLATION_REPORT.md"
+}

@@ -1,0 +1,68 @@
+﻿{
+    "assignmentRules":  [
+                            {
+                                "id":  "ASN-01",
+                                "rule":  "PM assigns roles based on task decomposition. Not all roles for all tasks."
+                            },
+                            {
+                                "id":  "ASN-02",
+                                "rule":  "Small task (\u003c5 files): maximum 3 roles (PM + 1 builder + 1 reviewer)"
+                            },
+                            {
+                                "id":  "ASN-03",
+                                "rule":  "Medium task (5-15 files): maximum 6 roles (PM + Architect + 2 builders + Integrator + QA)"
+                            },
+                            {
+                                "id":  "ASN-04",
+                                "rule":  "Large task (\u003e15 files): full company model, justified by task complexity"
+                            },
+                            {
+                                "id":  "ASN-05",
+                                "rule":  "Verifier is always present. Auditor is present for medium+ tasks."
+                            },
+                            {
+                                "id":  "ASN-06",
+                                "rule":  "Security reviewer required for auth/data/payment features"
+                            },
+                            {
+                                "id":  "ASN-07",
+                                "rule":  "Role overhead warning: if role assignment \u003e2x expected, PM must justify"
+                            }
+                        ],
+    "version":  "1.0.0",
+    "generatedAt":  "2026-06-25T16:07:33+08:00",
+    "antiPatterns":  [
+                         "Spawning all roles for a single-file change",
+                         "Skipping architect for API design",
+                         "Skipping QA for user-facing changes",
+                         "Skipping security review for auth features"
+                     ],
+    "phase":  "FACTORY-EVAL-3-E",
+    "schemaId":  "role-assignment-policy",
+    "schedulingRules":  [
+                            {
+                                "id":  "SCH-01",
+                                "rule":  "PM creates task graph before role spawn"
+                            },
+                            {
+                                "id":  "SCH-02",
+                                "rule":  "Architect reviews before builders start"
+                            },
+                            {
+                                "id":  "SCH-03",
+                                "rule":  "Integrator runs after frontend+backend complete"
+                            },
+                            {
+                                "id":  "SCH-04",
+                                "rule":  "QA runs after integration check passes"
+                            },
+                            {
+                                "id":  "SCH-05",
+                                "rule":  "Verifier runs before phase close"
+                            },
+                            {
+                                "id":  "SCH-06",
+                                "rule":  "Auditor runs after verifier"
+                            }
+                        ]
+}

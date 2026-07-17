@@ -1,0 +1,101 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-h12-p1-task-queue-state-reconciliation-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  18,
+    "passed":  18,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "H12 report exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "DRY19-A-P5 report exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "Factory state records DRY19-A PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "Factory state records DRY19-B UNBLOCKED_NOT_STARTED"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "DRY19-B task NOT blocked by dry19-a-clean-pass"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "DRY19-B negative-plan task is ready or planning_allowed"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "DRY19-B executionStarted=false"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "factoryctl negative plan returns PLANNING_ALLOWED"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "factoryctl negative start blocks auto-start"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "Fixture: stale-blocker-present asserts FAIL_CONTRACT_DRIFT"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "Fixture: parent-positive-missing expects BLOCKED"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "Fixture: parent-positive-pass-plan-only expects PLANNING_ALLOWED"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "Fixture: closed-phase-negative-request expects BLOCKED"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "No generic FAIL classifications"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  16,
+                       "desc":  "Closed reports unchanged (H10+H11+DRY18-B+H12 exist)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  17,
+                       "desc":  "DRY2-C through DRY13-C remain paused"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  18,
+                       "desc":  "DRY19-B not started"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T12:05:34.068+08:00"
+}

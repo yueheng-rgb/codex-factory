@@ -1,0 +1,42 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "A",
+  "title": "Isolation Scope Lock",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "inherited_baselines": {
+    "user_handoff_0": "PASS",
+    "factory_default_workflow_0": "PASS (60/60)",
+    "v0_5_artifact": "outputs/codex-factory-core-v0.5.0.zip",
+    "v0_5_sha256": "9FD3A5F979FE1FDEA712F69CAC300E2F49F4E84705A0448D98186CA950AC16CB"
+  },
+  "in_scope": [
+    "Project Identity Model",
+    "Project Registry",
+    "Mount Isolation Rules",
+    "Cross-Project Memory Boundary",
+    "Output/Governance Isolation",
+    "Cleanup Isolation",
+    "Agent Ledger Isolation",
+    "Working Copy Isolation",
+    "Lifecycle Interaction",
+    "Simulation (10 scenarios)",
+    "Default Workflow Integration Points",
+    "Strategy Decision",
+    "Negative Controls (31)",
+    "Verifier Script"
+  ],
+  "excluded": [
+    "New release creation",
+    "v0.5 zip modification",
+    "v0.6 creation",
+    "Real project validation",
+    "Cloud deployment",
+    "Production deployment",
+    "Native Build Pro startup",
+    "Real project deletion",
+    "Destructive cleanup execution"
+  ],
+  "goal": "Prevent project context/memory/output/cleanup/agent-ledger cross-contamination",
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_A_SCOPE_LOCK_REPORT.md"
+}

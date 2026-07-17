@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "I",
+  "title": "Cleanup Simulation",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "scenarios": [
+    {"id":"SIM-001","mode":"PLAN","project":"active-project","expected":"Preview only, no changes, keep+delete+confirm lists","result":"PASS"},
+    {"id":"SIM-002","mode":"DELETE","project":"active-project","confirm":false,"expected":"BLOCKED — requires PLAN first then --Confirm","result":"BLOCKED_CORRECTLY"},
+    {"id":"SIM-003","mode":"DELETE","project":"active-project","confirm":true,"forceEvidence":false,"expected":"CORE_EVIDENCE preserved, warning shown","result":"PASS"},
+    {"id":"SIM-004","mode":"DELETE","project":"active-project","confirm":true,"forceEvidence":true,"expected":"CORE_EVIDENCE deleted, explicit warning","result":"PASS"},
+    {"id":"SIM-005","mode":"ARCHIVE","project":"completed-project","expected":"CACHE pruned, CORE_EVIDENCE preserved, status=ARCHIVED","result":"PASS"},
+    {"id":"SIM-006","mode":"FREEZE","project":"paused-project","expected":"All preserved, auto-mount disabled, status=FROZEN","result":"PASS"},
+    {"id":"SIM-007","mode":"PRUNE","project":"active-project","expected":"CACHE+STALE+DUPLICATE removed, evidence preserved","result":"PASS"},
+    {"id":"SIM-008","mode":"ARCHIVE","project":"wrong-project-id","expected":"Warn: project not found or already archived","result":"WARN"},
+    {"id":"SIM-009","mode":"DELETE","project":"real-prod-project","expected":"BLOCKED — Context Space cannot delete real production project files","result":"BLOCKED_CORRECTLY"},
+    {"id":"SIM-010","mode":"PRUNE","project":"duplicate-records","expected":"Lower sourceTier duplicates removed, highest kept","result":"PASS"}
+  ],
+  "summary": {"total":10,"pass":7,"blocked_correctly":2,"warn":1,"all_expected":true},
+  "status": "SIMULATION_COMPLETE"
+}

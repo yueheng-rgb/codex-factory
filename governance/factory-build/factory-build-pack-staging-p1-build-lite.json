@@ -1,0 +1,14 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P1",
+    "section":  "C",
+    "contents":  [
+                     "intake/",
+                     "classifier/",
+                     "mode-selector/",
+                     "verifier/",
+                     "governance/",
+                     "README.md"
+                 ],
+    "module":  "build-lite",
+    "status":  "POPULATED"
+}

@@ -1,0 +1,14 @@
+﻿{
+    "inventory_created":  true,
+    "original_protected":  true,
+    "working_copy_path":  "C:\\Codex_App_Factory\\harness\\realworld\\tcm-project-ledger\\working-copy\\tcm-project-ledger",
+    "exclusion_verification":  "12/12 OK",
+    "verdict":  "WORKING_COPY_SAFE",
+    "secrets_excluded":  true,
+    "context_packet_created":  true,
+    "generated_at":  "2026-06-28T10:17:03+08:00",
+    "deploy_scripts_excluded":  true,
+    "codex_factory_created":  true,
+    "file_count":  117,
+    "working_copy_id":  "FACTORY-BUILD-REALWORLD-2-P1-WORKING-COPY-CREATION"
+}

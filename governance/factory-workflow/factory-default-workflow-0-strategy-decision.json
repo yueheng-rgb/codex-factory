@@ -1,0 +1,45 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "M",
+  "title": "Strategy Decision",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "decisions": {
+    "q1_default_factory_path_defined": {
+      "answer": "YES",
+      "detail": "Complete select-folder-plus-requirement path is defined across sections A-L"
+    },
+    "q2_multi_agent_mandatory_question": {
+      "answer": "YES, as a question",
+      "detail": "3+ of 5 criteria triggers mandatory question; execution still requires user confirmation"
+    },
+    "q3_natural_language_cleanup_defined": {
+      "answer": "YES",
+      "detail": "4-step protocol: Interpret -> PLAN -> Confirm -> Execute"
+    },
+    "q4_full_path_handoff_defined": {
+      "answer": "YES",
+      "detail": "7 mandatory path categories, UNKNOWN_WITH_REASON, structured template"
+    },
+    "q5_cloud_deferred": {
+      "answer": "YES",
+      "detail": "Formally recorded; no cloud until post-v1.0"
+    },
+    "q6_recommended_next": [
+      {"priority": 1, "phase": "FACTORY-PROJECT-ISOLATION-0", "rationale": "Ensure Factory isolation on real projects"},
+      {"priority": 2, "phase": "FACTORY-MULTI-AGENT-ORCHESTRATION-1", "rationale": "Refine role profiles with validation"},
+      {"priority": 3, "phase": "FACTORY-STATE-DASHBOARD-0", "rationale": "Implement CLI factory state"},
+      {"priority": 4, "phase": "FACTORY-RECOVERY-0", "rationale": "Startup recovery from corrupted state"},
+      {"priority": 5, "phase": "FACTORY-V05-R1", "rationale": "Only if CLI mismatch needs repair"}
+    ],
+    "q7_do_not_do_now": [
+      "Create v0.6",
+      "Go to cloud",
+      "Buy servers/domains",
+      "Start real project validation",
+      "Build state dashboard web UI",
+      "Enable multi-agent by default"
+    ]
+  },
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_M_STRATEGY_DECISION_REPORT.md"
+}

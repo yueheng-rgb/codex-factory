@@ -1,0 +1,163 @@
+﻿{
+    "": "http://json-schema.org/draft-07/schema#",
+    "": "governance/contracts/worker-contract.schema.json",
+    "title": "Worker Contract Schema",
+    "description": "Machine-readable contract for a Factory worker agent defining scope, dependencies, and integration rules. Used by CI/verifier to enforce cross-worker contracts.",
+    "type": "object",
+    "required": [
+        "contractVersion",
+        "phase",
+        "agentId",
+        "role",
+        "scope",
+        "dependencyDeclarations",
+        "forkContext",
+        "nativeGenerated"
+    ],
+    "properties": {
+        "contractVersion": {
+            "type": "string",
+            "description": "Schema version this contract conforms to",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "phase": {
+            "type": "string",
+            "description": "Factory phase this worker belongs to"
+        },
+        "agentId": {
+            "type": "string",
+            "description": "Unique agent identifier"
+        },
+        "role": {
+            "type": "string",
+            "enum": ["orchestrator", "builder", "verifier", "skeptic", "integrator", "repair"],
+            "description": "Agent role"
+        },
+        "isReadOnly": {
+            "type": "boolean",
+            "description": "Whether agent is prohibited from modifying any source files",
+            "default": false
+        },
+        "scope": {
+            "type": "object",
+            "required": ["ownedFiles", "ownedDirectories"],
+            "properties": {
+                "ownedFiles": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Files this worker exclusively owns",
+                    "minItems": 1
+                },
+                "ownedDirectories": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Directories this worker exclusively owns",
+                    "minItems": 1
+                },
+                "forbiddenFiles": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Files this worker must never modify"
+                },
+                "forbiddenDirectories": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Directories this worker must never modify"
+                }
+            }
+        },
+        "allowedImports": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["source", "target"],
+                "properties": {
+                    "source": { "type": "string", "description": "Importing file or pattern" },
+                    "target": { "type": "string", "description": "Imported module, file, or pattern" },
+                    "declared": { "type": "boolean", "description": "Whether this dependency is explicitly declared" }
+                }
+            },
+            "description": "Allowed cross-worker imports"
+        },
+        "forbiddenImports": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["target", "reason"],
+                "properties": {
+                    "target": { "type": "string" },
+                    "reason": { "type": "string" }
+                }
+            },
+            "description": "Cross-worker imports that are forbidden"
+        },
+        "exportedApiSurface": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Public API surface this worker exports",
+            "minItems": 1
+        },
+        "dependencyDeclarations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["targetAgentId", "targetScope", "dependencyType"],
+                "properties": {
+                    "targetAgentId": { "type": "string" },
+                    "targetScope": { "type": "string" },
+                    "dependencyType": {
+                        "type": "string",
+                        "enum": ["imports", "contracts", "types", "integration", "evidence"]
+                    },
+                    "direction": {
+                        "type": "string",
+                        "enum": ["depends_on", "provides_to", "bidirectional"]
+                    },
+                    "edgeCount": { "type": "integer", "minimum": 1 }
+                }
+            },
+            "description": "Declared cross-worker dependencies",
+            "minItems": 1
+        },
+        "integrationHandoff": {
+            "type": "object",
+            "required": ["path"],
+            "properties": {
+                "path": { "type": "string", "description": "Path where integration handoff artifacts are placed" },
+                "format": { "type": "string", "enum": ["json", "typescript", "markdown", "mixed"] },
+                "expectedConsumer": { "type": "string", "description": "AgentId of the integrator that consumes this handoff" }
+            }
+        },
+        "evidencePath": {
+            "type": "string",
+            "description": "Path to evidence directory for this worker"
+        },
+        "forkContext": {
+            "type": "boolean",
+            "description": "Whether fork_context was used during spawn"
+        },
+        "nativeGenerated": {
+            "type": "boolean",
+            "description": "Whether this contract was natively generated (not reconstructed)"
+        },
+        "retroactive": {
+            "type": "boolean",
+            "description": "Whether this contract was generated retroactively for a completed phase",
+            "default": false
+        },
+        "generatedBy": {
+            "type": "string",
+            "description": "Script or process that generated this contract"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp when contract was generated"
+        },
+        "sourceEvidenceSha256": {
+            "type": "object",
+            "description": "SHA256 hashes of source files this contract describes",
+            "additionalProperties": { "type": "string" }
+        }
+    }
+}

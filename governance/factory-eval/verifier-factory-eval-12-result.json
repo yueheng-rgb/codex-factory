@@ -1,0 +1,179 @@
+﻿{
+    "passed":  28,
+    "timestamp":  "2026-06-25T21:33:52+08:00",
+    "title":  "Verifier Result — RUN-E / v0.4 Factory Lite Core",
+    "verdict":  "PASS",
+    "phase":  "FACTORY-EVAL-12-K",
+    "total":  28,
+    "checks":  [
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "old FINAL package unchanged",
+                       "id":  "K01"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no new final ZIP",
+                       "id":  "K02"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no v0.4 release ZIP",
+                       "id":  "K03"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "v0.4 draft DRAFT_NOT_RELEASED",
+                       "id":  "K04"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "FACTORY-EVAL-11 PASS exists",
+                       "id":  "K05"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "RUN-E directory exists",
+                       "id":  "K06"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "RUN_METADATA: v0.4 Factory Lite Core enabled",
+                       "id":  "K07"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Manual Router used",
+                       "id":  "K08"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Proof-of-Read used",
+                       "id":  "K09"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "POR includes paths/extracted rules",
+                       "id":  "K10"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "3-role not used",
+                       "id":  "K11"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "10-role not used",
+                       "id":  "K12"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "old v0.3 Factory not used",
+                       "id":  "K13"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Context OS/MCP not used",
+                       "id":  "K14"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Automation/Session Controller not used",
+                       "id":  "K15"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "RUN-D product not read/copied (contamination CLEAN)",
+                       "id":  "K16"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "product directory exists",
+                       "id":  "K17"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "artifact inventory exists",
+                       "id":  "K18"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "runtime/test result exists",
+                       "id":  "K19"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "requirements self-mapping exists",
+                       "id":  "K20"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "human intervention log exists",
+                       "id":  "K21"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "process overhead log exists",
+                       "id":  "K22"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "contamination log exists",
+                       "id":  "K23"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no Factory effectiveness claim",
+                       "id":  "K24"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no independent comparison claim",
+                       "id":  "K25"
+                   },
+                   {
+                       "detail":  "38/38",
+                       "result":  "PASS",
+                       "name":  "negatives executed with 0 gaps",
+                       "id":  "K26"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no UNEXPECTED_PASS",
+                       "id":  "K27"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no FAIL_TARGET_NOT_TRIGGERED",
+                       "id":  "K28"
+                   }
+               ],
+    "failed":  0
+}

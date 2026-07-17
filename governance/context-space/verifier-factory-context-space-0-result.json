@@ -1,0 +1,8 @@
+﻿{
+    "verifier":  "factory-context-space-0-verify.ps1",
+    "passed":  48,
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-28T00:27:19+08:00",
+    "failed":  0,
+    "total_checks":  48
+}

@@ -1,0 +1,41 @@
+﻿{
+    "snapshotId":  "r2-3-d-baseline",
+    "files":  [
+                  {
+                      "registry":  "verifier",
+                      "sha256":  "83A65EF464ABBB73501380E531BCC7DECB88B34D004B39114D45A758F5FD2C60",
+                      "name":  "verifier-candidate-registry.jsonl"
+                  },
+                  {
+                      "registry":  "skill",
+                      "sha256":  "1240749353BAE4E195645AF9EA507FE7B8C96CDA5A57354E05B8F397E83726BF",
+                      "name":  "skill-candidate-registry.jsonl"
+                  },
+                  {
+                      "registry":  "master",
+                      "sha256":  "85B39448F17D114770CDCEE5A63B199F06BD27396064B97D63C0271644D30057",
+                      "name":  "capability-candidate-registry.jsonl"
+                  },
+                  {
+                      "registry":  "runner",
+                      "sha256":  "23CDD0F1C41B31B769CD8546A7418F5C494FC21FB403F2AFE75CE9C9949408FA",
+                      "name":  "runner-candidate-registry.jsonl"
+                  },
+                  {
+                      "registry":  "search",
+                      "sha256":  "94ACE69AD928B40A59BDDBA31D132A036CDB8EED82C923C3659D195621201FB4",
+                      "name":  "search-provider-candidate-registry.jsonl"
+                  },
+                  {
+                      "registry":  "template",
+                      "sha256":  "A005AEDC04C32E3208AEA023BBC48869DCAAE4DD23CC092FABC6643339964347",
+                      "name":  "template-starter-candidate-registry.jsonl"
+                  },
+                  {
+                      "registry":  "mcp",
+                      "sha256":  "7DF336C09B88C97DF23F0C3F88568A9A29B3D495A6D7DFEC31BD2B31716064A2",
+                      "name":  "mcp-candidate-registry.jsonl"
+                  }
+              ],
+    "createdAt":  "2026-07-09T20:28:48+08:00"
+}

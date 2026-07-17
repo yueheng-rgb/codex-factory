@@ -1,0 +1,23 @@
+﻿{
+    "nativeAgentLifecycleEnabled":  true,
+    "iterations":  3,
+    "exclusions":  [
+                       "v0.5 package",
+                       "release ZIP",
+                       "multi-agent default claim",
+                       "7-agent default",
+                       "10-role model",
+                       "process-as-product-quality",
+                       "compressed-summary-as-evidence",
+                       "external-memory-as-model-expansion"
+                   ],
+    "memoryQualityEnabled":  true,
+    "contextPacketsEnabled":  true,
+    "recoveryDrillEnabled":  true,
+    "diagnosticGateEnabled":  true,
+    "date":  "2026-06-27",
+    "sealedSpec":  "trials/build-pro-2-long-horizon/SEALED_SPEC.md",
+    "trialName":  "Long-Horizon Native Build Pro Trial",
+    "productName":  "NexusDesk Enterprise Lite",
+    "trialId":  "BUILD-PRO-2"
+}

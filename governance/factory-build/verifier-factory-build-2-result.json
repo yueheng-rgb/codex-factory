@@ -1,0 +1,165 @@
+﻿{
+    "failCount":  0,
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "update-state.ps1 exists",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "Recovery uses zero trusted memory",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "No ZIP created",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "Build iteration integration exists",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "",
+                               "description":  "No UNEXPECTED_PASS",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "read-memory.ps1 exists",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Memory boundary exists",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "recover-startup.ps1 exists",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "BUILD-1 PASS exists",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "Simulation ran (valid fixture exists)",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "generate-handoff.ps1 exists",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "No v0.5 package",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "No SkillMarket repair",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "append-decision.ps1 exists",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "Compressed summary not evidence rule",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "",
+                               "description":  "No benchmark",
+                               "pass":  true
+                           },
+                   "V30":  {
+                               "detail":  "",
+                               "description":  "No expectedClass-only",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "validate-memory.ps1 exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "Memory user prompts (4) exist",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "No product code modified",
+                               "pass":  true
+                           },
+                   "V31":  {
+                               "detail":  "",
+                               "description":  "No manual PASS-only",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "init-memory.ps1 exists",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "Handoff not authoritative PASS",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "",
+                               "description":  "No FAIL_TARGET_NOT_TRIGGERED",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "All 8 schemas exist",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "",
+                               "description":  "No generic FAIL",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Memory runtime directory exists",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "Conflict policy exists",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "update-task.ps1 exists",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "Init blocks silent overwrite",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "Total: 47, Gaps: 0",
+                               "description":  "Negative controls 0 gaps",
+                               "pass":  true
+                           }
+               },
+    "verdict":  "PASS",
+    "passCount":  31,
+    "phase":  "FACTORY-BUILD-2",
+    "totalChecks":  31,
+    "verifier":  "factory-build-2-external-memory-mvp-verify.ps1"
+}

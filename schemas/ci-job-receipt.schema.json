@@ -1,0 +1,25 @@
+﻿{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "CI Job Receipt",
+    "description": "Codex Factory V3.1 CI provider-agnostic job receipt schema",
+    "type": "object",
+    "required": ["ci_run_id", "provider", "job_name", "command", "exit_code", "started_at", "finished_at", "status"],
+    "properties": {
+        "ci_run_id": { "type": "string", "description": "Unique CI run identifier" },
+        "provider": { "type": "string", "enum": ["local-ci-simulated", "github-actions-template", "external-ci-placeholder"] },
+        "job_name": { "type": "string" },
+        "command": { "type": "string" },
+        "command_redacted": { "type": "string" },
+        "exit_code": { "type": "integer" },
+        "stdout_path": { "type": "string" },
+        "stderr_path": { "type": "string" },
+        "artifact_paths": { "type": "array", "items": { "type": "string" } },
+        "commit_or_snapshot_ref": { "type": "string" },
+        "started_at": { "type": "string", "format": "date-time" },
+        "finished_at": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["PASS", "FAIL", "BLOCKED", "PARTIAL", "SKIPPED"] },
+        "non_claims": { "type": "array", "items": { "type": "string" } },
+        "secret_policy_result": { "type": "string", "enum": ["PASS", "FAIL", "NOT_CHECKED"] },
+        "snapshot_verified": { "type": "boolean" }
+    }
+}

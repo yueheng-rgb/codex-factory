@@ -1,0 +1,8 @@
+﻿{
+  "name": "game-threejs-runtime-validation",
+  "version": "1.0.0",
+  "description": "Game/ThreeJS Pack Runtime Validation Testbed — validates invariants from game-threejs expert pack",
+  "scripts": { "start": "npx tsx src/server.ts", "test": "npx vitest run --reporter=verbose", "build": "npx tsc --noEmit" },
+  "dependencies": { "fastify": "^5.0.0" },
+  "devDependencies": { "@types/node": "^22.0.0", "tsx": "^4.0.0", "typescript": "^5.7.0", "vitest": "^3.0.0" }
+}

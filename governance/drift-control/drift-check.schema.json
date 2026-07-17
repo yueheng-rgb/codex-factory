@@ -1,0 +1,115 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "drift-check.schema.json",
+  "title": "Drift Check Report",
+  "description": "Schema for architecture drift detection report produced by AUD-001",
+  "type": "object",
+  "required": ["reportId", "projectId", "checkpointId", "timestamp", "auditorAgent", "driftDetected", "drifts", "gapInventory"],
+  "properties": {
+    "reportId": {
+      "type": "string",
+      "pattern": "^DRIFT-\\d{8}-\\d{3,}$",
+      "description": "e.g. DRIFT-20260705-001"
+    },
+    "projectId": { "type": "string" },
+    "checkpointId": {
+      "type": "string",
+      "enum": ["CP-ARCH", "CP-MID", "CP-PREVER", "CP-PREDEPLOY", "CP-POSTMORTEM"],
+      "description": "Which checkpoint triggered this audit"
+    },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "auditorAgent": { "type": "string", "default": "AUD-001" },
+    "driftDetected": { "type": "boolean" },
+    "drifts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "description", "severity"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "SCOPE_CREEP",
+              "SCOPE_SHRINK",
+              "ARCHITECTURE_DRIFT",
+              "TECHNOLOGY_DRIFT",
+              "COMPLEXITY_COLLAPSE",
+              "COMPLEXITY_EXPLOSION",
+              "SECURITY_BOUNDARY_DRIFT",
+              "EVIDENCE_OVERCLAIM",
+              "PROJECT_IDENTITY_DRIFT",
+              "CONTRACT_VIOLATION",
+              "NONGOAL_VIOLATION",
+              "ROLE_DRIFT",
+              "KNOWLEDGE_LOSS"
+            ]
+          },
+          "description": { "type": "string" },
+          "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"] },
+          "affectedContracts": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Contract IDs affected by this drift"
+          },
+          "detectedIn": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Files or modules where drift was detected"
+          },
+          "recommendation": { "type": "string" },
+          "resolution": {
+            "type": "string",
+            "enum": ["ACCEPT_DRIFT", "REJECT_DRIFT", "DEFER", "ESCALATE"],
+            "description": "Recommended resolution"
+          }
+        }
+      }
+    },
+    "gapInventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "gap": { "type": "string" },
+          "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"] },
+          "category": { "type": "string", "enum": ["missing_state", "missing_test", "missing_doc", "missing_auth", "missing_validation", "missing_error_handling"] }
+        }
+      }
+    },
+    "roleComplianceAudit": {
+      "type": "object",
+      "properties": {
+        "compliant": { "type": "boolean" },
+        "violations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "agentId": { "type": "string" },
+              "violation": { "type": "string" },
+              "evidence": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "evidenceChainAudit": {
+      "type": "object",
+      "properties": {
+        "intact": { "type": "boolean" },
+        "missingLinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "expectedEvidence": { "type": "string" },
+              "requiredBy": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "requiresAction": { "type": "boolean" },
+    "resolutionDeadline": { "type": "string", "format": "date-time" }
+  }
+}

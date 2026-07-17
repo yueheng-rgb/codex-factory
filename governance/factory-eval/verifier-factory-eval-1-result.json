@@ -1,0 +1,143 @@
+﻿{
+    "passed":  22,
+    "checkedAt":  "2026-06-25T15:54:54+08:00",
+    "command":  "factory-eval-1-verify",
+    "totalChecks":  22,
+    "phase":  "FACTORY-EVAL-1",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "EVAL-0",
+                       "result":  true,
+                       "name":  "EVAL0_PASS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "research",
+                       "result":  true,
+                       "name":  "EXT_EXISTS",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "6",
+                       "result":  true,
+                       "name":  "EXT_FINDINGS",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "honest about limits",
+                       "result":  true,
+                       "name":  "EXT_HONEST",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "self-check",
+                       "result":  true,
+                       "name":  "SELF_EXISTS",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "no router yet",
+                       "result":  true,
+                       "name":  "SELF_ROUTER",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "no proof-of-read",
+                       "result":  true,
+                       "name":  "SELF_PROOF",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "agent gap",
+                       "result":  true,
+                       "name":  "AGAP_EXISTS",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "drift controls",
+                       "result":  true,
+                       "name":  "AGAP_DRIFT",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "router analysis",
+                       "result":  true,
+                       "name":  "ROUTER_EXISTS",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "long context",
+                       "result":  true,
+                       "name":  "LONG_EXISTS",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "recommendation",
+                       "result":  true,
+                       "name":  "REC_EXISTS",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "Option A",
+                       "result":  true,
+                       "name":  "REC_OPTION",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "neg",
+                       "result":  true,
+                       "name":  "NEG_EXISTS",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "22",
+                       "result":  true,
+                       "name":  "NEG_22",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_GAPS",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EC",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GF",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PC",
+                       "id":  22
+                   }
+               ],
+    "failed":  0
+}

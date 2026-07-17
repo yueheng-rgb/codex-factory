@@ -1,0 +1,28 @@
+﻿{
+    "bridge_id": "V3_2-EXTERNAL-IDENTITY-BRIDGE-001",
+    "identity_modes": {
+        "self_declared_automated": "AVAILABLE",
+        "local_named_reviewer": "AVAILABLE",
+        "signed_local_receipt": "AVAILABLE (simulated hash)",
+        "gpg_signature_optional": "UNAVAILABLE (gpg not installed)",
+        "external_identity_required": "NOT_IMPLEMENTED (reserved for future)"
+    },
+    "demo_result": {
+        "receipt": "reviews/V3_1-REV-CRITICAL-001.json",
+        "bridge": "ID-BRIDGE-20260717-162827-2804",
+        "identity_mode": "signed_local_receipt",
+        "gpg_available": false,
+        "receipt_hash": "SIMULATED-HASH-CF4E5B9D",
+        "artifact_bound": true,
+        "max_allowed_decision": "ALLOWED_FOR_REVIEW",
+        "gate_result": "ALLOWED_FOR_REVIEW"
+    },
+    "non_claims": [
+        "signed_local_receipt uses SIMULATED hash, NOT cryptographic signing",
+        "ALLOWED_FOR_REVIEW is the max decision without external identity",
+        "gpg_signature_optional is UNAVAILABLE",
+        "PRODUCTION_APPROVED blocked until external_identity_required is implemented",
+        "No real GPG key or external identity provider"
+    ],
+    "status": "BRIDGE_VERIFIED"
+}

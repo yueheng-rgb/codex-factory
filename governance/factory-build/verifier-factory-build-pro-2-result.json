@@ -1,0 +1,298 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PRO-2",
+    "date":  "2026-06-27T15:45:55.3444304+08:00",
+    "overall":  "PASS",
+    "passedChecks":  48,
+    "failedChecks":  0,
+    "totalChecks":  48,
+    "checks":  [
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pro-p1-native-build-pro-hardening-result.json",
+                       "pass":  true,
+                       "id":  "V00",
+                       "desc":  "FACTORY-BUILD-PRO-P1 PASS exists"
+                   },
+                   {
+                       "path":  "governance\\factory-memory\\factory-memory-quality-0-p1-artifact-repair-result.json",
+                       "pass":  true,
+                       "id":  "V01",
+                       "desc":  "FACTORY-MEMORY-QUALITY-0-P1 PASS exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\readiness-gate.json",
+                       "pass":  true,
+                       "id":  "V02",
+                       "desc":  "Readiness gate exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\memory-quality-gate.json",
+                       "pass":  true,
+                       "id":  "V03",
+                       "desc":  "Memory quality gate exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon",
+                       "pass":  true,
+                       "id":  "V04",
+                       "desc":  "Trial directory exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\SEALED_SPEC.md",
+                       "pass":  true,
+                       "id":  "V05",
+                       "desc":  "Sealed spec exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\memory\\decision-log.json",
+                       "pass":  true,
+                       "id":  "V06",
+                       "desc":  "External memory initialized (decision-log)"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "8 memory files",
+                       "id":  "V07",
+                       "desc":  "All 8 memory files exist"
+                   },
+                   {
+                       "path":  "factory-build-mode\\runtime\\memory\\generate-context-packet.ps1",
+                       "pass":  true,
+                       "id":  "V08",
+                       "desc":  "Context packet generator exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\runtime\\memory\\validate-context-packet.ps1",
+                       "pass":  true,
+                       "id":  "V09",
+                       "desc":  "Context packet validator exists"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "4+ initial packets",
+                       "id":  "V10",
+                       "desc":  "Initial context packets generated"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "3 iteration packets",
+                       "id":  "V11",
+                       "desc":  "Iteration context packets generated"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\recovery\\recovery-packet.json",
+                       "pass":  true,
+                       "id":  "V12",
+                       "desc":  "Recovery packet exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\agent-lifecycle\\agent-lifecycle-registry.json",
+                       "pass":  true,
+                       "id":  "V13",
+                       "desc":  "Agent lifecycle registry exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\agent-lifecycle\\handoffs.json",
+                       "pass":  true,
+                       "id":  "V14",
+                       "desc":  "Handoffs exist"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\agent-lifecycle\\close-receipts.json",
+                       "pass":  true,
+                       "id":  "V15",
+                       "desc":  "Close receipts exist"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\agent-lifecycle\\write-scope-map.json",
+                       "pass":  true,
+                       "id":  "V16",
+                       "desc":  "Write scope map exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\iterations\\iteration-1-report.md",
+                       "pass":  true,
+                       "id":  "V17",
+                       "desc":  "Iteration 1 report exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\iterations\\iteration-2-report.md",
+                       "pass":  true,
+                       "id":  "V18",
+                       "desc":  "Iteration 2 report exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\iterations\\iteration-3-report.md",
+                       "pass":  true,
+                       "id":  "V19",
+                       "desc":  "Iteration 3 report exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\iterations\\integration-result.json",
+                       "pass":  true,
+                       "id":  "V20",
+                       "desc":  "Integration result exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\diagnostics\\diagnostic-gate.json",
+                       "pass":  true,
+                       "id":  "V21",
+                       "desc":  "Diagnostic gate exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\recovery\\recovery-drill.json",
+                       "pass":  true,
+                       "id":  "V22",
+                       "desc":  "Recovery drill exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\memory\\metrics.json",
+                       "pass":  true,
+                       "id":  "V23",
+                       "desc":  "Metrics exist"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\final-verification.json",
+                       "pass":  true,
+                       "id":  "V24",
+                       "desc":  "Final verification exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\effectiveness-analysis.md",
+                       "pass":  true,
+                       "id":  "V25",
+                       "desc":  "Effectiveness analysis exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\strategy-next-phase.json",
+                       "pass":  true,
+                       "id":  "V26",
+                       "desc":  "Strategy next phase exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\diagnostics\\negative-controls.json",
+                       "pass":  true,
+                       "id":  "V27",
+                       "desc":  "Negative controls exist"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "10+ TypeScript files",
+                       "id":  "V28",
+                       "desc":  "Product backend exists"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "8+ TSX files",
+                       "id":  "V29",
+                       "desc":  "Product frontend exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\product\\backend\\src\\database.ts",
+                       "pass":  true,
+                       "id":  "V30",
+                       "desc":  "Database schema exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\product\\backend\\src\\services\\auth.ts",
+                       "pass":  true,
+                       "id":  "V31",
+                       "desc":  "Auth/RBAC exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\product\\backend\\src\\services\\tickets.ts",
+                       "pass":  true,
+                       "id":  "V32",
+                       "desc":  "Ticket workflow exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\product\\backend\\src\\services\\notifications.ts",
+                       "pass":  true,
+                       "id":  "V33",
+                       "desc":  "Notification system exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\product\\backend\\src\\services\\articles.ts",
+                       "pass":  true,
+                       "id":  "V34",
+                       "desc":  "Knowledge base exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\product\\backend\\src\\services\\reports.ts",
+                       "pass":  true,
+                       "id":  "V35",
+                       "desc":  "Reports service exists"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\product\\backend\\src\\services\\automation.ts",
+                       "pass":  true,
+                       "id":  "V36",
+                       "desc":  "Automation rules exists"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "5+ test files",
+                       "id":  "V37",
+                       "desc":  "Tests exist"
+                   },
+                   {
+                       "path":  "trials\\build-pro-2-long-horizon\\product\\README.md",
+                       "pass":  true,
+                       "id":  "V38",
+                       "desc":  "README exists"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "decision-log has D002-D004",
+                       "id":  "V39",
+                       "desc":  "Memory updated across iterations"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "iteration-1/2/3 packets exist",
+                       "id":  "V40",
+                       "desc":  "Context packets updated across iterations"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "3 iteration self-checks",
+                       "id":  "V41",
+                       "desc":  "Verifier-history records exist"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Only trials/ + governance/ + outputs/ touched",
+                       "id":  "V42",
+                       "desc":  "No product code outside trial modified"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "factory-resource-pack-v0.4-release unchanged",
+                       "id":  "V43",
+                       "desc":  "No prior products modified"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No release ZIP",
+                       "id":  "V44",
+                       "desc":  "No release ZIP created"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No v0.5",
+                       "id":  "V45",
+                       "desc":  "No v0.5 package created"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Strategy says CONDITIONAL",
+                       "id":  "V46",
+                       "desc":  "No multi-agent default claim"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "72/72",
+                       "id":  "V47",
+                       "desc":  "Negative controls detected"
+                   }
+               ]
+}

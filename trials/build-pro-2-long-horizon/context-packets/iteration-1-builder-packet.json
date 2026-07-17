@@ -1,0 +1,327 @@
+﻿{
+    "packetId":  "CP-8838-20260627154410",
+    "packetType":  "AGENT_START_PACKET",
+    "targetPhase":  "FACTORY-BUILD-PRO-2-ITER-1",
+    "targetRole":  "builder",
+    "projectId":  "Codex_App_Factory",
+    "currentTrustedPhase":  "FACTORY-MEMORY-QUALITY-0-P1",
+    "generatedAt":  "2026-06-27T15:44:10.6449163+08:00",
+    "freshness":  {
+                      "maxAgeMinutes":  60,
+                      "expiresAt":  "2026-06-27T16:44:10.6449163+08:00",
+                      "stale":  false
+                  },
+    "contextBudget":  {
+                          "currentWordCount":  312,
+                          "maxWords":  2000,
+                          "remaining":  1688
+                      },
+    "requiredReads":  [
+                          {
+                              "priority":  "CRITICAL",
+                              "path":  "/factory-build-mode/memory-quality/MEMORY_QUALITY_HIERARCHY.md",
+                              "reason":  "Memory quality levels"
+                          },
+                          {
+                              "priority":  "HIGH",
+                              "path":  "/factory-build-mode/memory-quality/policies/MEMORY_INGESTION_POLICY.md",
+                              "reason":  "What enters memory"
+                          },
+                          {
+                              "priority":  "HIGH",
+                              "path":  "/factory-build-mode/memory-quality/BUILD_INTEGRATION.md",
+                              "reason":  "How to integrate context packets"
+                          }
+                      ],
+    "currentTaskGroup":  [
+
+                         ],
+    "relevantDecisions":  [
+                              {
+                                  "summary":  "Audit Bundle Completion (R1)",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-p1-bundle-r1-result.json",
+                                  "rationale":  "Status: PASS",
+                                  "decisionId":  "factory-memory-quality-0-p1-bundle-r1-result",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "Artifact Repair + Verifier Hardening + Dedicated Audit Bundle",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-p1-artifact-repair-result.json",
+                                  "rationale":  "Status: PASS",
+                                  "decisionId":  "factory-memory-quality-0-p1-artifact-repair-result",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "verifier-factory-memory-quality-0-p1-result",
+                                  "evidenceRef":  "\\governance\\factory-memory\\verifier-factory-memory-quality-0-p1-result.json",
+                                  "rationale":  "See file",
+                                  "decisionId":  "verifier-factory-memory-quality-0-p1-result",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "Negative Controls",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-p1-negative-controls.json",
+                                  "rationale":  "See file",
+                                  "decisionId":  "factory-memory-quality-0-p1-negative-controls",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "Dedicated Audit Bundle",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-p1-audit-bundle.json",
+                                  "rationale":  "Status: COMPLETED",
+                                  "decisionId":  "factory-memory-quality-0-p1-audit-bundle",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "Verifier Hardening",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-p1-verifier-hardening.json",
+                                  "rationale":  "Status: COMPLETED",
+                                  "decisionId":  "factory-memory-quality-0-p1-verifier-hardening",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "Memory Filtering + Context Packet MVP",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-context-packet-mvp-result.json",
+                                  "rationale":  "Status: PASS",
+                                  "decisionId":  "factory-memory-quality-0-context-packet-mvp-result",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "Context Packet Validator Implementation",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-p1-context-packet-validator.json",
+                                  "rationale":  "Status: COMPLETED",
+                                  "decisionId":  "factory-memory-quality-0-p1-context-packet-validator",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "Context Packet Generator Implementation",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-p1-context-packet-generator.json",
+                                  "rationale":  "Status: COMPLETED",
+                                  "decisionId":  "factory-memory-quality-0-p1-context-packet-generator",
+                                  "date":  "2026-06-27"
+                              },
+                              {
+                                  "summary":  "Context Packet Schema Repair",
+                                  "evidenceRef":  "\\governance\\factory-memory\\factory-memory-quality-0-p1-context-packet-schema.json",
+                                  "rationale":  "Status: COMPLETED",
+                                  "decisionId":  "factory-memory-quality-0-p1-context-packet-schema",
+                                  "date":  "2026-06-27"
+                              }
+                          ],
+    "activeRisks":  [
+                        {
+                            "mitigation":  "Verify P1 PASS before PRO-2",
+                            "description":  "PRO-2 started before MEMORY-QUALITY-0-P1 complete",
+                            "severity":  "CRITICAL",
+                            "riskId":  "R001"
+                        },
+                        {
+                            "mitigation":  "Enforce SUMMARY_VERIFICATION policy",
+                            "description":  "Compressed summary treated as evidence",
+                            "severity":  "HIGH",
+                            "riskId":  "R002"
+                        },
+                        {
+                            "mitigation":  "Enforce CONDITIONAL-only policy",
+                            "description":  "Multi-agent default claimed without evidence",
+                            "severity":  "CRITICAL",
+                            "riskId":  "R003"
+                        }
+                    ],
+    "rejectedClaims":  [
+                           {
+                               "claimId":  "RC001",
+                               "claim":  "Multi-agent is default mode",
+                               "rejectionReason":  "AGENT-9-P3 strategy freeze: multi-agent CONDITIONAL only"
+                           },
+                           {
+                               "claimId":  "RC002",
+                               "claim":  "P1 product quality exceeds Vanilla",
+                               "rejectionReason":  "No evidence of product superiority"
+                           },
+                           {
+                               "claimId":  "RC003",
+                               "claim":  "v0.5 release ready",
+                               "rejectionReason":  "v0.5 BLOCKED per AGENT-9-P3 strategy freeze"
+                           },
+                           {
+                               "claimId":  "RC004",
+                               "claim":  "External memory = model memory expansion",
+                               "rejectionReason":  "Memory concept correction: external memory != model expansion"
+                           }
+                       ],
+    "verifierHistorySummary":  {
+                                   "checksRun":  32,
+                                   "lastPhase":  "FACTORY-MEMORY-QUALITY-0-P1",
+                                   "lastResult":  "PASS",
+                                   "lastVerifiedAt":  "2026-06-27T15:15:23.8141513+08:00",
+                                   "checksPassed":  32
+                               },
+    "evidencePaths":  [
+                          {
+                              "path":  "\\governance\\agent-os\\agent-audit.schema.json",
+                              "description":  "agent-audit.schema.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\agent-authority-matrix.json",
+                              "description":  "agent-authority-matrix.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\agent-communication-policy.json",
+                              "description":  "agent-communication-policy.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\agent-event.schema.json",
+                              "description":  "agent-event.schema.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\agent-lifecycle.schema.json",
+                              "description":  "agent-lifecycle.schema.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\agent-message.schema.json",
+                              "description":  "agent-message.schema.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\agent-receipt.schema.json",
+                              "description":  "agent-receipt.schema.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\agent-role-policy.json",
+                              "description":  "agent-role-policy.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\agent-state-machine.json",
+                              "description":  "agent-state-machine.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\integrator-verifier-auditor-intake-protocol.json",
+                              "description":  "integrator-verifier-auditor-intake-protocol.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\main-agent-scheduler-policy.json",
+                              "description":  "main-agent-scheduler-policy.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\prototype-result.json",
+                              "description":  "prototype-result.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\result-collection-policy.json",
+                              "description":  "result-collection-policy.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\scheduling-decision.schema.json",
+                              "description":  "scheduling-decision.schema.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\task-graph.schema.json",
+                              "description":  "task-graph.schema.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\worker-handoff.schema.json",
+                              "description":  "worker-handoff.schema.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\AGENT_HANDOFFS\\handoff-lr2-builder-1.json",
+                              "description":  "handoff-lr2-builder-1.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\AGENT_HANDOFFS\\handoff-lr2-builder-2.json",
+                              "description":  "handoff-lr2-builder-2.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\AGENT_RECEIPTS\\archive-lr2-auditor-1.json",
+                              "description":  "archive-lr2-auditor-1.json",
+                              "level":  "L3",
+                              "verified":  true
+                          },
+                          {
+                              "path":  "\\governance\\agent-os\\AGENT_RECEIPTS\\archive-lr2-builder-1.json",
+                              "description":  "archive-lr2-builder-1.json",
+                              "level":  "L3",
+                              "verified":  true
+                          }
+                      ],
+    "forbiddenAssumptions":  [
+                                 "Compressed summaries are authoritative evidence",
+                                 "External memory expands model memory capacity",
+                                 "Self-reported PASS equals verified truth",
+                                 "Process artifacts prove product quality",
+                                 "Multi-agent mode is the default configuration",
+                                 "v0.5 release is ready to ship"
+                             ],
+    "allowedActions":  [
+                           "Read external memory files",
+                           "Generate context packet before spawn",
+                           "Run verifier after build",
+                           "Update task graph"
+                       ],
+    "forbiddenActions":  [
+                             "Modify product code without review",
+                             "Start PRO-2 before P1 PASS",
+                             "Trust compressed summary as evidence",
+                             "Claim multi-agent default"
+                         ],
+    "openQuestions":  [
+                          {
+                              "askedBy":  "system",
+                              "question":  "Are all MEMORY-QUALITY-0-P1 artifacts repaired?",
+                              "questionId":  "Q001"
+                          },
+                          {
+                              "askedBy":  "system",
+                              "question":  "Has verifier been hardened against blind spots?",
+                              "questionId":  "Q002"
+                          }
+                      ],
+    "summaryVerificationStatus":  {
+                                      "verifiedBy":  "generate-context-packet.ps1",
+                                      "verified":  true,
+                                      "notes":  "All source paths validated against disk. No compressed-summary evidence included.",
+                                      "verifiedAt":  "2026-06-27T15:44:10.6449163+08:00",
+                                      "method":  "Discrete file existence checks against governance/ and factory-build-mode/"
+                                  },
+    "warnings":  [
+
+                 ],
+    "errors":  [
+
+               ]
+}

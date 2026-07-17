@@ -1,0 +1,152 @@
+﻿{
+    "phase":  "FACTORY-EVIDENCE-TAXONOMY-0",
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-29T00:39:42+08:00",
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Overclaim policy",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "Universal claims require E8",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "Missing evidence path blocked",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "Release/handoff integration",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "38 controls",
+                               "description":  "Negative controls 0 gaps",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "Promotion/demotion rules",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Simulation 12",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "Evidence record schema",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "MA-ORCH-1 PASS",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "Strategy decision",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "Recovery integration",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "SHA256: 9FD3A5F979FE1FDEA712F69CAC300E2F49F4E84705A0448D98186CA950AC16CB",
+                               "description":  "v0.5 zip NOT modified",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "No v0.6",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "Dashboard integration",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "Production claims require E7",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "",
+                               "description":  "No cloud/deploy",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "Claim support matrix",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "Snapshot/attach/dashboard not primary",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "Local readiness cannot be production",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "Evidence level schema",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "Policy-only cannot be live-executed",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "",
+                               "description":  "No manual PASS-only",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "Evidence level model",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "",
+                               "description":  "No expectedClass/generic FAIL",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Scope lock",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "Multi-agent integration",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "Validator MVP",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "Live-inspected caveat required",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "",
+                               "description":  "No real validation",
+                               "pass":  true
+                           }
+               }
+}

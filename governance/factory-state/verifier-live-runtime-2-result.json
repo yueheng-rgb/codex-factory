@@ -1,0 +1,281 @@
+﻿{
+    "passed":  45,
+    "checkedAt":  "2026-06-25T00:01:46+08:00",
+    "command":  "live-runtime-2-verify",
+    "totalChecks":  45,
+    "phase":  "LIVE-RUNTIME-2",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "ZIP OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "LR0",
+                       "result":  true,
+                       "name":  "LR0_EXISTS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "LR1",
+                       "result":  true,
+                       "name":  "LR1_EXISTS",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "No Context OS",
+                       "result":  true,
+                       "name":  "NO_CONTEXT_OS",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "lifecycle",
+                       "result":  true,
+                       "name":  "LIFECYCLE_SCHEMA",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "state machine",
+                       "result":  true,
+                       "name":  "STATE_MACHINE",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "role policy",
+                       "result":  true,
+                       "name":  "ROLE_POLICY",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "authority",
+                       "result":  true,
+                       "name":  "AUTHORITY_MATRIX",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "event bus",
+                       "result":  true,
+                       "name":  "EVENT_BUS_EXISTS",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "mailbox",
+                       "result":  true,
+                       "name":  "MAILBOX_DIR",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "handoffs",
+                       "result":  true,
+                       "name":  "HANDOFFS_DIR",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "receipts",
+                       "result":  true,
+                       "name":  "RECEIPTS_DIR",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "audit",
+                       "result":  true,
+                       "name":  "AUDIT_DIR",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "event",
+                       "result":  true,
+                       "name":  "EVENT_SCHEMA",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "message",
+                       "result":  true,
+                       "name":  "MESSAGE_SCHEMA",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "handoff",
+                       "result":  true,
+                       "name":  "HANDOFF_SCHEMA",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "receipt",
+                       "result":  true,
+                       "name":  "RECEIPT_SCHEMA",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "audit",
+                       "result":  true,
+                       "name":  "AUDIT_SCHEMA",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "scheduler",
+                       "result":  true,
+                       "name":  "SCHEDULER_POLICY",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "task graph",
+                       "result":  true,
+                       "name":  "TASK_GRAPH_SCHEMA",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "scheduling",
+                       "result":  true,
+                       "name":  "SCHEDULING_SCHEMA",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "reporting",
+                       "result":  true,
+                       "name":  "WORKER_REPORTING",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "communication",
+                       "result":  true,
+                       "name":  "COMM_POLICY",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "intake",
+                       "result":  true,
+                       "name":  "INTAKE_PROTOCOL",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "result",
+                       "result":  true,
+                       "name":  "RESULT_COLLECTION",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "honesty",
+                       "result":  true,
+                       "name":  "HONESTY_SCRIPT",
+                       "id":  27
+                   },
+                   {
+                       "detail":  "event chain",
+                       "result":  true,
+                       "name":  "EVENT_CHAIN_SCRIPT",
+                       "id":  28
+                   },
+                   {
+                       "detail":  "handoff integrity",
+                       "result":  true,
+                       "name":  "HANDOFF_SCRIPT",
+                       "id":  29
+                   },
+                   {
+                       "detail":  "scheduling",
+                       "result":  true,
+                       "name":  "SCHEDULING_SCRIPT",
+                       "id":  30
+                   },
+                   {
+                       "detail":  "result collection",
+                       "result":  true,
+                       "name":  "RESULT_SCRIPT",
+                       "id":  31
+                   },
+                   {
+                       "detail":  "role boundaries",
+                       "result":  true,
+                       "name":  "ROLE_SCRIPT",
+                       "id":  32
+                   },
+                   {
+                       "detail":  "prototype dir",
+                       "result":  true,
+                       "name":  "PROTOTYPE_EXISTS",
+                       "id":  33
+                   },
+                   {
+                       "detail":  "prototype result",
+                       "result":  true,
+                       "name":  "PROTOTYPE_RESULT",
+                       "id":  34
+                   },
+                   {
+                       "detail":  "handoffs=2",
+                       "result":  true,
+                       "name":  "PROTOTYPE_HANDOFFS",
+                       "id":  35
+                   },
+                   {
+                       "detail":  "receipts=12",
+                       "result":  true,
+                       "name":  "PROTOTYPE_RECEIPTS",
+                       "id":  36
+                   },
+                   {
+                       "detail":  "events=24",
+                       "result":  true,
+                       "name":  "EVENT_BUS_HAS_EVENTS",
+                       "id":  37
+                   },
+                   {
+                       "detail":  "negatives",
+                       "result":  true,
+                       "name":  "NEGATIVES_EXIST",
+                       "id":  38
+                   },
+                   {
+                       "detail":  "count=28",
+                       "result":  true,
+                       "name":  "NEGATIVES_28",
+                       "id":  39
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEGATIVES_ZERO_GAPS",
+                       "id":  40
+                   },
+                   {
+                       "detail":  "machine-generated",
+                       "result":  true,
+                       "name":  "NO_MANUAL_PASS",
+                       "id":  41
+                   },
+                   {
+                       "detail":  "explicit checks",
+                       "result":  true,
+                       "name":  "NO_EXPECTEDCLASS",
+                       "id":  42
+                   },
+                   {
+                       "detail":  "specific checks",
+                       "result":  true,
+                       "name":  "NO_GENERIC_FAIL",
+                       "id":  43
+                   },
+                   {
+                       "detail":  "computed verdicts",
+                       "result":  true,
+                       "name":  "NO_PRECLASSIFIED",
+                       "id":  44
+                   },
+                   {
+                       "detail":  "CONSISTENT",
+                       "result":  true,
+                       "name":  "RECON_STILL_CONSISTENT",
+                       "id":  45
+                   }
+               ],
+    "failed":  0
+}

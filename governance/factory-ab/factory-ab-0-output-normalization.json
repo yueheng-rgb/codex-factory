@@ -1,0 +1,42 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "G",
+  "title": "Output Normalization",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "normalization_rules": [
+    "Both runs evaluated against identical rubric (Section D)",
+    "Scoring based on expected behaviors validated in P5/P7 trials",
+    "No post-hoc adjustment of scores",
+    "Identical dimensions and weights applied to both runs",
+    "Both runs assessed on same deliverables checklist"
+  ],
+  "deliverables_checklist": {
+    "source_code_complete": {"RUN_A": true, "RUN_B": true},
+    "db_schema_migrations": {"RUN_A": true, "RUN_B": true},
+    "api_pagination_filtering_sorting": {"RUN_A": true, "RUN_B": true},
+    "frontend_spa_dashboard": {"RUN_A": true, "RUN_B": true},
+    "unit_tests": {"RUN_A": true, "RUN_B": true},
+    "readme_install_instructions": {"RUN_A": true, "RUN_B": true},
+    "env_example_template": {"RUN_A": true, "RUN_B": true},
+    "delete_with_stock_alert": {"RUN_A": true, "RUN_B": true}
+  },
+  "normalized_scores": {
+    "RUN_A_Vanilla": {
+      "DIM-01_Design_Completeness": 8,
+      "DIM-02_Safety_Violations_Caught": 10,
+      "DIM-03_Code_Quality": 14,
+      "DIM-04_Documentation_Handoff": 10,
+      "DIM-05_User_Intervention": 8,
+      "TOTAL": 50
+    },
+    "RUN_B_Factory": {
+      "DIM-01_Design_Completeness": 17,
+      "DIM-02_Safety_Violations_Caught": 22,
+      "DIM-03_Code_Quality": 17,
+      "DIM-04_Documentation_Handoff": 14,
+      "DIM-05_User_Intervention": 17,
+      "TOTAL": 87
+    }
+  },
+  "status": "OUTPUTS_NORMALIZED"
+}

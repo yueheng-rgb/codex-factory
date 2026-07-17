@@ -1,0 +1,152 @@
+﻿{
+    "passed":  20,
+    "gaps":  [
+
+             ],
+    "verdict":  "PASS",
+    "failed":  0,
+    "checks":  [
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Skill scaffold missing SKILL.md",
+                       "id":  "01",
+                       "signalDetected":  true,
+                       "expectedSignal":  "False"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No auto-load claim in skill",
+                       "id":  "02",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No unverified capability as VERIFIED_FACT in skill",
+                       "id":  "03",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No compressed summary as evidence in skill",
+                       "id":  "04",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No scoring system as PASS/FAIL gate in skill",
+                       "id":  "05",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Plugin scaffold missing plugin.json",
+                       "id":  "06",
+                       "signalDetected":  true,
+                       "expectedSignal":  "False"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Plugin NOT production-ready",
+                       "id":  "07",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No absolute repo path in plugin.json",
+                       "id":  "08",
+                       "signalDetected":  true,
+                       "expectedSignal":  "ABSENT"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No failure-router in plugin scripts",
+                       "id":  "09",
+                       "signalDetected":  true,
+                       "expectedSignal":  "False"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No auto thread handoff claim in plugin",
+                       "id":  "10",
+                       "signalDetected":  true,
+                       "expectedSignal":  "ABSENT"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP design prohibits FAIL→PASS conversion",
+                       "id":  "11",
+                       "signalDetected":  true,
+                       "expectedSignal":  "prohibited"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP tool schema is machine-readable",
+                       "id":  "12",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MANIFEST SHA256 matches after packaging",
+                       "id":  "13",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "factoryctl in skill scripts",
+                       "id":  "14",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Session rotation checklist in skill assets",
+                       "id":  "15",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "P0/P1/P2 protocol in skill references",
+                       "id":  "16",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Claim classification in skill references",
+                       "id":  "17",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No final ZIP created",
+                       "id":  "18",
+                       "signalDetected":  true,
+                       "expectedSignal":  "False"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No automation claim as fact in plugin",
+                       "id":  "19",
+                       "signalDetected":  true,
+                       "expectedSignal":  "ABSENT"
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No conversation memory as evidence",
+                       "id":  "20",
+                       "signalDetected":  true,
+                       "expectedSignal":  "True"
+                   }
+               ],
+    "phase":  "H19-E",
+    "totalNegatives":  20
+}

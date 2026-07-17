@@ -1,0 +1,54 @@
+﻿{
+    "demo_id":  "V3_3-INTAKE-DEMO-003",
+    "demo_name":  "Local Remote-Shape Artifact",
+    "run_id":  "demo-local-shape",
+    "artifact_provided":  true,
+    "collector_mode":  "local_generated",
+    "trust_level":  "LOCAL_SIMULATED",
+    "verifier_result":  "LOCAL_REMOTE_SHAPE_VALIDATED",
+    "claim_gate_result":  "ALLOWED_FOR_LOCAL_VALIDATION",
+    "expected":  "LOCAL_REMOTE_SHAPE_VALIDATED — structure valid, but locally generated",
+    "match":  true,
+    "checks":  [
+                   {
+                       "detail":  "C:\\Codex_App_Factory/artifacts/remote/demo-local-shape/artifact.zip",
+                       "status":  "PASS",
+                       "check":  "artifact_zip_exists"
+                   },
+                   {
+                       "detail":  "8c252c63709ec90fa81999b99538ddf5c9045f25342551682714cae8cb4fb554",
+                       "status":  "PASS",
+                       "check":  "artifact_hash"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "artifact_extraction"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "ci_receipt_present"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "stdout_stderr_present"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "snapshot_evidence_present"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "secret_scan"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "run_id_not_placeholder"
+                   }
+               ],
+    "non_claims":  [
+                       "LOCAL_REMOTE_SHAPE_VALIDATED — artifact structure is valid but locally generated",
+                       "This is NOT a real GitHub Actions artifact",
+                       "Do NOT claim REMOTE_RUN_VERIFIED for local-generated artifacts",
+                       "collector_mode = local_generated"
+                   ]
+}

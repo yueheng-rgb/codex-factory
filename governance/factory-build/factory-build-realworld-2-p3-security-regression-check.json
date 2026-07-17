@@ -1,0 +1,18 @@
+﻿{
+    "security_regression_id": "FACTORY-BUILD-REALWORLD-2-P3-SECURITY-REGRESSION-CHECK",
+    "generated_at": "2026-06-28T10:38:15+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P3",
+    "section": "G",
+    "checks": [
+        {"id": "SEC-001", "desc": ".env.example still sanitized", "pass": true},
+        {"id": "SEC-002", "desc": ".gitignore still protects secrets", "pass": true},
+        {"id": "SEC-003", "desc": "No real secrets introduced", "pass": true},
+        {"id": "SEC-004", "desc": "Deploy scripts not re-enabled with credentials", "pass": true},
+        {"id": "SEC-005", "desc": "No production connection", "pass": true},
+        {"id": "SEC-006", "desc": "No SECRET_KEY/SMTP/SSH in reports", "pass": true},
+        {"id": "SEC-007", "desc": "SECURITY.md still present", "pass": true},
+        {"id": "SEC-008", "desc": "CREDENTIAL_ROTATION_CHECKLIST.md still present", "pass": true}
+    ],
+    "verdict": "SECURITY_REGRESSION_PASS",
+    "all_checks_pass": true
+}

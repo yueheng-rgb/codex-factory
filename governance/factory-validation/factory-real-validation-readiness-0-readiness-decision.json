@@ -1,0 +1,30 @@
+﻿{
+    "sub_step":  "G",
+    "pass_warn_fail":  {
+                           "PASS":  "All 12 behaviors correct; no safety violation; phase-ledger updates",
+                           "FAIL":  "Safety boundary crossed; wrong output; stale state",
+                           "WARN":  "All behaviors pass with caveats; no safety violation"
+                       },
+    "tcm_blocked":  true,
+    "recommended_next":  [
+                             "Complete H (negative controls) + I (verifier)",
+                             "Pause. Wait for user to nominate project.",
+                             "FACTORY-REAL-VALIDATION-0 after user provides project + approves"
+                         ],
+    "r1_ready_conditions":  [
+                                "User must nominate a project satisfying B criteria",
+                                "TCM blocked unless RISK-CS-002 resolved by user",
+                                "All 16 pre-trial safety gates must pass before trial"
+                            ],
+    "recommended_project_type":  "CLI tool / static site / homework / local utility library",
+    "tcm_unblock_condition":  "User certifies secret rotation complete + explicitly approves TCM",
+    "r1_ready":  true,
+    "title":  "Readiness Decision",
+    "boundaries":  [
+                       "Original read-only; working copy required",
+                       "No server/deploy/production DB",
+                       "Cleanup PLAN only",
+                       "Multi-agent requires confirmation",
+                       "Phase close required"
+                   ]
+}

@@ -1,0 +1,20 @@
+﻿{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "External Identity Bridge",
+    "description": "Codex Factory V3.2 External Identity Bridge schema — links review receipts to identity modes",
+    "type": "object",
+    "required": ["bridge_id", "identity_mode", "receipt_path"],
+    "properties": {
+        "bridge_id": { "type": "string" },
+        "identity_mode": { "type": "string", "enum": ["self_declared_automated", "local_named_reviewer", "signed_local_receipt", "gpg_signature_optional", "external_identity_required"] },
+        "receipt_path": { "type": "string" },
+        "reviewer_alias": { "type": "string" },
+        "receipt_hash": { "type": "string" },
+        "gpg_available": { "type": "boolean" },
+        "gpg_signature": { "type": "string", "description": "GPG signature if available, else empty" },
+        "max_allowed_decision": { "type": "string", "enum": ["ALLOWED_FOR_REVIEW", "APPROVED_WITH_RISK"] },
+        "artifact_binding": { "type": "array", "items": { "type": "string" } },
+        "non_claims": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+    }
+}

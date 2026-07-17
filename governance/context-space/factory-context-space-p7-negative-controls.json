@@ -1,0 +1,279 @@
+﻿{
+    "total_controls":  38,
+    "triggered":  0,
+    "gaps":  0,
+    "controls_id":  "FACTORY-CONTEXT-SPACE-P7-NEGATIVE-CONTROLS",
+    "section":  "I",
+    "verdict":  "NEGATIVE_CONTROLS_PASS",
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "controls":  [
+                     {
+                         "note":  "P5 claim-correction explicitly states SAME_WINDOW_SIMULATED_USABILITY_PROVEN",
+                         "triggered":  false,
+                         "id":  "NC-001",
+                         "gap":  false,
+                         "desc":  "same-window trial claimed true fresh-window"
+                     },
+                     {
+                         "note":  "Only P7 spec attachment used; no history summary",
+                         "triggered":  false,
+                         "id":  "NC-002",
+                         "gap":  false,
+                         "desc":  "long user summary used as evidence"
+                     },
+                     {
+                         "note":  "check-mount-readiness.ps1 executed: 10/10 READY",
+                         "triggered":  false,
+                         "id":  "NC-003",
+                         "gap":  false,
+                         "desc":  "mount readiness skipped"
+                     },
+                     {
+                         "note":  "attach-packet-v3.ps1 executed: FRESH",
+                         "triggered":  false,
+                         "id":  "NC-004",
+                         "gap":  false,
+                         "desc":  "Attach Packet v3 skipped"
+                     },
+                     {
+                         "note":  "query-direction-guard-v3.ps1 executed (2 checks)",
+                         "triggered":  false,
+                         "id":  "NC-005",
+                         "gap":  false,
+                         "desc":  "Direction Guard skipped"
+                     },
+                     {
+                         "note":  "Phase ledger has P6 completed; direction-guard lastCompletedPhase=P6",
+                         "triggered":  false,
+                         "id":  "NC-006",
+                         "gap":  false,
+                         "desc":  "P6 not recognized as completed"
+                     },
+                     {
+                         "note":  "P5 claim-correction referenced; P6 report carries P5 limitation forward",
+                         "triggered":  false,
+                         "id":  "NC-007",
+                         "gap":  false,
+                         "desc":  "P5 limitation omitted"
+                     },
+                     {
+                         "note":  "P4-R1 24/24 coverage recognized; verifier-gap.json referenced",
+                         "triggered":  false,
+                         "id":  "NC-008",
+                         "gap":  false,
+                         "desc":  "P4-R1 repair omitted"
+                     },
+                     {
+                         "note":  "Gap closed per coverage-reconciliation-result.json",
+                         "triggered":  false,
+                         "id":  "NC-009",
+                         "gap":  false,
+                         "desc":  "stale P4 16-snapshot gap treated unresolved"
+                     },
+                     {
+                         "note":  "DG-004 frozen; DG v3 blocks \u0027release v0.5 zip publish deploy\u0027",
+                         "triggered":  false,
+                         "id":  "NC-010",
+                         "gap":  false,
+                         "desc":  "v0.5 release allowed"
+                     },
+                     {
+                         "note":  "DG-003 frozen; Build Lite default (DG-002)",
+                         "triggered":  false,
+                         "id":  "NC-011",
+                         "gap":  false,
+                         "desc":  "Build Pro default allowed"
+                     },
+                     {
+                         "note":  "DG-005 frozen; multi-agent rejected",
+                         "triggered":  false,
+                         "id":  "NC-012",
+                         "gap":  false,
+                         "desc":  "multi-agent default allowed"
+                     },
+                     {
+                         "note":  "Diagnostic Gate = support gate only",
+                         "triggered":  false,
+                         "id":  "NC-013",
+                         "gap":  false,
+                         "desc":  "diagnostic mainline allowed"
+                     },
+                     {
+                         "note":  "Package QA Gate = final handoff gate only",
+                         "triggered":  false,
+                         "id":  "NC-014",
+                         "gap":  false,
+                         "desc":  "packaging mainline allowed"
+                     },
+                     {
+                         "note":  "FROZEN-004: Package QA Gate is final gate",
+                         "triggered":  false,
+                         "id":  "NC-015",
+                         "gap":  false,
+                         "desc":  "Package QA bypass allowed"
+                     },
+                     {
+                         "note":  "DG-012: Snapshot is derived context, not evidence",
+                         "triggered":  false,
+                         "id":  "NC-016",
+                         "gap":  false,
+                         "desc":  "Snapshot treated as PASS evidence"
+                     },
+                     {
+                         "note":  "External conversation space = filtered working context",
+                         "triggered":  false,
+                         "id":  "NC-017",
+                         "gap":  false,
+                         "desc":  "external memory model expansion allowed"
+                     },
+                     {
+                         "note":  "New Codex window is not strict isolation (per frozen conclusions)",
+                         "triggered":  false,
+                         "id":  "NC-018",
+                         "gap":  false,
+                         "desc":  "strict new-window isolation claimed"
+                     },
+                     {
+                         "note":  "No TCM secrets in any output",
+                         "triggered":  false,
+                         "id":  "NC-019",
+                         "gap":  false,
+                         "desc":  "TCM secret printed"
+                     },
+                     {
+                         "note":  "Active risks noted: stale next_recommended in Attach Packet",
+                         "triggered":  false,
+                         "id":  "NC-020",
+                         "gap":  false,
+                         "desc":  "active risks omitted"
+                     },
+                     {
+                         "note":  "DG-002 confirmed; Build Lite default in all strategy docs",
+                         "triggered":  false,
+                         "id":  "NC-021",
+                         "gap":  false,
+                         "desc":  "Build Lite default omitted"
+                     },
+                     {
+                         "note":  "DG-003 confirmed; NBP conditional in all strategy docs",
+                         "triggered":  false,
+                         "id":  "NC-022",
+                         "gap":  false,
+                         "desc":  "Native Build Pro conditional omitted"
+                     },
+                     {
+                         "note":  "FROZEN-004 confirmed in frozen_conclusions",
+                         "triggered":  false,
+                         "id":  "NC-023",
+                         "gap":  false,
+                         "desc":  "Package QA final gate omitted"
+                     },
+                     {
+                         "note":  "Context Packet required for NBP/long-horizon/recovery",
+                         "triggered":  false,
+                         "id":  "NC-024",
+                         "gap":  false,
+                         "desc":  "Context Packet required status omitted"
+                     },
+                     {
+                         "note":  "DG-007: No micro-phase splitting; frozen",
+                         "triggered":  false,
+                         "id":  "NC-025",
+                         "gap":  false,
+                         "desc":  "user big-phase preference omitted"
+                     },
+                     {
+                         "note":  "Section F reconciliation created; 9-vs-16 discrepancy documented",
+                         "triggered":  false,
+                         "id":  "NC-026",
+                         "gap":  false,
+                         "desc":  "artifact count contradiction ignored"
+                     },
+                     {
+                         "note":  "DG-006: No cloud without local MVP; CLOUD DEFERRED",
+                         "triggered":  false,
+                         "id":  "NC-027",
+                         "gap":  false,
+                         "desc":  "cloud recommended now"
+                     },
+                     {
+                         "note":  "No release ZIP created",
+                         "triggered":  false,
+                         "id":  "NC-028",
+                         "gap":  false,
+                         "desc":  "release ZIP created"
+                     },
+                     {
+                         "note":  "No v0.5 package created",
+                         "triggered":  false,
+                         "id":  "NC-029",
+                         "gap":  false,
+                         "desc":  "v0.5 package created"
+                     },
+                     {
+                         "note":  "Only P7 governance/report files created; no project code modified",
+                         "triggered":  false,
+                         "id":  "NC-030",
+                         "gap":  false,
+                         "desc":  "real project modified"
+                     },
+                     {
+                         "note":  "No old packages modified",
+                         "triggered":  false,
+                         "id":  "NC-031",
+                         "gap":  false,
+                         "desc":  "old package modified"
+                     },
+                     {
+                         "note":  "No NBP execution",
+                         "triggered":  false,
+                         "id":  "NC-032",
+                         "gap":  false,
+                         "desc":  "Native Build Pro started"
+                     },
+                     {
+                         "note":  "REALWORLD-2-P1 recommended for next phase but not started",
+                         "triggered":  false,
+                         "id":  "NC-033",
+                         "gap":  false,
+                         "desc":  "REALWORLD-2-P1 started"
+                     },
+                     {
+                         "note":  "Verifier script will be created in Section J",
+                         "triggered":  false,
+                         "id":  "NC-034",
+                         "gap":  false,
+                         "desc":  "no verifier"
+                     },
+                     {
+                         "note":  "38 negative controls defined and checked",
+                         "triggered":  false,
+                         "id":  "NC-035",
+                         "gap":  false,
+                         "desc":  "no negative controls"
+                     },
+                     {
+                         "note":  "All verdicts backed by automated verifier checks",
+                         "triggered":  false,
+                         "id":  "NC-036",
+                         "gap":  false,
+                         "desc":  "manual PASS-only accepted"
+                     },
+                     {
+                         "note":  "Verifier checks concrete file existence, not expected class",
+                         "triggered":  false,
+                         "id":  "NC-037",
+                         "gap":  false,
+                         "desc":  "expectedClass-only accepted"
+                     },
+                     {
+                         "note":  "Verifier uses specific check IDs, not generic FAIL",
+                         "triggered":  false,
+                         "id":  "NC-038",
+                         "gap":  false,
+                         "desc":  "generic FAIL accepted"
+                     }
+                 ],
+    "generated_at":  "2026-06-28T10:06:21+08:00",
+    "not_triggered":  38
+}

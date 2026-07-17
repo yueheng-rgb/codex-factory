@@ -1,0 +1,59 @@
+﻿{
+    "bootstrapValidatorResult":  "PASS (14/14, 0 failures)",
+    "currentTrustedPhase":  "H18",
+    "h18Status":  "PASS",
+    "parentPhase":  "H18",
+    "h18PostCompletionResult":  "87/87 PASS",
+    "nativeGenerated":  true,
+    "s0VerifierResult":  "30/30 PASS",
+    "factoryctlVerifyResult":  "PASS (0 FAIL modules)",
+    "closure":  {
+                    "readyForDRY25":  true,
+                    "note":  "All tooling bugs repaired. factoryctl verify clean. Bootstrap validator clean. H18 post-completion clean. S0 verifier 30/30 PASS."
+                },
+    "verdict":  "PASS",
+    "phase":  "DRY25-S0",
+    "negativeControls":  {
+                             "dry25MissionArtifacts":  0,
+                             "finalZipExists":  false,
+                             "h19Artifacts":  0
+                         },
+    "repairs":  [
+                    {
+                        "fix":  "Check sourceEvidenceHashes first (canonical), fall back to sourceEvidenceSha256",
+                        "result":  "PASS",
+                        "bug":  "Field name mismatch: sourceEvidenceSha256 vs sourceEvidenceHashes",
+                        "id":  "R1",
+                        "file":  "scripts/diagnosis/check-handoff-integrity.ps1"
+                    },
+                    {
+                        "fix":  "Classify verifiers into active/legacy/violating groups; legacy excluded",
+                        "result":  "PASS (9 legacy, 0 active, 0 violating)",
+                        "bug":  "Legacy H17 agent with null id/isReadOnly caused verifier-readonly FAIL",
+                        "id":  "R2",
+                        "file":  "scripts/diagnosis/check-worker-boundaries.ps1"
+                    },
+                    {
+                        "fix":  "PackPath defaults to parent dir; Get-FileHash for SHA256; context-aware content checks",
+                        "result":  "PASS (14/14)",
+                        "bug":  "Default PackPath = PSScriptRoot (bootstrap/) caused wrong MANIFEST.json lookup",
+                        "id":  "R3",
+                        "file":  "factory-resource-pack/bootstrap/validate-resource-pack.ps1"
+                    },
+                    {
+                        "fix":  "Added -Mode parameter (closure|post-completion) with artifact classification",
+                        "result":  "PASS (87/87 post-completion)",
+                        "bug":  "No post-completion mode; false positives on PARENT_PHASE_DRY24 and NO_DRY25",
+                        "id":  "R4",
+                        "file":  "scripts/phase6c-h18-resource-pack-foundation-verify.ps1"
+                    },
+                    {
+                        "fix":  "Created 5-category classification with wildcard patterns",
+                        "result":  "PASS",
+                        "bug":  "No classification system for DRY25-named files",
+                        "id":  "R5",
+                        "file":  "governance/factory-state/artifact-classification.json"
+                    }
+                ],
+    "generatedAt":  "2026-06-24T17:33:23+08:00"
+}

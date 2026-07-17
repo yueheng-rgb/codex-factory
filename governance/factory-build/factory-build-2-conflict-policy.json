@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-BUILD-2","subPhase":"E_CONFLICT_POLICY","verdict":"PASS","policy":"MEMORY_CONFLICT_POLICY.md","conflictTypes":["state-conflict","task-status-conflict","projectId-mismatch","stale-handoff","risk-resolution-no-evidence","verifier-entry-no-command","compressed-summary-as-evidence","decision-log-malformation"]}

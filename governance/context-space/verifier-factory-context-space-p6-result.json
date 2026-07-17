@@ -1,0 +1,201 @@
+﻿{
+    "passed":  38,
+    "verifier_id":  "VERIFIER-FACTORY-CONTEXT-SPACE-P6",
+    "generated_at":  "2026-06-28T09:59:58+08:00",
+    "verdict":  "PASS",
+    "total_checks":  38,
+    "phase":  "FACTORY-CONTEXT-SPACE-P6",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-001",
+                       "desc":  "P5 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-002",
+                       "desc":  "P5 claim correction exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-003",
+                       "desc":  "P6 evidence intake exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-004",
+                       "desc":  "Phase Close Gate JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-005",
+                       "desc":  "Gate has 12 steps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-006",
+                       "desc":  "Gate has mandatory updates"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-007",
+                       "desc":  "phase-close-context-update.ps1 exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-008",
+                       "desc":  "refresh-required-snapshots.ps1 exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-009",
+                       "desc":  "check-mount-readiness.ps1 exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-010",
+                       "desc":  "Mount readiness result shows ready"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-011",
+                       "desc":  "Snapshot auto-refresh policy exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-012",
+                       "desc":  "Policy has 7 rules"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-013",
+                       "desc":  "Stale snapshot prevention exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-014",
+                       "desc":  "Mount readiness definition exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-015",
+                       "desc":  "Bootstrap integration exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-016",
+                       "desc":  "Phase close simulation exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-017",
+                       "desc":  "Simulation has user workflow"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-018",
+                       "desc":  "Strategy decision exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-019",
+                       "desc":  "Strategy recommends P7"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-020",
+                       "desc":  "Cloud deferred in strategy"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-021",
+                       "desc":  "P5 limitation recorded"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-022",
+                       "desc":  "Strategy has fresh-window rec"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-023",
+                       "desc":  "Gate requires verifier PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-024",
+                       "desc":  "Index rebuild in gate"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-025",
+                       "desc":  "Snapshot refresh in gate"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-026",
+                       "desc":  "Attach Packet regen in gate"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-027",
+                       "desc":  "Mount readiness in gate"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-028",
+                       "desc":  "Build Lite default frozen"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-029",
+                       "desc":  "Build Pro conditional frozen"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-030",
+                       "desc":  "v0.5 blocked frozen"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-031",
+                       "desc":  "No cloud implementation"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-032",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-033",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-034",
+                       "desc":  "No Build Pro started"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-035",
+                       "desc":  "No REALWORLD-2-P1 started"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-036",
+                       "desc":  "Negative controls exist 45+"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-037",
+                       "desc":  "Zero negative control gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P6-V-038",
+                       "desc":  "Verifier script exists"
+                   }
+               ],
+    "failed":  0
+}

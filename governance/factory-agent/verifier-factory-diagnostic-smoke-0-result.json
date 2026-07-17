@@ -1,0 +1,250 @@
+﻿{
+    "verifier":  "factory-diagnostic-smoke-0-skillmarket-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T22:19:47.7133174+08:00",
+    "passRatio":  "48/48",
+    "total":  48,
+    "pass":  48,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.5892356+08:00",
+                       "pass":  true,
+                       "name":  "diagnostic-pack-pass-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6183115+08:00",
+                       "pass":  true,
+                       "name":  "diagnostic-pack-54-54"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6193054+08:00",
+                       "pass":  true,
+                       "name":  "no-v05-directory"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6223155+08:00",
+                       "pass":  true,
+                       "name":  "no-new-release-zip"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6253120+08:00",
+                       "pass":  true,
+                       "name":  "no-product-modified-flag"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6253120+08:00",
+                       "pass":  true,
+                       "name":  "multi-agent-not-default"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6263062+08:00",
+                       "pass":  true,
+                       "name":  "run-dir-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6263062+08:00",
+                       "pass":  true,
+                       "name":  "run-metadata-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6293230+08:00",
+                       "pass":  true,
+                       "name":  "metadata-readonly-true"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6303170+08:00",
+                       "pass":  true,
+                       "name":  "metadata-repair-false"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6313068+08:00",
+                       "pass":  true,
+                       "name":  "metadata-multiagent-false"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6313068+08:00",
+                       "pass":  true,
+                       "name":  "metadata-spawnagent-false"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6323044+08:00",
+                       "pass":  true,
+                       "name":  "metadata-v05-false"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6333100+08:00",
+                       "pass":  true,
+                       "name":  "metadata-diagnostic-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6353195+08:00",
+                       "pass":  true,
+                       "name":  "artifact-project-inventory"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6353195+08:00",
+                       "pass":  true,
+                       "name":  "artifact-report-source-consistency"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6363127+08:00",
+                       "pass":  true,
+                       "name":  "artifact-architecture-runtime-surface"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6363127+08:00",
+                       "pass":  true,
+                       "name":  "artifact-db-api-ui-alignment"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6363127+08:00",
+                       "pass":  true,
+                       "name":  "artifact-security-rbac-review"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6363127+08:00",
+                       "pass":  true,
+                       "name":  "artifact-test-evidence-review"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6373123+08:00",
+                       "pass":  true,
+                       "name":  "artifact-reviewer-verifier-diagnostic-result"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6373123+08:00",
+                       "pass":  true,
+                       "name":  "artifact-findings-backlog"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6373123+08:00",
+                       "pass":  true,
+                       "name":  "artifact-negative-controls"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6373123+08:00",
+                       "pass":  true,
+                       "name":  "report-A_SETUP_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6383040+08:00",
+                       "pass":  true,
+                       "name":  "report-B_PROJECT_INVENTORY_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6383040+08:00",
+                       "pass":  true,
+                       "name":  "report-C_REPORT_SOURCE_CONSISTENCY_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6383040+08:00",
+                       "pass":  true,
+                       "name":  "report-D_ARCHITECTURE_RUNTIME_SURFACE_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6383040+08:00",
+                       "pass":  true,
+                       "name":  "report-E_DB_API_UI_ALIGNMENT_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6393053+08:00",
+                       "pass":  true,
+                       "name":  "report-F_SECURITY_RBAC_REVIEW_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6393053+08:00",
+                       "pass":  true,
+                       "name":  "report-G_TEST_EVIDENCE_REVIEW_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6393053+08:00",
+                       "pass":  true,
+                       "name":  "report-H_REVIEWER_VERIFIER_DIAGNOSTIC_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6403155+08:00",
+                       "pass":  true,
+                       "name":  "report-I_FINDINGS_BACKLOG_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6403155+08:00",
+                       "pass":  true,
+                       "name":  "report-SKILLMARKET_SUMMARY_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6403155+08:00",
+                       "pass":  true,
+                       "name":  "report-NEGATIVE_CONTROLS_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6413125+08:00",
+                       "pass":  true,
+                       "name":  "governance-result-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6973124+08:00",
+                       "pass":  true,
+                       "name":  "no-product-code-recently-modified"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.6993115+08:00",
+                       "pass":  true,
+                       "name":  "no-repair-performed"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7013225+08:00",
+                       "pass":  true,
+                       "name":  "negatives-22-total"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7023124+08:00",
+                       "pass":  true,
+                       "name":  "negatives-all-detected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7033043+08:00",
+                       "pass":  true,
+                       "name":  "negatives-zero-gaps"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7033043+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-unexpected-pass"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7043113+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-fail-not-triggered"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7053123+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-generic-fail"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7063082+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-expectedclass-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7063082+08:00",
+                       "pass":  true,
+                       "name":  "negatives-no-manual-pass-only"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7083046+08:00",
+                       "pass":  true,
+                       "name":  "diagnostic-pack-readonly-applied"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7103062+08:00",
+                       "pass":  true,
+                       "name":  "diagnostic-gaps-found"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:19:47.7113149+08:00",
+                       "pass":  true,
+                       "name":  "diagnostic-no-product-superiority"
+                   }
+               ]
+}

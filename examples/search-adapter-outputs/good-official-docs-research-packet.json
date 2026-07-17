@@ -1,0 +1,47 @@
+﻿{
+    "researchQuestion":  [
+                             null,
+                             "Fastify v5 route validation best practices"
+                         ],
+    "sourceList":  [
+                       null,
+                       {
+                           "title":  "Fastify Validation Docs",
+                           "url":  "https://fastify.dev/docs/latest/Reference/Validation-and-Serialization/",
+                           "publishDate":  "2025-06-01",
+                           "sourceType":  "official_docs",
+                           "trustLevel":  "VERIFIED"
+                       }
+                   ],
+    "sourcePriority":  "high",
+    "factClaims":  [
+                       null,
+                       {
+                           "claim":  "Fastify v5 uses JSON Schema for route validation",
+                           "certainty":  "confirmed",
+                           "sourceIndex":  0
+                       },
+                       {
+                           "claim":  "Validation is opt-in per route",
+                           "certainty":  "confirmed",
+                           "sourceIndex":  0
+                       }
+                   ],
+    "freshnessRisk":  "unknown",
+    "applicability":  "to_be_reviewed",
+    "securityRisks":  [
+
+                      ],
+    "recommendedKnowledgeCapsules":  [
+
+                                     ],
+    "recommendedSkillCandidates":  [
+
+                                   ],
+    "requiredVerifier":  "librarian",
+    "caveats":  [
+                    "Read-only adapter: no API keys used",
+                    "No network calls made",
+                    "Results must be reviewed before entering knowledge bank"
+                ]
+}

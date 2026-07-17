@@ -1,0 +1,38 @@
+﻿{
+  "phase": "R5.2",
+  "testbed_path": "testbeds/ecommerce-runtime-validation",
+  "activated_pack_id": "ecommerce",
+  "pack_version": "1.0.0",
+  "pack_source": "governance/expert-packs/ecommerce/ecommerce-pack.json",
+  "tests_total": 29,
+  "tests_passed": 29,
+  "tests_failed": 0,
+  "invariants_total": 12,
+  "invariants_validated": 12,
+  "negative_controls_total": 5,
+  "negative_controls_passed": 5,
+  "risk_rules_total": 8,
+  "risk_rules_runtime_validated": 7,
+  "risk_rules_design_only": 1,
+  "engine_results": {
+    "semgrep": { "status": "CLEAN", "findings": 0, "rules": 213, "files": 15 },
+    "autocannon": { "status": "CLEAN", "requests": 243000, "errors": 0, "note": "LOCAL_SMOKE_ONLY" },
+    "playwright": { "status": "TOOL_FAILED", "reason": "browser_version_mismatch" },
+    "codeql": { "status": "SKIPPED", "reason": "not_installed" },
+    "k6": { "status": "SKIPPED", "reason": "not_installed" }
+  },
+  "gate_decision": "ALLOWED_WITH_EVIDENCE",
+  "critical_scenarios_blocked_when_missing_evidence": true,
+  "regression": {
+    "products_api_tests": "23/23 PASS",
+    "mini_inventory_admin_tests": "22/22 PASS",
+    "ecommerce_pack_loadable": true,
+    "foundation_rc_intact": true
+  },
+  "evidence_bindings": [
+    { "gate": "tests_present", "status": "SATISFIED", "evidence": "tests/ecommerce-validation.test.ts, 29/29 PASS" },
+    { "gate": "invariant_spec_present", "status": "SATISFIED", "evidence": "business-invariants.json, 12/12 invariants traced to ecommerce pack" },
+    { "gate": "semgrep_present", "status": "SATISFIED", "evidence": "semgrep CLEAN, 0 findings on 15 files" },
+    { "gate": "autocannon_present", "status": "SATISFIED", "evidence": "autocannon CLEAN, 243k requests, 0 errors (local smoke only)" }
+  ]
+}

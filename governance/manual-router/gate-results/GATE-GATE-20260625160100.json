@@ -1,0 +1,16 @@
+﻿{
+    "doesNotMarkPass":  true,
+    "result":  "GATE_PASS",
+    "missingPages":  [
+
+                     ],
+    "checkedAt":  "2026-06-25T16:01:00+08:00",
+    "requiredPages":  [
+                          "COMP-001",
+                          "EVID-001",
+                          "CTXR-001"
+                      ],
+    "actionType":  "compressed_summary_risk",
+    "isBlockingFail":  false,
+    "gateId":  "GATE-20260625160100"
+}

@@ -1,0 +1,11 @@
+﻿{
+    "phaseId":  "FACTORY-AGENT-4",
+    "openAgentCount":  0,
+    "staleAgentCount":  0,
+    "integrationGatePassed":  true,
+    "antiDeceptionGatePassed":  true,
+    "driftGatePassed":  true,
+    "verifierPassed":  true,
+    "allCloseReceiptsPresent":  true,
+    "blockerCount":  0
+}

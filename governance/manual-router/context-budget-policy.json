@@ -1,0 +1,46 @@
+﻿{
+    "budgets":  {
+                    "benchmarkAction":  {
+                                            "desc":  "Eval pages",
+                                            "maxBytes":  8000
+                                        },
+                    "alwaysOn":  {
+                                     "desc":  "Always-on constitution",
+                                     "maxBytes":  2048
+                                 },
+                    "smallAction":  {
+                                        "desc":  "1-3 pages",
+                                        "maxBytes":  3000
+                                    },
+                    "mediumAction":  {
+                                         "desc":  "3-5 pages",
+                                         "maxBytes":  6000
+                                     },
+                    "highRiskAction":  {
+                                           "desc":  "5+ pages P0",
+                                           "maxBytes":  10000
+                                       }
+                },
+    "contextOSUsage":  "When \u003e3 pages, check Context OS first",
+    "strategies":  {
+                       "benchmarkAction":  "Read eval + evidence pages",
+                       "smallAction":  "Read required pages directly",
+                       "mediumAction":  "Read pages + query MCP Memory",
+                       "highRiskAction":  "Read all + full verification"
+                   },
+    "version":  "1.0.0",
+    "antiPatterns":  [
+                         "Loading entire manual for spawn_agent",
+                         "Ignoring Context OS",
+                         "Reading non-route pages",
+                         "Re-reading unexpired receipts"
+                     ],
+    "blockConditions":  [
+                            "\u003e10 pages: BLOCK",
+                            "Constitution \u003e2KB: BLOCK",
+                            "Manual \u003e20% context: WARN"
+                        ],
+    "phase":  "FACTORY-EVAL-2-F",
+    "generatedAt":  "2026-06-25T16:01:53+08:00",
+    "schemaId":  "context-budget-policy"
+}

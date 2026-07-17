@@ -1,0 +1,34 @@
+﻿{
+    "command":  "verify",
+    "phase":  "latest",
+    "verdict":  "PASS",
+    "totalChecks":  29,
+    "modules":  [
+                    {
+                        "verdict":  "PASS_WITH_CAVEATS",
+                        "checks":  10
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "checks":  4
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "checks":  4
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "checks":  4
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "checks":  3
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "checks":  4
+                    }
+                ],
+    "checkedAt":  "2026-06-24T19:21:30+08:00"
+}
+

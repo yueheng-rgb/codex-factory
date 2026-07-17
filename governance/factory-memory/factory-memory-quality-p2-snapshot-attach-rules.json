@@ -1,0 +1,41 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "I",
+  "title": "Snapshot and Attach Packet Ingestion Rules",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "snapshot_rules": {
+    "eligibility": "Snapshot created at phase close when Context Space is active (long-horizon projects)",
+    "content_rules": [
+      "Phase summary ≤ 500 chars (minimal format)",
+      "Verifier verdict + check count",
+      "Blocker status delta (what changed, not full history)",
+      "Active blockers only (not resolved, not accepted)",
+      "Evidence paths (not full report contents)",
+      "Caveats for partial/conditional claims"
+    ],
+    "excluded_from_snapshot": [
+      "Full report bodies",
+      "Resolved blocker details",
+      "Historical phase summaries",
+      "Design analysis presented as evidence",
+      "Secret values or production data"
+    ]
+  },
+  "attach_packet_rules": {
+    "eligibility": "Attach Packet created for Native Build Pro, long-horizon, recovery, or native agent start",
+    "content_rules": [
+      "Minimal memory records for last N phases (N configurable, default 5)",
+      "Active blocker summary only",
+      "Current strategy decision",
+      "Phase ledger delta since last attach",
+      "Evidence paths (not full reports)"
+    ],
+    "excluded_from_attach": [
+      "Full conversation history",
+      "All phase outputs",
+      "Design documents (reference path only)",
+      "Secret/security sensitive content"
+    ]
+  },
+  "status": "SNAPSHOT_ATTACH_RULES_DEFINED"
+}

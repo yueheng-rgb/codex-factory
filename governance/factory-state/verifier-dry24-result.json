@@ -1,0 +1,106 @@
+﻿{
+    "failCount":  0,
+    "verdict":  "PASS",
+    "passCount":  16,
+    "checks":  [
+                   {
+                       "detail":  "H17",
+                       "gate":  "PARENT_MISMATCH",
+                       "result":  true,
+                       "name":  "PARENT_H17"
+                   },
+                   {
+                       "detail":  "PASS",
+                       "gate":  "PREREQ",
+                       "result":  true,
+                       "name":  "H17_P1_PASS"
+                   },
+                   {
+                       "detail":  false,
+                       "gate":  "FINAL_ZIP",
+                       "result":  true,
+                       "name":  "NO_FINAL_ZIP"
+                   },
+                   {
+                       "detail":  "H18=0",
+                       "gate":  "FUTURE_LEAK",
+                       "result":  true,
+                       "name":  "NO_H18"
+                   },
+                   {
+                       "detail":  "packages exist",
+                       "gate":  "MISSING_EVIDENCE",
+                       "result":  true,
+                       "name":  "DRY24_FILES_EXIST"
+                   },
+                   {
+                       "detail":  "contracts exist",
+                       "gate":  "MISSING_EVIDENCE",
+                       "result":  true,
+                       "name":  "CONTRACTS_EXIST"
+                   },
+                   {
+                       "detail":  "dep graph",
+                       "gate":  "MISSING_EVIDENCE",
+                       "result":  true,
+                       "name":  "DEP_GRAPH_EXISTS"
+                   },
+                   {
+                       "detail":  "6 DRY24 builders registered",
+                       "gate":  "MISSING_REGISTRY",
+                       "result":  true,
+                       "name":  "REGISTRY_HAS_DRY24"
+                   },
+                   {
+                       "detail":  "no generic FAIL",
+                       "gate":  "GENERIC_FAIL",
+                       "result":  true,
+                       "name":  "NO_GENERIC_FAIL"
+                   },
+                   {
+                       "detail":  "no manual PASS-only",
+                       "gate":  "MANUAL_PASS",
+                       "result":  true,
+                       "name":  "NO_MANUAL_PASS"
+                   },
+                   {
+                       "detail":  "H17 policies",
+                       "gate":  "MISSING_POLICY",
+                       "result":  true,
+                       "name":  "H17_POLICIES_OK"
+                   },
+                   {
+                       "detail":  "factoryctl exists",
+                       "gate":  "FACTORYCTL_MISSING",
+                       "result":  true,
+                       "name":  "FACTORYCTL_OK"
+                   },
+                   {
+                       "detail":  "preflight",
+                       "gate":  "MISSING_SNAPSHOT",
+                       "result":  true,
+                       "name":  "PREFLIGHT_SNAPSHOT"
+                   },
+                   {
+                       "detail":  "post-contract",
+                       "gate":  "MISSING_SNAPSHOT",
+                       "result":  true,
+                       "name":  "POST_CONTRACT_SNAPSHOT"
+                   },
+                   {
+                       "detail":  "midflight",
+                       "gate":  "MISSING_SNAPSHOT",
+                       "result":  true,
+                       "name":  "MIDFLIGHT_SNAPSHOT"
+                   },
+                   {
+                       "detail":  "closure",
+                       "gate":  "MISSING_SNAPSHOT",
+                       "result":  true,
+                       "name":  "CLOSURE_SNAPSHOT"
+                   }
+               ],
+    "phase":  "DRY24",
+    "totalChecks":  16,
+    "checkedAt":  "2026-06-24T16:18:08.6961066+08:00"
+}

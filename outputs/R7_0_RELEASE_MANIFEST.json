@@ -1,0 +1,183 @@
+﻿{
+  "release": "Codex Factory v1.0",
+  "release_date": "2026-07-11",
+  "total_files": 0,
+  "categories": {
+    "core_rules": {
+      "description": "Factory Bootstrap and global rules",
+      "files": [
+        {"path": "AGENTS.md", "capability": "Factory Bootstrap Gate (BOOT-001)", "status": "ACTIVE", "last_verified": "R5.0"},
+        {"path": "GLOBAL_CODEX_RULES.md", "capability": "Global project-building rules", "status": "ACTIVE", "last_verified": "R5.0"},
+        {"path": "APP_TYPE_ROUTER.md", "capability": "Project type classification (7 types)", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "STACK_DECISION_GUIDE.md", "capability": "Technology stack decision guide", "status": "ACTIVE", "last_verified": "R6.1"}
+      ]
+    },
+    "runnable_starters": {
+      "description": "Ready-to-run project starters",
+      "files": [
+        {"path": "runnable-starters/node-api-postgres", "capability": "api-service starter (13 tests)", "status": "ACTIVE", "last_verified": "R7.0", "regression": "npm test"},
+        {"path": "runnable-starters/vite-threejs-interactive", "capability": "threejs-interactive starter", "status": "ACTIVE", "last_verified": "R7.0", "regression": "npx tsc --noEmit"},
+        {"path": "runnable-starters/vite-react-content-site", "capability": "public-web starter", "status": "ACTIVE", "last_verified": "R6.1", "regression": "npx tsc --noEmit"},
+        {"path": "runnable-starters/next-fullstack-admin", "capability": "admin-web starter (Next.js)", "status": "ACTIVE", "last_verified": "R5.0"},
+        {"path": "runnable-starters/next-saas-ai-tool", "capability": "saas-tool starter (Next.js)", "status": "ACTIVE", "last_verified": "R5.0"}
+      ]
+    },
+    "testbeds": {
+      "description": "Formal testbeds with automated tests",
+      "files": [
+        {"path": "testbeds/products-api", "capability": "Products API CRUD testbed (23 tests)", "status": "ACTIVE", "last_verified": "R7.0", "regression": "npm test"},
+        {"path": "testbeds/ecommerce-runtime-validation", "capability": "Ecommerce invariant validation (29 tests)", "status": "ACTIVE", "last_verified": "R7.0", "regression": "npm test"},
+        {"path": "testbeds/saas-runtime-validation", "capability": "SaaS invariant validation (27 tests)", "status": "ACTIVE", "last_verified": "R7.0", "regression": "npm test"}
+      ]
+    },
+    "pilots": {
+      "description": "End-to-end pilot projects",
+      "files": [
+        {"path": "pilots/mini-inventory-admin", "capability": "Full pipeline pilot (22 tests)", "status": "ACTIVE", "last_verified": "R7.0", "regression": "npm test"}
+      ]
+    },
+    "expert_packs": {
+      "description": "Domain-specific expert knowledge packs",
+      "files": [
+        {"path": "governance/expert-packs/expert-pack-registry.json", "capability": "Expert pack registry", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/EXPERT_PACK_SYSTEM.md", "capability": "Expert pack system documentation", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/ecommerce/ecommerce-pack.json", "capability": "Ecommerce pack definition", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/ecommerce/ecommerce-invariants.json", "capability": "Ecommerce invariants (7 rules)", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/ecommerce/ecommerce-benchmarks.json", "capability": "Ecommerce benchmarks", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/ecommerce/ECOMMERCE_PACK.md", "capability": "Ecommerce pack documentation", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/saas-tool/saas-tool-pack.json", "capability": "SaaS pack definition", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/saas-tool/saas-tool-invariants.json", "capability": "SaaS invariants (8 rules)", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/saas-tool/saas-tool-benchmarks.json", "capability": "SaaS benchmarks", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "governance/expert-packs/saas-tool/SAAS_TOOL_PACK.md", "capability": "SaaS pack documentation", "status": "ACTIVE", "last_verified": "R7.0"}
+      ]
+    },
+    "production_hardening": {
+      "description": "Production readiness infrastructure",
+      "files": [
+        {"path": "runtime/production-readiness-checker.ps1", "capability": "Readiness checker (15 dimensions)", "status": "ACTIVE", "last_verified": "R6.0"},
+        {"path": "schemas/production-readiness.schema.json", "capability": "Readiness schema", "status": "ACTIVE", "last_verified": "R6.0"},
+        {"path": "schemas/deployment-manifest.schema.json", "capability": "Deployment manifest schema", "status": "ACTIVE", "last_verified": "R6.0"},
+        {"path": "governance/production/PRODUCTION_READINESS.md", "capability": "Readiness documentation", "status": "ACTIVE", "last_verified": "R6.0"},
+        {"path": "governance/production/CI_CD_TEMPLATE.md", "capability": "CI/CD template guide", "status": "ACTIVE", "last_verified": "R6.0"},
+        {"path": "governance/production/ci-templates/github-actions-node.yml", "capability": "GitHub Actions workflow template", "status": "ACTIVE", "last_verified": "R6.0"},
+        {"path": "governance/production/deployment-manifest.example.json", "capability": "Deployment manifest example", "status": "ACTIVE", "last_verified": "R6.0"},
+        {"path": "governance/production/DEPLOYMENT_MANIFEST.md", "capability": "Deployment manifest guide", "status": "ACTIVE", "last_verified": "R6.0"}
+      ]
+    },
+    "benchmark_suites": {
+      "description": "Benchmark definitions and capability matrices",
+      "files": [
+        {"path": "outputs/R6_1_benchmark_suite_v3.json", "capability": "Benchmark Suite v3 (10 benchmarks)", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "outputs/R6_1_capability_matrix_v3.json", "capability": "Capability Matrix v3", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "outputs/R6_1_COMPLETION_REPORT.md", "capability": "Benchmark Suite v3 report", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "outputs/R4_0_benchmark_suite_v2.json", "capability": "Benchmark Suite v2 (archived)", "status": "ARCHIVED", "last_verified": "R4.0"},
+        {"path": "outputs/R4_0_capability_matrix_v2.json", "capability": "Capability Matrix v2 (archived)", "status": "ARCHIVED", "last_verified": "R4.0"}
+      ]
+    },
+    "risk_and_invariant": {
+      "description": "Risk classification and business invariant enforcement",
+      "files": [
+        {"path": "runtime/runtime-risk-classifier.ps1", "capability": "Runtime risk classifier", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "runtime/business-invariant-engine.ps1", "capability": "Business invariant engine", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "runtime/risk-enforcement-gate-v3.ps1", "capability": "Risk enforcement gate v3", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "runtime/automated-gate-detector.ps1", "capability": "Automated gate detector", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "runtime/gate-evidence-binder.ps1", "capability": "Gate evidence binder", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "schemas/runtime-risk-profile.schema.json", "capability": "Risk profile schema", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "schemas/business-invariant.schema.json", "capability": "Invariant schema", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "schemas/gate-detection-result.schema.json", "capability": "Gate detection schema", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "schemas/gate-evidence-binding.schema.json", "capability": "Evidence binding schema", "status": "ACTIVE", "last_verified": "R6.1"}
+      ]
+    },
+    "search_pipeline": {
+      "description": "Search subsystem (frozen baseline)",
+      "files": [
+        {"path": "runtime/pre-build-research-gate.ps1", "capability": "Pre-Build Research Gate", "status": "FROZEN", "last_verified": "R2.4"},
+        {"path": "runtime/search-operating-doctrine.ps1", "capability": "Search operating doctrine", "status": "FROZEN", "last_verified": "R2.4"},
+        {"path": "runtime/search-result-quality-gate.ps1", "capability": "Quality Gate v5", "status": "FROZEN", "last_verified": "R2.4"},
+        {"path": "runtime/evidence-pack-builder.ps1", "capability": "Evidence Pack v2 builder", "status": "FROZEN", "last_verified": "R2.4"},
+        {"path": "runtime/need-search-detector.ps1", "capability": "Search necessity detector", "status": "FROZEN", "last_verified": "R2.4"}
+      ]
+    },
+    "multi_agent": {
+      "description": "Multi-agent worker system (frozen baseline)",
+      "files": [
+        {"path": "runtime/agent-loader.ps1", "capability": "Agent loader", "status": "FROZEN", "last_verified": "R2.4"},
+        {"path": "runtime/contract-checker.ps1", "capability": "Worker contract checker", "status": "FROZEN", "last_verified": "R2.4"},
+        {"path": "runtime/handoff-validator.ps1", "capability": "Handoff validator", "status": "FROZEN", "last_verified": "R2.4"},
+        {"path": "governance/multi-agent/", "capability": "Multi-agent governance docs", "status": "FROZEN", "last_verified": "R2.4"}
+      ]
+    },
+    "project_surface_model": {
+      "description": "Project surface and routing",
+      "files": [
+        {"path": "runtime/project-surface-router.ps1", "capability": "Project surface router (10 surface types)", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "schemas/project-surface-plan.schema.json", "capability": "Surface plan schema", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "governance/project-surface-model/", "capability": "Surface model documentation", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "runtime/starter-type-consistency-check.ps1", "capability": "Starter type consistency check", "status": "ACTIVE", "last_verified": "R6.1"}
+      ]
+    },
+    "external_engines": {
+      "description": "External engine broker and tool management",
+      "files": [
+        {"path": "runtime/external-engine-broker.ps1", "capability": "Engine broker", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "runtime/external-engine-registry.ps1", "capability": "Engine registry", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "runtime/external-tool-availability-check.ps1", "capability": "Tool availability detector", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "schemas/external-engine.schema.json", "capability": "Engine schema", "status": "ACTIVE", "last_verified": "R3.0"},
+        {"path": "schemas/external-engine-run-result.schema.json", "capability": "Engine run result schema", "status": "ACTIVE", "last_verified": "R3.0"},
+        {"path": "governance/external-engines/", "capability": "Engine governance docs", "status": "ACTIVE", "last_verified": "R3.1"}
+      ]
+    },
+    "expert_pack_runtime": {
+      "description": "Expert pack activation and loading",
+      "files": [
+        {"path": "runtime/expert-pack-activation.ps1", "capability": "Expert pack activation", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "runtime/expert-pack-loader.ps1", "capability": "Expert pack loader", "status": "ACTIVE", "last_verified": "R6.1"},
+        {"path": "schemas/expert-pack.schema.json", "capability": "Expert pack schema", "status": "ACTIVE", "last_verified": "R6.1"}
+      ]
+    },
+    "release_baselines": {
+      "description": "Release baselines and locks",
+      "files": [
+        {"path": "outputs/R5_0_FOUNDATION_RC_BASELINE.md", "capability": "Foundation RC baseline", "status": "BASELINE", "last_verified": "R7.0"},
+        {"path": "outputs/R5_0_FOUNDATION_RC_MANIFEST.json", "capability": "Foundation RC manifest", "status": "BASELINE", "last_verified": "R7.0"},
+        {"path": "outputs/R5_0_DEPRECATED_DIRECTIONS_LOCK.md", "capability": "Deprecated directions lock", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "outputs/R5_0_KNOWN_RISKS_AND_NON_CLAIMS.md", "capability": "Known risks and non-claims", "status": "ACTIVE", "last_verified": "R7.0"},
+        {"path": "outputs/R5_0_REGRESSION_COMMAND_INDEX_V2.json", "capability": "Regression command index v2", "status": "ACTIVE", "last_verified": "R6.0"}
+      ]
+    },
+    "capability_tracking": {
+      "description": "Capability governance and tracking",
+      "files": [
+        {"path": "runtime/capability-loader.ps1", "capability": "Capability loader", "status": "ACTIVE", "last_verified": "R5.0"},
+        {"path": "runtime/capability-decision-logger.ps1", "capability": "Capability decision logger", "status": "ACTIVE", "last_verified": "R5.0"},
+        {"path": "runtime/capability-registry-diff.ps1", "capability": "Capability registry diff", "status": "ACTIVE", "last_verified": "R5.0"},
+        {"path": "runtime/capability-permission-gate.ps1", "capability": "Capability permission gate", "status": "ACTIVE", "last_verified": "R5.0"}
+      ]
+    },
+    "engine_status": {
+      "description": "Live external engine status",
+      "engines": [
+        {"name": "semgrep", "version": "1.169.0", "status": "AVAILABLE", "last_verified": "R7.0"},
+        {"name": "autocannon", "version": "8.0.0", "status": "AVAILABLE", "last_verified": "R7.0"},
+        {"name": "playwright", "version": "1.61.1", "status": "AVAILABLE", "last_verified": "R7.0"},
+        {"name": "codeql", "version": "N/A", "status": "NOT_INSTALLED", "last_verified": "R7.0"},
+        {"name": "k6", "version": "N/A", "status": "NOT_INSTALLED", "last_verified": "R7.0"}
+      ]
+    },
+    "deprecated_directions": {
+      "description": "Permanently locked deprecated directions",
+      "rules": [
+        "Independent Search Agent — FORBIDDEN",
+        "Dual Search Channel — FORBIDDEN",
+        "Search Agent as Future Default — FORBIDDEN",
+        "Implementer direct search — FORBIDDEN",
+        "chat URL extraction as canonical evidence — FORBIDDEN",
+        "mock/dry_run mislabeled as live — FORBIDDEN",
+        "multi-agent default mode — FORBIDDEN",
+        "external engine bypassing evidence binding — FORBIDDEN",
+        "Firecrawl replacing canonical search — FORBIDDEN",
+        "Expert Pack bypassing Risk Gate — FORBIDDEN"
+      ]
+    }
+  }
+}

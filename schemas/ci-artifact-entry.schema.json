@@ -1,0 +1,46 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CI Artifact Entry",
+  "description": "A single CI artifact entry capturing a command run with all outputs and metadata.",
+  "type": "object",
+  "required": ["artifact_id","command","working_directory","started_at","finished_at","exit_code","artifacts_dir"],
+  "properties": {
+    "artifact_id": {"type":"string","description":"Unique artifact ID, e.g. ART-20260712-001"},
+    "run_id": {"type":"string","description":"Grouping run ID, e.g. RUN-V2_1-20260712-001"},
+    "command": {"type":"string","description":"Shell command executed"},
+    "working_directory": {"type":"string","description":"Absolute path of working directory"},
+    "started_at": {"type":"string","format":"date-time"},
+    "finished_at": {"type":"string","format":"date-time"},
+    "duration_ms": {"type":"integer"},
+    "exit_code": {"type":"integer"},
+    "stdout_file": {"type":"string","description":"Relative path to captured stdout"},
+    "stderr_file": {"type":"string","description":"Relative path to captured stderr"},
+    "stdout_summary": {"type":"string","description":"First 500 chars of stdout for quick inspection"},
+    "stderr_summary": {"type":"string","description":"First 500 chars of stderr"},
+    "test_counts": {
+      "type":"object",
+      "properties": {
+        "total": {"type":"integer"},
+        "passed": {"type":"integer"},
+        "failed": {"type":"integer"},
+        "skipped": {"type":"integer"}
+      }
+    },
+    "engine_result": {
+      "type":"object",
+      "properties": {
+        "engine": {"type":"string"},
+        "findings_count": {"type":"integer"},
+        "severity": {"type":"string"},
+        "rule_ids": {"type":"array","items":{"type":"string"}}
+      }
+    },
+    "project_type": {"type":"string","enum":["starter","testbed","pilot","mission","engine","benchmark","other"]},
+    "project_name": {"type":"string"},
+    "commit_hash": {"type":"string","description":"Git commit hash if available"},
+    "directory_snapshot_hash": {"type":"string","description":"SHA256 of directory file listing"},
+    "audit_ledger_ref": {"type":"string","description":"Cross-reference to audit ledger entry"},
+    "tags": {"type":"array","items":{"type":"string"}},
+    "notes": {"type":"string"}
+  }
+}

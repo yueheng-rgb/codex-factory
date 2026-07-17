@@ -1,0 +1,263 @@
+﻿/* ===== Global Reset & Layout ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e0e0e0;
+  background: #1a1a2e;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#three-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== HUD ===== */
+#hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 320px;
+  padding: 12px 20px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.hud-project {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.hud-mode {
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.12);
+  color: #ccc;
+}
+
+.hud-hint {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ===== Right Panel ===== */
+#panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: rgba(20, 20, 40, 0.92);
+  border-left: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 16px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.panel-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+}
+
+.panel-empty-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.panel-empty-sub {
+  font-size: 12px;
+  margin-top: 8px;
+  color: rgba(255,255,255,0.25);
+}
+
+.panel-header {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.panel-body {
+  margin-bottom: 20px;
+}
+
+.panel-field {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.panel-label {
+  display: inline-block;
+  width: 48px;
+  color: rgba(255,255,255,0.45);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.panel-btn {
+  flex: 1;
+  padding: 8px 0;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.06);
+  color: #ccc;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.panel-btn:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+.panel-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== MiniMap ===== */
+#minimap {
+  position: fixed;
+  bottom: 16px;
+  right: 316px;
+  width: 140px;
+  height: 140px;
+  background: rgba(20, 20, 40, 0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 6px 8px;
+  z-index: 10;
+}
+
+.minimap-header {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+}
+
+.minimap-grid {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 30px);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 3px;
+}
+
+.minimap-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: #4a90d9;
+}
+
+.minimap-legend {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 4px;
+}
+
+/* ===== Toast ===== */
+#toast-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.toast {
+  padding: 10px 24px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.toast-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  #panel {
+    width: 100%;
+    height: 40%;
+    top: auto;
+    bottom: 0;
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #hud {
+    right: 0;
+  }
+
+  #minimap {
+    right: 8px;
+    bottom: calc(40% + 8px);
+    width: 100px;
+    height: 100px;
+  }
+
+  .hud-project {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  #minimap {
+    width: 70px;
+    height: 70px;
+  }
+
+  #panel {
+    height: 35%;
+  }
+}

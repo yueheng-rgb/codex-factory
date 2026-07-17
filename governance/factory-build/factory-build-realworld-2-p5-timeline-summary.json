@@ -1,0 +1,16 @@
+﻿{
+    "timeline_id": "FACTORY-BUILD-REALWORLD-2-P5-TIMELINE-SUMMARY",
+    "generated_at": "2026-06-28T10:49:26+08:00", "phase": "FACTORY-BUILD-REALWORLD-2-P5", "section": "B",
+    "phases": [
+        {"phase": "REALWORLD-2 Intake", "date": "2026-06-27", "verdict": "PASS", "proved": "TCM is real deployed Django 5.x project with production secrets and deploy risk. Suitable for REALWORLD-2.", "did_not_prove": "N/A"},
+        {"phase": "R1 Contamination Correction", "date": "2026-06-27", "verdict": "PASS 34/34", "proved": "Factory safety-process discipline works. Cross-window evidence reclassification valid.", "did_not_prove": "Factory superiority over vanilla Codex"},
+        {"phase": "P1 Working-Copy Validation", "date": "2026-06-28", "verdict": "PASS 46/46", "proved": "Working copy created safely. manage.py check clean. Smoke HTTP 200. Tests 13/23 (Django 6.x). Security gates 20/20.", "did_not_prove": "Test quality; production readiness"},
+        {"phase": "P2 Security Hardening", "date": "2026-06-28", "verdict": "PASS 41/41", "proved": "8 hardening items: .env.example, .gitignore, deploy templates, SECURITY.md, README, requirements.txt, settings notes, rotation checklist.", "did_not_prove": "Test improvement (hardening was documentation-only)"},
+        {"phase": "P3 Test Repair", "date": "2026-06-28", "verdict": "PASS 25/25", "proved": "Tests improved 13->20. Root cause: form field name mismatches (not app bugs). 7 fixes, all test-only.", "did_not_prove": "Django version alignment (still 6.x vs 5.x target)"},
+        {"phase": "P4 Runtime Alignment", "date": "2026-06-28", "verdict": "PASS 28/28", "proved": "Tests: 21 pass/2 skip/0 fail. 2 ENVIRONMENT_MISMATCH skips documented. Zero app bugs across all phases.", "did_not_prove": "Django 5.x compatibility (network needed for downgrade)"},
+        {"phase": "P5 Delivery Summary", "date": "2026-06-28T10:49:26+08:00", "verdict": "IN PROGRESS", "proved": "Honest evidence-based user review package. All boundaries intact.", "did_not_prove": "Production deployment readiness"}
+    ],
+    "original_project_protected": true,
+    "production_safety_boundary": "NO deploy scripts executed. NO production connections. NO secrets disclosed.",
+    "context_space_used": "All 6 phases. Phase close executed after each. Snapshots refreshed. Mount readiness 10/10 maintained."
+}

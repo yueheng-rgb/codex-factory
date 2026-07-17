@@ -1,0 +1,9 @@
+﻿{
+    "verifier":  "factory-build-realworld-1-online-bookstore-verify.ps1",
+    "timestamp":  "2026-06-27T19:11:01.2325467+08:00",
+    "checks_total":  25,
+    "checks_passed":  25,
+    "checks_failed":  0,
+    "repaired":  true,
+    "verifier_passed":  true
+}

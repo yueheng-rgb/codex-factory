@@ -1,0 +1,202 @@
+﻿{
+    "authoritative_source_gap":  false,
+    "queries":  [
+                    {
+                        "query":  "Next.js Server Actions CSRF security best practice official documentation 2025",
+                        "count":  10,
+                        "intent":  "official_api_check"
+                    },
+                    {
+                        "query":  "Next.js server actions security input validation authentication authorization middleware pattern",
+                        "count":  10,
+                        "intent":  "best_practice"
+                    }
+                ],
+    "sources":  [
+                    {
+                        "snippet":  "Search documentation... CtrlK Search... ⌘K Our dedicated teams, along with numerous external contributors from around the world, work tirelessly to improve Next.js, Turbopack, and our documentation ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "en",
+                        "source_tier":  "tier_1_gold",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js by Vercel - The React Framework",
+                        "url":  "https://nextjs.org/team"
+                    },
+                    {
+                        "snippet":  "专用路由HOC组件 import { useRouter } from \u0027next/router\u0027;import { useSelector } from \u0027react-redux\u0027;import { userSelector } from \u0027../../redux/selectors\u0027;interface IPrivateRoute { children: React.ReactNode;}co...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js专用页和布局的身份验证模式/策略 - 我爱学习网",
+                        "url":  "https://www.5axxw.com/questions/content/3tkxhv"
+                    },
+                    {
+                        "snippet":  "Next.js支持在React组件中使用获取API或SWR进行远程数据获取,而且体积非常轻巧,提供了简单易用的React服务端渲染应用框架,能够给开发人员带来无与伦比的体验,最终产品的性能也十分稳定｡ 软件介绍 Next.js通过预渲染､单指令静态导出､自动分码､热代码重载等功能和其他许多伟大的特性,提供了一流的 \"开发者体验\"｡它具有完全的可扩展性,并为生产做好了准备｡",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js下载-Next.js免费版下载10.0.5-软件爱好者",
+                        "url":  "https://www.golue.com/game/v620033.html"
+                    },
+                    {
+                        "snippet":  "Next.js 是一个基于 React 的前端框架,由Vercel(原Zeit)开发,旨在简化服务器端渲染(SSR)和静态网站生成(SSG)的过程｡它以其易用性､灵活性和强大的功能而受到广泛欢迎｡以下是对 Next.js 的功能､优缺点的介绍以及简单使用方法｡ Next.js 的主要功能 服务器端渲染(SSR) :Next.js 支持服务器端渲染,这意味着页面在服务器上生成 ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Matarialize中文社区-深入了解 Next.js:功能介绍、优缺点分析与入门指南",
+                        "url":  "https://m.materializecss.cn/news/detail?newsId=24"
+                    },
+                    {
+                        "snippet":  "为了保证最佳浏览体验,邀请您使用现代浏览器｡",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "React Next.js管理后台模板前端框架在线预览",
+                        "url":  "http://www.bootstrapmb.com/item/5946/preview"
+                    },
+                    {
+                        "snippet":  "download: 1 前言 数据恢复的前提的做好备份,且开启 binlog , 格式为 row 。如果没有备份文件,那么删掉库表后就真的删掉了, lsof 中还有记录的话,有可能恢复一部分文件,但若刚好数据库没有打开这个表文件,那就只能跑路了。 如果没有开启 binlog ,那么恢复数据后,从备份时间点开始的数据都没得了。如果 binlog 格式不为 row ,那么在误操作数据后就没有办法做闪回...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.jsReactNode系统实战,搞定SSR服务器渲染无密fen_知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/486392770"
+                    },
+                    {
+                        "snippet":  "1、Next 整体介绍 Next.js 是React 服务端渲染应用框架. 用于构建 SEO 友好的 SPA 应用. 支持两种预渲染方式, 静态生成和服务器端渲染. 基于页面的路由系统, 路由零配置 自动代码拆分. 优化页面加载速度. 支持静态导出, 可将应用导出为静态网站. 内置 CSS-in-JS 库styled-jsx 方案成熟, 可用于生产环境, 世界许多公司都在使用 应用部署简单, 拥有...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "React 服务端渲染框架 Next.js - 知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/364023768"
+                    },
+                    {
+                        "snippet":  "既然选择 next,当然是为了能够服务端渲染,能够 seo,但是 ssr 的缺点也需要注意。 ssr 需要在服务端进行接口请求,然后使用请求到的数据渲染出 html。这里会产生一个问题,就是如果服务端请求的接口太多,会增加服务器压力,也会让前端页面访问速度变慢。 最合理的 ssr 方案是,需要 seo 的部分接口 ssr,剩下的接口在客户端请求,这样既满足 seo 需求,又可以提高访问速度。 不过...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js项目ssr注意与优化_知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/342759604"
+                    },
+                    {
+                        "snippet":  "Unanswered Next.js 13 and NextAuth: getServerSession returns the same value after logout and login with different user #8450 Replies: 0 comments Labels None yet 1 participant Heading Bold Italic Quote...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_2_silver",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js 13 and NextAuth: getServerSession returns the same value after logout and login with different user · nextauthjs next-auth · Discussion",
+                        "url":  "https://github.com/nextauthjs/next-auth/discussions/8450"
+                    },
+                    {
+                        "snippet":  "后端 API 实现 之前我们提到:Next.js 是一个全栈框架,那它写关于接口的代码呢?我们可以新建这样一个目录: pages/api/v1/hello.ts 。 import { NextApiHandler } from \"next\" ; const Hello : NextApiHandler = async ( req , res ) =\u003e { res . statusCode = 20...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Node-Next.js 进阶_知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/346336075"
+                    },
+                    {
+                        "snippet":  "The React Framework for the Web Used by some of the world\u0027s largest companies, Next.js enables you to create high-quality web applications with the power of React components. What\u0027s in Next.js? ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "en",
+                        "source_tier":  "tier_1_gold",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js by Vercel - The React Framework",
+                        "url":  "http://nextjs.org/"
+                    },
+                    {
+                        "snippet":  "Environment Variables To add environment variables to the JavaScript bundle, open next.config.js and add the env config: module . exports = { env : { customKey : \u0027my-value\u0027 , } , } Now you can access ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "next.config.js: 环境变量  Next.js  Next.js中文网",
+                        "url":  "https://www.nextjs.cn/docs/api-reference/next.config.js/environment-variables"
+                    },
+                    {
+                        "snippet":  "Summarize with AI: Since Server Actions are ready in Next.js, let’s see a simple illustration emulating a database, handling errors and using optimistic updates. Server Actions are finally ready! I ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js Server Actions Made Dead Simple",
+                        "url":  "https://www.telerik.com/blogs/next-js-server-actions-made-dead-simple"
+                    },
+                    {
+                        "snippet":  "一个请求头如何攻破Next.js身份验证 — CVE-2025–29927作者: #$ubh@nk@r阅读时间: 3 分钟发布日期: 2025年4月7日74 收听/分享请按回车键或点击以查看完整大小的图片引言: 嗨,黑客们 👋｡大家好｡希望一切顺利｡今天我们讨论的话题是NEXT JS CVE｡这是一个在Next.js(一个用于构建Web应用的基于React的框架)中发现的关键授权绕过漏洞｡",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "深入解析Next.js授权绕过漏洞:CVE-2025-29927技术分析与实战",
+                        "url":  "https://cloud.tencent.com/developer/article/2608388"
+                    },
+                    {
+                        "snippet":  "\n具体步骤\n1､ 安装依赖\npnpm add next-auth@beta\n2､ 设置环境\n唯一强制的环境变量是 AUTH_SECRET,这是库用来加密令牌和电子邮件验证散列的随机值｡运行以下命令随机生成一个:\nnpx auth secret\n这也会将其添加到本地的 .env 文件中\n3､ 配置\n在应用的根目录下创建一个新的 auth.ts 文件,包含以下内容:\nimport NextAuth f...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js 实战 (九):使用 next-auth 完成第三方身份登录验证",
+                        "url":  "https://cloud.tencent.com/developer/article/2487683"
+                    },
+                    {
+                        "snippet":  "刚刚,我的服务器因为一个高危漏洞被入侵了,沦为了矿机!把我的经历分享出来,希望更多程序员朋友们不要中招,抓紧预防处理｡\n事故现场\n2025 年 12 月 5 日下午,腾讯云给我发来一条安全告警通知,说我的业务存在 React/Next.js 远程代码执行(CVE-2025-55182/CVE-2025-66478)高危安全风险｡",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "紧急!Next.js高危漏洞致服务器被黑,我已中招!附完整处理方案",
+                        "url":  "https://cloud.tencent.com/developer/article/2686920"
+                    },
+                    {
+                        "snippet":  "文章说明: 1. 之前想搭建个人博客,由于学习的是react技术栈,所以就到处搜罗资料学了nextjs,配合koa就把博客搭起来了｡该系列文章基于我的学习笔记,重新整理了一遍,如果有错误之处,还请指正｡ 2. 个人能力有限,我更注重的是使用,所以对于许多原理也只是简单理解,并未深究｡如果是想研究源码,或者追求性能深度优化的老铁,可以不用往下看了 3. 转载请注明出处 各工具版本:npm v6.",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Nextjs使用解读一(项目搭建与路由系统)_知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/95893775"
+                    },
+                    {
+                        "snippet":  "Casdoor Nextjs-Auth example Login",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Next.js",
+                        "url":  "https://nextjs-auth.casdoor.org/"
+                    },
+                    {
+                        "snippet":  "Script Serializer. Serialize Method Reference Feedback Definition Namespace: Assembly: System.Web.Extensions.dll Converts an object to a JSON string. Overloads Serialize(Object) Converts an object to ...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "JavaScriptSerializer.Serialize Method (System.Web.Script.Serialization)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/zh-tw/LIBRARY/system.web.script.serialization.javascriptserializer.serialize(v=VS.90).aspx"
+                    },
+                    {
+                        "snippet":  "此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安全更新和技术支持。 目录 退出编辑器模式 询问 Learn 询问 Learn 语言 vb csharp 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 反馈 本文内容 使用指定的消息,...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "InvalidSecurityTokenException 构造函数 (String) (Microsoft.TeamFoundation.Framework.Client)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/ff738575.ASPX"
+                    }
+                ],
+    "phase":  "R2.3-Z",
+    "task":  "server-actions-security-p0",
+    "official_sources_count":  2,
+    "source_count":  20,
+    "project_type":  "nextjs-webapp"
+}

@@ -1,0 +1,28 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "B",
+  "title": "Minimal Memory Ingestion Policy",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "policy": {
+    "name": "MINIMAL_MEMORY_INGESTION_POLICY v1.0.0",
+    "scope": "Applies ONLY to memory ingestion: External Conversation Space writes, Snapshot generation, Attach Packet creation, phase ledger entries, risk ledger entries, decision ledger entries. Does NOT apply to normal user-facing answers.",
+    "principles": [
+      "Normal answers remain detailed and helpful — Minimal Mode is ingestion-only",
+      "Memory records must be self-contained with evidence path and caveat",
+      "No overclaim: design ≠ execution, local ≠ production, observation ≠ proof",
+      "No stale: retired claims, resolved blockers, outdated recommendations must carry RETIRED marker",
+      "No contamination: secret values, production endpoints, real project data excluded"
+    ],
+    "rules": [
+      {"id": "MIN-001", "rule": "Every memory record must include evidence_path pointing to source artifact", "required": true},
+      {"id": "MIN-002", "rule": "Every memory record must include caveat if claim is partial, conditional, or design-only", "required": true},
+      {"id": "MIN-003", "rule": "Memory record body ≤ 500 chars; longer content → reference to full report", "required": true},
+      {"id": "MIN-004", "rule": "No score/verdict without evidence_path", "required": true},
+      {"id": "MIN-005", "rule": "Design analysis must be tagged DESIGN_ONLY; never presented as execution evidence", "required": true},
+      {"id": "MIN-006", "rule": "Local trial results must be tagged LOCAL_ONLY; never presented as production readiness", "required": true},
+      {"id": "MIN-007", "rule": "Retired/outdated claims must carry RETIRED marker with retirement reason", "required": true},
+      {"id": "MIN-008", "rule": "No secret values, production endpoints, or real project data in any memory record", "required": true}
+    ]
+  },
+  "status": "POLICY_DEFINED"
+}

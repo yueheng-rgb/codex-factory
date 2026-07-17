@@ -1,0 +1,24 @@
+﻿{
+    "schemas":  [
+                    {
+                        "schemaId":  "s1",
+                        "typeName":  "User",
+                        "fields":  [
+                                       "id",
+                                       "name",
+                                       "email"
+                                   ],
+                        "owner":  "ag4-architect"
+                    },
+                    {
+                        "schemaId":  "s2",
+                        "typeName":  "Order",
+                        "fields":  [
+                                       "id",
+                                       "total",
+                                       "status"
+                                   ],
+                        "owner":  "ag4-b2"
+                    }
+                ]
+}

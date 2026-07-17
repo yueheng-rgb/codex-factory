@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-MULTI-AGENT-ORCHESTRATION-1","section":"D","title":"Spawn & Isolation Policy","spawn":"on-demand","max_concurrent":5,"isolation":"disjoint write scopes"}

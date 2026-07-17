@@ -1,0 +1,12 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P1",
+    "section":  "B",
+    "stagingRoot":  "factory-resource-pack-v0.9.0-pre-staging/",
+    "title":  "Staging Root Created",
+    "filesCreated":  [
+                         "README.md",
+                         "BOUNDARY.md",
+                         "VERSION.json",
+                         "MANIFEST.draft.json"
+                     ]
+}

@@ -1,0 +1,84 @@
+﻿{
+  "stage": "V2_8",
+  "audit_type": "review_receipt_audit",
+  "audit_date": "2026-07-17",
+  "receipts_audited": [
+    {
+      "receipt_id": "V2_7-REV-001",
+      "path": "reviews/V2_7-REV-001-security.json",
+      "type": "security_review",
+      "decision": "APPROVED_WITH_RISK",
+      "schema_valid": true,
+      "artifact_ids_linked": ["V2_7-ART-001"],
+      "artifacts_exist": true,
+      "non_claims_present": true,
+      "signature_mode": "self_declared_automated",
+      "self_declared_limitation_documented": true,
+      "no_fake_reviewer": true,
+      "status": "PASS"
+    },
+    {
+      "receipt_id": "V2_7-REV-002",
+      "path": "reviews/V2_7-REV-002-business-invariant.json",
+      "type": "business_invariant_review",
+      "decision": "APPROVED",
+      "schema_valid": true,
+      "artifact_ids_linked": ["V2_7-ART-001"],
+      "artifacts_exist": true,
+      "non_claims_present": true,
+      "signature_mode": "self_declared_automated",
+      "self_declared_limitation_documented": true,
+      "no_fake_reviewer": true,
+      "status": "PASS"
+    },
+    {
+      "receipt_id": "V2_7-REV-003",
+      "path": "reviews/V2_7-REV-003-production-readiness.json",
+      "type": "production_readiness_review",
+      "decision": "APPROVED_WITH_RISK",
+      "schema_valid": true,
+      "artifact_ids_linked": ["V2_7-ART-001"],
+      "artifacts_exist": true,
+      "non_claims_present": true,
+      "signature_mode": "self_declared_automated",
+      "self_declared_limitation_documented": true,
+      "no_fake_reviewer": true,
+      "explicitly_not_production_ready": true,
+      "status": "PASS"
+    },
+    {
+      "receipt_id": "V2_7-REV-004",
+      "path": "reviews/V2_7-REV-004-release-risk.json",
+      "type": "release_risk_review",
+      "decision": "APPROVED_WITH_RISK",
+      "schema_valid": true,
+      "artifact_ids_linked": ["V2_7-ART-001"],
+      "artifacts_exist": true,
+      "non_claims_present": true,
+      "signature_mode": "self_declared_automated",
+      "self_declared_limitation_documented": true,
+      "no_fake_reviewer": true,
+      "prior_reviews_referenced": ["V2_7-REV-001","V2_7-REV-002","V2_7-REV-003"],
+      "status": "PASS"
+    }
+  ],
+  "v2_2_receipts": [
+    {"receipt_id":"REV-0001","path":"reviews/REV-0001.json","exists":true,"status":"CONFIRMED_EXISTS"},
+    {"receipt_id":"REV-0002","path":"reviews/REV-0002.json","exists":true,"status":"CONFIRMED_EXISTS"},
+    {"receipt_id":"REV-0003","path":"reviews/REV-0003.json","exists":true,"status":"CONFIRMED_EXISTS"},
+    {"receipt_id":"REV-0004","path":"reviews/REV-0004.json","exists":true,"status":"CONFIRMED_EXISTS"},
+    {"receipt_id":"SESS-20260712-004352","path":"reviews/SESS-20260712-004352.json","exists":true,"status":"CONFIRMED_EXISTS"},
+    {"receipt_id":"demo-to-receipt-mapping","path":"reviews/demo-to-receipt-mapping.json","exists":true,"status":"CONFIRMED_EXISTS"}
+  ],
+  "summary": {
+    "total_v2_7_receipts": 4,
+    "receipts_valid": 4,
+    "receipts_invalid": 0,
+    "artifact_ids_resolved": "4/4",
+    "non_claims_present_on_risk": "3/3",
+    "self_declared_documented": "4/4",
+    "no_fake_reviewer": true,
+    "v2_2_receipts_present": 6,
+    "overall_audit_status": "PASS — All review receipts valid, artifact-bound, self_declared limitation documented"
+  }
+}

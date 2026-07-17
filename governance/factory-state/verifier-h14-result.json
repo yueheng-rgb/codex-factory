@@ -1,0 +1,290 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-h14-factory-control-plane-operationalization-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  55,
+    "passed":  55,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "id":  1,
+                       "desc":  "factoryctl.ps1 exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  2,
+                       "desc":  "factoryctl status returns valid JSON",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  3,
+                       "desc":  "factoryctl agents returns valid JSON",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  4,
+                       "desc":  "factoryctl progress returns valid JSON",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  5,
+                       "desc":  "factoryctl watch returns valid JSON",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  6,
+                       "desc":  "factoryctl PATH availability explicitly verified (repo-local is OK)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  7,
+                       "desc":  "current-factory-state.json exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  8,
+                       "desc":  "currentTrustedPhase is not stale (DRY20 or H14)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  9,
+                       "desc":  "DRY20 status is POSITIVE_NEGATIVE_CLOSED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  10,
+                       "desc":  "H13-C status is PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  11,
+                       "desc":  "DRY19-B status is CLOSED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  12,
+                       "desc":  "H12 status is PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  13,
+                       "desc":  "closedPhases count \u003e= 73",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  14,
+                       "desc":  "pausedPhases retains DRY2-C through DRY13-C (12)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  15,
+                       "desc":  "repairedDuringPhase is H13-D",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  16,
+                       "desc":  "finalZipExists is false",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  17,
+                       "desc":  "AGENT_REGISTRY.json exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  18,
+                       "desc":  "AGENT_REGISTRY has \u003e= 15 agents (11 hist + 4 H14)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  19,
+                       "desc":  "AGENT_REGISTRY has H14-phase agents",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  20,
+                       "desc":  "All H14 agents are nativeGenerated: true",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  21,
+                       "desc":  "AGENT_REGISTRY has h14-orchestrator-1",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  22,
+                       "desc":  "AGENT_REGISTRY has h14-builder-1",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  23,
+                       "desc":  "AGENT_REGISTRY has h14-builder-2",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  24,
+                       "desc":  "AGENT_REGISTRY has h14-verifier-1",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  25,
+                       "desc":  "H14 agents have ownerBoundary set",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  26,
+                       "desc":  "AGENT_PROGRESS.jsonl exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  27,
+                       "desc":  "AGENT_PROGRESS all lines valid JSON",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  28,
+                       "desc":  "AGENT_PROGRESS has \u003e= 50 events (47 hist + \u003e=4 H14)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  29,
+                       "desc":  "AGENT_PROGRESS has H14-phase events",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  30,
+                       "desc":  "All H14 progress events are nativeGenerated: true",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  31,
+                       "desc":  "H14 has artifact events for builder outputs",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  32,
+                       "desc":  "H14 progress events have source field",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  33,
+                       "desc":  "Historical reconstructed events preserved (not rewritten)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  34,
+                       "desc":  "session-rotation-handoff.json exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  35,
+                       "desc":  "Handoff is nativeGenerated: true",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  36,
+                       "desc":  "Handoff generatedDuringPhase is H14",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  37,
+                       "desc":  "Handoff has sourceEvidenceSha256 (3 files)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  38,
+                       "desc":  "Handoff references current-factory-state.json SHA256",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  39,
+                       "desc":  "Handoff references AGENT_REGISTRY.json SHA256",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  40,
+                       "desc":  "Handoff references AGENT_PROGRESS.jsonl SHA256",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  41,
+                       "desc":  "Handoff records DRY21 NOT_STARTED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  42,
+                       "desc":  "Handoff records factoryctl operational",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  43,
+                       "desc":  "Handoff records factoryctl entrypoint",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  44,
+                       "desc":  "Handoff HANDOFF_REPORT.md exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  45,
+                       "desc":  "No DRY21 outputs",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  46,
+                       "desc":  "No DRY21 governance",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  47,
+                       "desc":  "No DRY21 harness runs",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  48,
+                       "desc":  "No final delivery ZIP at root",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  49,
+                       "desc":  "No manual PASS-only in handoff",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  50,
+                       "desc":  "No expectedClass-only in handoff",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  51,
+                       "desc":  "No generic FAIL in agent registry",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  52,
+                       "desc":  "Handoff is NOT post-hoc pretending original",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  53,
+                       "desc":  "No runner sabotage indicators",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  54,
+                       "desc":  "Top-level _reconstructedFromEvidence preserved (if exists)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  55,
+                       "desc":  "H14 native records do NOT overwrite reconstructed flag at top level",
+                       "status":  "PASS"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T22:57:11+08:00",
+    "factoryctlOnPath":  false,
+    "factoryctlRepoLocal":  true,
+    "h14NativeAgentCount":  4,
+    "h14NativeEventCount":  8
+}

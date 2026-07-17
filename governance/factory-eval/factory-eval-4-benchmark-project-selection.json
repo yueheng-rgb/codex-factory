@@ -1,0 +1,110 @@
+﻿{
+  "phase": "FACTORY-EVAL-4",
+  "section": "A",
+  "title": "Benchmark Project Selection",
+  "selectedProject": "TeamFlow Lite",
+  "projectType": "Multi-tenant team task/workflow SaaS",
+  "createdAt": "2026-06-25T17:00:00+08:00",
+  "status": "SELECTED",
+  "selectionCriteria": {
+    "complexityMinimum": "Must include frontend, backend, database, auth, RBAC, workflow, audit, tests, docs",
+    "complexityMaximum": "Must be completable by a single run in under 200 message turns per run",
+    "nonFactoryRequirement": "No Factory governance, verifier, self-reference, agent framework, or benchmark shortcuts",
+    "comparabilityRequirement": "Same project spec, same acceptance criteria, three comparable runs A/B/C",
+    "evaluabilityRequirement": "Must have objective measurable quality dimensions beyond file/export/agent counts"
+  },
+  "rejectedAlternatives": [
+    {
+      "name": "E-commerce platform",
+      "reason": "Too large - payment, inventory, shopping cart expand scope beyond comparable runs"
+    },
+    {
+      "name": "Blog/Content CMS",
+      "reason": "Too small - insufficient role complexity, no workflow lifecycle to expose simplification"
+    },
+    {
+      "name": "Chat application",
+      "reason": "Too narrow - lacks audit, workflow, permissions depth needed for role-agent comparison"
+    },
+    {
+      "name": "API-only microservice",
+      "reason": "No frontend - cannot evaluate full-stack delivery quality across runs"
+    },
+    {
+      "name": "Factory-style governance tool",
+      "reason": "Self-referential - violates non-Factory requirement, Factory would have unfair advantage"
+    }
+  ],
+  "justification": {
+    "complexityJustification": "TeamFlow Lite has 11 distinct cross-cutting concerns. Complex enough to surface differences between Vanilla, Factory Lite, and Factory Role-Agent approaches.",
+    "sizeJustification": "Estimated scope: ~15-25 API endpoints, ~8-12 database tables, ~6-10 UI pages. Small enough for single run, large enough to demand organization.",
+    "simplificationRiskExposure": "Multi-tenant isolation, role-based permission boundaries, audit trail completeness, and workflow state transitions are areas where sloppy shortcuts are tempting but detectable.",
+    "relevantRoles": [
+      "Architect (data model, API design, component tree)",
+      "Backend Developer (API routes, middleware, validation)",
+      "Frontend Developer (UI components, state management, forms)",
+      "Database Engineer (schema, migrations, constraints, indexes)",
+      "Security Reviewer (auth, RBAC, multi-tenant isolation)",
+      "QA Engineer (test suite, edge cases, error states)",
+      "Tech Writer (README, API docs, run instructions)"
+    ],
+    "objectiveEvaluationDimensions": [
+      "Requirement coverage (functional checklist)",
+      "API contract correctness (endpoint completeness, error codes, validation)",
+      "Database schema quality (constraints, indexes, normalization)",
+      "Authentication and authorization correctness (boundary tests)",
+      "UI state coverage (loading, empty, error, success, edge cases)",
+      "Audit trail completeness (all important actions logged)",
+      "Test coverage and quality (not just count, but meaningful assertions)",
+      "Documentation quality (runnable, accurate, complete)",
+      "Human intervention count per run"
+    ]
+  },
+  "projectScope": {
+    "included": [
+      "User registration and login with JWT or session auth",
+      "Team/workspace creation and management",
+      "Role-based access: owner, admin, member, viewer",
+      "Task CRUD with title, description, priority, status",
+      "Task status workflow: todo, in_progress, blocked, done",
+      "Task assignment to team members",
+      "Task due dates",
+      "Comments on tasks (activity feed)",
+      "Audit log for create/update/delete/status-change/assignment actions",
+      "Basic notification/reminder stub (overdue tasks list)",
+      "Search/filter/sort tasks by status, assignee, priority, due date",
+      "Input validation on all forms and API endpoints",
+      "Error handling with meaningful error messages",
+      "Tests: unit + integration covering auth, CRUD, workflow, permissions",
+      "README with run instructions",
+      "API documentation or OpenAPI spec"
+    ],
+    "excluded": [
+      "Payment or billing",
+      "Real-time WebSocket updates",
+      "File uploads/attachments",
+      "Email delivery (stub only)",
+      "OAuth/social login",
+      "Multi-language i18n",
+      "Mobile/responsive beyond basic usability",
+      "Admin dashboard analytics",
+      "Factory governance features",
+      "Factory verifier features",
+      "Codex Factory self-reference"
+    ]
+  },
+  "technologyStack": {
+    "recommendedFrontend": "React or any SPA framework of runner choice",
+    "recommendedBackend": "Node.js/Express or Python/FastAPI",
+    "recommendedDatabase": "PostgreSQL or SQLite",
+    "recommendedAuth": "JWT with bcrypt password hashing",
+    "constraint": "Must be runnable with a single command"
+  },
+  "nonFactoryVerification": {
+    "noFactoryGovernance": true,
+    "noFactoryVerifier": true,
+    "noCodexFactorySelfReference": true,
+    "noAgentFrameworkImplementation": true,
+    "noBenchmarkSpecificShortcuts": true
+  }
+}

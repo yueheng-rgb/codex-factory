@@ -1,0 +1,30 @@
+﻿{
+    "inventory_id": "FACTORY-BUILD-REALWORLD-2-P3-TEST-FAILURE-INVENTORY",
+    "generated_at": "2026-06-28T10:35:09+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P3",
+    "section": "B",
+    "tests_discovered": 23,
+    "tests_passed": 13,
+    "tests_failed": 8,
+    "tests_errors": 2,
+    "failures": [
+        {"test": "test_admin_can_add_sessions", "class": "PatientManagementTests", "status": "FAIL", "cause": "TEST_EXPECTATION_FIX", "detail": "Form expects 'projects' (list), test sends 'project' (scalar)"},
+        {"test": "test_transaction_log_generated_on_add", "class": "PatientManagementTests", "status": "FAIL", "cause": "TEST_EXPECTATION_FIX", "detail": "Cascades from test_admin_can_add_sessions"},
+        {"test": "test_doctor_can_verify_with_balance", "class": "VerificationTests", "status": "FAIL", "cause": "TEST_EXPECTATION_FIX", "detail": "View expects 'verify_project' (list) + 'verify_count_{id}', test sends 'project' + 'sessions_count'"},
+        {"test": "test_doctor_cannot_delete_verification_record", "class": "VerificationTests", "status": "FAIL", "cause": "TEST_EXPECTATION_FIX", "detail": "Same field name mismatch as above"},
+        {"test": "test_verification_creates_record_and_transaction", "class": "VerificationTests", "status": "FAIL", "cause": "TEST_EXPECTATION_FIX", "detail": "Same field name mismatch as above"},
+        {"test": "test_doctor_can_submit_correction", "class": "CorrectionTests", "status": "FAIL", "cause": "TEST_EXPECTATION_FIX", "detail": "Form expects 'correction_count' + 'correction_type', test sends 'corrected_count' without type"},
+        {"test": "test_admin_can_approve_correction", "class": "CorrectionTests", "status": "ERROR", "cause": "CASCADES", "detail": "Cascades from test_doctor_can_submit_correction — no CorrectionRequest created"},
+        {"test": "test_correction_creates_reverse_transaction", "class": "CorrectionTests", "status": "ERROR", "cause": "CASCADES", "detail": "Cascades from test_doctor_can_submit_correction"},
+        {"test": "test_duplicate_verification_detected", "class": "AnomalyDetectionTests", "status": "FAIL", "cause": "TEST_EXPECTATION_FIX", "detail": "Same field name mismatch as VerificationTests"}
+    ],
+    "classification_summary": {
+        "test_expectation_fix": 7,
+        "cascades": 3,
+        "django_version_mismatch": 0,
+        "real_application_bug": 0,
+        "config_issue": 0
+    },
+    "no_django_version_cause": "Field name mismatches — NOT a Django version issue. All 7 root failures are test code using outdated field names that don't match the current view/form API.",
+    "verdict": "INVENTORY_COMPLETE"
+}

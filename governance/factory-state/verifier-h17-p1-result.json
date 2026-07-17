@@ -1,0 +1,100 @@
+﻿{
+    "failCount":  0,
+    "verdict":  "PASS",
+    "passCount":  15,
+    "checks":  [
+                   {
+                       "detail":  "H17-P1",
+                       "gate":  "STATE_CONSISTENCY",
+                       "result":  true,
+                       "name":  "CURRENT_TRUSTED_PHASE_H17_P1"
+                   },
+                   {
+                       "detail":  "IN_PROGRESS",
+                       "gate":  "STATE_CONSISTENCY",
+                       "result":  true,
+                       "name":  "H17P1_STATUS_IN_PROGRESS"
+                   },
+                   {
+                       "detail":  "LOCKED_PENDING_H17_P1",
+                       "gate":  "STATE_CONSISTENCY",
+                       "result":  true,
+                       "name":  "NEXT_PHASE_LOCKED"
+                   },
+                   {
+                       "detail":  false,
+                       "gate":  "FINAL_ZIP",
+                       "result":  true,
+                       "name":  "NO_FINAL_ZIP"
+                   },
+                   {
+                       "detail":  "DRY24=0",
+                       "gate":  "FUTURE_LEAK",
+                       "result":  true,
+                       "name":  "NO_DRY24_ARTIFACTS"
+                   },
+                   {
+                       "detail":  "H18=0",
+                       "gate":  "FUTURE_LEAK",
+                       "result":  true,
+                       "name":  "NO_H18_ARTIFACTS"
+                   },
+                   {
+                       "detail":  "no Get-Date residue",
+                       "gate":  "INVALID_JSON",
+                       "result":  true,
+                       "name":  "GETDATE_FIXED"
+                   },
+                   {
+                       "detail":  "agent resolution",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "AGENT_RESOLUTION_EXISTS"
+                   },
+                   {
+                       "detail":  "negative summary",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "NEGATIVE_SUMMARY_EXISTS"
+                   },
+                   {
+                       "detail":  "0 unsafe agents",
+                       "gate":  "BLOCKING_AGENTS",
+                       "result":  true,
+                       "name":  "AGENT_UNSAFE_ZERO"
+                   },
+                   {
+                       "detail":  "0 negative gaps",
+                       "gate":  "NEGATIVE_GAPS",
+                       "result":  true,
+                       "name":  "NEGATIVE_GAPS_ZERO"
+                   },
+                   {
+                       "detail":  "dry23Status=",
+                       "gate":  "GENERIC_FAIL",
+                       "result":  true,
+                       "name":  "NO_GENERIC_FAIL"
+                   },
+                   {
+                       "detail":  "machine-readable evidence present",
+                       "gate":  "MANUAL_PASS",
+                       "result":  true,
+                       "name":  "NO_MANUAL_PASS_ONLY"
+                   },
+                   {
+                       "detail":  "H4 files excluded",
+                       "gate":  "FILTER_REGRESSION",
+                       "result":  true,
+                       "name":  "H4_NOT_FALSE_POSITIVE"
+                   },
+                   {
+                       "detail":  "H17 report",
+                       "gate":  "MISSING_REPORT",
+                       "result":  true,
+                       "name":  "H17_REPORT_EXISTS"
+                   }
+               ],
+    "phase":  "H17-P1",
+    "totalChecks":  15,
+    "checkedAt":  "2026-06-24T15:07:13.1622206+08:00"
+}

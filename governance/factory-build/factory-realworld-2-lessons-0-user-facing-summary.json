@@ -1,0 +1,14 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "K",
+  "title": "User-Facing Summary (Chinese)",
+  "timestamp": "2026-06-28T11:00:00+08:00",
+  "summary": {
+    "what_realworld2_completed": "REALWORLD-2 完成了 TCM 中医项目台账 Django 线上项目的 5 阶段安全验证：\n1) 项目摄入发现 9 项安全/部署风险（含生产密钥、SSH 凭证、服务器 IP）\n2) 创建工作副本，本地验证通过（manage.py check 干净，smoke HTTP 200）\n3) 安全加固：9 个文件变更（配置/文档），0 行应用代码修改\n4) 测试修复分类：从 13/23 提升至 21 pass / 2 skip / 0 fail\n5) 交付用户审查摘要 + 安全轮换清单\n原始项目 untouched，工作副本 safe for local development。",
+    "what_was_proven": "对 Codex Factory 证明了：\n- Build Lite 流程可安全接手真实线上项目的工作副本\n- 工作副本隔离机制有效（original 完全 untouched）\n- Context Space 支持长周期多阶段项目连续性（P7 fresh-window 验证通过）\n- 安全/部署门禁对含生产痕迹项目是必须的\n- 测试分类优先 + 诚实跳过策略可行（ENVIRONMENT_MISMATCH 允许 skip）",
+    "what_was_not_proven": "没有证明的：\n- Factory 比普通 Codex 更聪明（无对照比较）\n- 项目已可生产部署（密钥尚未轮换）\n- v0.5 可以发布（仍 BLOCKED，缺少对照证据）\n- 21/2/0 等于 23/23 全通（2 个 skip 不是 pass）",
+    "what_user_must_do": "用户必须做的事：\n1) 离线轮换所有生产密钥（SSH 密码、DJANGO_SECRET_KEY、SMTP 密码）\n2) 轮换后验证部署脚本可用\n3) 不要将当前工作副本直接部署到生产环境\n4) 不要在 Codex 对话中粘贴任何密钥值",
+    "recommended_next": "建议下一步：\n- FACTORY-BUILD-PACK-STAGING-P3：将 Security/Deploy Gate + realworld 教训集成到 staging pack\n- 或 FACTORY-CONTEXT-SPACE-P8：一键挂载加固\n- 或用户自行审查本次 LESSONS-0 全部产出"
+  },
+  "status": "USER_SUMMARY_COMPLETE"
+}

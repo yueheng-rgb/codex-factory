@@ -1,0 +1,64 @@
+﻿{
+    "parentPhases":  [
+                         "FACTORY-AGENT-8-P1",
+                         "FACTORY-AGENT-8-P1-R1"
+                     ],
+    "recommendedNext":  "FACTORY-AGENT-9-P2",
+    "policyDefectsIntake":  {
+                                "classification":  "BENCHMARK_POLICY_DEFECT",
+                                "defects":  [
+                                                "PD-01: sourceFileCount",
+                                                "PD-02: exportCount"
+                                            ],
+                                "sourcePhase":  "AGENT-8-P1-R1",
+                                "count":  2
+                            },
+    "negativeControls":  {
+                             "gaps":  0,
+                             "detected":  32,
+                             "total":  32
+                         },
+    "verdict":  "PASS",
+    "ag9p2Instructions":  {
+                              "defined":  true,
+                              "questions":  7,
+                              "ready":  true
+                          },
+    "phase":  "FACTORY-AGENT-5-P1",
+    "timestamp":  "2026-06-26T20:23:08.0165448+08:00",
+    "metricValidityAudit":  {
+                                "totalMetrics":  14,
+                                "demoted":  [
+                                                "sourceFileCount",
+                                                "exportCount",
+                                                "testFileCount"
+                                            ],
+                                "softDiagnostic":  3,
+                                "strongHardFloors":  11
+                            },
+    "repairedPolicy":  {
+                           "diagnosticMetrics":  3,
+                           "hardFloors":  11,
+                           "version":  "2.0-repaired",
+                           "meaningfulDefinitions":  [
+                                                         "meaningfulSourceFile",
+                                                         "meaningfulExport",
+                                                         "meaningfulEndpoint",
+                                                         "meaningfulTest"
+                                                     ],
+                           "antiGamingRules":  11
+                       },
+    "fairnessPlan":  {
+                         "appliesEqually":  true,
+                         "runs":  4,
+                         "ag9HistoricalPreserved":  true
+                     },
+    "constraints":  {
+                        "noDefaultClaimed":  true,
+                        "noVersionCreated":  true,
+                        "noEffectivenessClaimed":  true,
+                        "noProductModified":  true,
+                        "evidencePreserved":  true,
+                        "noBenchmarkStarted":  true
+                    }
+}

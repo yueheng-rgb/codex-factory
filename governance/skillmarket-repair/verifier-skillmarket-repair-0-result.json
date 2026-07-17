@@ -1,0 +1,210 @@
+﻿{
+    "verifier":  "skillmarket-repair-0-critical-high-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T22:32:52.3841879+08:00",
+    "passRatio":  "40/40",
+    "total":  40,
+    "pass":  40,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3211892+08:00",
+                       "pass":  true,
+                       "name":  "project-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3261940+08:00",
+                       "pass":  true,
+                       "name":  "server-index-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3261940+08:00",
+                       "pass":  true,
+                       "name":  "server-src-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3291885+08:00",
+                       "pass":  true,
+                       "name":  "root-index-delegates"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3471874+08:00",
+                       "pass":  true,
+                       "name":  "package-start-correct"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3521888+08:00",
+                       "pass":  true,
+                       "name":  "package-test-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3541891+08:00",
+                       "pass":  true,
+                       "name":  "route-auth-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3541891+08:00",
+                       "pass":  true,
+                       "name":  "route-favorites-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3541891+08:00",
+                       "pass":  true,
+                       "name":  "route-review-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3551889+08:00",
+                       "pass":  true,
+                       "name":  "route-product-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3551889+08:00",
+                       "pass":  true,
+                       "name":  "route-category-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3551889+08:00",
+                       "pass":  true,
+                       "name":  "route-cart-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3551889+08:00",
+                       "pass":  true,
+                       "name":  "route-order-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3561882+08:00",
+                       "pass":  true,
+                       "name":  "route-message-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3561882+08:00",
+                       "pass":  true,
+                       "name":  "route-merchant-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3561882+08:00",
+                       "pass":  true,
+                       "name":  "route-dashboard-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3561882+08:00",
+                       "pass":  true,
+                       "name":  "route-upload-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3581874+08:00",
+                       "pass":  true,
+                       "name":  "jwt-uses-env"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3581874+08:00",
+                       "pass":  true,
+                       "name":  "merchant-middleware-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3581874+08:00",
+                       "pass":  true,
+                       "name":  "admin-middleware-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3591883+08:00",
+                       "pass":  true,
+                       "name":  "test-dir-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3591883+08:00",
+                       "pass":  true,
+                       "name":  "test-runner-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3641883+08:00",
+                       "pass":  true,
+                       "name":  "test-files-count-ge8"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3651898+08:00",
+                       "pass":  true,
+                       "name":  "readme-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3651898+08:00",
+                       "pass":  true,
+                       "name":  "env-example-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3671891+08:00",
+                       "pass":  true,
+                       "name":  "no-v05-dir"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3691890+08:00",
+                       "pass":  true,
+                       "name":  "no-new-zip"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3691890+08:00",
+                       "pass":  true,
+                       "name":  "factory-files-unchanged"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3711894+08:00",
+                       "pass":  true,
+                       "name":  "gov-preflight"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3711894+08:00",
+                       "pass":  true,
+                       "name":  "gov-server-consolidation-plan"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3721895+08:00",
+                       "pass":  true,
+                       "name":  "gov-server-api-repair"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3721895+08:00",
+                       "pass":  true,
+                       "name":  "gov-auth-config-repair"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3721895+08:00",
+                       "pass":  true,
+                       "name":  "gov-startup-docs-repair"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3721895+08:00",
+                       "pass":  true,
+                       "name":  "gov-post-repair-verification"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3731903+08:00",
+                       "pass":  true,
+                       "name":  "gov-result"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3731903+08:00",
+                       "pass":  true,
+                       "name":  "gov-negative-controls"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3791899+08:00",
+                       "pass":  true,
+                       "name":  "neg-18-total"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3801892+08:00",
+                       "pass":  true,
+                       "name":  "neg-all-detected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3811897+08:00",
+                       "pass":  true,
+                       "name":  "neg-zero-gaps"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:32:52.3821901+08:00",
+                       "pass":  true,
+                       "name":  "neg-no-unexpected-pass"
+                   }
+               ]
+}

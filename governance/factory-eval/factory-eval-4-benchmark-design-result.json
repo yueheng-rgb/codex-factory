@@ -1,0 +1,50 @@
+﻿{
+  "phase": "FACTORY-EVAL-4",
+  "title": "Real Project Benchmark Design — Complete",
+  "createdAt": "2026-06-25T16:33:00+08:00",
+  "verdict": "PASS",
+  "verifierResult": "36/36 PASS",
+  "verifierPath": "governance/factory-eval/verifier-factory-eval-4-result.json",
+  "designComplete": true,
+  "implementationNotStarted": true,
+  "nextPhase": "FACTORY-EVAL-5 / Vanilla Codex Baseline (RUN-A)",
+  "sectionsStatus": {
+    "A_projectSelection": {"status": "COMPLETE", "file": "governance/factory-eval/factory-eval-4-benchmark-project-selection.json"},
+    "B_benchmarkSpec": {"status": "COMPLETE", "file": "governance/factory-eval/factory-eval-4-benchmark-spec.json"},
+    "C_runComparisonDesign": {"status": "COMPLETE", "file": "governance/factory-eval/factory-eval-4-run-comparison-design.json"},
+    "D_evaluationRubric": {"status": "COMPLETE", "file": "governance/factory-eval/factory-eval-4-evaluation-rubric.json"},
+    "E_independentEvaluatorPolicy": {"status": "COMPLETE", "file": "governance/factory-eval/factory-eval-4-independent-evaluator-policy.json"},
+    "F_benchmarkHarnessDesign": {"status": "COMPLETE", "file": "governance/factory-eval/factory-eval-4-benchmark-harness-design.json"},
+    "G_antiGamingPolicy": {"status": "COMPLETE", "file": "governance/factory-eval/factory-eval-4-anti-gaming-policy.json"},
+    "H_negativeControls": {"status": "COMPLETE", "file": "governance/factory-eval/factory-eval-4-negative-controls-result.json"},
+    "I_verifier": {"status": "COMPLETE", "file": "scripts/factory-eval-4-real-project-benchmark-design-verify.ps1"}
+  },
+  "keyOutputs": {
+    "benchmarkProject": "TeamFlow Lite — Multi-tenant team task/workflow SaaS",
+    "threeRuns": ["RUN-A: Vanilla Codex", "RUN-B: Factory Lite (Manual Router + Proof-of-Read)", "RUN-C: Factory Role-Agent (Full Company Model)"],
+    "rubricDimensions": 8,
+    "rubricMaxScore": 100,
+    "negativeControls": "30/30 PASS, 0 gaps",
+    "harnessSkeletonScripts": 8,
+    "outputReports": 8
+  },
+  "rejectedClaimsStillRejected": [
+    "Full context inheritance",
+    "Automatic window creation without verification",
+    "Plugin production-ready",
+    "Automation production-ready",
+    "Compressed summary as evidence",
+    "Role agents proven effective on real projects",
+    "Real project effectiveness proven",
+    "Factory effectiveness proven (remains NOT_SOLVED)"
+  ],
+  "factoryEffectivenessStatus": "NOT_SOLVED — benchmark design defines how to test, but no runs have been executed",
+  "finalPackageSha256": "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+  "finalPackageSha256Verified": true,
+  "fileCountDiscrepancy": {
+    "actual": 206,
+    "previouslyReported": "possibly 207",
+    "blocking": false,
+    "resolution": "SHA256 is authoritative"
+  }
+}

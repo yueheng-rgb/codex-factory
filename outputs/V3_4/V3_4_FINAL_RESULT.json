@@ -1,0 +1,29 @@
+﻿{
+    "phase": "V3.4",
+    "final_classification": "A — V3_4_REMOTE_CI_READY_AWAITING_USER_ARTIFACT",
+    "pre_run_check": {
+        "overall": "READY_FOR_USER_RUN",
+        "checks_passed": 8,
+        "checks_total": 8,
+        "workflow": ".github/workflows/codex-factory-ci.yml"
+    },
+    "manual_run_instructions": "outputs/V3_4/V3_4_MANUAL_RUN_INSTRUCTIONS.md",
+    "artifact_status": "WAITING_FOR_USER_SUPPLIED_ARTIFACT",
+    "existing_artifacts": [
+        {"path": "artifacts/remote/demo-invalid-artifact/artifact.zip", "source": "V3.3 demo", "valid_for_verification": false},
+        {"path": "artifacts/remote/demo-local-shape/artifact.zip", "source": "V3.3 local-generated", "valid_for_verification": false}
+    ],
+    "note": "These are V3.3 demo artifacts — NOT real GitHub Actions runs",
+    "next_step_for_user": "Follow outputs/V3_4/V3_4_MANUAL_RUN_INSTRUCTIONS.md to run CI on GitHub and provide artifact",
+    "non_claims": [
+        "Codex does NOT have GitHub token",
+        "No REMOTE_RUN_VERIFIED without real GitHub Actions artifact",
+        "V3.3 demo artifacts are NOT real remote runs",
+        "User must manually trigger workflow and provide ZIP"
+    ],
+    "known_risks": [
+        "No real GitHub Actions artifact yet — verification incomplete",
+        "User may need to create a GitHub repo first",
+        "workflow_dispatch requires GitHub Actions enabled on repo"
+    ]
+}

@@ -1,0 +1,135 @@
+﻿{
+    "evidenceId":  "EVID-20260711-343",
+    "task":  "Next.js official documentation getting started page",
+    "projectId":  "R2.3-R-SMOKE",
+    "phaseId":  "live-smoke-test",
+    "searchRound":  1,
+    "queryTime":  "2026-07-11T00:20:11+08:00",
+    "triggerReason":  "live_smoke_test_R2.3-R",
+    "provider":  "glm_search",
+    "mode":  "live_api",
+    "accepted":  true,
+    "sources":  [
+                    {
+                        "title":  "App Router: Getting Started | Next.js",
+                        "url":  "https://nextjs.org/docs/app/getting-started",
+                        "sourceType":  "unknown",
+                        "authority":  "unknown",
+                        "freshness":  "unknown",
+                        "retrievedAt":  "2026-07-11T00:20:11+08:00",
+                        "claimSupported":  "Next.js official documentation getting started page",
+                        "evidenceExcerpt":  "",
+                        "uncertainty":  "low"
+                    },
+                    {
+                        "title":  "Getting Started - 《Next.js v9.x Documentation》 - 书栈网 · BookStack",
+                        "url":  "https://bookstack.cn/docs/nextjs-v9/getting-started",
+                        "sourceType":  "unknown",
+                        "authority":  "unknown",
+                        "freshness":  "unknown",
+                        "retrievedAt":  "2026-07-11T00:20:11+08:00",
+                        "claimSupported":  "Next.js official documentation getting started page",
+                        "evidenceExcerpt":  "",
+                        "uncertainty":  "low"
+                    },
+                    {
+                        "title":  "Getting Started - Next.js Documentation",
+                        "url":  "https://nextjs.org/docs/getting-started",
+                        "sourceType":  "unknown",
+                        "authority":  "unknown",
+                        "freshness":  "unknown",
+                        "retrievedAt":  "2026-07-11T00:20:11+08:00",
+                        "claimSupported":  "Next.js official documentation getting started page",
+                        "evidenceExcerpt":  "",
+                        "uncertainty":  "low"
+                    },
+                    {
+                        "title":  "Getting Started: Project Structure | Next.js",
+                        "url":  "https://nextjs.org/docs/app/api-reference/next-config-js",
+                        "sourceType":  "unknown",
+                        "authority":  "unknown",
+                        "freshness":  "unknown",
+                        "retrievedAt":  "2026-07-11T00:20:11+08:00",
+                        "claimSupported":  "Next.js official documentation getting started page",
+                        "evidenceExcerpt":  "",
+                        "uncertainty":  "low"
+                    },
+                    {
+                        "title":  "Next.js Tutorial",
+                        "url":  "https://nextjs.org/learn/foundations/nextjs-introduction",
+                        "sourceType":  "unknown",
+                        "authority":  "unknown",
+                        "freshness":  "unknown",
+                        "retrievedAt":  "2026-07-11T00:20:11+08:00",
+                        "claimSupported":  "Next.js official documentation getting started page",
+                        "evidenceExcerpt":  "",
+                        "uncertainty":  "low"
+                    },
+                    {
+                        "title":  "Next.js 入门 | Next.js 中文网",
+                        "url":  "https://cn.nextjs.org/docs/getting-started",
+                        "sourceType":  "unknown",
+                        "authority":  "unknown",
+                        "freshness":  "unknown",
+                        "retrievedAt":  "2026-07-11T00:20:11+08:00",
+                        "claimSupported":  "Next.js official documentation getting started page",
+                        "evidenceExcerpt":  "",
+                        "uncertainty":  "low"
+                    },
+                    {
+                        "title":  "Next.js - Pages",
+                        "url":  "https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts",
+                        "sourceType":  "unknown",
+                        "authority":  "unknown",
+                        "freshness":  "unknown",
+                        "retrievedAt":  "2026-07-11T00:20:11+08:00",
+                        "claimSupported":  "Next.js official documentation getting started page",
+                        "evidenceExcerpt":  "",
+                        "uncertainty":  "low"
+                    },
+                    {
+                        "title":  "GitHub - inkdropapp/api-docs: API documentation for Inkdrop · GitHub",
+                        "url":  "https://github.com/inkdropapp/api-docs",
+                        "sourceType":  "unknown",
+                        "authority":  "unknown",
+                        "freshness":  "unknown",
+                        "retrievedAt":  "2026-07-11T00:20:11+08:00",
+                        "claimSupported":  "Next.js official documentation getting started page",
+                        "evidenceExcerpt":  "",
+                        "uncertainty":  "low"
+                    }
+                ],
+    "sourceCount":  8,
+    "qualityGateStatus":  {
+                              "passed":  true,
+                              "score":  11,
+                              "verdict":  "acceptable",
+                              "trustRecommendation":  "reference_only"
+                          },
+    "allowedNextActions":  [
+                               "read_reference",
+                               "use_as_reference"
+                           ],
+    "forbiddenUse":  [
+                         "do_not_enter_skill_registry_directly",
+                         "do_not_treat_as_verified_knowledge"
+                     ],
+    "usableByAgents":  [
+                           "RSRC-001",
+                           "LIB-001",
+                           "ARCH-001",
+                           "VER-001",
+                           "IMPL-FE-001",
+                           "IMPL-BE-001"
+                       ],
+    "notUsableByAgents":  [
+
+                          ],
+    "conflictsDetected":  true,
+    "deltaFromPreviousRound":  "",
+    "roundHistory":  [
+
+                     ],
+    "secretPresent":  true,
+    "humanApproval":  true
+}

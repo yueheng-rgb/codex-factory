@@ -1,0 +1,124 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research-intake.schema.json",
+  "title": "Research Intake — External Search Result Import Format",
+  "description": "Format for importing raw search results from external providers (human, ChatGPT, GLM, Claude, Perplexity, search engines) into Codex Factory for distillation.",
+  "type": "object",
+  "required": ["intakeId", "query", "provider", "rawResult", "submittedAt"],
+  "properties": {
+    "intakeId": {
+      "type": "string",
+      "pattern": "^INTAKE-\\d{8}-\\d{3,}$",
+      "description": "Unique intake identifier, e.g. INTAKE-20260705-001"
+    },
+    "query": {
+      "type": "object",
+      "required": ["question", "searchMode", "domain"],
+      "properties": {
+        "question": { "type": "string", "description": "The search question or topic" },
+        "searchMode": {
+          "type": "string",
+          "enum": ["knowledge_reserve", "project_time"],
+          "description": "knowledge_reserve = building Factory knowledge bank; project_time = getting latest info during project"
+        },
+        "domain": {
+          "type": "string",
+          "enum": ["miniapp", "fullstack", "backend", "frontend", "database", "devops", "security", "architecture", "ecommerce", "distributed", "mobile", "ai_ml", "testing", "general"]
+        },
+        "context": { "type": "string", "description": "Why this search was done" },
+        "requestedBy": { "type": "string", "description": "Agent ID or 'human'" },
+        "versionConstraints": { "type": "string", "description": "e.g. 'Next.js >= 15', 'PostgreSQL 16'" }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "required": ["providerId", "type"],
+      "properties": {
+        "providerId": { "type": "string", "description": "e.g. 'human-john', 'chatgpt-4o', 'glm-4-flash', 'perplexity-pro'" },
+        "type": {
+          "type": "string",
+          "enum": ["human_manual", "chatgpt", "glm_search", "claude", "perplexity", "search_engine", "official_docs", "community_sources", "paper_search", "repo_search"]
+        },
+        "capability": { "type": "string", "description": "What this provider is good at" },
+        "strengths": { "type": "array", "items": { "type": "string" } },
+        "weaknesses": { "type": "array", "items": { "type": "string" } },
+        "freshness": { "type": "string", "description": "How current this provider's results are, e.g. 'real-time', 'as-of-training-date'" },
+        "citationRequirement": { "type": "string", "enum": ["always", "recommended", "not_available"], "description": "Whether this provider can cite sources" },
+        "trustLimit": { "type": "string", "enum": ["VERIFIED", "TRUSTED", "AVAILABLE", "UNVERIFIED"], "description": "Maximum trust level assignable to this provider's output" },
+        "canBeDirectSource": { "type": "boolean", "description": "Whether output can be used as a direct source without additional verification" }
+      }
+    },
+    "rawResult": {
+      "type": "string",
+      "description": "The raw, unmodified search result as returned by the provider"
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "title": { "type": "string" },
+          "type": { "type": "string", "enum": ["official_docs", "blog", "github", "stackoverflow", "paper", "other"] },
+          "relevance": { "type": "string", "enum": ["high", "medium", "low"] }
+        }
+      }
+    },
+    "sourceTitles": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Human-readable titles of sources"
+    },
+    "publishDates": {
+      "type": "array",
+      "items": { "type": "string", "format": "date" },
+      "description": "Publication dates of sources, if known"
+    },
+    "claimedFacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim": { "type": "string" },
+          "sourceIndex": { "type": "integer", "description": "Index into links array" },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low", "unknown"] }
+        }
+      }
+    },
+    "codeSnippets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": { "type": "string" },
+          "code": { "type": "string" },
+          "sourceIndex": { "type": "integer" },
+          "safeForDirectUse": { "type": "boolean", "default": false }
+        }
+      }
+    },
+    "uncertainty": {
+      "type": "string",
+      "enum": ["none", "low", "medium", "high"],
+      "description": "Provider's own assessment of result reliability"
+    },
+    "providerConfidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "How confident the provider is in these results"
+    },
+    "userNotes": {
+      "type": "string",
+      "description": "Free-text notes from the human who submitted this intake"
+    },
+    "submittedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of submission"
+    },
+    "submittedBy": {
+      "type": "string",
+      "description": "Who submitted this intake (human name or agent ID)"
+    }
+  }
+}

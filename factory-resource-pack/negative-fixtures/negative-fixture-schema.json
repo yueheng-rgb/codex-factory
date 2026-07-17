@@ -1,0 +1,158 @@
+﻿{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "factory-resource-pack/negative-fixtures/negative-fixture-schema.json",
+  "title": "Negative Fixture Schema",
+  "description": "JSON schema for negative control fixture definitions. Each fixture defines a deliberately crafted scenario designed to trigger a specific verifier gate, validating that the gating system correctly rejects invalid inputs.",
+  "phase": "H18",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T12:00:00.000+08:00",
+  "type": "object",
+  "required": [
+    "id",
+    "targetGate",
+    "expectedRiskSignal",
+    "faultManifest",
+    "expectedFailureClass",
+    "executionEvidencePath",
+    "verifierConfirmationRequired"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique fixture identifier. Convention: nc-{gate-short-name}-{sequence}, e.g., nc-scoring-gate-001.",
+      "pattern": "^nc-[a-z0-9-]+-\\d{3}$"
+    },
+    "targetGate": {
+      "type": "string",
+      "description": "The verifier gate this fixture is designed to trigger. Must reference a real gate from verifier-modules/.",
+      "minLength": 3
+    },
+    "expectedRiskSignal": {
+      "type": "string",
+      "description": "Human-readable description of the risk or vulnerability this fixture simulates.",
+      "minLength": 10
+    },
+    "expectedFailureClass": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2"],
+      "description": "Expected failure priority level. P0: hard floor, P1: blocking caveat, P2: non-blocking caveat."
+    },
+    "faultManifest": {
+      "type": "object",
+      "required": ["description", "injectedArtifact", "violationType", "expectedDetection"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the injected fault and why it should trigger the target gate.",
+          "minLength": 20
+        },
+        "injectedArtifact": {
+          "type": "string",
+          "description": "Path to the artifact where the fault is injected."
+        },
+        "violationType": {
+          "type": "string",
+          "description": "Category of violation being tested (e.g., SCORE_BASED_VERDICT, CROSS_SCOPE_WRITE).",
+          "minLength": 3
+        },
+        "expectedDetection": {
+          "type": "string",
+          "description": "How the verifier is expected to detect this fault.",
+          "minLength": 10
+        },
+        "falsifiesClaim": {
+          "type": "string",
+          "description": "What invariant or claim this fault falsifies."
+        }
+      }
+    },
+    "expectedFailureMode": {
+      "type": "string",
+      "description": "The specific failure mode enum value expected from the target verifier. Must match a FAIL criteria enum from the target verifier's specification.",
+      "minLength": 3
+    },
+    "mustNotProduce": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["PASS", "CAVEAT"]
+      },
+      "description": "Outcomes this fixture must not produce. Must include 'PASS'.",
+      "minItems": 1
+    },
+    "allowedSecondaryGates": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Other gates that may also fire as a side effect. These are not errors.",
+      "default": []
+    },
+    "executionEvidencePath": {
+      "type": "string",
+      "description": "Path where the fixture execution transcript or result will be written."
+    },
+    "executionEvidenceFormat": {
+      "type": "string",
+      "enum": ["plaintext", "json", "jsonl"],
+      "description": "Format of the execution evidence.",
+      "default": "plaintext"
+    },
+    "expectedEvidenceContent": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Strings or patterns expected in the execution evidence.",
+      "minItems": 1
+    },
+    "forbiddenEvidenceContent": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Strings or patterns that must NOT appear in the execution evidence.",
+      "minItems": 1
+    },
+    "verifierConfirmationRequired": {
+      "type": "boolean",
+      "description": "Whether this fixture requires confirmation by the negative-control-check verifier. Must be true for all production fixtures.",
+      "const": true
+    },
+    "verifierModule": {
+      "type": "string",
+      "description": "The verifier module that confirms this fixture. Default: negative-control-check.",
+      "default": "negative-control-check"
+    },
+    "confirmationCriteria": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Specific criteria the verifier must confirm for this fixture to be considered valid.",
+      "minItems": 1
+    },
+    "fixtureSetupScript": {
+      "type": "string",
+      "description": "Path to a setup script that prepares the environment for this fixture."
+    },
+    "fixtureTeardownScript": {
+      "type": "string",
+      "description": "Path to a teardown script that cleans up after this fixture."
+    },
+    "dependsOn": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "IDs of other fixtures this one depends on. Should be empty for self-contained fixtures.",
+      "default": []
+    },
+    "stability": {
+      "type": "string",
+      "enum": ["stable", "experimental", "deprecated"],
+      "description": "Stability marker for this fixture.",
+      "default": "stable"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this fixture definition was created."
+    },
+    "generatedBy": {
+      "type": "string",
+      "description": "Agent or process that created this fixture definition."
+    }
+  },
+  "additionalProperties": false
+}

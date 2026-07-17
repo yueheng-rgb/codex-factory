@@ -1,0 +1,15 @@
+﻿{
+    "nativeGenerated":  true,
+    "updatedMatrix":  "governance/session-controller/session-carrier-decision-matrix.json",
+    "generatedAt":  "2026-06-25T00:48:36+08:00",
+    "phase":  "LIVE-RUNTIME-8-D",
+    "schemaId":  "live-runtime-8-carrier-decision-update",
+    "changes":  [
+                    "Added carrierClassification with PRIMARY_SAFE_FALLBACK, SEMI_AUTOMATIC_IF_AVAILABLE, NOT_A_NEW_CONTEXT, INTERNAL_ONLY, REJECTED categories",
+                    "All thread/fork/new carriers classified as HYPOTHESIS (tools exist, untested for live carrier)",
+                    "Manual artifact handoff remains PRIMARY_SAFE_FALLBACK",
+                    "Automation wakeup classified as NOT_A_NEW_CONTEXT (REJECTED)",
+                    "Subagents classified as INTERNAL_ONLY",
+                    "Full context inheritance and automatic window creation remain REJECTED"
+                ]
+}

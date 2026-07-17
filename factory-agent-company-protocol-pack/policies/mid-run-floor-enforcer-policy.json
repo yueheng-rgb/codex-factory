@@ -1,0 +1,24 @@
+﻿# Mid-Run Floor Enforcer Policy (P1)
+
+**Status:** P1-candidate
+
+## Policy
+Orchestrator MUST run floor checks after builders complete and before Reviewer-Verifier final pass. Any unmet BLOCKING floor halts closure.
+
+## Blocking Floors
+| Metric | Floor |
+|--------|-------|
+| Source files | 80 |
+| Exports | 300 |
+| API endpoints | 40 |
+| DB tables | 15 |
+| Test files | 20 |
+| Modules covered | 13 |
+
+## Non-Blocking (Warn)
+| Metric | Floor |
+|--------|-------|
+| Error states | 30 |
+
+## Recovery
+On block: Orchestrator returns deficit list. Builder remedies. Re-check required.

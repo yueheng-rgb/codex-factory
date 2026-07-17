@@ -1,0 +1,128 @@
+﻿{
+  "phase": "FACTORY-EVAL-4",
+  "section": "E",
+  "title": "Independent Evaluator Policy",
+  "createdAt": "2026-06-25T17:18:00+08:00",
+  "designPrinciple": "The evaluator must be a separate agent from the builder. Builder produces artifacts; evaluator independently verifies them against the rubric. Evaluator does not see builder process, only final artifacts.",
+  "evaluatorRequirements": {
+    "separation": "Evaluator MUST be a different Codex session/window from any builder run",
+    "blindness": "Evaluator MUST NOT have access to builder conversation history, message turns, or process artifacts",
+    "inputs": "Evaluator receives only: benchmark spec (Section B), evaluation rubric (Section D), and the run output directory",
+    "timeout": "Evaluator session has a 50-message-turn budget for evaluation"
+  },
+  "evaluatorMandate": {
+    "mustDo": [
+      "Read the benchmark spec (Section B) completely before evaluating",
+      "Read the evaluation rubric (Section D) completely before scoring",
+      "Inspect run output directory for all delivered files",
+      "Run the project using the documented run command",
+      "Verify API endpoints exist and return correct responses using curl or HTTP client",
+      "Verify UI pages render by checking component files or browser screenshots",
+      "Inspect database schema for constraints, indexes, and relationships",
+      "Run the test suite and record pass/fail results",
+      "Perform boundary tests for auth and authorization",
+      "Check audit log entries after performing actions",
+      "Verify README instructions are accurate by following them",
+      "Produce a structured evaluation report with per-dimension scores",
+      "Provide evidence paths for every score (which file, which test, which curl)"
+    ],
+    "mustNotDo": [
+      "Modify run output files",
+      "Fix bugs or complete unfinished work",
+      "Trust builder self-assessments or README claims without verification",
+      "Give partial credit for half-implemented features",
+      "Accept placeholder implementations (e.g., TODO comments)",
+      "Score file count, export count, or agent count as quality",
+      "Use different criteria for different runs",
+      "Show bias toward any run configuration (Vanilla, Lite, Role-Agent)"
+    ]
+  },
+  "evaluationProcess": {
+    "steps": [
+      {
+        "step": 1,
+        "name": "Receive and inventory",
+        "description": "List all files in run output directory. Record file count (informational only, not scored)."
+      },
+      {
+        "step": 2,
+        "name": "Read spec and rubric",
+        "description": "Read benchmark spec and rubric. Do not proceed until both are fully read."
+      },
+      {
+        "step": 3,
+        "name": "Run the project",
+        "description": "Follow README instructions to start the project. Record whether it starts successfully. If it does not start, record the error and score D08=0."
+      },
+      {
+        "step": 4,
+        "name": "Evaluate D01: Requirement Coverage",
+        "description": "For each FR01-FR11, verify implementation exists. Check code, endpoints, UI pages. Score binary per FR."
+      },
+      {
+        "step": 5,
+        "name": "Evaluate D02: API Contract",
+        "description": "For each of 21 endpoints, send a valid request and verify response shape. For each, also test one invalid input. Record curl commands and responses."
+      },
+      {
+        "step": 6,
+        "name": "Evaluate D03: Database Schema",
+        "description": "Inspect schema file. Check FKs, UNIQUE, NOT NULL, indexes, enums, timestamps, normalization."
+      },
+      {
+        "step": 7,
+        "name": "Evaluate D04: Auth & Authorization",
+        "description": "Perform boundary tests: unauthenticated access, wrong role access, cross-team access. Verify bcrypt usage in code."
+      },
+      {
+        "step": 8,
+        "name": "Evaluate D05: UI States",
+        "description": "Check each page for loading, empty, error, success state handling in component code."
+      },
+      {
+        "step": 9,
+        "name": "Evaluate D06: Audit Trail",
+        "description": "Perform CRUD actions, then query audit log. Verify entries exist with correct actor/action/target."
+      },
+      {
+        "step": 10,
+        "name": "Evaluate D07: Test Quality",
+        "description": "Run tests, inspect source for meaningful assertions. Flag any assert(true) or empty tests."
+      },
+      {
+        "step": 11,
+        "name": "Evaluate D08: Documentation",
+        "description": "Follow README setup/run/test commands. Verify API overview exists."
+      },
+      {
+        "step": 12,
+        "name": "Produce evaluation report",
+        "description": "Generate structured JSON evaluation report with per-dimension scores, evidence paths, and total score."
+      }
+    ]
+  },
+  "evaluationOutput": {
+    "format": "JSON",
+    "path": "governance/factory-eval/factory-eval-5-result.json (per run)",
+    "fields": [
+      "run_id (A, B, or C)",
+      "evaluated_at",
+      "evaluator_session_id",
+      "total_score (0-100)",
+      "per_dimension_scores (D01-D08 with evidence paths)",
+      "human_intervention_count (from builder run metadata)",
+      "message_turns (from builder run metadata)",
+      "caveats (anything that could not be evaluated, and why)",
+      "cannot_evaluate (list of items that could not be verified)"
+    ]
+  },
+  "cannotEvaluatePolicy": {
+    "description": "If an item cannot be verified (e.g., project won't start, missing endpoint), the evaluator MUST record it as 'cannot_evaluate' with reason, not silently skip or give full points.",
+    "examples": [
+      "Project won't start → D08=0, D01-D07 marked cannot_evaluate",
+      "Endpoint returns 500 → D02 partial, record the error",
+      "No test files found → D07=0",
+      "No schema file found → D03=0"
+    ]
+  }
+}

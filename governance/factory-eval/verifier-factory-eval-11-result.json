@@ -1,0 +1,11 @@
+﻿{
+    "passed":  35,
+    "results":  [
+
+                ],
+    "timestamp":  "2026-06-25T21:08:06+08:00",
+    "failed":  0,
+    "totalChecks":  35,
+    "phase":  "FACTORY-EVAL-11-I",
+    "title":  "Verifier Result - LedgerFlow Lite Vanilla Run Integrity"
+}

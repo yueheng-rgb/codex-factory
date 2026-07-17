@@ -1,0 +1,91 @@
+﻿{
+    "agentBranchingPolicy":  {
+                                 "explorerDefault":  "fork_context:true",
+                                 "userVisibleBranchRequired":  false,
+                                 "subagentVisible":  false,
+                                 "builderDefault":  "fork_context:false",
+                                 "artifactHandoffPrimary":  true
+                             },
+    "finalPackageAllowedClaims":  [
+                                      "ARTIFACT_BASED_SESSION_ROTATION",
+                                      "STARTUP_VERIFICATION_REQUIRED",
+                                      "FORK_OR_NEW_THREAD_AS_OPTIONAL_CARRIER",
+                                      "SUBAGENT_INTERNAL_ISOLATION",
+                                      "FORK_CONTEXT_FALSE_DEFAULT_FOR_BUILDERS",
+                                      "COMPRESSED_SUMMARY_NOT_EVIDENCE"
+                                  ],
+    "hypothesisClaims":  [
+                             "COMPACT_DETECTION_API_VERIFIED"
+                         ],
+    "nativeGenerated":  true,
+    "remainingCaveats":  [
+                             "Compact detection remains HYPOTHESIS — no API observed",
+                             "fork/create-thread not tested live — PARTIALLY_VERIFIED",
+                             "Thread wakeup/automation: CODEX_SELF_REPORT_ONLY",
+                             "All branching policy is subject to revision if environment capabilities change"
+                         ],
+    "updatedFiles":  [
+                         "factory-resource-pack/session-rotation/BRANCHING_POLICY.md",
+                         "factory-resource-pack/context-compression/COMPACT_POLICY.md",
+                         "factory-resource-pack/protocols/AGENT_BRANCHING_POLICY.md",
+                         "codex-factory-plugin/THREAD_HANDOFF_BOUNDARY.md",
+                         "release-candidate/RC_BOUNDARY.md",
+                         "release-candidate/VALIDATION_CHECKLIST.md",
+                         "final-package-dry-run/FINAL_PACKAGE_BOUNDARY.md",
+                         "final-package-dry-run/FINAL_VALIDATION_PLAN.md",
+                         "final-package-dry-run/POST_PACKAGE_VALIDATION_CHECKLIST.md",
+                         "final-package-dry-run/EXPERIMENTAL_COMPONENTS.md"
+                     ],
+    "rejectedClaims":  [
+                           "AUTO_WINDOW_CREATION_AFTER_COMPACT",
+                           "FORK_INHERITS_FULL_PRE_COMPACT_CONTEXT",
+                           "SUBAGENT_EQUALS_USER_VISIBLE_BRANCH",
+                           "BRANCH_IS_RELIABLE_MEMORY_EXPANSION"
+                       ],
+    "verdict":  "PASS",
+    "phase":  "H24-P2",
+    "compactPolicyTiers":  [
+                               {
+                                   "rule":  "Finish current narrow task only",
+                                   "tier":  "CONFIRMED_COMPACT_CURRENT_TASK",
+                                   "trigger":  "User reports or visible tool evidence of compact"
+                               },
+                               {
+                                   "rule":  "Session rotation required before new H/DRY/FINAL",
+                                   "tier":  "CONFIRMED_COMPACT_BEFORE_MAJOR_PHASE",
+                                   "trigger":  "CONFIRMED compact + intent to start major phase"
+                               },
+                               {
+                                   "rule":  "Mandatory rotation; no new major phase",
+                                   "tier":  "MULTIPLE_COMPACTIONS",
+                                   "trigger":  "Multiple compactions in same window"
+                               },
+                               {
+                                   "rule":  "Manual new window + artifact handoff (always safe)",
+                                   "tier":  "UNKNOWN_BRANCH_CAPABILITY",
+                                   "trigger":  "fork/create-thread capability unknown"
+                               },
+                               {
+                                   "rule":  "Fork may be carrier; startup verification still required",
+                                   "tier":  "VERIFIED_THREAD_FORK",
+                                   "trigger":  "fork/create-thread verified available"
+                               }
+                           ],
+    "acceptedClaims":  [
+                           "ARTIFACT_BASED_SESSION_ROTATION",
+                           "STARTUP_VERIFICATION_REQUIRED",
+                           "FORK_OR_NEW_THREAD_AS_OPTIONAL_CARRIER",
+                           "SUBAGENT_INTERNAL_ISOLATION",
+                           "FORK_CONTEXT_FALSE_DEFAULT_FOR_BUILDERS",
+                           "COMPRESSED_SUMMARY_NOT_EVIDENCE"
+                       ],
+    "finalPackageForbiddenClaims":  [
+                                        "AUTO_WINDOW_CREATION_AFTER_COMPACT",
+                                        "FORK_INHERITS_FULL_PRE_COMPACT_CONTEXT",
+                                        "SUBAGENT_EQUALS_USER_VISIBLE_BRANCH",
+                                        "BRANCH_IS_RELIABLE_MEMORY_EXPANSION",
+                                        "COMPACT_DETECTION_API_VERIFIED",
+                                        "COMPRESSED_SUMMARY_AS_EVIDENCE"
+                                    ],
+    "generatedAt":  "2026-06-24T22:08:59+08:00"
+}

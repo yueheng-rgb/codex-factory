@@ -1,0 +1,23 @@
+﻿{
+  "schemaId": "context-memory.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:09:03+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-3-A",
+  "nativeGenerated": true,
+  "description": "External memory entry schema — index over evidence, not evidence itself",
+  "requiredFields": ["memoryId","type","claim","sourceArtifactPaths","sourceEvidenceType","sourceSha256","phase","createdAt","lastValidatedAt","confidence","validityStatus"],
+  "memoryTypes": ["phase_result","verifier_pass","risk_discovery","gap_closure","agent_lifecycle","package_state","capability_claim","caveat","decision","policy"],
+  "confidenceLevels": ["HIGH","MEDIUM","LOW","FORBIDDEN"],
+  "validityStatuses": ["CURRENT","SUPERSEDED","STALE","REJECTED"],
+  "rules": {
+    "memoryPointsToSource": true,
+    "sourceArtifactsMustExist": true,
+    "shaRequiredForAllEntries": true,
+    "compressedSummaryNeverAuthoritative": true,
+    "workerSelfReportNonEvidence": true,
+    "verifierJsonOverridesMemory": true,
+    "stateOverridesMemory": true,
+    "staleMemoryFlagged": true,
+    "supersededNeverUsedAsCurrent": true
+  }
+}

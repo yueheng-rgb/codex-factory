@@ -1,0 +1,211 @@
+﻿{
+    "phase":  "FACTORY-AB-0-R1",
+    "verifier_id":  "VERIFIER-FACTORY-AB-0-R1",
+    "generated_at":  "2026-06-28T18:56:10+08:00",
+    "verdict":  "PASS",
+    "total_checks":  40,
+    "passed":  40,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "AB-0 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "RELEASE-READINESS-0 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "PACK-STAGING-P7 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "AB-0 correction exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "Task/rubric freeze exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "Execution environment exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "RUN-A execution exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "RUN-B execution exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "Output lock exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Normalized comparison exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "Scoring execution exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "Comparative verdict exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "BLOCK-001 reassessment exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "Release blocker recheck exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "Strategy decision exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "AB-0 design score NOT treated as executed score"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "BLOCK-001 correctly classified before R1"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "Task frozen from AB-0 (0 changes)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "RUN-A has observed behaviors"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "RUN-B has observed behaviors"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "Factory score \u003e Vanilla score"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "BLOCK-001 not fully resolved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "BLOCK-002 still ACTIVE"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "v0.5 remains BLOCKED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "No real projects/secrets"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "No deploy/remote/production DB"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "No Native Build Pro"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "No Factory superiority overclaim"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "Negative controls: 45 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "Negative controls: all DEFENCE_HELD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V034",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V035",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V036",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V037",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V038",
+                       "desc":  "Verifier script exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V039",
+                       "desc":  "Run-A harness dir exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V040",
+                       "desc":  "Run-B harness dir exists"
+                   }
+               ]
+}

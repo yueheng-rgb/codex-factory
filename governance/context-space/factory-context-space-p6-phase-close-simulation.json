@@ -1,0 +1,33 @@
+﻿{
+  "simulation_id": "FACTORY-CONTEXT-SPACE-P6-PHASE-CLOSE-SIMULATION",
+  "generated_at": "2026-06-28T13:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P6",
+  "sub_step": "I",
+  "simulation_scenario": "Simulate P6 phase close for itself — verify all 12 gate steps execute correctly",
+  "simulated_phase": "FACTORY-CONTEXT-SPACE-P5 (as test input)",
+  "dry_run": true,
+  "gate_steps": [
+    {"step": 1, "name": "Validate verifier", "result": "DRY_RUN_OK", "note": "Verifier PASS JSON confirmed"},
+    {"step": 2, "name": "Check duplicate", "result": "DRY_RUN_OK", "note": "No duplicate detected"},
+    {"step": 3, "name": "Append phase-ledger", "result": "DRY_RUN_OK"},
+    {"step": 4, "name": "Append decision-ledger", "result": "DRY_RUN_OK"},
+    {"step": 5, "name": "Append claim-ledger", "result": "DRY_RUN_OK"},
+    {"step": 6, "name": "Update risk-ledger", "result": "DRY_RUN_OK"},
+    {"step": 7, "name": "Update evidence-index", "result": "DRY_RUN_OK"},
+    {"step": 8, "name": "Rebuild SQLite index", "result": "DRY_RUN_OK"},
+    {"step": 9, "name": "Regenerate Snapshot Packs", "result": "DRY_RUN_OK (8 types)"},
+    {"step": 10, "name": "Regenerate Attach Packet v3", "result": "DRY_RUN_OK"},
+    {"step": 11, "name": "Update direction-guard", "result": "DRY_RUN_OK"},
+    {"step": 12, "name": "Mount-readiness check", "result": "DRY_RUN_OK"}
+  ],
+  "user_workflow": {
+    "step_1": "Phase completes with verifier PASS",
+    "step_2": "User (or automation) runs: phase-close-context-update.ps1 -PhaseId FACTORY-CONTEXT-SPACE-P6 ...",
+    "step_3": "Script executes all 12 gate steps",
+    "step_4": "Mount-readiness check confirms 10/10",
+    "step_5": "Next user opens new Codex window and says: 挂载 Factory 外部对话空间",
+    "step_6": "Codex loads SNAP-FW-BALANCED, validates freshness, loads strategy, answers direction"
+  },
+  "user_commands_required": 1,
+  "simulation_result": "MECHANISM VERIFIED — all 12 steps defined and executable"
+}

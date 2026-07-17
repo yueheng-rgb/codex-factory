@@ -1,0 +1,248 @@
+﻿{
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Project registry template exists",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "Agent ledger isolation JSON exists",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "Lifecycle interaction JSON exists",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "Output/governance isolation doc exists",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "",
+                               "description":  "Integration points JSON exists",
+                               "pass":  true
+                           },
+                   "V38":  {
+                               "detail":  "",
+                               "description":  "No v0.6 created",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "Project registry doc exists",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Output/governance isolation JSON exists",
+                               "pass":  true
+                           },
+                   "V35":  {
+                               "detail":  "",
+                               "description":  "Global policy/user preference can transfer",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "Project registry schema exists",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "Inherited baseline",
+                               "description":  "DEFAULT-WORKFLOW-0 PASS exists",
+                               "pass":  true
+                           },
+                   "V46":  {
+                               "detail":  "",
+                               "description":  "No expectedClass-only accepted",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "Cleanup isolation doc exists",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "Cross-project memory boundary doc exists",
+                               "pass":  true
+                           },
+                   "V32":  {
+                               "detail":  "",
+                               "description":  "Cleanup resolves project identity first",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "Simulation report exists",
+                               "pass":  true
+                           },
+                   "V40":  {
+                               "detail":  "Cloud deferred",
+                               "description":  "No cloud/deploy action",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "Simulation JSON exists",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "Mount isolation JSON exists",
+                               "pass":  true
+                           },
+                   "V41":  {
+                               "detail":  "Theory phase only",
+                               "description":  "No real project validation",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "Agent ledger isolation doc exists",
+                               "pass":  true
+                           },
+                   "V34":  {
+                               "detail":  "",
+                               "description":  "Agent ledger projectId required",
+                               "pass":  true
+                           },
+                   "V48":  {
+                               "detail":  "",
+                               "description":  "Verifier script exists",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "Found: 10",
+                               "description":  "10 simulation scenarios exist",
+                               "pass":  true
+                           },
+                   "V30":  {
+                               "detail":  "",
+                               "description":  "All section reports (B-J) exist",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "Project identity schema exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "Cleanup isolation JSON exists",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "Lifecycle interaction doc exists",
+                               "pass":  true
+                           },
+                   "V31":  {
+                               "detail":  "",
+                               "description":  "projectId required in identity model",
+                               "pass":  true
+                           },
+                   "V42":  {
+                               "detail":  "",
+                               "description":  "Negative controls report exists",
+                               "pass":  true
+                           },
+                   "V43":  {
+                               "detail":  "",
+                               "description":  "Negative controls JSON exists",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "Project identity model doc exists",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "Working copy isolation doc exists",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "",
+                               "description":  "Strategy decision report exists",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "Scope lock JSON exists",
+                               "pass":  true
+                           },
+                   "V39":  {
+                               "detail":  "",
+                               "description":  "No new release created",
+                               "pass":  true
+                           },
+                   "V47":  {
+                               "detail":  "",
+                               "description":  "No generic FAIL accepted",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "",
+                               "description":  "Strategy decision JSON exists",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Scope lock report exists",
+                               "pass":  true
+                           },
+                   "V44":  {
+                               "detail":  "31 controls, 0 gaps",
+                               "description":  "Negative controls executed with 0 gaps",
+                               "pass":  true
+                           },
+                   "V37":  {
+                               "detail":  "SHA256: 9FD3A5F979FE1FDEA712F69CAC300E2F49F4E84705A0448D98186CA950AC16CB",
+                               "description":  "v0.5 zip NOT modified",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "Memory boundary JSON exists",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "Mount isolation rules doc exists",
+                               "pass":  true
+                           },
+                   "V45":  {
+                               "detail":  "All verifier checks are file-existence or content-based",
+                               "description":  "No manual PASS-only accepted",
+                               "pass":  true
+                           },
+                   "V36":  {
+                               "detail":  "",
+                               "description":  "Project-specific risk/blocker cannot transfer by default",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "Working copy isolation JSON exists",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "",
+                               "description":  "Integration points report exists",
+                               "pass":  true
+                           },
+                   "V33":  {
+                               "detail":  "",
+                               "description":  "Foreign context cannot mount as current",
+                               "pass":  true
+                           }
+               },
+    "verdict":  "PASS",
+    "phase":  "FACTORY-PROJECT-ISOLATION-0",
+    "timestamp":  "2026-06-29T00:06:59+08:00",
+    "verifier":  "factory-project-isolation-0-verify.ps1"
+}

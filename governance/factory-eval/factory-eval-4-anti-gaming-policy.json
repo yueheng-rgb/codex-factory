@@ -1,0 +1,179 @@
+﻿{
+  "phase": "FACTORY-EVAL-4",
+  "section": "G",
+  "title": "Anti-Gaming Controls and Stop Conditions",
+  "createdAt": "2026-06-25T17:25:00+08:00",
+  "designPrinciple": "Every known method of inflating benchmark scores without producing real product quality must be explicitly blocked. Stop conditions must halt the benchmark if it becomes incomparable.",
+  "antiGamingControls": [
+    {
+      "id": "AG01",
+      "name": "File count gaming",
+      "description": "Creating many small files to inflate perceived productivity",
+      "detection": "Evaluator scores only rubric dimensions, not file counts. Harness records file count as metadata only.",
+      "blocked": true
+    },
+    {
+      "id": "AG02",
+      "name": "Exports gaming",
+      "description": "Creating many module exports without implementation",
+      "detection": "D01 checks actual feature existence, not export count. API contract checker verifies endpoint behavior.",
+      "blocked": true
+    },
+    {
+      "id": "AG03",
+      "name": "Fake tests",
+      "description": "Tests with assert(true), no assertions, or trivial assertions",
+      "detection": "D07 requires meaningful assertions verified by evaluator inspecting test source code.",
+      "blocked": true
+    },
+    {
+      "id": "AG04",
+      "name": "Placeholder-only implementation",
+      "description": "Features marked as TODO, returning stub data, or commented as 'coming soon'",
+      "detection": "Each FR requires verifiable implementation. D01 binary scoring — no partial credit for stubs.",
+      "blocked": true
+    },
+    {
+      "id": "AG05",
+      "name": "Markdown-only completion",
+      "description": "Claiming features in documentation without code implementation",
+      "detection": "Evaluator verifies API endpoints and UI pages independently, not from docs.",
+      "blocked": true
+    },
+    {
+      "id": "AG06",
+      "name": "Factory governance code as product",
+      "description": "Copying Factory governance/verifier code into the benchmark project",
+      "detection": "Evaluator checks for Factory-specific patterns (factoryctl, verifier, governance/) in project code.",
+      "blocked": true
+    },
+    {
+      "id": "AG07",
+      "name": "Role-agent overuse",
+      "description": "Spawning role agents for trivial tasks to inflate role-agent metrics",
+      "detection": "Process overhead tracked separately. Excessive agent spawns for trivial work flagged.",
+      "blocked": true
+    },
+    {
+      "id": "AG08",
+      "name": "Proof-of-read spam",
+      "description": "Generating unnecessary receipts to inflate process metrics",
+      "detection": "Proof-of-read receipts counted but process overhead tracked; excessive receipts flagged.",
+      "blocked": true
+    },
+    {
+      "id": "AG09",
+      "name": "Artificial cross-role contracts",
+      "description": "Creating unnecessary contracts between roles to inflate contract metrics",
+      "detection": "Cross-role contracts tracked but not scored. Only product quality scored.",
+      "blocked": true
+    },
+    {
+      "id": "AG10",
+      "name": "Process over product",
+      "description": "Evaluator rewarding process artifacts (receipts, contracts, drift reports) over product quality",
+      "detection": "Rubric D01-D08 measure product quality only. Process artifacts not in scoring rubric.",
+      "blocked": true
+    },
+    {
+      "id": "AG11",
+      "name": "Hidden human assistance",
+      "description": "Builder receiving human help and not recording it",
+      "detection": "Human intervention count tracked per run. Unexplained quality jumps relative to prior message may indicate hidden help.",
+      "blocked": true
+    },
+    {
+      "id": "AG12",
+      "name": "Post-hoc requirements changes",
+      "description": "Changing requirements after seeing results to favor one run",
+      "detection": "Benchmark spec (Section B) is frozen before any run starts. SHA256 of spec recorded.",
+      "blocked": true
+    },
+    {
+      "id": "AG13",
+      "name": "Different requirements across runs",
+      "description": "Using different spec or acceptance criteria for different runs",
+      "detection": "Same spec (SHA256-verified) delivered to all three runs.",
+      "blocked": true
+    },
+    {
+      "id": "AG14",
+      "name": "Run contamination",
+      "description": "Run B or C seeing Run A results, or Run C seeing Run B results",
+      "detection": "Separate workspaces, separate sessions, results directory isolation. Checks for cross-references.",
+      "blocked": true
+    }
+  ],
+  "stopConditions": [
+    {
+      "id": "SC01",
+      "name": "Benchmark project too small",
+      "description": "If benchmark project cannot exercise the 11 FRs meaningfully",
+      "trigger": "Any FR requires fewer than 2 API endpoints or 1 UI page to implement",
+      "action": "STOP — redesign benchmark project"
+    },
+    {
+      "id": "SC02",
+      "name": "Benchmark project too large",
+      "description": "If any single run cannot complete within 200 message turns",
+      "trigger": "Run exceeds 200 turns without meeting >50% of acceptance criteria",
+      "action": "STOP — reduce scope or split benchmark"
+    },
+    {
+      "id": "SC03",
+      "name": "Evaluation incomparable",
+      "description": "If runs cannot be evaluated with the same rubric due to structural differences",
+      "trigger": "Different technology stacks chosen without justification; different feature scope delivered",
+      "action": "STOP — enforce same stack or accept reduced comparability"
+    },
+    {
+      "id": "SC04",
+      "name": "Vanilla run accidentally uses Factory",
+      "description": "If Vanilla run references Factory manuals, governance, or role agents",
+      "trigger": "Factory-specific patterns detected in Vanilla run output",
+      "action": "STOP — restart Vanilla run with strict isolation"
+    },
+    {
+      "id": "SC05",
+      "name": "Factory runs use different requirements",
+      "description": "If Factory runs implement different feature scope than spec",
+      "trigger": "FR coverage deviates from spec by >10% (either direction)",
+      "action": "STOP — restart runs with identical spec"
+    },
+    {
+      "id": "SC06",
+      "name": "Evaluator lacks artifacts",
+      "description": "If run output directory is empty or missing key files",
+      "trigger": "No runnable project, no README, no source files",
+      "action": "STOP — cannot evaluate; record as run failure"
+    },
+    {
+      "id": "SC07",
+      "name": "Tests cannot run and no reason recorded",
+      "description": "If test suite fails to execute and builder cannot explain why",
+      "trigger": "npm test or equivalent exits with error and no documented workaround",
+      "action": "STOP — D07=0, record as evaluation caveat"
+    },
+    {
+      "id": "SC08",
+      "name": "Final package modified",
+      "description": "If FINAL package SHA256 changes during benchmark phase",
+      "trigger": "SHA256 mismatch against handoff record",
+      "action": "STOP — integrity violation"
+    },
+    {
+      "id": "SC09",
+      "name": "New final ZIP created",
+      "description": "If a new final ZIP appears during benchmark runs",
+      "trigger": "Any ZIP file in outputs/ that is not the verified FINAL package",
+      "action": "STOP — integrity violation"
+    },
+    {
+      "id": "SC10",
+      "name": "Final package SHA mismatch",
+      "description": "If recorded SHA256 does not match the file on disk",
+      "trigger": "SHA256 verification fails",
+      "action": "STOP — integrity violation"
+    }
+  ]
+}

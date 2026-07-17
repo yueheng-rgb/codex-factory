@@ -1,0 +1,38 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-J",
+  "title": "Real Project Intake Summary and Next Step",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "project": "tcm-project-ledger",
+  "intake_result": {
+    "suitable_for_realworld2": true,
+    "more_suitable_than_bookstore": true,
+    "real_deployed_evidence": [
+      "Production .env with real SECRET_KEY and SMTP credentials",
+      "7 deploy scripts with real Alibaba Cloud ECS IP and SSH credentials",
+      "systemd service, Nginx, Gunicorn config documented",
+      "SQLite database with real patient/doctor data (457KB)"
+    ],
+    "top_risks": [
+      {"risk": "Hardcoded SSH credentials in 7 scripts", "severity": "CRITICAL"},
+      {"risk": "DJANGO_SECRET_KEY in .env", "severity": "CRITICAL"},
+      {"risk": "SMTP password in .env", "severity": "CRITICAL"},
+      {"risk": "CSRF/Session cookies not secure by default", "severity": "HIGH"},
+      {"risk": "No HTTPS enforcement default", "severity": "HIGH"},
+      {"risk": "Hardcoded test passwords in scripts", "severity": "HIGH"},
+      {"risk": "No CI/CD pipeline", "severity": "MEDIUM"},
+      {"risk": "No rollback mechanism", "severity": "MEDIUM"},
+      {"risk": "No dev/prod settings split", "severity": "MEDIUM"}
+    ],
+    "next_phase": "REALWORLD-2-P1 working-copy local validation",
+    "native_build_pro_needed": false,
+    "secret_rotation_required": true,
+    "user_approvals_required": [
+      "Working copy creation",
+      "Local validation execution",
+      "Secret rotation (separate approval)"
+    ]
+  },
+  "verdict": "PASS — Suitable for REALWORLD-2. Intake complete. Proceed to P1 after user approval.",
+  "report_path": "outputs/FACTORY_BUILD_REALWORLD_2_TCM_PROJECT_LEDGER_INTAKE_REPORT.md",
+  "status": "COMPLETE"
+}

@@ -1,0 +1,48 @@
+﻿{
+    "totalNativeAgents":  3,
+    "subPhase":  "B_NATIVE_AGENT_LIFECYCLE_AUDIT",
+    "date":  "2026-06-27T11:41:20.2599687+08:00",
+    "phase":  "FACTORY-BUILD-8-P1",
+    "summary":  {
+                    "orphan":  0,
+                    "active":  0,
+                    "completed":  3,
+                    "verdict":  "ALL 3 COMPLETED, CLOSED, CLEAN",
+                    "stale":  0
+                },
+    "agents":  [
+                   {
+                       "id":  "019f071c-621b",
+                       "closeReceipt":  true,
+                       "nickname":  "Lorentz",
+                       "writeScopeViolations":  0,
+                       "forkContext":  false,
+                       "role":  "worker-backend",
+                       "outputFiles":  18,
+                       "status":  "completed",
+                       "nativeSpawned":  true
+                   },
+                   {
+                       "id":  "019f071c-6281",
+                       "closeReceipt":  true,
+                       "nickname":  "Lovelace",
+                       "writeScopeViolations":  0,
+                       "forkContext":  false,
+                       "role":  "worker-frontend",
+                       "outputFiles":  13,
+                       "status":  "completed",
+                       "nativeSpawned":  true
+                   },
+                   {
+                       "id":  "019f071c-62d5",
+                       "closeReceipt":  true,
+                       "nickname":  "Maxwell",
+                       "writeScopeViolations":  0,
+                       "forkContext":  false,
+                       "role":  "worker-verify",
+                       "outputFiles":  4,
+                       "status":  "completed",
+                       "nativeSpawned":  true
+                   }
+               ]
+}

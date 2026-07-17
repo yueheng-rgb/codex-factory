@@ -1,0 +1,72 @@
+﻿{
+    "keyFindings":  [
+                        "Native Build Pro (3 agents) and Build Lite (1 agent) both produced complete AtlasOps Portal Lite MVPs",
+                        "Native agents produced more polished output (392-line CSS, pagination, richer UI)",
+                        "Build Lite produced leaner output (31 source files vs 31+node_modules)",
+                        "Native Build Pro adds dependency management overhead (node_modules installed by agent)",
+                        "Both modes maintain 0 write-scope violations",
+                        "Build Pro native agents installed npm deps independently — useful but adds file count",
+                        "Build Lite remains better cost/benefit for single developer"
+                    ],
+    "runs":  {
+                 "RUN-PRO":  {
+                                 "nativeSpawn":  true,
+                                 "forkContext":  false,
+                                 "productFiles":  "31+",
+                                 "memoryFiles":  9,
+                                 "mode":  "Native Build Pro",
+                                 "agents":  3
+                             },
+                 "RUN-LITE":  {
+                                  "agents":  1,
+                                  "nativeSpawn":  false,
+                                  "memoryFiles":  10,
+                                  "mode":  "Build Lite",
+                                  "productFiles":  31
+                              }
+             },
+    "conclusion":  {
+                       "buildLiteStatus":  "BEST FOR SINGLE DEVELOPER — lean, fast, sufficient",
+                       "nativeBuildProStatus":  "PROVEN — native agents produce richer output with more polish",
+                       "verdict":  "BOTH MODES PRODUCE COMPLETE PRODUCTS",
+                       "v05Readiness":  "STILL BLOCKED — both modes work, packaging decision separate",
+                       "multiAgentDefault":  "REJECTED — native spawn is CONDITIONAL capability",
+                       "recommendedNext":  "User review or FACTORY-BUILD-LITE-PACK-PREP for usable packaging"
+                   },
+    "forbiddenConfirmed":  [
+                               "No release ZIP",
+                               "No v0.5",
+                               "No multi-agent default",
+                               "No prior products modified"
+                           ],
+    "phase":  "FACTORY-BUILD-8",
+    "date":  "2026-06-27",
+    "nativeAgents":  [
+                         {
+                             "status":  "completed",
+                             "files":  "18 (server+DB+routes+middleware)",
+                             "nickname":  "Lorentz",
+                             "role":  "worker-backend"
+                         },
+                         {
+                             "status":  "completed",
+                             "files":  "13 (HTML+CSS+JS+pages)",
+                             "nickname":  "Lovelace",
+                             "role":  "worker-frontend"
+                         },
+                         {
+                             "status":  "completed",
+                             "files":  "4 (tests+integration+diagnostic+recovery)",
+                             "nickname":  "Maxwell",
+                             "role":  "worker-verify"
+                         }
+                     ],
+    "status":  "PASS",
+    "title":  "Native Build Pro Matched Trial — Build Lite vs Native Build Pro",
+    "verifier":  {
+                     "failed":  0,
+                     "result":  "PASS",
+                     "total":  29,
+                     "passed":  29
+                 }
+}

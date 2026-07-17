@@ -1,0 +1,190 @@
+﻿{
+    "failCount":  0,
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Classification exists",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "README exists",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "Diagnostic gate result exists",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "Persistence (DB schema) exists",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "",
+                               "description":  "Task graph status updated",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "All memory files exist",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Auth middleware exists",
+                               "pass":  true
+                           },
+                   "V35":  {
+                               "detail":  "",
+                               "description":  "No expectedClass-only",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "Intake exists",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "BUILD-2 PASS exists",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "RBAC middleware exists",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "Backend (server/index.js) exists",
+                               "pass":  true
+                           },
+                   "V32":  {
+                               "detail":  "",
+                               "description":  "No UNEXPECTED_PASS",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "Recovery drill result exists",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "Handoff packet generated",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "Blueprint exists",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "Tests exist",
+                               "pass":  true
+                           },
+                   "V34":  {
+                               "detail":  "",
+                               "description":  "No generic FAIL",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "",
+                               "description":  "Verifier history has entries",
+                               "pass":  true
+                           },
+                   "V30":  {
+                               "detail":  "",
+                               "description":  "No v0.5 package",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "BUILD_TRIAL_MANIFEST.md exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "Workflow validation exists",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "Memory validation final result",
+                               "pass":  true
+                           },
+                   "V31":  {
+                               "detail":  "",
+                               "description":  "Negative controls 0 gaps",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  ".codex-factory/ exists",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "API routes (10) exist",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "",
+                               "description":  "No product code outside trial modified",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "Product directory exists",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "",
+                               "description":  "No ZIP created",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Trial directory exists",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "Frontend (index.html) exists",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "Mode selection exists",
+                               "pass":  true
+                           },
+                   "V36":  {
+                               "detail":  "",
+                               "description":  "No manual PASS-only",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "Frontend pages exist",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "",
+                               "description":  "Decision log has entries",
+                               "pass":  true
+                           },
+                   "V33":  {
+                               "detail":  "",
+                               "description":  "No FAIL_TARGET_NOT_TRIGGERED",
+                               "pass":  true
+                           }
+               },
+    "verdict":  "PASS",
+    "passCount":  36,
+    "phase":  "FACTORY-BUILD-3",
+    "totalChecks":  36,
+    "verifier":  "factory-build-3-real-complex-project-build-trial-verify.ps1"
+}

@@ -1,0 +1,27 @@
+﻿{
+    "sub_step":  "B",
+    "recommended_types":  [
+                              "CLI tool",
+                              "static site",
+                              "homework",
+                              "local library",
+                              "markdown project"
+                          ],
+    "inclusion_criteria_count":  10,
+    "hard_reject_types":  [
+                              "TCM (RISK-CS-002)",
+                              "production-only",
+                              "unrotated secrets",
+                              "deploy-required"
+                          ],
+    "risk_cs_002_active":  true,
+    "tcm_blocked":  true,
+    "exclusion_criteria_count":  8,
+    "title":  "Candidate Project Selection Criteria",
+    "selection_process":  "User nominates → EX checklist → IN checklist → decision recorded",
+    "acceptable_with_caution":  [
+                                    "web app with .env.example",
+                                    "Django/Flask/Express with local dev",
+                                    "package with tests"
+                                ]
+}

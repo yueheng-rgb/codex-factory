@@ -1,0 +1,46 @@
+﻿{
+    "workflow_path":  ".github/workflows/codex-factory-ci.yml",
+    "non_claims":  [
+                       "Codex does NOT have GitHub token access",
+                       "User must manually run workflow",
+                       "No REMOTE_RUN_VERIFIED until artifact provided"
+                   ],
+    "timestamp":  "2026-07-17T16:44:05.4458068+08:00",
+    "pre_run_check_id":  "V3_4-PRE-RUN-CHECK-001",
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "check":  "workflow_exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "workflow_dispatch_supported"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "artifact_upload_step"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "secret_scan_step"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "snapshot_verifier_step"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "testbed_input_selectable"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "status":  "PASS",
+                       "check":  "no_embedded_secrets_or_token_refs"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "no_destructive_commands"
+                   }
+               ],
+    "overall":  "READY_FOR_USER_RUN"
+}

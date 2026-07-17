@@ -1,0 +1,33 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "state-dashboard.schema.json",
+  "title": "State Dashboard",
+  "type": "object",
+  "required": ["projectId", "projectName", "projectStatus", "rootPath"],
+  "properties": {
+    "projectId": { "type": "string", "format": "uuid" },
+    "projectName": { "type": "string" },
+    "projectStatus": { "type": "string", "enum": ["ACTIVE", "PAUSED", "ARCHIVED", "FROZEN", "DELETED", "MIGRATED", "UNKNOWN_NEEDS_CONFIRMATION"] },
+    "rootPath": { "type": "string" },
+    "workingCopyPath": { "type": "string" },
+    "factoryInstallPath": { "type": "string" },
+    "externalConversationSpacePath": { "type": "string" },
+    "governancePath": { "type": "string" },
+    "outputsPath": { "type": "string" },
+    "currentPhase": { "type": "string" },
+    "lastPhaseClose": { "type": "string" },
+    "latestVerifier": { "type": "object" },
+    "latestPhaseReport": { "type": "string" },
+    "activeBlockers": { "type": "array", "items": { "type": "object" } },
+    "activeRisks": { "type": "array", "items": { "type": "object" } },
+    "enabledGates": { "type": "array", "items": { "type": "string" } },
+    "memoryStatus": { "type": "string", "enum": ["HEALTHY", "WARNING", "CRITICAL", "UNKNOWN"] },
+    "cleanupStatus": { "type": "object" },
+    "mountStatus": { "type": "object" },
+    "foreignContextWarnings": { "type": "array", "items": { "type": "object" } },
+    "staleWarnings": { "type": "array", "items": { "type": "object" } },
+    "missingEvidenceWarnings": { "type": "array", "items": { "type": "object" } },
+    "agentLedgerSummary": { "type": "object" },
+    "nextRecommendedAction": { "type": "string" }
+  }
+}

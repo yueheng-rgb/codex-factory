@@ -1,0 +1,64 @@
+﻿{
+    "policy": "mode-selector",
+    "version": "0.1.0",
+    "modes": {
+        "VANILLA_BUILD": {
+            "description": "Standard single-agent Codex build. No harness overhead.",
+            "complexity": ["SMALL"],
+            "agentCount": 1,
+            "usesReviewer": false,
+            "usesDiagnosticGate": true,
+            "isDefault": true
+        },
+        "BUILD_LITE": {
+            "description": "Single Codex with harness-guided phased execution and stage gates.",
+            "complexity": ["MEDIUM"],
+            "agentCount": 1,
+            "usesReviewer": false,
+            "usesDiagnosticGate": true,
+            "isDefault": false
+        },
+        "BUILD_REVIEWER": {
+            "description": "Single Codex with Reviewer-Verifier checking each stage output.",
+            "complexity": ["LARGE"],
+            "agentCount": 1,
+            "usesReviewer": true,
+            "usesDiagnosticGate": true,
+            "isDefault": false
+        },
+        "BUILD_CONTINUATION": {
+            "description": "Single Codex with state persistence for multi-session projects.",
+            "complexity": ["LONG_HORIZON"],
+            "agentCount": 1,
+            "usesReviewer": true,
+            "usesDiagnosticGate": true,
+            "isDefault": false
+        },
+        "BUILD_PRO_4_AGENT": {
+            "description": "4-agent conditional build. Architect, Backend, Frontend, Verifier.",
+            "complexity": ["HIGH_RISK"],
+            "agentCount": 4,
+            "usesReviewer": true,
+            "usesDiagnosticGate": true,
+            "isDefault": false,
+            "requiresExplicitUserApproval": true
+        },
+        "DIAGNOSTIC_ONLY": {
+            "description": "Run diagnostic only, no build. For audit/review/Codex Factory improvement.",
+            "complexity": ["SMALL", "MEDIUM", "LARGE", "LONG_HORIZON", "HIGH_RISK"],
+            "agentCount": 1,
+            "usesReviewer": true,
+            "usesDiagnosticGate": true,
+            "isDefault": false,
+            "triggeredBy": "User goal is diagnosis only or Codex Factory improvement"
+        }
+    },
+    "routingRules": [
+        {"if": "userGoal == 'DIAGNOSE_ONLY'", "then": "DIAGNOSTIC_ONLY", "stopAfter": true},
+        {"if": "classification.level == 'HIGH_RISK'", "then": "BUILD_PRO_4_AGENT", "requiresApproval": true},
+        {"if": "classification.level == 'LONG_HORIZON'", "then": "BUILD_CONTINUATION"},
+        {"if": "classification.level == 'LARGE'", "then": "BUILD_REVIEWER"},
+        {"if": "classification.level == 'MEDIUM'", "then": "BUILD_LITE"},
+        {"if": "classification.level == 'SMALL'", "then": "VANILLA_BUILD"}
+    ]
+}

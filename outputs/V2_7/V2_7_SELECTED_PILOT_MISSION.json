@@ -1,0 +1,20 @@
+﻿{
+  "stage": "V2_7",
+  "selected_mission": {
+    "mission_id": "CPM-001",
+    "name": "Miniapp Ecommerce Admin",
+    "packs": ["miniapp","ecommerce","admin-system"],
+    "risk_level": "CRITICAL",
+    "surfaces": ["miniapp-client","api-service","admin-web","database"],
+    "invariants_merged": 28,
+    "invariants_critical": 10,
+    "human_review_required": true,
+    "testbed_path": "testbeds/cross-pack-cpm-001",
+    "test_count_v2_6": 17,
+    "selection_reason": "Most representative real-world scenario: WeChat miniapp + ecommerce inventory/payment + admin RBAC. Closest to production business system across all cross-pack missions."
+  },
+  "pilot_scope": {
+    "includes": ["test execution","artifact capture","readiness check","human review receipts","release gate","non-claims"],
+    "excludes": ["real WeChat platform review","real payment gateway","production deployment","real user data"]
+  }
+}

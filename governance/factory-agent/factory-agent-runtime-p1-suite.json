@@ -1,0 +1,54 @@
+﻿{
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "timestamp":  "2026-06-26T18:47:55.4441842+08:00",
+    "document":  "runtime-suite",
+    "suite":  [
+                  {
+                      "component":  "Four-agent model",
+                      "path":  "governance/factory-agent/factory-agent-runtime-p1-four-agent-model.json"
+                  },
+                  {
+                      "paths":  [
+                                    "factory-agent-company-protocol-pack/roles/orchestrator-p1.md",
+                                    "factory-agent-company-protocol-pack/roles/product-builder-p1.md",
+                                    "factory-agent-company-protocol-pack/roles/test-integration-docs-builder-p1.md",
+                                    "factory-agent-company-protocol-pack/roles/reviewer-verifier-p1.md"
+                                ],
+                      "component":  "Role definitions"
+                  },
+                  {
+                      "paths":  [
+                                    "factory-agent-company-protocol-pack/policies/four-agent-model-policy.json",
+                                    "factory-agent-company-protocol-pack/policies/mid-run-floor-enforcer-policy.json",
+                                    "factory-agent-company-protocol-pack/policies/reviewer-caveat-blocker-policy.json",
+                                    "factory-agent-company-protocol-pack/policies/overhead-budget-policy.json"
+                                ],
+                      "component":  "Policies"
+                  },
+                  {
+                      "component":  "Floor enforcer",
+                      "path":  "governance/factory-agent/factory-agent-runtime-p1-floor-enforcer.json"
+                  },
+                  {
+                      "component":  "Caveat blocker",
+                      "path":  "governance/factory-agent/factory-agent-runtime-p1-caveat-blocker.json"
+                  },
+                  {
+                      "component":  "Overhead budget",
+                      "path":  "governance/factory-agent/factory-agent-runtime-p1-overhead-budget.json"
+                  },
+                  {
+                      "component":  "7-agent archive",
+                      "path":  "governance/factory-agent/factory-agent-runtime-p1-seven-agent-archive.json"
+                  },
+                  {
+                      "component":  "Evidence intake",
+                      "path":  "governance/factory-agent/factory-agent-runtime-p1-evidence-intake.json"
+                  },
+                  {
+                      "component":  "Re-test plan",
+                      "path":  "governance/factory-agent/factory-agent-runtime-p1-retest-plan.json"
+                  }
+              ],
+    "completenessCheck":  "All 9 components exist and cross-reference correctly"
+}

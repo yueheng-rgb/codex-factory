@@ -1,0 +1,227 @@
+﻿{
+    "passed":  36,
+    "checkedAt":  "2026-06-25T16:32:53+08:00",
+    "command":  "factory-eval-4-verify",
+    "totalChecks":  36,
+    "phase":  "FACTORY-EVAL-4",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "SHA256 match: True",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "Other ZIPs: 0",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "Expected: 01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+                       "result":  true,
+                       "name":  "SHA_MATCHES_HANDOFF",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "Verdict: PASS",
+                       "result":  true,
+                       "name":  "EVAL3_PASS",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "Project: TeamFlow Lite",
+                       "result":  true,
+                       "name":  "SELECTION_EXISTS",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "Non-Factory: True",
+                       "result":  true,
+                       "name":  "SELECTION_NON_FACTORY",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "Covers auth/RBAC/CRUD/workflow/audit/test",
+                       "result":  true,
+                       "name":  "SELECTION_ALL_AREAS",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "FRs: 11",
+                       "result":  true,
+                       "name":  "SPEC_EXISTS",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "Expected \u003e= 10, actual: 11",
+                       "result":  true,
+                       "name":  "SPEC_FR_COUNT",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "API groups: 6",
+                       "result":  true,
+                       "name":  "SPEC_API_ENDPOINTS",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "UI pages: 7",
+                       "result":  true,
+                       "name":  "SPEC_UI_PAGES",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "Test requirements present",
+                       "result":  true,
+                       "name":  "SPEC_TEST_REQS",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "Runs defined: 1 1 1",
+                       "result":  true,
+                       "name":  "COMPARISON_EXISTS",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "Run count = 3",
+                       "result":  true,
+                       "name":  "COMPARISON_THREE_RUNS",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "RUN-A: Vanilla",
+                       "result":  true,
+                       "name":  "COMPARISON_RUN_A_VANILLA",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "RUN-B: Manual Router, no Role-Agent",
+                       "result":  true,
+                       "name":  "COMPARISON_RUN_B_LITE",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "RUN-C: Manual Router + Role-Agent",
+                       "result":  true,
+                       "name":  "COMPARISON_RUN_C_FULL",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "notStarted: True",
+                       "result":  true,
+                       "name":  "COMPARISON_NOT_STARTED",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "Dimensions: 8",
+                       "result":  true,
+                       "name":  "RUBRIC_EXISTS",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "Max: 100",
+                       "result":  true,
+                       "name":  "RUBRIC_SCORE_100",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "No file count dimension",
+                       "result":  true,
+                       "name":  "RUBRIC_NO_FILE_COUNT",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "Evaluator policy present",
+                       "result":  true,
+                       "name":  "EVALPOL_EXISTS",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "Separation required",
+                       "result":  true,
+                       "name":  "EVALPOL_SEPARATION",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "Harness design present",
+                       "result":  true,
+                       "name":  "HARNESS_DESIGN_EXISTS",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "Skeleton scripts: 7",
+                       "result":  true,
+                       "name":  "HARNESS_SKELETONS",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "Anti-gaming policy present",
+                       "result":  true,
+                       "name":  "ANTIGAMING_EXISTS",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "Controls: 14",
+                       "result":  true,
+                       "name":  "ANTIGAMING_CONTROLS",
+                       "id":  27
+                   },
+                   {
+                       "detail":  "Stop conditions: 10",
+                       "result":  true,
+                       "name":  "ANTIGAMING_STOP_CONDITIONS",
+                       "id":  28
+                   },
+                   {
+                       "detail":  "Total: 30",
+                       "result":  true,
+                       "name":  "NEGATIVES_EXIST",
+                       "id":  29
+                   },
+                   {
+                       "detail":  "Min 30: actual 30",
+                       "result":  true,
+                       "name":  "NEGATIVES_COUNT",
+                       "id":  30
+                   },
+                   {
+                       "detail":  "Passed: 30",
+                       "result":  true,
+                       "name":  "NEGATIVES_PASSED",
+                       "id":  31
+                   },
+                   {
+                       "detail":  "Gaps: 0",
+                       "result":  true,
+                       "name":  "NEGATIVES_GAPS",
+                       "id":  32
+                   },
+                   {
+                       "detail":  "Reports found: 8 / 8",
+                       "result":  true,
+                       "name":  "OUTPUT_REPORTS",
+                       "id":  33
+                   },
+                   {
+                       "detail":  "Runs are NOT_STARTED",
+                       "result":  true,
+                       "name":  "NO_RUN_STARTED",
+                       "id":  34
+                   },
+                   {
+                       "detail":  "No design-stage claim of effectiveness",
+                       "result":  true,
+                       "name":  "NO_EFFECTIVENESS_CLAIM",
+                       "id":  35
+                   },
+                   {
+                       "detail":  "Recorded but SHA is authoritative",
+                       "result":  true,
+                       "name":  "FILE_COUNT_DISCREPANCY",
+                       "id":  36
+                   }
+               ],
+    "failed":  0
+}

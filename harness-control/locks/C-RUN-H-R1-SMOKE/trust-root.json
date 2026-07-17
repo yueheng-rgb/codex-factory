@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  184,
+    "frozenAt":  "2026-06-19T20:26:21.9474798+08:00",
+    "runId":  "C-RUN-H-R1-SMOKE",
+    "trustRootFile":  "C:\\Codex_App_Factory\\fresh-install-target-r1\\..\\harness-control\\locks\\C-RUN-H-R1-SMOKE\\trust-root.json",
+    "controlPlaneLockSha256":  "4ea1081c3b3332a935074bbc577ba672d01ed7be40ac0eca52be2c9e12d77d32",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "26ee46ebdde441cd3b366c36d1b1252db1d2172187f497247e0d31e3dd668d3d"
+}

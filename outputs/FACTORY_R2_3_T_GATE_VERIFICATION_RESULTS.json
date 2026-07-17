@@ -1,0 +1,182 @@
+﻿[
+    {
+        "test":  "P0-01: New project — full-stack ecommerce",
+        "result":  "PASS",
+        "expected_level":  "P0_MUST_SEARCH",
+        "actual_level":  "P0_MUST_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P0 triggers: new_project_start (score=1)",
+        "search_required":  true,
+        "ep_required":  true
+    },
+    {
+        "test":  "P0-02: Database design + scalability",
+        "result":  "PASS",
+        "expected_level":  "P0_MUST_SEARCH",
+        "actual_level":  "P0_MUST_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P0 triggers: database_design (score=1)",
+        "search_required":  true,
+        "ep_required":  true
+    },
+    {
+        "test":  "P0-03: Third-party API integration",
+        "result":  "PASS",
+        "expected_level":  "P0_MUST_SEARCH",
+        "actual_level":  "P0_MUST_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P0 triggers: third_party_integration (score=1)",
+        "search_required":  true,
+        "ep_required":  true
+    },
+    {
+        "test":  "P0-04: Tech stack selection with user asking mainstream",
+        "result":  "PASS",
+        "expected_level":  "P0_MUST_SEARCH",
+        "actual_level":  "P0_MUST_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P0 triggers: tech_stack_selection (score=1)",
+        "search_required":  true,
+        "ep_required":  true
+    },
+    {
+        "test":  "P0-05: Major dependency upgrade",
+        "result":  "PASS",
+        "expected_level":  "P0_MUST_SEARCH",
+        "actual_level":  "P0_MUST_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P0 triggers: dependency_risk (score=1)",
+        "search_required":  true,
+        "ep_required":  true
+    },
+    {
+        "test":  "P0-06: Security + auth critical feature",
+        "result":  "PASS",
+        "expected_level":  "P0_MUST_SEARCH",
+        "actual_level":  "P0_MUST_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P0 triggers: security_critical (score=1)",
+        "search_required":  true,
+        "ep_required":  true
+    },
+    {
+        "test":  "P0-07: Codex uncertainty + architecture risk",
+        "result":  "PASS",
+        "expected_level":  "P0_MUST_SEARCH",
+        "actual_level":  "P0_MUST_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P0 triggers: architecture_selection, uncertainty_with_p0_triggers (score=2)",
+        "search_required":  true,
+        "ep_required":  true
+    },
+    {
+        "test":  "P1-01: UI pattern with best practice question",
+        "result":  "PASS",
+        "expected_level":  "P1_SHOULD_SEARCH",
+        "actual_level":  "P1_SHOULD_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P1 triggers: external_best_practice, ui_ux_pattern (score=2)",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "P1-02: Multiple implementation routes",
+        "result":  "PASS",
+        "expected_level":  "P1_SHOULD_SEARCH",
+        "actual_level":  "P1_SHOULD_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P1 triggers: multiple_routes (score=1)",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "P1-03: UI component with community reference",
+        "result":  "PASS",
+        "expected_level":  "P1_SHOULD_SEARCH",
+        "actual_level":  "P1_SHOULD_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P1 triggers: ui_ux_pattern (score=1)",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "P2-01: Local bug fix",
+        "result":  "PASS",
+        "expected_level":  "P2_NO_SEARCH_REQUIRED",
+        "actual_level":  "P2_NO_SEARCH_REQUIRED",
+        "gate_passed":  true,
+        "reason":  "No search triggers detected",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "P2-02: Small style change",
+        "result":  "PASS",
+        "expected_level":  "P2_NO_SEARCH_REQUIRED",
+        "actual_level":  "P2_NO_SEARCH_REQUIRED",
+        "gate_passed":  true,
+        "reason":  "No search triggers detected",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "P2-03: Add tests",
+        "result":  "PASS",
+        "expected_level":  "P2_NO_SEARCH_REQUIRED",
+        "actual_level":  "P2_NO_SEARCH_REQUIRED",
+        "gate_passed":  true,
+        "reason":  "P2 triggers: add_tests",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "P2-04: Pure refactor/rename",
+        "result":  "PASS",
+        "expected_level":  "P2_NO_SEARCH_REQUIRED",
+        "actual_level":  "P2_NO_SEARCH_REQUIRED",
+        "gate_passed":  true,
+        "reason":  "P2 triggers: refactor_only",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "P2-05: Documentation task with explicit instructions",
+        "result":  "PASS",
+        "expected_level":  "P2_NO_SEARCH_REQUIRED",
+        "actual_level":  "P2_NO_SEARCH_REQUIRED",
+        "gate_passed":  true,
+        "reason":  "P2 triggers: pure_docs",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "ESC-01: Bug fix with uncertainty → P1",
+        "result":  "PASS",
+        "expected_level":  "P1_SHOULD_SEARCH",
+        "actual_level":  "P1_SHOULD_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P2 escalated to P1: uncertainty detected in non-doc task",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "ESC-02: New dependency with uncertainty → P1",
+        "result":  "PASS",
+        "expected_level":  "P1_SHOULD_SEARCH",
+        "actual_level":  "P1_SHOULD_SEARCH",
+        "gate_passed":  true,
+        "reason":  "P2 escalated to P1: uncertainty detected in non-doc task",
+        "search_required":  false,
+        "ep_required":  false
+    },
+    {
+        "test":  "IMP-BLOCK: Implementer search attempt",
+        "result":  "PASS",
+        "expected_level":  "REJECT",
+        "actual_level":  "REJECT",
+        "gate_passed":  false,
+        "reason":  "Implementer agents (IMPL-*) are forbidden from triggering search. Only RSRC-001 / LIB-001 may invoke Pre-Build Research Gate.",
+        "search_required":  false,
+        "ep_required":  false
+    }
+]

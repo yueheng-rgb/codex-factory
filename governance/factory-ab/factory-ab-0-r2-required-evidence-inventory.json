@@ -1,0 +1,26 @@
+﻿{
+  "phase": "FACTORY-AB-0-R2",
+  "section": "B",
+  "title": "Required Evidence Inventory",
+  "timestamp": "2026-06-28T18:20:00+08:00",
+  "required_evidence": [
+    {"id":"EVI-01","item":"RUN-A prompt file","path":"factory-ab/prompts/RUN_A_VANILLA_PROMPT.md","exists":true},
+    {"id":"EVI-02","item":"RUN-B prompt file","path":"factory-ab/prompts/RUN_B_FACTORY_PROMPT.md","exists":true},
+    {"id":"EVI-03","item":"RUN-A output files","path":"harness/ab-0-r1/run-a-vanilla/","exists":true,"has_content":false,"note":"Directory exists but actual code artifacts not populated"},
+    {"id":"EVI-04","item":"RUN-B output files","path":"harness/ab-0-r1/run-b-factory/","exists":true,"has_content":false,"note":"Directory exists but actual code artifacts not populated"},
+    {"id":"EVI-05","item":"RUN-A file inventory","path":"governance/factory-ab/factory-ab-0-r1-run-a-vanilla-execution.json","exists":true},
+    {"id":"EVI-06","item":"RUN-B file inventory","path":"governance/factory-ab/factory-ab-0-r1-run-b-factory-execution.json","exists":true},
+    {"id":"EVI-07","item":"RUN-A decision/log/transcript summary","path":"governance/factory-ab/factory-ab-0-r1-run-a-vanilla-execution.json","exists":true,"note":"Contains observed_behaviors section"},
+    {"id":"EVI-08","item":"RUN-B decision/log/transcript summary","path":"governance/factory-ab/factory-ab-0-r1-run-b-factory-execution.json","exists":true,"note":"Contains observed_behaviors section"},
+    {"id":"EVI-09","item":"Output freeze report","path":"governance/factory-ab/factory-ab-0-r1-output-lock.json","exists":true},
+    {"id":"EVI-10","item":"Normalized comparison report","path":"governance/factory-ab/factory-ab-0-r1-normalized-comparison.json","exists":true},
+    {"id":"EVI-11","item":"Scoring execution report","path":"governance/factory-ab/factory-ab-0-r1-scoring-execution.json","exists":true},
+    {"id":"EVI-12","item":"Per-category scoring evidence paths","path":"governance/factory-ab/factory-ab-0-r1-scoring-execution.json","exists":true,"note":"Contains per_dimension_evidence with rationales"},
+    {"id":"EVI-13","item":"Blocker reassessment","path":"governance/factory-ab/factory-ab-0-r1-block-001-reassessment.json","exists":true},
+    {"id":"EVI-14","item":"Comparative verdict","path":"governance/factory-ab/factory-ab-0-r1-comparative-verdict.json","exists":true},
+    {"id":"EVI-15","item":"Negative controls","path":"governance/factory-ab/factory-ab-0-r1-negative-controls.json","exists":true},
+    {"id":"EVI-16","item":"Verifier result","path":"governance/factory-ab/verifier-factory-ab-0-r1-result.json","exists":true}
+  ],
+  "summary": {"total":16,"exists":16,"has_actual_artifacts":0,"note":"All governance/report evidence exists. Actual code/execution artifacts in harness directories are not populated — directories exist but are empty of generated code."},
+  "status": "EVIDENCE_INVENTORY_COMPLETE"
+}

@@ -1,0 +1,179 @@
+﻿{
+    "passed":  28,
+    "timestamp":  "2026-06-25T22:12:39+08:00",
+    "title":  "Verifier Result — EVAL-13 Independent Comparison",
+    "verdict":  "PASS",
+    "phase":  "FACTORY-EVAL-13-L",
+    "total":  28,
+    "checks":  [
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "old FINAL package unchanged",
+                       "id":  "L01"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no new final ZIP",
+                       "id":  "L02"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no v0.4 release ZIP",
+                       "id":  "L03"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "v0.4 draft DRAFT_NOT_RELEASED",
+                       "id":  "L04"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "FACTORY-EVAL-11 PASS exists",
+                       "id":  "L05"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "FACTORY-EVAL-12 PASS exists",
+                       "id":  "L06"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "evaluation metadata exists",
+                       "id":  "L07"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "evaluator readonly",
+                       "id":  "L08"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "product artifact comparison exists",
+                       "id":  "L09"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "runtime/test comparison exists",
+                       "id":  "L10"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "requirements coverage comparison exists",
+                       "id":  "L11"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "architecture comparison exists",
+                       "id":  "L12"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "financial/workflow comparison exists",
+                       "id":  "L13"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "security comparison exists",
+                       "id":  "L14"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "process overhead comparison exists",
+                       "id":  "L15"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "scored rubric exists",
+                       "id":  "L16"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "effectiveness conclusion exists",
+                       "id":  "L17"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "evidence paths included in scores",
+                       "id":  "L18"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "product quality separated from process quality",
+                       "id":  "L19"
+                   },
+                   {
+                       "detail":  "No blockers found",
+                       "result":  "PASS",
+                       "name":  "blockers considered",
+                       "id":  "L20"
+                   },
+                   {
+                       "detail":  "All product files unchanged since EVAL-11/EVAL-12 completion",
+                       "result":  "PASS",
+                       "name":  "no product code modified",
+                       "id":  "L21"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no self-mapping treated as final score",
+                       "id":  "L22"
+                   },
+                   {
+                       "detail":  "Verdict present with 4 caveats",
+                       "result":  "PASS",
+                       "name":  "conclusion includes verdict with caveats",
+                       "id":  "L23"
+                   },
+                   {
+                       "detail":  "USER REVIEW",
+                       "result":  "PASS",
+                       "name":  "recommendation exists",
+                       "id":  "L24"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "optional RUN-F not started",
+                       "id":  "L25"
+                   },
+                   {
+                       "detail":  "No new release ZIPs (pre-existing PHASE_6C files are from earlier)",
+                       "result":  "PASS",
+                       "name":  "release prep not started",
+                       "id":  "L26"
+                   },
+                   {
+                       "detail":  "35/35",
+                       "result":  "PASS",
+                       "name":  "negatives executed with 0 gaps",
+                       "id":  "L27"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "no anti-patterns in negatives",
+                       "id":  "L28"
+                   }
+               ],
+    "failed":  0
+}

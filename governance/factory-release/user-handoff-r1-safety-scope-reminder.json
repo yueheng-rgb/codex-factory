@@ -1,0 +1,9 @@
+﻿{
+    "section":  "G",
+    "safetyRules":  6,
+    "localToolingOnly":  true,
+    "notCloud":  true,
+    "notUniversalProof":  true,
+    "phase":  "USER-HANDOFF-R1",
+    "notProduction":  true
+}

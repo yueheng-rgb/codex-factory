@@ -1,0 +1,66 @@
+﻿{
+    "scenarios":  [
+                      {
+                          "scenario":  "Manual new window after ROTATION_REQUIRED",
+                          "match":  true,
+                          "actual":  "Manual fallback activated; startup verification required",
+                          "id":  "SIM-01",
+                          "expected":  "Manual fallback activated; startup verification required"
+                      },
+                      {
+                          "scenario":  "Fork carrier available but requires startup verification",
+                          "match":  true,
+                          "actual":  "Fork optional; startup verification mandatory",
+                          "id":  "SIM-02",
+                          "expected":  "Fork optional; startup verification mandatory"
+                      },
+                      {
+                          "scenario":  "Automation wakeup cannot be new context",
+                          "match":  true,
+                          "actual":  "Wakeup REJECTED as carrier; must use manual",
+                          "id":  "SIM-03",
+                          "expected":  "Wakeup REJECTED as carrier; must use manual"
+                      },
+                      {
+                          "scenario":  "Subagent spawn not user-visible branch",
+                          "match":  true,
+                          "actual":  "spawn_agent fork_context:false = builder only, not carrier",
+                          "id":  "SIM-04",
+                          "expected":  "spawn_agent fork_context:false = builder only, not carrier"
+                      },
+                      {
+                          "scenario":  "Confirmed compact before major phase requires rotation",
+                          "match":  true,
+                          "actual":  "Compact -\u003e ROTATION_REQUIRED -\u003e manual new window",
+                          "id":  "SIM-05",
+                          "expected":  "Compact -\u003e ROTATION_REQUIRED -\u003e manual new window"
+                      },
+                      {
+                          "scenario":  "Startup verification failure blocks new phase",
+                          "match":  true,
+                          "actual":  "STARTUP_VERIFICATION_BLOCKED -\u003e no new phase",
+                          "id":  "SIM-06",
+                          "expected":  "STARTUP_VERIFICATION_BLOCKED -\u003e no new phase"
+                      },
+                      {
+                          "scenario":  "Clean startup allows next action",
+                          "match":  true,
+                          "actual":  "STARTUP_VERIFICATION_PASS -\u003e continue",
+                          "id":  "SIM-07",
+                          "expected":  "STARTUP_VERIFICATION_PASS -\u003e continue"
+                      },
+                      {
+                          "scenario":  "Full-context inheritance claim rejected",
+                          "match":  true,
+                          "actual":  "Inheritance claim classified REJECTED in carrier capability",
+                          "id":  "SIM-08",
+                          "expected":  "Inheritance claim classified REJECTED in carrier capability"
+                      }
+                  ],
+    "controllerNonMutating":  true,
+    "allMatch":  true,
+    "simulationId":  "LIVE-RUNTIME-6-E-SESSION-CONTROLLER",
+    "generatedAt":  "2026-06-25T00:35:09+08:00",
+    "manualFallbackAlwaysPresent":  true,
+    "totalScenarios":  8
+}

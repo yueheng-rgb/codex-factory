@@ -1,0 +1,49 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "F",
+  "title": "Run-B: Factory Build Lite Trial",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "trial_metadata": {
+    "type": "DESIGNED_TRIAL",
+    "execution_note": "This is a designed/comparative analysis of expected Factory Build Lite behavior based on P5/P7 trial validations and documented gate behaviors. Actual execution deferred to user or future phase.",
+    "conditions": {
+      "factory_installed": true,
+      "build_lite": true,
+      "security_gate": true,
+      "package_qa": true,
+      "context_space": true,
+      "test_repair_policy": true
+    }
+  },
+  "expected_observations": {
+    "design_phase": {
+      "observation": "Factory Bootstrap Gate enforces Project Expertise Flow: entity design, API outline, page tree, permission matrix before code. Factory.ps1 bootstrap validates 18/18 checks.",
+      "advantage": "Structured design reduces rework. Architecture decisions made upfront."
+    },
+    "safety": {
+      "observation": "Security Gate scans for deploy traces, .env patterns, and secret-like content. Triggers blocking checks if deploy traces found.",
+      "advantage": "Automatic safety net. .env.production.example flagged. No secrets in output."
+    },
+    "code_quality": {
+      "observation": "Test Repair Policy (CLASSIFICATION_FIRST) ensures tests are classified before modification. HONEST_SKIP for env-dependent tests.",
+      "advantage": "Consistent test policy. No fake passes. Clear documentation of why tests are skipped."
+    },
+    "documentation": {
+      "observation": "Package QA Gate enforces manifest reconciliation, ZIP content audit, and 4-layer coverage check before handoff.",
+      "advantage": "Guaranteed clean handoff. No missing files. SHA256 verified."
+    },
+    "user_intervention": {
+      "observation": "Build Lite provides install→bootstrap→preflight→phase-close workflow. factory.ps1 guides each step.",
+      "advantage": "Reduced cognitive burden. User follows structured phases instead of remembering all checks."
+    }
+  },
+  "scoring": {
+    "DIM-01_Design": 17,
+    "DIM-02_Safety": 22,
+    "DIM-03_CodeQuality": 17,
+    "DIM-04_Documentation": 14,
+    "DIM-05_UserIntervention": 17,
+    "total": 87
+  },
+  "status": "RUN_B_DESIGNED_AND_SCORED"
+}

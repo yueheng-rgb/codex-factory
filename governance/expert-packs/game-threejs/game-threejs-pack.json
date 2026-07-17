@@ -1,0 +1,38 @@
+﻿{
+  "expert_pack_id": "game-threejs",
+  "domain": "Game / ThreeJS Interactive 3D",
+  "version": "1.0.0",
+  "description": "Game / ThreeJS Expert Pack — 3D interactive scenes, WebGL rendering, asset management, game state, save/load, competitive scoring. Does NOT constitute a complete production game.",
+  "supported_project_types": ["threejs-interactive","frontend-app","backend-api"],
+  "supported_surfaces": [
+    {"surface_id":"g3d-frontend","surface_type":"threejs-interactive","purpose":"ThreeJS / WebGL 3D scene: rendering, camera, input, animation","required":true,"recommended_starter":"vite-threejs-interactive","risk_level_default":"MEDIUM"},
+    {"surface_id":"g3d-api","surface_type":"api-service","purpose":"Optional backend: save/load scene, user accounts, scoring, asset management","required":false,"recommended_starter":"node-api-postgres","risk_level_default":"MEDIUM"},
+    {"surface_id":"g3d-database","surface_type":"database","purpose":"Optional: scene data, user progress, scores, asset metadata","required":false,"recommended_starter":null,"risk_level_default":"MEDIUM"}
+  ],
+  "risk_rules": [
+    {"rule_id":"G3D-R01","condition":"External asset URLs (CDN, third-party models/textures)","risk":"HIGH","required":"URL allowlist"},
+    {"rule_id":"G3D-R02","condition":"User-generated scene content (save/load/edit)","risk":"HIGH","required":"server-side validation + ownership check"},
+    {"rule_id":"G3D-R03","condition":"Competitive scoring / leaderboard","risk":"CRITICAL","required":"server-side score validation + human review"},
+    {"rule_id":"G3D-R04","condition":"High-complexity scene (many objects, large textures)","risk":"MEDIUM","required":"frame budget definition + performance test"},
+    {"rule_id":"G3D-R05","condition":"Asset loading from network","risk":"HIGH","required":"error handling + retry + fallback"},
+    {"rule_id":"G3D-R06","condition":"WebGL context-dependent functionality","risk":"MEDIUM","required":"context loss handler or documented limitation"}
+  ],
+  "activation_conditions": {
+    "keywords": ["3D","ThreeJS","three.js","WebGL","3D场景","三维","游戏","game","interactive scene","交互场景","3D展示","模型展示","3D viewer","web game","网页游戏","3d game","canvas 3d","babylon","gltf","glb","3d model"],
+    "min_surfaces": 1,
+    "exclude_keywords": ["文档修改","README","文案","样式调整"]
+  },
+  "integration_points": {
+    "surface_plan": true,"risk_classifier": true,"invariant_engine": true,"engine_broker": true,"gate_detection": true,"risk_gate": true,"human_review_gate": true
+  },
+  "non_claims": [
+    "This pack does NOT constitute a complete production game",
+    "This pack does NOT include Unity/Unreal Engine integration",
+    "This pack does NOT handle multiplayer networking or real-time sync",
+    "This pack does NOT include physics engine integration",
+    "This pack is a DESIGN AID — domain rules, invariants, and test patterns"
+  ],
+  "status": "ACTIVE",
+  "created_at": "2026-07-12",
+  "runtime_validated": false
+}

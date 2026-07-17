@@ -1,0 +1,100 @@
+﻿{
+    "generatedAt":  "2026-06-23T11:37:56.701+08:00",
+    "protectedCategories":  [
+                                {
+                                    "path":  "harness/runs/",
+                                    "category":  "runs",
+                                    "description":  "All DRY and H phase runs with RUN_STATE, acceptance, worker output"
+                                },
+                                {
+                                    "path":  "outputs/",
+                                    "category":  "outputs",
+                                    "description":  "All phase reports (PHASE_6C_*.md)"
+                                },
+                                {
+                                    "path":  "governance/",
+                                    "category":  "governance",
+                                    "description":  "Policies, phase locks, readiness, worker isolation policy"
+                                },
+                                {
+                                    "path":  "schemas/",
+                                    "category":  "schemas",
+                                    "description":  "Worker capsule/handoff/alias schemas"
+                                },
+                                {
+                                    "path":  "scripts/",
+                                    "category":  "scripts",
+                                    "description":  "Verifiers, builders, harness enforcement scripts"
+                                },
+                                {
+                                    "path":  "domain-packs/",
+                                    "category":  "domain-packs",
+                                    "description":  "Domain skill and verifier packs"
+                                },
+                                {
+                                    "path":  "harness/runs/*/RUN_STATE*.jsonl",
+                                    "category":  "RUN_STATE",
+                                    "description":  "Cryptographic run state chains"
+                                },
+                                {
+                                    "path":  "harness/runs/*/branches/",
+                                    "category":  "worker-capsules",
+                                    "description":  "H10 worker capsules + BRANCH_RESULT + BRANCH_DELTA"
+                                },
+                                {
+                                    "path":  "harness/runs/*/worker-freeze-manifests/",
+                                    "category":  "freeze-manifests",
+                                    "description":  "H8 worker freeze manifests"
+                                },
+                                {
+                                    "path":  "harness/runs/*/integration-patches.jsonl",
+                                    "category":  "integration-ledgers",
+                                    "description":  "Main Agent integration ledgers"
+                                },
+                                {
+                                    "path":  "harness/runs/*/reports/acceptance-evidence*.json",
+                                    "category":  "acceptance-evidence",
+                                    "description":  "H8-P1/P2 acceptance evidence"
+                                },
+                                {
+                                    "path":  "harness/runs/*/dry18-b-*/fault-manifest.json",
+                                    "category":  "fault-manifests",
+                                    "description":  "DRY18-B negative control fault manifests"
+                                },
+                                {
+                                    "path":  "harness/runs/*/contracts/",
+                                    "category":  "contracts",
+                                    "description":  "H7 pre-spawn worker contracts"
+                                },
+                                {
+                                    "path":  "harness/governance/harness-readiness/current-phase-lock.json",
+                                    "category":  "phase-lock",
+                                    "description":  "Active phase lock"
+                                },
+                                {
+                                    "path":  "harness/governance/harness-readiness/quarantined-runs.json",
+                                    "category":  "quarantined-runs",
+                                    "description":  "Quarantined run registry"
+                                }
+                            ],
+    "protectedPaths":  [
+                           "harness/runs/dry18-mini-incident-response-ops-app-clean/",
+                           "harness/runs/dry18-b-live-negative-controls/",
+                           "harness/runs/dry19-mini-workflow-approval-ops-app/",
+                           "harness/runs/dry19-mini-workflow-approval-ops-app-realspawn/",
+                           "harness/runs/h10-worker-isolation/",
+                           "harness/runs/h11-scenario-directness/",
+                           "harness/governance/harness-readiness/",
+                           "harness/governance/harness-worker/",
+                           "harness/governance/harness-scenarios/",
+                           "outputs/",
+                           "scripts/harness-worker/",
+                           "scripts/harness-scenarios/",
+                           "scripts/harness-enforcement/",
+                           "scripts/harness-acceptance/",
+                           "schemas/harness-worker/",
+                           "schemas/harness-scenarios/"
+                       ],
+    "deletionForbidden":  true,
+    "note":  "ALL paths listed above MUST NOT be deleted. This index is authoritative for cleanup verifier."
+}

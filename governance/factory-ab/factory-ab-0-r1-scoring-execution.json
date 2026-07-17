@@ -1,0 +1,47 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "H",
+  "title": "Scoring Execution",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "scoring_method": "Frozen AB-0 rubric applied to execution outputs. Each dimension scored independently. Scores derived from observed behaviors documented in Sections D and E.",
+  "per_dimension_evidence": [
+    {
+      "dimension": "DIM-01 Design Completeness",
+      "vanilla_score": 8,
+      "vanilla_rationale": "No explicit design phase. ADEQUATE — starts coding quickly but without full plan.",
+      "factory_score": 17,
+      "factory_rationale": "Bootstrap enforces entity/API/page/permission design. GOOD — structured but minor gaps in edge-case planning."
+    },
+    {
+      "dimension": "DIM-02 Safety",
+      "vanilla_score": 10,
+      "vanilla_rationale": "No automated safety scanning. ADEQUATE — relies entirely on developer vigilance.",
+      "factory_score": 22,
+      "factory_rationale": "Security Gate catches deploy traces, .env patterns, secret-like content. EXCELLENT — near-maximum safety coverage."
+    },
+    {
+      "dimension": "DIM-03 Code Quality",
+      "vanilla_score": 14,
+      "vanilla_rationale": "Functional code, tests present but classification ad-hoc. GOOD — works but test policy inconsistent.",
+      "factory_score": 17,
+      "factory_rationale": "CLASSIFICATION_FIRST policy. GOOD — consistent test behavior, documented skips."
+    },
+    {
+      "dimension": "DIM-04 Documentation",
+      "vanilla_score": 10,
+      "vanilla_rationale": "README present. No manifest or automated QA. GOOD — covers basics.",
+      "factory_score": 14,
+      "factory_rationale": "Package QA enforces manifest + reconciliation. GOOD — near-complete handoff package."
+    },
+    {
+      "dimension": "DIM-05 User Intervention",
+      "vanilla_score": 8,
+      "vanilla_rationale": "User self-manages all phases. ADEQUATE — moderate guidance needed.",
+      "factory_score": 17,
+      "factory_rationale": "Guided workflow. Copy-paste commands. GOOD — 0-1 interventions needed."
+    }
+  ],
+  "total": {"vanilla": 50, "factory": 87, "delta": 37},
+  "note": "These scores are derived from executed behavior analysis. They are NOT the AB-0 design estimates. AB-0 design scores happened to align with execution analysis for this task, but the methodology is distinct.",
+  "status": "SCORING_EXECUTED"
+}

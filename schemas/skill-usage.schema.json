@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-factory/schemas/skill-usage.schema.json",
+  "title": "Skill Usage Record",
+  "description": "Record of every skill load or rejection event in agent runtime.",
+  "type": "object",
+  "required": ["recordId", "timestamp", "projectId", "agentId", "skillId", "decision"],
+  "properties": {
+    "recordId": { "type": "string", "pattern": "^SKILL-USE-[A-Z0-9-]+$" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "projectId": { "type": "string" },
+    "phaseId": { "type": "string" },
+    "agentId": { "type": "string" },
+    "skillId": { "type": "string" },
+    "decision": { "type": "string", "enum": ["loaded", "rejected", "unloaded", "rollback"] },
+    "reason": { "type": "string" },
+    "loadedSections": { "type": "array", "items": { "type": "string" }, "description": "Which sections of the skill were loaded" },
+    "inputRefs": { "type": "array", "items": { "type": "string" } },
+    "outputRefs": { "type": "array", "items": { "type": "string" } },
+    "caveats": { "type": "array", "items": { "type": "string" } }
+  }
+}

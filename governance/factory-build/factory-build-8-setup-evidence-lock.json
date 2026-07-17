@@ -1,0 +1,12 @@
+﻿{
+    "phase":  "FACTORY-BUILD-8",
+    "constraints":  [
+                        "No prior product modification",
+                        "No v0.5",
+                        "No multi-agent default",
+                        "Matched trial only"
+                    ],
+    "subPhase":  "A_SETUP",
+    "build7NativeSpawnProven":  true,
+    "date":  "2026-06-27T11:23:07.6964477+08:00"
+}

@@ -1,0 +1,23 @@
+﻿{
+    "schemas":  [
+                    {
+                        "schemaId":  "s1",
+                        "typeName":  "User",
+                        "fields":  [
+                                       "id",
+                                       "name",
+                                       "email"
+                                   ],
+                        "owner":  "ag4-architect"
+                    },
+                    {
+                        "schemaId":  "s2",
+                        "typeName":  "User",
+                        "fields":  [
+                                       "id",
+                                       "name",
+                                       "email"
+                                   ]
+                    }
+                ]
+}

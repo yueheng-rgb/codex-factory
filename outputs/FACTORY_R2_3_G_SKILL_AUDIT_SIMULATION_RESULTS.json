@@ -1,0 +1,72 @@
+﻿{
+    "simulationId":  "R2.3-G-SIM-001",
+    "timestamp":  "2026-07-09T21:19:43+08:00",
+    "totalTests":  7,
+    "passed":  7,
+    "failed":  0,
+    "results":  [
+                    {
+                        "testId":  "SIM-001",
+                        "skillId":  "CAP-SKILL-004",
+                        "expected":  "pass_or_pass_with_controls",
+                        "actual":  "pass",
+                        "passed":  true,
+                        "riskScore":  0,
+                        "notes":  ""
+                    },
+                    {
+                        "testId":  "SIM-002",
+                        "skillId":  "MAL-PROMPT-INJECTION",
+                        "expected":  "reject_or_quarantine",
+                        "actual":  "quarantine",
+                        "passed":  true,
+                        "riskScore":  70,
+                        "notes":  ""
+                    },
+                    {
+                        "testId":  "SIM-003",
+                        "skillId":  "MAL-DATA-EXFILTRATION",
+                        "expected":  "reject_or_quarantine",
+                        "actual":  "quarantine",
+                        "passed":  true,
+                        "riskScore":  100,
+                        "notes":  ""
+                    },
+                    {
+                        "testId":  "SIM-004",
+                        "skillId":  "MAL-ARBITRARY-COMMAND",
+                        "expected":  "reject_or_quarantine",
+                        "actual":  "quarantine",
+                        "passed":  true,
+                        "riskScore":  100,
+                        "notes":  ""
+                    },
+                    {
+                        "testId":  "SIM-005",
+                        "skillId":  "MAL-OVERBROAD-TOOLS",
+                        "expected":  "reject_or_quarantine_or_controls",
+                        "actual":  "pass_with_controls",
+                        "passed":  true,
+                        "riskScore":  25,
+                        "notes":  ""
+                    },
+                    {
+                        "testId":  "SIM-006",
+                        "skillId":  "MAL-AUTO-UPDATE",
+                        "expected":  "reject_or_quarantine",
+                        "actual":  "quarantine",
+                        "passed":  true,
+                        "riskScore":  100,
+                        "notes":  ""
+                    },
+                    {
+                        "testId":  "SIM-007",
+                        "skillId":  "MAL-MISLEADING-TRIGGER",
+                        "expected":  "reject_or_quarantine_or_controls",
+                        "actual":  "pass_with_controls",
+                        "passed":  true,
+                        "riskScore":  15,
+                        "notes":  "Overbroad agents=11 triggers permission finding"
+                    }
+                ]
+}

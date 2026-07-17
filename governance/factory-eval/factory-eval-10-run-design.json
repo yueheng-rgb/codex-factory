@@ -1,0 +1,72 @@
+﻿{
+  "phase": "FACTORY-EVAL-10-C",
+  "title": "EVAL-10 Run Design — LedgerFlow Lite",
+  "createdAt": "2026-06-25T20:26:00+08:00",
+  "runs": [
+    {
+      "runId": "EVAL-10-RUN-A-VANILLA",
+      "label": "Vanilla Codex",
+      "factoryAssistance": "NONE",
+      "allowedMechanisms": [],
+      "expectedOverhead": "0ms",
+      "purpose": "Baseline — pure Codex without any Factory mechanisms"
+    },
+    {
+      "runId": "EVAL-10-RUN-B-V04-CORE",
+      "label": "v0.4 Factory Lite Core",
+      "factoryAssistance": true,
+      "allowedMechanisms": [
+        "Always-On Constitution (core/ALWAYS_ON_CONSTITUTION.md)",
+        "Manual Router (Tier 0 — core/manual-index.json)",
+        "Page Router (max 5 pages — core/page-router.json)",
+        "Proof-of-Read (core/proof-of-read-policy.json)",
+        "Evidence Hierarchy (core/evidence-hierarchy.md)",
+        "Contamination Logging (core/contamination-logging-policy.json)"
+      ],
+      "forbiddenMechanisms": [
+        "10-role company model",
+        "Cross-role contracts",
+        "Drift detection",
+        "Context OS",
+        "3-role model (reserved for RUN-C only)"
+      ],
+      "expectedOverhead": "~200ms",
+      "purpose": "Test v0.4 Factory Lite Core (default) against Vanilla"
+    },
+    {
+      "runId": "EVAL-10-RUN-C-V04-3ROLE",
+      "label": "v0.4 3-Role Optional",
+      "factoryAssistance": true,
+      "allowedMechanisms": [
+        "All RUN-B mechanisms (Factory Lite Core)",
+        "3-role model: Architect + Builder + Reviewer (optional-3role/)",
+        "Reviewer checklist (review/reviewer-checklist.json)"
+      ],
+      "forbiddenMechanisms": [
+        "10-role company model",
+        "Cross-role contracts",
+        "Drift detection",
+        "Context OS"
+      ],
+      "activationJustification": "LedgerFlow Lite has auth/RBAC (FR02) + separate FE/BE — meets Tier 1 escalation criteria per multi-agent-escalation-policy.json",
+      "expectedOverhead": "~350ms",
+      "purpose": "Test whether 3-role optional model adds value over Core alone for financial application"
+    }
+  ],
+  "comparisonDesign": {
+    "primary": "RUN-A (Vanilla) vs RUN-B (v0.4 Core) — does v0.4 Factory Lite generalize?",
+    "secondary": "RUN-B (v0.4 Core) vs RUN-C (v0.4 3-role) — does 3-role add value for this project type?",
+    "rubric": "LedgerFlow-specific 100-point rubric (see factory-eval-10-rubric.json)",
+    "independentEvaluator": "Readonly, same methodology as EVAL-8"
+  },
+  "implementationStatus": "DESIGN_ONLY — no implementation runs started",
+  "rules": [
+    "All three runs use identical LedgerFlow Lite spec",
+    "RUN-A must not access any Factory resources",
+    "RUN-B must use v0.4 draft core/ only",
+    "RUN-C may additionally use optional-3role/ and review/",
+    "No run may use 10-role model or v0.3 mechanisms",
+    "Contamination logged for all cross-run access",
+    "No product code shared between runs"
+  ]
+}

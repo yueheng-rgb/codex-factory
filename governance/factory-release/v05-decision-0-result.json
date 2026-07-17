@@ -1,0 +1,1 @@
+﻿{"phase":"V0.5-DECISION-0","status":"PASS","verifier":{"verdict":"PASS","checks":24,"passed":24,"failed":0},"decision_verdict":"HOLD_FOR_USER_APPROVAL","blockers":{"BLOCK_001":"ACCEPTED_LIMITATION","BLOCK_002":"ACCEPTED_LIMITATION","BLOCK_003":"ACCEPTED_LIMITATION","BLOCK_004":"USER_DECISION_REQUIRED"},"v05":"AWAITING_USER_APPROVAL","next_if_approved":"V0.5-RELEASE-CREATION-0"}

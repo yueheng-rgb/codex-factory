@@ -1,0 +1,22 @@
+﻿{
+  "runId": "FACTORY-AGENT-6-RUN-LP-A-VANILLA",
+  "phase": "FACTORY-AGENT-6",
+  "status": "PASS",
+  "verifierResult": "38/38 PASS",
+  "completedAt": "2026-06-26T17:00:00+08:00",
+  "productPath": "harness/benchmarks/factory-agent-large-project/runs/vanilla/product/",
+  "summary": {
+    "sourceFiles": 83,
+    "exports": 312,
+    "apiEndpoints": 40,
+    "dbTables": 15,
+    "frontendRoutes": 8,
+    "testFiles": 27,
+    "testsPassed": 66,
+    "testsTotal": 66
+  },
+  "factoryAssistanceUsed": false,
+  "spawnedAgentsUsed": false,
+  "verifierPath": "scripts/factory-agent-6-vanilla-baseline-verify.ps1",
+  "recommendedNextPhase": "FACTORY-AGENT-7 / v0.4 Factory Lite Large Project Run"
+}

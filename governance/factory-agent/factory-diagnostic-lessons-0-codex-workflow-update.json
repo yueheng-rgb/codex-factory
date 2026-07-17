@@ -1,0 +1,25 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-LESSONS-0-D",
+  "timestamp": "2026-06-27T00:15:00+08:00",
+  "recommendedWorkflow": {
+    "step1": {"name":"Classify project","action":"Determine if project has multiple apps, backend/frontend, DB, auth, or report/source claims. If yes → consider Diagnostic Pack."},
+    "step2": {"name":"Run readonly diagnostic","action":"Apply Diagnostic Pack checklist. Do NOT modify product code. Record all findings with evidence paths."},
+    "step3": {"name":"Decide next action based on user goal","options":[
+      {"userGoal":"Codex Factory improvement","action":"Extract evidence. Stop after diagnostic. Do NOT repair. Lessons → Factory workflow."},
+      {"userGoal":"Project submission/grading","action":"Review findings. Decide which to repair. Run targeted repair phase (not full rewrite)."},
+      {"userGoal":"Project quality improvement","action":"Run repair on critical+high findings only. Avoid scope creep."}
+    ]},
+    "step4": {"name":"If repairing","action":"Fix only scoped findings. Do NOT rewrite project. Do NOT introduce new frameworks. Verify repairs with tests."},
+    "step5": {"name":"Do not drift","action":"If the main goal is Codex Factory improvement, do NOT let real project repair become the main line. SkillMarket repair stopped after critical+high. Correct."}
+  },
+  "triggerRules": [
+    {"condition":"Project has multiple apps (frontend + backend + admin)","action":"ACTIVATE Diagnostic Pack"},
+    {"condition":"Project has report/docs making implementation claims","action":"ACTIVATE Report/Source Consistency check"},
+    {"condition":"Project has auth, permissions, or sensitive data","action":"ACTIVATE Security/RBAC review"},
+    {"condition":"Project claims tests or code quality","action":"ACTIVATE Test Quality check"},
+    {"condition":"Small/single-page project","action":"USE QUICK MODE (~12 items, skip CANNOT_EVALUATE)"},
+    {"condition":"Multi-agent context","action":"ACTIVATE contamination checks (otherwise skip)"}
+  ],
+  "preferDiagnosticPackOverMultiAgent": true,
+  "reason": "Diagnostic Pack found 14 defects on SkillMarket with single-agent readonly mode. Multi-agent would add overhead without better detection for this project class. Prefer Reviewer-Verifier before Agent Company."
+}

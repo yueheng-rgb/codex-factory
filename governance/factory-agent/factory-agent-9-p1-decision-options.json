@@ -1,0 +1,117 @@
+﻿{
+    "phase":  "FACTORY-AGENT-9-P1",
+    "timestamp":  "2026-06-26T18:39:25.6033428+08:00",
+    "document":  "decision-options",
+    "options":  [
+                    {
+                        "id":  "OPT-A",
+                        "risk":  {
+                                     "sunkCost":  "HIGH",
+                                     "prematureAbandonment":  "LOW"
+                                 },
+                        "description":  "Fix orchestrator floor enforcement, make reviewer caveats blocking, re-run on same benchmark",
+                        "recommended":  false,
+                        "name":  "FACTORY-AGENT-8-P1 Repair v0.5 Agent Company",
+                        "reason":  "Repair won\u0027t change the fundamental problem: benchmark is below complexity threshold",
+                        "cons":  [
+                                     "Does not address H1 (benchmark too small) or H7 (Vanilla too strong)",
+                                     "May still lose to Vanilla even with floor enforcement",
+                                     "Sunk cost: already invested heavily in AGENT-8"
+                                 ],
+                        "pros":  [
+                                     "Addresses root causes H3 (orchestrator) and H4 (reviewer permissiveness)",
+                                     "Could close 35-to-40 endpoint gap and 185-to-300 export gap",
+                                     "Tests orchestrator enforcement upgrade"
+                                 ],
+                        "falsificationPath":  "If repaired v0.5 still loses to Vanilla, multi-agent is not product-quality effective at this scale"
+                    },
+                    {
+                        "id":  "OPT-B",
+                        "risk":  {
+                                     "sunkCost":  "HIGH",
+                                     "prematureAbandonment":  "N/A"
+                                 },
+                        "description":  "Design and run a 60+ requirement, 20+ module benchmark with v0.5 Agent Company",
+                        "recommended":  false,
+                        "name":  "FACTORY-AGENT-10 Second Larger Benchmark",
+                        "reason":  "Should fix known weaknesses (H3,H4,H8) before scaling up. Otherwise same result at larger scale.",
+                        "cons":  [
+                                     "Large investment (~AGENT-0 through AGENT-8 effort repeated)",
+                                     "If Vanilla still wins, wasted 2 full benchmark cycles",
+                                     "Does not fix H3/H4/H8 issues first"
+                                 ],
+                        "pros":  [
+                                     "Directly tests H1 (benchmark-size hypothesis)",
+                                     "Tests whether Vanilla degrades at scale",
+                                     "Could prove multi-agent benefit on right-sized projects"
+                                 ],
+                        "falsificationPath":  "If v0.5 loses on larger benchmark too, multi-agent for implementation is NOT proven"
+                    },
+                    {
+                        "id":  "OPT-C",
+                        "risk":  {
+                                     "sunkCost":  "MEDIUM",
+                                     "prematureAbandonment":  "MEDIUM"
+                                 },
+                        "description":  "Replace 7-agent model with 3-agent model: Orchestrator + Builder + Reviewer/Verifier",
+                        "recommended":  false,
+                        "name":  "FACTORY-AGENT-RUNTIME-P1 Simplify Agent Company",
+                        "reason":  "Good direction but should test on existing benchmark first before declaring new model",
+                        "cons":  [
+                                     "Single builder may not exercise worker isolation",
+                                     "Loses multi-builder parallel implementation insight",
+                                     "Still faces H1 (benchmark size) limitation"
+                                 ],
+                        "pros":  [
+                                     "Addresses H8 (wrong agent form) and H2 (overhead)",
+                                     "Keeps reviewer/verifier value while reducing orchestration cost",
+                                     "Smaller scope = faster iteration"
+                                 ],
+                        "falsificationPath":  "If 3-agent model also loses to Vanilla on same benchmark, reviewer/verifier value is diagnostic-only"
+                    },
+                    {
+                        "id":  "OPT-D",
+                        "risk":  {
+                                     "sunkCost":  "LOW",
+                                     "prematureAbandonment":  "LOW"
+                                 },
+                        "description":  "Use Vanilla/v0.4 for implementation. Use Reviewer/Verifier/Integrity agents POST-BUILD only.",
+                        "recommended":  false,
+                        "name":  "Demote Agent Company to Process Diagnostic Layer",
+                        "reason":  "Safe fallback but prematurely abandons implementation research",
+                        "cons":  [
+                                     "Does not test whether multi-agent CAN improve implementation",
+                                     "Abandons implementation multi-agent line for now"
+                                 ],
+                        "pros":  [
+                                     "Preserves evidence quality gains (anti-deception, registry)",
+                                     "Zero implementation overhead from multi-agent",
+                                     "Leverages Vanilla\u0027s proven implementation strength + v0.5\u0027s audit strength",
+                                     "Lowest risk, highest immediate value"
+                                 ],
+                        "falsificationPath":  "If diagnostic-layer agents find 0 issues post-Vanilla-build, their value is zero"
+                    },
+                    {
+                        "id":  "OPT-E",
+                        "risk":  {
+                                     "sunkCost":  "LOW",
+                                     "prematureAbandonment":  "HIGH"
+                                 },
+                        "description":  "Preserve all artifacts, freeze line, wait for external evidence or real project failure",
+                        "recommended":  false,
+                        "name":  "Stop v0.5 Agent Company Line + User Review",
+                        "reason":  "Too early to stop. Evidence quality gains (registry, anti-deception) are real and worth preserving.",
+                        "cons":  [
+                                     "Does not answer any open questions",
+                                     "Loses momentum",
+                                     "May never resume"
+                                 ],
+                        "pros":  [
+                                     "Zero further investment",
+                                     "Preserves all evidence for future reference",
+                                     "Avoids sunk cost"
+                                 ],
+                        "falsificationPath":  "N/A (stop means stop)"
+                    }
+                ]
+}

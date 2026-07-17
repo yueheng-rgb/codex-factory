@@ -1,0 +1,22 @@
+﻿{
+  "schemaId": "integrator-verifier-auditor-intake-protocol",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:40+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-D",
+  "nativeGenerated": true,
+  "integrator": {
+    "intakeSteps": ["collect_all_handoffs","validate_handoff_hashes","check_dependency_graph","merge_artifacts","log_conflicts","submit_to_verifier"],
+    "checks": ["all_handoffs_present","no_undeclared_repair","merge_sha256_consistent","conflict_resolution_logged"],
+    "failureModes": ["incomplete_collection","undeclared_repair","bypassed_by_orchestrator"]
+  },
+  "verifier": {
+    "intakeSteps": ["receive_integration_result","run_verification_modules","record_each_check","issue_PASS_or_FAIL","block_closure_on_FAIL"],
+    "checks": ["artifact_integrity","export_count","no_fake_exports","no_empty_files","hash_chain_valid","no_manual_PASS","no_expectedClass_only","no_generic_FAIL"],
+    "failureModes": ["manual_PASS","expectedClass_only","downgraded_FAIL_to_caveat","preclassified_only"]
+  },
+  "auditor": {
+    "intakeSteps": ["load_event_chain","load_archive_index","check_evidence_gaps","detect_role_violations","validate_hash_chain","flag_risks","generate_audit_report"],
+    "checks": ["evidence_gap_count","role_violation_count","hash_break_count","stale_handoff_count","duplicate_handoff_count","missing_receipt_count","undeclared_fallback_detected"],
+    "failureModes": ["gap_ignored","violation_suppressed","stale_audit","risk_downgraded_to_info"]
+  }
+}

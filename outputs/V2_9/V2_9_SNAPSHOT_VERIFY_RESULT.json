@@ -1,0 +1,90 @@
+﻿powershell : Select-String : A parameter cannot be found that matches parameter name 'Recurse'.
+所在位置 行:5 字符: 1
++ powershell -File runtime/snapshot-verifier.ps1 -Json 2>&1 | Out-File  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Select-String :...name 'Recurse'.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+At C:\Codex_App_Factory\runtime\snapshot-verifier.ps1:113 char:46
++ $secretScan = Select-String -Path "outputs/" -Recurse -Pattern 'sk-[A ...
++                                              ~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Select-String], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.SelectStringCommand
+ 
+{
+    "checks":  [
+                   {
+                       "detail":  "outputs/V2_9/V2_9_IMMUTABLE_SNAPSHOT_MANIFEST.json",
+                       "status":  "PASS",
+                       "name":  "manifest_exists"
+                   },
+                   {
+                       "detail":  "Parsed successfully",
+                       "status":  "PASS",
+                       "name":  "manifest_valid_json"
+                   },
+                   {
+                       "detail":  "SHA256 matches",
+                       "status":  "PASS",
+                       "name":  "manifest_hash_sample_AGENTS.md"
+                   },
+                   {
+                       "detail":  "outputs/V2_9/V2_9_BUNDLE_INDEX.json",
+                       "status":  "PASS",
+                       "name":  "bundle_index_exists"
+                   },
+                   {
+                       "detail":  "8 bundles (expected 8)",
+                       "status":  "PASS",
+                       "name":  "bundle_count"
+                   },
+                   {
+                       "detail":  "outputs/V2_9/V2_9_CLAIM_SNAPSHOT.json",
+                       "status":  "PASS",
+                       "name":  "claim_snapshot_exists"
+                   },
+                   {
+                       "detail":  "24 claims",
+                       "status":  "PASS",
+                       "name":  "claim_count"
+                   },
+                   {
+                       "detail":  "ARTIFACT=13 REPORT=10 SELF_DECLARED=",
+                       "status":  "PASS",
+                       "name":  "claim_status_distribution"
+                   },
+                   {
+                       "detail":  "14 files",
+                       "status":  "PASS",
+                       "name":  "v2_0_reports_exist"
+                   },
+                   {
+                       "detail":  "4 receipts (expected \u003e= 7)",
+                       "status":  "PARTIAL",
+                       "name":  "review_receipts_exist"
+                   },
+                   {
+                       "detail":  "21 artifact files",
+                       "status":  "PASS",
+                       "name":  "artifact_store_exists"
+                   },
+                   {
+                       "detail":  "Deprecated directions referenced in lock file",
+                       "status":  "PASS",
+                       "name":  "deprecated_locks_intact"
+                   },
+                   {
+                       "detail":  "No API key patterns found in outputs/",
+                       "status":  "PASS",
+                       "name":  "no_secrets_in_outputs"
+                   },
+                   {
+                       "detail":  "outputs/V2_9/V2_9_RESTORE_VERIFY_CHECKLIST.md",
+                       "status":  "PASS",
+                       "name":  "restore_checklist_exists"
+                   }
+               ],
+    "overall":  "PARTIAL_WITH_REASON",
+    "snapshot_id":  "CODEX-FACTORY-V2-20260717",
+    "verified_at":  "2026-07-17T15:02:32+08:00"
+}

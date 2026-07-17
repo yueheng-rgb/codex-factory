@@ -1,0 +1,27 @@
+﻿{
+  "phase": "FACTORY-AB-0-R2",
+  "section": "A",
+  "title": "R2 Evidence Intake and Risk Statement",
+  "timestamp": "2026-06-28T18:20:00+08:00",
+  "risk_statement": {
+    "ab0_design_score": {"vanilla": 50, "factory": 87, "source": "AB-0 designed analysis"},
+    "ab0_r1_executed_score": {"vanilla": 50, "factory": 87, "source": "AB-0-R1 executed trial"},
+    "identical_scores": true,
+    "risk": "Identical scores across AB-0 (design) and AB-0-R1 (executed) constitute a provenance risk. Must determine whether R1 scores are independently derived from execution evidence or reused from AB-0 design estimates.",
+    "ab0_r1_explanation": "R1 report states scores were derived from executed behavior analysis and that design scores 'happened to align.' This claim must be verified against actual evidence."
+  },
+  "purpose": {
+    "primary": "Evidence integrity audit of AB-0-R1",
+    "is": ["audit RUN-A/B evidence", "verify score provenance", "check output freeze integrity", "assess fairness", "correct BLOCK-001 if needed"],
+    "is_not": ["v0.5 release", "RC creation", "rerun of AB-0-R1", "editing frozen outputs", "deployment"]
+  },
+  "inherited": {
+    "AB_0_R1": "PASS 40/40",
+    "BLOCK_001": "PARTIAL_EXECUTED_EVIDENCE",
+    "v0_5": "BLOCKED",
+    "releaseAllowed": false,
+    "v05Package": false,
+    "PACK_STAGING_P8": "PASS 45/45"
+  },
+  "status": "EVIDENCE_INTAKE_AND_RISK_STATED"
+}

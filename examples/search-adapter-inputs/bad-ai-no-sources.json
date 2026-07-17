@@ -1,0 +1,12 @@
+﻿{
+  "query": "Best database for high-scale ecommerce",
+  "provider": "chatgpt_search_manual",
+  "providerConfidence": "medium",
+  "rawResult": "For high-scale ecommerce, consider PostgreSQL with read replicas or CockroachDB...",
+  "sourceRefs": [],
+  "claimedFacts": [
+    {"claim": "PostgreSQL works for high-scale ecommerce", "certainty": "uncertain", "sourceIndex": -1}
+  ],
+  "uncertainty": "AI-generated, unverified",
+  "userNotes": "From ChatGPT — needs verification"
+}

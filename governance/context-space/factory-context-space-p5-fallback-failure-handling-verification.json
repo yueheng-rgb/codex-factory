@@ -1,0 +1,48 @@
+﻿{
+  "verification_id": "FACTORY-CONTEXT-SPACE-P5-FALLBACK-FAILURE-HANDLING-VERIFICATION",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "sub_step": "G",
+  "conclusion": "Fallback chain WORKS. All 5 failure scenarios handled correctly.",
+  "failure_scenarios_tested": [
+    {
+      "scenario": "stale-snapshot",
+      "description": "Snapshot freshnessStatus=STALE",
+      "expected": "Fallback to attach-packet-v3",
+      "result": "CORRECT — attach-packet loaded, freshness re-validated"
+    },
+    {
+      "scenario": "missing-evidence-path",
+      "description": "sourceOfTruthPaths < 3",
+      "expected": "freshnessStatus=UNKNOWN, fallback to query-v2",
+      "result": "CORRECT — UNKNOWN set, query-v2 triggered"
+    },
+    {
+      "scenario": "poisoned-build-pro-default",
+      "description": "Snapshot claims Build Pro as default",
+      "expected": "Direction Guard DG-003 blocks",
+      "result": "CORRECT — BLOCKED by DG-003"
+    },
+    {
+      "scenario": "ultra-compact-autonomous",
+      "description": "ULTRA_COMPACT used for autonomous continuation",
+      "expected": "Direction Guard DG-011 blocks",
+      "result": "CORRECT — BLOCKED by DG-011"
+    },
+    {
+      "scenario": "snapshot-missing-active-risk",
+      "description": "Snapshot lacks active_risks field",
+      "expected": "Validation warning, fallback to attach-packet",
+      "result": "CORRECT — warning issued, fallback triggered"
+    }
+  ],
+  "fallback_chain_order": [
+    "1. SNAP-FW-BALANCED (freshness validated)",
+    "2. attach-packet-v3-latest.json (freshness validated)",
+    "3. P2 SQLite query-v2 (directed query)",
+    "4. Manual direction guard consultation (last resort)"
+  ],
+  "all_fallbacks_work": true,
+  "no_silent_failures": true,
+  "verdict": "Fallback chain is robust. All 5 failure scenarios handled correctly."
+}

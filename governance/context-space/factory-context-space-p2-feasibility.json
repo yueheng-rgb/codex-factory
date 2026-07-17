@@ -1,0 +1,11 @@
+﻿{
+  "phase": "FACTORY-CONTEXT-SPACE-P2-B",
+  "title": "Feasibility Check",
+  "timestamp": "2026-06-28T01:00:00+08:00",
+  "sqlite3_cli": false,
+  "python_sqlite3": true,
+  "node_better_sqlite3": false,
+  "decision": "USE_PYTHON_SQLITE3",
+  "fallback": "ENHANCED_JSONL_WITH_RELATION_TRAVERSAL_IN_POWERSHELL",
+  "note": "Python sqlite3 is available. Use Python helper for SQLite operations. PowerShell scripts remain orchestrators. Fallback: if Python unavailable, use enhanced JSONL with in-memory relation traversal."
+}

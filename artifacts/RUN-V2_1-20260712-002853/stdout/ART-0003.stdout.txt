@@ -1,0 +1,42 @@
+﻿
+> ecommerce-runtime-validation@1.0.0 test
+> npx vitest run --reporter=verbose
+
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Codex_App_Factory/testbeds/ecommerce-runtime-validation[39m
+
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: price_non_negative[2m > [22mallows positive price[32m 1[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: price_non_negative[2m > [22mrejects negative price on create[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: price_non_negative[2m > [22mrejects negative price on update (admin)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: price_not_zero_unless_explicit_free[2m > [22mallows zero price with isFree[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: price_not_zero_unless_explicit_free[2m > [22mrejects zero price without isFree[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: price_not_zero_unless_explicit_free[2m > [22mrejects zero price on update without isFree[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: user_cannot_modify_price[2m > [22mrejects price change by non-admin USER[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: admin_required_for_price_change[2m > [22mallows price change by ADMIN[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: admin_required_for_price_change[2m > [22mallows non-price update by USER[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: archived_product_not_sellable — product[2m > [22mrejects update on archived product[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: inventory_non_negative[2m > [22mallows valid inventory adjustment[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: inventory_non_negative[2m > [22mrejects negative inventory adjustment below zero[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: stock_delta_must_be_audited[2m > [22mcreates audit entry on inventory adjustment[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: order_total_matches_items[2m > [22mcreates order with correct total[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: order_total_matches_items[2m > [22mrejects payment with wrong amount[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: payment_idempotency_required[2m > [22mhandles duplicate payment callback idempotently[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: cancelled_order_cannot_be_paid[2m > [22mrejects payment for cancelled order[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: paid_order_cannot_be_modified_without_refund_flow[2m > [22mrejects direct cancellation of paid order[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: paid_order_cannot_be_modified_without_refund_flow[2m > [22mallows refund flow for paid order (correct path)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: refund_amount_cannot_exceed_paid_amount[2m > [22mrejects refund exceeding paid amount[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mInvariant: refund_amount_cannot_exceed_paid_amount[2m > [22mallows refund equal to paid amount[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mNegative Control 1: user modifies price — BLOCKED[2m > [22mreturns FORBIDDEN for USER price change[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mNegative Control 2: inventory adjusted to negative — BLOCKED[2m > [22mrejects inventory going below zero[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mNegative Control 3: duplicate payment callback — IDEMPOTENT[2m > [22mreturns success without double processing[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mNegative Control 4: paid order directly modified — BLOCKED[2m > [22mrejects cancellation of paid order[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mNegative Control 5: refund exceeds payment — BLOCKED[2m > [22mrejects refund larger than payment[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mOrder creation edge cases[2m > [22mrejects empty order[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mOrder creation edge cases[2m > [22mrejects order with archived product[32m 0[2mms[22m[39m
+ [32m✓[39m tests/ecommerce-validation.test.ts[2m > [22mOrder creation edge cases[2m > [22mrejects duplicate payment with different amount[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m29 passed[39m[22m[90m (29)[39m
+[2m   Start at [22m 00:28:57
+[2m   Duration [22m 405ms[2m (transform 51ms, setup 0ms, collect 62ms, tests 6ms, environment 0ms, prepare 119ms)[22m
+

@@ -1,0 +1,46 @@
+﻿{
+  "review_id": "V2_7-REV-004",
+  "review_type": "release_risk_review",
+  "mission_id": "CPM-001",
+  "reviewer": {"identity": "Codex Factory v2.7 Release Risk Reviewer","signature_mode": "self_declared_automated"},
+  "timestamp": "2026-07-17T00:00:00+08:00",
+  "scope": ["aggregate CRITICAL risks","cross-pack risk interaction","missing production capabilities","deployment risk","operational risk"],
+  "evidence": {
+    "artifact_ids": ["V2_7-ART-001"],
+    "prior_reviews": ["V2_7-REV-001","V2_7-REV-002","V2_7-REV-003"],
+    "risk_summary": {
+      "critical_risks": [
+        {"risk":"payment_data_loss","likelihood":"HIGH","impact":"CRITICAL","mitigation":"in-memory store → all payment/order data lost on restart","status":"NOT_MITIGATED"},
+        {"risk":"unauthorized_admin_access","likelihood":"LOW","impact":"CRITICAL","mitigation":"session token + ADMINS set gate + RBAC test coverage","status":"MITIGATED_FOR_TESTBED"},
+        {"risk":"inventory_inconsistency","likelihood":"MEDIUM","impact":"HIGH","mitigation":"Inventory deducted synchronously; no concurrent access in testbed; production needs DB transactions","status":"PARTIALLY_MITIGATED"},
+        {"risk":"platform_review_rejection","likelihood":"MEDIUM","impact":"BLOCKING","mitigation":"WeChat review not yet conducted; production AppID not applied","status":"NOT_STARTED"},
+        {"risk":"payment_double_spend","likelihood":"LOW","impact":"CRITICAL","mitigation":"transactionId dedup in-memory only; production needs persistent idempotency store","status":"PARTIALLY_MITIGATED"},
+        {"risk":"secret_leak","likelihood":"LOW","impact":"CRITICAL","mitigation":"appSecret not in code; session token uses Math.random (not cryptographically strong)","status":"MITIGATED_FOR_TESTBED"}
+      ]
+    }
+  },
+  "decision": "APPROVED_WITH_RISK",
+  "risk_notes": [
+    "6 CRITICAL risks identified; 1 MITIGATED_FOR_TESTBED, 2 PARTIALLY_MITIGATED, 2 NOT_MITIGATED, 1 NOT_STARTED",
+    "Payment data loss risk is HIGH likelihood because in-memory store has zero persistence",
+    "Platform review is BLOCKING for any production deployment",
+    "All mitigations are documented with clear paths to resolution",
+    "This pilot demonstrates the FACTORY PIPELINE works end-to-end, not that the PRODUCT is production-ready"
+  ],
+  "non_claims": [
+    "This risk review does NOT authorize production deployment",
+    "This risk review does NOT replace organizational risk assessment processes",
+    "Human engineering lead must accept residual risks before any deployment",
+    "Insurance/compliance review not included",
+    "Third-party dependency audit not included"
+  ],
+  "blocking": false,
+  "conditions_for_release": [
+    "Replace in-memory store with PostgreSQL + migrations",
+    "Complete WeChat platform review",
+    "Integrate real payment gateway",
+    "Add structured logging + monitoring",
+    "Run production-scale load testing",
+    "Conduct security penetration test"
+  ]
+}

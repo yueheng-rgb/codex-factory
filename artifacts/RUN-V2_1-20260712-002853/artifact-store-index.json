@@ -1,0 +1,320 @@
+﻿{
+    "store_version":  "2.1.0",
+    "created_at":  "2026-07-12T00:29:33.256+08:00",
+    "run_id":  "RUN-V2_1-20260712-002853",
+    "run_description":  "v2.1 full regression + engine capture",
+    "factory_version":  "2.1.0",
+    "total_artifacts":  10,
+    "passed":  10,
+    "failed":  0,
+    "skipped":  0,
+    "total_tests":  210,
+    "total_tests_passed":  210,
+    "total_tests_failed":  0,
+    "directory_snapshot":  {
+                               "files_count":  5160,
+                               "captured_at":  "2026-07-12T00:29:33.252+08:00",
+                               "hash":  "9f10789726db25deee068619a788dd249ae0b077f64467df6ea8e9578d1fbfc4"
+                           },
+    "artifacts":  [
+                      {
+                          "artifact_id":  "ART-0001",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "npm test",
+                          "working_directory":  "C:\\Codex_App_Factory\\testbeds\\products-api",
+                          "started_at":  "2026-07-12T00:28:53.070+08:00",
+                          "finished_at":  "2026-07-12T00:28:54.636+08:00",
+                          "duration_ms":  1560,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0001.stdout.txt",
+                          "stderr_file":  "stderr/ART-0001.stderr.txt",
+                          "stdout_summary":  "\n\u003e products-api-testbed@1.0.0 test\n\u003e vitest run\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mC:/Codex_App_Factory/testbeds/products-api\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/products.test.ts \u001b[2m(\u001b[22m\u001b[2m23 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 114\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m23 passed\u001b[39m\u001b[22m\u001b[90m (23)\u001b[39m\n\u001b[2m   Start at \u001b[22m 00:28:53\n\u001b[2m   Duration \u001b[22m 632ms\u001b[2m (transform 60ms, setup 0ms, collect 175ms, tests 114ms, envir",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+                                              "failed":  0,
+                                              "total":  23,
+                                              "passed":  23
+                                          },
+                          "project_type":  "testbed",
+                          "project_name":  "products-api",
+                          "tags":  [
+                                       "regression",
+                                       "testbed",
+                                       "products-api"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0002",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "npm test",
+                          "working_directory":  "C:\\Codex_App_Factory\\pilots\\mini-inventory-admin",
+                          "started_at":  "2026-07-12T00:28:54.662+08:00",
+                          "finished_at":  "2026-07-12T00:28:55.921+08:00",
+                          "duration_ms":  1257,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0002.stdout.txt",
+                          "stderr_file":  "stderr/ART-0002.stderr.txt",
+                          "stdout_summary":  "\n\u003e mini-inventory-admin@1.0.0 test\n\u003e vitest run\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mC:/Codex_App_Factory/pilots/mini-inventory-admin\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/inventory.test.ts \u001b[2m(\u001b[22m\u001b[2m22 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 5\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m22 passed\u001b[39m\u001b[22m\u001b[90m (22)\u001b[39m\n\u001b[2m   Start at \u001b[22m 00:28:55\n\u001b[2m   Duration \u001b[22m 384ms\u001b[2m (transform 42ms, setup 0ms, collect 51ms, tests 5ms, env",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+                                              "failed":  0,
+                                              "total":  22,
+                                              "passed":  22
+                                          },
+                          "project_type":  "pilot",
+                          "project_name":  "mini-inventory-admin",
+                          "tags":  [
+                                       "regression",
+                                       "pilot",
+                                       "inventory"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0003",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "npm test",
+                          "working_directory":  "C:\\Codex_App_Factory\\testbeds\\ecommerce-runtime-validation",
+                          "started_at":  "2026-07-12T00:28:55.925+08:00",
+                          "finished_at":  "2026-07-12T00:28:57.955+08:00",
+                          "duration_ms":  2029,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0003.stdout.txt",
+                          "stderr_file":  "stderr/ART-0003.stderr.txt",
+                          "stdout_summary":  "\n\u003e ecommerce-runtime-validation@1.0.0 test\n\u003e npx vitest run --reporter=verbose\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mC:/Codex_App_Factory/testbeds/ecommerce-runtime-validation\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/ecommerce-validation.test.ts\u001b[2m \u003e \u001b[22mInvariant: price_non_negative\u001b[2m \u003e \u001b[22mallows positive price\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/ecommerce-validation.test.ts\u001b[2m \u003e \u001b[22mInvariant: price_non_negative\u001b[2m \u003e \u001b[22mrejects negative price on create\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+                                              "failed":  0,
+                                              "total":  29,
+                                              "passed":  29
+                                          },
+                          "project_type":  "testbed",
+                          "project_name":  "ecommerce-runtime-validation",
+                          "tags":  [
+                                       "regression",
+                                       "testbed",
+                                       "ecommerce"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0004",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "npm test",
+                          "working_directory":  "C:\\Codex_App_Factory\\testbeds\\saas-runtime-validation",
+                          "started_at":  "2026-07-12T00:28:57.960+08:00",
+                          "finished_at":  "2026-07-12T00:29:00.036+08:00",
+                          "duration_ms":  2074,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0004.stdout.txt",
+                          "stderr_file":  "stderr/ART-0004.stderr.txt",
+                          "stdout_summary":  "\n\u003e saas-runtime-validation@1.0.0 test\n\u003e npx vitest run --reporter=verbose\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mC:/Codex_App_Factory/testbeds/saas-runtime-validation\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/saas-validation.test.ts\u001b[2m \u003e \u001b[22mInvariant: tenant_data_isolation\u001b[2m \u003e \u001b[22mallows user to access own tenant data\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/saas-validation.test.ts\u001b[2m \u003e \u001b[22mInvariant: user_cannot_access_other_tenant_data\u001b[2m \u003e \u001b[22mblocks cross-tenant data access\u001b[32m 0\u001b[2mms\u001b",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+                                              "failed":  0,
+                                              "total":  27,
+                                              "passed":  27
+                                          },
+                          "project_type":  "testbed",
+                          "project_name":  "saas-runtime-validation",
+                          "tags":  [
+                                       "regression",
+                                       "testbed",
+                                       "saas"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0005",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "npm test",
+                          "working_directory":  "C:\\Codex_App_Factory\\testbeds\\admin-system-runtime-validation",
+                          "started_at":  "2026-07-12T00:29:00.040+08:00",
+                          "finished_at":  "2026-07-12T00:29:02.095+08:00",
+                          "duration_ms":  2054,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0005.stdout.txt",
+                          "stderr_file":  "stderr/ART-0005.stderr.txt",
+                          "stdout_summary":  "\n\u003e admin-system-runtime-validation@1.0.0 test\n\u003e npx vitest run --reporter=verbose\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mC:/Codex_App_Factory/testbeds/admin-system-runtime-validation\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/admin-validation.test.ts\u001b[2m \u003e \u001b[22mInvariant 1: admin_required_for_admin_routes\u001b[2m \u003e \u001b[22mrejects unauthenticated access to admin route\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/admin-validation.test.ts\u001b[2m \u003e \u001b[22mInvariant 1: admin_required_for_admin_routes\u001b[2m \u003e \u001b[22mrejects in",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+                                              "failed":  0,
+                                              "total":  58,
+                                              "passed":  58
+                                          },
+                          "project_type":  "testbed",
+                          "project_name":  "admin-system-runtime-validation",
+                          "tags":  [
+                                       "regression",
+                                       "testbed",
+                                       "admin"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0006",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "npm test",
+                          "working_directory":  "C:\\Codex_App_Factory\\runnable-starters\\node-api-postgres",
+                          "started_at":  "2026-07-12T00:29:02.098+08:00",
+                          "finished_at":  "2026-07-12T00:29:03.612+08:00",
+                          "duration_ms":  1511,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0006.stdout.txt",
+                          "stderr_file":  "stderr/ART-0006.stderr.txt",
+                          "stdout_summary":  "\n\u003e node-api-postgres@1.0.0 test\n\u003e vitest run\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mC:/Codex_App_Factory/runnable-starters/node-api-postgres\u001b[39m\n\n\u001b[90mstdout\u001b[2m | tests/api.test.ts\u001b[2m \u003e \u001b[22m\u001b[2mHealth endpoint\u001b[2m \u003e \u001b[22m\u001b[2mGET /health returns ok\n\u001b[22m\u001b[39m[REQ] GET /health\n\n\u001b[90mstdout\u001b[2m | tests/api.test.ts\u001b[2m \u003e \u001b[22m\u001b[2mHealth endpoint\u001b[2m \u003e \u001b[22m\u001b[2mGET /health returns ok\n\u001b[22m\u001b[39m[RES] GET /health 200\n\n\u001b[90mstdout\u001b[2m | tests/api.test.ts\u001b[2m \u003e \u001b[22m\u001b[2mAuth endpoint\u001b[2m \u003e ",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+                                              "failed":  0,
+                                              "total":  13,
+                                              "passed":  13
+                                          },
+                          "project_type":  "starter",
+                          "project_name":  "node-api-postgres",
+                          "tags":  [
+                                       "regression",
+                                       "starter",
+                                       "api"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0007",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "npm test",
+                          "working_directory":  "C:\\Codex_App_Factory\\missions\\inventory-subscription-admin",
+                          "started_at":  "2026-07-12T00:29:03.616+08:00",
+                          "finished_at":  "2026-07-12T00:29:05.708+08:00",
+                          "duration_ms":  2091,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0007.stdout.txt",
+                          "stderr_file":  "stderr/ART-0007.stderr.txt",
+                          "stdout_summary":  "\n\u003e inventory-subscription-admin@1.0.0 test\n\u003e npx vitest run --reporter=verbose\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mC:/Codex_App_Factory/missions/inventory-subscription-admin\u001b[39m\n\n \u001b[32m✓\u001b[39m tests/mission.test.ts\u001b[2m \u003e \u001b[22mAdmin: admin_required_for_admin_routes\u001b[2m \u003e \u001b[22mrejects null user\u001b[32m 1\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/mission.test.ts\u001b[2m \u003e \u001b[22mAdmin: admin_required_for_admin_routes\u001b[2m \u003e \u001b[22mrejects invalid user\u001b[32m 0\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m tests/mission.tes",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+                                              "failed":  0,
+                                              "total":  38,
+                                              "passed":  38
+                                          },
+                          "project_type":  "mission",
+                          "project_name":  "inventory-subscription-admin",
+                          "tags":  [
+                                       "regression",
+                                       "mission",
+                                       "v2.0-rc"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0008",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "npm run build",
+                          "working_directory":  "C:\\Codex_App_Factory\\runnable-starters\\vite-threejs-interactive",
+                          "started_at":  "2026-07-12T00:29:05.713+08:00",
+                          "finished_at":  "2026-07-12T00:29:08.056+08:00",
+                          "duration_ms":  2342,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0008.stdout.txt",
+                          "stderr_file":  "stderr/ART-0008.stderr.txt",
+                          "stdout_summary":  "\n\u003e vite-threejs-interactive@1.0.0 build\n\u003e tsc \u0026\u0026 vite build\n\n\u001b[36mvite v5.4.21 \u001b[32mbuilding for production...\u001b[36m\u001b[39m\ntransforming...\n\u001b[32m✓\u001b[39m 20 modules transformed.\nrendering chunks...\ncomputing gzip size...\n\u001b[2mdist/\u001b[22m\u001b[32mindex.html                 \u001b[39m\u001b[1m\u001b[2m  0.54 kB\u001b[22m\u001b[1m\u001b[22m\u001b[2m │ gzip:   0.33 kB\u001b[22m\n\u001b[2mdist/\u001b[22m\u001b[35massets/index-CfpQgS2I.css  \u001b[39m\u001b[1m\u001b[2m  2.98 kB\u001b[22m\u001b[1m\u001b[22m\u001b[2m │ gzip:   1.10 kB\u001b[22m\n\u001b[2mdist/\u001b[22m\u001b[36massets/index-CuZuAh-Z.js   \u001b[39m\u001b[1m\u001b[2m478.3",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+
+                                          },
+                          "project_type":  "starter",
+                          "project_name":  "vite-threejs-interactive",
+                          "tags":  [
+                                       "build",
+                                       "starter",
+                                       "threejs"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0009",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "semgrep --config=auto --json -q src",
+                          "working_directory":  "C:\\Codex_App_Factory\\testbeds\\products-api",
+                          "started_at":  "2026-07-12T00:29:08.061+08:00",
+                          "finished_at":  "2026-07-12T00:29:16.596+08:00",
+                          "duration_ms":  8532,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0009.stdout.txt",
+                          "stderr_file":  "stderr/ART-0009.stderr.txt",
+                          "stdout_summary":  "{\"version\":\"1.169.0\",\"results\":[{\"check_id\":\"javascript.express.security.audit.xss.direct-response-write.direct-response-write\",\"path\":\"src\\\\routes\\\\products.ts\",\"start\":{\"line\":21,\"col\":23,\"offset\":1074},\"end\":{\"line\":21,\"col\":146,\"offset\":1197},\"extra\":{\"message\":\"Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use \u0027resp.render()\u0027 to render safely esca",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+
+                                          },
+                          "project_type":  "engine",
+                          "project_name":  "semgrep-products-api",
+                          "tags":  [
+                                       "engine",
+                                       "semgrep",
+                                       "security"
+                                   ],
+                          "notes":  ""
+                      },
+                      {
+                          "artifact_id":  "ART-0010",
+                          "run_id":  "RUN-V2_1-20260712-002853",
+                          "command":  "semgrep --config=auto --json -q src",
+                          "working_directory":  "C:\\Codex_App_Factory\\missions\\inventory-subscription-admin",
+                          "started_at":  "2026-07-12T00:29:16.598+08:00",
+                          "finished_at":  "2026-07-12T00:29:28.380+08:00",
+                          "duration_ms":  11780,
+                          "exit_code":  0,
+                          "stdout_file":  "stdout/ART-0010.stdout.txt",
+                          "stderr_file":  "stderr/ART-0010.stderr.txt",
+                          "stdout_summary":  "{\"version\":\"1.169.0\",\"results\":[],\"errors\":[],\"paths\":{\"scanned\":[\"src\\\\db\\\\store.ts\",\"src\\\\errors\\\\index.ts\",\"src\\\\server.ts\",\"src\\\\services\\\\auth.service.ts\",\"src\\\\services\\\\product.service.ts\",\"src\\\\services\\\\tenant.service.ts\",\"src\\\\types\\\\index.ts\"]},\"time\":{\"rules\":[],\"rules_parse_time\":0.2929511070251465,\"profiling_times\":{\"config_time\":4.730650901794434,\"core_time\":0.6393091678619385,\"ignores_time\":0.0008425712585449219,\"total_time\":5.390634298324585},\"parsing_time\":{\"total_time\":0.0,\"pe",
+                          "stderr_summary":  "(no stderr)",
+                          "test_counts":  {
+
+                                          },
+                          "project_type":  "engine",
+                          "project_name":  "semgrep-mission",
+                          "tags":  [
+                                       "engine",
+                                       "semgrep",
+                                       "security"
+                                   ],
+                          "notes":  ""
+                      }
+                  ],
+    "audit_ledger_entries":  [
+
+                             ],
+    "traceability_matrix":  {
+                                "saas-runtime-validation: 27/27 PASS":  [
+                                                                            "ART-0004"
+                                                                        ],
+                                "engine:semgrep-products-api":  [
+                                                                    "ART-0009"
+                                                                ],
+                                "node-api-postgres: 13/13 PASS":  [
+                                                                      "ART-0006"
+                                                                  ],
+                                "inventory-subscription-admin: 38/38 PASS":  [
+                                                                                 "ART-0007"
+                                                                             ],
+                                "vite-threejs-interactive: exit=0":  [
+                                                                         "ART-0008"
+                                                                     ],
+                                "engine:semgrep-mission":  [
+                                                               "ART-0010"
+                                                           ],
+                                "mini-inventory-admin: 22/22 PASS":  [
+                                                                         "ART-0002"
+                                                                     ],
+                                "ecommerce-runtime-validation: 29/29 PASS":  [
+                                                                                 "ART-0003"
+                                                                             ],
+                                "products-api: 23/23 PASS":  [
+                                                                 "ART-0001"
+                                                             ],
+                                "admin-system-runtime-validation: 58/58 PASS":  [
+                                                                                    "ART-0005"
+                                                                                ]
+                            }
+}

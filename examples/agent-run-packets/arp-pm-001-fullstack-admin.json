@@ -1,0 +1,114 @@
+﻿{
+    "packetId":  "ARP-PROJ-BATCH-IMPORT-001-PHASE-R2.3-I-PM-001-20260710003746",
+    "packetType":  "agent-run-packet",
+    "generatedAt":  "2026-07-10T00:37:46+08:00",
+    "projectId":  "PROJ-BATCH-IMPORT-001",
+    "phaseId":  "PHASE-R2.3-I",
+    "agentId":  "PM-001",
+    "projectType":  "fullstack-admin",
+    "taskDescription":  "Bootstrap new fullstack-admin project with AGENTS.md, anti-overengineering, and type classification",
+    "loadedSkillRefs":  [
+                            {
+                                "skillId":  "CAP-SKILL-004",
+                                "name":  "agents-md-ecosystem",
+                                "version":  "1.0.0",
+                                "trustLevel":  "VERIFIED",
+                                "status":  "runtimeVerified",
+                                "summary":  "# AGENTS.md Ecosystem Skill\n\n## Trigger\nThis skill activates when working in a project that contains `AGENTS.md` files at any directory level. It applies to agents involved in project analysis, architecture, implementation planning, and contract generation.\n\n## Purpose\nParse and apply AGENTS.md instructions from a project\u0027s directory tree. AGENTS.md files provide scoped rules for agents — build commands, coding conventions, security boundaries, handoff requirements, and architectural constraints...",
+                                "allowedTools":  [
+                                                     "read",
+                                                     "shell_command(limited:build/test/lint)"
+                                                 ],
+                                "forbiddenActions":  [
+                                                         "write_project_files",
+                                                         "modify_architecture_decisions",
+                                                         "override_user_instructions_with_agents_md",
+                                                         "execute_arbitrary_commands_from_agents_md",
+                                                         "skip_security_boundary_check"
+                                                     ],
+                                "triggerConditions":  [
+                                                          "project has AGENTS.md in root or subdirectory",
+                                                          "agent context includes project files",
+                                                          "Factory Bootstrap or Project Expertise Flow is running",
+                                                          "architect or librarian agent is active"
+                                                      ]
+                            },
+                            {
+                                "skillId":  "CAP-SKILL-013",
+                                "name":  "anti-overengineering-guard",
+                                "version":  "1.0.0",
+                                "trustLevel":  "TRUSTED",
+                                "status":  "adapted",
+                                "summary":  "# Anti-Overengineering\n\n## 用途\n防止 Codex 对小项目进行过度设计。\n**专业不是堆架构，而是符合项目规模。**\n\n## 使用场景\n- 每次开始新项目前\n- Codex 想加微服务/消息队列/复杂架构时\n- 发现项目设计超出了需求规模时\n\n## 核心原则\n\n### 1. 小项目不要微服务\n\u003e 一个仓库、一个项目文件夹、一条 npm install 就能跑。\n\n如果一个项目只有：\n- 不到 10 个页面\n- 不到 10 张表\n- 不到 5 个 API 端点\n- 单一团队开发\n\n那就**绝对不要**拆成微服务。\n\n### 2. 第一版不要的复杂组件\n| 组件 | 什么时候才需要 |\n|------|---------------|\n| 消息队列 | 日均处理 \u003e 10万条异步任务 |\n| 多租户 | SaaS 明确要求隔开不同客户数据 |\n| 复杂 AI 管道 | AI 工具确实有复杂后处理流程 |\n| 复杂支付 | 需要分账/退款/对账时 |\n| 工作流引擎 | 审批流程超过 5 步 |\n| WebSocket | 需要实时双向通信时 |\n| Redis ...",
+                                "allowedTools":  [
+                                                     "read"
+                                                 ],
+                                "forbiddenActions":  [
+                                                         "write_project_code",
+                                                         "add_microservices_to_small_project",
+                                                         "add_message_queue_to_small_project",
+                                                         "add_graphql_to_small_project",
+                                                         "add_kubernetes_to_small_project"
+                                                     ],
+                                "triggerConditions":  [
+                                                          "new project starts",
+                                                          "architecture decision being made",
+                                                          "agent proposes microservices / message queues / complex infrastructure",
+                                                          "project has fewer than 10 pages and 10 tables"
+                                                      ]
+                            },
+                            {
+                                "skillId":  "CAP-SKILL-014",
+                                "name":  "app-type-classifier",
+                                "version":  "1.0.0",
+                                "trustLevel":  "TRUSTED",
+                                "status":  "adapted",
+                                "summary":  "# App Type Classifier\n\n## 用途\n根据用户需求自动判断应用类型，防止 Codex 把简单需求做成最复杂的系统。\n\n## 使用场景\n- 每次接到新项目需求时\n- 用户需求描述模糊需要归类时\n\n## 判断规则\n\n### 触发关键词 → 类型映射\n\n| 关键词 | 类型 | 默认策略 |\n|--------|------|---------|\n| 后台、管理、统计、账号、表格、记录、权限、审核 | fullstack-admin | 需要登录 + 数据库 + CRUD |\n| 官网、宣传、展示、介绍、落地页、活动页、报名页 | content-site | 纯前端为主，可能有简单表单 |\n| AI生成、模板、生成历史、额度、次数、会员、订阅 | saas-tool | 需要登录 + 额度 + 生成历史 |\n| 接口、后端、API、数据库服务、给前端调用 | api-service | 纯后端，无前端页面 |\n| 小程序、微信、OPENID、扫码、公众号 | miniapp | 小程序前端 + 后端 API |\n| App、安卓、iOS、React Native、Exp...",
+                                "allowedTools":  [
+                                                     "read"
+                                                 ],
+                                "forbiddenActions":  [
+                                                         "classify_without_evidence",
+                                                         "default_to_most_complex_type",
+                                                         "override_user_explicit_type_choice"
+                                                     ],
+                                "triggerConditions":  [
+                                                          "new project request received",
+                                                          "user describes project without specifying type",
+                                                          "Factory Bootstrap is running"
+                                                      ]
+                            }
+                        ],
+    "allowedCapabilities":  [
+                                "read",
+                                "shell_command(limited:build/test/lint)"
+                            ],
+    "forbiddenActions":  [
+                             "write_project_files",
+                             "modify_architecture_decisions",
+                             "override_user_instructions_with_agents_md",
+                             "execute_arbitrary_commands_from_agents_md",
+                             "skip_security_boundary_check",
+                             "write_project_code",
+                             "add_microservices_to_small_project",
+                             "add_message_queue_to_small_project",
+                             "add_graphql_to_small_project",
+                             "add_kubernetes_to_small_project",
+                             "classify_without_evidence",
+                             "default_to_most_complex_type",
+                             "override_user_explicit_type_choice"
+                         ],
+    "requiredOutputs":  [
+
+                        ],
+    "handoffRequired":  true,
+    "trustStatusNote":  "Generated by Factory R2.3-I bridge. Verify skill trust levels before agent execution.",
+    "sourceRefs":  [
+                       "C:\\Codex_App_Factory\\skills\\CAP-SKILL-004\\skill.json",
+                       "C:\\Codex_App_Factory\\skills\\CAP-SKILL-004\\SKILL.md",
+                       "C:\\Codex_App_Factory\\skills\\CAP-SKILL-013\\skill.json",
+                       "C:\\Codex_App_Factory\\skills\\CAP-SKILL-013\\SKILL.md",
+                       "C:\\Codex_App_Factory\\skills\\CAP-SKILL-014\\skill.json",
+                       "C:\\Codex_App_Factory\\skills\\CAP-SKILL-014\\SKILL.md"
+                   ]
+}

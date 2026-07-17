@@ -1,0 +1,47 @@
+﻿{
+    "alertId":  "ROT-ALERT-20260625005341",
+    "risksDetected":  [
+                          {
+                              "evidence":  "watcher CHK07",
+                              "risk":  "Capacity preflight FAIL",
+                              "severity":  "P0"
+                          },
+                          {
+                              "evidence":  "watcher CHK08",
+                              "risk":  "Cross-session reconciliation FAIL",
+                              "severity":  "P1"
+                          },
+                          {
+                              "evidence":  "watcher CHK09",
+                              "risk":  "Context OS memory validation FAIL",
+                              "severity":  "P1"
+                          }
+                      ],
+    "evidenceFiles":  [
+                          "governance/factory-state/current-factory-state.json",
+                          "governance/factory-state/session-rotation-handoff.json",
+                          "governance/automation-os/latest-rotation-recommendation.json",
+                          "governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json"
+                      ],
+    "watcherVerdict":  "ROTATION_REQUIRED",
+    "basedOnWatcherResult":  "governance/automation-os/latest-rotation-recommendation.json",
+    "doesNotMutateState":  true,
+    "generatedAt":  "2026-06-25T00:53:41+08:00",
+    "whyRotationNeeded":  "Current watcher detected ROTATION_REQUIRED signals: P0 capacity preflight FAIL, P1 reconciliation FAIL, P1 memory validation FAIL",
+    "userActionRequired":  {
+                               "manualNewWindowRequired":  true,
+                               "whatNotToAssume":  [
+                                                       "No automatic window creation",
+                                                       "No full context inheritance",
+                                                       "No compressed summary as evidence",
+                                                       "No branch as memory expansion",
+                                                       "No automation alert as verifier PASS"
+                                                   ],
+                               "startupPacketToUse":  "governance/automation-os/latest-rotation-recommendation.json",
+                               "commandsToRunInNewWindow":  [
+                                                                "powershell -File scripts/factoryctl.ps1 verify --json",
+                                                                "powershell -File scripts/live-runtime/check-cross-session-state-reconciliation.ps1 -Json",
+                                                                "powershell -File scripts/session-controller/run-startup-verification-contract.ps1 -Json"
+                                                            ]
+                           }
+}

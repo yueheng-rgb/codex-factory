@@ -1,0 +1,21 @@
+﻿{
+  "check_version": "1.0.0",
+  "timestamp": "2026-06-28T13:00:00+08:00",
+  "ready": true,
+  "checks_total": 10,
+  "checks_passed": 10,
+  "checks": [
+    {"id": "MRC-001", "desc": "phase-ledger.jsonl exists", "pass": true},
+    {"id": "MRC-002", "desc": "All 8 snapshots FRESH", "pass": true},
+    {"id": "MRC-003", "desc": "Attach Packet v3 FRESH", "pass": true},
+    {"id": "MRC-004", "desc": "direction-guard matches phase-ledger", "pass": true},
+    {"id": "MRC-005", "desc": "SQLite index recent", "pass": true},
+    {"id": "MRC-006", "desc": "No STALE snapshots", "pass": true},
+    {"id": "MRC-007", "desc": "No duplicate phases", "pass": true},
+    {"id": "MRC-008", "desc": "evidence-index has entries", "pass": true},
+    {"id": "MRC-009", "desc": "Frozen flags preserved", "pass": true},
+    {"id": "MRC-010", "desc": "No active blockers", "pass": true}
+  ],
+  "issues": [],
+  "user_command_if_ready": "加载最新 Snapshot，判断当前方向"
+}

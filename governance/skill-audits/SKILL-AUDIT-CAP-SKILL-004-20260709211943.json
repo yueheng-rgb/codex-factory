@@ -1,0 +1,55 @@
+﻿{
+    "auditId":  "SKILL-AUDIT-CAP-SKILL-004-20260709211943",
+    "skillId":  "CAP-SKILL-004",
+    "skillVersion":  "1.0.0",
+    "sourceRefs":  [
+                       "OpenAI AGENTS.md specification",
+                       "Codex Factory AGENTS.md implementation"
+                   ],
+    "auditorAgent":  "SEC-001",
+    "auditedAt":  "2026-07-09T21:19:43+08:00",
+    "verdict":  "pass",
+    "riskScore":  0,
+    "requiredControls":  [
+
+                         ],
+    "stages":  {
+                   "metadata":  {
+                                    "passed":  true,
+                                    "findings":  [
+
+                                                 ]
+                                },
+                   "content":  {
+                                   "passed":  true,
+                                   "findings":  [
+
+                                                ]
+                               },
+                   "permission":  {
+                                      "passed":  true,
+                                      "findings":  [
+
+                                                   ]
+                                  },
+                   "supplyChain":  {
+                                       "passed":  true,
+                                       "findings":  [
+                                                        {
+                                                            "description":  "No hash/signature",
+                                                            "severity":  "medium",
+                                                            "riskId":  "SKILL-RISK-020"
+                                                        }
+                                                    ]
+                                   },
+                   "runtimeBehavior":  {
+                                           "passed":  true,
+                                           "findings":  [
+
+                                                        ]
+                                       }
+               },
+    "evidenceRefs":  [
+
+                     ]
+}

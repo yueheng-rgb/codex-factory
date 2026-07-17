@@ -1,0 +1,114 @@
+﻿{
+    "failures":  [
+
+                 ],
+    "timestamp":  "2026-06-24T19:49:33.6843561+08:00",
+    "overallVerdict":  "PASS",
+    "warnings":  [
+
+                 ],
+    "failureCount":  0,
+    "warningCount":  0,
+    "packPath":  "C:\\Codex_App_Factory\\factory-resource-pack",
+    "totalChecks":  14,
+    "checks":  [
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "MANIFEST.json exists and parses",
+                       "checkId":  "MANIFEST_EXISTS",
+                       "detail":  "Parsed, version 0.1.0"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "MANIFEST.sha256 matches",
+                       "checkId":  "MANIFEST_HASH",
+                       "detail":  "Hash: AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "All required core assets present",
+                       "checkId":  "CORE_ASSETS",
+                       "detail":  "5 assets checked"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "All required categories present",
+                       "checkId":  "CATEGORIES_PRESENT",
+                       "detail":  "17 in manifest, 4 non-physical excluded"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "All policy JSONs parse",
+                       "checkId":  "POLICIES_PARSE",
+                       "detail":  "No parse errors in policies/"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "All schema JSONs parse",
+                       "checkId":  "SCHEMAS_PARSE",
+                       "detail":  "No parse errors in schemas/"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "No unevaluated expressions in packaged JSON",
+                       "checkId":  "NO_UNEVALUATED_EXPRESSIONS",
+                       "detail":  "No \u003c\u003c\u003e\u003e, $, or {{}} patterns found"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "SCORING_SYSTEM_GATE: no scoring-as-PASS in core",
+                       "checkId":  "NO_SCORING_AS_PASS",
+                       "detail":  "No scoring-as-PASS patterns in core/verifier-modules/policies"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "No failure-router in core",
+                       "checkId":  "NO_FAILURE_ROUTER_IN_CORE",
+                       "detail":  "Core is clean"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "No compressed-summary-as-evidence",
+                       "checkId":  "NO_COMPRESSED_SUMMARY_AS_EVIDENCE",
+                       "detail":  "No violations (prohibition mentions excluded)"
+                   },
+                   {
+                       "priority":  "P1",
+                       "status":  "PASS",
+                       "description":  "No unverified claims marked as facts",
+                       "checkId":  "NO_UNVERIFIED_CLAIMS_AS_FACTS",
+                       "detail":  "No violations (classification mentions excluded)"
+                   },
+                   {
+                       "priority":  "P1",
+                       "status":  "PASS",
+                       "description":  "MANIFEST.json has nativeGenerated: true",
+                       "checkId":  "NATIVE_GENERATED_FLAG",
+                       "detail":  "Confirmed"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "SCORING_SYSTEM_GATE enforcement confirmed",
+                       "checkId":  "SCORING_GATE_ENFORCED",
+                       "detail":  "Gate enforced per manifest"
+                   },
+                   {
+                       "priority":  "P0",
+                       "status":  "PASS",
+                       "description":  "Boundary rules present in manifest",
+                       "checkId":  "BOUNDARY_RULES_PRESENT",
+                       "detail":  "6 boundary rules"
+                   }
+               ]
+}

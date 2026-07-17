@@ -1,0 +1,8 @@
+﻿{
+    "verifier":  "factory-package-qa-gate-0-verify.ps1",
+    "passed":  37,
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-27T23:20:44+08:00",
+    "failed":  0,
+    "total_checks":  37
+}

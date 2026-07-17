@@ -1,0 +1,15 @@
+﻿{
+    "scope_lock_id": "FACTORY-BUILD-REALWORLD-2-P3-CONTEXT-SCOPE-LOCK",
+    "generated_at": "2026-06-28T10:33:16+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P3",
+    "section": "A",
+    "mount_readiness": {"ready": true, "checks_passed": 10, "checks_total": 10},
+    "p2_confirmed": {"p2_pass_41_41": true, "working_copy_intact": true, "hardening_files_present": true},
+    "p3_scope": "Working-copy test repair + Django version alignment only. Minimal changes. No refactoring.",
+    "bounds": {
+        "no_original_modification": true, "no_deploy": true, "no_remote": true,
+        "no_secret_disclosure": true, "no_v0_5": true, "no_native_build_pro": true,
+        "no_release_zip": true, "no_large_refactor": true, "no_test_deletion_to_pass": true,
+        "no_network_install_without_approval": true
+    }
+}

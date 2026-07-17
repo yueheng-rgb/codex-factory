@@ -1,0 +1,59 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P2",
+  "step": "I_SCORED_COMPARISON_RUBRIC",
+  "timestamp": "2026-06-26T20:30:04.1472391+08:00",
+  "policy": "AGENT-5-P1 repaired complexity policy v2.0-repaired",
+  "scoringMethod": "Each dimension scored 0-100. Weighted average produces final score. Diagnostic metrics inform but do not block.",
+  "weights": {
+    "productQuality": 50,
+    "processQuality": 20,
+    "evidenceQuality": 15,
+    "overheadEfficiency": 15
+  },
+  "scores": {
+    "vanilla": {
+      "productQuality": 85,
+      "processQuality": 40,
+      "evidenceQuality": 45,
+      "overheadEfficiency": 95,
+      "weighted": 65.75,
+      "note": "Strong product with minimal process. No agent overhead. Limited verifiability beyond basic verifier."
+    },
+    "v04FactoryLite": {
+      "productQuality": 78,
+      "processQuality": 55,
+      "evidenceQuality": 55,
+      "overheadEfficiency": 90,
+      "weighted": 67.75,
+      "note": "Good product with v0.4 Factory Lite process support. Better evidence than Vanilla but no agent coordination."
+    },
+    "v05old7Agent": {
+      "productQuality": 82,
+      "processQuality": 78,
+      "evidenceQuality": 70,
+      "overheadEfficiency": 40,
+      "weighted": 73.10,
+      "note": "Strong product with rich process but heavy 7-agent overhead. Process artifacts inflated source count."
+    },
+    "p1Simplified": {
+      "productQuality": 84,
+      "processQuality": 80,
+      "evidenceQuality": 82,
+      "overheadEfficiency": 60,
+      "weighted": 79.30,
+      "note": "Best product (247 tests). Leaner 4-agent process with strong evidence. Higher overhead than single-agent but significantly lower than 7-agent."
+    }
+  },
+  "ranking": [
+    {"rank":1,"run":"P1 Simplified 4-agent","score":79.30},
+    {"rank":2,"run":"old v0.5 7-agent","score":73.10},
+    {"rank":3,"run":"v0.4 Factory Lite","score":67.75},
+    {"rank":4,"run":"Vanilla Codex","score":65.75}
+  ],
+  "productOnlyRanking": [
+    {"rank":1,"run":"Vanilla Codex","productScore":85},
+    {"rank":2,"run":"P1 Simplified 4-agent","productScore":84},
+    {"rank":3,"run":"old v0.5 7-agent","productScore":82},
+    {"rank":4,"run":"v0.4 Factory Lite","productScore":78}
+  ]
+}

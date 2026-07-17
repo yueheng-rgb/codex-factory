@@ -1,0 +1,223 @@
+﻿{
+  "phase": "FACTORY-EVAL-4",
+  "section": "D",
+  "title": "Evaluation Rubric — TeamFlow Lite Benchmark",
+  "createdAt": "2026-06-25T17:15:00+08:00",
+  "designPrinciple": "Every dimension must be objectively measurable. No subjective grading. Each dimension has clear pass/fail or scored criteria with defined evidence requirements.",
+  "maxTotalScore": 100,
+  "dimensions": [
+    {
+      "id": "D01",
+      "name": "Requirement Coverage",
+      "maxScore": 25,
+      "description": "How many of the 11 functional requirements (FR01-FR11) are fully implemented?",
+      "scoring": {
+        "method": "binary per FR",
+        "perItemScore": 2.27,
+        "bonusItem": "All 11 covered = 25 (round up)"
+      },
+      "evidenceRequired": [
+        "Manual inspection of code by evaluator",
+        "API endpoint existence verified via curl/HTTP client",
+        "UI page existence verified via screenshot or browser check"
+      ],
+      "antiGaming": "Cannot claim coverage without verifiable endpoint or UI page",
+      "checklist": [
+        "FR01: Registration/auth with JWT + bcrypt",
+        "FR02: Team CRUD with owner controls",
+        "FR03: RBAC with server-side enforcement",
+        "FR04: Task CRUD scoped to team",
+        "FR05: Status workflow with valid/invalid transitions",
+        "FR06: Assignment + due dates + overdue",
+        "FR07: Comments (immutable) + activity feed",
+        "FR08: Audit log (append-only, queryable)",
+        "FR09: Notification stub (overdue endpoint)",
+        "FR10: Search/filter/sort tasks",
+        "FR11: Error handling and validation on all endpoints"
+      ]
+    },
+    {
+      "id": "D02",
+      "name": "API Contract Correctness",
+      "maxScore": 20,
+      "description": "Do all 21 API endpoints exist, accept correct inputs, return correct outputs, and handle errors properly?",
+      "scoring": {
+        "method": "endpoint count",
+        "perEndpointScore": 0.95,
+        "fullCoverageBonus": "All 21 = 20"
+      },
+      "evidenceRequired": [
+        "curl-based endpoint verification log",
+        "Response status code verification",
+        "Response body schema verification",
+        "Error response verification for invalid inputs"
+      ],
+      "antiGaming": "Placeholder endpoints returning 200 with empty body do not count",
+      "subChecks": [
+        "Auth endpoints (3): register, login, me",
+        "Team endpoints (7): CRUD + member management",
+        "Task endpoints (6): CRUD + status workflow",
+        "Comment endpoints (2): create, list",
+        "Activity/Audit endpoints (2): activity feed, audit log",
+        "Notification endpoint (1): overdue tasks"
+      ]
+    },
+    {
+      "id": "D03",
+      "name": "Database Schema Quality",
+      "maxScore": 15,
+      "description": "Does the database schema have proper constraints, indexes, relationships, and normalization?",
+      "scoring": {
+        "method": "checklist of schema quality indicators"
+      },
+      "evidenceRequired": [
+        "Schema file or migration file readable by evaluator",
+        "Foreign key constraints verified",
+        "Unique constraints verified",
+        "Index existence verified"
+      ],
+      "checklist": [
+        {"item": "Foreign keys defined on all relationships", "score": 3},
+        {"item": "UNIQUE constraints on email, team_id+user_id", "score": 2},
+        {"item": "NOT NULL constraints on required fields", "score": 2},
+        {"item": "Indexes on foreign key columns", "score": 2},
+        {"item": "Indexes on filter/sort columns (status, assignee, due_date)", "score": 2},
+        {"item": "ENUM or CHECK constraints on status, priority, role", "score": 2},
+        {"item": "Timestamps (created_at, updated_at) on all entities", "score": 1},
+        {"item": "No obvious normalization violations", "score": 1}
+      ]
+    },
+    {
+      "id": "D04",
+      "name": "Authentication & Authorization",
+      "maxScore": 15,
+      "description": "Is authentication correct? Are permissions enforced server-side on every protected endpoint?",
+      "scoring": {
+        "method": "boundary test checklist"
+      },
+      "evidenceRequired": [
+        "Automated test results or manual curl log showing boundary tests",
+        "Each check must have a specific test case"
+      ],
+      "checklist": [
+        {"item": "Unauthenticated request to protected endpoint → 401", "score": 2},
+        {"item": "Invalid/expired JWT → 401", "score": 1},
+        {"item": "Viewer cannot create task → 403", "score": 2},
+        {"item": "Viewer cannot update task → 403", "score": 1},
+        {"item": "Viewer cannot delete task → 403", "score": 1},
+        {"item": "Member cannot change team settings → 403", "score": 1},
+        {"item": "Member cannot manage roles → 403", "score": 1},
+        {"item": "User A cannot access Team B tasks → 403", "score": 2},
+        {"item": "User A cannot access Team B audit log → 403", "score": 1},
+        {"item": "Password stored with bcrypt (not plaintext)", "score": 2},
+        {"item": "JWT includes user ID and validates on every request", "score": 1}
+      ]
+    },
+    {
+      "id": "D05",
+      "name": "UI State Coverage",
+      "maxScore": 10,
+      "description": "Does each UI page handle loading, empty, error, and success states?",
+      "scoring": {
+        "method": "per-page state coverage"
+      },
+      "evidenceRequired": [
+        "Screenshots or browser inspection showing each state",
+        "At minimum, code inspection showing state handling components"
+      ],
+      "checklist": [
+        {"item": "Login/Register: error states (invalid creds, duplicate email)", "score": 1.5},
+        {"item": "Dashboard: empty state (no teams), loading, error", "score": 1.5},
+        {"item": "Team View: empty state (no tasks), loading, error", "score": 1.5},
+        {"item": "Task Detail: loading, error, edit mode, comment empty state", "score": 2},
+        {"item": "Team Members: empty state, loading, error", "score": 1.5},
+        {"item": "Audit Log: empty state, loading, error", "score": 1},
+        {"item": "Overdue Tasks: empty state, loading, error", "score": 1}
+      ]
+    },
+    {
+      "id": "D06",
+      "name": "Audit Trail Completeness",
+      "maxScore": 5,
+      "description": "Are all important actions logged in the audit trail?",
+      "scoring": {
+        "method": "action coverage checklist"
+      },
+      "evidenceRequired": [
+        "Audit log entries verified after performing each action type"
+      ],
+      "checklist": [
+        {"item": "Task creation logged", "score": 0.75},
+        {"item": "Task update logged", "score": 0.75},
+        {"item": "Task deletion logged", "score": 0.5},
+        {"item": "Status change logged", "score": 1},
+        {"item": "Assignment change logged", "score": 0.5},
+        {"item": "Role change logged", "score": 0.5},
+        {"item": "Member add/remove logged", "score": 0.5},
+        {"item": "Audit entries include actor, action, target, timestamp", "score": 0.5}
+      ]
+    },
+    {
+      "id": "D07",
+      "name": "Test Quality",
+      "maxScore": 5,
+      "description": "Do tests exist with meaningful assertions? Are they not placeholder/fake tests?",
+      "scoring": {
+        "method": "test quality checklist"
+      },
+      "evidenceRequired": [
+        "Test run output showing pass/fail counts",
+        "Test source code inspection for meaningful assertions"
+      ],
+      "antiGaming": "Test files with only assert(true) or no assertions count as 0",
+      "checklist": [
+        {"item": "Auth service tests with real assertions", "score": 1},
+        {"item": "Task CRUD tests with real assertions", "score": 1},
+        {"item": "Permission boundary tests", "score": 1},
+        {"item": "Workflow transition tests", "score": 1},
+        {"item": "Multi-tenant isolation tests", "score": 1}
+      ]
+    },
+    {
+      "id": "D08",
+      "name": "Documentation Quality",
+      "maxScore": 5,
+      "description": "Is documentation complete, accurate, and runnable?",
+      "scoring": {
+        "method": "documentation checklist"
+      },
+      "evidenceRequired": [
+        "README.md content inspection",
+        "Successful run-following of documented setup commands"
+      ],
+      "checklist": [
+        {"item": "Setup instructions are accurate and work", "score": 2},
+        {"item": "Run command documented and works", "score": 1},
+        {"item": "Test command documented and works", "score": 1},
+        {"item": "API overview or endpoint list in docs", "score": 1}
+      ]
+    }
+  ],
+  "scoringSummary": {
+    "D01_requirementCoverage": 25,
+    "D02_apiContract": 20,
+    "D03_databaseSchema": 15,
+    "D04_authAuthorization": 15,
+    "D05_uiStates": 10,
+    "D06_auditTrail": 5,
+    "D07_testQuality": 5,
+    "D08_documentation": 5,
+    "total": 100
+  },
+  "evaluatorMustNot": [
+    "Trust run self-report as evidence",
+    "Be the same agent that performed the run",
+    "Accept file counts as quality proof",
+    "Accept export counts as quality proof",
+    "Accept agent counts as quality proof",
+    "Score placeholder implementations as complete",
+    "Score fake tests as passing",
+    "Modify rubric after seeing run results",
+    "Show favoritism toward any run configuration"
+  ]
+}

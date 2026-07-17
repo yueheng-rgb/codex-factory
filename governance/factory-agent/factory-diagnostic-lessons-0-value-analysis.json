@@ -1,0 +1,29 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-LESSONS-0-B",
+  "timestamp": "2026-06-27T00:05:00+08:00",
+  "valueQuestions": [
+    {"q":"1. Did Diagnostic Pack find real defects?","answer":"YES","evidence":"14 findings: 2 critical (two servers, API mismatch), 3 high (wrong script, JWT mismatch, zero tests), 5 medium, 4 low. All confirmed by source inspection."},
+    {"q":"2. Were the defects high-value?","answer":"YES","evidence":"Critical findings meant favorites/reviews/auth features were BROKEN. High findings meant server wouldn't start correctly. These are blocker-grade defects for any project submission."},
+    {"q":"3. Would casual inspection likely miss them?","answer":"YES","evidence":"Two-server issue is non-obvious without comparing file contents. API-client mismatch requires cross-referencing frontend api/index.js with backend routes. These are exactly the class of issues casual review overlooks."},
+    {"q":"4. Did the checklist structure help?","answer":"YES","evidence":"25-item checklist across 8 categories ensured no dimension was skipped. Without structure, would likely focus on code quality and miss report/source consistency or API alignment."},
+    {"q":"5. Did readonly diagnostic avoid unnecessary code modification?","answer":"YES","evidence":"0 product files modified during diagnostic. All findings documented in JSON backlog. Repair was a separate, explicit phase."},
+    {"q":"6. Did repair confirm diagnostic accuracy?","answer":"YES","evidence":"All 5 critical+high findings were accurate and actionable. Repair passed 40/40 verifier, 8/8 tests. No finding was a false positive."},
+    {"q":"7. Which checks were most valuable?","answer":"Report/Source Consistency (C) — 50% discrepancy rate. Architecture/Runtime Surface (D) — found two-server issue. DB/API/UI Alignment (E) — found 4 missing route groups. Security/RBAC (F) — found JWT mismatch, credential exposure, missing merchant middleware. Test Quality (G) — confirmed zero real tests."},
+    {"q":"8. Which checks were too heavy or redundant?","answer":"Contamination checks (RV21-23) — minimal signal for single-developer project. UI state checks (RV11-14) — CANNOT_EVALUATE without running app. Evidence hierarchy — valuable concept but could be simplified for first-pass."},
+    {"q":"9. Did Diagnostic Pack improve Codex workflow?","answer":"YES","evidence":"Systematic → comprehensive. Readonly → safe. Separates diagnosis from repair → clear phase boundaries. Evidence-backed → findings have file:line references."},
+    {"q":"10. Is Diagnostic Pack more useful than full multi-agent for this use case?","answer":"YES","evidence":"Multi-agent adds coordination overhead, worker capsules, agent registry. For student/course projects, a single-agent readonly diagnostic finds the same defects faster and simpler."}
+  ],
+  "mostValuableChecks": [
+    "C: Report/Source Consistency Check",
+    "D: Architecture & Runtime Surface Review",
+    "E: DB/API/UI Alignment Check",
+    "F: Security & RBAC Review",
+    "G: Test Quality & Evidence Review"
+  ],
+  "leastValuableChecks": [
+    "Contamination checks (low signal for single-developer projects)",
+    "UI state checks (requires running app — may skip for first pass)",
+    "Evidence hierarchy full detail (simplify for first-pass)"
+  ],
+  "overallAssessment": "Diagnostic Pack is HIGHLY VALUABLE for this project class (multi-app student/course projects with report claims). Finds real, high-value defects that casual inspection misses. Readonly mode is essential safety property."
+}

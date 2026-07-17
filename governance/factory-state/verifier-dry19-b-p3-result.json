@@ -1,0 +1,86 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-dry19-b-p3-realspawn-live-negative-controls-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  15,
+    "passed":  15,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "DRY19-B-P2 report exists and PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "P2 corrected DRY19-B to PASS_PENDING_RECONCILIATION"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "Realspawn parent discovery exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "Realspawn parent path is correct"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "Full parent positive recheck exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "Parent discovery documents no executable runner"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "Realspawn parent structure is real (52 source files, 5 workers)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "Realspawn negative plan exists (deferred)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "Classification derivation exists (deferred)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "P3 correctly stopped — no fabricated negative execution"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "No generic FAIL classifications"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "Closed reports unchanged except P3"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "DRY2-C through DRY13-C remain paused"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "DRY20-A not started"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T15:21:06.422+08:00"
+}

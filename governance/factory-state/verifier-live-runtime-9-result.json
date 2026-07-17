@@ -1,0 +1,143 @@
+﻿{
+    "passed":  22,
+    "checkedAt":  "2026-06-25T00:54:21+08:00",
+    "command":  "live-runtime-9-verify",
+    "totalChecks":  22,
+    "phase":  "LIVE-RUNTIME-9",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "LR8",
+                       "result":  true,
+                       "name":  "LR8_PASS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "probe",
+                       "result":  true,
+                       "name":  "PROBE_EXISTS",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "unavailV=0",
+                       "result":  true,
+                       "name":  "PROBE_NO_UNAVAIL",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "scheduled",
+                       "result":  true,
+                       "name":  "SCHED_EXISTS",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "5",
+                       "result":  true,
+                       "name":  "SCHED_5",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "non-mutating",
+                       "result":  true,
+                       "name":  "SCHED_NON_MUT",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "SCHED_MACHINE",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "no mislabel",
+                       "result":  true,
+                       "name":  "SCHED_NO_MISLABEL",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "contract",
+                       "result":  true,
+                       "name":  "CONTRACT",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "policy",
+                       "result":  true,
+                       "name":  "POLICY",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "9",
+                       "result":  true,
+                       "name":  "POLICY_RULES",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "alert",
+                       "result":  true,
+                       "name":  "ALERT",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "payload",
+                       "result":  true,
+                       "name":  "PAYLOAD",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "neg",
+                       "result":  true,
+                       "name":  "NEG_EXISTS",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "26",
+                       "result":  true,
+                       "name":  "NEG_26",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_GAPS",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EC",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GF",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PC",
+                       "id":  22
+                   }
+               ],
+    "failed":  0
+}

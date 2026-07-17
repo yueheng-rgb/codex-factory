@@ -1,0 +1,108 @@
+﻿{
+    "openQuestions":  [
+                          "What is the actual context window size of the current Codex model?",
+                          "Does Codex have native support for agent handoff between specialized subagents?",
+                          "Are Codex skills loaded on-demand or always-available? Does skill loading consume context?",
+                          "Does Codex MCP memory server have production support or prototype only?"
+                      ],
+    "researchStatus":  "PARTIAL — web search unavailable",
+    "itemsNeedingExternalVerification":  [
+                                             "Anthropic multi-agent research system architecture",
+                                             "Microsoft AutoGen latest version and features",
+                                             "CrewAI agent role/workflow orchestration",
+                                             "OpenAI Swarm/Agents SDK handoff patterns",
+                                             "Coze Studio agent platform capabilities",
+                                             "DeepSeek 1M context current status and limitations",
+                                             "Long-context model limitations research"
+                                         ],
+    "findings":  [
+                     {
+                         "topic":  "Multi-agent orchestration landscape",
+                         "mayDriveDesign":  true,
+                         "sources":  [
+                                         {
+                                             "title":  "Codex Factory self-contained evidence",
+                                             "url":  "N/A — repo artifacts",
+                                             "note":  "Codex Factory has built its own agent OS with 8 roles, event bus, lifecycle, authority matrix, handoff protocols"
+                                         }
+                                     ],
+                         "relevance":  "Factory already has agent infrastructure; role specialization is the next layer, not replacing the agent OS",
+                         "confidence":  "MEDIUM — web search unavailable",
+                         "keyFinding":  "Existing multi-agent frameworks (AutoGen, CrewAI, Swarm) differ in agent communication model. Codex Factory\u0027s agent OS (8 roles, event bus, authority matrix) is self-contained and not dependent on external frameworks."
+                     },
+                     {
+                         "topic":  "Codex subagent structure",
+                         "mayDriveDesign":  true,
+                         "sources":  [
+                                         {
+                                             "title":  "Codex Factory H13-C evidence",
+                                             "url":  "governance/factory-state/agent-run-summary.json",
+                                             "note":  "Real spawn_agent test with fork_context:false proven"
+                                         }
+                                     ],
+                         "relevance":  "Any role-specialized agent model must use spawn_agent, not thread/fork as carrier",
+                         "confidence":  "HIGH — repo evidence",
+                         "keyFinding":  "Codex spawn_agent with fork_context:false proven for builders; fork_context:true proven for explorers. 6 subagents active in current session. Subagent is NOT a user-visible branch or session carrier."
+                     },
+                     {
+                         "topic":  "Codex skills/plugins/MCP",
+                         "mayDriveDesign":  true,
+                         "sources":  [
+                                         {
+                                             "title":  "Codex Factory plugin structure",
+                                             "url":  "codex-factory-plugin/",
+                                             "note":  "Plugin scaffold exists with skills, MCP prototype, references"
+                                         }
+                                     ],
+                         "relevance":  "Role-specific skills could be created; current skills are factory-internal",
+                         "confidence":  "HIGH — repo evidence",
+                         "keyFinding":  "Codex supports skills (SKILL.md), plugins (.codex-plugin/plugin.json), and MCP servers. Factory has a codex-factory-plugin with experimental scaffolding. Skills are generic (not role-specific)."
+                     },
+                     {
+                         "topic":  "Codex thread/fork/automation",
+                         "mayDriveDesign":  true,
+                         "sources":  [
+                                         {
+                                             "title":  "LR8 carrier capability probe",
+                                             "url":  "governance/factory-state/live-runtime-8-runtime-carrier-capability-probe.json",
+                                             "note":  "Thread tools exist but untested for live carrier"
+                                         }
+                                     ],
+                         "relevance":  "Do not design role-agent model around unverified carrier capabilities",
+                         "confidence":  "HIGH — repo evidence",
+                         "keyFinding":  "Thread/fork/new/resume tools exist in Codex Desktop schema but are HYPOTHESIS for session carrier use. Automation same-thread wakeup is REJECTED as carrier."
+                     },
+                     {
+                         "topic":  "One-person company / AI agent practice",
+                         "mayDriveDesign":  true,
+                         "sources":  [
+                                         {
+                                             "title":  "Codex Factory governance model",
+                                             "url":  "governance/",
+                                             "note":  "Factory has self-governance but no external company-model references"
+                                         }
+                                     ],
+                         "relevance":  "Role model should map to verifiable outputs, not just role claims",
+                         "confidence":  "LOW — no external sources verified",
+                         "keyFinding":  "Role specialization (PM/architect/engineer/QA/security/DevOps) is a common pattern in one-person AI companies. Key risk: agent drift without human oversight. Factory\u0027s verifier/negative control system partially addresses this."
+                     },
+                     {
+                         "topic":  "Long-context strategy",
+                         "mayDriveDesign":  true,
+                         "sources":  [
+                                         {
+                                             "title":  "Codex Factory context OS",
+                                             "url":  "governance/context-os/",
+                                             "note":  "Context OS with memory index, 5 ledgers, context packets, query protocol"
+                                         }
+                                     ],
+                         "relevance":  "Manual router must not assume \u0027Codex read it once = Codex knows it\u0027 — proof-of-read is still required",
+                         "confidence":  "MEDIUM — partially supported by repo design",
+                         "keyFinding":  "Long-context models (1M tokens) do not eliminate need for external memory and routing. Context is not comprehension. Factory\u0027s Context OS + MCP Memory approach of external indexing + query is complementary, not replaced by long context."
+                     }
+                 ],
+    "schemaId":  "factory-eval-1-external-research",
+    "phase":  "FACTORY-EVAL-1-A",
+    "researchMethodNote":  "web_search tool returned \u0027unsupported custom tool call\u0027 in current Codex Desktop environment. External claims below are HYPOTHESIS based on available system context and prior knowledge. User should verify independently.",
+    "generatedAt":  "2026-06-25T15:53:44+08:00"
+}

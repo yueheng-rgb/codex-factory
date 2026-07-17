@@ -1,0 +1,34 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "C",
+  "title": "Execution Environment Setup",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "environment": {
+    "harness_root": "harness/ab-0-r1/",
+    "run_a_dir": "harness/ab-0-r1/run-a-vanilla/",
+    "run_b_dir": "harness/ab-0-r1/run-b-factory/",
+    "shared_fixtures": "harness/ab-0-r1/shared-fixtures/"
+  },
+  "fixture_inventory": [
+    {"name": "task-requirements.md", "source": "AB-0 matched task selection", "content": "InventoryOps Portal Lite requirements"},
+    {"name": "RUN_A_VANILLA_PROMPT.md", "source": "factory-ab/prompts/RUN_A_VANILLA_PROMPT.md", "content": "Vanilla Codex prompt"},
+    {"name": "RUN_B_FACTORY_PROMPT.md", "source": "factory-ab/prompts/RUN_B_FACTORY_PROMPT.md", "content": "Factory Build Lite prompt"},
+    {"name": "scoring-rubric.json", "source": "AB-0 Section D", "content": "5-dimension scoring rubric"}
+  ],
+  "isolation": {
+    "run_a_no_factory": true,
+    "run_b_factory_active": true,
+    "no_cross_contamination": true,
+    "fresh_sessions": true,
+    "identical_starting_state": true
+  },
+  "safety": {
+    "no_real_secrets": true,
+    "no_real_projects": true,
+    "no_deployment": true,
+    "no_production_db": true,
+    "no_remote_commands": true,
+    "no_native_build_pro": true
+  },
+  "status": "EXECUTION_ENVIRONMENT_READY"
+}

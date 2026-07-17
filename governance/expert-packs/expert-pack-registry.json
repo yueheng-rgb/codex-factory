@@ -1,0 +1,54 @@
+﻿{
+    "registry_version":  "2.3.0",
+    "description":  "Codex Factory Expert Pack Registry — domain-specific capability packs",
+    "packs":  [
+                  {
+                      "expert_pack_id":  "ecommerce",
+                      "domain":  "Ecommerce",
+                      "version":  "1.0.0",
+                      "description":  "Ecommerce domain expert pack — product catalog, inventory, cart, orders, payment, admin management",
+                      "pack_file":  "ecommerce-pack.json",
+                      "status":  "ACTIVE"
+                  },
+                  {
+                      "expert_pack_id":  "saas-tool",
+                      "domain":  "SaaS Tool / AI Platform",
+                      "version":  "1.0.0",
+                      "description":  "SaaS Tool expert pack — tenant isolation, subscriptions, quotas, AI generation, API key safety, billing webhooks, rate limiting",
+                      "pack_file":  "saas-tool-pack.json",
+                      "status":  "ACTIVE"
+                  },
+                  {
+                      "expert_pack_id":  "admin-system",
+                      "domain":  "Admin System / Management Backend",
+                      "version":  "1.0.0",
+                      "description":  "Admin System expert pack — admin authentication, RBAC, CRUD tables, form validation, batch operations, audit log, destructive action confirmation, status transitions, import/export, pagination, search filters",
+                      "pack_file":  "admin-system-pack.json",
+                      "status":  "ACTIVE"
+                  },
+                  {
+                      "version":  "1.0.0",
+                      "domain":  "Miniapp / WeChat Mini-Program",
+                      "description":  "Miniapp Expert Pack — identity, session, payment, upload, form validation, admin integration, production release",
+                      "expert_pack_id":  "miniapp",
+                      "pack_file":  "miniapp/miniapp-pack.json",
+                      "status":  "ACTIVE"
+                  },
+                  {
+                      "version":  "1.0.0",
+                      "domain":  "Game / ThreeJS Interactive 3D",
+                      "description":  "Game / ThreeJS Expert Pack — 3D scenes, WebGL, asset management, game state, scoring",
+                      "expert_pack_id":  "game-threejs",
+                      "pack_file":  "game-threejs/game-threejs-pack.json",
+                      "status":  "ACTIVE"
+                  },
+                  {
+                      "version":  "1.0.0",
+                      "domain":  "C/C++ Memory Safety",
+                      "description":  "C/C++ Memory Safety Expert Pack — buffer overflow, use-after-free, pointer safety, sanitizer toolchain",
+                      "expert_pack_id":  "cpp-memory-safety",
+                      "pack_file":  "cpp-memory-safety/cpp-memory-safety-pack.json",
+                      "status":  "ACTIVE"
+                  }
+              ]
+}

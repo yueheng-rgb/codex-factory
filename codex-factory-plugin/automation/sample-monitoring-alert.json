@@ -1,0 +1,20 @@
+﻿{
+    "verdict": "MONITORING_ALERT",
+    "checkedAt": "2026-06-24T18:30:00+08:00",
+    "checks": [
+        {"checkId":"FINAL_ZIP_EARLY","status":"ALERT","detail":"final-delivery.zip found before phase closure"},
+        {"checkId":"MANIFEST_SHA_MISMATCH","status":"PASS","detail":"SHA256 matches"},
+        {"checkId":"FACTORYCTL_FAIL","status":"ALERT","detail":"factoryctl verify: FAIL (2 modules)"}
+    ],
+    "alerts": [
+        "FINAL_ZIP_EARLY: final-delivery.zip exists before DRY26 closure",
+        "FACTORYCTL_FAIL: verify returned FAIL — 2 modules failed"
+    ],
+    "evidencePaths": [
+        "governance/factory-state/current-factory-state.json",
+        "final-delivery.zip"
+    ],
+    "recommendedAction": "Investigate final ZIP. Run full verifier. Do NOT close phase.",
+    "doesNotMutateState": true,
+    "prototype": true
+}

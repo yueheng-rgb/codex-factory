@@ -1,0 +1,142 @@
+﻿{
+    "diagnosticMetrics":  [
+                              {
+                                  "notes":  "77 in RUN-LP-C-P1 exceeds 50 diagnostic floor",
+                                  "purpose":  "SOFT_DIAGNOSTIC",
+                                  "antiGaming":  "Empty files, comment-only files, re-export-only files, or files whose sole purpose is to increase file count are NOT meaningful.",
+                                  "metric":  "sourceFileCount",
+                                  "definition":  "A meaningful source file has at least 1 non-trivial export, serves a distinct architectural purpose, and is not empty/comment-only/re-export-only.",
+                                  "unit":  "meaningful source files",
+                                  "floor":  50
+                              },
+                              {
+                                  "notes":  "198 exports across 13 modules = 15.2 avg, exceeds 10 diagnostic floor",
+                                  "purpose":  "SOFT_DIAGNOSTIC",
+                                  "antiGaming":  "Fake exports, re-export-only exports, barrel-exports, and unused exports are NOT counted.",
+                                  "metric":  "exportCount",
+                                  "definition":  "A meaningful export is a const, function, class, type, interface, or enum that is used by at least one consumer within the product. Re-exports of external modules, unused exports, and barrel-only re-exports are NOT meaningful.",
+                                  "unit":  "meaningful exports per module (average)",
+                                  "floor":  10
+                              },
+                              {
+                                  "notes":  "23 test files with 247 test cases in RUN-LP-C-P1",
+                                  "purpose":  "SOFT_DIAGNOSTIC",
+                                  "antiGaming":  "Fake tests, placeholder tests, test-only re-exports NOT counted.",
+                                  "metric":  "testFileCount",
+                                  "definition":  "A test file must contain at least 3 test cases and must test non-trivial product behavior. Test-only re-exports, placeholder tests, and empty test files are NOT meaningful.",
+                                  "unit":  "test files",
+                                  "floor":  10
+                              }
+                          ],
+    "hardFloors":  [
+                       {
+                           "rationale":  "Real behavioral surface; fake endpoints detectable via behavior test",
+                           "metric":  "endpointCount",
+                           "floor":  40,
+                           "unit":  "endpoints"
+                       },
+                       {
+                           "rationale":  "Data entities; fake tables detectable via schema review",
+                           "metric":  "dbTableCount",
+                           "floor":  15,
+                           "unit":  "tables"
+                       },
+                       {
+                           "rationale":  "Architectural boundaries; placeholder modules detectable",
+                           "metric":  "moduleCount",
+                           "floor":  10,
+                           "unit":  "modules"
+                       },
+                       {
+                           "rationale":  "Error handling completeness; fake errors detectable via code review",
+                           "metric":  "errorStateCount",
+                           "floor":  30,
+                           "unit":  "error states"
+                       },
+                       {
+                           "rationale":  "API contract is integration-critical",
+                           "metric":  "apiContractCompleteness",
+                           "floor":  "all endpoints",
+                           "unit":  "contracts"
+                       },
+                       {
+                           "rationale":  "Reproducibility is quality signal",
+                           "metric":  "deterministicSeed",
+                           "floor":  "present",
+                           "unit":  "feature"
+                       },
+                       {
+                           "rationale":  "Data portability is quality signal",
+                           "metric":  "deterministicImportExport",
+                           "floor":  "present",
+                           "unit":  "feature"
+                       },
+                       {
+                           "rationale":  "Business rule validation is critical",
+                           "metric":  "workflowValidator",
+                           "floor":  "present",
+                           "unit":  "feature"
+                       },
+                       {
+                           "rationale":  "Compliance-critical",
+                           "metric":  "auditLog",
+                           "floor":  "present",
+                           "unit":  "feature"
+                       },
+                       {
+                           "rationale":  "User-facing reliability",
+                           "metric":  "notificationOutbox",
+                           "floor":  "present",
+                           "unit":  "feature"
+                       },
+                       {
+                           "rationale":  "Configurability is product quality",
+                           "metric":  "settingsModule",
+                           "floor":  "present",
+                           "unit":  "feature"
+                       }
+                   ],
+    "step":  "C_REPAIRED_COMPLEXITY_POLICY",
+    "version":  "2.0-repaired",
+    "meaningfulDefinitions":  {
+                                  "meaningfulTest":  "A test case that exercises non-trivial product behavior with assertions. Not a placeholder, not a smoke-only check.",
+                                  "meaningfulSourceFile":  "A source file with \u003e=1 non-trivial export serving a distinct architectural purpose. Not empty, not comment-only, not re-export-only.",
+                                  "meaningfulExport":  "A const, function, class, type, interface, or enum used by \u003e=1 consumer within the product. Not a re-export, not unused, not barrel-only.",
+                                  "meaningfulEndpoint":  "An HTTP endpoint with \u003e=1 behavior test passing. Not a stub, not unreachable."
+                              },
+    "designGoal":  "Measure meaningful complexity, not artifact inflation. Anti-gaming, fair across architectures.",
+    "phase":  "FACTORY-AGENT-5-P1",
+    "timestamp":  "2026-06-26T20:21:48.3941709+08:00",
+    "evidenceTable":  {
+                          "defectClassification":  "BENCHMARK_POLICY_DEFECT",
+                          "policyRepairedNotProductChanged":  true,
+                          "sourceDefects":  [
+                                                "AGENT-8-P1-R1 PD-01",
+                                                "AGENT-8-P1-R1 PD-02"
+                                            ],
+                          "productNotAtFault":  true
+                      },
+    "antiGamingPolicy":  {
+                             "detectionMethods":  [
+                                                      "File content length check (\u003c50 bytes non-whitespace = suspicious)",
+                                                      "Export usage analysis (unused exports flagged)",
+                                                      "Endpoint behavior test coverage",
+                                                      "Module dependency analysis",
+                                                      "Code review for architectural purpose"
+                                                  ],
+                             "forbidden":  [
+                                               "Empty files to increase file count",
+                                               "Comment-only files",
+                                               "Re-export-only files (barrel files)",
+                                               "Fake exports (declared but unused)",
+                                               "Fake endpoints (declared but untested)",
+                                               "Fake tests (placeholder, no assertions)",
+                                               "Placeholder modules",
+                                               "Fragmentation solely to satisfy file floor",
+                                               "Barrel exports solely to satisfy export floor",
+                                               "Counting process artifacts as product complexity",
+                                               "Using source/export count as product quality proof"
+                                           ]
+                         },
+    "replaces":  "AGENT-5 original complexity floors"
+}

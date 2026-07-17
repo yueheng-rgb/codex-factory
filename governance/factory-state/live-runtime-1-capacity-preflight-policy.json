@@ -1,0 +1,27 @@
+﻿{
+    "nativeGenerated":  true,
+    "policyId":  "LIVE-RUNTIME-CAPACITY-PREFLIGHT",
+    "subPhase":  "C",
+    "generatedAt":  "2026-06-24T23:54:43+08:00",
+    "evidence":  "DRY23-P1 spawn failure -\u003e Main Agent fallback",
+    "phase":  "LIVE-RUNTIME-1",
+    "rules":  [
+                  {
+                      "rule":  "PREFLIGHT_BEFORE_SPAWN"
+                  },
+                  {
+                      "rule":  "UNSAFE_STALE_BLOCKS"
+                  },
+                  {
+                      "rule":  "ARCHIVED_EXCLUDED"
+                  },
+                  {
+                      "rule":  "QUARANTINED_EXCLUDED"
+                  },
+                  {
+                      "rule":  "KNOWN_SPAWN_LIMIT",
+                      "evidence":  "DRY23-P1",
+                      "limit":  10
+                  }
+              ]
+}

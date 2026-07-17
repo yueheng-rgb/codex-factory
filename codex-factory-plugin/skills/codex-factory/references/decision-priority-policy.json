@@ -1,0 +1,84 @@
+﻿{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "factory-resource-pack/policies/decision-priority-policy.json",
+  "title": "Decision Priority Policy",
+  "description": "Machine-readable priority classification for Factory verifier decisions. Defines P0 hard floor failures, P1 blocking caveats, and P2 non-blocking caveats with their escalation and remediation rules.",
+  "phase": "H18",
+  "policyVersion": "1.0.0",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T12:00:00.000+08:00",
+  "generatedBy": "H18 Builder: POLICIES-SCHEMAS",
+  "priorityLevels": {
+    "P0": {
+      "label": "Hard Floor Failure",
+      "description": "A binary gate that must pass for phase closure. Failure blocks all downstream phases.",
+      "blockPhaseClosure": true,
+      "cannotBeCaveated": true,
+      "cannotBeDowngraded": true,
+      "requiresImmediateRemediation": true,
+      "remediationWindow": "Before any downstream phase begins.",
+      "examples": [
+        "Worker contract scope violation detected by cross-scope audit.",
+        "SHA256 mismatch on handoff artifact.",
+        "nativeGenerated:true claimed on reconstructed artifact.",
+        "SCORING_SYSTEM_GATE triggered: score-based PASS substituted for verifier evidence.",
+        "Undeclared Main Agent fallback writing worker-owned scope.",
+        "Generic FAIL emitted with no specific target gate reference.",
+        "Hard floor complexity threshold not met (files < minimum, exports < minimum)."
+      ],
+      "verifierRequirement": "Must be detected by an automated verifier with machine-readable JSON output.",
+      "escalation": "Immediately blocks factoryctl phase-close. Requires explicit repair agent respawn."
+    },
+    "P1": {
+      "label": "Blocking Caveat",
+      "description": "A non-binary issue that must be repaired before phase closure but does not invalidate completed work.",
+      "blockPhaseClosure": true,
+      "cannotBeCaveated": false,
+      "canBeCaveatedWithRepair": true,
+      "requiresRemediation": true,
+      "remediationWindow": "Must be repaired before phase-close; can be repaired in same session.",
+      "examples": [
+        "Evidence entry missing transcriptRef but has verifier JSON.",
+        "Progress event with missing evidenceRefs for non-trivial operation.",
+        "Worker contract missing declared dependency that exists in practice.",
+        "Allowed import not declared in contract but discovered by static analysis.",
+        "Session rotation handoff exists but was generated before last evidence write."
+      ],
+      "verifierRequirement": "Verifier must enumerate specific missing items; repair agent must address each.",
+      "escalation": "Blocks factoryctl phase-close until all P1 items are resolved. Repair agent can resolve in-place."
+    },
+    "P2": {
+      "label": "Non-Blocking Caveat",
+      "description": "An advisory finding recorded in the phase close report. Does not block phase closure.",
+      "blockPhaseClosure": false,
+      "cannotBeCaveated": false,
+      "canBeCaveatedWithoutRepair": true,
+      "requiresRemediation": false,
+      "remediationWindow": "Recorded for next phase awareness; may be addressed opportunistically.",
+      "examples": [
+        "Evidence entry missing optional size field.",
+        "Progress event timestamp granularity below microsecond.",
+        "Worker contract missing generatedBy field for retroactive contracts.",
+        "Non-critical documentation gap in verifier module spec.",
+        "Negative fixture template has unused optional fields."
+      ],
+      "verifierRequirement": "Verifier must log P2 findings; no repair agent required.",
+      "escalation": "Recorded in phase-close audit log. Automatically surfaced to next phase integrator."
+    }
+  },
+  "classificationRules": {
+    "binaryGateFailed": "Always P0.",
+    "evidenceMissingForPASS": "Always P0.",
+    "scoreSubstitutedForVerifier": "Always P0 (SCORING_SYSTEM_GATE).",
+    "evidenceMissingForOptionalField": "P2.",
+    "contractDeclarationIncomplete": "P1 if dependency is used in practice; P2 if declaration-only gap.",
+    "sha256Mismatch": "Always P0.",
+    "contextCompressionExceeded": "P1 if >2 compressions; P2 if exactly 2."
+  },
+  "antiAbuseRules": {
+    "noCaveatDowngradeOfP0": "A P0 failure cannot be reclassified as P1 or P2 by caveat. The classification is immutable.",
+    "noScoreBasedReclassification": "A computed score (0.0-1.0) cannot override priority classification.",
+    "noManualOverrideWithoutVerifier": "Manual priority override requires a verifier result confirming the reclassification basis.",
+    "noSilentDowngrade": "Any priority downgrade must be recorded in the phase-close report with explicit rationale."
+  }
+}

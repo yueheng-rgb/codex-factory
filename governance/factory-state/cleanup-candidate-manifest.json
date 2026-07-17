@@ -1,0 +1,117 @@
+﻿{
+    "generatedAt":  "2026-06-23T11:38:44.089+08:00",
+    "totalCandidates":  12,
+    "safeToDeleteCount":  10,
+    "blockedCount":  2,
+    "note":  "Scan-only. NO files deleted. Protected evidence excluded from scan.",
+    "candidates":  [
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\command-logs\\build-stderr.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\command-logs\\npm-ci-stderr.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\command-logs\\test-playwright-stderr.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\command-logs\\test-unit-stderr.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\command-logs\\typecheck-fixed-stdout.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\command-logs\\typecheck-stderr.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\command-logs\\typecheck-stdout.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\command-logs\\validate-state-stderr.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-D\\node_modules\\undici\\lib\\llhttp\\.gitkeep",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\C-RUN-E\\command-logs\\build-stderr.log",
+                           "reason":  "Empty file",
+                           "referencedBy":  [
+
+                                            ],
+                           "safeToDelete":  true,
+                           "deletionBlockedReason":  null
+                       },
+                       {
+                           "path":  "harness\\runs\\dry19-mini-workflow-approval-ops-app\\acceptance-test-p2.js",
+                           "reason":  "Interim acceptance test (reproducible from source)",
+                           "referencedBy":  [
+                                                "acceptance-evidence"
+                                            ],
+                           "safeToDelete":  false,
+                           "deletionBlockedReason":  "Referenced by acceptance evidence chain"
+                       },
+                       {
+                           "path":  "harness\\runs\\dry19-mini-workflow-approval-ops-app\\acceptance-test.js",
+                           "reason":  "Interim acceptance test (reproducible from source)",
+                           "referencedBy":  [
+                                                "acceptance-evidence"
+                                            ],
+                           "safeToDelete":  false,
+                           "deletionBlockedReason":  "Referenced by acceptance evidence chain"
+                       }
+                   ]
+}

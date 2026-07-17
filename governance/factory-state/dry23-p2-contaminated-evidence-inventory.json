@@ -1,0 +1,324 @@
+﻿{
+    "sourceTranscript":  "This Codex session transcript, DRY23-P1 phase",
+    "failedAgentId":  "dry23-p1-builder-expander",
+    "source":  "Main Agent (dry23-orchestrator-1) wrote directly after spawn failure",
+    "progressEventsForRepairFiles":  0,
+    "registryEntriesForRepairFiles":  0,
+    "totalContaminatedFiles":  34,
+    "contaminatedIntegrationHubFiles":  4,
+    "workerTranscriptsForRepairFiles":  0,
+    "spawnFailure":  "collab spawn failed: agent thread limit reached",
+    "totalContaminatedExports":  null,
+    "phase":  "DRY23-P2",
+    "quarantinedReason":  "MAIN_AGENT_UNDECLARED_FALLBACK",
+    "files":  [
+                  {
+                      "pkg":  "diagnosis-engine-core",
+                      "exports":  10,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-engine-core/src/diagnosis-pipeline.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-engine-core",
+                      "exports":  14,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-engine-core/src/diagnosis-filter.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-engine-core",
+                      "exports":  12,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-engine-core/src/diagnosis-analyzer.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-engine-core",
+                      "exports":  10,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-engine-core/src/diagnosis-evidence-chain.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "snapshot-manager",
+                      "exports":  10,
+                      "xwDepContrib":  0,
+                      "path":  "packages/snapshot-manager/src/snapshot-comparator.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "snapshot-manager",
+                      "exports":  11,
+                      "xwDepContrib":  0,
+                      "path":  "packages/snapshot-manager/src/snapshot-merge.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "snapshot-manager",
+                      "exports":  10,
+                      "xwDepContrib":  0,
+                      "path":  "packages/snapshot-manager/src/snapshot-index.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "snapshot-manager",
+                      "exports":  11,
+                      "xwDepContrib":  0,
+                      "path":  "packages/snapshot-manager/src/snapshot-export.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "risk-classifier",
+                      "exports":  8,
+                      "xwDepContrib":  0,
+                      "path":  "packages/risk-classifier/src/risk-pipeline.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "risk-classifier",
+                      "exports":  8,
+                      "xwDepContrib":  0,
+                      "path":  "packages/risk-classifier/src/risk-trend.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "risk-classifier",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/risk-classifier/src/risk-alert.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "risk-classifier",
+                      "exports":  9,
+                      "xwDepContrib":  0,
+                      "path":  "packages/risk-classifier/src/risk-mitigation.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "evidence-collector",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/evidence-collector/src/evidence-query.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "evidence-collector",
+                      "exports":  6,
+                      "xwDepContrib":  0,
+                      "path":  "packages/evidence-collector/src/evidence-sync.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "evidence-collector",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/evidence-collector/src/evidence-archive.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "evidence-collector",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/evidence-collector/src/evidence-chain-verifier.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "evidence-collector",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/evidence-collector/src/evidence-stats.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "evidence-collector",
+                      "exports":  6,
+                      "xwDepContrib":  0,
+                      "path":  "packages/evidence-collector/src/evidence-timeline.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-reporter",
+                      "exports":  6,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-reporter/src/report-diff.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-reporter",
+                      "exports":  6,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-reporter/src/report-scheduler.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-reporter",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-reporter/src/report-aggregator.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-reporter",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-reporter/src/report-export.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-reporter",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-reporter/src/report-metadata.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "diagnosis-reporter",
+                      "exports":  5,
+                      "xwDepContrib":  0,
+                      "path":  "packages/diagnosis-reporter/src/report-search.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "verify-gate",
+                      "exports":  10,
+                      "xwDepContrib":  0,
+                      "path":  "packages/verify-gate/src/gate-scheduler.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "verify-gate",
+                      "exports":  8,
+                      "xwDepContrib":  0,
+                      "path":  "packages/verify-gate/src/gate-dependency-checker.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "verify-gate",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/verify-gate/src/gate-scope-validator.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "verify-gate",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/verify-gate/src/gate-contract-validator.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "verify-gate",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/verify-gate/src/gate-check-aggregator.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "verify-gate",
+                      "exports":  10,
+                      "xwDepContrib":  0,
+                      "path":  "packages/verify-gate/src/gate-version.ts",
+                      "depContrib":  0,
+                      "integContrib":  0,
+                      "modifiesIntegratorScope":  false
+                  },
+                  {
+                      "pkg":  "dry23-integration-hub",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/dry23-integration-hub/src/integration-orchestrator.ts",
+                      "depContrib":  0,
+                      "integContrib":  1,
+                      "modifiesIntegratorScope":  true
+                  },
+                  {
+                      "pkg":  "dry23-integration-hub",
+                      "exports":  6,
+                      "xwDepContrib":  0,
+                      "path":  "packages/dry23-integration-hub/src/worker-registry.ts",
+                      "depContrib":  0,
+                      "integContrib":  1,
+                      "modifiesIntegratorScope":  true
+                  },
+                  {
+                      "pkg":  "dry23-integration-hub",
+                      "exports":  5,
+                      "xwDepContrib":  0,
+                      "path":  "packages/dry23-integration-hub/src/evidence-manifest.ts",
+                      "depContrib":  0,
+                      "integContrib":  1,
+                      "modifiesIntegratorScope":  true
+                  },
+                  {
+                      "pkg":  "dry23-integration-hub",
+                      "exports":  7,
+                      "xwDepContrib":  0,
+                      "path":  "packages/dry23-integration-hub/src/scenario-runner.ts",
+                      "depContrib":  0,
+                      "integContrib":  1,
+                      "modifiesIntegratorScope":  true
+                  }
+              ],
+    "integratorSoleMergeOwnerViolated":  true,
+    "generatedAt":  "2026-06-24T01:19:22.7407513+08:00"
+}

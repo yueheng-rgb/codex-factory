@@ -1,0 +1,66 @@
+﻿{
+    "test_id":  "FACTORY-CONTEXT-SPACE-P7-MAINLINE-ANSWER-TEST",
+    "verdict":  "MAINLINE_ANSWER_TEST_PASS",
+    "generated_at":  "2026-06-28T10:05:00+08:00",
+    "section":  "D",
+    "all_answers_correct":  true,
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "questions":  [
+                      {
+                          "expected":  "CONTEXT-SPACE-P6",
+                          "match":  true,
+                          "actual":  "FACTORY-CONTEXT-SPACE-P6",
+                          "question":  "D1. What is the latest completed phase?",
+                          "source":  "phase-ledger.jsonl; direction-guard.json lastCompletedPhase"
+                      },
+                      {
+                          "expected":  "No — SAME_WINDOW_SIMULATED_USABILITY_PROVEN",
+                          "match":  true,
+                          "actual":  "SAME_WINDOW_SIMULATED_USABILITY_PROVEN (per P5 claim-correction.json)",
+                          "question":  "D2. Is P5 true fresh-window proof?",
+                          "source":  "factory-context-space-p5-claim-correction.json"
+                      },
+                      {
+                          "expected":  "P7 — True Fresh Window External Validation",
+                          "match":  true,
+                          "actual":  "FACTORY-CONTEXT-SPACE-P7 (per user command + P6 strategy recommendation)",
+                          "question":  "D3. What is the current phase?",
+                          "source":  "user pasted-text attachment; P6 strategy-decision.json"
+                      },
+                      {
+                          "expected":  "No — BLOCKED",
+                          "match":  true,
+                          "actual":  "BLOCKED (DG-004 + phase-ledger blockedPhases)",
+                          "question":  "D4. Is v0.5 release allowed?",
+                          "source":  "direction-guard.json DG-004; query-direction-guard-v3.ps1"
+                      },
+                      {
+                          "expected":  "Build Lite",
+                          "match":  true,
+                          "actual":  "Build Lite default (DG-002 frozen, FROZEN-001)",
+                          "question":  "D5. What is the default build mode?",
+                          "source":  "direction-guard.json DG-002"
+                      },
+                      {
+                          "expected":  "No — conditional only",
+                          "match":  true,
+                          "actual":  "Conditional, not default (DG-003 frozen, FROZEN-002)",
+                          "question":  "D6. Is Native Build Pro default?",
+                          "source":  "direction-guard.json DG-003"
+                      },
+                      {
+                          "expected":  "Yes — final ZIP/package handoff gate",
+                          "match":  true,
+                          "actual":  "Required (FROZEN-004)",
+                          "question":  "D7. Is Package QA Gate required?",
+                          "source":  "frozen_conclusions in direction-guard"
+                      },
+                      {
+                          "expected":  "No — DEFERRED",
+                          "match":  true,
+                          "actual":  "CLOUD DEFERRED (DG-006 frozen; P6 strategy confirms)",
+                          "question":  "D8. Is cloud deploy allowed?",
+                          "source":  "direction-guard.json DG-006; P6 strategy-decision.json"
+                      }
+                  ]
+}

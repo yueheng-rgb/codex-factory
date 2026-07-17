@@ -1,0 +1,9 @@
+﻿{
+    "cleanupPlanFirst":  true,
+    "section":  "H",
+    "protocols":  10,
+    "cloudDeferred":  true,
+    "handoffPathsRequired":  true,
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0",
+    "startupStep0":  true
+}

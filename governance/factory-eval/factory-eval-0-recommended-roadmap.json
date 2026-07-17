@@ -1,0 +1,70 @@
+﻿{
+    "schemaId":  "factory-eval-0-recommended-roadmap",
+    "generatedAt":  "2026-06-25T15:46:22+08:00",
+    "phases":  [
+                   {
+                       "objective":  "Verify external claims and understand Codex structure",
+                       "needsWebSearch":  true,
+                       "needsCodexSelfCheck":  true,
+                       "name":  "External Research + Codex Self-Check",
+                       "id":  "FACTORY-EVAL-1"
+                   },
+                   {
+                       "objective":  "Design router ensuring Codex reads artifacts",
+                       "needsWebSearch":  false,
+                       "needsCodexSelfCheck":  false,
+                       "name":  "Manual Router + Proof-of-Read",
+                       "id":  "FACTORY-EVAL-2"
+                   },
+                   {
+                       "objective":  "Design role agent architecture",
+                       "needsWebSearch":  false,
+                       "needsCodexSelfCheck":  false,
+                       "name":  "Role-Specialized Agent Company Model",
+                       "id":  "FACTORY-EVAL-3"
+                   },
+                   {
+                       "objective":  "Design benchmark for non-Factory projects",
+                       "needsWebSearch":  false,
+                       "needsCodexSelfCheck":  false,
+                       "name":  "Real Project Benchmark Design",
+                       "id":  "FACTORY-EVAL-4"
+                   },
+                   {
+                       "objective":  "Benchmark with vanilla Codex (no Factory)",
+                       "needsWebSearch":  false,
+                       "needsCodexSelfCheck":  false,
+                       "name":  "Vanilla Codex Baseline",
+                       "id":  "FACTORY-EVAL-5"
+                   },
+                   {
+                       "objective":  "Benchmark with minimal Factory (governance only)",
+                       "needsWebSearch":  false,
+                       "needsCodexSelfCheck":  false,
+                       "name":  "Factory Lite Run",
+                       "id":  "FACTORY-EVAL-6"
+                   },
+                   {
+                       "objective":  "Benchmark with full Factory + role agents",
+                       "needsWebSearch":  false,
+                       "needsCodexSelfCheck":  false,
+                       "name":  "Factory Role-Agent Run",
+                       "id":  "FACTORY-EVAL-7"
+                   },
+                   {
+                       "objective":  "Compare vanilla/lite/role-agent; determine if Factory helps",
+                       "needsWebSearch":  false,
+                       "needsCodexSelfCheck":  false,
+                       "name":  "Effectiveness Comparison",
+                       "id":  "FACTORY-EVAL-8"
+                   },
+                   {
+                       "objective":  "Evidence-based Factory v0.4 scope",
+                       "needsWebSearch":  false,
+                       "needsCodexSelfCheck":  false,
+                       "name":  "Keep/Cut/Defer Decision",
+                       "id":  "FACTORY-EVAL-9"
+                   }
+               ],
+    "principle":  "Evaluate before building. Prove Factory helps real projects."
+}

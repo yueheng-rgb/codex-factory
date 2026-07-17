@@ -1,0 +1,41 @@
+﻿{
+    "artifactType":  "FINAL_LOCAL_TOOLING_RELEASE",
+    "version":  "0.5.0",
+    "basedOn":  "RC0 (codex-factory-core-v0.9.0-pre-RC0)",
+    "flags":  {
+                  "rcCandidate":  false,
+                  "finalRelease":  true,
+                  "releaseAllowed":  true,
+                  "v05Package":  true
+              },
+    "generatedAt":  "2026-06-28T22:14:34+08:00",
+    "name":  "codex-factory-core-v0.5.0",
+    "userApproval":  {
+                         "approvedAt":  "2026-06-28",
+                         "userApproved":  true,
+                         "approvalPhrase":  "我批准在上述本地工具范围和限制条件下创建 v0.5 release。"
+                     },
+    "scope":  {
+                  "notCloudService":  true,
+                  "scope":  "LOCAL_WORKFLOW_TOOLING_ONLY",
+                  "notProductionReady":  true,
+                  "notDeploymentTool":  true,
+                  "buildLiteDefault":  true,
+                  "notUniversalSuperiorityProof":  true,
+                  "nativeBuildProConditional":  true
+              },
+    "modules":  {
+                    "securityDeployGate":  "included",
+                    "cleanupUserForget":  "included",
+                    "contextSpace":  "included",
+                    "memoryQuality":  "included",
+                    "packageQaGate":  "included",
+                    "testRepairPolicy":  "included"
+                },
+    "blockers":  {
+                     "BLOCK_003":  "ACCEPTED_LIMITATION — local readiness ≠ production readiness",
+                     "BLOCK_004":  "RESOLVED — user explicitly approved release creation",
+                     "BLOCK_002":  "ACCEPTED_LIMITATION — production deployment out of scope",
+                     "BLOCK_001":  "ACCEPTED_LIMITATION — STRONG_PARTIAL_EVIDENCE, not universal proof"
+                 }
+}

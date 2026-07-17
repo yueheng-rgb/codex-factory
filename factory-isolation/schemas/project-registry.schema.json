@@ -1,0 +1,19 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "project-registry.schema.json",
+  "title": "Project Registry",
+  "type": "object",
+  "required": ["version", "updatedAt", "projects"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0.0" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "projects": {
+      "type": "object",
+      "additionalProperties": { "$ref": "project-identity.schema.json" },
+      "propertyNames": { "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$" }
+    },
+    "defaultActiveProjectId": { "type": ["string", "null"], "format": "uuid" },
+    "lastSelectedProjectId": { "type": ["string", "null"], "format": "uuid" }
+  },
+  "additionalProperties": false
+}

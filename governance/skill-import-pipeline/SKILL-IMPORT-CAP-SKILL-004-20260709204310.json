@@ -1,0 +1,55 @@
+﻿{
+    "pipelineId":  "SKILL-IMPORT-CAP-SKILL-004-20260709204310",
+    "capabilityId":  "CAP-SKILL-004",
+    "startedAt":  "2026-07-09T20:43:10+08:00",
+    "completedAt":  null,
+    "currentStage":  "architecture_reviewed",
+    "finalStatus":  null,
+    "stages":  {
+                   "intake":  {
+                                  "agentId":  "LIB-001",
+                                  "reviewedAt":  "2026-07-09T20:43:10+08:00",
+                                  "decision":  "approved",
+                                  "sourceCheck":  "PASS: provider=Community, source=AGENTS.md convention",
+                                  "dedupCheck":  "PASS: no duplicates found",
+                                  "classificationTags":  [
+                                                             "skill",
+                                                             "VERIFIED",
+                                                             "import"
+                                                         ],
+                                  "version":  "none",
+                                  "notes":  "Low-risk skill, VERIFIED trust, P0 priority. Source traceable to Community."
+                              },
+                   "security":  {
+                                    "agentId":  "SEC-001",
+                                    "reviewedAt":  "2026-07-09T20:43:10+08:00",
+                                    "decision":  "approved",
+                                    "dangerousCommandsFound":  [
+
+                                                               ],
+                                    "overreachFound":  false,
+                                    "secretsExposed":  false,
+                                    "externalLinks":  [
+
+                                                      ],
+                                    "supplyChainConcern":  false,
+                                    "notes":  "Low-risk skill: secRisk=low, no secrets, no network, no external links. Supply chain risk=low."
+                                },
+                   "architecture":  {
+                                        "agentId":  "ARCH-001",
+                                        "reviewedAt":  "2026-07-09T20:43:11+08:00",
+                                        "decision":  "approved",
+                                        "applicableProjectTypes":  [
+                                                                       "all"
+                                                                   ],
+                                        "applicableAgents":  [
+                                                                 "PM-001"
+                                                             ],
+                                        "engineeringValue":  "high",
+                                        "notes":  "P0 priority, all project types, PM-001 applicable. AGENTS.md is foundational for Factory governance."
+                                    },
+                   "human":  null,
+                   "verifier":  null,
+                   "integration":  null
+               }
+}

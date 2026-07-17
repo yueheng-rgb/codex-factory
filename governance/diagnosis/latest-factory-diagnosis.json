@@ -1,0 +1,117 @@
+﻿{
+    "recommendedNextPhase":  "H16",
+    "blockingIssues":  [
+
+                       ],
+    "caveats":  [
+
+                ],
+    "checkedAt":  "2026-06-25T16:18:08+08:00",
+    "verdict":  "PASS_WITH_CAVEATS",
+    "riskSignals":  [
+
+                    ],
+    "phase":  "latest",
+    "checks":  [
+                   {
+                       "expected":  "DRY22",
+                       "id":  1,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "parent",
+                       "actual":  "FINAL",
+                       "description":  "Parent phase consistency",
+                       "severity":  "major",
+                       "verdict":  "FAIL"
+                   },
+                   {
+                       "expected":  "updatedAt not null",
+                       "id":  2,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "state",
+                       "actual":  "present",
+                       "description":  "State freshness",
+                       "severity":  "info",
+                       "verdict":  "PASS"
+                   },
+                   {
+                       "expected":  "includes H16",
+                       "id":  3,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "state",
+                       "actual":  "COMPLETE",
+                       "description":  "Allowed next phase",
+                       "severity":  "major",
+                       "verdict":  "FAIL"
+                   },
+                   {
+                       "expected":  "0 artifacts",
+                       "id":  4,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "artifact",
+                       "actual":  "5",
+                       "description":  "Zero DRY23 prestart",
+                       "severity":  "major",
+                       "verdict":  "FAIL"
+                   },
+                   {
+                       "expected":  "false",
+                       "id":  5,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "artifact",
+                       "actual":  "True",
+                       "description":  "Final ZIP absent",
+                       "severity":  "major",
+                       "verdict":  "FAIL"
+                   },
+                   {
+                       "expected":  "exists",
+                       "id":  6,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "factoryctl",
+                       "actual":  "exists",
+                       "description":  "factoryctl.ps1 exists",
+                       "severity":  "info",
+                       "verdict":  "PASS"
+                   },
+                   {
+                       "expected":  "AGENT_REGISTRY.json",
+                       "id":  7,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "evidence",
+                       "actual":  "exists",
+                       "description":  "Agent registry exists",
+                       "severity":  "info",
+                       "verdict":  "PASS"
+                   },
+                   {
+                       "expected":  "scripts/contracts/",
+                       "id":  8,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "contract",
+                       "actual":  "exists",
+                       "description":  "Contract validator exists",
+                       "severity":  "info",
+                       "verdict":  "PASS"
+                   },
+                   {
+                       "expected":  "\u003e=1 graph",
+                       "id":  9,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "contract",
+                       "actual":  "5",
+                       "description":  "Dep graph exists",
+                       "severity":  "info",
+                       "verdict":  "PASS"
+                   },
+                   {
+                       "expected":  "no genericFail",
+                       "id":  10,
+                       "evidencePath":  "current-factory-state.json",
+                       "category":  "integrity",
+                       "actual":  "clean",
+                       "description":  "No generic FAIL in state",
+                       "severity":  "info",
+                       "verdict":  "PASS"
+                   }
+               ]
+}

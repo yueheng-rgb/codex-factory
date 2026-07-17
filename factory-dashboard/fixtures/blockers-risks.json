@@ -1,0 +1,6 @@
+﻿{
+  "blockers": [],
+  "risks": [
+    {"description": "Dashboard prototype not yet run against real project", "severity": "LOW", "foreignContext": false}
+  ]
+}

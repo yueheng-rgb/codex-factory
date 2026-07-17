@@ -1,0 +1,206 @@
+﻿{
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V00",
+                        "desc":  "BUILD-5 PASS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "BUILD-5 product unchanged"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "Comparison directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "Sealed requirements exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "RUN-A directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "RUN-A server.js exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "RUN-A has DB schema"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "RUN-A has routes (7+)"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "RUN-A has frontend"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "RUN-A has tests"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "RUN-A contamination log exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "RUN-A has NO external memory"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "RUN-B directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "RUN-B server.js exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "RUN-B has DB schema"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "RUN-B has routes (7+)"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "RUN-B has frontend"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "RUN-B has tests"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "RUN-B has EXTERNAL MEMORY"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "RUN-B contamination log exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "RUN-B has no role simulation"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "RUN-C evidence summary exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "BUILD-5 product reachable"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "Comparison evaluation exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V24",
+                        "desc":  "Product quality comparison done"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V25",
+                        "desc":  "Process comparison done"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V26",
+                        "desc":  "Causal attribution done"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V27",
+                        "desc":  "Conclusion exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V28",
+                        "desc":  "Decision matrix exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V29",
+                        "desc":  "No v0.5 package created"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V30",
+                        "desc":  "No release ZIP"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V31",
+                        "desc":  "No multi-agent default claim"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V32",
+                        "desc":  "No product code outside comparison modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V33",
+                        "desc":  "BUILD-5 product NOT modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V34",
+                        "desc":  "Evidence lock exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V35",
+                        "desc":  "No UNEXPECTED_PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V36",
+                        "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V37",
+                        "desc":  "No generic FAIL"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V38",
+                        "desc":  "Verifier runs to completion"
+                    }
+                ],
+    "failedChecks":  0,
+    "overall":  "PASS",
+    "passedChecks":  39,
+    "totalChecks":  39,
+    "phase":  "FACTORY-BUILD-6",
+    "date":  "2026-06-27T11:01:13.6386847+08:00",
+    "verifier":  "factory-build-6-matched-baseline-comparison-verify.ps1"
+}

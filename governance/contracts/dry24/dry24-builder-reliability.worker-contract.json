@@ -1,0 +1,38 @@
+{
+  "contractId": "dry24-builder-reliability-contract",
+  "phase": "DRY24-A",
+  "agentId": "dry24-builder-reliability",
+  "role": "builder",
+  "forkContext": false,
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:03:07.718055+08:00",
+  "scope": "packages/agent-reliability-runtime/",
+  "ownedFiles": [
+    "packages/agent-reliability-runtime/src/"
+  ],
+  "exportedAPI": [
+    "AgentCapacityCheck",
+    "SpawnFailureDetector",
+    "MainAgentFallbackDetector",
+    "AgentCleanupManager",
+    "AgentLifecyclePolicy"
+  ],
+  "allowedImports": [
+    "packages/worker-contract-engine/src/"
+  ],
+  "forbiddenImports": [
+    "packages/dry24-integration-hub/",
+    "packages/progress-integrity/",
+    "packages/architecture-drift-detector/"
+  ],
+  "integrationPoints": [
+    "@dry24/agent-reliability-runtime"
+  ],
+  "dependencyDeclarations": [
+    {
+      "source": "packages/agent-reliability-runtime/",
+      "target": "packages/worker-contract-engine/src/"
+    }
+  ],
+  "handoffPath": "governance/contracts/dry24/dry24-builder-reliability.worker-contract.json"
+}

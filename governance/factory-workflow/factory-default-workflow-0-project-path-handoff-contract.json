@@ -1,0 +1,33 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "F",
+  "title": "Project Path Handoff Contract",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "contract_file": "factory-workflow/PROJECT_PATH_HANDOFF_CONTRACT.md",
+  "mandatory_path_categories": [
+    "Project Root",
+    "Source Code",
+    "Configuration Files",
+    "Database Artifacts",
+    "Documentation",
+    "Build / Run Artifacts",
+    "Governance / Factory Artifacts"
+  ],
+  "path_rules": {
+    "absolute_paths": true,
+    "relative_only_with_root": true,
+    "no_uris": true,
+    "one_path_per_line": true,
+    "group_by_category": true
+  },
+  "unknown_path_handling": "UNKNOWN_WITH_REASON: <reason>",
+  "anti_patterns": [
+    "Check the output folder",
+    "Omitting a path category entirely",
+    "Relative paths without root context",
+    "Guessing paths",
+    "Omitting UNKNOWN paths silently"
+  ],
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_F_PROJECT_PATH_HANDOFF_CONTRACT_REPORT.md"
+}

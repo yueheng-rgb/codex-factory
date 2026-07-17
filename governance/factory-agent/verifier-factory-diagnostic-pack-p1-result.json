@@ -1,0 +1,190 @@
+﻿{
+    "verifier":  "factory-diagnostic-pack-p1-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T23:12:47.4795095+08:00",
+    "passRatio":  "36/36",
+    "total":  36,
+    "pass":  36,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4215099+08:00",
+                       "pass":  true,
+                       "name":  "lessons0-verifier-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4265089+08:00",
+                       "pass":  true,
+                       "name":  "pack-dir-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4285082+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-QUICK_MODE"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4285082+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-CHECKLIST_QUICK"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4295092+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-STUDENT_PROJECT_MODE"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4295092+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-CHECKLIST_STUDENT_PROJECT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4295092+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-REPORT_VS_SOURCE_MODE"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4295092+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-DIAGNOSTIC_MODES"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4295092+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-STOP_AFTER_DIAGNOSTIC"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4305095+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-SCANNERS"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4305095+08:00",
+                       "pass":  true,
+                       "name":  "p1-file-P1_CHANGELOG"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4335101+08:00",
+                       "pass":  true,
+                       "name":  "readme-has-p1-section"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4335101+08:00",
+                       "pass":  true,
+                       "name":  "readme-has-stop-rule"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4535100+08:00",
+                       "pass":  true,
+                       "name":  "manifest-version-1.1.0"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4575105+08:00",
+                       "pass":  true,
+                       "name":  "manifest-docs-ge19"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4585098+08:00",
+                       "pass":  true,
+                       "name":  "quick-mode-api-mismatch"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4585098+08:00",
+                       "pass":  true,
+                       "name":  "quick-mode-server-entry"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4585098+08:00",
+                       "pass":  true,
+                       "name":  "quick-mode-jwt"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4585098+08:00",
+                       "pass":  true,
+                       "name":  "quick-mode-zero-test"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4595095+08:00",
+                       "pass":  true,
+                       "name":  "student-report-source"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4595095+08:00",
+                       "pass":  true,
+                       "name":  "student-startup"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4595095+08:00",
+                       "pass":  true,
+                       "name":  "student-database"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4595095+08:00",
+                       "pass":  true,
+                       "name":  "student-auth"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4595095+08:00",
+                       "pass":  true,
+                       "name":  "student-tests"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4595095+08:00",
+                       "pass":  true,
+                       "name":  "student-readme-grading"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4595095+08:00",
+                       "pass":  true,
+                       "name":  "stop-rule-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4615078+08:00",
+                       "pass":  true,
+                       "name":  "no-v05-dir"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4645094+08:00",
+                       "pass":  true,
+                       "name":  "no-new-zip"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4645094+08:00",
+                       "pass":  true,
+                       "name":  "no-skillmarket-modified"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4655089+08:00",
+                       "pass":  true,
+                       "name":  "no-multiagent-default"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4655089+08:00",
+                       "pass":  true,
+                       "name":  "smoke-sim-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4665097+08:00",
+                       "pass":  true,
+                       "name":  "audit-plan-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4705091+08:00",
+                       "pass":  true,
+                       "name":  "audit-plan-no-zip-created"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4725096+08:00",
+                       "pass":  true,
+                       "name":  "neg-35-total"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4735095+08:00",
+                       "pass":  true,
+                       "name":  "neg-all-detected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T23:12:47.4755091+08:00",
+                       "pass":  true,
+                       "name":  "neg-zero-gaps"
+                   }
+               ]
+}

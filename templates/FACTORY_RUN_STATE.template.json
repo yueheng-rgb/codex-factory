@@ -1,0 +1,38 @@
+{
+  "stateVersion": 1,
+  "runId": "",
+  "projectName": "",
+  "originalRequirement": "",
+  "starter": "",
+  "applicationType": "",
+  "sizeLevel": "",
+  "riskLevel": "",
+  "coreUserJourney": "",
+  "minimalLoop": "",
+  "deferredFeatures": [],
+  "currentStage": "stage-0-bootstrap",
+  "completedStages": [],
+  "createdAt": "",
+  "updatedAt": "",
+  "lastEventSequence": 0,
+  "orchestratorVersion": "v2",
+  "executionMode": "single_entry",
+  "userInterventionCount": 0,
+  "pauseReason": null,
+  "validation": {
+    "install": "pending",
+    "typecheck": "pending",
+    "build": "pending",
+    "dev": "pending"
+  },
+  "functionalTests": {
+    "status": "pending",
+    "results": {}
+  },
+  "defects": [],
+  "factoryBackflow": [],
+  "finalStatus": "pending_functional_tests",
+  "startedAt": "",
+  "completedAt": null,
+  "scores": {}
+}

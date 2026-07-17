@@ -1,0 +1,285 @@
+﻿{
+    "checks":  [
+                   {
+                       "Label":  "P1_NO_H19",
+                       "Pass":  true,
+                       "Detail":  "remaining H19 artifacts"
+                   },
+                   {
+                       "Label":  "P1_NO_FINAL_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "P1_DRY25_REPORT_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "P1_NO_DUPLICATE_FILES",
+                       "Pass":  true,
+                       "Detail":  "duplicates=0"
+                   },
+                   {
+                       "Label":  "P1_NO_EMPTY_FILES",
+                       "Pass":  true,
+                       "Detail":  "empty=0"
+                   },
+                   {
+                       "Label":  "P1_FILE_FLOOR_12",
+                       "Pass":  true,
+                       "Detail":  "counted=12 (floor=12)"
+                   },
+                   {
+                       "Label":  "P1_EXPORT_FLOOR_20",
+                       "Pass":  true,
+                       "Detail":  "exports=20 (floor=20)"
+                   },
+                   {
+                       "Label":  "P1_NO_FAKE_EXPORTS",
+                       "Pass":  true,
+                       "Detail":  "fake=0"
+                   },
+                   {
+                       "Label":  "P1_NO_COMMENT_ONLY_EXPORTS",
+                       "Pass":  true,
+                       "Detail":  "commentOnly=0"
+                   },
+                   {
+                       "Label":  "P1_NO_MANUAL_PASS",
+                       "Pass":  true,
+                       "Detail":  "All checks evidence-based"
+                   },
+                   {
+                       "Label":  "P1_NO_GENERIC_FAIL",
+                       "Pass":  true,
+                       "Detail":  "All failures have specific detail"
+                   },
+                   {
+                       "Label":  "P1_NO_PRECLASSIFIED",
+                       "Pass":  true,
+                       "Detail":  "Classification derived from file inspection"
+                   }
+               ],
+    "totalChecks":  12,
+    "verdict":  "PASS",
+    "passed":  12,
+    "fileReconciliation":  {
+                               "met":  true,
+                               "countedFiles":  [
+                                                    {
+                                                        "reason":  "fixture: worker contract per resource-pack schema",
+                                                        "file":  "contracts\\builder-1-contract.json",
+                                                        "size":  1029
+                                                    },
+                                                    {
+                                                        "reason":  "fixture: worker contract per resource-pack schema",
+                                                        "file":  "contracts\\builder-2-contract.json",
+                                                        "size":  1013
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\contract-validator.ps1",
+                                                        "size":  3291
+                                                    },
+                                                    {
+                                                        "reason":  "fixture: machine-readable data artifact",
+                                                        "file":  "src\\dependency-graph.json",
+                                                        "size":  2028
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\dependency-graph.ps1",
+                                                        "size":  1964
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\integrate.ps1",
+                                                        "size":  2060
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\manifest-check.ps1",
+                                                        "size":  1249
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\policy-check.ps1",
+                                                        "size":  1247
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\portability-score.ps1",
+                                                        "size":  906
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\report-generator.ps1",
+                                                        "size":  1272
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\schema-validator.ps1",
+                                                        "size":  845
+                                                    },
+                                                    {
+                                                        "reason":  "source script",
+                                                        "file":  "src\\verify.ps1",
+                                                        "size":  2381
+                                                    }
+                                                ],
+                               "totalCounted":  12,
+                               "floor":  12,
+                               "excludedFiles":  [
+                                                     {
+                                                         "file":  "progress-events.jsonl",
+                                                         "reason":  "excluded: progress recording, not implementation"
+                                                     },
+                                                     {
+                                                         "file":  "README.md",
+                                                         "reason":  "excluded: documentation"
+                                                     },
+                                                     {
+                                                         "file":  "session-handoff.json",
+                                                         "reason":  "excluded: handoff artifact, not implementation"
+                                                     }
+                                                 ]
+                           },
+    "exportReconciliation":  {
+                                 "exports":  [
+                                                 {
+                                                     "export":  "Test-ContractCompliance",
+                                                     "file":  "contract-validator.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-RequiredFields",
+                                                     "file":  "contract-validator.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-ContractSummary",
+                                                     "file":  "contract-validator.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "contract-validator.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 },
+                                                 {
+                                                     "export":  "New-DependencyGraph",
+                                                     "file":  "dependency-graph.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "dependency-graph.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 },
+                                                 {
+                                                     "export":  "Invoke-PortabilityCheck",
+                                                     "file":  "integrate.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "integrate.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 },
+                                                 {
+                                                     "export":  "Test-Manifest",
+                                                     "file":  "manifest-check.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "manifest-check.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 },
+                                                 {
+                                                     "export":  "Test-Policies",
+                                                     "file":  "policy-check.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "policy-check.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 },
+                                                 {
+                                                     "export":  "Test-Portability",
+                                                     "file":  "portability-score.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "portability-score.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 },
+                                                 {
+                                                     "export":  "New-PortabilityReport",
+                                                     "file":  "report-generator.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "report-generator.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 },
+                                                 {
+                                                     "export":  "Validate-Schemas",
+                                                     "file":  "schema-validator.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "schema-validator.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 },
+                                                 {
+                                                     "export":  "Test-Integration",
+                                                     "file":  "verify.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "function"
+                                                 },
+                                                 {
+                                                     "export":  "Get-Exports",
+                                                     "file":  "verify.ps1",
+                                                     "counted":  true,
+                                                     "kind":  "meta"
+                                                 }
+                                             ],
+                                 "met":  true,
+                                 "commentOnlyExports":  [
+
+                                                        ],
+                                 "fakeExports":  [
+
+                                                 ],
+                                 "totalExports":  20,
+                                 "floor":  20
+                             },
+    "phase":  "DRY25-P1",
+    "timestamp":  "2026-06-24T19:14:36.3505631+08:00",
+    "failed":  0,
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\phase6c-dry25-p1-mini-mission-floor-reconciliation-verify.ps1"
+}

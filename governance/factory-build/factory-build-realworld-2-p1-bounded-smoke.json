@@ -1,0 +1,17 @@
+﻿{
+    "smoke_id": "FACTORY-BUILD-REALWORLD-2-P1-BOUNDED-SMOKE",
+    "generated_at": "2026-06-28T10:19:11+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P1",
+    "section": "H",
+    "smoke_result": {
+        "server_started": true,
+        "http_status": 200,
+        "content_bytes": 17559,
+        "page_title": "登录 - 中医康复科项目登记",
+        "server_killed": true,
+        "duration_seconds": 4,
+        "safe_run": true,
+        "no_hang": true
+    },
+    "verdict": "SMOKE_PASS"
+}

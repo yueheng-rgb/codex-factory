@@ -1,0 +1,268 @@
+﻿{
+  "phase": "FACTORY-EVAL-4",
+  "section": "B",
+  "title": "Benchmark Specification — TeamFlow Lite",
+  "createdAt": "2026-06-25T17:05:00+08:00",
+  "projectName": "TeamFlow Lite",
+  "projectDescription": "A multi-tenant team task/workflow SaaS. Users create teams, invite members with roles, manage tasks through a status workflow, comment on tasks, and view audit logs.",
+  "functionalRequirements": {
+    "FR01": {
+      "id": "FR01",
+      "name": "User Registration and Authentication",
+      "description": "Users can register with email and password. Users can log in and receive a JWT. Passwords stored with bcrypt.",
+      "acceptanceCriteria": [
+        "Registration with valid email+password succeeds",
+        "Duplicate email registration returns 409",
+        "Login with correct credentials returns JWT",
+        "Login with wrong password returns 401",
+        "Protected endpoints reject missing/invalid/expired JWT with 401"
+      ]
+    },
+    "FR02": {
+      "id": "FR02",
+      "name": "Team/Workspace Management",
+      "description": "Authenticated users can create teams. Team creator is owner. Owner can update team name/description and delete team.",
+      "acceptanceCriteria": [
+        "Create team succeeds for authenticated user",
+        "Creator is automatically team owner",
+        "Only owner can update team name/description",
+        "Only owner can delete team",
+        "List teams returns teams where user is a member",
+        "Deleted teams cascade-delete or soft-delete tasks and comments"
+      ]
+    },
+    "FR03": {
+      "id": "FR03",
+      "name": "Role-Based Access Control",
+      "description": "Four roles: owner, admin, member, viewer. Owner manages roles. Permissions enforced server-side on every request.",
+      "acceptanceCriteria": [
+        "Owner can change any member role",
+        "Admin can invite members but not change owner role",
+        "Member cannot manage roles",
+        "Viewer cannot create/edit/delete tasks",
+        "Viewer can read tasks and comments",
+        "Permissions checked server-side, not just UI-hidden"
+      ]
+    },
+    "FR04": {
+      "id": "FR04",
+      "name": "Task CRUD",
+      "description": "Team members with write access can create, read, update, and delete tasks within their team scope.",
+      "acceptanceCriteria": [
+        "Create task with title, description, priority succeeds",
+        "Read task returns task with all fields",
+        "Update task fields succeeds for authorized users",
+        "Delete task succeeds for authorized users",
+        "Tasks are scoped to team — cross-team access returns 403",
+        "Viewer cannot create/update/delete tasks"
+      ]
+    },
+    "FR05": {
+      "id": "FR05",
+      "name": "Task Status Workflow",
+      "description": "Tasks follow a defined workflow: todo → in_progress, in_progress → blocked, in_progress → done, blocked → in_progress. Invalid transitions rejected.",
+      "acceptanceCriteria": [
+        "Valid transitions: todo→in_progress, in_progress→blocked, in_progress→done, blocked→in_progress",
+        "Invalid transitions rejected with 400 and meaningful message",
+        "Status change logged in audit log",
+        "Status change updates timestamp"
+      ]
+    },
+    "FR06": {
+      "id": "FR06",
+      "name": "Task Assignment and Due Dates",
+      "description": "Tasks can be assigned to team members. Tasks can have optional due dates. Overdue detection.",
+      "acceptanceCriteria": [
+        "Assign task to team member succeeds",
+        "Reassign task updates assignee",
+        "Due date is optional, validated as future date on create",
+        "Overdue tasks queryable via filter"
+      ]
+    },
+    "FR07": {
+      "id": "FR07",
+      "name": "Comments and Activity Feed",
+      "description": "Team members can add comments to tasks. Comments are immutable once posted. Activity feed shows task events.",
+      "acceptanceCriteria": [
+        "Add comment to task succeeds",
+        "Comments include author, timestamp, content",
+        "Comments cannot be edited or deleted (immutable)",
+        "Task detail view shows comments in chronological order",
+        "Activity feed includes task creation, status changes, assignments, comments"
+      ]
+    },
+    "FR08": {
+      "id": "FR08",
+      "name": "Audit Log",
+      "description": "All important actions are logged: task create/update/delete, status changes, assignments, role changes, team membership changes.",
+      "acceptanceCriteria": [
+        "Audit log entries include: actor, action, target, timestamp, team context",
+        "Audit log is read-only and append-only",
+        "Audit log queryable by team, user, action type, date range",
+        "Audit log entries are immutable"
+      ]
+    },
+    "FR09": {
+      "id": "FR09",
+      "name": "Notification/Reminder Stub",
+      "description": "An endpoint or page section to list overdue tasks assigned to the current user. No email delivery needed.",
+      "acceptanceCriteria": [
+        "GET /tasks/overdue returns tasks past due date and not done",
+        "Response scoped to current user assignments",
+        "Works without email infrastructure"
+      ]
+    },
+    "FR10": {
+      "id": "FR10",
+      "name": "Search, Filter, and Sort",
+      "description": "Tasks can be searched by title, filtered by status/assignee/priority, sorted by due date/priority/created date.",
+      "acceptanceCriteria": [
+        "Search by title substring works",
+        "Filter by status returns correct subset",
+        "Filter by assignee returns correct subset",
+        "Filter by priority returns correct subset",
+        "Sort by due_date asc/desc works",
+        "Sort by priority works",
+        "Sort by created_at works",
+        "Combined filters work (status + assignee)"
+      ]
+    },
+    "FR11": {
+      "id": "FR11",
+      "name": "Error Handling and Validation",
+      "description": "All API endpoints validate input and return meaningful error responses. All forms show validation errors.",
+      "acceptanceCriteria": [
+        "Invalid JSON body returns 400 with field-level errors",
+        "Missing required fields return 400",
+        "Invalid enum values return 400 with allowed values",
+        "Invalid UUIDs return 404",
+        "Unauthenticated requests return 401",
+        "Unauthorized requests return 403",
+        "Not found resources return 404",
+        "Server errors return 500 without stack traces"
+      ]
+    }
+  },
+  "dataModel": {
+    "entities": [
+      {
+        "name": "User",
+        "fields": ["id (UUID PK)", "email (UNIQUE NOT NULL)", "password_hash (NOT NULL)", "display_name", "created_at", "updated_at"],
+        "indexes": ["email UNIQUE"],
+        "constraints": ["email NOT NULL UNIQUE", "password_hash NOT NULL"]
+      },
+      {
+        "name": "Team",
+        "fields": ["id (UUID PK)", "name (NOT NULL)", "description", "created_by (FK→User)", "created_at", "updated_at"],
+        "indexes": ["created_by"],
+        "constraints": ["name NOT NULL"]
+      },
+      {
+        "name": "TeamMember",
+        "fields": ["id (UUID PK)", "team_id (FK→Team)", "user_id (FK→User)", "role (ENUM: owner/admin/member/viewer)", "joined_at"],
+        "indexes": ["team_id, user_id UNIQUE", "user_id"],
+        "constraints": ["UNIQUE(team_id, user_id)", "role IN ('owner','admin','member','viewer')"]
+      },
+      {
+        "name": "Task",
+        "fields": ["id (UUID PK)", "team_id (FK→Team NOT NULL)", "title (NOT NULL)", "description", "priority (ENUM: low/medium/high)", "status (ENUM: todo/in_progress/blocked/done NOT NULL DEFAULT 'todo')", "assignee_id (FK→User)", "due_date (nullable)", "created_by (FK→User)", "created_at", "updated_at"],
+        "indexes": ["team_id", "assignee_id", "status", "priority", "due_date", "created_at"],
+        "constraints": ["title NOT NULL", "status NOT NULL DEFAULT 'todo'", "priority IN ('low','medium','high')"]
+      },
+      {
+        "name": "Comment",
+        "fields": ["id (UUID PK)", "task_id (FK→Task NOT NULL)", "author_id (FK→User NOT NULL)", "content (TEXT NOT NULL)", "created_at"],
+        "indexes": ["task_id, created_at"],
+        "constraints": ["content NOT NULL", "immutable after creation"]
+      },
+      {
+        "name": "AuditLog",
+        "fields": ["id (UUID PK)", "team_id (FK→Team NOT NULL)", "actor_id (FK→User NOT NULL)", "action (VARCHAR NOT NULL)", "target_type (VARCHAR)", "target_id (UUID)", "details (JSONB)", "created_at"],
+        "indexes": ["team_id, created_at", "actor_id", "action", "target_type, target_id"],
+        "constraints": ["append-only", "actor_id NOT NULL", "action NOT NULL"]
+      }
+    ],
+    "relationships": [
+      "User 1:N TeamMember",
+      "Team 1:N TeamMember",
+      "Team 1:N Task",
+      "Team 1:N AuditLog",
+      "Task 1:N Comment",
+      "User 1:N Task (assignee)",
+      "User 1:N Task (creator)",
+      "User 1:N Comment (author)",
+      "User 1:N AuditLog (actor)"
+    ]
+  },
+  "apiEndpoints": {
+    "auth": [
+      {"method": "POST", "path": "/api/auth/register", "description": "Register new user"},
+      {"method": "POST", "path": "/api/auth/login", "description": "Login, returns JWT"},
+      {"method": "GET", "path": "/api/auth/me", "description": "Get current user profile"}
+    ],
+    "teams": [
+      {"method": "POST", "path": "/api/teams", "description": "Create team"},
+      {"method": "GET", "path": "/api/teams", "description": "List user teams"},
+      {"method": "GET", "path": "/api/teams/:teamId", "description": "Get team details"},
+      {"method": "PATCH", "path": "/api/teams/:teamId", "description": "Update team (owner only)"},
+      {"method": "DELETE", "path": "/api/teams/:teamId", "description": "Delete team (owner only)"},
+      {"method": "GET", "path": "/api/teams/:teamId/members", "description": "List team members"},
+      {"method": "POST", "path": "/api/teams/:teamId/members", "description": "Add member to team"},
+      {"method": "PATCH", "path": "/api/teams/:teamId/members/:userId", "description": "Change member role (owner/admin)"},
+      {"method": "DELETE", "path": "/api/teams/:teamId/members/:userId", "description": "Remove member (owner/admin)"}
+    ],
+    "tasks": [
+      {"method": "POST", "path": "/api/teams/:teamId/tasks", "description": "Create task"},
+      {"method": "GET", "path": "/api/teams/:teamId/tasks", "description": "List tasks with filter/sort/search"},
+      {"method": "GET", "path": "/api/teams/:teamId/tasks/:taskId", "description": "Get task details"},
+      {"method": "PATCH", "path": "/api/teams/:teamId/tasks/:taskId", "description": "Update task fields"},
+      {"method": "PATCH", "path": "/api/teams/:teamId/tasks/:taskId/status", "description": "Change task status (workflow-validated)"},
+      {"method": "DELETE", "path": "/api/teams/:teamId/tasks/:taskId", "description": "Delete task"}
+    ],
+    "comments": [
+      {"method": "POST", "path": "/api/teams/:teamId/tasks/:taskId/comments", "description": "Add comment"},
+      {"method": "GET", "path": "/api/teams/:teamId/tasks/:taskId/comments", "description": "List comments"}
+    ],
+    "activity": [
+      {"method": "GET", "path": "/api/teams/:teamId/activity", "description": "Get team activity feed"},
+      {"method": "GET", "path": "/api/teams/:teamId/audit-log", "description": "Get audit log with filters"}
+    ],
+    "notifications": [
+      {"method": "GET", "path": "/api/tasks/overdue", "description": "List overdue tasks for current user"}
+    ]
+  },
+  "uiPages": [
+    {"page": "Login/Register", "states": ["login form", "register form", "loading", "error (invalid credentials)", "error (duplicate email)"]},
+    {"page": "Dashboard", "states": ["team list", "empty state (no teams)", "loading", "error"]},
+    {"page": "Team View", "states": ["task board/list", "filter bar", "empty state (no tasks)", "loading", "error"]},
+    {"page": "Task Detail", "states": ["task info", "edit form", "status workflow buttons", "comment list", "empty comments", "loading", "error"]},
+    {"page": "Team Members", "states": ["member list", "invite form", "role management", "empty", "loading", "error"]},
+    {"page": "Audit Log", "states": ["log entries", "filter controls", "empty", "loading", "error"]},
+    {"page": "Overdue Tasks", "states": ["overdue list", "empty (no overdue)", "loading", "error"]}
+  ],
+  "testRequirements": {
+    "unitTests": [
+      "Auth service: register, login, token validation",
+      "Task service: CRUD operations, status transitions",
+      "Permission service: role-based access checks",
+      "Validation: input validation rules"
+    ],
+    "integrationTests": [
+      "API endpoints: auth flow (register→login→protected endpoint)",
+      "API endpoints: task CRUD through HTTP",
+      "API endpoints: permission boundaries (viewer cannot write)",
+      "API endpoints: status workflow transitions",
+      "API endpoints: audit log entries created on actions",
+      "Multi-tenant isolation: user A cannot access team B tasks"
+    ]
+  },
+  "acceptanceCriteria": {
+    "runnable": "Project starts with a single documented command",
+    "allEndpointsImplemented": "All listed API endpoints return appropriate responses",
+    "allPagesExist": "All listed UI pages render without crashing",
+    "permissionsEnforced": "Server-side permission checks on all write endpoints",
+    "auditTrailComplete": "Create/update/delete/status-change/assignment actions all logged",
+    "testsPass": "All tests pass with meaningful assertions",
+    "documentationComplete": "README includes setup, run, test, and API overview"
+  }
+}

@@ -1,0 +1,21 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agent-handoff.schema.json",
+  "title": "Agent Handoff",
+  "type": "object",
+  "required": ["handoffId", "fromAgentId", "toAgentId", "contractId", "projectId", "timestamp", "outputArtifacts", "verdict", "knownCaveats"],
+  "properties": {
+    "handoffId": { "type": "string", "format": "uuid" },
+    "fromAgentId": { "type": "string" },
+    "toAgentId": { "type": "string" },
+    "contractId": { "type": "string", "format": "uuid" },
+    "projectId": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "outputArtifacts": { "type": "array", "items": { "type": "string" } },
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "PARTIAL"] },
+    "knownCaveats": { "type": "array", "items": { "type": "string" } },
+    "scopeViolations": { "type": "array", "items": { "type": "string" } },
+    "contractCompliance": { "type": "string", "enum": ["FULL", "PARTIAL", "NONE"] },
+    "requiresEscalation": { "type": "boolean" }
+  }
+}

@@ -1,0 +1,19 @@
+﻿{
+  "schemaId": "context-redaction-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:09:03+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-3-A",
+  "nativeGenerated": true,
+  "redactionRules": {
+    "neverRedact": ["verifierResult","factoryState","manifestSha","sessionHandoff","eventChainHash","archiveIndex"],
+    "redactWithCaution": ["absolutePaths","userSpecificPaths","environmentVariables"],
+    "mustRedact": ["credentials","tokens","secrets","API keys"],
+    "cannotRedact": ["evidencePaths","sha256Hashes","agentIds","phaseNames","verdicts"]
+  },
+  "rules": [
+    "Redaction must not break evidence chains",
+    "Redacted SHA must not validate",
+    "Redacted paths must still resolve to real artifacts",
+    "Evidence integrity > privacy in factory governance"
+  ]
+}

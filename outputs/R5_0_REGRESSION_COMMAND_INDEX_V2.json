@@ -1,0 +1,28 @@
+﻿{
+  "index_version": "2.0.0",
+  "release": "R5.0",
+  "total_commands": 20,
+  "categories": 13,
+  "commands": [
+    { "id": "CMD-001", "category": "search_baseline", "name": "Search Doctrine Regression Tests", "command": "powershell -File .\\runtime\\search-doctrine-regression-tests.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 30, "skip_condition": null },
+    { "id": "CMD-002", "category": "search_baseline", "name": "Search Result Quality Gate", "command": "powershell -File .\\runtime\\search-result-quality-gate.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 10, "skip_condition": null },
+    { "id": "CMD-003", "category": "search_baseline", "name": "Workflow Search Consistency", "command": "powershell -File .\\runtime\\workflow-search-consistency-check.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 5, "skip_condition": null },
+    { "id": "CMD-004", "category": "research_gate", "name": "Need Search Detector", "command": "powershell -File .\\runtime\\need-search-detector.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 5, "skip_condition": null },
+    { "id": "CMD-005", "category": "starter_consistency", "name": "Starter Type Consistency Check", "command": "powershell -File .\\runtime\\starter-type-consistency-check.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 60, "skip_condition": null },
+    { "id": "CMD-006", "category": "products_api_testbed", "name": "Products API Tests", "command": "npx vitest run --reporter=verbose", "working_directory": "C:\\Codex_App_Factory\\testbeds\\products-api", "runtime_s": 5, "skip_condition": null },
+    { "id": "CMD-007", "category": "products_api_testbed", "name": "Products API Start", "command": "npx tsx src/server.ts", "working_directory": "C:\\Codex_App_Factory\\testbeds\\products-api", "runtime_s": 3, "skip_condition": "Port 3001 occupied" },
+    { "id": "CMD-008", "category": "pilot", "name": "Pilot Tests", "command": "npx vitest run --reporter=verbose", "working_directory": "C:\\Codex_App_Factory\\pilots\\mini-inventory-admin", "runtime_s": 5, "skip_condition": null },
+    { "id": "CMD-009", "category": "pilot", "name": "Pilot Start", "command": "npx tsx src/server.ts", "working_directory": "C:\\Codex_App_Factory\\pilots\\mini-inventory-admin", "runtime_s": 3, "skip_condition": "Port 3100 occupied" },
+    { "id": "CMD-010", "category": "invariant_engine", "name": "Invariant Engine Demo", "command": "powershell -File .\\runtime\\business-invariant-engine.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 10, "skip_condition": null },
+    { "id": "CMD-011", "category": "risk_gate", "name": "Risk Enforcement Gate v3", "command": "powershell -File .\\runtime\\risk-enforcement-gate-v3.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 10, "skip_condition": null },
+    { "id": "CMD-012", "category": "gate_detection", "name": "Gate Detection Demo", "command": "powershell -File .\\runtime\\R2_14_demo_runner.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 30, "skip_condition": null },
+    { "id": "CMD-013", "category": "gate_detection", "name": "Products API Gate Detection", "command": "powershell -File .\\runtime\\R2_14_products_api_gate_detection.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 15, "skip_condition": null },
+    { "id": "CMD-014", "category": "engine_broker", "name": "Engine Broker Demo R3.0", "command": "powershell -File .\\runtime\\R3_0_demo_runner.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 60, "skip_condition": null },
+    { "id": "CMD-015", "category": "engine_broker", "name": "Engine Live Activation R3.1", "command": "powershell -File .\\runtime\\R3_1_demo_runner.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 60, "skip_condition": null },
+    { "id": "CMD-016", "category": "semgrep", "name": "Semgrep on Products API", "command": "semgrep --config=auto --json .\\testbeds\\products-api\\", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 30, "skip_condition": "semgrep not installed" },
+    { "id": "CMD-017", "category": "semgrep", "name": "Semgrep on Pilot", "command": "semgrep --config=auto --json .\\pilots\\mini-inventory-admin\\", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 30, "skip_condition": "semgrep not installed" },
+    { "id": "CMD-018", "category": "autocannon", "name": "Autocannon on Products API", "command": "npx autocannon -d 5 -c 10 http://localhost:3001/api/products", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 10, "skip_condition": "Server not running on :3001" },
+    { "id": "CMD-019", "category": "benchmark_suite", "name": "Benchmark Suite v2", "command": "powershell -File .\\runtime\\R4_0_benchmark_runner.ps1", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 120, "skip_condition": null },
+    { "id": "CMD-020", "category": "calibration", "name": "Surface + Risk Classifier Calibration", "command": "powershell -Command \"& { .\\runtime\\project-surface-router.ps1; .\\runtime\\runtime-risk-classifier.ps1 }\"", "working_directory": "C:\\Codex_App_Factory", "runtime_s": 10, "skip_condition": null }
+  ]
+}

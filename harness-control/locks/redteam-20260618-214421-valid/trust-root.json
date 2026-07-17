@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  1,
+    "frozenAt":  "2026-06-18T21:44:24.0737251+08:00",
+    "runId":  "redteam-20260618-214421-valid",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\redteam-20260618-214421-valid\\trust-root.json",
+    "controlPlaneLockSha256":  "b172d3ee6b93487fb292bc41f28b2b53c3ef71170acfc52a9c1baab022b5b5dc",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "6a31ed4e4216252b0905ecbcee629a73ee44c68c6a2708dac782581d1fe0396f"
+}

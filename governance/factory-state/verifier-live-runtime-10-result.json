@@ -1,0 +1,161 @@
+﻿{
+    "passed":  25,
+    "checkedAt":  "2026-06-25T00:57:45+08:00",
+    "command":  "live-runtime-10-verify",
+    "totalChecks":  25,
+    "phase":  "LIVE-RUNTIME-10",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "LR9",
+                       "result":  true,
+                       "name":  "LR9_PASS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "flow",
+                       "result":  true,
+                       "name":  "UX_FLOW",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "4",
+                       "result":  true,
+                       "name":  "FLOW_4",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "schema",
+                       "result":  true,
+                       "name":  "PAYLOAD_SCHEMA",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "generator",
+                       "result":  true,
+                       "name":  "PAYLOAD_GEN",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "latest",
+                       "result":  true,
+                       "name":  "PAYLOAD_LATEST",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "no mutate",
+                       "result":  true,
+                       "name":  "PLD_NO_MUTATE",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "no PASS",
+                       "result":  true,
+                       "name":  "PLD_NO_PASS",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "cmds=3",
+                       "result":  true,
+                       "name":  "PLD_HAS_CMDS",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "evidence",
+                       "result":  true,
+                       "name":  "PLD_HAS_EVIDENCE",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "prompt.md",
+                       "result":  true,
+                       "name":  "PROMPT_MD",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "prompt.json",
+                       "result":  true,
+                       "name":  "PROMPT_JSON",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "warns",
+                       "result":  true,
+                       "name":  "PROMPT_NO_TRUST",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "sim",
+                       "result":  true,
+                       "name":  "SIM_EXISTS",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "8",
+                       "result":  true,
+                       "name":  "SIM_8",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "all match",
+                       "result":  true,
+                       "name":  "SIM_MATCH",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "neg",
+                       "result":  true,
+                       "name":  "NEG_EXISTS",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "26",
+                       "result":  true,
+                       "name":  "NEG_26",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_GAPS",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EC",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GF",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PC",
+                       "id":  25
+                   }
+               ],
+    "failed":  0
+}

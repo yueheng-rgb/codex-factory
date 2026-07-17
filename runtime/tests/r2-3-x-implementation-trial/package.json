@@ -1,0 +1,16 @@
+{
+  "name": "r2-3-x-implementation-trial",
+  "version": "1.0.0",
+  "description": "R2.3-X Implementation-Level Value Validation",
+  "main": "src/server.js",
+  "dependencies": {
+    "@fastify/cookie": "^9.3.0",
+    "@fastify/jwt": "^8.0.0",
+    "@fastify/multipart": "^8.3.0",
+    "@fastify/rate-limit": "^8.1.1",
+    "@fastify/static": "^7.0.0",
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^12.11.1",
+    "fastify": "^4.28.0"
+  }
+}

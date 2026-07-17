@@ -1,0 +1,290 @@
+﻿{
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-001",
+                       "desc":  "P4-R1 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-002",
+                       "desc":  "P4 snapshot compression result exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-003",
+                       "desc":  "P3 snapshot packs result exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-004",
+                       "desc":  "24/24 snapshots coverage confirmed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-005",
+                       "desc":  "P5 evidence intake JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-006",
+                       "desc":  "P5 evidence intake report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-007",
+                       "desc":  "P5 predecessor chain recorded"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-008",
+                       "desc":  "P5 frozen conclusions carried forward"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-009",
+                       "desc":  "Fresh window mount command JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-010",
+                       "desc":  "Fresh window mount command report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-011",
+                       "desc":  "Mount command contains fallback chain"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-012",
+                       "desc":  "Mount command has anti-patterns defined"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-013",
+                       "desc":  "BALANCED confirmation JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-014",
+                       "desc":  "BALANCED confirmation report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-015",
+                       "desc":  "BALANCED retains frozen_conclusions"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-016",
+                       "desc":  "BALANCED confirmed as default"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-017",
+                       "desc":  "ULTRA_COMPACT confirmation JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-018",
+                       "desc":  "ULTRA_COMPACT confirmation report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-019",
+                       "desc":  "ULTRA_COMPACT not autonomous confirmed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-020",
+                       "desc":  "ULTRA_COMPACT drops strategy fields"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-021",
+                       "desc":  "DG v3 verification JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-022",
+                       "desc":  "DG v3 verification report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-023",
+                       "desc":  "DG v3 has 13+ rules"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-024",
+                       "desc":  "All forbidden claims blocked"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-025",
+                       "desc":  "Snapshot-not-evidence JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-026",
+                       "desc":  "Snapshot-not-evidence report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-027",
+                       "desc":  "Evidence hierarchy defined"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-028",
+                       "desc":  "DG-012 enforces snapshot-not-evidence"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-029",
+                       "desc":  "Fallback verification JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-030",
+                       "desc":  "Fallback verification report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-031",
+                       "desc":  "5 failure scenarios tested"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-032",
+                       "desc":  "All fallbacks work"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-033",
+                       "desc":  "User burden assessment JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-034",
+                       "desc":  "User burden assessment report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-035",
+                       "desc":  "User commands required = 1"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-036",
+                       "desc":  "Burden improved vs pre-context-space"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-037",
+                       "desc":  "Strategy decision JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-038",
+                       "desc":  "Strategy decision report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-039",
+                       "desc":  "All 5 questions answered"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-040",
+                       "desc":  "P6 recommended as next phase"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-041",
+                       "desc":  "Negative controls JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-042",
+                       "desc":  "Negative controls report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-043",
+                       "desc":  "At least 35 negative controls"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-044",
+                       "desc":  "Zero gaps in negative controls"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-045",
+                       "desc":  "Verifier script exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-046",
+                       "desc":  "No v0.5 release artifacts"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-047",
+                       "desc":  "No cloud implementation"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-048",
+                       "desc":  "No release ZIP created during P5"
+                   }
+               ],
+    "negative_audit_passed":  7,
+    "verdict":  "PASS",
+    "passed":  48,
+    "negative_audit_checks":  7,
+    "verifier_id":  "VERIFIER-FACTORY-CONTEXT-SPACE-P5",
+    "phase":  "FACTORY-CONTEXT-SPACE-P5",
+    "negative_audit":  [
+                           {
+                               "pass":  true,
+                               "id":  "NC-AUDIT-001",
+                               "desc":  "No UNEXPECTED_PASS in verifier"
+                           },
+                           {
+                               "pass":  true,
+                               "id":  "NC-AUDIT-002",
+                               "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                           },
+                           {
+                               "pass":  true,
+                               "id":  "NC-AUDIT-003",
+                               "desc":  "No generic FAIL (all failures have detail)"
+                           },
+                           {
+                               "pass":  true,
+                               "id":  "NC-AUDIT-004",
+                               "desc":  "No expectedClass-only acceptance"
+                           },
+                           {
+                               "pass":  true,
+                               "id":  "NC-AUDIT-005",
+                               "desc":  "No manual PASS-only acceptance"
+                           },
+                           {
+                               "pass":  true,
+                               "id":  "NC-AUDIT-006",
+                               "desc":  "Snapshot not used as verifier input"
+                           },
+                           {
+                               "pass":  true,
+                               "id":  "NC-AUDIT-007",
+                               "desc":  "Verifier references real verifier JSONs"
+                           }
+                       ],
+    "generated_at":  "2026-06-28T09:50:46+08:00",
+    "total_checks":  48,
+    "failed":  0
+}

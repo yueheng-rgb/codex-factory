@@ -1,0 +1,171 @@
+﻿{
+    "totalChecks":  32,
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "Intake templates (3) exist",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "BUILD_ITERATION_WORKFLOW.md exists",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "Diagnostic Pack treated as gate only",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "Blueprint template exists",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "",
+                               "description":  "No product code modified",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "MANIFEST.json exists",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Task graph template exists",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "INTAKE.md exists",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "",
+                               "description":  "FACTORY-BUILD-0 PASS exists",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "External memory templates (6) exist",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "MODE_SELECTOR.md exists",
+                               "pass":  true
+                           },
+                   "V32":  {
+                               "detail":  "",
+                               "description":  "No FAIL_TARGET_NOT_TRIGGERED",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "Multi-agent NOT declared default",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "7-agent NOT restored",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "Classifier policy + template exist",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "BUILD_AGENT_PROTOCOL.md + policy exist",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "",
+                               "description":  "10-role NOT restored",
+                               "pass":  true
+                           },
+                   "V30":  {
+                               "detail":  "Total: 42, Gaps: 0",
+                               "description":  "Negative controls 0 gaps",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "BUILD_MODE_MVP.md exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "DIAGNOSTIC_GATE.md exists",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "Simulation harness files exist",
+                               "pass":  true
+                           },
+                   "V31":  {
+                               "detail":  "",
+                               "description":  "No UNEXPECTED_PASS in NC",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "BOUNDARY.md exists",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "User command prompts (5) exist",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "",
+                               "description":  "No ZIP created",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "README.md exists",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "",
+                               "description":  "No v0.5 package created",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "Build Mode directory exists",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "Mode selector policy + template exist",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "COMPLEXITY_CLASSIFIER.md exists",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "MVP simulation JSON exists",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "",
+                               "description":  "No SkillMarket repair",
+                               "pass":  true
+                           }
+               },
+    "verdict":  "PASS",
+    "passCount":  32,
+    "phase":  "FACTORY-BUILD-1",
+    "timestamp":  "2026-06-27T00:24:18+08:00",
+    "failCount":  0,
+    "verifier":  "factory-build-1-build-mode-mvp-verify.ps1"
+}

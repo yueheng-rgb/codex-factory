@@ -1,0 +1,178 @@
+﻿{
+    "nativeGenerated":  true,
+    "verdict":  "PASS",
+    "generatedAt":  "2026-06-24T20:43:27+08:00",
+    "summary":  {
+                    "core":  5,
+                    "total":  11,
+                    "included":  9,
+                    "finalZipNotCreated":  true,
+                    "experimental":  4,
+                    "excluded":  2
+                },
+    "phase":  "H24-A",
+    "candidates":  [
+                       {
+                           "sourcePath":  "factory-resource-pack/MANIFEST.json",
+                           "risk":  "low",
+                           "category":  "core",
+                           "sizeBytes":  5134,
+                           "lastVerified":  "H22",
+                           "sha256":  "AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8",
+                           "candidatePath":  "factory-resource-pack/MANIFEST.json",
+                           "forbidden":  [
+                                             "production-release"
+                                         ],
+                           "allowedUse":  "Portable resource distribution",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "factory-resource-pack/MANIFEST.sha256",
+                           "risk":  "low",
+                           "category":  "core",
+                           "sizeBytes":  67,
+                           "lastVerified":  "H22",
+                           "sha256":  "3BC2CC1F10F904DCBC3BD3FBBDFB4BB6A9E4F19D195DACE7BBAFDF714F775FE4",
+                           "candidatePath":  "factory-resource-pack/MANIFEST.sha256",
+                           "forbidden":  [
+
+                                         ],
+                           "allowedUse":  "Integrity verification",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "factory-resource-pack/bootstrap/",
+                           "risk":  "low",
+                           "category":  "core",
+                           "sizeBytes":  0,
+                           "lastVerified":  "DRY27",
+                           "sha256":  "directory",
+                           "candidatePath":  "factory-resource-pack/bootstrap/",
+                           "forbidden":  [
+                                             "absolute-path"
+                                         ],
+                           "allowedUse":  "Bootstrap validation",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "scripts/factoryctl.ps1",
+                           "risk":  "low",
+                           "category":  "core",
+                           "sizeBytes":  6739,
+                           "lastVerified":  "H23",
+                           "sha256":  "30BD920F250DF43A656F7CEA773D3F67E51C97D665FBCB092387BDEF4BB49897",
+                           "candidatePath":  "scripts/factoryctl.ps1",
+                           "forbidden":  [
+
+                                         ],
+                           "allowedUse":  "Factory CLI",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "governance/factory-state/current-factory-state.json",
+                           "risk":  "low",
+                           "category":  "core",
+                           "sizeBytes":  23011,
+                           "lastVerified":  "H23",
+                           "sha256":  "5BF97FCC674C068131CF33A6177EDEE3FA5C2B465FF5F05688E0E6FC1C299A03",
+                           "candidatePath":  "governance/factory-state/current-factory-state.json",
+                           "forbidden":  [
+                                             "production-db"
+                                         ],
+                           "allowedUse":  "Canonical state",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "codex-factory-plugin/",
+                           "risk":  "medium",
+                           "requiresRuntime":  true,
+                           "category":  "experimental",
+                           "sizeBytes":  0,
+                           "lastVerified":  "DRY27",
+                           "sha256":  "directory",
+                           "candidatePath":  "codex-factory-plugin/",
+                           "forbidden":  [
+                                             "production-ready",
+                                             "runtime-verified"
+                                         ],
+                           "allowedUse":  "Development preview",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "codex-factory-plugin/mcp/",
+                           "risk":  "medium",
+                           "requiresRuntime":  true,
+                           "category":  "experimental",
+                           "sizeBytes":  0,
+                           "lastVerified":  "DRY27",
+                           "sha256":  "directory",
+                           "candidatePath":  "codex-factory-plugin/mcp/",
+                           "forbidden":  [
+                                             "verifier-replacement"
+                                         ],
+                           "allowedUse":  "Prototype reference",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "scripts/monitoring/",
+                           "risk":  "medium",
+                           "requiresRuntime":  true,
+                           "category":  "experimental",
+                           "sizeBytes":  0,
+                           "lastVerified":  "DRY27",
+                           "sha256":  "directory",
+                           "candidatePath":  "scripts/monitoring/",
+                           "forbidden":  [
+                                             "phase-closure-evidence",
+                                             "alert-as-PASS"
+                                         ],
+                           "allowedUse":  "Prototype reference",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "codex-factory-plugin/automation/",
+                           "risk":  "medium",
+                           "requiresRuntime":  true,
+                           "category":  "experimental",
+                           "sizeBytes":  0,
+                           "lastVerified":  "DRY27",
+                           "sha256":  "directory",
+                           "candidatePath":  "codex-factory-plugin/automation/",
+                           "forbidden":  [
+                                             "runtime-automation-verified"
+                                         ],
+                           "allowedUse":  "Design reference",
+                           "include":  true
+                       },
+                       {
+                           "sourcePath":  "historical/scoring/",
+                           "risk":  "blocking",
+                           "category":  "excluded",
+                           "sizeBytes":  0,
+                           "lastVerified":  "H18",
+                           "sha256":  "excluded",
+                           "candidatePath":  "EXCLUDED/",
+                           "forbidden":  [
+                                             "PASS-gate",
+                                             "core-inclusion"
+                                         ],
+                           "allowedUse":  "Historical only",
+                           "include":  false
+                       },
+                       {
+                           "sourcePath":  "historical/failure-router/",
+                           "risk":  "blocking",
+                           "category":  "excluded",
+                           "sizeBytes":  0,
+                           "lastVerified":  "H18",
+                           "sha256":  "excluded",
+                           "candidatePath":  "EXCLUDED/",
+                           "forbidden":  [
+                                             "runnable-core",
+                                             "core-inclusion"
+                                         ],
+                           "allowedUse":  "Historical only",
+                           "include":  false
+                       }
+                   ]
+}

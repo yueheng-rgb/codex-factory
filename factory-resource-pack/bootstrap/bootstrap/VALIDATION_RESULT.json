@@ -1,0 +1,23 @@
+﻿{
+    "failures":  [
+                     "[MANIFEST_EXISTS] MANIFEST.json must exist : File not found: C:\\Codex_App_Factory\\factory-resource-pack\\bootstrap\\MANIFEST.json"
+                 ],
+    "timestamp":  "2026-06-24T17:14:39.1922782+08:00",
+    "overallVerdict":  "FAIL",
+    "warnings":  [
+
+                 ],
+    "failureCount":  1,
+    "warningCount":  0,
+    "packPath":  "C:\\Codex_App_Factory\\factory-resource-pack\\bootstrap",
+    "totalChecks":  1,
+    "checks":  [
+                   {
+                       "priority":  "P0",
+                       "status":  "FAIL",
+                       "description":  "MANIFEST.json must exist",
+                       "checkId":  "MANIFEST_EXISTS",
+                       "detail":  "File not found: C:\\Codex_App_Factory\\factory-resource-pack\\bootstrap\\MANIFEST.json"
+                   }
+               ]
+}

@@ -1,0 +1,63 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scenario Alias Map Schema",
+  "description": "Governs how negative control names map to actual source scenario IDs, with alias strength classification.",
+  "schemaVersion": "H11-R1",
+  "type": "object",
+  "required": ["phase", "runId", "aliasMappings", "createdAt"],
+  "properties": {
+    "phase": { "type": "string", "minLength": 1 },
+    "runId": { "type": "string", "minLength": 1 },
+    "aliasMappings": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "negativeId", "intendedInvariant", "intendedScenarioId",
+          "actualScenarioId", "aliasStrength", "equivalenceJustification",
+          "sourceEvidence", "requiresDirectScenario", "rerunRequired", "acceptedForClosure"
+        ],
+        "properties": {
+          "negativeId": { "type": "string", "minLength": 1, "description": "Negative control name." },
+          "intendedInvariant": { "type": "string", "minLength": 1, "description": "The invariant the negative intends to test." },
+          "intendedScenarioId": { "type": "string", "minLength": 1, "description": "The ideal scenario ID for this invariant." },
+          "actualScenarioId": { "type": "string", "minLength": 1, "description": "The actual scenario ID in source code used as target." },
+          "aliasStrength": {
+            "type": "string",
+            "enum": ["EXACT", "STRONG", "PARTIAL", "WEAK", "INVALID"],
+            "description": "Classification of how well the actual scenario covers the intended invariant."
+          },
+          "equivalenceJustification": { "type": "string", "minLength": 20 },
+          "sourceEvidence": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "requiresDirectScenario": { "type": "boolean", "description": "True if a dedicated direct scenario is needed for full coverage." },
+          "rerunRequired": { "type": "boolean", "description": "True if the negative must be rebuilt with a direct scenario." },
+          "acceptedForClosure": { "type": "boolean", "description": "True if this alias is accepted for phase closure despite non-EXACT strength." },
+          "criticalInvariantCategory": { "type": "string", "description": "If this invariant falls in a critical category, specify which one." },
+          "limitation": { "type": "string", "description": "Documented limitation of this alias mapping." }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "totalMappings": { "type": "integer" },
+        "exactCount": { "type": "integer" },
+        "strongCount": { "type": "integer" },
+        "partialCount": { "type": "integer" },
+        "weakCount": { "type": "integer" },
+        "invalidCount": { "type": "integer" },
+        "requiresRerun": { "type": "integer" },
+        "blockerCount": { "type": "integer" }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "strengthRules": {
+    "EXACT": "intendedScenarioId equals actualScenarioId. Direct coverage. Clean PASS allowed.",
+    "STRONG": "Different ID but same invariant and same assertion path. Clean PASS allowed with source evidence.",
+    "PARTIAL": "Same workflow chain but indirect coverage. Clean PASS NOT allowed for critical invariants. PASS_WITH_CAVEAT or PASS_PENDING_RECONCILIATION only for critical categories.",
+    "WEAK": "Related behavior but insufficient coverage. Requires rerun. Cannot produce clean PASS.",
+    "INVALID": "Not equivalent. Requires rerun. Cannot produce clean PASS.",
+    "criticalInvariantRule": "Critical invariants (authorization, isolation, evidence integrity, audit, redaction, payment/quota, destructive ops, irreversible transitions, incident closure, security workflow) cannot rely on PARTIAL or WEAK aliases for clean PASS."
+  }
+}

@@ -1,0 +1,12 @@
+﻿{
+  "phase": "FACTORY-STATE-DASHBOARD-0",
+  "section": "F",
+  "title": "Path Visibility Contract",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "contract_file": "factory-dashboard/PATH_VISIBILITY_CONTRACT.md",
+  "always_visible_paths": 10,
+  "health_states": ["HEALTHY", "FOREIGN", "MISSING", "STALE", "TAMPERED"],
+  "unknown_formats": ["not configured", "path not found", "permission denied", "foreign project"],
+  "report": "outputs/FACTORY_STATE_DASHBOARD_0_F_PATH_VISIBILITY_CONTRACT_REPORT.md"
+}

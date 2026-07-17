@@ -1,0 +1,18 @@
+﻿{
+    "user_checklist_id": "FACTORY-BUILD-REALWORLD-2-P2-USER-ACTION-CHECKLIST",
+    "generated_at": "2026-06-28T10:29:39+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P2",
+    "section": "I",
+    "checklist_file": "CREDENTIAL_ROTATION_CHECKLIST.md",
+    "items": [
+        {"id": "USER-001", "action": "Rotate SSH credentials — generate new key pair, disable password auth", "severity": "CRITICAL", "location": "7 original deploy scripts"},
+        {"id": "USER-002", "action": "Rotate Django SECRET_KEY in production", "severity": "CRITICAL", "location": "original .env"},
+        {"id": "USER-003", "action": "Rotate SMTP/email password", "severity": "CRITICAL", "location": "original .env"},
+        {"id": "USER-004", "action": "Review server login logs for unauthorized access", "severity": "HIGH"},
+        {"id": "USER-005", "action": "Update production environment variables outside repo", "severity": "CRITICAL"},
+        {"id": "USER-006", "action": "Remove/replace hardcoded credentials from deploy scripts", "severity": "CRITICAL"},
+        {"id": "USER-007", "action": "Confirm backup before any real deployment", "severity": "HIGH"},
+        {"id": "USER-008", "action": "Do NOT paste new credentials into Codex or any AI tool", "severity": "CRITICAL"}
+    ],
+    "verdict": "USER_CHECKLIST_READY"
+}

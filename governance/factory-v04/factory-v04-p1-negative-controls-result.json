@@ -1,0 +1,224 @@
+﻿{
+    "noFailTargetNotTriggered":  true,
+    "passed":  26,
+    "timestamp":  "2026-06-25T22:19:42+08:00",
+    "noGenericFail":  true,
+    "title":  "Negative Controls — v0.4 P1 Reframe + Quality Gap",
+    "noExpectedClassOnly":  true,
+    "negatives":  [
+                      {
+                          "id":  1,
+                          "expectedRisk":  "Evidence misrepresentation",
+                          "fault":  "EVAL-13 INCONCLUSIVE rewritten as YES",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "POSITIONING.md states EVAL-13 Vanilla 99 \u003e v0.4 95. EVIDENCE_BASIS.md states \u0027Verdict: INCONCLUSIVE\u0027. INCONCLUSIVE preserved.",
+                          "target":  "Positioning docs preserve INCONCLUSIVE verdict"
+                      },
+                      {
+                          "id":  2,
+                          "expectedRisk":  "Overclaiming",
+                          "fault":  "v0.4 claims universal quality improvement",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.forbiddenClaims[0]: \u0027v0.4 universally improves product quality\u0027. POSITIONING.md: \u0027NOT a universal product quality improver\u0027.",
+                          "target":  "forbiddenClaims includes universal quality claims"
+                      },
+                      {
+                          "id":  3,
+                          "expectedRisk":  "Overclaiming",
+                          "fault":  "v0.4 claims always beats Vanilla",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.forbiddenClaims[1]: \u0027v0.4 always beats Vanilla\u0027. EVIDENCE_BASIS.md: \u0027What the Evidence Does NOT Support\u0027 section.",
+                          "target":  "forbiddenClaims includes always-beats-vanilla claims"
+                      },
+                      {
+                          "id":  4,
+                          "expectedRisk":  "Evidence cherry-picking",
+                          "fault":  "EVAL-8 positive evidence deleted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "EVIDENCE_BASIS.md lists EVAL-8: Factory Lite 94 \u003e Vanilla 86 (+8). Evidence reconciliation includes both benchmarks.",
+                          "target":  "EVIDENCE_BASIS.md still references EVAL-8"
+                      },
+                      {
+                          "id":  5,
+                          "expectedRisk":  "Evidence cherry-picking",
+                          "fault":  "EVAL-13 mixed evidence omitted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "EVIDENCE_BASIS.md lists EVAL-13: Vanilla 99 \u003e v0.4 Factory 95 (-4). Both benchmarks represented.",
+                          "target":  "EVIDENCE_BASIS.md includes EVAL-13"
+                      },
+                      {
+                          "id":  6,
+                          "expectedRisk":  "Quality inflation",
+                          "fault":  "process artifact counted as product quality",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "POSITIONING.md: \u0027NOT a system where process artifacts substitute for product quality\u0027. Evidence hierarchy enforced.",
+                          "target":  "POSITIONING.md separates process from product"
+                      },
+                      {
+                          "id":  7,
+                          "expectedRisk":  "POR misuse",
+                          "fault":  "proof-of-read claims correctness",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "forbiddenClaims: \u0027proof-of-read proves correctness\u0027. POR-001 disclaimer: \u0027NOT proof of correctness\u0027.",
+                          "target":  "MANIFEST.forbiddenClaims includes POR-correctness claims"
+                      },
+                      {
+                          "id":  8,
+                          "expectedRisk":  "Overclaiming",
+                          "fault":  "3-role declared proven necessary",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "forbiddenClaims: \u00273-role is proven necessary\u0027. EVIDENCE_BASIS: 3-role NOT TESTED, deferred to EVAL-14.",
+                          "target":  "forbiddenClaims includes 3-role-proven claim"
+                      },
+                      {
+                          "id":  9,
+                          "expectedRisk":  "Architecture regression",
+                          "fault":  "10-role restored as default",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST: 10-role in archivedModules. multi-agent-escalation-policy: \u002710-role model — ARCHIVED, never activate\u0027.",
+                          "target":  "10-role in archivedModules, not defaultModules"
+                      },
+                      {
+                          "id":  10,
+                          "expectedRisk":  "Reviewer overreach",
+                          "fault":  "Reviewer allowed to silently rewrite implementation",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "antiPatterns[0]: \u0027Reviewer silently fixes gaps — must flag, not fix\u0027.",
+                          "target":  "quality-gap-reviewer-checklist.json antiPatterns"
+                      },
+                      {
+                          "id":  11,
+                          "expectedRisk":  "Shallow review",
+                          "fault":  "Reviewer only checks process, ignores product quality",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Reviewer checklist: RV01 UI/UX, RV02 Docs, RV03 Test Quality, RV04 Domain Correctness, RV05 API Completeness.",
+                          "target":  "Reviewer checklist covers all 5 quality dimensions"
+                      },
+                      {
+                          "id":  12,
+                          "expectedRisk":  "Missed quality gap",
+                          "fault":  "UI-depth gap does not trigger Reviewer",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG01 detection: \u0027Only landing page or API-only interface when spec requires multi-page UI\u0027. action: ACTIVATE_REVIEWER.",
+                          "target":  "QG01 detects UI depth risks"
+                      },
+                      {
+                          "id":  13,
+                          "expectedRisk":  "Missed quality gap",
+                          "fault":  "missing README does not trigger Reviewer",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG02 detection: \u0027Missing README\u0027, \u0027Missing run instructions\u0027. action: ACTIVATE_REVIEWER.",
+                          "target":  "QG02 detects documentation risks"
+                      },
+                      {
+                          "id":  14,
+                          "expectedRisk":  "Missed quality gap",
+                          "fault":  "superficial tests accepted without trigger",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG03 detection: \u0027Tests are superficial\u0027, \u0027Tests use fake assertions\u0027. action: ACTIVATE_REVIEWER.",
+                          "target":  "QG03 detects test quality risks"
+                      },
+                      {
+                          "id":  15,
+                          "expectedRisk":  "Missed quality gap",
+                          "fault":  "financial correctness risk ignored",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG04 detection: \u0027Financial calculations not verified server-side\u0027. action: ACTIVATE_REVIEWER.",
+                          "target":  "QG04 detects domain correctness risks"
+                      },
+                      {
+                          "id":  16,
+                          "expectedRisk":  "Security blind spot",
+                          "fault":  "security/permission risk ignored",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG04 detection: \u0027Permission checks not enforced server-side\u0027, \u0027Security/data isolation gaps\u0027.",
+                          "target":  "QG04 includes permission checks"
+                      },
+                      {
+                          "id":  17,
+                          "expectedRisk":  "Over-escalation",
+                          "fault":  "quality trigger always escalates to 3-role",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "escalationRules: maxReviewerOnly=3 before recommendation. Only QG01+QG04 both firing auto-escalates. Single QG02/QG05 never escalates.",
+                          "target":  "Escalation rules define thresholds"
+                      },
+                      {
+                          "id":  18,
+                          "expectedRisk":  "Architecture inflation",
+                          "fault":  "3-role made default",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.defaultOperatingModel: \u0027Factory Lite Core (Tier 0, 0 roles)\u0027. multi-agent-escalation-policy.defaultTier=0.",
+                          "target":  "Factory Lite Core is default (Tier 0)"
+                      },
+                      {
+                          "id":  19,
+                          "expectedRisk":  "Premature release",
+                          "fault":  "v0.4 release ZIP created",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "No v0.4 release ZIP files found. finalZipCreated=false in MANIFEST.",
+                          "target":  "No v0.4 release ZIP in outputs"
+                      },
+                      {
+                          "id":  20,
+                          "expectedRisk":  "Package tampering",
+                          "fault":  "old FINAL package modified",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "SHA: 01640C0A... verified unchanged.",
+                          "target":  "FINAL package SHA unchanged"
+                      },
+                      {
+                          "id":  21,
+                          "expectedRisk":  "Premature finalization",
+                          "fault":  "v0.4 draft marked final",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.status: DRAFT_NOT_RELEASED.",
+                          "target":  "MANIFEST.status remains DRAFT_NOT_RELEASED"
+                      },
+                      {
+                          "id":  22,
+                          "expectedRisk":  "Missing guardrails",
+                          "fault":  "manifest missing forbidden claims",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.forbiddenClaims has 10 entries including universal quality, always-beats-vanilla, process=quality, etc.",
+                          "target":  "MANIFEST includes forbiddenClaims array"
+                      },
+                      {
+                          "id":  23,
+                          "expectedRisk":  "Untested policy",
+                          "fault":  "smoke test missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "factory-v04-p1-validation-result.json includes 5 smoke test scenarios, all PASS.",
+                          "target":  "Validation includes smoke tests"
+                      },
+                      {
+                          "id":  24,
+                          "expectedRisk":  "Missing mechanism",
+                          "fault":  "quality-gap policy missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "quality-gap-trigger-policy.json exists with QG01-QG05 triggers and escalation rules.",
+                          "target":  "core/quality-gap-trigger-policy.json exists"
+                      },
+                      {
+                          "id":  25,
+                          "expectedRisk":  "Premature release",
+                          "fault":  "release prep started",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "No release artifacts. v0.4 remains DRAFT_NOT_RELEASED.",
+                          "target":  "No release ZIPs, no FINAL modification"
+                      },
+                      {
+                          "id":  26,
+                          "expectedRisk":  "Scope creep",
+                          "fault":  "RUN-F started",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "v04-3role-optional/ directory contains no files. RUN-F not started.",
+                          "target":  "v04-3role-optional directory empty"
+                      }
+                  ],
+    "gaps":  0,
+    "noUnexpectedPass":  true,
+    "noManualPassOnly":  true,
+    "phase":  "FACTORY-V04-P1-G",
+    "total":  26,
+    "noPreclassifiedOnly":  true
+}

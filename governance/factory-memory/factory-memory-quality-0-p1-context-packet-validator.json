@@ -1,0 +1,39 @@
+﻿{
+    "scriptSizeKB":  12.7,
+    "checks":  [
+                   "V01:File exists",
+                   "V02:Valid JSON",
+                   "V03:Required fields",
+                   "V04:packetId format",
+                   "V05:packetType",
+                   "V06:targetRole",
+                   "V07:Stale check",
+                   "V08:Word budget",
+                   "V09:forbiddenAssumptions",
+                   "V10:allowedActions",
+                   "V11:forbiddenActions",
+                   "V12:Summary verification",
+                   "V13:No compressed-summary evidence",
+                   "V14:No unsupported PASS",
+                   "V15:Not self-report-only",
+                   "V16:Evidence path resolution",
+                   "V17:activeRisks",
+                   "V18:rejectedClaims",
+                   "V19:requiredReads",
+                   "V20:Process!=product quality",
+                   "V21:No multi-agent default"
+               ],
+    "scriptPath":  "factory-build-mode/runtime/memory/validate-context-packet.ps1",
+    "section":  "D",
+    "antiDeceptionChecks":  [
+                                "V13",
+                                "V14",
+                                "V15",
+                                "V20",
+                                "V21"
+                            ],
+    "phase":  "FACTORY-MEMORY-QUALITY-0-P1",
+    "date":  "2026-06-27",
+    "status":  "COMPLETED",
+    "title":  "Context Packet Validator Implementation"
+}

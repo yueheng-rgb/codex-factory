@@ -1,0 +1,35 @@
+﻿{
+    "packetId":  "TPP-PROJ-IMPL-001-implementation-IMPL-DB-001-20260710004736",
+    "packetType":  "tool-permission-packet",
+    "generatedAt":  "2026-07-10T00:47:36+08:00",
+    "projectId":  "PROJ-IMPL-001",
+    "phaseId":  "implementation",
+    "agentId":  "IMPL-DB-001",
+    "projectType":  "fullstack-admin",
+    "allowedTools":  [
+                         {
+                             "sandboxMode":  "disposable",
+                             "name":  "Database MCP (PostgreSQL)",
+                             "toolId":  "TOOL-DB-MCP-001"
+                         }
+                     ],
+    "blockedTools":  [
+                         "TOOL-STITCH-MCP-001",
+                         "TOOL-NODE-SDK-001"
+                     ],
+    "pendingHumanTools":  [
+
+                          ],
+    "pendingSandboxTools":  [
+
+                            ],
+    "dryRunTools":  [
+
+                    ],
+    "forbiddenToolActions":  [
+
+                             ],
+    "toolRiskSummary":  "Tool risk levels: critical",
+    "sandboxInstructions":  "Disposable sandbox workspace required for fileWrite tools. dryRun mode for readonly tools.",
+    "humanApprovalInstructions":  "Human must approve any tool marked pendingHuman before execution."
+}

@@ -1,0 +1,142 @@
+﻿{
+    "roles":  [
+                  {
+                      "inputs":  [
+                                     "Phase specification",
+                                     "Complexity budget"
+                                 ],
+                      "responsibility":  "Task decomposition, agent spawn, contract generation, capacity preflight, closure decision",
+                      "outputs":  [
+                                      "Task graph",
+                                      "Worker contracts",
+                                      "Spawn decisions"
+                                  ],
+                      "count":  1,
+                      "evidence":  [
+                                       "Agent registry entries",
+                                       "Progress events"
+                                   ],
+                      "role":  "Orchestrator",
+                      "mustNotDo":  [
+                                        "Write implementation",
+                                        "Modify worker scope",
+                                        "Count failed as success"
+                                    ]
+                  },
+                  {
+                      "inputs":  [
+                                     "Worker contract",
+                                     "Owned scope declaration"
+                                 ],
+                      "responsibility":  "Write implementation in owned scope, report progress, produce handoff artifact",
+                      "outputs":  [
+                                      "Source files",
+                                      "Handoff artifact with SHA256",
+                                      "Completion report"
+                                  ],
+                      "count":  "2-4 (proportional to independent modules)",
+                      "evidence":  [
+                                       "File changes in owned scope",
+                                       "Handoff SHA256",
+                                       "Transcript"
+                                   ],
+                      "role":  "Builder",
+                      "mustNotDo":  [
+                                        "Write other builder scope",
+                                        "Modify integration hub",
+                                        "Modify contracts"
+                                    ]
+                  },
+                  {
+                      "inputs":  [
+                                     "Builder handoffs",
+                                     "Dependency declarations"
+                                 ],
+                      "responsibility":  "Merge builder outputs, manage dependency graph, declare repairs, own integration hub",
+                      "outputs":  [
+                                      "Integrated build",
+                                      "Dependency graph",
+                                      "Repair declarations"
+                                  ],
+                      "count":  1,
+                      "evidence":  [
+                                       "Integration hub files",
+                                       "Dependency graph JSON",
+                                       "Merge audit log"
+                                   ],
+                      "role":  "Integrator",
+                      "mustNotDo":  [
+                                        "Write builder scopes",
+                                        "Override verifier",
+                                        "Bypass verifier for closure"
+                                    ]
+                  },
+                  {
+                      "inputs":  [
+                                     "Implementation files",
+                                     "Contracts",
+                                     "Registry",
+                                     "Transcripts"
+                                 ],
+                      "responsibility":  "Run all verifier gates, produce machine-readable JSON, block on P0 failure",
+                      "outputs":  [
+                                      "Verifier JSON with per-gate PASS/FAIL"
+                                  ],
+                      "count":  1,
+                      "evidence":  [
+                                       "Verifier result JSON",
+                                       "Gate-by-gate evidence paths"
+                                   ],
+                      "role":  "Verifier",
+                      "mustNotDo":  [
+                                        "Modify implementation",
+                                        "Modify contracts",
+                                        "Modify registry"
+                                    ]
+                  },
+                  {
+                      "inputs":  [
+                                     "Verifier results",
+                                     "Contamination reports",
+                                     "Anomaly signals"
+                                 ],
+                      "responsibility":  "Read evidence, investigate anomalies, classify contamination, recommend disposition",
+                      "outputs":  [
+                                      "Investigation report",
+                                      "Classification",
+                                      "Recommendation"
+                                  ],
+                      "count":  "0-1 (optional, for high-risk flows)",
+                      "evidence":  [
+                                       "Investigation JSON",
+                                       "Evidence chain"
+                                   ],
+                      "role":  "Auditor",
+                      "mustNotDo":  [
+                                        "Modify state",
+                                        "Write implementation",
+                                        "Change registry"
+                                    ]
+                  }
+              ],
+    "keyDifferencesFrom10Role":  [
+                                     "5 roles vs 10 roles — Architect, PM, DevOps, Knowledge Mgmt removed (collapsed into Orchestrator)",
+                                     "Auditor is optional, not mandatory",
+                                     "Each role has explicit mustNotDo constraints with verifier gates",
+                                     "Agent count proportional to project independence, not role count"
+                                 ],
+    "maximumAgents":  8,
+    "minimumIndependentModulesForMultiAgent":  5,
+    "designPrinciple":  "Like a small company: few roles with clear ownership, not a bureaucracy",
+    "phase":  "FACTORY-AGENT-0-E",
+    "generatedAt":  "2026-06-26T01:03:37.0880322+08:00",
+    "nativeGenerated":  true,
+    "architectureName":  "Agent Company Mode v0.5",
+    "keyDifferencesFromV04":  [
+                                  "v0.4 is a process integrity layer for solo development; v0.5 adds agent orchestration for large projects",
+                                  "v0.4 has no agent roles; v0.5 has 5 defined roles (not 10)",
+                                  "v0.4 is always-on lightweight; v0.5 is opt-in for large projects",
+                                  "v0.5 MUST include verifier-verified multi-agent gates; v0.4 verifier gates are solo-developer oriented"
+                              ],
+    "totalRoles":  5
+}

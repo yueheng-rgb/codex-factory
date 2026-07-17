@@ -1,0 +1,10 @@
+﻿{
+  "agentId": "ag2-builder-1",
+  "ownedScope": ["packages/auth-module/src/", "packages/auth-module/tests/"],
+  "forbiddenScope": ["packages/payments/", "config/secrets/", "_integrate/"],
+  "actualWrites": [
+    "packages/auth-module/src/login.ts",
+    "packages/auth-module/src/register.ts",
+    "packages/auth-module/tests/login.test.ts"
+  ]
+}

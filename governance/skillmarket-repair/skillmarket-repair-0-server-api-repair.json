@@ -1,0 +1,50 @@
+﻿{
+  "phase": "SKILLMARKET-REPAIR-0-C",
+  "timestamp": "2026-06-26T23:30:00+08:00",
+  "filesChanged": [
+    {"path":"server/index.js","change":"REWRITTEN as thin wrapper delegating to ./src/index.js","before":"5-route Express server","after":"Single-line delegation to src/ MVC server"},
+    {"path":"server/package.json","change":"UPDATED scripts: start→node index.js, dev→node --watch src/index.js, test→node test/run.js","before":"start: node src/index.js, dev: node --watch src/index.js","after":"All three scripts present and correct"}
+  ],
+  "routesStatus": {
+    "auth": "ACTIVE — src/routes/auth.routes.js (login, register, profile, send-code, verify-code, send-login-code, login-by-code)",
+    "favorites": "ACTIVE — src/routes/favorites.routes.js (POST, DELETE, GET)",
+    "reviews": "ACTIVE — src/routes/review.routes.js",
+    "messages": "ACTIVE — src/routes/message.routes.js",
+    "merchants": "ACTIVE — src/routes/merchant.routes.js",
+    "products": "ACTIVE — src/routes/product.routes.js",
+    "categories": "ACTIVE — src/routes/category.routes.js",
+    "cart": "ACTIVE — src/routes/cart.routes.js",
+    "orders": "ACTIVE — src/routes/order.routes.js",
+    "dashboard": "ACTIVE — src/routes/dashboard.routes.js",
+    "upload": "ACTIVE — src/routes/upload.routes.js",
+    "audit": "ACTIVE — src/routes/audit.routes.js"
+  },
+  "frontendReconciliation": {
+    "/api/auth/login": "MATCHED",
+    "/api/auth/register": "MATCHED",
+    "/api/auth/profile": "MATCHED",
+    "/api/auth/send-code": "MATCHED",
+    "/api/auth/verify-code": "MATCHED",
+    "/api/auth/send-login-code": "MATCHED",
+    "/api/auth/login-by-code": "MATCHED",
+    "/api/products": "MATCHED",
+    "/api/products/:id": "MATCHED",
+    "/api/products/:id/related": "MATCHED",
+    "/api/categories": "MATCHED",
+    "/api/cart": "MATCHED",
+    "/api/cart/:id": "MATCHED",
+    "/api/orders": "MATCHED",
+    "/api/orders/my": "MATCHED",
+    "/api/orders/:id/messages": "MATCHED",
+    "/api/reviews": "MATCHED",
+    "/api/favorites": "MATCHED",
+    "/api/favorites/:productId": "MATCHED",
+    "/api/messages/unread": "MATCHED"
+  },
+  "noChangesNeeded": "src/ middleware, routes, models, services, and config are already correct and complete",
+  "compatibility": "Full — all frontend API calls now have corresponding backend routes",
+  "risks": [
+    "src/ services may reference database tables differently than root routes did. Schema is consistent.",
+    "src/ authService uses email verification flow which may differ from root-level simple auth"
+  ]
+}

@@ -1,0 +1,33 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tool Capability",
+  "description": "Schema for tool/MCP capability entries in the Factory registry",
+  "type": "object",
+  "required": ["toolId", "name", "type", "provider", "riskLevel", "status"],
+  "properties": {
+    "toolId": { "type": "string", "description": "Unique tool identifier, e.g. TOOL-STITCH-MCP-001" },
+    "name": { "type": "string" },
+    "type": { "type": "string", "enum": ["mcp_server", "cli_tool", "sdk", "generator", "verifier", "search_provider", "runner", "browser_tool", "database_tool"] },
+    "provider": { "type": "string", "description": "Vendor or source" },
+    "sourceRef": { "type": "string" },
+    "shortDescription": { "type": "string" },
+    "requiredSecrets": { "type": "boolean", "default": false },
+    "networkAccess": { "type": "boolean", "default": false },
+    "fileReadAccess": { "type": "boolean", "default": false },
+    "fileWriteAccess": { "type": "boolean", "default": false },
+    "externalServiceAccess": { "type": "boolean", "default": false },
+    "cloudRequired": { "type": "boolean", "default": false },
+    "sandboxRequired": { "type": "boolean", "default": false },
+    "humanConfirmationRequired": { "type": "boolean", "default": false },
+    "dryRunSupported": { "type": "boolean", "default": false },
+    "allowedAgents": { "type": "array", "items": { "type": "string" } },
+    "allowedProjectTypes": { "type": "array", "items": { "type": "string" } },
+    "allowedPhases": { "type": "array", "items": { "type": "string" } },
+    "riskLevel": { "type": "string", "enum": ["none", "low", "medium", "high", "critical"] },
+    "verificationMethod": { "type": "string" },
+    "fallbackPlan": { "type": "string" },
+    "status": { "type": "string", "enum": ["candidate", "monitor", "sandboxReady", "allowedWithControls", "rejected", "quarantine", "deprecated"] },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "lastReviewed": { "type": "string", "format": "date-time" }
+  }
+}

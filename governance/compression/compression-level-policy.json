@@ -1,0 +1,95 @@
+{
+  "policyId": "H17-C-COMPRESSION-LEVEL-POLICY",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T02:19:28.466143+08:00",
+  "generatedDuringPhase": "H17-C",
+  "nativeGenerated": true,
+  "compressionLevels": {
+    "LEVEL_0_FRESH": {
+      "description": "No compression in current session",
+      "riskLevel": "none",
+      "allowedActions": [
+        "spawn",
+        "plan",
+        "implement",
+        "verify",
+        "integrate",
+        "close"
+      ],
+      "evidenceTier": "HIGHEST",
+      "sessionRotationRequired": false
+    },
+    "LEVEL_1_LIGHT": {
+      "description": "One compression detected",
+      "riskLevel": "low",
+      "allowedActions": [
+        "plan",
+        "implement",
+        "verify",
+        "integrate"
+      ],
+      "forbiddenActions": [
+        "close",
+        "final_state_update"
+      ],
+      "evidenceTier": "MEDIUM",
+      "sessionRotationRecommended": true,
+      "sessionRotationRequired": false
+    },
+    "LEVEL_2_MODERATE": {
+      "description": "Two compressions detected",
+      "riskLevel": "medium",
+      "allowedActions": [
+        "implement",
+        "verify"
+      ],
+      "forbiddenActions": [
+        "plan_complex",
+        "close",
+        "final_state_update",
+        "spawn_new_phase"
+      ],
+      "evidenceTier": "LOW",
+      "sessionRotationRecommended": true,
+      "sessionRotationRequired": false
+    },
+    "LEVEL_3_SEVERE": {
+      "description": "Three plus compressions",
+      "riskLevel": "high",
+      "allowedActions": [
+        "verify",
+        "read_state"
+      ],
+      "forbiddenActions": [
+        "implement",
+        "plan",
+        "close",
+        "spawn",
+        "state_update",
+        "integrate"
+      ],
+      "evidenceTier": "FORBIDDEN_AS_EVIDENCE",
+      "sessionRotationRequired": true,
+      "mustRunFactoryctlVerifyBeforeProceed": true
+    }
+  },
+  "riskSignals": [
+    "CONTEXT_COMPRESSION_DETECTED",
+    "COMPRESSION_LEVEL_REQUIRES_ROTATION",
+    "STALE_CONTEXT_DETECTED",
+    "SUMMARY_USED_AS_EVIDENCE",
+    "SUMMARY_VS_ARTIFACT_MISMATCH",
+    "COMPRESSION_COUNTER_UNKNOWN",
+    "UNDETECTED_COMPRESSION_SUSPECTED"
+  ],
+  "rules": {
+    "compressionSummaryIsUntrusted": true,
+    "compressedSummaryCannotDriveArchitecture": true,
+    "compressedSummaryCannotBeSoleEvidence": true,
+    "levelThreeForcesSessionRotation": true,
+    "newWindowMustRunFactoryctlVerify": true,
+    "maxCompressionsBeforeRotation": 3,
+    "artifactHandoffIsRequiredForRotation": true
+  },
+  "autoCompressionDetectionNote": "CC-002 PARTIALLY_VERIFIED"
+}

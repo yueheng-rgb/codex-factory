@@ -1,0 +1,11 @@
+﻿{
+    "ci_run_id": "LOCAL-SHAPE-DEMO-001",
+    "provider": "local-generated",
+    "job_name": "local-shape-simulation",
+    "exit_code": 0,
+    "status": "PASS",
+    "commit_or_snapshot_ref": "CODEX-FACTORY-V2-20260717",
+    "started_at": "2026-07-17T16:39:00+08:00",
+    "finished_at": "2026-07-17T16:39:05+08:00",
+    "non_claims": ["LOCAL_GENERATED — NOT a real GitHub Actions run"]
+}

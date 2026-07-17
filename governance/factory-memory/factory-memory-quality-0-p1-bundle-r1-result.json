@@ -1,0 +1,25 @@
+﻿{
+    "sha256":  "6BE06F81789B075ADC39AB94686654BDAC0B794F880F576508D38094F059ECC0",
+    "bundleSizeKB":  101.6,
+    "rootCause":  "Original bundle output filter matched FACTORY_MEMORY_QUALITY_0* (backfilled reports) but did not match FACTORY_MEMORY_QUALITY_0_P1* (phase closure reports). All 4 files existed on disk at bundle creation time.",
+    "boundaryPreserved":  [
+                              "PRO-2 not started",
+                              "No v0.5 created",
+                              "No release ZIP created",
+                              "No product code modified",
+                              "v0.4 release unchanged",
+                              "FINAL package unchanged"
+                          ],
+    "phase":  "FACTORY-MEMORY-QUALITY-0-P1-BUNDLE-R1",
+    "date":  "2026-06-27",
+    "previouslyMissingNowIncluded":  [
+                                         "governance/factory-memory/factory-memory-quality-0-p1-artifact-repair-result.json",
+                                         "governance/factory-memory/verifier-factory-memory-quality-0-p1-result.json",
+                                         "outputs/FACTORY_MEMORY_QUALITY_0_P1_ARTIFACT_REPAIR_REPORT.md",
+                                         "outputs/FACTORY_MEMORY_QUALITY_0_P1_NEGATIVE_CONTROLS_REPORT.md"
+                                     ],
+    "status":  "PASS",
+    "title":  "Audit Bundle Completion (R1)",
+    "bundlePath":  "outputs/FACTORY_MEMORY_QUALITY_0_P1_AUDIT_BUNDLE_R1.zip",
+    "totalFiles":  50
+}

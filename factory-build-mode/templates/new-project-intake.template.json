@@ -1,0 +1,20 @@
+﻿{
+    "$schema": "project-intake.template.json",
+    "description": "Template for new project intake. User fills this to describe what they want to build.",
+    "projectName": "",
+    "productGoal": "",
+    "userType": "",
+    "featureList": [],
+    "techStackPreference": {
+        "frontend": "",
+        "backend": "",
+        "database": "",
+        "hosting": ""
+    },
+    "complexityExpectation": "SMALL|MEDIUM|LARGE",
+    "deliveryGoal": "",
+    "constraints": [],
+    "mustHave": [],
+    "niceToHave": [],
+    "forbiddenActions": []
+}

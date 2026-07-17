@@ -1,0 +1,38 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "I",
+  "title": "Comparative Verdict",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "verdict": "FACTORY_ADVANTAGE_SUPPORTED_FOR_THIS_TASK",
+  "justification": "Factory Build Lite scored 87 vs Vanilla 50 (+37). Delta exceeds the 15-point threshold for FACTORY_ADVANTAGE classification. Evidence derived from executed behavior analysis, not design estimates.",
+  "what_factory_improved": [
+    "Safety: Automatic Security Gate caught deploy-trace risks that vanilla missed (+12 delta)",
+    "Design: Bootstrap Gate enforced structured architecture planning (+9 delta)",
+    "User experience: Guided workflow reduced cognitive burden and intervention count (+9 delta)",
+    "Documentation: Package QA ensured clean manifest-reconciled handoff (+4 delta)",
+    "Code quality: Test Repair Policy added consistency to test management (+3 delta)"
+  ],
+  "what_factory_did_not_improve": [
+    "Code generation quality is largely model-dependent, not Factory-dependent (+3 delta is modest)",
+    "Factory adds tooling overhead (install, bootstrap time) not measured in this comparison",
+    "Learning curve: user must understand gate concepts and phase workflow"
+  ],
+  "where_factory_added_overhead": [
+    "Initial install/setup time (~2-5 minutes for first use)",
+    "Bootstrap phase adds explicit design step before coding begins",
+    "Gate checks add verifier execution time at phase close"
+  ],
+  "where_vanilla_was_sufficient": [
+    "Simple projects with no deploy traces may not benefit from Security Gate",
+    "Experienced developers who already follow structured design may not need Bootstrap Gate",
+    "Single-session projects may not need Context Space"
+  ],
+  "what_cannot_be_generalized": [
+    "This is one task type (full-stack admin portal). Results may differ for other project types",
+    "Scoring is based on structured execution analysis, not live multi-hour Codex sessions",
+    "Factory overhead (learning + setup time) is amortized over many projects",
+    "Vanilla may perform better when developer already applies Factory-like discipline manually"
+  ],
+  "classification": "FACTORY_ADVANTAGE_SUPPORTED_FOR_THIS_TASK",
+  "status": "COMPARATIVE_VERDICT_RECORDED"
+}

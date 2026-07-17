@@ -1,0 +1,74 @@
+﻿{
+    "realWorldValidation":  "REQUIRED",
+    "sourceEvidence":  [
+                           {
+                               "phase":  "FACTORY-BUILD-PRO-2",
+                               "result":  "PASS 48/48",
+                               "classification":  "SUPPORTED"
+                           },
+                           {
+                               "phase":  "FACTORY-BUILD-PRO-2-P1",
+                               "result":  "PASS 33/33",
+                               "classification":  "SUPPORTED"
+                           },
+                           {
+                               "classification":  "SUPPORTED",
+                               "claim":  "Build Lite default"
+                           },
+                           {
+                               "classification":  "SUPPORTED",
+                               "claim":  "Native Build Pro conditional"
+                           },
+                           {
+                               "classification":  "SUPPORTED",
+                               "claim":  "Context Packet required for Build Pro"
+                           },
+                           {
+                               "classification":  "SUPPORTED",
+                               "claim":  "External Memory core infrastructure"
+                           },
+                           {
+                               "classification":  "SUPPORTED",
+                               "claim":  "Memory Quality layer repaired and verified"
+                           },
+                           {
+                               "classification":  "SUPPORTED",
+                               "claim":  "Diagnostic Gate is support gate"
+                           },
+                           {
+                               "classification":  "PARTIAL — current strategy: Build Lite = default, Vanilla = small/simple fallback",
+                               "claim":  "Vanilla product leader (legacy wording)"
+                           }
+                       ],
+    "title":  "Pack Architecture Evidence Intake",
+    "section":  "A",
+    "v05Status":  "BLOCKED",
+    "rejected":  [
+                     {
+                         "classification":  "REJECTED — real-world validation required",
+                         "claim":  "v0.5 release now"
+                     },
+                     {
+                         "classification":  "REJECTED — conditional only",
+                         "claim":  "Build Pro default"
+                     },
+                     {
+                         "classification":  "REJECTED — conditional only",
+                         "claim":  "Multi-agent default"
+                     },
+                     {
+                         "classification":  "REJECTED — memory concept correction",
+                         "claim":  "External memory as model memory expansion"
+                     },
+                     {
+                         "classification":  "REJECTED — anti-deception policy",
+                         "claim":  "Compressed summary as evidence"
+                     },
+                     {
+                         "classification":  "REJECTED — staging only, not release",
+                         "claim":  "Pack architecture as release"
+                     }
+                 ],
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "date":  "2026-06-27"
+}

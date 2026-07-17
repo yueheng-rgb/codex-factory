@@ -1,0 +1,34 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FactoryTaskQueue",
+  "type": "object",
+  "required": ["tasks", "updatedAt"],
+  "properties": {
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["taskId", "phase", "type", "status", "priority"],
+        "properties": {
+          "taskId": {"type": "string"},
+          "phase": {"type": "string"},
+          "type": {"enum": ["research","contract","domain-pack","verifier-pack","builder","worker-repair","verifier","skeptic-audit","negative-plan","report","close"]},
+          "status": {"enum": ["pending","ready","running","blocked","done","failed","cancelled"]},
+          "priority": {"type": "integer", "minimum": 0, "maximum": 5},
+          "ownerAgentRole": {"type": "string"},
+          "allowedAgentType": {"enum": ["research","contract","builder","verifier","skeptic","integrator"]},
+          "blockedBy": {"type": "array", "items": {"type": "string"}},
+          "inputs": {"type": "array"},
+          "expectedOutputs": {"type": "array"},
+          "acceptanceChecks": {"type": "array"},
+          "forbiddenActions": {"type": "array"},
+          "handoffRequired": {"type": "boolean"},
+          "h10IsolationRequired": {"type": "boolean"},
+          "createdAt": {"type": "string"},
+          "updatedAt": {"type": "string"}
+        }
+      }
+    },
+    "updatedAt": {"type": "string"}
+  }
+}

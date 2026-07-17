@@ -1,0 +1,302 @@
+﻿{
+    "detected":  36,
+    "expectedClassOnly":  0,
+    "gaps":  0,
+    "failTargetNotTriggered":  0,
+    "genericFail":  0,
+    "totalNegatives":  36,
+    "timestamp":  "2026-06-26T20:49:46.1339645+08:00",
+    "negatives":  [
+                      {
+                          "id":  "NC-01",
+                          "class":  "P1_PRODUCT_WINNER",
+                          "gate":  "Claim Integrity",
+                          "fault":  "P1 declared product winner",
+                          "n":  1,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-02",
+                          "class":  "DEFAULT_CLAIM",
+                          "gate":  "Default Claim",
+                          "fault":  "Multi-agent default claim introduced",
+                          "n":  2,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-03",
+                          "class":  "V05_PREP",
+                          "gate":  "Release Gate",
+                          "fault":  "v0.5 release prep recommended",
+                          "n":  3,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-04",
+                          "class":  "AG9_ERASED",
+                          "gate":  "Evidence Preservation",
+                          "fault":  "AGENT-9 no-benefit erased",
+                          "n":  4,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-05",
+                          "class":  "PROCESS_AS_PRODUCT",
+                          "gate":  "Evidence Integrity",
+                          "fault":  "AGENT-9-P2 process verdict rewritten as product",
+                          "n":  5,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-06",
+                          "class":  "VANILLA_LEAD_OMITTED",
+                          "gate":  "Evidence Completeness",
+                          "fault":  "Vanilla product-only lead omitted",
+                          "n":  6,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-07",
+                          "class":  "P1_GAP_OMITTED",
+                          "gate":  "Evidence Completeness",
+                          "fault":  "P1 product-only gap omitted",
+                          "n":  7,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-08",
+                          "class":  "COMPOSITE_AS_PRODUCT",
+                          "gate":  "Scoring Integrity",
+                          "fault":  "Composite score used as product superiority proof",
+                          "n":  8,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-09",
+                          "class":  "PROCESS_AS_PRODUCT",
+                          "gate":  "Scoring Integrity",
+                          "fault":  "Process artifacts counted as product quality",
+                          "n":  9,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-10",
+                          "class":  "OLD_KEPT_DEFAULT",
+                          "gate":  "Keep/Cut Decision",
+                          "fault":  "Old 7-agent kept as default",
+                          "n":  10,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-11",
+                          "class":  "OLD_ROLE_RESTORED",
+                          "gate":  "Keep/Cut Decision",
+                          "fault":  "Old 10-role restored",
+                          "n":  11,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-12",
+                          "class":  "P1_PROVEN_DEFAULT",
+                          "gate":  "Default Claim",
+                          "fault":  "4-agent P1 declared proven default",
+                          "n":  12,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-13",
+                          "class":  "HARD_BLOCKERS_RESTORED",
+                          "gate":  "Policy Integrity",
+                          "fault":  "Source/export hard blockers restored",
+                          "n":  13,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-14",
+                          "class":  "POLICY_IGNORED",
+                          "gate":  "Policy Integrity",
+                          "fault":  "Repaired floor policy ignored",
+                          "n":  14,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-15",
+                          "class":  "V05_CREATED",
+                          "gate":  "Release Integrity",
+                          "fault":  "v0.5 package created",
+                          "n":  15,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-16",
+                          "class":  "BENCHMARK_STARTED",
+                          "gate":  "Scope",
+                          "fault":  "Benchmark started",
+                          "n":  16,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-17",
+                          "class":  "PRODUCT_MODIFIED",
+                          "gate":  "Product Integrity",
+                          "fault":  "Product code modified",
+                          "n":  17,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-18",
+                          "class":  "ZIP_MODIFIED",
+                          "gate":  "Release Integrity",
+                          "fault":  "v0.4 ZIP modified",
+                          "n":  18,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-19",
+                          "class":  "FINAL_MODIFIED",
+                          "gate":  "Release Integrity",
+                          "fault":  "Old FINAL package modified",
+                          "n":  19,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-20",
+                          "class":  "NO_CLAIM_FREEZE",
+                          "gate":  "Strategy Completeness",
+                          "fault":  "No claim freeze",
+                          "n":  20,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-21",
+                          "class":  "NO_MATRIX",
+                          "gate":  "Strategy Completeness",
+                          "fault":  "No keep/cut/defer matrix",
+                          "n":  21,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-22",
+                          "class":  "NO_V05_GATE",
+                          "gate":  "Strategy Completeness",
+                          "fault":  "No v0.5 release gate",
+                          "n":  22,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-23",
+                          "class":  "NO_2ND_BENCHMARK",
+                          "gate":  "Strategy Completeness",
+                          "fault":  "No second benchmark criteria",
+                          "n":  23,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-24",
+                          "class":  "NO_USAGE_BOUNDARY",
+                          "gate":  "Strategy Completeness",
+                          "fault":  "No real-project usage boundary",
+                          "n":  24,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-25",
+                          "class":  "NO_NEXT_STEPS",
+                          "gate":  "Strategy Completeness",
+                          "fault":  "No next-step options",
+                          "n":  25,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-26",
+                          "class":  "SUNK_COST_DRIVEN",
+                          "gate":  "Recommendation Quality",
+                          "fault":  "Second benchmark recommended only due to sunk cost",
+                          "n":  26,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-27",
+                          "class":  "STOP_OMITTED",
+                          "gate":  "Option Completeness",
+                          "fault":  "Stop option omitted",
+                          "n":  27,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-28",
+                          "class":  "DIAGNOSTIC_OMITTED",
+                          "gate":  "Option Completeness",
+                          "fault":  "Diagnostic pack option omitted",
+                          "n":  28,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-29",
+                          "class":  "NO_EXPERIMENTAL_BOUNDARY",
+                          "gate":  "Option Quality",
+                          "fault":  "Experimental boundary omitted",
+                          "n":  29,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-30",
+                          "class":  "NO_FALSIFICATION",
+                          "gate":  "Gate Quality",
+                          "fault":  "No falsification threshold",
+                          "n":  30,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-31",
+                          "class":  "NO_USER_PATH",
+                          "gate":  "Option Completeness",
+                          "fault":  "User decision path omitted",
+                          "n":  31,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-32",
+                          "class":  "FOREVER_REJECTED",
+                          "gate":  "Recommendation Quality",
+                          "fault":  "Multi-agent rejected forever from one benchmark",
+                          "n":  32,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-33",
+                          "class":  "PROCESS_IGNORED",
+                          "gate":  "Evidence Completeness",
+                          "fault":  "Process benefit ignored entirely",
+                          "n":  33,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-34",
+                          "class":  "RECOMMENDATION_CONFLICT",
+                          "gate":  "Recommendation Integrity",
+                          "fault":  "Recommendation conflicts with evidence",
+                          "n":  34,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-35",
+                          "class":  "NO_VERIFIER",
+                          "gate":  "Verification",
+                          "fault":  "No verifier",
+                          "n":  35,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-36",
+                          "class":  "NO_NEGATIVES",
+                          "gate":  "Verification",
+                          "fault":  "No negative controls",
+                          "n":  36,
+                          "result":  "DETECTED"
+                      }
+                  ],
+    "manualPassOnly":  0,
+    "unexpectedPass":  0,
+    "preclassifiedOnly":  0
+}

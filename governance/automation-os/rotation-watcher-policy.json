@@ -1,0 +1,40 @@
+﻿{
+  "schemaId": "rotation-watcher-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:21:49+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-5-A",
+  "nativeGenerated": true,
+  "description": "Automation Rotation Watcher — monitors factory state for rotation risk. Watcher, not actor.",
+  "monitoringTargets": [
+    {"id":"COMPACT_RISK","target":"Confirmed compact/compression marker","check":"session-rotation-handoff.json compressionNote","severity":"P0"},
+    {"id":"MULTIPLE_COMPACT","target":"Multiple compaction user-reported marker","check":"current-factory-state.json compressionCheckpoint","severity":"P0"},
+    {"id":"STALE_HANDOFF","target":"Stale or missing session handoff","check":"session-rotation-handoff.json age > 24h","severity":"P0"},
+    {"id":"PHASE_MISMATCH","target":"currentTrustedPhase mismatch","check":"state vs handoff phase consistency","severity":"P1"},
+    {"id":"ZIP_MISMATCH","target":"finalZipExists/finalGateState mismatch","check":"state vs disk consistency","severity":"P1"},
+    {"id":"MANIFEST_SHA_MISMATCH","target":"MANIFEST SHA mismatch","check":"MANIFEST.sha256 vs computed","severity":"P1"},
+    {"id":"FACTORYCTL_FAIL","target":"factoryctl verify FAIL","check":"factoryctl.ps1 verify -Json","severity":"P0"},
+    {"id":"MEMORY_VALIDATION_FAIL","target":"Context OS memory validation FAIL","check":"validate-context-memory.ps1","severity":"P1"},
+    {"id":"MCP_QUERY_FAIL","target":"MCP memory query FAIL","check":"server.ps1 validate","severity":"P2"},
+    {"id":"UNSAFE_STALE","target":"Unsafe stale active agents","check":"agent-active-archive-index.json unsafeStaleCount","severity":"P0"},
+    {"id":"CAPACITY_RISK","target":"Capacity preflight risk HIGH","check":"check-agent-capacity-preflight.ps1","severity":"P0"},
+    {"id":"RECON_MISMATCH","target":"Cross-session reconciliation mismatch","check":"check-cross-session-state-reconciliation.ps1","severity":"P1"},
+    {"id":"PLUGIN_DRIFT","target":"Plugin production-ready drift","check":"state.pluginScaffoldStatus != EXPERIMENTAL","severity":"P1"},
+    {"id":"FORBIDDEN_CLAIM_DRIFT","target":"Forbidden claim drift","check":"rejected claims appearing as accepted","severity":"P1"},
+    {"id":"ZIP_SHA_DRIFT","target":"Final package SHA drift","check":"ZIP SHA256 vs state","severity":"P0"}
+  ],
+  "rules": {
+    "readOnlyByDefault": true,
+    "alertIsNotVerifierPass": true,
+    "recommendationIsNotPhaseClosure": true,
+    "mayGenerateRecommendationArtifact": true,
+    "mayGenerateStartupPacket": true,
+    "mustNotMutateGovernanceState": true,
+    "mustNotMarkPhasePASS": true,
+    "mustNotCreateFinalZIP": true,
+    "mustNotStartNewPhase": true,
+    "mustNotClaimAutomaticWindowCreation": true,
+    "mustNotClaimFullContextInheritance": true,
+    "mustNotUseCompressedSummaryAsEvidence": true,
+    "artifactVerificationRemainsSourceOfTruth": true
+  }
+}

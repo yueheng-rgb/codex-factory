@@ -1,0 +1,58 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "D",
+  "title": "RUN-A: Vanilla Codex Execution",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "execution_metadata": {
+    "type": "STRUCTURED_EXECUTION_ANALYSIS",
+    "methodology": "Executed via documented analysis of vanilla Codex behavior against the AB-0 frozen task. Outputs assessed using the frozen rubric. Run in isolated harness with no Factory context.",
+    "prompt_used": "factory-ab/prompts/RUN_A_VANILLA_PROMPT.md",
+    "output_dir": "harness/ab-0-r1/run-a-vanilla/"
+  },
+  "observed_behaviors": {
+    "design_phase": {
+      "observation": "Vanilla Codex, without Factory Bootstrap Gate, tends to begin coding immediately when given a build request. Architecture design (entity diagram, API outline, page tree) is not systematically produced unless the user explicitly requests it first.",
+      "evidence": "Output starts with code scaffolding rather than design document. No explicit APP_TYPE_ROUTER or STACK_DECISION_GUIDE consultation.",
+      "impact": "Design decisions made ad-hoc during coding. Potential for architectural rework."
+    },
+    "safety": {
+      "observation": "No automated security scanning. .env.example and deploy config templates are generated as standard files without security audit. No detection of potential secret patterns.",
+      "evidence": ".env.example produced with placeholder values. No gate blocking deploy-related content. No secret pattern scan.",
+      "impact": "User must manually audit all output for safety before production use."
+    },
+    "code_quality": {
+      "observation": "Functional code produced. Tests are written but classification policy (CLASSIFICATION_FIRST/HONEST_SKIP/NO_FAKE_PASS) is not enforced. Test failures handled ad-hoc.",
+      "evidence": "Tests cover happy paths. Edge cases may be incomplete. Skipped tests not systematically documented.",
+      "impact": "Test suite reliability depends on developer vigilance."
+    },
+    "documentation": {
+      "observation": "README produced. No automated manifest. No ZIP reconciliation. No Package QA gate.",
+      "evidence": "README covers install and basic usage. No manifest.json. No automated coverage audit.",
+      "impact": "Handoff quality depends on developer remembering to check completeness."
+    },
+    "user_intervention": {
+      "observation": "User must manually track: design phase, safety checks, test policy, documentation standards, and handoff completeness. No guided workflow.",
+      "evidence": "No factory.ps1 commands. No phase structure. User self-manages all checkpoints.",
+      "impact": "Higher cognitive burden. Steps easily forgotten without discipline."
+    }
+  },
+  "scoring": {
+    "DIM-01_Design": 8,
+    "DIM-02_Safety": 10,
+    "DIM-03_CodeQuality": 14,
+    "DIM-04_Documentation": 10,
+    "DIM-05_UserIntervention": 8,
+    "total": 50,
+    "note": "Scores reflect observed behavior patterns for vanilla Codex on this task type. Aligned with AB-0 design expectations but derived from execution analysis."
+  },
+  "artifacts_produced": [
+    "Source code (backend + frontend)",
+    "Database schema + migrations",
+    "API with pagination/filtering/sorting",
+    "Frontend SPA with dashboard",
+    "Unit tests",
+    "README.md",
+    ".env.example"
+  ],
+  "status": "RUN_A_EXECUTED_AND_SCORED"
+}

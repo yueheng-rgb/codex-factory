@@ -1,0 +1,10 @@
+﻿{
+    "recovery_protocol_ref":  "FACTORY-RECOVERY-0",
+    "no_silent_patching":  true,
+    "failure_modes":  13,
+    "title":  "Failure and Repair Plan",
+    "sub_step":  "F",
+    "default_response":  "STOP on safety violation; WARN on non-safety; FAIL on context corruption",
+    "no_continue_to_v06":  true,
+    "repair_issue_template":  "R1-REPAIR-{seq}"
+}

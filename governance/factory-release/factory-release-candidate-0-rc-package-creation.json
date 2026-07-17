@@ -1,0 +1,30 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "E",
+    "title": "RC Package Creation and SHA256",
+    "timestamp": "2026-06-28T20:31:00+08:00",
+    "package": {
+        "name": "codex-factory-core-v0.9.0-pre-RC0.zip",
+        "path": "outputs/codex-factory-core-v0.9.0-pre-RC0.zip",
+        "sha256": "5726F2E782D9A9EF11CD80A5933B417A3BC64E442B54F86157DBB3BFB39CC3DC",
+        "shaFile": "outputs/codex-factory-core-v0.9.0-pre-RC0.zip.sha256",
+        "fileCount": 2848,
+        "sizeKB": 5168.16,
+        "sizeMB": 5.05,
+        "artifactType": "RELEASE_CANDIDATE"
+    },
+    "buildConfig": {
+        "buildMode": "Build Lite",
+        "source": "Current project state (P8 staging)",
+        "excludedDirs": 36,
+        "buildScript": "scripts/factory-release-candidate-0-package.ps1"
+    },
+    "verification": {
+        "packageExists": true,
+        "shaFileExists": true,
+        "shaMatches": true,
+        "noForbiddenContent": true,
+        "fileCountReasonable": true
+    },
+    "section_verdict": "COMPLETE"
+}

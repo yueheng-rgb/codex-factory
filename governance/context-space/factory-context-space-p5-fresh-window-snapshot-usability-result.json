@@ -1,0 +1,19 @@
+﻿{
+    "phase":  "FACTORY-CONTEXT-SPACE-P5",
+    "v05":  "BLOCKED",
+    "verdict":  "PASS",
+    "result_id":  "FACTORY-CONTEXT-SPACE-P5-FRESH-WINDOW-SNAPSHOT-USABILITY-RESULT",
+    "balanded_default":  "CONFIRMED",
+    "verifier_checks":  48,
+    "cloud":  "DEFERRED",
+    "recommended_next":  "CONTEXT-SPACE-P6",
+    "negative_controls":  42,
+    "fallback_works":  "CONFIRMED",
+    "snapshot_not_evidence":  "CONFIRMED",
+    "ultra_compact_not_autonomous":  "CONFIRMED",
+    "user_burden":  "LOW",
+    "direction_guard_v3_blocks":  "CONFIRMED",
+    "verifier_passed":  48,
+    "generated_at":  "2026-06-28T09:50:46+08:00",
+    "negative_controls_gaps":  0
+}

@@ -1,0 +1,136 @@
+﻿{
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V00",
+                        "desc":  "BUILD-8-P1 PASS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "Evidence intake exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "Agent registry schema exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "Registry template exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "Agent record template exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "Registry policy exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "Handoff schema exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "Close receipt schema exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "Write scope policy exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "Overhead/benefit metrics exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "Readiness gate v2 exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "UI agent count policy exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "User commands exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "Simulation exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "Strategy update exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "Build Lite remains default"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "Native Build Pro conditional"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "Overstrong claim corrected"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "No v0.5 release recommended"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "No multi-agent default claimed"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "No product code modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "No ZIP created"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "No UNEXPECTED_PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V24",
+                        "desc":  "Verifier complete"
+                    }
+                ],
+    "failedChecks":  0,
+    "overall":  "PASS",
+    "passedChecks":  25,
+    "totalChecks":  25,
+    "phase":  "FACTORY-BUILD-PRO-P1",
+    "date":  "2026-06-27T14:26:25.0105208+08:00",
+    "verifier":  "factory-build-pro-p1-native-build-pro-hardening-verify.ps1"
+}

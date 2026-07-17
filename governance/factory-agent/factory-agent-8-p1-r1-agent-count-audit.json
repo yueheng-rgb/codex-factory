@@ -1,0 +1,38 @@
+﻿{
+    "policyViolation":  false,
+    "gaps":  [
+                 {
+                     "agent":  "reviewer-verifier",
+                     "missing":  [
+                                     "capsule",
+                                     "handoff",
+                                     "close-receipt"
+                                 ],
+                     "reason":  "READONLY gatekeeper; gate result exists at gates/reviewer-verifier-result.json",
+                     "severity":  "LOW"
+                 }
+             ],
+    "classification":  {
+                           "simulationOnly":  0,
+                           "realWorkAgents":  10,
+                           "completed":  10,
+                           "active":  0,
+                           "negativeControls":  0,
+                           "stale":  0,
+                           "fixtures":  0
+                       },
+    "allNativeGenerated":  true,
+    "rawEntriesTotal":  29,
+    "oldRunAgents":  7,
+    "policyMax":  4,
+    "timestamp":  "2026-06-26T19:50:21.2383428+08:00",
+    "allForkContextFalse":  true,
+    "p1TotalAgents":  4,
+    "scope":  "all agent registries in factory-agent-large-project/runs/",
+    "auditType":  "agent-count-audit",
+    "p1OrchestratorCount":  1,
+    "p1RunAgents":  3,
+    "recommendation":  "Proceed. Create missing capsule/handoff/receipt for reviewer-verifier if process artifact completeness is required.",
+    "verdict":  "NO_POLICY_VIOLATION",
+    "uniqueAgentsTotal":  10
+}

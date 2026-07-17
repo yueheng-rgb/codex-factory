@@ -1,0 +1,18 @@
+﻿{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Real CI Pilot Contract",
+    "description": "Codex Factory V3.2 Real CI Pilot contract — defines CI execution state machine",
+    "type": "object",
+    "required": ["contract_id", "status", "template_path"],
+    "properties": {
+        "contract_id": { "type": "string" },
+        "status": { "type": "string", "enum": ["NOT_CONFIGURED", "TEMPLATE_READY", "LOCAL_DRY_RUN_PASS", "REMOTE_RUN_REQUIRED", "REMOTE_RUN_VERIFIED"] },
+        "template_path": { "type": "string" },
+        "workflow_dispatch_available": { "type": "boolean" },
+        "remote_run_evidence": { "type": "string", "description": "URL or artifact path of real GitHub Actions run — EMPTY if not executed" },
+        "local_validation_result": { "type": "string", "enum": ["CI_TEMPLATE_VALID", "CI_TEMPLATE_INVALID", "NOT_VALIDATED"] },
+        "act_available": { "type": "boolean" },
+        "highest_attainable_status_without_remote": { "type": "string", "enum": ["TEMPLATE_READY", "LOCAL_DRY_RUN_PASS"] },
+        "non_claims": { "type": "array", "items": { "type": "string" } }
+    }
+}

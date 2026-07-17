@@ -1,0 +1,30 @@
+﻿{
+    "bridge_id": "V3_2-CI-ARTIFACT-CONTRACT-BRIDGE-001",
+    "timestamp": "2026-07-17T16:28:00+08:00",
+    "schemas_checked": [
+        {"schema": "schemas/ci-job-receipt.schema.json", "status": "PRESENT", "aligned_with_workflow": true},
+        {"schema": "schemas/artifact-sync-result.schema.json", "status": "PRESENT", "aligned_with_workflow": true},
+        {"schema": "schemas/persistent-artifact-index.schema.json", "status": "PRESENT", "aligned_with_workflow": true}
+    ],
+    "workflow_artifact_alignment": {
+        "upload_artifact_step": "PRESENT",
+        "artifact_paths": ["artifacts/", "outputs/V2_9/V2_9_IMMUTABLE_SNAPSHOT_MANIFEST.json"],
+        "retention_days": 7,
+        "s3_or_external_store": "NOT_CONFIGURED — artifacts go to GitHub Actions default"
+    },
+    "rules_verified": {
+        "no_artifact_no_pass": "ENFORCED — CI job receipt requires artifact_paths",
+        "failed_ci_artifact_captured": "ENFORCED — exit_code != 0 still saves stderr/stdout",
+        "ci_run_id_not_faked": "ENFORCED — CI run IDs are timestamps, not external references",
+        "ci_placeholder_not_passed_as_real": "ENFORCED — external-ci-placeholder marked NOT_CONFIGURED"
+    },
+    "gap": {
+        "missing": "No real GitHub Actions run artifact to bridge",
+        "status": "TEMPLATE_READY — bridge contract defined, awaiting real CI execution"
+    },
+    "non_claims": [
+        "CI artifact contract bridge is DEFINED, not executed",
+        "No real GitHub Actions artifact exists to bridge",
+        "workflow upload-artifact path is a template, not a verified artifact source"
+    ]
+}

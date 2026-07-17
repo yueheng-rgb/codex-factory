@@ -1,0 +1,150 @@
+﻿{
+    "passed":  28,
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "FINAL package SHA unchanged"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "No new ZIPs"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "FACTORY-V04-PREP PASS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "v0.4 draft exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "Draft status is DRAFT_NOT_RELEASED"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "No v0.4 release ZIP"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "Project selection exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "TeamFlow Lite not reused"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "Benchmark spec exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "Run design exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "Rubric exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "Harness design exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "Anti-gaming policy exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "Spec has 16 FRs"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "Spec includes financial calculations"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "Spec includes approval workflow"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "RUN-A has no Factory mechanisms"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "RUN-B uses v0.4 core only"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "10-role model forbidden in all v0.4 runs"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "One-benchmark caveat preserved"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "Implementation NOT started"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "Harness directories exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "No product code in runs"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V24",
+                        "desc":  "Negative controls report exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V25",
+                        "desc":  "Negative controls 30/0 gaps"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V26",
+                        "desc":  "No UNEXPECTED_PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V27",
+                        "desc":  "No generic FAIL"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V28",
+                        "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                    }
+                ],
+    "timestamp":  "2026-06-25T20:40:11+08:00",
+    "failed":  0,
+    "totalChecks":  28,
+    "phase":  "FACTORY-EVAL-10-H",
+    "title":  "Verifier Result - Second Benchmark Design"
+}

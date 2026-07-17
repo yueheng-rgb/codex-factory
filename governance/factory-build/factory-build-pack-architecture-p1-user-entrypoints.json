@@ -1,0 +1,70 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "section":  "E",
+    "title":  "User Entrypoints",
+    "userManualBurden":  {
+                             "buildPro":  "Moderate — user confirms Build Pro mode, may review context packets",
+                             "buildLite":  "Minimal — user describes project, reviews output",
+                             "vanilla":  "None — standard Codex experience"
+                         },
+    "entrypoints":  [
+                        {
+                            "trigger":  "User says \u0027build a project\u0027",
+                            "entrypoint":  "Build Lite (auto)",
+                            "description":  "Automatic. Codex detects project intent, runs Expertise Flow, enters Build Lite.",
+                            "context":  "C:\\Codex_App_Factory\\user-guide\\GETTING_STARTED.md",
+                            "mode":  "DEFAULT",
+                            "requiresApproval":  false
+                        },
+                        {
+                            "entrypoint":  "Build Lite (explicit)",
+                            "description":  "User explicitly requests Build Lite mode.",
+                            "requiresApproval":  false,
+                            "mode":  "DEFAULT",
+                            "trigger":  "User says \u0027use Build Lite\u0027"
+                        },
+                        {
+                            "trigger":  "User says \u0027use Build Pro\u0027 or \u0027use multi-agent\u0027",
+                            "entrypoint":  "Native Build Pro (explicit)",
+                            "description":  "Requires explicit user confirmation at each spawn_agent call.",
+                            "approvalPrompt":  "Build Pro uses native multi-agent spawn. This adds ~15% overhead. Confirm?",
+                            "mode":  "CONDITIONAL",
+                            "requiresApproval":  true
+                        },
+                        {
+                            "entrypoint":  "Vanilla (skip)",
+                            "description":  "Standard Codex without factory harness.",
+                            "requiresApproval":  false,
+                            "mode":  "FALLBACK",
+                            "trigger":  "User says \u0027skip factory\u0027 or \u0027use vanilla Codex\u0027"
+                        },
+                        {
+                            "entrypoint":  "Context Packet generation",
+                            "description":  "Generated and validated automatically. User can inspect but not required to approve.",
+                            "requiresApproval":  false,
+                            "mode":  "REQUIRED_FOR_BUILD_PRO",
+                            "trigger":  "Automatic at phase start / agent start / recovery"
+                        },
+                        {
+                            "entrypoint":  "Diagnostic Gate",
+                            "description":  "Runs automatically. Reports issues. User decides action.",
+                            "requiresApproval":  false,
+                            "mode":  "SUPPORT_GATE",
+                            "trigger":  "Automatic at iteration boundary"
+                        },
+                        {
+                            "entrypoint":  "Recovery Drill",
+                            "description":  "Runs automatically. Recovery context packet generated.",
+                            "requiresApproval":  false,
+                            "mode":  "SUPPORT_GATE",
+                            "trigger":  "Automatic when agent lifecycle anomaly detected"
+                        },
+                        {
+                            "entrypoint":  "Verifier",
+                            "description":  "Runs automatically. PASS/FAIL reported.",
+                            "requiresApproval":  false,
+                            "mode":  "REQUIRED_FOR_ALL",
+                            "trigger":  "Automatic at phase completion"
+                        }
+                    ]
+}

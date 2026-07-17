@@ -1,0 +1,252 @@
+﻿{
+    "verdict":  "FAIL",
+    "verifierPath":  "scripts/phase6c-session-rotation-handoff-verify.ps1",
+    "exitCode":  1,
+    "totalChecks":  48,
+    "passed":  33,
+    "failed":  15,
+    "checks":  [
+                   {
+                       "id":  1,
+                       "desc":  "current-factory-state.json exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  2,
+                       "desc":  "currentTrustedPhase is DRY20 (not stale)",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  3,
+                       "desc":  "DRY20 status is POSITIVE_NEGATIVE_CLOSED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  4,
+                       "desc":  "H13-C status is PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  5,
+                       "desc":  "DRY19-B status is CLOSED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  6,
+                       "desc":  "H12 status is PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  7,
+                       "desc":  "H10 status is PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  8,
+                       "desc":  "H11 status is PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  9,
+                       "desc":  "DRY20 cross-worker deps \u003e=60",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  10,
+                       "desc":  "DRY20 gap repairs N16+N02",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  11,
+                       "desc":  "finalZipExists is false",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  12,
+                       "desc":  "repairedDuringPhase is H13-D",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  13,
+                       "desc":  "previousTrustedPhase was DRY19-A-P5",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  14,
+                       "desc":  "closedPhases includes DRY19-B",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  15,
+                       "desc":  "closedPhases includes H13-C",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  16,
+                       "desc":  "closedPhases includes DRY20-B-P1",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  17,
+                       "desc":  "pausedPhases DRY2-C..DRY13-C (12)",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  18,
+                       "desc":  "allowedNextPhase is DRY21 or H14",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  19,
+                       "desc":  "HANDOFF_REPORT.md exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  20,
+                       "desc":  "session-rotation-handoff.json exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  21,
+                       "desc":  "handoff sourceEvidencePaths \u003e=8",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  22,
+                       "desc":  "handoff sourceEvidenceSha256 \u003e=8",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  23,
+                       "desc":  "handoff repairedFromExistingEvidence: true",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  24,
+                       "desc":  "handoff originalHandoffMissingAtMainPath: true",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  25,
+                       "desc":  "handoff generatedDuringPhase is H13-D",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  26,
+                       "desc":  "handoff dry20 classification POSITIVE_NEGATIVE_CLOSED",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  27,
+                       "desc":  "handoff verifier script exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  28,
+                       "desc":  "AGENT_REGISTRY.json exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  29,
+                       "desc":  "AGENT_REGISTRY reconstructedFromEvidence: true",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  30,
+                       "desc":  "AGENT_REGISTRY \u003e=5 agents",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  31,
+                       "desc":  "AGENT_REGISTRY has h13-c-builder-1",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  32,
+                       "desc":  "AGENT_REGISTRY has dry20-integrator-1",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  33,
+                       "desc":  "AGENT_PROGRESS.jsonl exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  34,
+                       "desc":  "AGENT_PROGRESS \u003e=20 events",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  35,
+                       "desc":  "AGENT_PROGRESS all valid JSON",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  36,
+                       "desc":  "AGENT_PROGRESS events marked reconstructed",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  37,
+                       "desc":  "No DRY21 outputs",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  38,
+                       "desc":  "No DRY21 governance",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  39,
+                       "desc":  "No DRY21 harness runs",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  40,
+                       "desc":  "No H14 outputs",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  41,
+                       "desc":  "No H14 harness runs",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  42,
+                       "desc":  "No final delivery ZIP at root",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  43,
+                       "desc":  "Audit ZIP not final delivery ZIP",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  44,
+                       "desc":  "No manual PASS-only",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  45,
+                       "desc":  "No expectedClass-only",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  46,
+                       "desc":  "No generic FAIL in registry",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  47,
+                       "desc":  "handoff note denies pretending original",
+                       "status":  "FAIL"
+                   },
+                   {
+                       "id":  48,
+                       "desc":  "factoryctl PATH caveated in state",
+                       "status":  "PASS"
+                   }
+               ],
+    "verifiedAt":  "2026-06-24T17:14:46+08:00",
+    "factoryctlOnPath":  false
+}

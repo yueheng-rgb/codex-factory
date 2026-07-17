@@ -1,0 +1,55 @@
+﻿{
+  "project": "mini-inventory-admin",
+  "version": "1.0.0",
+  "invariants": [
+    {
+      "name": "price_non_negative",
+      "description": "Item price must be >= 0",
+      "severity": "CRITICAL",
+      "scope": ["createItem", "updateItem"],
+      "enforcement": "server_validated"
+    },
+    {
+      "name": "price_not_zero_unless_explicit_free",
+      "description": "Price of 0 is only allowed when explicitFree is true",
+      "severity": "CRITICAL",
+      "scope": ["createItem", "updateItem"],
+      "enforcement": "server_validated"
+    },
+    {
+      "name": "inventory_non_negative",
+      "description": "Inventory count must be >= 0 at all times",
+      "severity": "CRITICAL",
+      "scope": ["createItem", "updateItem", "adjustInventory"],
+      "enforcement": "server_validated"
+    },
+    {
+      "name": "status_transition_allowed",
+      "description": "Only allowed status transitions are permitted per VALID_STATUS_TRANSITIONS",
+      "severity": "HIGH",
+      "scope": ["updateItemStatus"],
+      "enforcement": "server_validated"
+    },
+    {
+      "name": "archived_entity_not_mutable",
+      "description": "Items with ARCHIVED status cannot be modified",
+      "severity": "HIGH",
+      "scope": ["updateItem", "adjustInventory"],
+      "enforcement": "server_validated"
+    },
+    {
+      "name": "user_cannot_modify_protected_fields",
+      "description": "Protected fields (id, createdAt, updatedAt) cannot be set by the user",
+      "severity": "HIGH",
+      "scope": ["createItem", "updateItem"],
+      "enforcement": "server_validated"
+    },
+    {
+      "name": "destructive_action_requires_confirmation",
+      "description": "Hard delete is not allowed; use ARCHIVED status instead",
+      "severity": "CRITICAL",
+      "scope": ["deleteItem"],
+      "enforcement": "server_validated"
+    }
+  ]
+}

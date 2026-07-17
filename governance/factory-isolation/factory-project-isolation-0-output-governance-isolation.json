@@ -1,0 +1,17 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "F",
+  "title": "Output/Governance Isolation",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "isolation_file": "factory-isolation/OUTPUT_GOVERNANCE_ISOLATION.md",
+  "governance_artifacts": ["Phase reports", "Verifier results", "Strategy decisions", "Negative controls", "Phase ledger", "Decision records", "CORE_EVIDENCE"],
+  "key_rules": [
+    "All governance artifacts require projectId",
+    "Cross-project viewing allowed only as FOREIGN_REFERENCE",
+    "Path isolation: project-specific outputs/ and governance/ directories",
+    "Global governance in %USERPROFILE%\\.codex-factory\\",
+    "Factory-level decisions use projectId: GLOBAL"
+  ],
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_F_OUTPUT_GOVERNANCE_ISOLATION_REPORT.md"
+}

@@ -1,0 +1,93 @@
+﻿{
+    "smokeTests":  [
+                       {
+                           "scenario":  "UI-depth gap triggers Reviewer",
+                           "result":  "PASS",
+                           "expectedAction":  "QG01 fires → ACTIVATE_REVIEWER",
+                           "input":  "Project has API-only landing page, spec requires multi-page UI with dashboard, invoices, customers pages"
+                       },
+                       {
+                           "scenario":  "Missing README triggers Reviewer",
+                           "result":  "PASS",
+                           "expectedAction":  "QG02 fires → ACTIVATE_REVIEWER",
+                           "input":  "Project has no README file"
+                       },
+                       {
+                           "scenario":  "Low-risk small task does not escalate",
+                           "result":  "PASS",
+                           "expectedAction":  "No QG triggers fire → Factory Lite Core only",
+                           "input":  "Single-file CRUD app, 3 FRs, no UI requirement, no auth"
+                       },
+                       {
+                           "scenario":  "UI + domain risk combined triggers 3-role",
+                           "result":  "PASS",
+                           "expectedAction":  "QG01+QG04 → escalate to Tier 1 (3-role optional)",
+                           "input":  "Multi-page UI required + financial calculations + multi-role auth → QG01 + QG04 fire"
+                       },
+                       {
+                           "scenario":  "POR does not claim correctness",
+                           "result":  "PASS",
+                           "expectedAction":  "POR disclaimer states \u0027NOT proof of correctness\u0027",
+                           "input":  "Review POR-001 from EVAL-12"
+                       }
+                   ],
+    "timestamp":  "2026-06-25T22:19:09+08:00",
+    "smokeTestResult":  "5/5 smoke test scenarios PASS",
+    "overallValidation":  "ALL CHECKS PASS",
+    "phase":  "FACTORY-V04-P1-F",
+    "title":  "v0.4 P1 Validation and Smoke Test",
+    "validation":  {
+                       "qualityGapPolicyExists":  {
+                                                      "detail":  "core/quality-gap-trigger-policy.json with QG01-QG05 triggers",
+                                                      "result":  "PASS"
+                                                  },
+                       "evidenceBasisUpdated":  {
+                                                    "detail":  "EVIDENCE_BASIS.md includes EVAL-13 INCONCLUSIVE caveat",
+                                                    "result":  "PASS"
+                                                },
+                       "docsCreated":  {
+                                           "detail":  "WHEN_TO_USE, WHEN_NOT_TO_USE, COMMON_FAILURE_MODES created",
+                                           "result":  "PASS"
+                                       },
+                       "twoBenchmarkCaveat":  {
+                                                  "detail":  "MANIFEST.twoBenchmarkCaveat recorded",
+                                                  "result":  "PASS"
+                                              },
+                       "draftStatusUnchanged":  {
+                                                    "detail":  "MANIFEST.status: DRAFT_NOT_RELEASED",
+                                                    "result":  "PASS"
+                                                },
+                       "qualityGuaranteeForbidden":  {
+                                                         "detail":  "forbiddenClaims includes \u0027Factory Lite guarantees better output\u0027",
+                                                         "result":  "PASS"
+                                                     },
+                       "noV04ReleaseZip":  {
+                                               "detail":  "No v0.4 release ZIP created",
+                                               "result":  "PASS"
+                                           },
+                       "finalPackageUnchanged":  {
+                                                     "detail":  "SHA: 01640C0A... unchanged",
+                                                     "result":  "PASS"
+                                                 },
+                       "positioningExists":  {
+                                                 "detail":  "POSITIONING.md created with process-integrity-layer framing",
+                                                 "result":  "PASS"
+                                             },
+                       "escalationRepaired":  {
+                                                  "detail":  "multi-agent-escalation-policy.json: Tier 0.5 Reviewer, Tier 1 3-role on-demand",
+                                                  "result":  "PASS"
+                                              },
+                       "tenRoleArchived":  {
+                                               "detail":  "10-role in archivedModules, not in defaultModules",
+                                               "result":  "PASS"
+                                           },
+                       "manifestUpdated":  {
+                                               "detail":  "MANIFEST.json: positioning=PROCESS_INTEGRITY_LAYER, productQualityImprovement=CONDITIONAL_NOT_GUARANTEED",
+                                               "result":  "PASS"
+                                           },
+                       "reviewerP1Exists":  {
+                                                "detail":  "review/quality-gap-reviewer-checklist.json with RV01-RV05",
+                                                "result":  "PASS"
+                                            }
+                   }
+}

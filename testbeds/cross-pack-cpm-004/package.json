@@ -1,0 +1,16 @@
+{
+  "name": "cross-pack-cpm-004",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CPM-004 Cross-Pack Test Harness: native parser + admin upload invariants",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "fastify": "^4.28.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  }
+}

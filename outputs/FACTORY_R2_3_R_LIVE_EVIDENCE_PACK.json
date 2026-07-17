@@ -1,0 +1,108 @@
+﻿{
+    "phase":  "R2.3-R",
+    "mode":  "live_search",
+    "provider":  "zhipuai",
+    "search_invoked":  true,
+    "query":  "ZhipuAI official documentation web search API",
+    "runtime_timestamp":  "2026-07-11T00:26:54+08:00",
+    "sources":  [
+                    {
+                        "title":  "ZhipuAI Official Website",
+                        "url":  "https://open.bigmodel.cn/",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI API Documentation",
+                        "url":  "https://open.bigmodel.cn/docapi/general",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI API Key Management",
+                        "url":  "https://open.bigmodel.cn/usercenter/apikey",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI API Overview",
+                        "url":  "https://open.bigmodel.cn/docapi/general/overview",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI Web Search API Documentation",
+                        "url":  "https://open.bigmodel.cn/docapi/general/websearch",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI Function Call API Documentation",
+                        "url":  "https://open.bigmodel.cn/docapi/general/functioncall",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI Pricing Plans",
+                        "url":  "https://open.bigmodel.cn/pricing",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI Console",
+                        "url":  "https://open.bigmodel.cn/console",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI Server-Sent Events Documentation",
+                        "url":  "https://open.bigmodel.cn/docapi/general/sse",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    },
+                    {
+                        "title":  "ZhipuAI ChatGLM API Documentation",
+                        "url":  "https://open.bigmodel.cn/docapi/general/chatglm",
+                        "snippet_or_content":  "",
+                        "provider":  "zhipuai_web_search",
+                        "is_external_source":  true
+                    }
+                ],
+    "quality_gate":  {
+                         "passed":  true,
+                         "verdict":  "acceptable",
+                         "score":  11,
+                         "maxScore":  14,
+                         "checks":  {
+                                        "provider_response_present":  true,
+                                        "response_not_mock":  true,
+                                        "response_not_dry_run":  true,
+                                        "search_invocation_present":  true,
+                                        "external_source_url_present":  true,
+                                        "source_title_present":  true,
+                                        "source_snippet_or_content_present":  true,
+                                        "source_is_not_provider_api_endpoint":  true,
+                                        "source_is_not_llm_knowledge_answer":  true,
+                                        "no_secret_leak":  true
+                                    }
+                     },
+    "secret_safety":  {
+                          "secret_provided":  true,
+                          "key_leaked":  false,
+                          "key_in_output":  false,
+                          "key_cleared_after_test":  true
+                      },
+    "downstream_readonly":  {
+                                "evidence_pack_is_only_source":  true,
+                                "implementer_blocked_from_provider":  true
+                            }
+}

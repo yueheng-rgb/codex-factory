@@ -1,0 +1,89 @@
+﻿{
+    "detectionTools":  [
+                           {
+                               "tool":  "export-usage-analyzer",
+                               "description":  "Scans import graph to identify unused exports"
+                           },
+                           {
+                               "tool":  "file-content-analyzer",
+                               "description":  "Checks file content for emptiness, comment ratio, re-export ratio"
+                           },
+                           {
+                               "tool":  "test-coverage-analyzer",
+                               "description":  "Checks test files for minimum case count and assertion density"
+                           },
+                           {
+                               "tool":  "cohesion-analyzer",
+                               "description":  "Checks for artificial fragmentation across modules"
+                           }
+                       ],
+    "step":  "E_ANTI_GAMING_UPDATE",
+    "appliesTo":  "AGENT-5 benchmark definition",
+    "timestamp":  "2026-06-26T20:21:48.3941709+08:00",
+    "antiGamingRules":  [
+                            {
+                                "rule":  "NO_EMPTY_FILES",
+                                "description":  "Files with \u003c50 bytes of non-whitespace content are flagged as gaming",
+                                "check":  "Content length analysis"
+                            },
+                            {
+                                "rule":  "NO_COMMENT_ONLY_FILES",
+                                "description":  "Files where \u003e90% of content is comments are flagged",
+                                "check":  "Comment ratio analysis"
+                            },
+                            {
+                                "rule":  "NO_REEXPORT_ONLY_FILES",
+                                "description":  "Files that only re-export from other modules are not meaningful source files",
+                                "check":  "Export source analysis"
+                            },
+                            {
+                                "rule":  "NO_FAKE_EXPORTS",
+                                "description":  "Exports not used by any consumer within the product are NOT counted",
+                                "check":  "Import graph analysis"
+                            },
+                            {
+                                "rule":  "NO_FAKE_ENDPOINTS",
+                                "description":  "Endpoints without behavior tests are flagged as suspicious",
+                                "check":  "Endpoint test coverage"
+                            },
+                            {
+                                "rule":  "NO_FAKE_TESTS",
+                                "description":  "Test files with \u003c3 test cases or 0 assertions are flagged",
+                                "check":  "Test content analysis"
+                            },
+                            {
+                                "rule":  "NO_PLACEHOLDER_MODULES",
+                                "description":  "Modules with 0 meaningful exports are flagged",
+                                "check":  "Module export analysis"
+                            },
+                            {
+                                "rule":  "NO_FRAGMENTATION_GAMING",
+                                "description":  "Splitting a coherent module into many single-export files to increase file count is flagged",
+                                "check":  "Cohesion analysis"
+                            },
+                            {
+                                "rule":  "NO_BARREL_GAMING",
+                                "description":  "Adding barrel re-exports solely to increase export count is flagged",
+                                "check":  "Barrel file analysis"
+                            },
+                            {
+                                "rule":  "NO_PROCESS_AS_PRODUCT",
+                                "description":  "Factory governance files, verifier scripts, handoff capsules are NOT product complexity",
+                                "check":  "File categorization"
+                            },
+                            {
+                                "rule":  "NO_COUNT_AS_QUALITY",
+                                "description":  "File/export counts are diagnostic indicators, NOT product quality proof",
+                                "check":  "Policy enforcement"
+                            }
+                        ],
+    "phase":  "FACTORY-AGENT-5-P1",
+    "meaningfulDefinitions":  {
+                                  "meaningfulTest":  "Test case exercising non-trivial product behavior with assertions",
+                                  "meaningfulEndpoint":  "HTTP endpoint with \u003e=1 passing behavior test",
+                                  "equivalentTestGroup":  "A test file covering a distinct subsystem with \u003e=3 test cases and \u003e=1 assertion each",
+                                  "meaningfulSourceFile":  "\u003e=50 bytes non-whitespace, \u003e=1 non-trivial export serving a distinct architectural purpose",
+                                  "meaningfulExport":  "const/function/class/type/interface/enum used by \u003e=1 consumer within the product",
+                                  "equivalentBehavior":  "An action/endpoint/feature that is independently verifiable and serves a distinct user/business purpose"
+                              }
+}

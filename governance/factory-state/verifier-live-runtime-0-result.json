@@ -1,0 +1,173 @@
+﻿{
+    "passed":  27,
+    "checkedAt":  "2026-06-24T23:46:38+08:00",
+    "command":  "live-runtime-0-verify",
+    "totalChecks":  27,
+    "phase":  "LIVE-RUNTIME-0",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "Status: CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_PACKAGE_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "finalZipExists=True",
+                       "result":  true,
+                       "name":  "FINAL_ZIP_STILL_EXISTS",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "SHA256 verified",
+                       "result":  true,
+                       "name":  "FINAL_ZIP_SHA256_MATCH",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "ZIP count: 1",
+                       "result":  true,
+                       "name":  "NO_NEW_FINAL_ZIP",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "agent-os/ does not exist",
+                       "result":  true,
+                       "name":  "NO_AGENT_OS_ARTIFACTS",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "context-os/ does not exist",
+                       "result":  true,
+                       "name":  "NO_CONTEXT_OS_ARTIFACTS",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "live-runtime/ does not exist",
+                       "result":  true,
+                       "name":  "NO_LIVE_RUNTIME_IMPLEMENTATION",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "Main report",
+                       "result":  true,
+                       "name":  "DISCOVERY_REPORT_EXISTS",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "Summary",
+                       "result":  true,
+                       "name":  "DISCOVERY_SUMMARY_EXISTS",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "Discovery JSON",
+                       "result":  true,
+                       "name":  "DISCOVERY_JSON_EXISTS",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "Risk taxonomy",
+                       "result":  true,
+                       "name":  "RISK_TAXONOMY_EXISTS",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "Coverage matrix",
+                       "result":  true,
+                       "name":  "COVERAGE_MATRIX_EXISTS",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "Recommendation",
+                       "result":  true,
+                       "name":  "RECOMMENDATION_EXISTS",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "All 4 JSON files parse successfully",
+                       "result":  true,
+                       "name":  "ALL_JSON_VALID",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "Evidence sources: 35",
+                       "result":  true,
+                       "name":  "EVIDENCE_PATHS_PRESENT",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "Deception types: 16",
+                       "result":  true,
+                       "name":  "DECEPTION_TAXONOMY_16",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "Unknown risks: 16",
+                       "result":  true,
+                       "name":  "UNKNOWN_RISKS_16",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "Gaps: 6",
+                       "result":  true,
+                       "name":  "GAPS_IDENTIFIED",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "Verifier is machine-generated",
+                       "result":  true,
+                       "name":  "NO_MANUAL_PASS_ONLY",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "All checks have explicit names",
+                       "result":  true,
+                       "name":  "NO_EXPECTEDCLASS_ONLY",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "All checks are specific",
+                       "result":  true,
+                       "name":  "NO_GENERIC_FAIL",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "All verdicts are computed, not pre-assigned",
+                       "result":  true,
+                       "name":  "NO_PRECLASSIFIED_ONLY",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "Recommendation matches evidence",
+                       "result":  true,
+                       "name":  "RECOMMENDATION_IS_OPTION_D",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "evidenceBased=true",
+                       "result":  true,
+                       "name":  "EVIDENCE_BASED_FLAG",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "Not based on user concern alone",
+                       "result":  true,
+                       "name":  "NOT_USER_CONCERN_ALONE",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "allowedNextPhase=COMPLETE",
+                       "result":  true,
+                       "name":  "FINAL_GATE_CLOSED",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "No DRY28 artifacts",
+                       "result":  true,
+                       "name":  "NO_DRY28_ARTIFACTS",
+                       "id":  27
+                   }
+               ],
+    "failed":  0
+}

@@ -1,0 +1,91 @@
+﻿{
+    "phase":  "FACTORY-AGENT-0-D",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-26T01:02:53.1809382+08:00",
+    "requirements":  [
+                         {
+                             "priority":  "P0",
+                             "category":  "ISOLATION",
+                             "evidenceBasis":  "DRY23-P2 Main Agent fallback contamination; DRY24 worker contracts",
+                             "id":  "R01",
+                             "requirement":  "Every worker agent MUST have a declared owned scope (files/directories) and forbidden scope. No agent may write outside owned scope."
+                         },
+                         {
+                             "priority":  "P0",
+                             "category":  "ISOLATION",
+                             "evidenceBasis":  "H13-C agent-run-summary; DRY21 spawn verification",
+                             "id":  "R02",
+                             "requirement":  "All spawned agents MUST use fork_context:false. No agent may inherit full conversation context."
+                         },
+                         {
+                             "priority":  "P0",
+                             "category":  "LIFECYCLE",
+                             "evidenceBasis":  "H14 native agent tracking; H17 agent lifecycle resolution",
+                             "id":  "R03",
+                             "requirement":  "Every agent MUST have: spawn receipt, progress events, close receipt. Agent lifecycle MUST be tracked in AGENT_REGISTRY.json and AGENT_PROGRESS.jsonl."
+                         },
+                         {
+                             "priority":  "P0",
+                             "category":  "HANDOFF",
+                             "evidenceBasis":  "H13-D session rotation handoff; DRY24 worker contracts",
+                             "id":  "R04",
+                             "requirement":  "Every worker MUST produce a handoff artifact with SHA256. Handoff MUST include: output file list with hashes, completed contract checklist, transcript reference."
+                         },
+                         {
+                             "priority":  "P0",
+                             "category":  "INTEGRITY",
+                             "evidenceBasis":  "DRY23-P1/P2 Main Agent fallback detection and repair",
+                             "id":  "R05",
+                             "requirement":  "Main Agent MUST NOT write worker implementation scope. If spawn fails, failure MUST be classified and replacement spawned, not silently absorbed."
+                         },
+                         {
+                             "priority":  "P0",
+                             "category":  "INTEGRITY",
+                             "evidenceBasis":  "DRY24 integrator role; H15 CI enforcement",
+                             "id":  "R06",
+                             "requirement":  "Integrator MUST be sole merge owner of integration hub. Builders MUST NOT modify integration hub or other builder scopes."
+                         },
+                         {
+                             "priority":  "P0",
+                             "category":  "INTEGRITY",
+                             "evidenceBasis":  "H15 integrator-verifier boundary; DRY24 verifier modules",
+                             "id":  "R07",
+                             "requirement":  "Verifier MUST be readonly. Verifier MUST NOT modify implementation, registry, or contracts."
+                         },
+                         {
+                             "priority":  "P0",
+                             "category":  "VERIFICATION",
+                             "evidenceBasis":  "H18 verifier modules; SCORING_SYSTEM_GATE",
+                             "id":  "R08",
+                             "requirement":  "Every phase MUST have a verifier script producing machine-readable JSON with per-gate PASS/FAIL. No manual PASS-only, no expectedClass-only, no generic FAIL."
+                         },
+                         {
+                             "priority":  "P0",
+                             "category":  "EVIDENCE",
+                             "evidenceBasis":  "H18 context-compression-policy; H17 session rotation policy",
+                             "id":  "R09",
+                             "requirement":  "Compressed summary is NOT evidence. All closure decisions MUST be based on verifier JSON, transcripts, and registry entries."
+                         },
+                         {
+                             "priority":  "P1",
+                             "category":  "SCALE",
+                             "evidenceBasis":  "FACTORY-AGENT-0-C failure analysis",
+                             "id":  "R10",
+                             "requirement":  "Multi-agent architecture MUST demonstrate benefit at large-project scale (50+ features, 5+ independent modules). Benefit at small/medium scale is nice-to-have, not requirement."
+                         },
+                         {
+                             "priority":  "P1",
+                             "category":  "SCALE",
+                             "evidenceBasis":  "EVAL-13 10-role overkill finding",
+                             "id":  "R11",
+                             "requirement":  "Agent count MUST be proportional to project independence, not project size alone. More agents than independent work packages is overkill."
+                         },
+                         {
+                             "priority":  "P1",
+                             "category":  "OVERHEAD",
+                             "evidenceBasis":  "EVAL-13 overhead finding",
+                             "id":  "R12",
+                             "requirement":  "Agent coordination overhead (spawn time, contract generation, handoff verification) MUST be measured and compared against sequential baseline."
+                         }
+                     ]
+}

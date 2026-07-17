@@ -1,0 +1,40 @@
+﻿{
+    "demo_id": "V3_1-DEMO-REMOTE-RUNNER-UNAVAILABLE",
+    "runners_probed": [
+        {
+            "runner_id": "remote-placeholder",
+            "runner_type": "remote-placeholder",
+            "isolation_level": "container",
+            "status": "NOT_IMPLEMENTED",
+            "artifact_capture": false,
+            "description": "Remote execution placeholder — NO real remote runner connected"
+        },
+        {
+            "runner_id": "container-placeholder",
+            "runner_type": "container-placeholder",
+            "isolation_level": "container",
+            "status": "NOT_IMPLEMENTED",
+            "artifact_capture": false,
+            "description": "Docker/container placeholder — NO container runtime available"
+        }
+    ],
+    "remote_execution_attempted": false,
+    "remote_execution_result": "REMOTE_RUNNER_NOT_CONFIGURED",
+    "final_gate_decision": "BLOCKED",
+    "trust_level": "NONE — no remote/container runner configured",
+    "artifact_policy": "No remote artifacts — BLOCKED",
+    "secret_policy": "No remote execution — no secret risk",
+    "non_claims": [
+        "remote-placeholder is NOT a real remote runner",
+        "container-placeholder is NOT a real container runtime",
+        "This environment has NO cloud or container execution capability",
+        "Do NOT claim remote/container isolation for local runs"
+    ],
+    "limitations": [
+        "Directory-level isolation only (local)",
+        "No VM/container security boundary",
+        "No remote artifact store",
+        "No cross-machine execution"
+    ],
+    "result": "BLOCKED — REMOTE_RUNNER_NOT_CONFIGURED (honest admission, no fake remote)"
+}

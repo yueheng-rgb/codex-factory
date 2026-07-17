@@ -1,0 +1,18 @@
+﻿{
+    "non_claims":  [
+                       "local_named_reviewer is NOT a real company-level human approval",
+                       "This review is for RC validation, NOT production sign-off",
+                       "Reviewer alias is a local identifier, NOT a verified identity"
+                   ],
+    "timestamp":  "2026-07-17T15:08:54.3626559+08:00",
+    "identity_mode":  "local_named_reviewer",
+    "reviewer_alias":  "Factory-V3-RC-Reviewer",
+    "mission_id":  "CPM-001",
+    "evidence":  {
+                     "artifact_ids":  [
+                                          "V2_7-ART-001"
+                                      ]
+                 },
+    "decision":  "APPROVED_WITH_RISK",
+    "review_id":  "V3_0-REV-001"
+}

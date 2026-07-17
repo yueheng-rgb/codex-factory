@@ -1,0 +1,17 @@
+﻿{
+    "sub_step":  "E",
+    "evidence_levels":  [
+                            "TIER-1",
+                            "TIER-2",
+                            "TIER-3",
+                            "TIER-4"
+                        ],
+    "evidence_integrity":  "SHA256 chain: trial → verifier → phase-ledger → direction guard → snapshot",
+    "tier3_items":  1,
+    "logging_format":  "JSONL",
+    "tier1_items":  12,
+    "tier2_items":  5,
+    "storage_pattern":  "governance/factory-validation/trials/{projectId}/",
+    "title":  "Evidence and Logging Standard",
+    "required_evidence_items":  18
+}

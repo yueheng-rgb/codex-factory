@@ -1,0 +1,47 @@
+﻿semgrep :                
+At line:15 char:15
++ $semgrepOut = semgrep --config=auto --json $pilotPath 2>&1
++               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (               :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 12 files tracked by git with 1074 Code rules:
+                                                                                                                       
+ 
+  Language      Rules   Files          Origin      Rules                                                               
+ 
+ ─────────────────────────────        ───────────────────                                                              
+ 
+  <multilang>      60      12          Community    1074                                                               
+ 
+  ts              163       7                                                                                          
+ 
+  json              4       4                                                                                          
+ 
+  html              1       1                                                                                          
+ 
+                                                                                                                       
+ 
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 0 (0 blocking)
+ • Rules run: 227
+ • Targets scanned: 12
+ • Parsed lines: ~100.0%
+ • Scan skipped: 
+   ◦ Files matching .semgrepignore patterns: 91
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 227 rules on 12 files: 0 findings.
+(need more rules? `semgrep login` for additional free Semgrep Registry rules)
+
+If Semgrep missed a finding, please send us feedback to let us know!
+See https://semgrep.dev/docs/reporting-false-negatives/
+{"version":"1.169.0","results":[],"errors":[],"paths":{"scanned":["C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\admin\\index.html","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\business-invariants.json","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\package-lock.json","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\package.json","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\src\\db\\store.ts","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\src\\errors.ts","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\src\\routes\\inventory.ts","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\src\\server.ts","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\src\\services\\inventory.service.ts","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\src\\types.ts","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\tsconfig.json","C:\\Codex_App_Factory\\pilots\\mini-inventory-admin\\vitest.config.ts"]},"time":{"rules":[],"rules_parse_time":0.3055543899536133,"profiling_times":{"config_time":3.5236124992370605,"core_time":0.823718786239624,"ignores_time":0.0009496212005615234,"total_time":4.364915370941162},"parsing_time":{"total_time":0.0,"per_file_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_files":[]},"scanning_time":{"total_time":0.5235202312469482,"per_file_time":{"mean":0.014542228645748561,"std_dev":0.0004469331077040191},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_files":[]},"matching_time":{"total_time":0.0,"per_file_and_rule_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_rules_on_files":[]},"tainting_time":{"total_time":0.0,"per_def_and_rule_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_rules_on_defs":[]},"fixpoint_timeouts":[],"prefiltering":{"project_level_time":0.0,"file_level_time":0.0,"rules_with_project_prefilters_ratio":0.0,"rules_with_file_prefilters_ratio":0.9803354540196646,"rules_selected_ratio":0.061307113938692884,"rules_matched_ratio":0.061307113938692884},"targets":[],"total_bytes":0,"max_memory_bytes":1024393536},"engine_requested":"OSS","skipped_rules":[],"profiling_results":[]}

@@ -1,0 +1,23 @@
+﻿{
+  "engine": "firecrawl-reader",
+  "version": null,
+  "run_status": "TOOL_UNAVAILABLE",
+  "target_project": "all",
+  "started_at": "2026-07-11T15:30:00",
+  "result_summary": "Firecrawl reader not available — npm package not installed, API key not set.",
+  "findings": [],
+  "findings_count": 0,
+  "parser_status": "NO_INPUT",
+  "skip_reason": "API_KEY_MISSING + NOT_INSTALLED — requires FIRECRAWL_API_KEY env var and npm @mendable/firecrawl-js",
+  "failure_classification": "TOOL_UNAVAILABLE",
+  "source_origin": "firecrawl_reader",
+  "install_instructions": "npm install @mendable/firecrawl-js; set FIRECRAWL_API_KEY=<your-key>",
+  "api_key_check": "NOT_SET",
+  "secret_present": false,
+  "non_claims": [
+    "Firecrawl reader is NOT canonical search",
+    "Cannot be used for P0_MUST_SEARCH evidence",
+    "All Firecrawl evidence must be marked source_origin=firecrawl_reader",
+    "API key required — not available without user configuration"
+  ]
+}

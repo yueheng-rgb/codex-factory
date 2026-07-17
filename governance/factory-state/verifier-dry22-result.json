@@ -1,0 +1,136 @@
+{
+    "verifiedAt":  "2026-06-23T23:53:41+08:00",
+    "exitCode":  0,
+    "verifierPath":  "scripts/phase6c-dry22-contract-enforced-full-mission-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  25,
+    "passed":  25,
+    "checks":  [
+                   {
+                       "id":  1,
+                       "desc":  "parent H15 PASS",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  2,
+                       "desc":  "factoryctl operational",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  3,
+                       "desc":  "contract validator operational",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  4,
+                       "desc":  "dep graph extractor operational",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  5,
+                       "desc":  "DRY22 native agents \u003e=8",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  6,
+                       "desc":  "All DRY22 agents nativeGenerated",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  7,
+                       "desc":  "DRY22 contracts \u003e=6",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  8,
+                       "desc":  "Contracts validate",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  9,
+                       "desc":  "Dep graph exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  10,
+                       "desc":  "Dep graph edges \u003e=100",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  11,
+                       "desc":  "0 forbidden edges",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  12,
+                       "desc":  "Source files \u003e=80",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  13,
+                       "desc":  "Exports \u003e=500",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  14,
+                       "desc":  "All-negative-evidence exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  15,
+                       "desc":  "18 negatives",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  16,
+                       "desc":  "0 generic FAIL",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  17,
+                       "desc":  "0 preclassified-only",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  18,
+                       "desc":  "0 expectedClass-only",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  19,
+                       "desc":  "All transcripts",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  20,
+                       "desc":  "dry22Status POSITIVE_NEGATIVE_CLOSED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  21,
+                       "desc":  "No final ZIP",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  22,
+                       "desc":  "Handoff nativeGenerated",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  23,
+                       "desc":  "Diagnosis report exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  24,
+                       "desc":  "Historical reconstructed preserved",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  25,
+                       "desc":  "No DRY23 artifacts",
+                       "status":  "PASS"
+                   }
+               ],
+    "failed":  0
+}

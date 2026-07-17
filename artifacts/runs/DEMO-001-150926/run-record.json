@@ -1,0 +1,15 @@
+﻿{
+    "artifact_paths":  [
+                           "artifacts/runs/DEMO-001-150926/stdout.log",
+                           "artifacts/runs/DEMO-001-150926/run-record.json"
+                       ],
+    "runner_type":  "sandbox",
+    "started_at":  "2026-07-17T15:09:26.4382720+08:00",
+    "task_id":  "DEMO-001",
+    "snapshot_verified":  true,
+    "command":  "npm test",
+    "final_status":  "PASS",
+    "finished_at":  "2026-07-17T15:09:29.8618756+08:00",
+    "run_id":  "DEMO-001-150926",
+    "exit_code":  0
+}

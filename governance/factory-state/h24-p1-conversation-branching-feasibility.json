@@ -1,0 +1,372 @@
+﻿{
+    "sourceBasis":  [
+                        "Codex CLI system prompt (tool definitions for thread/agent/automation tools)",
+                        "App context (thread coordination, automations, thread wakeup)",
+                        "Factory H18-H24 artifact chain (session rotation protocol, handoff evidence)",
+                        "Factory H21-A automation capability revalidation (7 claims classified)",
+                        "Factory H22-B cloud/sync/automation capability classification (12 claims)",
+                        "Live environment: spawn_agent with fork_context observed across DRY/H phases"
+                    ],
+    "claims":  [
+                   {
+                       "id":  "A",
+                       "evidence":  "create_thread tool in system prompt. \u0027User-owned, appears in sidebar.\u0027 Not tested live.",
+                       "mayDriveFinalPolicy":  false,
+                       "claim":  "Codex can create a new conversation/thread",
+                       "riskIfAssumedWrong":  "If create_thread fails, session rotation must use manual new window.",
+                       "classification":  "PARTIALLY_VERIFIED"
+                   },
+                   {
+                       "id":  "B",
+                       "evidence":  "fork_thread tool in system prompt. Not tested live (would create side-effect thread).",
+                       "mayDriveFinalPolicy":  false,
+                       "claim":  "Codex can fork current conversation into a new thread",
+                       "riskIfAssumedWrong":  "If fork fails, artifact handoff remains the only reliable mechanism.",
+                       "classification":  "PARTIALLY_VERIFIED"
+                   },
+                   {
+                       "id":  "C",
+                       "evidence":  "read_thread, send_message_to_thread, resume_agent tools in system prompt. Threads in sidebar.",
+                       "mayDriveFinalPolicy":  false,
+                       "claim":  "Codex can resume old thread",
+                       "riskIfAssumedWrong":  "If resume fails, user must manually open thread.",
+                       "classification":  "PARTIALLY_VERIFIED"
+                   },
+                   {
+                       "id":  "D",
+                       "evidence":  "Factory H18 handoff protocol explicitly references \u0027multiple context compressions.\u0027 Multiple phases carry \u0027Compressed summaries are untrusted\u0027 rule.",
+                       "mayDriveFinalPolicy":  true,
+                       "claim":  "Codex can automatically compact context",
+                       "riskIfAssumedWrong":  "HIGH: if compact doesn\u0027t exist, the entire compact-after-first rule is irrelevant.",
+                       "classification":  "VERIFIED_FACT"
+                   },
+                   {
+                       "id":  "E",
+                       "evidence":  "No explicit compact-detection API observed in tool definitions. Handoff protocol assumes detection is manual/user-reported. No \u0027compactDetected\u0027 flag in app context.",
+                       "mayDriveFinalPolicy":  true,
+                       "claim":  "Codex can detect that compact occurred",
+                       "riskIfAssumedWrong":  "HIGH: if compact cannot be detected, \u0027after-one-compact\u0027 rules cannot be automated.",
+                       "classification":  "HYPOTHESIS_REQUIRES_VALIDATION"
+                   },
+                   {
+                       "id":  "F",
+                       "evidence":  "No tool or mechanism observed that creates a new UI window automatically. create_thread creates a thread (data), not a window (UI).",
+                       "mayDriveFinalPolicy":  true,
+                       "claim":  "Codex can automatically create/fork a new user-visible window after compact",
+                       "riskIfAssumedWrong":  "MEDIUM: if we claim auto-window and it fails, session rotation breaks.",
+                       "classification":  "REJECTED_OR_UNSUPPORTED"
+                   },
+                   {
+                       "id":  "G",
+                       "evidence":  "fork_thread would fork current (post-compact) state. Compressed summaries are lossy by definition. Full pre-compact context is not recoverable from compressed state.",
+                       "mayDriveFinalPolicy":  true,
+                       "claim":  "Forked thread inherits full pre-compact context",
+                       "riskIfAssumedWrong":  "HIGH: claiming full inheritance would create false trust in compressed context.",
+                       "classification":  "REJECTED_OR_UNSUPPORTED"
+                   },
+                   {
+                       "id":  "H",
+                       "evidence":  "Logical: fork_thread forks current state. If compact has already occurred, forked context is post-compact.",
+                       "mayDriveFinalPolicy":  false,
+                       "claim":  "Forked thread inherits only current/compacted context",
+                       "riskIfAssumedWrong":  "Low — this is the conservative default.",
+                       "classification":  "PARTIALLY_VERIFIED"
+                   },
+                   {
+                       "id":  "I",
+                       "evidence":  "Factory evidence chain: artifact handoff is the only mechanism that preserves verifier results, SHA256, state. Compressed context cannot replace this.",
+                       "mayDriveFinalPolicy":  true,
+                       "claim":  "New thread can safely continue large project without artifact handoff",
+                       "riskIfAssumedWrong":  "HIGH: skipping artifact handoff corrupts evidence chain.",
+                       "classification":  "REJECTED_OR_UNSUPPORTED"
+                   },
+                   {
+                       "id":  "J",
+                       "evidence":  "Factory H18-H24: every session rotation requires startup verification. 10+ rotations validated. This is Factory\u0027s proven mechanism.",
+                       "mayDriveFinalPolicy":  true,
+                       "claim":  "New thread requires artifact handoff + startup verification",
+                       "riskIfAssumedWrong":  "LOW — this is the proven safe path.",
+                       "classification":  "VERIFIED_FACT"
+                   },
+                   {
+                       "id":  "K",
+                       "evidence":  "System prompt: \u0027Only use create_thread when the user explicitly asks.\u0027 Sub-agents are internal, not user-visible. spawn_agent doc says \u0027sub-agents inherit your current model.\u0027",
+                       "mayDriveFinalPolicy":  false,
+                       "claim":  "Subagent creation should also create user-visible thread branch",
+                       "riskIfAssumedWrong":  "LOW — sub-agents don\u0027t need user visibility.",
+                       "classification":  "REJECTED_OR_UNSUPPORTED"
+                   },
+                   {
+                       "id":  "L",
+                       "evidence":  "DRY20/DRY24 cross-worker deps validated. Worker contracts + fork_context:false provide isolation. This is Factory\u0027s standard pattern.",
+                       "mayDriveFinalPolicy":  true,
+                       "claim":  "Subagent isolation is sufficiently handled by spawn_agent + fork_context:false + contracts",
+                       "riskIfAssumedWrong":  "LOW — proven pattern.",
+                       "classification":  "VERIFIED_FACT"
+                   },
+                   {
+                       "id":  "M",
+                       "evidence":  "System prompt: \u0027fork_context: true forks context into new agent.\u0027 Explorers need context. Used in H21 capability revalidation pattern.",
+                       "mayDriveFinalPolicy":  false,
+                       "claim":  "fork_context:true is useful for handoff/explorer scenarios",
+                       "riskIfAssumedWrong":  "LOW",
+                       "classification":  "PARTIALLY_VERIFIED"
+                   },
+                   {
+                       "id":  "N",
+                       "evidence":  "System prompt: \u0027false or omitted starts with only the initial prompt.\u0027 Factory worker contracts assume clean start.",
+                       "mayDriveFinalPolicy":  true,
+                       "claim":  "fork_context:false remains default for isolated builders",
+                       "riskIfAssumedWrong":  "LOW",
+                       "classification":  "VERIFIED_FACT"
+                   },
+                   {
+                       "id":  "O",
+                       "evidence":  "H21-A AUTO-07: CODEX_SELF_REPORT_ONLY. App context mentions \u0027thread wakeups.\u0027 Not tested.",
+                       "mayDriveFinalPolicy":  false,
+                       "claim":  "Automations wake same thread, not new full context",
+                       "riskIfAssumedWrong":  "MEDIUM — if automation creates new context, it could bypass artifact handoff.",
+                       "classification":  "CODEX_SELF_REPORT_ONLY"
+                   }
+               ],
+    "terminology":  [
+                        {
+                            "scope":  "Codex CLI capability",
+                            "term":  "new conversation / new thread",
+                            "evidenceBasis":  "System prompt: create_thread tool exists. \u0027Threads created this way are user-owned: they appear in the sidebar.\u0027",
+                            "definition":  "User creates a new Codex conversation via the app UI. This is a fresh session with no prior context.",
+                            "verified":  "PARTIALLY_VERIFIED"
+                        },
+                        {
+                            "scope":  "Codex CLI capability",
+                            "term":  "fork conversation / fork thread",
+                            "evidenceBasis":  "System prompt: fork_thread tool mentioned. Behavior: copies current state to new thread.",
+                            "definition":  "User or agent forks current thread into a new thread. System prompt: fork_thread tool exists.",
+                            "verified":  "PARTIALLY_VERIFIED"
+                        },
+                        {
+                            "scope":  "Codex CLI capability",
+                            "term":  "resume thread",
+                            "evidenceBasis":  "System prompt: read_thread, send_message_to_thread exist. Thread appears in sidebar.",
+                            "definition":  "User picks up an existing thread from the sidebar and continues it.",
+                            "verified":  "PARTIALLY_VERIFIED"
+                        },
+                        {
+                            "scope":  "Codex CLI internal mechanism",
+                            "term":  "compacted thread",
+                            "evidenceBasis":  "Factory H18 handoff protocol: \u0027Compressed summaries are untrusted.\u0027 Multiple rotations reference compaction.",
+                            "definition":  "Codex automatically compresses conversation history when token limits approach. Produces a lossy compressed summary.",
+                            "verified":  "VERIFIED_FACT"
+                        },
+                        {
+                            "scope":  "Codex CLI capability",
+                            "term":  "subagent (spawn_agent)",
+                            "evidenceBasis":  "System prompt: multi_agent_v1__spawn_agent with fork_context parameter. Used across DRY/H phases.",
+                            "definition":  "Agent spawns a sub-agent for a well-scoped task. fork_context:true inherits parent history; fork_context:false starts clean.",
+                            "verified":  "VERIFIED_FACT"
+                        },
+                        {
+                            "scope":  "Codex CLI capability",
+                            "term":  "fork_context:true",
+                            "evidenceBasis":  "System prompt: \u0027True forks the current thread history into the new agent.\u0027",
+                            "definition":  "Sub-agent inherits the parent thread\u0027s conversation history. Useful for explorers that need full context.",
+                            "verified":  "VERIFIED_FACT"
+                        },
+                        {
+                            "scope":  "Codex CLI capability",
+                            "term":  "fork_context:false",
+                            "evidenceBasis":  "System prompt: \u0027false or omitted starts with only the initial prompt.\u0027 Default mode.",
+                            "definition":  "Sub-agent starts with only the initial task prompt. Default for isolated workers.",
+                            "verified":  "VERIFIED_FACT"
+                        },
+                        {
+                            "scope":  "Codex CLI capability",
+                            "term":  "thread handoff",
+                            "evidenceBasis":  "System prompt: handoff_thread mentioned in thread tools.",
+                            "definition":  "handoff_thread tool: hands off a thread (presumably for human or other agent pickup).",
+                            "verified":  "CODEX_SELF_REPORT_ONLY"
+                        },
+                        {
+                            "scope":  "Factory repo-local mechanism",
+                            "term":  "session rotation handoff",
+                            "evidenceBasis":  "Factory H18-H24 artifact chain. session-rotation-handoff.json validated across 10+ rotations.",
+                            "definition":  "Factory-internal protocol: write session-rotation-handoff.json with evidence hashes and state pointer. New window reads from artifacts.",
+                            "verified":  "VERIFIED_FACT"
+                        },
+                        {
+                            "scope":  "Codex App UI capability",
+                            "term":  "user-visible new Codex window",
+                            "evidenceBasis":  "System prompt references \u0027Codex desktop app\u0027, \u0027sidebar\u0027, \u0027threads\u0027. User creates windows via app UI.",
+                            "definition":  "User opens a new Codex window (separate UI instance) and connects to a new or existing thread.",
+                            "verified":  "PARTIALLY_VERIFIED"
+                        },
+                        {
+                            "scope":  "Codex CLI capability",
+                            "term":  "background thread / automation wakeup",
+                            "evidenceBasis":  "System prompt: \u0027automation_update tool exists\u0027, \u0027thread wakeups\u0027 mentioned. H21-A AUTO-07: CODEX_SELF_REPORT_ONLY.",
+                            "definition":  "Automations can wake a thread to perform checks. App context mentions \u0027thread wakeups\u0027.",
+                            "verified":  "CODEX_SELF_REPORT_ONLY"
+                        }
+                    ],
+    "experiments":  [
+                        {
+                            "recommendation":  "Test in dedicated disposable session.",
+                            "reason":  "Would create side-effect threads. Tools exist in system prompt (create_thread, fork_thread) — existence is PARTIALLY_VERIFIED but functional test not performed.",
+                            "result":  "NOT TESTED",
+                            "id":  "EXP-01",
+                            "question":  "Can Codex create/fork a thread from current session?"
+                        },
+                        {
+                            "recommendation":  "Test: fork after compact, compare artifact access.",
+                            "reason":  "Requires creating a fork and comparing context. Theory: fork_thread forks current state; if post-compact, context is compressed.",
+                            "result":  "CANNOT VERIFY WITHOUT LIVE TEST",
+                            "id":  "EXP-02",
+                            "question":  "Does forked thread have access to original uncompressed details?"
+                        },
+                        {
+                            "recommendation":  "Include startup verification script path in handoff instructions.",
+                            "reason":  "Factory startup verification is a PowerShell script. New/fork thread can run it if repo is accessible. Not tested live.",
+                            "result":  "DESIGN_VERIFIED_NOT_TESTED",
+                            "id":  "EXP-03",
+                            "question":  "Can startup verification be triggered in fork/new thread?"
+                        },
+                        {
+                            "evidence":  "System prompt: \u0027Only use create_thread when user explicitly asks.\u0027 Sub-agents are internal (spawn_agent, not create_thread). Workers don\u0027t appear in sidebar.",
+                            "result":  "NO — BY DESIGN",
+                            "recommendation":  "Do not claim subagent = user-visible branch.",
+                            "id":  "EXP-04",
+                            "question":  "Can subagent spawn create separate user-visible thread?"
+                        },
+                        {
+                            "evidence":  "fork_context:true inherits parent history; fork_context:false starts clean. Factory uses false for isolated builders, true for explorers.",
+                            "result":  "YES — BY DESIGN",
+                            "recommendation":  "Maintain current pattern.",
+                            "id":  "EXP-05",
+                            "question":  "Does fork_context:true vs false change worker context inheritance materially?"
+                        }
+                    ],
+    "nativeGenerated":  true,
+    "evidenceLimitations":  [
+                                "Official Codex manual (developers.openai.com/codex/codex-manual.md) returned 403 Forbidden",
+                                "openaiDeveloperDocs MCP server not configured in this environment",
+                                "Live thread fork/create experiments not performed (would create side-effect threads)"
+                            ],
+    "phase":  "H24-P1",
+    "generatedAt":  "2026-06-24T21:51:10+08:00",
+    "decisionMatrix":  [
+                           {
+                               "userActionRequired":  false,
+                               "requiresArtifactHandoff":  false,
+                               "mechanism":  "spawn_agent + fork_context:false + contracts",
+                               "requiresStartupVerification":  false,
+                               "evidence":  "DRY20/DRY24 proven pattern",
+                               "useCase":  "Isolated builder work"
+                           },
+                           {
+                               "userActionRequired":  false,
+                               "requiresArtifactHandoff":  false,
+                               "mechanism":  "spawn_agent + fork_context:true (limited context)",
+                               "requiresStartupVerification":  false,
+                               "evidence":  "Explorer agent type in system prompt",
+                               "useCase":  "Read-only verifier/explorer"
+                           },
+                           {
+                               "userActionRequired":  true,
+                               "requiresArtifactHandoff":  true,
+                               "mechanism":  "Manual new window + artifact handoff",
+                               "requiresStartupVerification":  true,
+                               "evidence":  "Factory H18-H24 proven mechanism",
+                               "useCase":  "Main Agent session rotation after compact"
+                           },
+                           {
+                               "userActionRequired":  true,
+                               "requiresArtifactHandoff":  true,
+                               "mechanism":  "Session rotation handoff → new window → startup verification → artifact-based state recovery",
+                               "requiresStartupVerification":  true,
+                               "evidence":  "10+ successful phase transitions",
+                               "useCase":  "Major phase transition"
+                           },
+                           {
+                               "userActionRequired":  false,
+                               "requiresArtifactHandoff":  false,
+                               "mechanism":  "spawn_agent + fork_context:true (explorer with full current context)",
+                               "requiresStartupVerification":  false,
+                               "evidence":  "Explorer agent pattern",
+                               "useCase":  "Alternative architecture exploration"
+                           },
+                           {
+                               "userActionRequired":  true,
+                               "requiresArtifactHandoff":  true,
+                               "mechanism":  "Manual new window + artifact handoff (ONLY trusted mechanism)",
+                               "requiresStartupVerification":  true,
+                               "evidence":  "Compressed summaries explicitly untrusted",
+                               "useCase":  "Emergency stale-context recovery"
+                           },
+                           {
+                               "userActionRequired":  false,
+                               "requiresArtifactHandoff":  false,
+                               "mechanism":  "automation_update (if available) on same thread OR new monitoring script run",
+                               "requiresStartupVerification":  false,
+                               "evidence":  "H21 monitoring prototype; automation CODEX_SELF_REPORT_ONLY",
+                               "useCase":  "Automation monitoring"
+                           },
+                           {
+                               "userActionRequired":  false,
+                               "requiresArtifactHandoff":  false,
+                               "mechanism":  "Spawn agent with fork_context:false OR external scheduled script",
+                               "requiresStartupVerification":  false,
+                               "evidence":  "spawn_agent supports background work; monitoring script is standalone",
+                               "useCase":  "Long-running background check"
+                           }
+                       ],
+    "policyTiers":  [
+                        {
+                            "rule":  "After confirmed compact, current window MAY finish the current narrow task. Do NOT start new major phase.",
+                            "evidenceBasis":  "Factory handoff protocol: old window \u0027has had multiple context compressions\u0027",
+                            "tier":  "CONFIRMED_COMPACT_CURRENT_TASK",
+                            "hardRequirement":  "Finish current subtask only"
+                        },
+                        {
+                            "rule":  "Before starting a new H/DRY/FINAL phase after confirmed compact, MUST perform session rotation: generate handoff, open new window, run startup verification.",
+                            "evidenceBasis":  "H18-H24: all major phase transitions used artifact handoff",
+                            "tier":  "CONFIRMED_COMPACT_BEFORE_MAJOR_PHASE",
+                            "hardRequirement":  "Session rotation handoff + startup verification"
+                        },
+                        {
+                            "rule":  "After multiple compactions in same window, mandatory session rotation. No new major phase in current window under any circumstance.",
+                            "evidenceBasis":  "Handoff protocol: \u0027compressed summaries are untrusted\u0027",
+                            "tier":  "MULTIPLE_COMPACTIONS",
+                            "hardRequirement":  "Rotate now. Current window is compromised for evidence purposes."
+                        },
+                        {
+                            "rule":  "When fork/create-thread capability is unknown in current environment, use manual new window + artifact handoff. This is always safe.",
+                            "evidenceBasis":  "Factory\u0027s proven mechanism works regardless of fork/create availability",
+                            "tier":  "UNKNOWN_BRANCH_CAPABILITY",
+                            "hardRequirement":  "Manual window + artifact handoff"
+                        },
+                        {
+                            "rule":  "If fork/create-thread is verified available AND user confirms, fork may be used as carrier. Artifact startup verification is STILL REQUIRED. Fork alone does not replace artifact handoff.",
+                            "evidenceBasis":  "Conservative: fork may carry compressed context; artifacts are ground truth",
+                            "tier":  "VERIFIED_THREAD_FORK",
+                            "hardRequirement":  "Fork + artifact startup verification"
+                        }
+                    ],
+    "finalPackageWording":  {
+                                "mayClaim":  [
+                                                 "Factory supports artifact-based session rotation (H18-H24 proven)",
+                                                 "New/fork thread may be used as carrier if available in user\u0027s Codex environment",
+                                                 "Startup verification is required before any implementation in new/fork thread",
+                                                 "Compressed summary is not evidence — always verify against repo artifacts",
+                                                 "Sub-agents (spawn_agent) provide isolated builder/explorer work without user-visible threads"
+                                             ],
+                                "mustNotClaim":  [
+                                                     "Codex automatically creates new windows (NOT VERIFIED)",
+                                                     "Fork inherits full pre-compact context (REJECTED — compressed summaries are lossy)",
+                                                     "Subagent creation equals user-visible branch (REJECTED — sub-agents are internal)",
+                                                     "Branch/fork alone expands reliable memory (REJECTED — only artifacts are reliable)",
+                                                     "Automation wakeup provides new full context (CODEX_SELF_REPORT_ONLY — not verified)",
+                                                     "After one compact, always require new window (HYPOTHESIS — compact detection not automated)"
+                                                 ],
+                                "recommendedPhrasing":  "Factory recommends artifact-based session rotation as the primary mechanism for context continuity across windows/sessions. If your Codex environment supports thread fork or new thread creation, these may be used as carriers, but startup artifact verification remains mandatory. Compressed summaries produced by context compaction are not trusted evidence — always validate against repo artifacts, verifier JSON, and manifest SHA256."
+                            }
+}

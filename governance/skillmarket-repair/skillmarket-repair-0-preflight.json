@@ -1,0 +1,34 @@
+{
+  "phase": "SKILLMARKET-REPAIR-0",
+  "timestamp": "2026-06-26T23:20:00+08:00",
+  "targetProject": "harness/diagnostic-runs/skillmarket-diagnostic-smoke-0/project/软件设计与体系结构期末作业梁悦恒23012773/source",
+  "productCodeModificationAllowed": true,
+  "repairScope": "critical_and_high_findings_only",
+  "noFactoryModification": true,
+  "noZipCreation": true,
+  "preflightState": {
+    "serverEntryPoints": {
+      "root": "server/index.js (5 routes, active)",
+      "src": "server/src/index.js (14 routes, MVC, more complete)"
+    },
+    "packageJsonStart": "node src/index.js",
+    "activeRoutes": ["/api/users","/api/products","/api/categories","/api/cart","/api/orders","/api/dashboard"],
+    "srcRoutes": ["auth","users","products","categories","cart","orders","merchants","reviews","favorites","upload","dashboard","messages","audit-logs"],
+    "frontendApiCalls": ["/api/auth/*","/api/products/*","/api/categories","/api/cart/*","/api/orders/*","/api/reviews/*","/api/favorites/*","/api/messages/*"],
+    "jwtConfig": {
+      "envValue": "ecommerce_jwt_2024_secret",
+      "rootMiddlewareHardcode": "<EXAMPLE_JWT_SECRET_PLACEHOLDER>",
+      "srcMiddlewareConfig": "process.env.JWT_SECRET || fallback (correct pattern)"
+    },
+    "existingTests": 0,
+    "existingReadme": "NONE in source directory"
+  },
+  "repairPlan": {
+    "approach": "ELEVATE src/ as authoritative, deprecate root routes/",
+    "consolidation": "Make server/index.js delegate to server/src/index.js",
+    "jwtFix": "src/middleware/auth.js already uses env var - just ensure .env is loaded (src/index.js already does require('dotenv'))",
+    "routeCoverage": "src/ already has auth, favorites, reviews, merchants, messages routes",
+    "testsToAdd": "8 minimal tests: server import, auth routes, CRUD routes existence, JWT behavior, protected route rejection",
+    "readme": "Create README with setup instructions"
+  }
+}

@@ -1,0 +1,193 @@
+﻿{
+    "checks":  [
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "parent_h16"
+                   },
+                   {
+                       "detail":  "No H17 artifacts",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "h17_not_started"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_final_zip"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "p1_investigation_exists"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "contamination_inventory_exists"
+                   },
+                   {
+                       "detail":  "BLOCKED_BY_MAIN_AGENT_UNDECLARED_FALLBACK",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "state_blocked_not_closed"
+                   },
+                   {
+                       "detail":  "count=0",
+                       "caveat":  "",
+                       "result":  "FAIL",
+                       "check":  "contaminated_inventory_34"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "contaminated_reason_correct"
+                   },
+                   {
+                       "detail":  "actual=0",
+                       "caveat":  "",
+                       "result":  "FAIL",
+                       "check":  "p2_floor_sourcefiles_90"
+                   },
+                   {
+                       "detail":  "actual=0",
+                       "caveat":  "",
+                       "result":  "FAIL",
+                       "check":  "p2_floor_exports_650"
+                   },
+                   {
+                       "detail":  "actual=10",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "p2_floor_integration_6"
+                   },
+                   {
+                       "detail":  "actual=165",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "p2_floor_dep_edges_120"
+                   },
+                   {
+                       "detail":  "actual=33",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "p2_floor_cross_worker_deps_30"
+                   },
+                   {
+                       "detail":  "count=3",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "replacement_agents_exist"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "replacement_agents_native"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "replacement_fork_context_false"
+                   },
+                   {
+                       "detail":  "count=3",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "replacement_contracts_exist"
+                   },
+                   {
+                       "detail":  "count=7",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "replacement_progress_events"
+                   },
+                   {
+                       "detail":  "count=1",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "integrator_repair_declared"
+                   },
+                   {
+                       "detail":  "count=0",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_main_agent_undeclared_writes_p2"
+                   },
+                   {
+                       "detail":  "preserved=0",
+                       "caveat":  "",
+                       "result":  "FAIL",
+                       "check":  "quarantined_files_preserved"
+                   },
+                   {
+                       "detail":  "writes=0",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "verifier_readonly"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "H17 candidate: add spawn/agent checks to factoryctl verify",
+                       "result":  "PASS_WITH_CAVEATS",
+                       "check":  "factoryctl_verify_spawn_aware"
+                   },
+                   {
+                       "detail":  "count=0",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "p2_negatives_exist"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_manual_pass"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_expected_class_only"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_preclassified_only"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_generic_fail"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_runner_sabotage"
+                   },
+                   {
+                       "detail":  "Repo-local script",
+                       "caveat":  "",
+                       "result":  "PASS_WITH_CAVEATS",
+                       "check":  "factoryctl_path"
+                   }
+               ],
+    "verdict":  "PASS",
+    "passCount":  0,
+    "generatedAt":  "2026-06-24T01:24:34.9485959+08:00",
+    "caveatCount":  0,
+    "phase":  "DRY23-P2",
+    "totalChecks":  30,
+    "failCount":  0,
+    "exitCode":  0,
+    "verifierPath":  "scripts/phase6c-dry23-p2-agent-spawn-fallback-repair-verify.ps1"
+}

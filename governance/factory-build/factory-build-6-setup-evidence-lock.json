@@ -1,0 +1,27 @@
+﻿{
+    "build5Status":  {
+                         "phase":  "FACTORY-BUILD-5",
+                         "negativeControls":  "62/62, 0 gaps",
+                         "productPath":  "harness/build-trials/skillforge-hub/product/",
+                         "verifierPass":  "60/60",
+                         "productFileCount":  36
+                     },
+    "build5Caveats":  [
+                          "Agent roles were SIMULATED - spawn_agent not available",
+                          "Native multi-agent execution not proven",
+                          "Build Pro remains CONDITIONAL, not default"
+                      ],
+    "phase":  "FACTORY-BUILD-6",
+    "subPhase":  "A_SETUP_EVIDENCE_LOCK",
+    "userApproved":  true,
+    "comparisonGoal":  "Determine Build Pro value relative to Vanilla and Build Lite, not create release",
+    "constraints":  [
+                        "BUILD-5 product CANNOT be modified during BUILD-6",
+                        "BUILD-6 cannot claim native multi-agent success",
+                        "BUILD-6 cannot create v0.5 package",
+                        "BUILD-6 cannot declare multi-agent default",
+                        "RUN-A Vanilla and RUN-B Build Lite MUST NOT read BUILD-5 product code",
+                        "User explicitly approved BUILD-6"
+                    ],
+    "date":  "2026-06-27T10:55:44.5787284+08:00"
+}

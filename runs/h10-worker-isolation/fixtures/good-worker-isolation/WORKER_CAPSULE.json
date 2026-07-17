@@ -1,0 +1,26 @@
+{
+  "runId": "h10-fixture-001",
+  "phase": "6C-H10",
+  "workerId": "worker-good",
+  "agentId": "agent-fixture-001",
+  "forkContext": false,
+  "worktreePath": "C:\\Codex_App_Factory\\runs\\h10-worker-isolation\\fixtures\\good-worker-isolation\\worktrees\\worker-good\\src",
+  "ownedFiles": ["src/app.ts", "src/utils.ts"],
+  "forbiddenFiles": ["src/other-worker.ts", "src/secrets.ts"],
+  "allowedDependencies": [],
+  "forbiddenDependencies": [],
+  "requiredExports": ["init", "formatDate"],
+  "requiredEvidenceOutputs": ["test-results.json", "typecheck.log"],
+  "requiredScenarios": ["happy-path", "empty-input"],
+  "requiredNegativeControls": ["bad-input", "null-input"],
+  "inputContextSummary": "Build app.ts with init() and utils.ts with formatDate().",
+  "excludedContext": ["full_conversation_history", "other_worker_capsules", "phase_lock_internals"],
+  "handoffRequirements": {
+    "branchResultRequired": true,
+    "branchDeltaRequired": true,
+    "sourceManifestRequired": true,
+    "evidenceManifestRequired": true
+  },
+  "mailboxRequirements": { "mailboxMessageRequired": false, "messageType": "HANDOFF" },
+  "createdAt": "2026-06-22T23:00:00+08:00"
+}

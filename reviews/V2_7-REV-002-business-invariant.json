@@ -1,0 +1,41 @@
+﻿{
+  "review_id": "V2_7-REV-002",
+  "review_type": "business_invariant_review",
+  "mission_id": "CPM-001",
+  "reviewer": {"identity": "Codex Factory v2.7 Business Invariant Reviewer","signature_mode": "self_declared_automated"},
+  "timestamp": "2026-07-17T00:00:00+08:00",
+  "scope": ["price invariants","inventory invariants","status transitions","payment idempotency","destructive actions","archived entity immutability"],
+  "evidence": {
+    "artifact_ids": ["V2_7-ART-001"],
+    "invariants_checked": [
+      {"invariant":"price_non_negative","source_packs":["ecommerce","admin-system"],"test":"rejects negative price","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"price_not_zero_unless_explicit_free","source_packs":["ecommerce"],"test":"rejects zero price without explicitFree","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"inventory_non_negative","source_packs":["ecommerce"],"test":"rejects negative inventory","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"status_transition_allowed","source_packs":["ecommerce","admin-system"],"test":"allows valid transition, rejects invalid","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"payment_idempotency_required","source_packs":["ecommerce","miniapp"],"test":"payment callback is idempotent","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"destructive_action_requires_confirmation","source_packs":["admin-system","ecommerce"],"test":"rejects delete without confirmation","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"archived_entity_not_mutable","source_packs":["admin-system","ecommerce"],"test":"NC3 tampered price on archived blocked (ARCHIVED_ENTITY_NOT_MUTABLE)","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"admin_required_for_admin_routes","source_packs":["admin-system"],"test":"rejects non-admin creating products","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"session_token_required_for_user_actions","source_packs":["miniapp"],"test":"rejects no session token","result":"PASS","artifact_ref":"V2_7-ART-001"},
+      {"invariant":"miniapp_secret_never_exposed_to_client","source_packs":["miniapp"],"test":"config never exposes secret","result":"PASS","artifact_ref":"V2_7-ART-001"}
+    ],
+    "negative_controls": [
+      {"control":"NC1: cross-user order access","result":"PASS — 404 returned"},
+      {"control":"NC2: non-admin escalation","result":"PASS — 403 returned"},
+      {"control":"NC3: tampered price on update","result":"PASS — 400 PRICE_NON_NEGATIVE"}
+    ]
+  },
+  "decision": "APPROVED",
+  "risk_notes": [
+    "All 10 CRITICAL invariants have test coverage and pass",
+    "All 3 negative controls active and effective",
+    "In-memory store means inventory/order state is ephemeral — not a business invariant gap but a production gap"
+  ],
+  "non_claims": [
+    "This review does NOT validate real financial transaction integrity",
+    "Inventory deduction is in-memory only, not ACID-compliant",
+    "No double-spend protection beyond transactionId dedup"
+  ],
+  "blocking": false,
+  "conditions": []
+}

@@ -1,0 +1,36 @@
+{
+  "contractId": "dry24-builder-decision-contract",
+  "phase": "DRY24-A",
+  "agentId": "dry24-builder-decision",
+  "role": "builder",
+  "forkContext": false,
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:03:07.718055+08:00",
+  "scope": "packages/factory-decision-engine/",
+  "ownedFiles": [
+    "packages/factory-decision-engine/src/"
+  ],
+  "exportedAPI": [
+    "PriorityClassifier",
+    "P0Blocker",
+    "P1GateEnforcer",
+    "DecisionRecorder",
+    "PhaseTransitionGate"
+  ],
+  "allowedImports": [
+    "packages/worker-contract-engine/src/"
+  ],
+  "forbiddenImports": [
+    "packages/dry24-integration-hub/"
+  ],
+  "integrationPoints": [
+    "@dry24/factory-decision-engine"
+  ],
+  "dependencyDeclarations": [
+    {
+      "source": "packages/factory-decision-engine/",
+      "target": "packages/worker-contract-engine/src/"
+    }
+  ],
+  "handoffPath": "governance/contracts/dry24/dry24-builder-decision.worker-contract.json"
+}

@@ -1,0 +1,100 @@
+﻿{
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  3,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry21-builder-taskqueue",
+                                       "targetScope":  "packages/task-queue/"
+                                   },
+                                   {
+                                       "edgeCount":  2,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry21-builder-agentlifecycle",
+                                       "targetScope":  "packages/agent-lifecycle/"
+                                   },
+                                   {
+                                       "edgeCount":  2,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry21-builder-evidencechain",
+                                       "targetScope":  "packages/evidence-chain/"
+                                   }
+                               ],
+    "phase":  "DRY21-A",
+    "forkContext":  false,
+    "scope":  {
+                  "forbiddenFiles":  [
+
+                                     ],
+                  "ownedFiles":  [
+                                     "packages/phase-gate/src/allowed-next-resolver.ts",
+                                     "packages/phase-gate/src/cross-module-contracts.ts",
+                                     "packages/phase-gate/src/gate-logger.ts",
+                                     "packages/phase-gate/src/gate-policy.ts",
+                                     "packages/phase-gate/src/gate-validator.ts",
+                                     "packages/phase-gate/src/handoff-validator.ts",
+                                     "packages/phase-gate/src/index.ts",
+                                     "packages/phase-gate/src/parent-checker.ts",
+                                     "packages/phase-gate/src/phase-history.ts",
+                                     "packages/phase-gate/src/phase-sequencer.ts",
+                                     "packages/phase-gate/src/postflight-checker.ts",
+                                     "packages/phase-gate/src/preflight-checker.ts",
+                                     "packages/phase-gate/src/risk-signal-detector.ts",
+                                     "packages/phase-gate/src/serializer.ts",
+                                     "packages/phase-gate/src/stop-condition-evaluator.ts",
+                                     "packages/phase-gate/src/types.ts"
+                                 ],
+                  "forbiddenDirectories":  [
+                                               "governance/factory-state/",
+                                               "outputs/"
+                                           ],
+                  "ownedDirectories":  [
+                                           "packages/phase-gate/"
+                                       ]
+              },
+    "exportedApiSurface":  [
+                               "barrel: packages/phase-gate/src/index.ts"
+                           ],
+    "isReadOnly":  false,
+    "allowedImports":  [
+                           {
+                               "target":  "packages/task-queue/*.ts",
+                               "source":  "packages/phase-gate/*.ts",
+                               "declared":  true
+                           },
+                           {
+                               "target":  "packages/agent-lifecycle/*.ts",
+                               "source":  "packages/phase-gate/*.ts",
+                               "declared":  true
+                           },
+                           {
+                               "target":  "packages/evidence-chain/*.ts",
+                               "source":  "packages/phase-gate/*.ts",
+                               "declared":  true
+                           }
+                       ],
+    "evidencePath":  "harness/runs/dry21-vendor-procurement-risk-app/reports/",
+    "forbiddenImports":  [
+                             {
+                                 "target":  "../../scripts/*",
+                                 "reason":  "Workers must not import scripts"
+                             }
+                         ],
+    "role":  "builder",
+    "nativeGenerated":  false,
+    "generatedAt":  "2026-06-23T23:29:25+08:00",
+    "contractVersion":  "1.0.0",
+    "integrationHandoff":  {
+                               "path":  "harness/runs/dry21-vendor-procurement-risk-app/",
+                               "format":  "typescript",
+                               "expectedConsumer":  "dry21-integrator-1"
+                           },
+    "sourceEvidenceSha256":  {
+
+                             },
+    "generatedBy":  "scripts/contracts/generate-retroactive-contracts.ps1",
+    "retroactive":  true,
+    "agentId":  "dry21-builder-phasegate"
+}

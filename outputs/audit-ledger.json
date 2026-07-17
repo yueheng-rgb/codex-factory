@@ -1,0 +1,15 @@
+﻿{
+    "event_type":  "REGRESSION_RUN",
+    "target":  "all-testbeds",
+    "command":  "npm test",
+    "exit_code":  0,
+    "result_summary":  "172/172 PASS"
+}
+{"frozen_trunk":"unmodified","no_production_exaggeration":true,"release":"Codex Factory v2.0.0","classification":"A","no_secrets":true,"event":"V2_0_RELEASE_PACKAGING_COMPLETE","timestamp":"2026-07-12T00:12:37+08:00","no_fake_pass":true,"deprecated_locks_preserved":15,"regression":"210/210 PASS","files_created":12}
+{"artifact_store_index":"artifacts/RUN-V2_1-20260712-001839/artifact-store-index.json","directory_snapshot_hash":null,"total_passed":null,"passed":null,"total_tests":null,"event":"V2_1_CI_ARTIFACT_CAPTURE","timestamp":"2026-07-12T00:18:39+08:00","run_id":"RUN-V2_1-20260712-001839","failed":null,"total_artifacts":null}
+{"artifact_store_index":"artifacts/0/artifact-store-index.json","directory_snapshot_hash":"2c51e51ff0781b1f30557a13ca77001741995523f127f0edd405d1652e6679b1","total_passed":0,"passed":11,"total_tests":0,"skipped":0,"event":"V2_1_CI_ARTIFACT_CAPTURE","timestamp":"2026-07-12T00:21:02+08:00","run_id":"0","failed":0,"total_artifacts":11}
+{"artifact_store_index":"artifacts/RUN-V2_1-20260712-002141/artifact-store-index.json","directory_snapshot_hash":null,"total_passed":null,"passed":null,"total_tests":null,"skipped":null,"event":"V2_1_CI_ARTIFACT_CAPTURE","timestamp":"2026-07-12T00:21:41+08:00","run_id":"RUN-V2_1-20260712-002141","failed":null,"total_artifacts":null}
+{"artifact_store_index":"artifacts/RUN-V2_1-20260712-002745/artifact-store-index.json","directory_snapshot_hash":"129e1cf00ddf7a52ef580e3dbe088442a4540715abf22dcfef4ba27deff74c23","total_passed":7,"passed":10,"total_tests":7,"skipped":0,"event":"V2_1_CI_ARTIFACT_CAPTURE","timestamp":"2026-07-12T00:28:24+08:00","run_id":"RUN-V2_1-20260712-002745","failed":0,"total_artifacts":10}
+{"artifact_store_index":"artifacts/RUN-V2_1-20260712-002853/artifact-store-index.json","directory_snapshot_hash":"9f10789726db25deee068619a788dd249ae0b077f64467df6ea8e9578d1fbfc4","total_passed":210,"passed":10,"total_tests":210,"skipped":0,"event":"V2_1_CI_ARTIFACT_CAPTURE","timestamp":"2026-07-12T00:29:33+08:00","run_id":"RUN-V2_1-20260712-002853","failed":0,"total_artifacts":10}
+{"event":"V2_2_HUMAN_REVIEW_CONSOLE_DEMOS","gate_tests":["CRITICAL+artifact → ALLOWED","L_CLASS_no_receipt → BLOCKED","missing_artifact_ART-0999 → BLOCKED"],"cannot_be_auto_generated_by_agent":true,"timestamp":"2026-07-12T00:44:16+08:00","total_receipts":4,"no_fake_reviewer":true,"receipts":["REV-0001 (APPROVED, CRITICAL)","REV-0002 (APPROVED, HIGH)","REV-0003 (REJECTED, CRITICAL)","REV-0004 (APPROVED_WITH_RISK, HIGH)"]}
+{"activation_demos":12,"existing_packs_intact":true,"timestamp":"2026-07-12T00:53:17+08:00","sanitizer_live_validated":false,"human_review_gate_intact":true,"artifact_store_intact":true,"regression_intact":true,"total_invariants_new":30,"total_packs":6,"runtime_validated":false,"new_packs":["miniapp","game-threejs","cpp-memory-safety"],"no_fake_claims":true,"total_benchmarks_new":9,"event":"V2_3_EXPERT_PACK_EXPANSION_BATCH2"}

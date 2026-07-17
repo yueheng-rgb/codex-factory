@@ -1,0 +1,210 @@
+﻿{
+    "gaps":  0,
+    "generated_at":  "2026-06-28T10:38:41+08:00",
+    "verdict":  "NEGATIVE_CONTROLS_PASS",
+    "total":  40,
+    "controls_id":  "P3-NEG",
+    "controls":  [
+                     {
+                         "triggered":  false,
+                         "id":  "NC-1",
+                         "desc":  "original project modified"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-2",
+                         "desc":  "production server connected"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-3",
+                         "desc":  "deploy script executed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-4",
+                         "desc":  "remote command executed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-5",
+                         "desc":  "production DB accessed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-6",
+                         "desc":  "secret value printed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-7",
+                         "desc":  "new secret requested"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-8",
+                         "desc":  "real secret in safe config"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-9",
+                         "desc":  "NBP started"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-10",
+                         "desc":  "v0.5 created"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-11",
+                         "desc":  "release ZIP"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-12",
+                         "desc":  "test failures ignored"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-13",
+                         "desc":  "pass count fabricated"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-14",
+                         "desc":  "tests deleted without reason"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-15",
+                         "desc":  "tests skipped without reason"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-16",
+                         "desc":  "broad refactor"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-17",
+                         "desc":  "product behavior changed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-18",
+                         "desc":  "Django version mismatch assumed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-19",
+                         "desc":  "network install without approval"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-20",
+                         "desc":  "check skipped"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-21",
+                         "desc":  "smoke hangs"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-22",
+                         "desc":  "smoke not killed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-23",
+                         "desc":  "security checklist removed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-24",
+                         "desc":  "rotation checklist removed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-25",
+                         "desc":  ".gitignore weakened"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-26",
+                         "desc":  "deploy re-enabled w/ creds"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-27",
+                         "desc":  "Package QA mainline"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-28",
+                         "desc":  "diagnostic mainline"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-29",
+                         "desc":  "Factory superiority claimed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-30",
+                         "desc":  "Snapshot as evidence"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-31",
+                         "desc":  "external memory model expansion"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-32",
+                         "desc":  "P2 context ignored"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-33",
+                         "desc":  "phase close omitted"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-34",
+                         "desc":  "stale snapshot"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-35",
+                         "desc":  "no assessment"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-36",
+                         "desc":  "no verifier"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-37",
+                         "desc":  "no negative controls"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-38",
+                         "desc":  "manual PASS-only"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-39",
+                         "desc":  "expectedClass-only"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-40",
+                         "desc":  "generic FAIL"
+                     }
+                 ],
+    "triggered":  0
+}

@@ -1,0 +1,15 @@
+﻿{
+  "phase": "FACTORY-STATE-DASHBOARD-0",
+  "section": "G",
+  "title": "Health & Warning Rules",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "rules_file": "factory-dashboard/HEALTH_WARNING_RULES.md",
+  "indicators": ["HEALTHY", "WARNING", "CRITICAL", "UNKNOWN"],
+  "categories": ["Project Identity", "Phase", "Blockers & Risks", "Memory & Context", "Cleanup", "Agent Ledger", "Paths"],
+  "escalation": {
+    "3_plus_warning": "OVERALL: NEEDS ATTENTION",
+    "1_plus_critical": "OVERALL: BLOCKED"
+  },
+  "report": "outputs/FACTORY_STATE_DASHBOARD_0_G_HEALTH_WARNING_RULES_REPORT.md"
+}

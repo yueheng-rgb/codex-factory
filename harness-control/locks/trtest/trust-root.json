@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  33,
+    "frozenAt":  "2026-06-18T22:37:12.7207217+08:00",
+    "runId":  "trtest",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\trtest\\trust-root.json",
+    "controlPlaneLockSha256":  "43c13822ffa606522c947bf97755a87c6f41ebe2bcc65cd3e548655054f48e38",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "6a31ed4e4216252b0905ecbcee629a73ee44c68c6a2708dac782581d1fe0396f"
+}

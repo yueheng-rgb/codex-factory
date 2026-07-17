@@ -1,0 +1,13 @@
+﻿{
+    "readyForHandoff":  true,
+    "repairsNeeded":  false,
+    "caveats":  [
+                    "fixture-level scripts",
+                    "CLI name reconciliation in progress",
+                    "not production/cloud/deploy"
+                ],
+    "section":  "J",
+    "smokePassed":  true,
+    "realValidationDeferred":  true,
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE"
+}

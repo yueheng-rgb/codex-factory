@@ -1,0 +1,60 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-factory/schemas/skill-audit-report.schema.json",
+  "title": "Skill Audit Report",
+  "description": "Standard audit report produced by the Skill Audit Pipeline for a single skill version.",
+  "type": "object",
+  "required": ["auditId", "skillId", "skillVersion", "auditedAt", "verdict", "riskScore", "stages"],
+  "properties": {
+    "auditId": { "type": "string", "pattern": "^SKILL-AUDIT-[A-Z0-9-]+$" },
+    "skillId": { "type": "string" },
+    "skillVersion": { "type": "string" },
+    "sourceRefs": { "type": "array", "items": { "type": "string" } },
+    "auditorAgent": { "type": "string", "description": "Agent that performed the audit (SEC-001 for MVP)" },
+    "auditedAt": { "type": "string", "format": "date-time" },
+    "verdict": { "type": "string", "enum": ["pass","pass_with_controls","reject","quarantine","needs_human_review"] },
+    "riskScore": { "type": "number", "minimum": 0, "maximum": 100, "description": "0=lowest risk, 100=highest risk" },
+    "requiredControls": { "type": "array", "items": { "type": "string" } },
+    "stages": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "passed": { "type": "boolean" },
+            "findings": { "type": "array", "items": { "type": "object", "properties": { "riskId": {"type":"string"}, "severity": {"type":"string"}, "description": {"type":"string"} } } }
+          }
+        },
+        "content": {
+          "type": "object",
+          "properties": {
+            "passed": { "type": "boolean" },
+            "findings": { "type": "array", "items": { "type": "object", "properties": { "riskId": {"type":"string"}, "severity": {"type":"string"}, "description": {"type":"string"}, "pattern": {"type":"string"} } } }
+          }
+        },
+        "permission": {
+          "type": "object",
+          "properties": {
+            "passed": { "type": "boolean" },
+            "findings": { "type": "array", "items": { "type": "object", "properties": { "riskId": {"type":"string"}, "severity": {"type":"string"}, "description": {"type":"string"} } } }
+          }
+        },
+        "supplyChain": {
+          "type": "object",
+          "properties": {
+            "passed": { "type": "boolean" },
+            "findings": { "type": "array", "items": { "type": "object", "properties": { "riskId": {"type":"string"}, "severity": {"type":"string"}, "description": {"type":"string"} } } }
+          }
+        },
+        "runtimeBehavior": {
+          "type": "object",
+          "properties": {
+            "passed": { "type": "boolean" },
+            "findings": { "type": "array", "items": { "type": "object", "properties": { "riskId": {"type":"string"}, "severity": {"type":"string"}, "description": {"type":"string"} } } }
+          }
+        }
+      }
+    },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" }, "description": "Paths to evidence files" }
+  }
+}

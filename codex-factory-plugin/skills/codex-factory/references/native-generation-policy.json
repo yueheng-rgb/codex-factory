@@ -1,0 +1,93 @@
+﻿{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "factory-resource-pack/policies/native-generation-policy.json",
+  "title": "Native Generation Policy",
+  "description": "Defines rules for the nativeGenerated marker. Specifies what qualifies as natively generated, what must be marked reconstructed, and prohibits claiming reconstructed artifacts as native.",
+  "phase": "H18",
+  "policyVersion": "1.0.0",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T12:00:00.000+08:00",
+  "generatedBy": "H18 Builder: POLICIES-SCHEMAS",
+  "nativeGeneratedDefinition": {
+    "description": "An artifact is nativeGenerated:true if and only if it was created during its declared phase by a duly spawned worker agent with fork_context:true and without retroactive reconstruction from post-hoc evidence.",
+    "requiredConditions": [
+      {
+        "condition": "createdDuringDeclaredPhase",
+        "description": "The artifact's generatedAt timestamp falls within the active window of its declared phase.",
+        "verification": "Cross-check generatedAt against phase timeline in AGENT_PROGRESS.jsonl."
+      },
+      {
+        "condition": "forkContextTrue",
+        "description": "The worker contract must have fork_context:true, confirming the agent was spawned with forked context, not as a retroactive summary reconstruction.",
+        "verification": "Check worker-contract forkContext field."
+      },
+      {
+        "condition": "notReconstructed",
+        "description": "The artifact must not have reconstructedFrom field set. If reconstructedFrom is present, nativeGenerated must be false regardless of other conditions.",
+        "verification": "Check for presence of reconstructedFrom in artifact metadata."
+      },
+      {
+        "condition": "workerOwnedScope",
+        "description": "The artifact must be within the worker's owned directories per its contract scope.",
+        "verification": "Cross-check file path against worker contract scope.ownedDirectories."
+      },
+      {
+        "condition": "transcriptExists",
+        "description": "A worker completion transcript must exist that covers the time window when the artifact was created.",
+        "verification": "Check for transcript with timestamps bracketing generatedAt."
+      }
+    ]
+  },
+  "reconstructedDefinition": {
+    "description": "An artifact is reconstructed if it was created after its declared phase ended, from post-hoc evidence rather than active worker execution.",
+    "markers": [
+      "reconstructedFrom field is present and non-null.",
+      "retroactive field is true.",
+      "generatedAt is after phase close timestamp.",
+      "fork_context is false or missing in worker contract.",
+      "generatedBy references a reconstruction script (e.g., 'H18-Reconstructor')."
+    ],
+    "allowed": true,
+    "restrictions": [
+      "Reconstructed artifacts must declare reconstructedFrom with reference to source evidence.",
+      "Reconstructed artifacts must have nativeGenerated:false.",
+      "Reconstructed artifacts cannot serve as primary evidence for PASS verdicts unless corroborated by native artifacts.",
+      "Reconstructed artifacts must carry a reconstruction warning in their description."
+    ]
+  },
+  "prohibitions": [
+    {
+      "rule": "noReconstructedClaimedAsNative",
+      "description": "An artifact with reconstructedFrom set or retroactive:true MUST NOT have nativeGenerated:true.",
+      "priority": "P0",
+      "verifierCheck": "If reconstructedFrom is non-null, assert nativeGenerated === false."
+    },
+    {
+      "rule": "noForkContextFalseClaimedAsNative",
+      "description": "If fork_context is false or missing, nativeGenerated must be false.",
+      "priority": "P1",
+      "verifierCheck": "If forkContext is falsy, assert nativeGenerated === false."
+    },
+    {
+      "rule": "noPostPhaseNativeClaim",
+      "description": "If generatedAt is after the phase close timestamp, nativeGenerated must be false.",
+      "priority": "P1",
+      "verifierCheck": "Cross-check generatedAt against phase timeline."
+    },
+    {
+      "rule": "noNativeWithoutTranscript",
+      "description": "If no worker transcript exists bracketing the generatedAt time, nativeGenerated should be considered suspect.",
+      "priority": "P2",
+      "verifierCheck": "Verify transcript coverage window includes generatedAt."
+    }
+  ],
+  "retroactiveContracts": {
+    "description": "Worker contracts generated retroactively for completed phases.",
+    "rules": [
+      "Must have retroactive:true.",
+      "Must have nativeGenerated:false.",
+      "Must have reconstructedFrom referencing the source evidence used to reconstruct the contract.",
+      "Retroactive contracts cannot be used to satisfy dependency declarations for native phases."
+    ]
+  }
+}

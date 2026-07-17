@@ -1,0 +1,7 @@
+﻿{
+    "phase":  "DRY26-A",
+    "verdict":  "PASS",
+    "absolutePathRefs":  0,
+    "fixturePath":  "harness/fixtures/dry26-skill-plugin-installability/",
+    "filesInstalled":  45
+}

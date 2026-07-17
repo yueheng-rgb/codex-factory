@@ -1,0 +1,223 @@
+﻿{
+    "currentTrustedState":  {
+                                "recommendedNextPhase":  "DRY25",
+                                "dry25Status":  "NOT_STARTED",
+                                "allowedNextPhase":  "DRY25 or H19",
+                                "h19Status":  "NOT_STARTED",
+                                "h18VerifierResult":  "84/84 PASS",
+                                "h18Status":  "PASS",
+                                "currentTrustedPhase":  "H18",
+                                "finalZipExists":  false
+                            },
+    "windowStatus":  "OLD_WINDOW_CLOSING",
+    "sourceEvidenceHashes":  {
+                                 "session-rotation-handoff.json":  {
+                                                                       "sha256":  "A45D2D887B95C82D1FC50BDCAF674A95B2CD2B68F42AD1BEBF44049C9228F7C4",
+                                                                       "size":  1525
+                                                                   },
+                                 "AGENT_REGISTRY.json":  {
+                                                             "sha256":  "3197612AAF9133ABA18DCAB9972BC41B70A4928488C9D0B2B5C1FCBA443CF1FF",
+                                                             "size":  27725
+                                                         },
+                                 "current-factory-state.json":  {
+                                                                    "sha256":  "567B02D2AF0E24D1A7BE09641A907B9303F7E801AA99843A54F23E459BC17F46",
+                                                                    "size":  20025
+                                                                },
+                                 "verifier-h18-result.json":  {
+                                                                  "sha256":  "EF6847082C379D1CFF360A5D36D545E3012491A4B1CA824F9A03918D8D5FF343",
+                                                                  "size":  16693
+                                                              },
+                                 "h18-verifier.ps1":  {
+                                                          "sha256":  "5F90D6D0BBD7257F86FD795719B0DC2A89B5E69486D201933B1F93C9F35ADC67",
+                                                          "size":  8207
+                                                      },
+                                 "h18-report.md":  {
+                                                       "sha256":  "F5A06CC3688ABF98261425D76A8EFA97B13E1E9E188E67A822414E25A76D892F",
+                                                       "size":  2215
+                                                   },
+                                 "MANIFEST.json":  {
+                                                       "sha256":  "AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8",
+                                                       "size":  5134
+                                                   }
+                             },
+    "acceptedPhaseChain":  [
+                               {
+                                   "phase":  "DRY23-P2",
+                                   "status":  "PASS",
+                                   "summary":  "Repaired Main Agent fallback contamination; 34 quarantined files; 3 replacement agents spawned; exports 678, dep edges 165, cross-worker deps 33, integration points 6"
+                               },
+                               {
+                                   "phase":  "H17-P1",
+                                   "status":  "PASS",
+                                   "summary":  "Repaired H17 closure hygiene; NO_H18 filter fixed (phase-aware pattern); Get-Date fixed in 4 policy files; 28 agents classified as archived (0 unsafe); 20/20 negatives executed/detected"
+                               },
+                               {
+                                   "phase":  "DRY24-P1",
+                                   "status":  "PASS",
+                                   "summary":  "Repaired DRY24 closure evidence mismatch; 3 repair builders (Godel/Schrodinger/Bohr); 90 source files, 1121 exports, 174 dep edges, 30 cross-worker deps, 7 integration points; verifier 27/27 PASS"
+                               },
+                               {
+                                   "phase":  "H18",
+                                   "status":  "PASS",
+                                   "summary":  "Resource pack foundation; 53 files, 16 categories; verifier 84/84 PASS; SCORING_SYSTEM_GATE enforced; failure-router excluded from core; H18-A0 inventory compliance"
+                               }
+                           ],
+    "blockingRisksToWatch":  [
+                                 {
+                                     "description":  "currentTrustedPhase in state file is not H18",
+                                     "risk":  "parentMismatch",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Any PASS verdict without corresponding verifier JSON",
+                                     "risk":  "manualPass",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Expected result without actual execution transcript",
+                                     "risk":  "expectedClassOnly",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Worker or phase completion without transcript/result path",
+                                     "risk":  "missingTranscript",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "FAIL without specific target gate identifier",
+                                     "risk":  "genericFail",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Evidence modified by runner, not by agent in scope",
+                                     "risk":  "runnerSabotage",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Phase marked PASS but verifier shows unmet floors or negative gaps",
+                                     "risk":  "falseClosure",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Negatives designed but not executed or not detected",
+                                     "risk":  "negativeGaps",
+                                     "severity":  "P1"
+                                 },
+                                 {
+                                     "description":  "Main Agent writes implementation in worker scope after spawn failure",
+                                     "risk":  "mainAgentFallback",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Failed/broken agent counted in success statistics",
+                                     "risk":  "failedAgentCountedAsSuccess",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Old window compressed summary treated as trusted evidence",
+                                     "risk":  "compressedSummaryAsEvidence",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "MANIFEST.json hash does not match MANIFEST.sha256",
+                                     "risk":  "manifestShaMismatch",
+                                     "severity":  "P0"
+                                 },
+                                 {
+                                     "description":  "Resource pack references absolute paths from current repo",
+                                     "risk":  "resourcePackHiddenDep",
+                                     "severity":  "P1"
+                                 },
+                                 {
+                                     "description":  "Final delivery ZIP created before phase closure",
+                                     "risk":  "finalZipEarly",
+                                     "severity":  "P0"
+                                 }
+                             ],
+    "nativeGenerated":  true,
+    "h18ResourcePackSummary":  {
+                                   "verifierPath":  "scripts/phase6c-h18-resource-pack-foundation-verify.ps1",
+                                   "coreModules":  [
+                                                       "factoryctl.ps1",
+                                                       "register-agent.ps1",
+                                                       "record-progress.ps1",
+                                                       "generate-handoff.ps1",
+                                                       "handoff-verify.ps1"
+                                                   ],
+                                   "path":  "factory-resource-pack/",
+                                   "manifestSha256":  "AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8",
+                                   "exists":  true,
+                                   "manifestSha256Path":  "factory-resource-pack/MANIFEST.sha256",
+                                   "keyRules":  [
+                                                    "No scoring system in core PASS/FAIL gates (SCORING_SYSTEM_GATE enforced)",
+                                                    "Failure-router excluded from core/runnable pack",
+                                                    "Compressed summary is NOT evidence",
+                                                    "Unverified Codex capability claim cannot be packaged as VERIFIED_FACT",
+                                                    "All gating must be verifier-based (binary check, not weighted score)"
+                                                ],
+                                   "verifierResult":  "84/84 PASS",
+                                   "verifierResultPath":  "governance/factory-state/verifier-h18-result.json",
+                                   "categories":  16,
+                                   "manifestPath":  "factory-resource-pack/MANIFEST.json",
+                                   "totalFiles":  54
+                               },
+    "nextCommandRecommendation":  {
+                                      "dry25Goal":  "Test whether H18 resource pack can be consumed by a fresh project fixture without hidden current-repo dependencies",
+                                      "note":  "DO NOT start DRY25 before all startup checks pass. DO NOT create DRY25 artifacts during startup verification.",
+                                      "afterStartupVerificationPass":  "DRY25 / Resource Pack Portability Stress Test"
+                                  },
+    "requiredStartupChecks":  [
+                                  {
+                                      "expected":  "PASS",
+                                      "command":  "powershell -File scripts/factoryctl.ps1 verify --json",
+                                      "blocksIfFail":  true,
+                                      "check":  "factoryctl verify"
+                                  },
+                                  {
+                                      "expected":  "Match",
+                                      "command":  "Verify currentTrustedPhase == H18 and h18Status == PASS",
+                                      "blocksIfFail":  true,
+                                      "check":  "validate current-factory-state.json"
+                                  },
+                                  {
+                                      "expected":  "Match",
+                                      "command":  "Verify phase == H18-to-DRY25-session-rotation",
+                                      "blocksIfFail":  true,
+                                      "check":  "validate session-rotation-handoff.json"
+                                  },
+                                  {
+                                      "expected":  "AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8",
+                                      "command":  "Get-FileHash factory-resource-pack/MANIFEST.json -Algorithm SHA256",
+                                      "blocksIfFail":  true,
+                                      "check":  "validate MANIFEST.json"
+                                  },
+                                  {
+                                      "expected":  "Match",
+                                      "command":  "Compare stored hash with computed hash of MANIFEST.json",
+                                      "blocksIfFail":  true,
+                                      "check":  "validate MANIFEST.sha256"
+                                  },
+                                  {
+                                      "expected":  "Zero",
+                                      "command":  "Check no *DRY25* files exist in outputs/, governance/, or packages/",
+                                      "blocksIfFail":  true,
+                                      "check":  "confirm no DRY25 artifacts"
+                                  },
+                                  {
+                                      "expected":  "Zero",
+                                      "command":  "Check no *PHASE_6C_H19* files exist",
+                                      "blocksIfFail":  true,
+                                      "check":  "confirm no H19 artifacts"
+                                  },
+                                  {
+                                      "expected":  "Zero",
+                                      "command":  "Check no final*.zip or delivery*.zip exists",
+                                      "blocksIfFail":  true,
+                                      "check":  "confirm no final ZIP"
+                                  }
+                              ],
+    "generatedDuringPhase":  "H18",
+    "phase":  "H18-to-DRY25-session-rotation",
+    "compressionCaveat":  "Current window has had multiple context compressions. Compressed summaries are NOT trusted evidence. New window must rely only on repo artifacts, verifier JSON, manifest SHA256, registry, progress, and handoff.",
+    "generatedAt":  "2026-06-24T17:10:37.1946540+08:00"
+}

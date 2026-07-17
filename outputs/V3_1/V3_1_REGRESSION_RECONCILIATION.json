@@ -1,0 +1,69 @@
+﻿{
+    "reconciliation_id": "V3_1-REGRESSION-RECONCILIATION-001",
+    "timestamp": "2026-07-17T16:20:00+08:00",
+    "checks": {
+        "v3_0_demos_verifiable": {
+            "status": "PASS",
+            "demo-001": "PASS — 23/23 tests, artifact-bound",
+            "demo-002": "FAIL (expected) — main_tree_polluted=false",
+            "demo-003": "BLOCKED (expected) — deprecated direction detected",
+            "demo-004": "PASS — 17/17 tests, review receipt bound"
+        },
+        "regression_274": {
+            "status": "ARTIFACT_CONFIRMED_PLUS_SPOT_CHECK",
+            "note": "Full 274/274 rerun NOT performed in V3.1 reconciliation. Spot check of products-api (23/23) and CPM-001 (17/17) PASS. Remaining testbeds artifact-confirmed from V3.0 baseline.",
+            "products-api": "23/23 PASS (spot checked V3.1)",
+            "cross-pack-cpm-001": "17/17 PASS (spot checked V3.1)",
+            "admin-system": "58/58 artifact-confirmed (V3.0)",
+            "miniapp": "27/27 artifact-confirmed (V3.0)",
+            "game-threejs": "30/30 artifact-confirmed (V3.0)",
+            "cpp-memory-safety": "41/41 artifact-confirmed (V3.0)",
+            "ecommerce": "29/29 artifact-confirmed (V3.0)",
+            "saas": "27/27 artifact-confirmed (V3.0)",
+            "mini-inventory-admin": "22/22 artifact-confirmed (V3.0)",
+            "total_confirmed": 274
+        },
+        "expert_packs": {
+            "status": "PASS",
+            "packs_loadable": 6,
+            "packs": ["ecommerce", "saas-tool", "admin-system", "miniapp", "game-threejs", "cpp-memory-safety"]
+        },
+        "snapshot_verifier": {
+            "status": "PASS",
+            "checks": "14/14 PASS",
+            "snapshot_id": "CODEX-FACTORY-V2-20260717"
+        },
+        "artifact_verifier": {
+            "status": "PASS",
+            "note": "Artifact store indexed, CI artifacts synced, run records valid JSON"
+        },
+        "human_review_gate": {
+            "status": "PASS",
+            "receipts_valid": ["V3_0-REV-001", "V3_1-REV-CRITICAL-001"],
+            "blocked_without_receipt": true,
+            "signed_local_receipt_limitations_documented": true
+        },
+        "deprecated_locks": {
+            "status": "PASS",
+            "locks_intact": true,
+            "deprecated_patterns": ["Independent Search Agent", "Dual Search Channel", "Firecrawl as canonical search", "chat URL extraction as canonical"]
+        },
+        "secrets": {
+            "status": "PASS",
+            "secrets_found": 0,
+            "ci_artifacts_scanned": true,
+            "v3_1_outputs_scanned": true
+        },
+        "no_fake_remote": {
+            "status": "PASS",
+            "remote_runner_status": "NOT_IMPLEMENTED",
+            "remote_claimed_as_available": false
+        },
+        "no_production_cloud_claim": {
+            "status": "PASS",
+            "production_cloud_claimed": false,
+            "non_claims_present": true
+        }
+    },
+    "overall": "PASS — All gates satisfied, no fake claims"
+}

@@ -1,0 +1,59 @@
+﻿{
+    "timestamp":  "2026-06-26T18:47:55.4441842+08:00",
+    "simulationTest":  {
+                           "deficitCase":  "Endpoints=35 floor=40 -\u003e BLOCK, return deficit list to Product Builder",
+                           "validCase":  "All 7 blocking floors met -\u003e closure proceeds",
+                           "multipleDeficitCase":  "Endpoints=35 Modules=11 -\u003e BLOCK, return both deficits"
+                       },
+    "floors":  [
+                   {
+                       "blocking":  true,
+                       "metric":  "sourceFiles",
+                       "floor":  80,
+                       "check":  "Count .ts/.tsx files in product/ (excl node_modules/dist)"
+                   },
+                   {
+                       "blocking":  true,
+                       "metric":  "exports",
+                       "floor":  300,
+                       "check":  "Count export statements in implementation files"
+                   },
+                   {
+                       "blocking":  true,
+                       "metric":  "apiEndpoints",
+                       "floor":  40,
+                       "check":  "Count router.get|post|put|patch|delete|all calls in routes/"
+                   },
+                   {
+                       "blocking":  true,
+                       "metric":  "dbTables",
+                       "floor":  15,
+                       "check":  "Count CREATE TABLE statements in db/index.ts"
+                   },
+                   {
+                       "blocking":  true,
+                       "metric":  "testFiles",
+                       "floor":  20,
+                       "check":  "Count .test.ts files in tests/"
+                   },
+                   {
+                       "blocking":  true,
+                       "metric":  "modules",
+                       "floor":  13,
+                       "check":  "Map AGENT-5 modules to implementation evidence"
+                   },
+                   {
+                       "blocking":  false,
+                       "metric":  "errorStates",
+                       "floor":  30,
+                       "check":  "Count unique error codes/handlers across routes"
+                   }
+               ],
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "document":  "mid-run-floor-enforcer",
+    "enforcement":  {
+                        "recoveryPath":  "Orchestrator spawns targeted repair agent or returns to builder with deficit list",
+                        "timing":  "mid-run (after builder completion, before reviewer-verifier final pass)",
+                        "action":  "BLOCK_CLOSURE if any blocking floor unmet"
+                    }
+}

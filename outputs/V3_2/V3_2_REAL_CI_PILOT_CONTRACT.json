@@ -1,0 +1,22 @@
+﻿{
+    "contract_id": "V3_2-REAL-CI-PILOT-001",
+    "status": "TEMPLATE_READY",
+    "template_path": ".github/workflows/codex-factory-ci.yml",
+    "workflow_dispatch_available": false,
+    "remote_run_evidence": "",
+    "local_validation_result": "CI_TEMPLATE_VALID",
+    "act_available": false,
+    "highest_attainable_status_without_remote": "TEMPLATE_READY",
+    "workflow_summary": {
+        "jobs": ["snapshot-verify", "regression", "frozen-trunk-check"],
+        "testbed_options": ["products-api","cross-pack-cpm-001","admin-system-runtime-validation","ecommerce-runtime-validation","saas-runtime-validation","miniapp-runtime-validation","game-threejs-runtime-validation","cpp-memory-safety-runtime-validation"],
+        "triggers": ["workflow_dispatch"],
+        "artifact_retention": "7 days"
+    },
+    "non_claims": [
+        "TEMPLATE_READY — NOT remote-executed on GitHub",
+        "No real GitHub Actions run artifact exists",
+        "workflow_dispatch requires manual trigger by user with GitHub access",
+        "Do NOT claim REMOTE_RUN_VERIFIED without real run evidence"
+    ]
+}

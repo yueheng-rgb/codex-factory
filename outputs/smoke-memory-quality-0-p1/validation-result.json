@@ -1,0 +1,159 @@
+﻿{
+    "overall":  "PASS",
+    "passedChecks":  21,
+    "failedChecks":  0,
+    "warnings":  0,
+    "totalChecks":  21,
+    "packetId":  "CP-5460-20260627151233",
+    "validatedAt":  "2026-06-27T15:12:50.0145697+08:00",
+    "stale":  false,
+    "checks":  [
+                   {
+                       "detail":  "C:\\Codex_App_Factory\\outputs\\smoke-memory-quality-0-p1\\smoke-packet.json",
+                       "description":  "Packet file exists",
+                       "id":  "V01",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "Parsed successfully",
+                       "description":  "Valid JSON",
+                       "id":  "V02",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "21 fields verified",
+                       "description":  "All required fields present",
+                       "id":  "V03",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "CP-5460-20260627151233",
+                       "description":  "packetId format valid",
+                       "id":  "V04",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "REVIEWER_PACKET",
+                       "description":  "packetType valid",
+                       "id":  "V05",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "verifier",
+                       "description":  "targetRole valid",
+                       "id":  "V06",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "Expires: 2026-06-27T16:12:33.6646924+08:00",
+                       "description":  "Packet not stale",
+                       "id":  "V07",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "273/2000",
+                       "description":  "Word budget enforced",
+                       "id":  "V08",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "6 items",
+                       "description":  "forbiddenAssumptions non-empty",
+                       "id":  "V09",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "4 items",
+                       "description":  "allowedActions non-empty",
+                       "id":  "V10",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "3 items",
+                       "description":  "forbiddenActions non-empty",
+                       "id":  "V11",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "Method: Discrete file existence checks against governance/ and factory-build-mode/",
+                       "description":  "Summary verification status confirmed",
+                       "id":  "V12",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "All evidence L2+ and not from compressed sources",
+                       "description":  "No compressed-summary as high-level evidence",
+                       "id":  "V13",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "PASS claim has supporting evidence",
+                       "description":  "No unsupported PASS claim",
+                       "id":  "V14",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "Evidence at multiple levels including L2+",
+                       "description":  "Not self-report-only evidence",
+                       "id":  "V15",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "All paths verified",
+                       "description":  "Evidence paths resolve",
+                       "id":  "V16",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "3 risks",
+                       "description":  "activeRisks non-empty",
+                       "id":  "V17",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "4 claims",
+                       "description":  "rejectedClaims non-empty",
+                       "id":  "V18",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "2 reads",
+                       "description":  "requiredReads non-empty",
+                       "id":  "V19",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "Forbidden assumptions correctly flag process!=product",
+                       "description":  "Process not claimed as product quality",
+                       "id":  "V20",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   },
+                   {
+                       "detail":  "Multi-agent default correctly flagged as forbidden",
+                       "description":  "No multi-agent default claim",
+                       "id":  "V21",
+                       "severity":  "ERROR",
+                       "pass":  true
+                   }
+               ]
+}

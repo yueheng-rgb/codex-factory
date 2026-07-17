@@ -1,0 +1,35 @@
+﻿{
+    "document":  "next-step-recommendation",
+    "recommendedNextPhase":  "FACTORY-AGENT-RUNTIME-P1",
+    "chosen":  "HYBRID-P1",
+    "phase":  "FACTORY-AGENT-9-P1",
+    "timestamp":  "2026-06-26T18:39:25.6033428+08:00",
+    "plan":  {
+                 "step5":  "Only if P1 wins: proceed to larger benchmark",
+                 "step2":  "RUNTIME-P1: Make Reviewer caveats BLOCKING for phase closure (no PASS_WITH_CAVEAT on floors)",
+                 "step4":  "RUNTIME-P1: Re-run on existing OpsFlow Lite benchmark to verify fixes",
+                 "step1":  "RUNTIME-P1: Reduce agent count from 7 to 4 (Orchestrator + 2 Builders + Reviewer/Verifier)",
+                 "step3":  "RUNTIME-P1: Add mid-run complexity floor enforcement to Orchestrator"
+             },
+    "rationale":  [
+                      "Root causes H2 (overhead), H3 (orchestrator permissiveness), H4 (reviewer too lenient), H8 (wrong agent count) are all repairable with EASY/MODERATE effort",
+                      "Fixing these before a larger benchmark avoids repeating the same failure mode at scale",
+                      "H1 (benchmark size) remains HIGH probability but should be tested AFTER the form is right",
+                      "H7 (Vanilla strength) means any multi-agent solution must DEMONSTRABLY exceed Vanilla, not just match it"
+                  ],
+    "chosenName":  "Simplify + Hardening before next benchmark",
+    "decisionRulesApplied":  [
+                                 "Do not choose larger benchmark unless benchmark-size hypothesis is supported → NOT SUPPORTED without P1 fixes",
+                                 "Do not choose release prep → NOT CHOSEN",
+                                 "Do not choose multi-agent default → NOT CHOSEN",
+                                 "If root cause is orchestration/closure weakness, choose repair before new benchmark → APPLIED",
+                                 "If root cause is overhead, choose simplify before new benchmark → APPLIED",
+                                 "If evidence is mixed, choose targeted P1 → APPLIED"
+                             ],
+    "notRecommended":  [
+                           "AGENT-8-P1 repair (too narrow, doesn\u0027t fix agent count)",
+                           "AGENT-10 second larger benchmark (premature before form fixes)",
+                           "Demote to diagnostic-only (premature abandonment)",
+                           "Full stop (too early)"
+                       ]
+}

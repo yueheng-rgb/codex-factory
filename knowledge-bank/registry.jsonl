@@ -1,0 +1,12 @@
+﻿# Skill Registry
+# Format: JSONL (one JSON object per line = one skill)
+# Created: 2026-07-05
+# Phase: FACTORY-R2.1-INFRA-MVP
+#
+# Trust Levels:
+#   VERIFIED  - Official source, all checks passed
+#   TRUSTED   - Known community, all checks passed
+#   AVAILABLE - Security checks passed, not yet validated in Factory
+#   UNVERIFIED - In registry but not all checks complete
+#   BLOCKED   - Failed security check
+#

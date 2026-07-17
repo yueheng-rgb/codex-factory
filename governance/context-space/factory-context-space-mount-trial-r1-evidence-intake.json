@@ -1,0 +1,63 @@
+﻿{
+  "evidence_intake_id": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1-EVIDENCE-INTAKE",
+  "generated_at": "2026-06-28T00:40:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1",
+  "sub_step": "A",
+  "mount_execution": {
+    "mount_number": 2,
+    "mount_timestamp": "2026-06-28T00:32:43+08:00",
+    "mount_script": "external-conversation-space/scripts/mount.ps1",
+    "mount_protocol_version": "0.1.0",
+    "technical_result": "SUCCESS",
+    "attach_packet_path": "external-conversation-space/data/attach-packet-latest.json"
+  },
+  "what_worked": [
+    "Mount Protocol v0.1.0 executed without errors",
+    "Conversation space JSON loaded successfully",
+    "Frozen conclusions FROZEN-001 through FROZEN-004 correctly included",
+    "User preferences 6 items loaded TIER-1",
+    "Active risks RISK-001 RISK-002 correctly loaded",
+    "Completed phases list correctly included",
+    "Current strategy correctly surfaced",
+    "Memory Reservoir filtering TIER-1=10 TIER-2=10",
+    "Mount counter incremented 1 to 2"
+  ],
+  "defects": [
+    {
+      "defect_id": "ATTACH_PACKET_STALE_STATE",
+      "description": "Attach Packet shows current_phase FACTORY-CONTEXT-SPACE-0 when phase is 48/48 PASS complete",
+      "severity": "HIGH"
+    },
+    {
+      "defect_id": "CURRENT_PHASE_MISMATCH",
+      "description": "Actual current activity is Mount Trial validation not Context-Space-0 sub-phase work",
+      "severity": "HIGH"
+    },
+    {
+      "defect_id": "NEXT_STEP_MISMATCH",
+      "description": "Attach Packet recommends continuing FACTORY-CONTEXT-SPACE-0 E-N when sub-phases already completed",
+      "severity": "HIGH"
+    },
+    {
+      "defect_id": "LEGACY_RISK_OVERPRIORITIZED",
+      "description": "Legacy rotation risks from 2026-06-25 presented as current active blockers without freshness check",
+      "severity": "MEDIUM"
+    }
+  ],
+  "root_causes": [
+    "conversation-space.json.mainline.current_phase never updated after Context-Space-0 48/48 PASS",
+    "mount.ps1 reads current_phase directly without cross-referencing phase-ledger completion status",
+    "No freshness validation step in Mount Protocol",
+    "next_actions derived from current_phase not from phase-ledger or direction-guard",
+    "Legacy rotation packet carries unresolved risks without active-blocker-vs-archived distinction"
+  ],
+  "classifications": {
+    "MOUNT_SUCCESS": true,
+    "ATTACH_PACKET_STALE_STATE": true,
+    "LEGACY_RISK_OVERPRIORITIZED": true,
+    "CURRENT_PHASE_MISMATCH": true,
+    "NEXT_STEP_MISMATCH": true
+  },
+  "verdict": "MOUNT_SUCCESS_WITH_STALE_STATE_DEFECT",
+  "action": "Proceed to R1 correction steps B-I"
+}

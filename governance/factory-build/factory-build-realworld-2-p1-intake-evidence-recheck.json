@@ -1,0 +1,32 @@
+﻿{
+    "artifacts_read":  [
+                           "governance/factory-build/factory-build-realworld-2-setup-evidence-lock.json",
+                           "governance/factory-build/factory-build-realworld-2-readonly-project-inventory.json",
+                           "governance/factory-build/factory-build-realworld-2-secret-exposure-audit.json",
+                           "governance/factory-build/factory-build-realworld-2-deployment-safety-audit.json",
+                           "governance/factory-build/factory-build-realworld-2-working-copy-plan.json",
+                           "governance/factory-build/factory-build-realworld-2-baseline-validation-plan.json",
+                           "governance/factory-build/factory-build-realworld-2-context-packet-plan.json",
+                           "governance/factory-build/factory-build-realworld-2-tcm-project-ledger-intake-result.json",
+                           "governance/factory-build/factory-build-realworld-2-r1-contamination-aware-evaluation-result.json",
+                           "governance/factory-build/factory-build-realworld-2-mode-selection.json",
+                           "outputs/FACTORY_BUILD_REALWORLD_2_TCM_PROJECT_LEDGER_INTAKE_REPORT.md"
+                       ],
+    "section":  "B",
+    "generated_at":  "2026-06-28T10:16:31+08:00",
+    "reconfirmed":  {
+                        "project_is_django_5x":  true,
+                        "build_lite_context_packet_security_gate_correct":  true,
+                        "original_path_verified":  true,
+                        "user_action_required_for_secret_rotation":  true,
+                        "project_has_manage_py":  true,
+                        "original_path":  "C:\\\\Users\\\\90961\\\\Documents\\\\Codex\\\\2026-06-10\\\\files-mentioned-by-the-user-txt",
+                        "real_production_deploy_risk":  true,
+                        "native_build_pro_deferred":  true,
+                        "secrets_previously_detected_masked":  true
+                    },
+    "verdict":  "INTAKE_EVIDENCE_RECHECK_PASS",
+    "no_secret_values_printed":  true,
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P1",
+    "recheck_id":  "FACTORY-BUILD-REALWORLD-2-P1-INTAKE-EVIDENCE-RECHECK"
+}

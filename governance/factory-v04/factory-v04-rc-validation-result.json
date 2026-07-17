@@ -1,0 +1,250 @@
+﻿{
+    "fileChecks":  {
+                       "failed":  0,
+                       "items":  [
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "README.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "INSTALL.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "USAGE_QUICKSTART.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "POSITIONING.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "BOUNDARY.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "EVIDENCE_BASIS.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "CHANGELOG.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.json",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.sha256",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "VALIDATION_CHECKLIST.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "ROLLBACK_AND_REMOVAL.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "RELEASE_NOTES_RC.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "DO_NOT_CLAIM_UNIVERSAL_QUALITY.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "USER_REVIEW_GUIDE.md",
+                                         "check":  "exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "review/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "optional-3role/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "context-recovery-deferred/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "benchmarks/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "archive/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "scripts/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "schemas/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "docs/",
+                                         "check":  "directory_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/ALWAYS_ON_CONSTITUTION.md",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/manual-index.json",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/page-router.json",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/proof-of-read-policy.json",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/proof-of-read.schema.json",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/evidence-hierarchy.md",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/contamination-logging-policy.json",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/anti-gaming-policy.json",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/context-budget-policy.json",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "core/quality-gap-trigger-policy.json",
+                                         "check":  "core_file_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "review/quality-gap-reviewer-checklist.json",
+                                         "check":  "reviewer_exists"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "scripts/*.ps1",
+                                         "check":  "no_absolute_paths"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.json",
+                                         "check":  "version_0.4.0-rc"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.json",
+                                         "check":  "status_RC_NOT_FINAL"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.json",
+                                         "check":  "positioning_PROCESS_INTEGRITY"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.json",
+                                         "check":  "quality_conditional"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.json",
+                                         "check":  "finalZipCreated_false"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.json",
+                                         "check":  "releaseZipCreated_false"
+                                     },
+                                     {
+                                         "result":  "PASS",
+                                         "file":  "MANIFEST.json",
+                                         "check":  "userConfirmationRequired"
+                                     }
+                                 ],
+                       "total":  42,
+                       "passed":  42
+                   },
+    "smokeTests":  {
+                       "failed":  0,
+                       "items":  [
+                                     {
+                                         "scenario":  "QG01 UI depth trigger",
+                                         "result":  "PASS"
+                                     },
+                                     {
+                                         "scenario":  "QG02 docs trigger",
+                                         "result":  "PASS"
+                                     },
+                                     {
+                                         "scenario":  "No escalation for single trigger",
+                                         "result":  "PASS"
+                                     },
+                                     {
+                                         "scenario":  "QG01+QG04 auto-escalates to 3-role",
+                                         "result":  "PASS"
+                                     },
+                                     {
+                                         "scenario":  "10-role forbidden",
+                                         "result":  "PASS"
+                                     }
+                                 ],
+                       "total":  5,
+                       "passed":  5
+                   },
+    "timestamp":  "2026-06-25T22:27:39+08:00",
+    "overall":  "PASS",
+    "phase":  "FACTORY-V04-RELEASE-PREP-D",
+    "title":  "RC Install/Usage Validation"
+}

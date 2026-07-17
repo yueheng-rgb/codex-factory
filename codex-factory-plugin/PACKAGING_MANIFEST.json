@@ -1,0 +1,61 @@
+﻿{
+    "version":  "0.1.0",
+    "requiresDRY27":  [
+                          "Live plugin install/sideload",
+                          "Cross-project sync validation",
+                          "Runtime automation scheduling",
+                          "Skill auto-load verification",
+                          "MCP server startup from plugin context",
+                          "Monitoring drift alert in scheduled mode"
+                      ],
+    "forbiddenClaims":  [
+                            "production-ready",
+                            "final-release",
+                            "automation-as-verifier",
+                            "thread-full-context-inheritance",
+                            "markdown-only-PASS",
+                            "unverified-claim-as-fact",
+                            "scoring-as-PASS",
+                            "failure-router-runnable-core",
+                            "absolute-local-paths",
+                            "monitoring-as-closure-evidence",
+                            "alert-as-PASS"
+                        ],
+    "name":  "codex-factory-plugin",
+    "scaffoldPhase":  "H19",
+    "packagingManifestVersion":  "1.0",
+    "threadHandoffStatus":  "complementary artifact handoff only",
+    "pluginStatus":  "EXPERIMENTAL",
+    "skillStatus":  "installability-tested (DRY26), not production-certified",
+    "mcpStatus":  "prototype (H20)",
+    "categories":  [
+                       {
+                           "path":  ".codex-plugin/",
+                           "name":  "plugin-core",
+                           "status":  "EXPERIMENTAL"
+                       },
+                       {
+                           "path":  "skills/",
+                           "name":  "skills",
+                           "status":  "EXPERIMENTAL"
+                       },
+                       {
+                           "path":  "mcp/",
+                           "name":  "mcp",
+                           "status":  "EXPERIMENTAL"
+                       },
+                       {
+                           "path":  "automation/",
+                           "name":  "automation",
+                           "status":  "EXPERIMENTAL"
+                       },
+                       {
+                           "path":  "./*.md",
+                           "name":  "packaging-docs",
+                           "status":  "EXPERIMENTAL"
+                       }
+                   ],
+    "automationStatus":  "monitoring prototype (H21), runtime scheduling untested",
+    "finalZipStatus":  "not created",
+    "generatedAt":  "2026-06-24T20:08:04+08:00"
+}

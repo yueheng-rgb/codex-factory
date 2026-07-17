@@ -1,0 +1,25 @@
+﻿{
+    "gate_id": "V3_3-REMOTE-EVIDENCE-CLAIM-GATE-001",
+    "timestamp": "2026-07-17T16:39:00+08:00",
+    "rules": [
+        {"condition": "No artifact zip", "result": "REMOTE_RUN_REQUIRED", "actual": "REMOTE_ARTIFACT_NOT_PROVIDED"},
+        {"condition": "Artifact exists but schema check fails", "result": "REMOTE_ARTIFACT_INVALID"},
+        {"condition": "Artifact passes schema + hash + secret scan + snapshot comparison", "result": "REMOTE_ARTIFACT_VERIFIED"},
+        {"condition": "Local template claims to be remote", "result": "BLOCKED — local cannot impersonate remote"},
+        {"condition": "local dry-run claims to be GitHub Actions", "result": "BLOCKED — local dry-run is not CI"},
+        {"condition": "Placeholder run ID claims to be real", "result": "BLOCKED — placeholder != real"},
+        {"condition": "Failed remote artifact", "result": "FAILED — not PASS"},
+        {"condition": "Missing artifact", "result": "BLOCKED — no artifacts = no PASS"}
+    ],
+    "current_state": {
+        "remote_artifact_provided": false,
+        "gate_result": "REMOTE_RUN_REQUIRED",
+        "highest_valid_status_without_artifact": "REMOTE_RUN_REQUIRED"
+    },
+    "non_claims": [
+        "No real GitHub Actions artifact provided",
+        "REMOTE_RUN_REQUIRED is the correct current state",
+        "Do NOT claim REMOTE_ARTIFACT_VERIFIED without artifact",
+        "Local template cannot substitute for remote execution"
+    ]
+}

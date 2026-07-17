@@ -1,0 +1,39 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "H",
+  "title": "Context Space Effectiveness Assessment",
+  "timestamp": "2026-06-28T10:59:00+08:00",
+  "assessment": {
+    "overall_verdict": "PROVEN_EFFECTIVE_FOR_LONG_HORIZON",
+    "key_findings": [
+      {
+        "finding": "P7 proved true fresh-window mount works with warnings",
+        "evidence": "New Codex window successfully mounted REALWORLD-2 mainline via external conversation space only, 50/50 verifier PASS"
+      },
+      {
+        "finding": "External Conversation Space is NOT model memory expansion",
+        "evidence": "It is filtered working context — quality over quantity. Reservoir model confirmed."
+      },
+      {
+        "finding": "Snapshot Packs enable autonomous continuation without full history",
+        "evidence": "BALANCED compression preserves frozen strategies, current phase, risks, and next steps"
+      },
+      {
+        "finding": "Direction Guard v3 prevents direction drift across sessions",
+        "evidence": "13 frozen rules preserved; DG-009/DG-010/DG-013 added from Mount Trial R1 learnings"
+      },
+      {
+        "finding": "Phase Close Context Update keeps all artifacts fresh",
+        "evidence": "12-step pipeline: ledgers, index, snapshots, Attach Packet, mount readiness"
+      }
+    ],
+    "limitations": [
+      "New window is NOT strict isolation — same filesystem, same model, same user",
+      "Snapshot is NOT evidence — always reference verifier JSONs",
+      "Compressed summary is NOT evidence — always reference source governance files",
+      "ULTRA_COMPACT cannot be used for autonomous continuation (DG-011)"
+    ],
+    "long_horizon_support": "CONTEXT_SPACE_REQUIRED — projects spanning multiple phases/sessions must use Context Space for continuity"
+  },
+  "status": "ASSESSMENT_COMPLETE"
+}

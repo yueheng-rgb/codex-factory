@@ -1,0 +1,9 @@
+﻿{
+  "pack_id": "cpp-memory-safety",
+  "version": "1.0.0",
+  "benchmarks": [
+    {"benchmark_id":"CPP-B1","description":"Safe file parser with bounds checking","expected_surfaces":"CLI-tool","expected_risk_level":"HIGH","expected_invariants":["buffer_bounds_must_be_checked","file_parser_must_be_bounded","sanitizer_toolchain_integration_required"],"runnable_or_design_only":"design_only"},
+    {"benchmark_id":"CPP-B2","description":"Unsafe buffer handling — strcpy/memcpy without bounds","expected_surfaces":"CLI-tool","expected_risk_level":"CRITICAL","expected_invariants":["buffer_bounds_must_be_checked","use_after_free_must_be_prevented","null_pointer_dereference_must_be_prevented"],"runnable_or_design_only":"design_only","notes":"Human review required. Must run with ASan enabled."},
+    {"benchmark_id":"CPP-B3","description":"Multi-threaded queue with shared state","expected_surfaces":"CLI-tool","expected_risk_level":"CRITICAL","expected_invariants":["thread_safety_if_multithreaded","double_free_must_be_prevented","use_after_free_must_be_prevented","sanitizer_toolchain_integration_required"],"runnable_or_design_only":"design_only","notes":"Human review required. Must run with TSan enabled."}
+  ]
+}

@@ -1,0 +1,26 @@
+﻿{
+  "phase": "DRY24-P1",
+  "contractId": "dry24-p1-integration-points-registry.json",
+  "nativeGenerated": true,
+  "generatedDuringPhase": "DRY24-P1",
+  "generatedAt": "2026-06-24T16:34:00.9473958+08:00",
+  "role": "integrator",
+  "scope": "governance/contracts/dry24/",
+  "parentPhase": "H17",
+  "allowedDependencies": [
+    "packages/agent-reliability-runtime/src/",
+    "packages/context-governance-runtime/src/",
+    "packages/factory-decision-engine/src/",
+    "packages/progress-integrity/src/",
+    "packages/architecture-drift-detector/src/",
+    "packages/worker-contract-engine/src/",
+    "packages/dry24-integration-hub/src/"
+  ],
+  "forbiddenImports": [],
+  "forkContext": false,
+  "evidencePaths": [
+    "governance/factory-state/dry24-p1-complexity-reconciliation.json",
+    "governance/factory-state/dry24-p1-negative-control-summary.json",
+    "governance/factory-state/dry24-p1-cross-scope-contamination.json"
+  ]
+}

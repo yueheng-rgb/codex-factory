@@ -1,0 +1,36 @@
+﻿{
+  "schemaId": "agent-event.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:10+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-B",
+  "nativeGenerated": true,
+  "requiredFields": ["eventId","agentId","phase","role","lifecycleState","timestamp","source","eventHash"],
+  "optionalFields": ["parentAgentId","artifactPaths","transcriptPath","contractPath","evidenceSha256","riskSignals","previousEventHash"],
+  "fieldDefinitions": {
+    "eventId": {"type":"string","format":"{phase}-{agentId}-{seq}","description":"Unique event identifier"},
+    "agentId": {"type":"string","description":"Agent that generated the event. SYSTEM_EVENT if no agent."},
+    "parentAgentId": {"type":"string","description":"Parent orchestrator agent if applicable"},
+    "phase": {"type":"string","description":"Factory phase during which event occurred"},
+    "role": {"type":"string","enum":["orchestrator","builder","integrator","verifier","auditor","explorer","recorder","platform"]},
+    "lifecycleState": {"type":"string","enum":["CREATED","CONTRACTED","SPAWN_REQUESTED","SPAWNED","RUNNING","HEARTBEAT","HANDOFF_SUBMITTED","INTEGRATION_REQUESTED","INTEGRATED","VERIFIED","CLOSED","ARCHIVED","FAILED","REPLACED","QUARANTINED"]},
+    "timestamp": {"type":"string","format":"date-time"},
+    "source": {"type":"string","description":"Origin of event: native-generated, reconstructed, or platform"},
+    "artifactPaths": {"type":"array","items":"string","description":"Paths to output artifacts"},
+    "transcriptPath": {"type":"string","description":"Path to agent transcript/log"},
+    "contractPath": {"type":"string","description":"Path to worker contract"},
+    "evidenceSha256": {"type":"string","description":"SHA256 of combined evidence"},
+    "riskSignals": {"type":"array","items":"string","description":"Risk signals detected at event time"},
+    "previousEventHash": {"type":"string","description":"SHA256 of previous event for hash chain"},
+    "eventHash": {"type":"string","description":"SHA256 of this event for chain integrity"}
+  },
+  "rules": {
+    "appendOnly": true,
+    "hashChained": true,
+    "systemEventWithoutAgentId": "Allowed only if source=SYSTEM_EVENT",
+    "completionRequiresEvidence": ["artifactPaths","transcriptPath","handoffExists"],
+    "markdownReportNotEvidence": true,
+    "compressedSummaryNotEvidence": true,
+    "codexSelfReportNotEvidence": true,
+    "missingEvidenceCreatesRiskSignal": true
+  }
+}

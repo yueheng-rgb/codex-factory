@@ -1,0 +1,100 @@
+﻿{
+    "mcpMemoryQueries":  [
+                             "factory.memory.currentState",
+                             "factory.memory.openRisks",
+                             "factory.memory.buildStartupPacket",
+                             "factory.memory.validate"
+                         ],
+    "userActionRequired":  true,
+    "trustedFacts":  [
+                         "currentTrustedPhase: FINAL",
+                         "finalPackageStatus: CREATED_AND_VALIDATED",
+                         "Agent OS: established",
+                         "Context OS: established",
+                         "MCP Memory: PROTOTYPE_LOCAL_ONLY"
+                     ],
+    "verifierCommands":  [
+                             "powershell -File scripts/factoryctl.ps1 verify -Json",
+                             "powershell -File scripts/live-runtime/check-cross-session-state-reconciliation.ps1 -Json",
+                             "powershell -File scripts/live-runtime/check-agent-capacity-preflight.ps1 -Json"
+                         ],
+    "rejectedClaims":  [
+                           "Full context inheritance",
+                           "Automatic window creation without verification",
+                           "Plugin production-ready",
+                           "Automation production-ready",
+                           "Compressed summary as evidence"
+                       ],
+    "activeRisks":  [
+                        {
+                            "risk":  "Shared memory divergence",
+                            "severity":  "P0",
+                            "status":  "UNRESOLVED"
+                        },
+                        {
+                            "risk":  "Verifier overfitting",
+                            "severity":  "P1",
+                            "status":  "UNRESOLVED"
+                        },
+                        {
+                            "risk":  "Automation rotation watcher not implemented",
+                            "severity":  "P1",
+                            "status":  "UNRESOLVED"
+                        }
+                    ],
+    "doesNotMutateState":  true,
+    "requiredReadFiles":  [
+                              "governance/factory-state/current-factory-state.json",
+                              "governance/factory-state/session-rotation-handoff.json",
+                              "governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json",
+                              "governance/context-os/FACTORY_MEMORY_INDEX.json",
+                              "governance/automation-os/latest-rotation-recommendation.json"
+                          ],
+    "reason":  "ROTATION_REQUIRED",
+    "packetId":  "rotation-startup-20260625002424",
+    "riskSignals":  [
+                        {
+                            "signalId":  "SIG-CHK07",
+                            "recommendation":  "Verify Capacity preflight",
+                            "source":  "rotation-watcher",
+                            "type":  "Capacity preflight",
+                            "severity":  "P0"
+                        },
+                        {
+                            "signalId":  "SIG-CHK08",
+                            "recommendation":  "Verify Reconciliation",
+                            "source":  "rotation-watcher",
+                            "type":  "Reconciliation",
+                            "severity":  "P1"
+                        },
+                        {
+                            "signalId":  "SIG-CHK09",
+                            "recommendation":  "Verify Memory validation",
+                            "source":  "rotation-watcher",
+                            "type":  "Memory validation",
+                            "severity":  "P1"
+                        },
+                        {
+                            "signalId":  "SIG-CHK10",
+                            "recommendation":  "Verify MCP memory query",
+                            "source":  "rotation-watcher",
+                            "type":  "MCP memory query",
+                            "severity":  "P2"
+                        }
+                    ],
+    "forbiddenAssumptions":  [
+                                 "no full-context inheritance",
+                                 "no automatic window creation",
+                                 "no compressed summary as evidence",
+                                 "no branch as reliable memory expansion"
+                             ],
+    "startupVerificationSteps":  [
+                                     "Read current-factory-state.json",
+                                     "Run factoryctl verify",
+                                     "Validate manifest SHA",
+                                     "Run reconciliation",
+                                     "Run preflight",
+                                     "Confirm no new phase artifacts"
+                                 ],
+    "generatedAt":  "2026-06-25T00:24:24+08:00"
+}

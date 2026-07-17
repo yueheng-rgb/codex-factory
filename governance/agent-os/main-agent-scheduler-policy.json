@@ -1,0 +1,29 @@
+﻿{
+  "schemaId": "main-agent-scheduler-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:10+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-C",
+  "nativeGenerated": true,
+  "rules": [
+    {"id":"SCH-01","rule":"Capacity preflight required before any spawn decision"},
+    {"id":"SCH-02","rule":"Each worker must have a contract before spawn_requested"},
+    {"id":"SCH-03","rule":"Scheduling decisions must be machine-readable (JSON)"},
+    {"id":"SCH-04","rule":"Worker assignments cannot overlap in scope"},
+    {"id":"SCH-05","rule":"Replacement policy: failed agent spawns replacement with new contract"},
+    {"id":"SCH-06","rule":"Main Agent cannot write worker scope under any circumstance"},
+    {"id":"SCH-07","rule":"Integrator is sole merge owner; Main Agent cannot bypass"},
+    {"id":"SCH-08","rule":"Verifier blocks closure; Main Agent cannot override"},
+    {"id":"SCH-09","rule":"Stale worker (>5min no heartbeat) triggers audit"},
+    {"id":"SCH-10","rule":"All scheduling decisions logged to AGENT_EVENTS.jsonl"}
+  ],
+  "spawnDecisionTemplate": {
+    "decisionId": "required",
+    "phase": "required",
+    "capacityPreflightResult": "required",
+    "workersToSpawn": "required",
+    "contractPaths": "required",
+    "scopeBoundaries": "required",
+    "expectedOutputPaths": "required",
+    "timestamp": "required"
+  }
+}

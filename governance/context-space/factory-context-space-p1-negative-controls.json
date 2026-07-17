@@ -1,0 +1,338 @@
+﻿{
+    "fail":  0,
+    "executed_at":  "2026-06-28T00:53:41.9411573+08:00",
+    "pass":  47,
+    "total":  47,
+    "results":  [
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query must NOT return v0.5 as ready",
+                        "validation":  "Fault correctly not detected",
+                        "id":  "NC-1",
+                        "risk_signal":  "v0.5 false ready claim"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query must NOT say Build Pro is default",
+                        "validation":  "True",
+                        "id":  "NC-2",
+                        "risk_signal":  "Build Pro false default claim"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query must NOT say multi-agent is default",
+                        "validation":  "True",
+                        "id":  "NC-3",
+                        "risk_signal":  "Multi-agent false default claim"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query must NOT say Diagnostic Gate is mainline",
+                        "validation":  "True",
+                        "id":  "NC-4",
+                        "risk_signal":  "Diagnostic Gate false mainline claim"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query must NOT say Package QA proves product correctness",
+                        "validation":  "True",
+                        "id":  "NC-5",
+                        "risk_signal":  "Package QA false correctness claim"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query must NOT say external memory expands model memory",
+                        "validation":  "True",
+                        "id":  "NC-6",
+                        "risk_signal":  "External memory false model-expansion claim"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query must NOT say new window is strict isolation",
+                        "validation":  "True",
+                        "id":  "NC-7",
+                        "risk_signal":  "New window false isolation claim"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index must include Build Lite default strategy",
+                        "validation":  "Fault correctly not detected",
+                        "id":  "NC-8",
+                        "risk_signal":  "Build Lite default missing from index"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index must include Native Build Pro conditional strategy",
+                        "validation":  "Fault correctly not detected",
+                        "id":  "NC-9",
+                        "risk_signal":  "Build Pro conditional missing from index"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index must include Package QA final gate strategy",
+                        "validation":  "Fault correctly not detected",
+                        "id":  "NC-10",
+                        "risk_signal":  "Package QA gate missing from index"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index must include active RISK-002 (TCM secret)",
+                        "validation":  "Fault correctly not detected",
+                        "id":  "NC-11",
+                        "risk_signal":  "TCM secret risk missing from index"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index must NOT contain exposed secrets",
+                        "validation":  "True",
+                        "id":  "NC-12",
+                        "risk_signal":  "Secret value exposure risk"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index must NOT have TIER_1 evidence from compressed summary",
+                        "validation":  "True",
+                        "id":  "NC-13",
+                        "risk_signal":  "Compressed summary as TIER_1 evidence"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "All index entries must have source_file",
+                        "validation":  "True",
+                        "id":  "NC-14",
+                        "risk_signal":  "Missing source_file in entries"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Claims must have evidence_paths",
+                        "validation":  "True",
+                        "id":  "NC-15",
+                        "risk_signal":  "Missing evidence_paths on claims"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No rejected/retired entries with supported status",
+                        "validation":  "True",
+                        "id":  "NC-16",
+                        "risk_signal":  "Rejected claim with high trust"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "RETIRED-001 must remain retired",
+                        "validation":  "Fault correctly not detected",
+                        "id":  "NC-17",
+                        "risk_signal":  "Retired claim revived"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No TIER_7 entries promoted to TIER_1-3",
+                        "validation":  "True",
+                        "id":  "NC-18",
+                        "risk_signal":  "Low-trust summary promoted"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index manifest must exist and be recent",
+                        "validation":  "True",
+                        "id":  "NC-19",
+                        "risk_signal":  "Stale/missing index manifest"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Attach packet must include index freshness",
+                        "validation":  "True",
+                        "id":  "NC-20",
+                        "risk_signal":  "Attach packet missing index integration"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Direction guard script must exist",
+                        "validation":  "True",
+                        "id":  "NC-21",
+                        "risk_signal":  "Direction guard query script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index should not contain microphase recommendations",
+                        "validation":  "Fault correctly not detected",
+                        "id":  "NC-22",
+                        "risk_signal":  "Microphase recommendation in index"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No entry should suggest cloud deployment now",
+                        "validation":  "True",
+                        "id":  "NC-23",
+                        "risk_signal":  "Cloud suggestion in active entries"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No entry should auto-start REALWORLD-2-P1",
+                        "validation":  "True",
+                        "id":  "NC-24",
+                        "risk_signal":  "REALWORLD-2-P1 auto-start claim"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index file must exist",
+                        "validation":  "True",
+                        "id":  "NC-25",
+                        "risk_signal":  "Index file missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Index manifest must exist",
+                        "validation":  "True",
+                        "id":  "NC-26",
+                        "risk_signal":  "Index manifest missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Build script must exist",
+                        "validation":  "True",
+                        "id":  "NC-27",
+                        "risk_signal":  "Build script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query script must exist",
+                        "validation":  "True",
+                        "id":  "NC-28",
+                        "risk_signal":  "Query script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Query packet script must exist",
+                        "validation":  "True",
+                        "id":  "NC-29",
+                        "risk_signal":  "Query packet script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Attach integration script must exist",
+                        "validation":  "True",
+                        "id":  "NC-30",
+                        "risk_signal":  "Attach integration script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Direction guard script must exist",
+                        "validation":  "True",
+                        "id":  "NC-31",
+                        "risk_signal":  "Direction guard script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Simulation script must exist",
+                        "validation":  "True",
+                        "id":  "NC-32",
+                        "risk_signal":  "Simulation script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "User workflow doc must exist",
+                        "validation":  "True",
+                        "id":  "NC-33",
+                        "risk_signal":  "User workflow doc missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No SQLite database must exist",
+                        "validation":  "True",
+                        "id":  "NC-34",
+                        "risk_signal":  "SQLite prematurely implemented"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No cloud configuration must exist in context-space",
+                        "validation":  "True",
+                        "id":  "NC-35",
+                        "risk_signal":  "Cloud infra in context-space"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No network dependency in scripts",
+                        "validation":  "True",
+                        "id":  "NC-36",
+                        "risk_signal":  "Network access in scripts"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No release ZIP in context-space outputs",
+                        "validation":  "True",
+                        "id":  "NC-37",
+                        "risk_signal":  "Release ZIP created"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No v0.5 package artifacts",
+                        "validation":  "True",
+                        "id":  "NC-38",
+                        "risk_signal":  "v0.5 package artifact"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "TCM project must remain unmodified",
+                        "validation":  "True",
+                        "id":  "NC-39",
+                        "risk_signal":  "Real project modification"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Old factory packages must remain unmodified",
+                        "validation":  "True",
+                        "id":  "NC-40",
+                        "risk_signal":  "Old package modification"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No Native Build Pro artifacts",
+                        "validation":  "True",
+                        "id":  "NC-41",
+                        "risk_signal":  "Native Build Pro started"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "No REALWORLD-2-P1 artifacts in context space",
+                        "validation":  "True",
+                        "id":  "NC-42",
+                        "risk_signal":  "REALWORLD-2-P1 started"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Verifier script must exist",
+                        "validation":  "Fault correctly not detected",
+                        "id":  "NC-43",
+                        "risk_signal":  "Verifier script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Negative controls script must exist",
+                        "validation":  "True",
+                        "id":  "NC-44",
+                        "risk_signal":  "Negative controls script missing"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Verifier must check machine-readable results",
+                        "validation":  "True",
+                        "id":  "NC-45",
+                        "risk_signal":  "Manual PASS-only accepted"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Verifier must check specific outputs",
+                        "validation":  "True",
+                        "id":  "NC-46",
+                        "risk_signal":  "expectedClass-only accepted"
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "description":  "Verifier must produce specific failure reasons",
+                        "validation":  "True",
+                        "id":  "NC-47",
+                        "risk_signal":  "Generic FAIL accepted"
+                    }
+                ],
+    "negative_controls_id":  "FACTORY-CONTEXT-SPACE-P1-NC"
+}

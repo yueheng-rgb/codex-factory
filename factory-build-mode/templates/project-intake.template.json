@@ -1,0 +1,28 @@
+﻿{
+    "$schema": "project-intake.template.json",
+    "description": "Unified project intake — supports both new and existing projects",
+    "projectType": "NEW|EXISTING",
+    "newProject": {
+        "projectName": "",
+        "productGoal": "",
+        "userType": "",
+        "featureList": [],
+        "techStackPreference": {},
+        "complexityExpectation": "",
+        "deliveryGoal": "",
+        "constraints": [],
+        "mustHave": [],
+        "niceToHave": [],
+        "forbiddenActions": []
+    },
+    "existingProject": {
+        "projectPath": "",
+        "projectGoal": "",
+        "knownIssues": [],
+        "userPriority": "",
+        "allowedModificationScope": [],
+        "forbiddenPaths": [],
+        "reportDocsPath": "",
+        "continueFromStage": ""
+    }
+}

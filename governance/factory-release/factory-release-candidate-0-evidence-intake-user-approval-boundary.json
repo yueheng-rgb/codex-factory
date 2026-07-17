@@ -1,0 +1,76 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "A",
+    "title": "Evidence Intake and User Approval Boundary",
+    "timestamp": "2026-06-28T20:30:00+08:00",
+    "prerequisites": {
+        "RELEASE_READINESS_0": {
+            "phase": "FACTORY-RELEASE-READINESS-0",
+            "verdict": "PASS",
+            "evidence": "governance/factory-release/verifier-factory-release-readiness-0-result.json"
+        },
+        "PACK_STAGING_P8": {
+            "phase": "FACTORY-BUILD-PACK-STAGING-P8",
+            "verdict": "PASS",
+            "checks": {"total": 45, "passed": 45, "failed": 0},
+            "evidence": "governance/factory-build/verifier-factory-build-pack-staging-p8-result.json"
+        },
+        "FACTORY_AB_1": {
+            "phase": "FACTORY-AB-1",
+            "verdict": "PASS",
+            "checks": {"total": 41, "passed": 41, "failed": 0},
+            "evidence": "governance/factory-ab/verifier-factory-ab-1-result.json",
+            "notes": "AB-1 41/41 PASS. Second executed matched-pair comparison. 13 real code product files. Independent scoring: Vanilla 65, Factory 90, delta +25. Verdict: FACTORY_ADVANTAGE_SUPPORTED_FOR_THIS_TASK."
+        }
+    },
+    "blockers": {
+        "BLOCK_001": {"status": "STRONG_PARTIAL_EVIDENCE", "resolved": false, "note": "Raised from PARTIAL_EXECUTED_EVIDENCE_WITH_WARNINGS by AB-1. Still not fully resolved: project type coverage limited."},
+        "BLOCK_002": {"status": "ACTIVE", "resolved": false, "note": "Production deployment verification not performed."},
+        "BLOCK_003": {"status": "ACTIVE", "resolved": false, "note": "Local development does not equal production readiness."},
+        "BLOCK_004": {"status": "ACTIVE", "resolved": false, "note": "Final user approval not yet granted."}
+    },
+    "v05_status": "BLOCKED",
+    "user_approval_boundary": {
+        "approved": ["RC candidate package creation"],
+        "not_approved": ["v0.5 release", "production deployment", "final release"],
+        "rc_purpose": ["package candidate", "smoke target", "user review target", "not final release"]
+    },
+    "boundary_rules": {
+        "rc_is_not_release": true,
+        "rc_is_not_v05": true,
+        "rc_does_not_resolve_block_002": true,
+        "rc_does_not_resolve_block_003": true,
+        "rc_does_not_resolve_block_004": true
+    },
+    "frozen_strategy": {
+        "build_lite": "default",
+        "native_build_pro": "conditional",
+        "multi_agent_default": "rejected under current evidence",
+        "diagnostic_gate": "support gate",
+        "security_deploy_gate": "required for deployed/online/production-trace projects",
+        "package_qa_gate": "required for final ZIP/package handoff",
+        "context_space": "required for long-horizon real projects",
+        "releaseAllowed": false,
+        "v05Package": false,
+        "rcCandidate": true,
+        "finalRelease": false
+    },
+    "prohibitions": [
+        "Claim release",
+        "Claim v0.5",
+        "Resolve production deployment readiness",
+        "Include real projects, working copies, old student packages, real .env, or secrets",
+        "Start Native Build Pro",
+        "Claim Factory universal superiority over vanilla Codex",
+        "Claim production deployability",
+        "Treat Package QA / Security Gate / Snapshot as product correctness proof",
+        "Split into micro-phases"
+    ],
+    "acceptance": {
+        "evidence_intake_complete": true,
+        "user_approval_boundary_defined": true,
+        "prohibitions_reaffirmed": true,
+        "rc_purpose_scoped": true
+    },
+    "section_verdict": "COMPLETE"
+}

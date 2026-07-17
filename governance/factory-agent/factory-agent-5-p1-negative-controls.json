@@ -1,0 +1,270 @@
+﻿{
+    "detected":  32,
+    "expectedClassOnly":  0,
+    "gaps":  0,
+    "failTargetNotTriggered":  0,
+    "genericFail":  0,
+    "totalNegatives":  32,
+    "timestamp":  "2026-06-26T20:22:39.0178595+08:00",
+    "negatives":  [
+                      {
+                          "id":  "NC-01",
+                          "class":  "EVIDENCE_DELETED",
+                          "gate":  "Evidence Preservation",
+                          "fault":  "Policy repair deletes AGENT-8-P1 BLOCKED_BY_REVIEWER evidence",
+                          "n":  1,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-02",
+                          "class":  "POLICY_DEFECT_DELETED",
+                          "gate":  "Evidence Preservation",
+                          "fault":  "Policy repair deletes R1 policy defect evidence",
+                          "n":  2,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-03",
+                          "class":  "PRODUCT_MODIFIED",
+                          "gate":  "Product Integrity",
+                          "fault":  "Policy repair modifies product code",
+                          "n":  3,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-04",
+                          "class":  "UNFAIR_SCORING",
+                          "gate":  "Fairness",
+                          "fault":  "Policy repair changes only P1 scoring",
+                          "n":  4,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-05",
+                          "class":  "UNJUSTIFIED_HARD_FLOOR",
+                          "gate":  "Policy Quality",
+                          "fault":  "Source file floor remains hard blocker without rationale",
+                          "n":  5,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-06",
+                          "class":  "UNJUSTIFIED_HARD_FLOOR",
+                          "gate":  "Policy Quality",
+                          "fault":  "Export floor remains hard blocker without rationale",
+                          "n":  6,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-07",
+                          "class":  "SILENT_REMOVAL",
+                          "gate":  "Transparency",
+                          "fault":  "Export floor removed silently without defect record",
+                          "n":  7,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-08",
+                          "class":  "SILENT_REMOVAL",
+                          "gate":  "Transparency",
+                          "fault":  "Source floor removed silently without defect record",
+                          "n":  8,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-09",
+                          "class":  "FAKE_EXPORTS_ALLOWED",
+                          "gate":  "Anti-Gaming",
+                          "fault":  "Fake exports allowed",
+                          "n":  9,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-10",
+                          "class":  "REEXPORT_COUNTED",
+                          "gate":  "Anti-Gaming",
+                          "fault":  "Re-export-only files counted meaningful",
+                          "n":  10,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-11",
+                          "class":  "EMPTY_COUNTED",
+                          "gate":  "Anti-Gaming",
+                          "fault":  "Empty files counted meaningful",
+                          "n":  11,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-12",
+                          "class":  "COUNT_AS_QUALITY",
+                          "gate":  "Quality Proxy",
+                          "fault":  "File/export count used as product quality proof",
+                          "n":  12,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-13",
+                          "class":  "WRONG_DEMOTION",
+                          "gate":  "Hard Floor Integrity",
+                          "fault":  "Requirements coverage demoted incorrectly",
+                          "n":  13,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-14",
+                          "class":  "WRONG_DEMOTION",
+                          "gate":  "Hard Floor Integrity",
+                          "fault":  "Workflow validator demoted incorrectly",
+                          "n":  14,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-15",
+                          "class":  "WRONG_DEMOTION",
+                          "gate":  "Hard Floor Integrity",
+                          "fault":  "Audit log demoted incorrectly",
+                          "n":  15,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-16",
+                          "class":  "WRONG_DEMOTION",
+                          "gate":  "Hard Floor Integrity",
+                          "fault":  "Notification outbox demoted incorrectly",
+                          "n":  16,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-17",
+                          "class":  "WRONG_DEMOTION",
+                          "gate":  "Hard Floor Integrity",
+                          "fault":  "API contract demoted incorrectly",
+                          "n":  17,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-18",
+                          "class":  "WRONG_DEMOTION",
+                          "gate":  "Hard Floor Integrity",
+                          "fault":  "Tests demoted incorrectly",
+                          "n":  18,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-19",
+                          "class":  "NO_REAPPLICATION_PLAN",
+                          "gate":  "Fairness",
+                          "fault":  "No fair reapplication plan",
+                          "n":  19,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-20",
+                          "class":  "HISTORY_OVERWRITTEN",
+                          "gate":  "Historical Integrity",
+                          "fault":  "AGENT-9 historical result overwritten",
+                          "n":  20,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-21",
+                          "class":  "MISSING_INSTRUCTIONS",
+                          "gate":  "Handoff",
+                          "fault":  "AGENT-9-P2 instructions missing",
+                          "n":  21,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-22",
+                          "class":  "MISSING_ANTI_GAMING",
+                          "gate":  "Policy Completeness",
+                          "fault":  "Anti-gaming policy missing",
+                          "n":  22,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-23",
+                          "class":  "REQUIREMENTS_CHANGED",
+                          "gate":  "Stability",
+                          "fault":  "Benchmark requirements changed",
+                          "n":  23,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-24",
+                          "class":  "EFFECTIVENESS_CLAIMED",
+                          "gate":  "Effectiveness Claim",
+                          "fault":  "Multi-agent effectiveness claimed",
+                          "n":  24,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-25",
+                          "class":  "DEFAULT_CLAIMED",
+                          "gate":  "Default Claim",
+                          "fault":  "P1 declared default",
+                          "n":  25,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-26",
+                          "class":  "NEW_VERSION",
+                          "gate":  "Release Integrity",
+                          "fault":  "v0.5 package created",
+                          "n":  26,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-27",
+                          "class":  "NEW_BENCHMARK",
+                          "gate":  "Scope",
+                          "fault":  "New benchmark started",
+                          "n":  27,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-28",
+                          "class":  "ZIP_MODIFIED",
+                          "gate":  "Release Integrity",
+                          "fault":  "v0.4 release ZIP modified",
+                          "n":  28,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-29",
+                          "class":  "FINAL_MODIFIED",
+                          "gate":  "Release Integrity",
+                          "fault":  "Old FINAL package modified",
+                          "n":  29,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-30",
+                          "class":  "NO_VERIFIER",
+                          "gate":  "Verification",
+                          "fault":  "No verifier",
+                          "n":  30,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-31",
+                          "class":  "NO_NEGATIVES",
+                          "gate":  "Verification",
+                          "fault":  "No negative controls",
+                          "n":  31,
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NC-32",
+                          "class":  "NO_RECOMMENDATION",
+                          "gate":  "Closure",
+                          "fault":  "No recommendation",
+                          "n":  32,
+                          "result":  "DETECTED"
+                      }
+                  ],
+    "manualPassOnly":  0,
+    "unexpectedPass":  0,
+    "preclassifiedOnly":  0
+}

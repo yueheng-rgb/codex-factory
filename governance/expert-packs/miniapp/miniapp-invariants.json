@@ -1,0 +1,108 @@
+﻿{
+  "pack_id": "miniapp",
+  "version": "1.0.0",
+  "description": "Miniapp Expert Pack invariants — WeChat/Alipay mini-program domain rules",
+  "invariants": [
+    {
+      "invariant_id": "MINI-001",
+      "name": "openid_must_not_be_trusted_without_server_validation",
+      "description": "openid/user identity from miniapp client must be validated server-side before granting access to user data",
+      "category": "identity",
+      "severity": "CRITICAL",
+      "trigger": ["openid","session","user identity","login","wechat login","alipay login"],
+      "required_tests": ["server-side identity validation test","openid spoof rejection test"],
+      "human_review_required": true
+    },
+    {
+      "invariant_id": "MINI-002",
+      "name": "session_token_required_for_user_actions",
+      "description": "All user actions (submit, pay, upload, view own data) must carry a valid server-issued session token",
+      "category": "auth",
+      "severity": "CRITICAL",
+      "trigger": ["form submit","payment","upload","user action"],
+      "required_tests": ["session token validation test","expired token rejection test"]
+    },
+    {
+      "invariant_id": "MINI-003",
+      "name": "user_cannot_access_other_user_data",
+      "description": "Server must enforce that user A cannot read/write user B data regardless of client-side restrictions",
+      "category": "authorization",
+      "severity": "CRITICAL",
+      "trigger": ["user data","my orders","my profile","user isolation"],
+      "required_tests": ["cross-user data access rejection test"],
+      "human_review_required": true
+    },
+    {
+      "invariant_id": "MINI-004",
+      "name": "miniapp_secret_never_exposed_to_client",
+      "description": "AppSecret, API keys, payment keys, and any server-side secrets must never appear in miniapp frontend code or config files distributed to client",
+      "category": "security",
+      "severity": "CRITICAL",
+      "trigger": ["appsecret","appid","api key","payment key","miniapp config"],
+      "required_tests": ["secret exposure scan","frontend code audit for keys"],
+      "human_review_required": true
+    },
+    {
+      "invariant_id": "MINI-005",
+      "name": "payment_callback_must_be_idempotent",
+      "description": "Payment callback handlers must tolerate duplicate calls — idempotency key or transaction ID dedup required",
+      "category": "payment",
+      "severity": "CRITICAL",
+      "trigger": ["支付回调","payment callback","wechat pay notify","alipay notify","退款回调"],
+      "required_tests": ["duplicate callback idempotency test"],
+      "human_review_required": true
+    },
+    {
+      "invariant_id": "MINI-006",
+      "name": "upload_file_type_must_be_validated",
+      "description": "Server must validate uploaded file MIME type and extension against an allowlist. Client-side check alone is insufficient.",
+      "category": "security",
+      "severity": "HIGH",
+      "trigger": ["upload","file upload","图片上传","media upload"],
+      "required_tests": ["blocklisted extension rejection test","MIME type mismatch rejection test"]
+    },
+    {
+      "invariant_id": "MINI-007",
+      "name": "upload_size_limit_enforced",
+      "description": "Server must enforce maximum upload size per file and per request. Client-side limits are hints only.",
+      "category": "security",
+      "severity": "MEDIUM",
+      "trigger": ["upload","file size","图片大小"],
+      "required_tests": ["oversized file rejection test"]
+    },
+    {
+      "invariant_id": "MINI-008",
+      "name": "form_input_must_be_validated",
+      "description": "All form inputs must be validated server-side for type, length, range, and format. Client validation is not sufficient.",
+      "category": "validation",
+      "severity": "HIGH",
+      "trigger": ["form","表单","input validation","提交"],
+      "required_tests": ["malformed input rejection test","SQL injection / XSS rejection test"]
+    },
+    {
+      "invariant_id": "MINI-009",
+      "name": "admin_api_requires_permission",
+      "description": "Admin backend APIs for miniapp content management must be behind role-based access control, not just a shared admin token",
+      "category": "authorization",
+      "severity": "HIGH",
+      "trigger": ["admin","管理后台","content management","商品管理","订单管理"],
+      "required_tests": ["unauthorized admin API access rejection test"]
+    },
+    {
+      "invariant_id": "MINI-010",
+      "name": "production_appid_requires_human_review",
+      "description": "Switching miniapp from dev AppID to production AppID must trigger human review — production config has real user data implications",
+      "category": "release",
+      "severity": "CRITICAL",
+      "trigger": ["production release","正式版","上线","发布","production appid"],
+      "required_tests": ["config audit checklist"],
+      "human_review_required": true
+    }
+  ],
+  "non_claims": [
+    "This pack does NOT constitute a complete production miniapp",
+    "This pack does NOT handle WeChat/Alipay platform review/approval",
+    "This pack does NOT include real payment gateway integration (only design patterns)",
+    "This pack is a DESIGN AID — domain rules, invariants, and test patterns"
+  ]
+}

@@ -1,0 +1,92 @@
+﻿{
+    "contextId":  "CTX-PROJ-SIM-001-PM-001-PHASE-SIM-001",
+    "projectId":  "PROJ-SIM-001",
+    "phaseId":  "PHASE-SIM-001",
+    "agentId":  "PM-001",
+    "taskId":  "",
+    "role":  "Router Agent",
+    "category":  "Management",
+    "agentType":  "constant",
+    "allowedWriteScopes":  [
+                               "governance/contracts/active/",
+                               "governance/lifecycle/",
+                               "outputs/"
+                           ],
+    "forbiddenActions":  [
+                             "write_implementation_code",
+                             "modify_specialist_output_directly",
+                             "bypass_verifier",
+                             "make_architecture_decisions",
+                             "override_user_approval_gate"
+                         ],
+    "permissions":  {
+                        "read":  [
+                                     "all_project_files",
+                                     "all_governance_files",
+                                     "knowledge_bank",
+                                     "skill_registry"
+                                 ],
+                        "write":  [
+                                      "phase_reports",
+                                      "task_graph",
+                                      "governance/contracts/active/"
+                                  ],
+                        "execute":  [
+                                        "shell_command(read)",
+                                        "apply_patch(governance)",
+                                        "update_plan",
+                                        "spawn_agent",
+                                        "send_input"
+                                    ]
+                    },
+    "allowedSkills":  {
+                          "required":  [
+                                           "project-expertise-flow",
+                                           "codex-factory"
+                                       ],
+                          "optional":  [
+                                           "openai-docs"
+                                       ],
+                          "forbidden":  [
+                                            "imagegen",
+                                            "spreadsheets",
+                                            "documents",
+                                            "browser"
+                                        ]
+                      },
+    "requiredInputs":  [
+                           "user_requirements",
+                           "current_factory_state",
+                           "APP_TYPE_ROUTER.md",
+                           "STACK_DECISION_GUIDE.md"
+                       ],
+    "requiredOutputs":  [
+                            {
+                                "name":  "router_output",
+                                "schema":  "router-output.schema.json",
+                                "fields":  [
+                                               "projectType",
+                                               "complexity",
+                                               "recommendedMode",
+                                               "multiAgentRecommended",
+                                               "requiredRoles",
+                                               "risks",
+                                               "estimatedFileCount"
+                                           ]
+                            }
+                        ],
+    "handoffRequired":  true,
+    "evidenceLevel":  "HIGH",
+    "failurePolicy":  {
+                          "wrongClassification":  "escalate_to_user",
+                          "ambiguousType":  "list_2_3_candidates_ask_user",
+                          "missingInfo":  "request_clarification",
+                          "maxRetries":  1
+                      },
+    "createdAt":  "2026-07-05T21:38:49+08:00",
+    "status":  "ACTIVATED",
+    "canReadProjects":  true,
+    "canWriteDesign":  false,
+    "canWriteCode":  false,
+    "canSpawnAgents":  true
+}

@@ -1,0 +1,22 @@
+﻿{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Remote Artifact Intake",
+    "description": "Codex Factory V3.3 Remote Artifact Intake schema — user-supplied CI artifact metadata",
+    "type": "object",
+    "required": ["remote_run_id", "provider", "workflow_name", "collector_mode", "trust_level", "verification_status"],
+    "properties": {
+        "remote_run_id": { "type": "string", "description": "User-assigned or GitHub-assigned run ID" },
+        "provider": { "type": "string", "enum": ["github-actions", "gitlab-ci", "local-generated", "unknown"] },
+        "workflow_name": { "type": "string" },
+        "branch": { "type": "string" },
+        "commit_sha": { "type": "string" },
+        "run_url_optional": { "type": "string", "format": "uri" },
+        "artifact_zip_path": { "type": "string", "description": "Local path to downloaded artifact ZIP" },
+        "artifact_hash": { "type": "string", "description": "SHA256 of artifact ZIP" },
+        "uploaded_at_or_collected_at": { "type": "string", "format": "date-time" },
+        "collector_mode": { "type": "string", "enum": ["user_supplied", "local_generated", "unavailable"] },
+        "trust_level": { "type": "string", "enum": ["NONE", "LOCAL_SIMULATED", "USER_SUPPLIED_UNVERIFIED", "VERIFIED"] },
+        "verification_status": { "type": "string", "enum": ["NOT_PROVIDED", "PENDING", "REMOTE_ARTIFACT_VERIFIED", "REMOTE_ARTIFACT_INVALID", "LOCAL_REMOTE_SHAPE_VALIDATED"] },
+        "non_claims": { "type": "array", "items": { "type": "string" } }
+    }
+}

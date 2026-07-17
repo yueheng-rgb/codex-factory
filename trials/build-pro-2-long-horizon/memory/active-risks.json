@@ -1,0 +1,29 @@
+﻿{
+    "lastUpdated":  "2026-06-27T00:00:00+08:00",
+    "risks":  [
+                  {
+                      "mitigation":  "Regenerate packets at iteration boundaries",
+                      "description":  "Context packet stale before iteration completion",
+                      "severity":  "HIGH",
+                      "riskId":  "R001"
+                  },
+                  {
+                      "mitigation":  "Close receipts audit at each iteration end",
+                      "description":  "Agent lifecycle leak (orphan agents)",
+                      "severity":  "MEDIUM",
+                      "riskId":  "R002"
+                  },
+                  {
+                      "mitigation":  "Mandatory memory update check in iteration close",
+                      "description":  "Memory not updated between iterations",
+                      "severity":  "CRITICAL",
+                      "riskId":  "R003"
+                  },
+                  {
+                      "mitigation":  "Sealed spec diff at each iteration",
+                      "description":  "Product scope creep beyond sealed spec",
+                      "severity":  "MEDIUM",
+                      "riskId":  "R004"
+                  }
+              ]
+}

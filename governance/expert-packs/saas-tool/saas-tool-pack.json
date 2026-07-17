@@ -1,0 +1,127 @@
+﻿{
+  "expert_pack_id": "saas-tool",
+  "domain": "SaaS Tool / AI Platform",
+  "version": "1.0.0",
+  "description": "SaaS Tool Expert Pack. Covers user accounts, tenant/workspace isolation, subscription plans, usage quotas, AI generation cost tracking, API/provider key safety, billing webhooks, admin console, and rate limiting. Does NOT constitute a complete multi-tenant production SaaS platform.",
+
+  "supported_project_types": ["fullstack-admin", "backend-api", "frontend-app", "CLI-tool"],
+  "supported_surfaces": [
+    { "surface_id": "saas-frontend", "surface_type": "frontend-web", "purpose": "SaaS dashboard: user workspace, generation UI, subscription management", "required": false, "recommended_starter": "next-saas-ai-tool", "risk_level_default": "MEDIUM" },
+    { "surface_id": "saas-api", "surface_type": "api-service", "purpose": "REST API: tenants, users, subscriptions, quotas, generations, webhooks, rate limiting", "required": true, "recommended_starter": "node-api-postgres", "risk_level_default": "HIGH" },
+    { "surface_id": "saas-database", "surface_type": "database", "purpose": "Persistent storage: tenants, users, subscriptions, quotas, generation history, API keys", "required": true, "recommended_starter": null, "risk_level_default": "CRITICAL" },
+    { "surface_id": "saas-background-worker", "surface_type": "background-worker", "purpose": "Async generation processing, webhook handling, quota refresh, billing sync", "required": false, "recommended_starter": null, "risk_level_default": "HIGH" },
+    { "surface_id": "saas-admin-web", "surface_type": "admin-web", "purpose": "Admin console: tenant management, plan management, usage monitoring, key management", "required": false, "recommended_starter": "next-fullstack-admin", "risk_level_default": "HIGH" },
+    { "surface_id": "saas-docs", "surface_type": "docs-release", "purpose": "API documentation, integration guide, rate limit policy, security policy", "required": true, "recommended_starter": null, "risk_level_default": "LOW" }
+  ],
+
+  "default_surface_templates": [
+    { "template_id": "saas-lite", "description": "Single-tenant AI tool, no billing", "surfaces": ["frontend-web","api-service","database"], "risk_level": "MEDIUM" },
+    { "template_id": "saas-standard", "description": "Multi-tenant with subscriptions and quotas", "surfaces": ["frontend-web","api-service","database","background-worker","docs-release"], "risk_level": "HIGH" },
+    { "template_id": "saas-enterprise", "description": "Full SaaS platform with admin, billing webhooks, rate limiting", "surfaces": ["frontend-web","api-service","database","background-worker","admin-web","docs-release"], "risk_level": "CRITICAL" },
+    { "template_id": "saas-platform", "description": "AI SaaS platform with multiple providers, usage tracking, multi-tenancy", "surfaces": ["frontend-web","api-service","database","background-worker","admin-web","docs-release"], "risk_level": "L_CLASS" }
+  ],
+
+  "domain_risk_rules": [
+    { "rule_id": "SAAS-R001", "trigger": "(tenant|workspace|multi.?tenant).*(isolat|separat|partition)", "risk_level": "CRITICAL", "reason": "Tenant isolation errors cause cross-tenant data leaks", "critical_fields": ["tenant_id","workspace_id"], "required_reviewers": ["security","architecture"], "human_audit_required": true },
+    { "rule_id": "SAAS-R002", "trigger": "(subscription|plan|tier).*(access|check|gate|control)", "risk_level": "CRITICAL", "reason": "Subscription gating errors cause unauthorized access to paid features", "critical_fields": ["subscription_status","plan_tier"], "required_reviewers": ["business","security"], "human_audit_required": true },
+    { "rule_id": "SAAS-R003", "trigger": "(quota|credit|token|usage).*(decrement|deduct|consume|track)", "risk_level": "CRITICAL", "reason": "Quota deduction bugs cause revenue loss or over-provisioning", "critical_fields": ["quota_remaining","credits","usage_count"], "required_reviewers": ["business"], "human_audit_required": true },
+    { "rule_id": "SAAS-R004", "trigger": "(api.?key|api_key|apikey).*(expos|leak|reveal|client|frontend)", "risk_level": "CRITICAL", "reason": "API key exposure causes security breach and provider cost theft", "critical_fields": ["api_key","secret","token"], "required_reviewers": ["security"], "human_audit_required": true },
+    { "rule_id": "SAAS-R005", "trigger": "(provider.?key|openai.?key|model.?key).*(server|backend|store)", "risk_level": "CRITICAL", "reason": "Provider keys must never reach client-side code", "critical_fields": ["provider_key","openai_key","model_api_key"], "required_reviewers": ["security"], "human_audit_required": true },
+    { "rule_id": "SAAS-R006", "trigger": "(webhook|callback|stripe|billing).*(idempot|duplicate|retry)", "risk_level": "CRITICAL", "reason": "Non-idempotent billing webhooks cause duplicate charges", "critical_fields": ["webhook_id","transaction_id","event_id"], "required_reviewers": ["business","security"], "human_audit_required": true },
+    { "rule_id": "SAAS-R007", "trigger": "(generation|ai|model).*(cost|price|token).*(track|record|log)", "risk_level": "HIGH", "reason": "Unrecorded generation costs cause billing discrepancies", "critical_fields": ["generation_cost","token_count","model_name"], "required_reviewers": ["business"], "human_audit_required": false },
+    { "rule_id": "SAAS-R008", "trigger": "(rate.?limit|throttl|abuse|ddos).*(enforce|check|block)", "risk_level": "HIGH", "reason": "Missing rate limits cause resource exhaustion and cost spikes", "critical_fields": ["request_count","rate_limit_remaining"], "required_reviewers": ["architecture"], "human_audit_required": false },
+    { "rule_id": "SAAS-R009", "trigger": "(admin|permission|role).*(escalat|elevat|grant)", "risk_level": "CRITICAL", "reason": "Permission escalation gives unauthorized admin access", "critical_fields": ["role","permission"], "required_reviewers": ["security"], "human_audit_required": true },
+    { "rule_id": "SAAS-R010", "trigger": "(content|output|result).*(own|belong|privacy|share)", "risk_level": "HIGH", "reason": "Generated content ownership issues cause compliance violations", "critical_fields": ["content_ownership","tenant_id","privacy_level"], "required_reviewers": ["legal","security"], "human_audit_required": false }
+  ],
+
+  "business_invariants": [
+    { "invariant_id": "tenant_data_isolation", "description": "Every data access must be scoped to the current tenant_id. Cross-tenant access is forbidden.", "severity": "CRITICAL", "category": "multi-tenancy", "enforcement_point": "service-layer", "applies_to_surfaces": ["api-service","database"], "violation_example": "User from tenant A querying data from tenant B", "valid_example": "All queries filtered by WHERE tenant_id = current_tenant_id", "required_tests": ["tenant isolation tests"], "required_engines": ["semgrep"], "human_audit_required": true },
+    { "invariant_id": "user_cannot_access_other_tenant_data", "description": "Users belonging to one tenant cannot access data from another tenant", "severity": "CRITICAL", "category": "multi-tenancy", "enforcement_point": "service-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Changing tenant_id query param to access another tenant's generations", "valid_example": "Tenant derived from authenticated user context, not request param", "required_tests": ["tenant isolation tests"], "required_engines": ["semgrep"], "human_audit_required": true },
+    { "invariant_id": "subscription_status_controls_access", "description": "Feature access must be gated by current subscription status", "severity": "CRITICAL", "category": "subscription", "enforcement_point": "service-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Expired subscription user generating AI content", "valid_example": "Middleware checks subscription_status before allowing generation", "required_tests": ["subscription access tests"], "required_engines": ["semgrep"], "human_audit_required": true },
+    { "invariant_id": "expired_subscription_cannot_generate", "description": "Users with expired or cancelled subscriptions cannot invoke generation endpoints", "severity": "CRITICAL", "category": "subscription", "enforcement_point": "route-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Cancelled plan still allows AI generation requests", "valid_example": "Route guard returns 402 Payment Required for expired subscriptions", "required_tests": ["subscription access tests"], "required_engines": ["semgrep"], "human_audit_required": false },
+    { "invariant_id": "usage_quota_non_negative", "description": "Usage quota remaining must never be negative", "severity": "CRITICAL", "category": "quota", "enforcement_point": "service-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Quota goes to -5 after generation", "valid_example": "Quota decrement checks remaining >= delta before allowing", "required_tests": ["quota decrement tests"], "required_engines": ["semgrep"], "human_audit_required": false },
+    { "invariant_id": "quota_decrement_must_be_atomic", "description": "Quota decrement must be atomic to prevent race conditions under concurrent requests", "severity": "CRITICAL", "category": "quota", "enforcement_point": "service-layer", "applies_to_surfaces": ["api-service","database"], "violation_example": "Two concurrent requests both pass quota check, resulting in double-decrement", "valid_example": "Database-level atomic decrement with conditional UPDATE", "required_tests": ["quota decrement tests"], "required_engines": ["semgrep","autocannon"], "human_audit_required": true },
+    { "invariant_id": "generation_cost_must_be_recorded", "description": "Every AI generation must record its token cost for billing purposes", "severity": "HIGH", "category": "cost-tracking", "enforcement_point": "service-layer", "applies_to_surfaces": ["api-service"], "violation_example": "AI generation succeeds but cost is not recorded in billing ledger", "valid_example": "After generation completes, cost entry is persisted with tenant_id, token_count, model, timestamp", "required_tests": ["generation history ownership tests"], "required_engines": ["semgrep"], "human_audit_required": false },
+    { "invariant_id": "generation_history_belongs_to_tenant", "description": "All generation history entries must be scoped to and owned by the tenant", "severity": "HIGH", "category": "multi-tenancy", "enforcement_point": "service-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Generation history endpoint returns results from other tenants", "valid_example": "Generation history query filtered by authenticated user's tenant_id", "required_tests": ["generation history ownership tests"], "required_engines": ["semgrep"], "human_audit_required": false },
+    { "invariant_id": "api_key_never_exposed_to_client", "description": "API keys and secrets must never appear in client-facing responses, logs, or error messages", "severity": "CRITICAL", "category": "security", "enforcement_point": "all", "applies_to_surfaces": ["api-service","frontend-web","admin-web"], "violation_example": "GET /api/keys returns full api_key value in response body", "valid_example": "API returns only key_id, masked_last_four, and created_at — never the full key", "required_tests": ["API key redaction tests"], "required_engines": ["semgrep"], "human_audit_required": true },
+    { "invariant_id": "provider_key_server_side_only", "description": "Provider API keys (OpenAI, Claude, etc.) must be stored and used only server-side; never in client bundles", "severity": "CRITICAL", "category": "security", "enforcement_point": "all", "applies_to_surfaces": ["api-service","database"], "violation_example": "OPENAI_API_KEY included in frontend .env or config.js", "valid_example": "Provider key stored in server environment or vault, accessed only by backend services", "required_tests": ["provider key server-only tests"], "required_engines": ["semgrep"], "human_audit_required": true },
+    { "invariant_id": "billing_webhook_idempotency_required", "description": "Billing webhooks (Stripe, Paddle, etc.) must be processed idempotently — duplicate events must not double-process", "severity": "CRITICAL", "category": "billing", "enforcement_point": "service-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Receiving the same invoice.paid event twice creates two credits", "valid_example": "Webhook handler checks event_id deduplication table before processing", "required_tests": ["billing webhook idempotency tests"], "required_engines": ["semgrep","autocannon"], "human_audit_required": true },
+    { "invariant_id": "rate_limit_enforced_per_user_or_tenant", "description": "Rate limiting must be enforced — per user, per tenant, or per IP — and not bypassable", "severity": "HIGH", "category": "abuse-prevention", "enforcement_point": "route-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Single user making 1000 generation requests per second without restriction", "valid_example": "Middleware returns 429 Too Many Requests after limit exceeded", "required_tests": ["rate limiting tests"], "required_engines": ["autocannon","k6"], "human_audit_required": false },
+    { "invariant_id": "admin_required_for_plan_change", "description": "Only admin roles can change subscription plans or quotas", "severity": "CRITICAL", "category": "permission", "enforcement_point": "route-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Regular user upgrading own plan without payment", "valid_example": "Plan change endpoint requires ADMIN role and audit log entry", "required_tests": ["admin permission tests"], "required_engines": ["semgrep"], "human_audit_required": true },
+    { "invariant_id": "deleted_workspace_cannot_generate", "description": "Deleted or disabled workspaces cannot access any API endpoints", "severity": "HIGH", "category": "multi-tenancy", "enforcement_point": "route-layer", "applies_to_surfaces": ["api-service"], "violation_example": "Soft-deleted workspace still processing generation requests", "valid_example": "Workspace status check in auth middleware returns 403 for deleted workspaces", "required_tests": ["deleted workspace block tests"], "required_engines": ["semgrep"], "human_audit_required": false }
+  ],
+
+  "required_tests": [
+    "tenant_isolation_tests",
+    "subscription_access_tests",
+    "quota_decrement_tests",
+    "generation_history_ownership_tests",
+    "api_key_redaction_tests",
+    "provider_key_server_only_tests",
+    "billing_webhook_idempotency_tests",
+    "rate_limiting_tests",
+    "admin_permission_tests",
+    "deleted_workspace_block_tests"
+  ],
+
+  "required_external_engines": [
+    { "engine_id": "semgrep", "required": true, "note": "Security static analysis — API key exposure, tenant isolation, injection, auth bypass" },
+    { "engine_id": "autocannon", "required": false, "note": "API load smoke for rate limit and generation endpoints" },
+    { "engine_id": "codeql", "required": false, "note": "Deep static analysis (optional, heavy)" },
+    { "engine_id": "k6", "required": false, "note": "Structured load testing for rate limit verification" },
+    { "engine_id": "playwright", "required": false, "note": "Dashboard UI smoke if available" }
+  ],
+
+  "human_audit_points": [
+    "Billing and subscription logic — must be reviewed by business owner",
+    "API key and provider key handling — must be reviewed by security reviewer",
+    "Tenant isolation design — must be reviewed by architecture reviewer",
+    "Quota and credit deduction logic — must be reviewed by business owner",
+    "Webhook idempotency — must be reviewed by security reviewer",
+    "Admin permission model — must be reviewed by security reviewer",
+    "Production-scale performance claims — require architecture review and load test evidence"
+  ],
+
+  "benchmark_cases": [
+    { "benchmark_id": "SAAS-B1", "description": "Single-tenant AI tool, no billing — basic CRUD + generation", "expected_surfaces": ["frontend-web","api-service","database"], "expected_risk_level": "MEDIUM", "expected_invariants": ["generation_cost_must_be_recorded","generation_history_belongs_to_tenant","api_key_never_exposed_to_client"], "runnable_or_design_only": "runnable" },
+    { "benchmark_id": "SAAS-B2", "description": "Multi-tenant workspace with subscription gating", "expected_surfaces": ["frontend-web","api-service","database","background-worker"], "expected_risk_level": "HIGH", "expected_invariants": ["tenant_data_isolation","user_cannot_access_other_tenant_data","subscription_status_controls_access","expired_subscription_cannot_generate"], "runnable_or_design_only": "runnable" },
+    { "benchmark_id": "SAAS-B3", "description": "AI SaaS with quotas, billing webhooks, rate limiting", "expected_surfaces": ["frontend-web","api-service","database","background-worker","admin-web","docs-release"], "expected_risk_level": "CRITICAL", "expected_invariants": ["tenant_data_isolation","subscription_status_controls_access","usage_quota_non_negative","quota_decrement_must_be_atomic","billing_webhook_idempotency_required","rate_limit_enforced_per_user_or_tenant","api_key_never_exposed_to_client","provider_key_server_side_only"], "runnable_or_design_only": "design_only" },
+    { "benchmark_id": "SAAS-B4", "description": "AI SaaS platform with multiple providers and usage tracking", "expected_surfaces": ["frontend-web","api-service","database","background-worker","admin-web","docs-release"], "expected_risk_level": "L_CLASS", "expected_invariants": ["tenant_data_isolation","subscription_status_controls_access","usage_quota_non_negative","quota_decrement_must_be_atomic","generation_cost_must_be_recorded","api_key_never_exposed_to_client","provider_key_server_side_only","billing_webhook_idempotency_required","rate_limit_enforced_per_user_or_tenant","admin_required_for_plan_change","deleted_workspace_cannot_generate"], "runnable_or_design_only": "design_only" }
+  ],
+
+  "non_claims": [
+    "This pack does NOT constitute a complete, production-ready multi-tenant SaaS platform",
+    "This pack does NOT include actual payment gateway integration (Stripe/Paddle code)",
+    "This pack does NOT include SOC2/ISO27001 compliance certification",
+    "This pack does NOT include GDPR/data-privacy compliance implementation",
+    "This pack does NOT include real AI model provider integration (only design patterns)",
+    "This pack does NOT include production-scale multi-region deployment",
+    "This pack does NOT include SSO/SAML/OIDC enterprise auth integration",
+    "This pack is a DESIGN AID — domain rules, invariants, and test patterns",
+    "Actual implementation requires domain expert review, security audit, and production hardening"
+  ],
+
+  "activation_conditions": {
+    "keywords": [
+      "SaaS", "saas", "多租户", "tenant", "workspace", "工作区",
+      "订阅", "subscription", "套餐", "plan", "用量", "额度", "quota",
+      "AI生成", "AI工具", "AI platform", "AI generation",
+      "API key", "apikey", "provider key", "密钥", "key管理",
+      "webhook", "rate limit", "限流", "计费", "billing",
+      "生成历史", "generation history", "AI SaaS", "SaaS tool",
+      "租户隔离", "tenant isolation", "配额", "credit",
+      "用量追踪", "usage tracking", "工作空间"
+    ],
+    "min_surfaces": 1,
+    "exclude_keywords": ["文档修改", "README", "文案", "样式调整", "商城", "电商", "ecommerce"]
+  },
+
+  "integration_points": {
+    "surface_plan": true,
+    "risk_classifier": true,
+    "invariant_engine": true,
+    "engine_broker": true,
+    "gate_detection": true,
+    "risk_gate": true
+  }
+}

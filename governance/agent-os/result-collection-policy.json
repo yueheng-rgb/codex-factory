@@ -1,0 +1,19 @@
+﻿{
+  "schemaId": "result-collection-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:40+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-D",
+  "nativeGenerated": true,
+  "outputs": {
+    "close_receipt": {"required":true,"triggers":"agent reaches VERIFIED state"},
+    "archive_receipt": {"required":true,"triggers":"agent reaches ARCHIVED state"},
+    "quarantine_receipt": {"required":true,"triggers":"agent enters QUARANTINED state"},
+    "index_update": {"required":true,"triggers":"any state change","targets":["agent-active-archive-index.json","agent-quarantine-index.json"]},
+    "verifier_record": {"required":true,"triggers":"verifier issues PASS or FAIL"}
+  },
+  "eventRecording": {
+    "appendOnly": true,
+    "path": "governance/agent-os/AGENT_EVENTS.jsonl",
+    "rules": ["no_delete","no_overwrite","hash_chained","timestamp_ordered"]
+  }
+}

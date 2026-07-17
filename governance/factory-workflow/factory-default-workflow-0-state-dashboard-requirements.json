@@ -1,0 +1,41 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "I",
+  "title": "State Dashboard Requirements",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "REQUIREMENTS",
+  "requirements_file": "factory-workflow/STATE_DASHBOARD_REQUIREMENTS.md",
+  "state_categories": [
+    {
+      "name": "Project Status",
+      "fields": ["Current Phase", "Phase Status", "Bootstrap Status", "Mode", "Multi-Agent"]
+    },
+    {
+      "name": "Build State",
+      "fields": ["Last Build", "Build Status", "Artifact Path"]
+    },
+    {
+      "name": "Agent State",
+      "fields": ["Active Agents", "Agent Ledger", "Last Handoff"]
+    },
+    {
+      "name": "Governance State",
+      "fields": ["Last Verifier Run", "Open Negative Controls", "Phase Reports", "Strategy Decisions"]
+    },
+    {
+      "name": "Cleanup State",
+      "fields": ["Pending Cleanup Plan", "Cache Size", "Last Cleanup"]
+    }
+  ],
+  "non_requirements_this_phase": [
+    "Web UI for state dashboard",
+    "Real-time monitoring",
+    "Database-backed persistence",
+    "Graph visualization",
+    "Alerting/notification system",
+    "Multi-project dashboard"
+  ],
+  "cli_query": "factory state",
+  "future_phase": "FACTORY-STATE-DASHBOARD-0",
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_I_STATE_DASHBOARD_REQUIREMENTS_REPORT.md"
+}

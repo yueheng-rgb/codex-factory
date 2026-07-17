@@ -1,0 +1,48 @@
+﻿{
+    "packetId":  "TPP-LOOPBACK-20260710011056",
+    "packetType":  "tool-permission-packet",
+    "generatedAt":  "2026-07-10T01:10:56+08:00",
+    "projectId":  "PROJ-LOOPBACK-001",
+    "phaseId":  "verification",
+    "agentId":  "VER-001",
+    "projectType":  "content-site",
+    "networkBoundary":  "loopback_only",
+    "allowedHosts":  [
+                         "127.0.0.1",
+                         "localhost",
+                         "::1"
+                     ],
+    "blockedHosts":  [
+                         "*"
+                     ],
+    "sandboxSessionId":  "SBOX-20260710011006-TOOL-PLAYWRIGHT-VER-001",
+    "networkApprovalStatus":  "approved",
+    "hostAllowlist":  [
+                          "127.0.0.1",
+                          "localhost",
+                          "::1"
+                      ],
+    "boundaryViolationPolicy":  "REJECT",
+    "allowedTools":  [
+                         {
+                             "sandboxMode":  "disposable",
+                             "name":  "Playwright Verifier",
+                             "toolId":  "TOOL-PLAYWRIGHT-VER-001",
+                             "maxRiskLevel":  "medium"
+                         }
+                     ],
+    "blockedTools":  [
+
+                     ],
+    "pendingSandboxTools":  [
+
+                            ],
+    "forbiddenToolActions":  [
+                                 "write_project_files",
+                                 "external_network",
+                                 "read_secrets"
+                             ],
+    "toolRiskSummary":  "medium: Playwright in loopback_only sandbox",
+    "sandboxInstructions":  "Disposable workspace, loopback network only",
+    "humanApprovalInstructions":  "Approved for this loopback trial"
+}

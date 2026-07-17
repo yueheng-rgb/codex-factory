@@ -1,0 +1,38 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "D",
+  "title": "Multi-Agent Decision Gate",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "gate_file": "factory-workflow/MULTI_AGENT_DECISION_GATE.md",
+  "required_criteria": [
+    "Project includes server-side and client-side code",
+    "Project requires a database",
+    "Project has 3+ distinct modules/services",
+    "Project has user authentication/authorization",
+    "Estimated implementation scope > 5 files"
+  ],
+  "required_threshold": "3+ of 5 criteria",
+  "optional_triggers": [
+    "Fullstack but small (2-3 files)",
+    "Independent frontend + backend",
+    "User mentions parallel or 多 agent"
+  ],
+  "should_not_suggest": [
+    "Single-file change or fix",
+    "Documentation-only change",
+    "Configuration-only change",
+    "Small project (< 5 files estimated)",
+    "Simple CRUD without auth"
+  ],
+  "hard_rules": [
+    "Multi-agent MUST NOT start without user confirmation",
+    "Multi-agent MUST NOT be the universal default",
+    "Multi-agent MUST NOT bypass the user for large projects",
+    "Question MUST be asked before any implementation code is written",
+    "Decide later -> re-ask at next natural milestone",
+    "Declined -> do not re-ask for the same project phase"
+  ],
+  "question_template": "Multi-Agent Decision Required with Enable/Single agent/Decide later options",
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_D_MULTI_AGENT_DECISION_GATE_REPORT.md"
+}

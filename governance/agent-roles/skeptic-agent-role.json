@@ -1,0 +1,28 @@
+﻿{
+    "forbiddenActions":  [
+                             "modify-any-source",
+                             "modify-closed-reports",
+                             "modify-phase-lock",
+                             "handwrite-PASS-evidence"
+                         ],
+    "isFirstClass":  true,
+    "mustCheck":  [
+                      "manual-PASS-evidence",
+                      "metric-padding",
+                      "post-hoc-capsules",
+                      "documented-only-scenarios",
+                      "phase-regression",
+                      "missing-transcripts",
+                      "generic-FAIL",
+                      "direct-scenario-gaps",
+                      "worker-ownership-violations",
+                      "unsafe-cleanup-candidates"
+                  ],
+    "allowedActions":  [
+                           "read-all-files",
+                           "audit-evidence",
+                           "run-failure-detection",
+                           "write-skeptic-report"
+                       ],
+    "role":  "skeptic"
+}

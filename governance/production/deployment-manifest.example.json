@@ -1,0 +1,41 @@
+﻿{
+  "project_name": "saas-runtime-validation",
+  "version": "1.0.0",
+  "repository": "Codex_App_Factory/testbeds/saas-runtime-validation",
+  "deployment_targets": [
+    { "target": "local", "start_command": "npx tsx src/server.ts", "build_command": "npx tsc --noEmit", "notes": "In-memory mode. Set DATABASE_URL for Postgres." },
+    { "target": "docker", "start_command": "docker compose up", "build_command": "docker compose build", "notes": "Requires Dockerfile + docker-compose.yml" },
+    { "target": "vps", "start_command": "node dist/server.js", "build_command": "npm run build", "notes": "After npm install. Use pm2 or systemd." }
+  ],
+  "env_vars": [
+    { "name": "DATABASE_URL", "required": false, "secret": false, "default": "", "description": "Postgres connection string. Empty = in-memory test mode." },
+    { "name": "PORT", "required": false, "secret": false, "default": "3300", "description": "HTTP server port" },
+    { "name": "NODE_ENV", "required": false, "secret": false, "default": "production", "description": "Environment: development, staging, production" },
+    { "name": "OPENAI_API_KEY", "required": false, "secret": true, "default": "", "description": "Provider API key — server-side only, NEVER in client" },
+    { "name": "LOG_LEVEL", "required": false, "secret": false, "default": "info", "description": "Log level: debug, info, warn, error" }
+  ],
+  "ports": [
+    { "port": 3300, "purpose": "HTTP API server" }
+  ],
+  "health_check_path": "/health",
+  "database": {
+    "type": "PostgreSQL 16 (optional, in-memory by default)",
+    "migration_command": "psql -U postgres -d saas_validation -f db/schema.sql",
+    "seed_command": "npx tsx src/db/seed.ts"
+  },
+  "rollback_notes": "Revert migration: DROP SCHEMA public CASCADE; CREATE SCHEMA public;. Deploy previous build artifact. Restore database from backup.",
+  "known_non_claims": [
+    "This is a testbed, NOT a production SaaS platform",
+    "In-memory store loses all data on restart",
+    "Rate limiting is simulated — not a real distributed rate limiter",
+    "Autocannon smoke is local only — does not represent production traffic",
+    "No multi-region deployment configured",
+    "No automatic failover or replication"
+  ],
+  "known_risks": [
+    "No persistent storage in default mode",
+    "Playwright UI smoke unavailable",
+    "No authentication middleware (headers for test)",
+    "Single instance — no load balancing"
+  ]
+}

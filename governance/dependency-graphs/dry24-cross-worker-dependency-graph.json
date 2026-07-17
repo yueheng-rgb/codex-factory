@@ -1,0 +1,81 @@
+{
+  "graphId": "DRY24-CROSS-WORKER-DEPENDENCY-GRAPH",
+  "generatedAt": "2026-06-24T16:17:17.827367+08:00",
+  "nodes": [
+    {
+      "agentId": "dry24-builder-reliability",
+      "package": "agent-reliability-runtime",
+      "exports": 62,
+      "dependencies": [
+        "worker-contract-engine"
+      ]
+    },
+    {
+      "agentId": "dry24-builder-contracts",
+      "package": "worker-contract-engine",
+      "exports": 65,
+      "dependencies": []
+    },
+    {
+      "agentId": "dry24-builder-context",
+      "package": "context-governance-runtime",
+      "exports": 62,
+      "dependencies": [
+        "worker-contract-engine"
+      ]
+    },
+    {
+      "agentId": "dry24-builder-decision",
+      "package": "factory-decision-engine",
+      "exports": 70,
+      "dependencies": [
+        "worker-contract-engine"
+      ]
+    },
+    {
+      "agentId": "dry24-builder-progress",
+      "package": "progress-integrity",
+      "exports": 50,
+      "dependencies": [
+        "worker-contract-engine"
+      ]
+    },
+    {
+      "agentId": "dry24-builder-drift",
+      "package": "architecture-drift-detector",
+      "exports": 60,
+      "dependencies": [
+        "worker-contract-engine"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "agent-reliability-runtime",
+      "target": "worker-contract-engine",
+      "type": "allowed"
+    },
+    {
+      "source": "context-governance-runtime",
+      "target": "worker-contract-engine",
+      "type": "allowed"
+    },
+    {
+      "source": "factory-decision-engine",
+      "target": "worker-contract-engine",
+      "type": "allowed"
+    },
+    {
+      "source": "progress-integrity",
+      "target": "worker-contract-engine",
+      "type": "allowed"
+    },
+    {
+      "source": "architecture-drift-detector",
+      "target": "worker-contract-engine",
+      "type": "allowed"
+    }
+  ],
+  "totalEdges": 5,
+  "crossWorkerDeps": 5
+}

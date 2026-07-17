@@ -1,0 +1,522 @@
+﻿{
+    "roles":  [
+                  {
+                      "driftRisks":  [
+                                         "becoming_de_facto_implementer",
+                                         "skipping_verifier"
+                                     ],
+                      "requiredInputs":  [
+                                             "user_requirements",
+                                             "current_factory_state"
+                                         ],
+                      "forbiddenScope":  [
+                                             "frontend_implementation",
+                                             "backend_implementation",
+                                             "db_schema_definition"
+                                         ],
+                      "category":  "Management",
+                      "failureModes":  [
+                                           "micromanaging",
+                                           "bypassing specialists",
+                                           "scope creep"
+                                       ],
+                      "requiredOutputs":  [
+                                              "task_graph",
+                                              "role_assignments",
+                                              "phase_status"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Gate all major decisions. Can override specialist recommendations with evidence.",
+                      "reviewGate":  "Integrator+Verifier",
+                      "ownedScope":  [
+                                         "task_decomposition",
+                                         "role_assignment",
+                                         "phase_gating"
+                                     ],
+                      "closeCondition":  "All sub-tasks complete and verified",
+                      "prohibited":  [
+                                         "write_implementation_code",
+                                         "modify_specialist_output_directly",
+                                         "bypass_verifier"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Orchestrate project. Decompose tasks. Assign roles. Own scope and timeline.",
+                      "roleId":  "PM-001",
+                      "title":  "Main Agent / PM"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "becoming_implementer",
+                                         "ignoring_constraints"
+                                     ],
+                      "requiredInputs":  [
+                                             "requirements",
+                                             "factory_state"
+                                         ],
+                      "forbiddenScope":  [
+                                             "implementation_details",
+                                             "deployment_operations"
+                                         ],
+                      "category":  "Management",
+                      "failureModes":  [
+                                           "over_engineering",
+                                           "analysis_paralysis"
+                                       ],
+                      "requiredOutputs":  [
+                                              "architecture_doc",
+                                              "api_contract",
+                                              "component_diagram"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Define architecture and tech stack. Reject architecturally unsound implementations.",
+                      "reviewGate":  "PM+Backend+Frontend",
+                      "ownedScope":  [
+                                         "architecture_design",
+                                         "tech_stack_selection",
+                                         "api_contract_definition",
+                                         "component_boundaries"
+                                     ],
+                      "closeCondition":  "Architecture approved by PM",
+                      "prohibited":  [
+                                         "write_production_code",
+                                         "modify_running_system",
+                                         "override_PM_gate"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Define system architecture, technology choices, component boundaries, API contracts.",
+                      "roleId":  "ARCH-001",
+                      "title":  "Architect / Tech Lead"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "becoming_fixer",
+                                         "ignoring_minor_mismatches"
+                                     ],
+                      "requiredInputs":  [
+                                             "frontend_output",
+                                             "backend_output",
+                                             "api_contract"
+                                         ],
+                      "forbiddenScope":  [
+                                             "frontend_implementation",
+                                             "backend_implementation"
+                                         ],
+                      "category":  "Management",
+                      "failureModes":  [
+                                           "rubber_stamping",
+                                           "false_alignment"
+                                       ],
+                      "requiredOutputs":  [
+                                              "integration_report",
+                                              "mismatch_flags"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Flag integration issues. Request rework from specialists. Cannot implement fixes directly.",
+                      "reviewGate":  "PM+Verifier",
+                      "ownedScope":  [
+                                         "cross_role_consistency",
+                                         "contract_alignment",
+                                         "integration_verification"
+                                     ],
+                      "closeCondition":  "All cross-role contracts aligned",
+                      "prohibited":  [
+                                         "write_implementation_code",
+                                         "bypass_specialist_roles",
+                                         "mark_own_integration_PASS"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Own cross-role consistency. Detect contract mismatches. Reconcile frontend/backend interfaces.",
+                      "roleId":  "INTG-001",
+                      "title":  "Integrator"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "modifying_api_contract",
+                                         "adding_backend_logic"
+                                     ],
+                      "requiredInputs":  [
+                                             "api_contract",
+                                             "design_spec",
+                                             "style_guide"
+                                         ],
+                      "forbiddenScope":  [
+                                             "backend_routes",
+                                             "database_operations",
+                                             "auth_logic"
+                                         ],
+                      "category":  "Implementation",
+                      "failureModes":  [
+                                           "inconsistent_styling",
+                                           "skipping_accessibility"
+                                       ],
+                      "requiredOutputs":  [
+                                              "ui_code",
+                                              "component_tests"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Own frontend implementation. Reject impossible designs.",
+                      "reviewGate":  "Architect+Integrator+QA",
+                      "ownedScope":  [
+                                         "ui_components",
+                                         "pages",
+                                         "client_state",
+                                         "accessibility"
+                                     ],
+                      "closeCondition":  "UI passes tests and integration check",
+                      "prohibited":  [
+                                         "modify_backend_code",
+                                         "modify_db_schema",
+                                         "define_api_contract_unilaterally"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Implement UI components, pages, client-side logic. Follow style guide and accessibility rules.",
+                      "roleId":  "FE-001",
+                      "title":  "Frontend Builder"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "modifying_frontend_contract",
+                                         "skipping_security_review"
+                                     ],
+                      "requiredInputs":  [
+                                             "api_contract",
+                                             "architecture_doc",
+                                             "security_policy"
+                                         ],
+                      "forbiddenScope":  [
+                                             "ui_rendering",
+                                             "client_state"
+                                         ],
+                      "category":  "Implementation",
+                      "failureModes":  [
+                                           "leaking_implementation_details",
+                                           "inconsistent_error_handling"
+                                       ],
+                      "requiredOutputs":  [
+                                              "api_code",
+                                              "db_migrations",
+                                              "api_tests"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Own backend implementation. Reject impossible API requirements.",
+                      "reviewGate":  "Architect+Integrator+Security",
+                      "ownedScope":  [
+                                         "api_routes",
+                                         "business_logic",
+                                         "database_operations"
+                                     ],
+                      "closeCondition":  "API passes tests, integration, and security review",
+                      "prohibited":  [
+                                         "modify_frontend_code",
+                                         "define_ui_behavior",
+                                         "commit_secrets"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Implement API routes, business logic, database operations. Follow contract and security rules.",
+                      "roleId":  "BE-001",
+                      "title":  "Backend Builder"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "adding_business_logic_in_triggers",
+                                         "bypassing_migrations"
+                                     ],
+                      "requiredInputs":  [
+                                             "data_model",
+                                             "architecture_doc"
+                                         ],
+                      "forbiddenScope":  [
+                                             "api_routes",
+                                             "business_logic"
+                                         ],
+                      "category":  "Implementation",
+                      "failureModes":  [
+                                           "missing_indexes",
+                                           "unsafe_migrations"
+                                       ],
+                      "requiredOutputs":  [
+                                              "schema_ddl",
+                                              "migrations",
+                                              "query_tests"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Own database schema. Reject schema changes that break integrity.",
+                      "reviewGate":  "Architect+Backend+Security",
+                      "ownedScope":  [
+                                         "schema_design",
+                                         "migrations",
+                                         "query_optimization"
+                                     ],
+                      "closeCondition":  "Schema approved and migration tested",
+                      "prohibited":  [
+                                         "modify_business_logic",
+                                         "define_api_routes",
+                                         "drop_production_data"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Design and implement database schema, migrations, queries. Own data integrity.",
+                      "roleId":  "DB-001",
+                      "title":  "Database Engineer"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "becoming_implementer",
+                                         "accepting_self_report"
+                                     ],
+                      "requiredInputs":  [
+                                             "implementation_code",
+                                             "api_contract",
+                                             "requirements"
+                                         ],
+                      "forbiddenScope":  [
+                                             "implementation",
+                                             "deployment"
+                                         ],
+                      "category":  "Quality",
+                      "failureModes":  [
+                                           "testing_happy_path_only",
+                                           "skipping_edge_cases"
+                                       ],
+                      "requiredOutputs":  [
+                                              "test_results",
+                                              "coverage_report",
+                                              "bug_reports"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Reject untested code. Define test requirements. Cannot mark implementation correct.",
+                      "reviewGate":  "Verifier",
+                      "ownedScope":  [
+                                         "test_design",
+                                         "edge_case_discovery",
+                                         "regression_detection",
+                                         "coverage_analysis"
+                                     ],
+                      "closeCondition":  "Test coverage meets threshold and no critical bugs",
+                      "prohibited":  [
+                                         "write_implementation_code",
+                                         "mark_production_ready",
+                                         "accept_self_report_as_test"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Design and execute tests. Verify edge cases. Own test coverage and regression detection.",
+                      "roleId":  "QA-001",
+                      "title":  "QA / Test Engineer"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "becoming_enforcer_not_reviewer",
+                                         "blocking_without_evidence"
+                                     ],
+                      "requiredInputs":  [
+                                             "implementation_code",
+                                             "architecture_doc",
+                                             "auth_design"
+                                         ],
+                      "forbiddenScope":  [
+                                             "implementation",
+                                             "deployment",
+                                             "db_schema_modification"
+                                         ],
+                      "category":  "Quality",
+                      "failureModes":  [
+                                           "false_positives_flooding",
+                                           "missing_context_in_review"
+                                       ],
+                      "requiredOutputs":  [
+                                              "security_report",
+                                              "vulnerability_list",
+                                              "risk_classification"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Block deployment on critical security findings. Cannot implement fixes directly.",
+                      "reviewGate":  "PM+Architect",
+                      "ownedScope":  [
+                                         "threat_modeling",
+                                         "auth_review",
+                                         "vulnerability_scan",
+                                         "secret_detection"
+                                     ],
+                      "closeCondition":  "No critical vulnerabilities remain",
+                      "prohibited":  [
+                                         "write_implementation_code",
+                                         "bypass_implementation_roles",
+                                         "mark_secure_without_review"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Review code for security vulnerabilities. Own threat model and auth validation.",
+                      "roleId":  "SEC-001",
+                      "title":  "Security Reviewer"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "becoming_fixer",
+                                         "marking_PASS_prematurely"
+                                     ],
+                      "requiredInputs":  [
+                                             "phase_artifacts",
+                                             "contracts",
+                                             "evidence_paths"
+                                         ],
+                      "forbiddenScope":  [
+                                             "implementation",
+                                             "deployment",
+                                             "all_non_readonly_actions"
+                                         ],
+                      "category":  "Quality",
+                      "failureModes":  [
+                                           "false_negatives",
+                                           "missing_evidence_not_flagged"
+                                       ],
+                      "requiredOutputs":  [
+                                              "verifier_result_json"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Block phase closure on FAIL. Cannot implement, fix, or mark PASS without evidence.",
+                      "reviewGate":  "N/A (readonly)",
+                      "ownedScope":  [
+                                         "verifier_execution",
+                                         "evidence_validation",
+                                         "contract_enforcement"
+                                     ],
+                      "closeCondition":  "Verifier runs complete",
+                      "prohibited":  [
+                                         "write_implementation_code",
+                                         "fix_detected_issues",
+                                         "mark_PASS_without_evidence",
+                                         "mutate_state"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Readonly verification. Execute verifier scripts. Check evidence, contracts, negatives.",
+                      "roleId":  "VER-001",
+                      "title":  "Verifier"
+                  },
+                  {
+                      "driftRisks":  [
+                                         "becoming_micromanager",
+                                         "over_auditing"
+                                     ],
+                      "requiredInputs":  [
+                                             "role_profiles",
+                                             "agent_events",
+                                             "verifier_results"
+                                         ],
+                      "forbiddenScope":  [
+                                             "implementation",
+                                             "deployment"
+                                         ],
+                      "category":  "Quality",
+                      "failureModes":  [
+                                           "false_positives",
+                                           "missing_drift_patterns"
+                                       ],
+                      "requiredOutputs":  [
+                                              "audit_report",
+                                              "drift_flags",
+                                              "gap_inventory"
+                                          ],
+                      "status":  "DEFINED",
+                      "authority":  "Flag drift and gaps. Cannot fix issues directly.",
+                      "reviewGate":  "PM+Verifier",
+                      "ownedScope":  [
+                                         "drift_detection",
+                                         "gap_analysis",
+                                         "role_compliance_audit",
+                                         "evidence_chain_audit"
+                                     ],
+                      "closeCondition":  "Audit complete with no P0 findings",
+                      "prohibited":  [
+                                         "write_code",
+                                         "mark_PASS",
+                                         "fix_issues"
+                                     ],
+                      "included_in_benchmark":  true,
+                      "defaultForkContext":  "false",
+                      "purpose":  "Audit role drift, skill misuse, evidence gaps, responsibility gaps. Readonly.",
+                      "roleId":  "AUD-001",
+                      "title":  "Auditor"
+                  },
+                  {
+                      "status":  "FUTURE_ROLE",
+                      "forbiddenScope":  [
+                                             "implementation"
+                                         ],
+                      "requiredInputs":  [
+                                             "code",
+                                             "architecture_doc",
+                                             "api_contract"
+                                         ],
+                      "included_in_benchmark":  false,
+                      "authority":  "Require documentation completion. Cannot modify implementation.",
+                      "title":  "Documentation Writer",
+                      "roleId":  "DOC-001",
+                      "category":  "Knowledge",
+                      "purpose":  "Generate and maintain project documentation. Own README, API docs, architecture docs.",
+                      "requiredOutputs":  [
+                                              "documentation",
+                                              "readme"
+                                          ],
+                      "ownedScope":  [
+                                         "documentation",
+                                         "readme",
+                                         "api_docs"
+                                     ],
+                      "reviewGate":  "Architect+PM",
+                      "defaultForkContext":  "false",
+                      "prohibited":  [
+                                         "write_code",
+                                         "modify_artifacts"
+                                     ]
+                  },
+                  {
+                      "status":  "EXISTING_FACTORY_ROLE",
+                      "forbiddenScope":  [
+                                             "implementation",
+                                             "deployment"
+                                         ],
+                      "requiredInputs":  [
+                                             "research_question"
+                                         ],
+                      "included_in_benchmark":  false,
+                      "authority":  "Provide findings. Cannot implement.",
+                      "title":  "Explorer / Researcher",
+                      "roleId":  "EXP-001",
+                      "category":  "Knowledge",
+                      "purpose":  "Research external topics, explore codebase, answer specific questions. Readonly.",
+                      "requiredOutputs":  [
+                                              "research_findings",
+                                              "evidence_sources"
+                                          ],
+                      "ownedScope":  [
+                                         "research",
+                                         "codebase_exploration",
+                                         "external_search"
+                                     ],
+                      "reviewGate":  "PM",
+                      "defaultForkContext":  "true",
+                      "prohibited":  [
+                                         "write_code",
+                                         "mark_phase_PASS"
+                                     ]
+                  }
+              ],
+    "version":  "1.0.0",
+    "totalRoles":  12,
+    "generatedAt":  "2026-06-25T16:07:33+08:00",
+    "phase":  "FACTORY-EVAL-3-A",
+    "schemaId":  "role-agent-taxonomy",
+    "categories":  [
+                       "Management",
+                       "Implementation",
+                       "Quality",
+                       "Knowledge"
+                   ]
+}

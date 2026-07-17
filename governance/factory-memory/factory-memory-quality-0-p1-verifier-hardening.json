@@ -1,0 +1,21 @@
+﻿{
+    "checksAdded":  32,
+    "blindSpotsFixed":  [
+                            "context-packet.schema.json now explicitly checked (V10)",
+                            "generate-context-packet.ps1 now explicitly checked (V12)",
+                            "validate-context-packet.ps1 now explicitly checked (V13)",
+                            "Output reports now checked by exact path (V14-V20)",
+                            "Smoke test artifacts verified (V21-V23)",
+                            "PRO-2 boundary enforced (V28)",
+                            "v0.5/ZIP creation blocked (V29-V30)"
+                        ],
+    "section":  "G",
+    "phase":  "FACTORY-MEMORY-QUALITY-0-P1",
+    "date":  "2026-06-27",
+    "status":  "COMPLETED",
+    "newChecks":  [
+                      "V08-V31: P1 artifact existence + boundary checks"
+                  ],
+    "title":  "Verifier Hardening",
+    "verifierPath":  "scripts/factory-memory-quality-0-p1-artifact-repair-verify.ps1"
+}

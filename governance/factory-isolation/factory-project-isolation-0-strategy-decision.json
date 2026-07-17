@@ -1,0 +1,36 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "M",
+  "title": "Strategy Decision",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "decisions": {
+    "q1_isolation_sufficient": {
+      "answer": "YES, in theory",
+      "detail": "18-field identity model, 7-state registry, 5 mount rules, 3 memory categories, 5 cleanup rules, 5 agent-ledger rules, 5 working-copy rules, 7x7 transition matrix, 10 simulations"
+    },
+    "q2_what_remains": [
+      "Mount gate implementation (code)",
+      "Memory boundary enforcement (code)",
+      "Cleanup isolation enforcement (code)",
+      "CLI commands (factory project list/status/switch)",
+      "Real project validation"
+    ],
+    "q3_recommended_next": [
+      {"priority": 1, "phase": "FACTORY-STATE-DASHBOARD-0"},
+      {"priority": 2, "phase": "FACTORY-RECOVERY-0"},
+      {"priority": 3, "phase": "FACTORY-MULTI-AGENT-ORCHESTRATION-1"},
+      {"priority": 4, "phase": "FACTORY-PROJECT-LIFECYCLE-0"}
+    ],
+    "q4_integrate_into_v05_r1": "YES, after real project validation",
+    "q5_do_not_do_now": [
+      "Create v0.6",
+      "Real project validation",
+      "Go to cloud",
+      "Modify v0.5 zip",
+      "Build isolation enforcement code",
+      "Start project deletion implementation"
+    ]
+  },
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_M_STRATEGY_DECISION_REPORT.md"
+}

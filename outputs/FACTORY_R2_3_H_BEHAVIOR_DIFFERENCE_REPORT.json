@@ -1,0 +1,92 @@
+﻿{
+    "comparisonId":  "BEHAVIOR-DIFF-001",
+    "totalDimensions":  12,
+    "significantDifferences":  11,
+    "dimensions":  [
+                       {
+                           "diff":  "Both detect file on disk.",
+                           "sig":  false,
+                           "without":  true,
+                           "dim":  "AGENTS.md detection",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH extracts npm run build",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Build command extraction",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH extracts npm test",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Test command extraction",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH extracts npm run lint",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Lint command extraction",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH identifies 4 boundaries",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Security boundaries",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH parses 3 directory rules",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Directory rules",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH catalogs 9 forbidden actions",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Forbidden actions catalog",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH extracts 6 handoff fields",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Handoff fields",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH extracts ADVISORY rule",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "User instruction priority",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH generates PIC/AC/FC/NGC",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Contract input generation",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH detects src/AGENTS.md",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Nested AGENTS.md handling",
+                           "with":  true
+                       },
+                       {
+                           "diff":  "WITH writes ledger entries",
+                           "sig":  true,
+                           "without":  false,
+                           "dim":  "Skill usage recording",
+                           "with":  true
+                       }
+                   ],
+    "summary":  "CAP-SKILL-004 produces significant differences in 11/12 dimensions"
+}

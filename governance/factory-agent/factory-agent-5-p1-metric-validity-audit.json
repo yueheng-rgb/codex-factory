@@ -1,0 +1,219 @@
+﻿{
+    "scope":  "All AGENT-5 benchmark floors",
+    "step":  "B_METRIC_VALIDITY_AUDIT",
+    "timestamp":  "2026-06-26T20:21:02.8056139+08:00",
+    "metrics":  [
+                    {
+                        "classification":  "GAMEABLE_METRIC",
+                        "evidencePaths":  [
+                                              "AGENT-8-P1-R1 floor-metric-audit.json"
+                                          ],
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Weakly — file count can be inflated by splitting without adding behavior",
+                                          "penalizesConciseArchitecture":  true,
+                                          "recommendation":  "Demote from hard blocker to SOFT_DIAGNOSTIC. Replace with meaningful-artifact count.",
+                                          "easyToGame":  true,
+                                          "stackDependent":  true,
+                                          "rewardsFragmentation":  true
+                                      },
+                        "metric":  "sourceFileCount",
+                        "originalFloor":  80
+                    },
+                    {
+                        "classification":  "GAMEABLE_METRIC",
+                        "evidencePaths":  [
+                                              "AGENT-8-P1-R1 floor-metric-audit.json"
+                                          ],
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Weakly — dense shared/types.ts has 65 exports from 1 file, which is efficient",
+                                          "penalizesConciseArchitecture":  true,
+                                          "recommendation":  "Demote from hard blocker to SOFT_DIAGNOSTIC. Replace with meaningful-export count per module.",
+                                          "easyToGame":  true,
+                                          "stackDependent":  true,
+                                          "rewardsFragmentation":  true
+                                      },
+                        "metric":  "exportCount",
+                        "originalFloor":  300
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — endpoints represent real behavioral surface",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor. 50 endpoints in RUN-LP-C-P1 exceeds 40 floor.",
+                                          "easyToGame":  "Moderately — fake endpoints detectable via behavior test",
+                                          "stackDependent":  "Slightly — API endpoint count scales with business requirements",
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "endpointCount",
+                        "originalFloor":  40
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — each table represents distinct data entity",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor. 15 tables met.",
+                                          "easyToGame":  "Hard — fake tables easily detected via schema review",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "dbTableCount",
+                        "originalFloor":  15
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — modules represent architectural boundaries",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor. 13 modules met.",
+                                          "easyToGame":  "Moderately — placeholder modules detectable",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "moduleCount",
+                        "originalFloor":  10
+                    },
+                    {
+                        "classification":  "SOFT_DIAGNOSTIC",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Moderately — test count matters, test file count is organizational choice",
+                                          "penalizesConciseArchitecture":  true,
+                                          "recommendation":  "Demote to SOFT_DIAGNOSTIC. Use test-case count or coverage instead.",
+                                          "easyToGame":  true,
+                                          "stackDependent":  true,
+                                          "rewardsFragmentation":  true
+                                      },
+                        "metric":  "testFileCount",
+                        "originalFloor":  20
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — error handling is essential quality signal",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor.",
+                                          "easyToGame":  "Hard — fake error states detectable via code review",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "errorStateCount",
+                        "originalFloor":  30
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — API contract is integration-critical",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor.",
+                                          "easyToGame":  "Hard — missing contracts detectable",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "apiContractCompleteness",
+                        "originalFloor":  "All endpoints documented"
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — reproducibility is quality signal",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor.",
+                                          "easyToGame":  "Hard",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "deterministicSeed",
+                        "originalFloor":  "Present"
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — data portability is quality signal",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor.",
+                                          "easyToGame":  "Hard",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "deterministicImportExport",
+                        "originalFloor":  "Present"
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — workflow validation is business-critical",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor.",
+                                          "easyToGame":  "Hard",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "workflowValidator",
+                        "originalFloor":  "Present"
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — audit trail is compliance-critical",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor.",
+                                          "easyToGame":  "Hard",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "auditLog",
+                        "originalFloor":  "Present"
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — notification reliability is user-facing quality",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor.",
+                                          "easyToGame":  "Hard",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "notificationOutbox",
+                        "originalFloor":  "Present"
+                    },
+                    {
+                        "classification":  "STRONG_HARD_FLOOR",
+                        "reasoning":  {
+                                          "correlatesWithComplexity":  "Strongly — configurability is product quality signal",
+                                          "penalizesConciseArchitecture":  false,
+                                          "recommendation":  "Keep as hard floor.",
+                                          "easyToGame":  "Hard",
+                                          "stackDependent":  false,
+                                          "rewardsFragmentation":  false
+                                      },
+                        "metric":  "settingsModule",
+                        "originalFloor":  "Present"
+                    }
+                ],
+    "summary":  {
+                    "keptHardFloors":  [
+                                           "endpointCount",
+                                           "dbTableCount",
+                                           "moduleCount",
+                                           "errorStateCount",
+                                           "apiContractCompleteness",
+                                           "deterministicSeed",
+                                           "deterministicImportExport",
+                                           "workflowValidator",
+                                           "auditLog",
+                                           "notificationOutbox",
+                                           "settingsModule"
+                                       ],
+                    "softDiagnostic":  2,
+                    "strongHardFloors":  10,
+                    "demotedMetrics":  [
+                                           "sourceFileCount",
+                                           "exportCount",
+                                           "testFileCount"
+                                       ],
+                    "gameableMetrics":  2
+                },
+    "phase":  "FACTORY-AGENT-5-P1"
+}

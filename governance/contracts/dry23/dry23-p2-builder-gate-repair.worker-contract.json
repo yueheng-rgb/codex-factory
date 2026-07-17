@@ -1,0 +1,43 @@
+﻿{
+    "role":  "builder",
+    "forkContext":  false,
+    "exportedApiSurface":  [
+
+                           ],
+    "forbiddenImports":  [
+                             {
+                                 "target":  "../../scripts/*",
+                                 "reason":  "Workers must not import scripts"
+                             }
+                         ],
+    "agentId":  "dry23-p2-builder-gate-repair",
+    "nativeGenerated":  true,
+    "evidencePath":  "governance/diagnosis/",
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "repair",
+                                       "direction":  "repairs",
+                                       "targetAgentId":  "dry23-builder-verify-gate",
+                                       "targetScope":  "packages/verify-gate/"
+                                   }
+                               ],
+    "allowedImports":  [
+
+                       ],
+    "scope":  {
+                  "ownedFiles":  [
+
+                                 ],
+                  "forbiddenDirectories":  [
+                                               "governance/factory-state/",
+                                               "outputs/"
+                                           ],
+                  "ownedDirectories":  [
+                                           "packages/verify-gate/"
+                                       ]
+              },
+    "phase":  "DRY23-P2",
+    "generatedAt":  "2026-06-24T01:20:26.6594085+08:00",
+    "generatedBy":  "DRY23-P2 replacement"
+}

@@ -1,0 +1,75 @@
+﻿{
+  "fixtureId": "drift-injection-fixture-001",
+  "description": "Deliberately injected drift patterns for Integrity Checker detection testing",
+  "injections": [
+    {
+      "injectionId": "INJ-001-cross-scope-write",
+      "type": "CROSS_SCOPE_WRITE",
+      "driftCode": "DRIFT-MB-01",
+      "severity": "CRITICAL",
+      "description": "Builder writes a file into another worker's owned scope",
+      "offendingFile": "src/modules/admin/dashboard.ts",
+      "claimedBy": "builder-1-capsule",
+      "actualOwner": "builder-2-capsule",
+      "ownedScopeDeclared": ["src/modules/auth/", "src/modules/auth/tests/"],
+      "violationScope": "src/modules/admin/",
+      "expectedDetection": "IC-DRF-01: Module boundary violation",
+      "shouldTrigger": "FAIL"
+    },
+    {
+      "injectionId": "INJ-002-sha256-mismatch",
+      "type": "SHA256_MISMATCH",
+      "driftCode": "DRIFT-API-01",
+      "severity": "CRITICAL",
+      "description": "Handoff claims SHA256 hash that does not match actual file content",
+      "file": "src/modules/auth/login.ts",
+      "claimedHash": "sha256:deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+      "actualHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expectedDetection": "IC-DEC-01: Worker output tampering",
+      "shouldTrigger": "FAIL"
+    },
+    {
+      "injectionId": "INJ-003-missing-transcript",
+      "type": "MISSING_EVIDENCE",
+      "driftCode": "DRIFT-EVD-03",
+      "severity": "BLOCKING",
+      "description": "Handoff submitted without transcript reference",
+      "handoffId": "HO-B2-20260626-001",
+      "handoffRequirements": {
+        "transcriptRef": ""
+      },
+      "expectedDetection": "IC-EVD-03: Missing transcript reference",
+      "shouldTrigger": "FAIL"
+    },
+    {
+      "injectionId": "INJ-004-phantom-file-claim",
+      "type": "DECEPTION",
+      "driftCode": "DRIFT-DEC-03",
+      "severity": "CRITICAL",
+      "description": "Progress report claims a file was written that does not exist on disk",
+      "claimedFile": "src/modules/auth/password-reset.ts",
+      "actualExistence": false,
+      "progressReportId": "PR-B1-20260626-002",
+      "expectedDetection": "IC-DEC-03: Phantom handoff detection",
+      "shouldTrigger": "FAIL"
+    },
+    {
+      "injectionId": "INJ-005-type-duplication",
+      "type": "TYPE_DUPLICATION",
+      "driftCode": "DRIFT-TYPE-01",
+      "severity": "HIGH",
+      "description": "Two workers define identical User type with divergent fields",
+      "typeName": "User",
+      "builder1Definition": "src/modules/auth/types.ts",
+      "builder2Definition": "src/modules/admin/types.ts",
+      "divergentField": "role enum values differ",
+      "expectedDetection": "IC-DRF-04: Shared type duplication",
+      "shouldTrigger": "FAIL"
+    }
+  ],
+  "metadata": {
+    "createdFor": "Integrity Checker drift detection testing",
+    "expectedOutcome": "At least INJ-001, INJ-002, and INJ-004 MUST trigger FAIL",
+    "testRunId": "factory-agent-1-protocol-pack-simulation"
+  }
+}

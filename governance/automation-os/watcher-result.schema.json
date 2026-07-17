@@ -1,0 +1,19 @@
+﻿{
+  "schemaId": "watcher-result.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:21:49+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-5-A",
+  "nativeGenerated": true,
+  "requiredFields": ["verdict","checkedAt","checks","alerts","riskSignals","evidencePaths","recommendedAction","doesNotMutateState"],
+  "verdictEnum": ["WATCHER_OK","ROTATION_RECOMMENDED","ROTATION_REQUIRED","WATCHER_ERROR"],
+  "checkSchema": {"checkId":"string","target":"string","result":"PASS or FAIL","riskSeverity":"P0/P1/P2","evidencePath":"string"},
+  "alertSchema": {"alertId":"string","checkId":"string","severity":"P0/P1/P2","message":"string","recommendedAction":"string"},
+  "riskSignalSchema": {"signalId":"string","type":"string","severity":"P0/P1/P2","source":"string","recommendation":"string"},
+  "recommendedActionSchema": {"action":"string","startupPacketPath":"string?","userActionRequired":"boolean","forbiddenAssumptions":["no full-context inheritance","no automatic window creation","no compressed summary as evidence"]},
+  "rules": {
+    "doesNotMutateStateAlwaysTrue": true,
+    "evidencePathsRequiredForAllAlerts": true,
+    "machineReadableJsonOnly": true,
+    "noMarkdownOnlyOutput": true
+  }
+}

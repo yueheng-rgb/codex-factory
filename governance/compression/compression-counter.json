@@ -1,0 +1,12 @@
+{
+  "counterId": "H17-C-COMPRESSION-COUNTER",
+  "generatedAt": "2026-06-24T02:19:28.466143+08:00",
+  "generatedDuringPhase": "H17-C",
+  "nativeGenerated": true,
+  "currentLevel": 0,
+  "totalCompressionEvents": 0,
+  "compressionHistory": [],
+  "lastCheckedAt": "2026-06-24T02:19:28.466143+08:00",
+  "sessionRotationCount": 0,
+  "note": "Level 0=FRESH"
+}

@@ -1,0 +1,39 @@
+﻿{
+    "phase": "FACTORY-BUILD-0",
+    "subPhase": "C_TARGET_PRODUCT_DEFINITION",
+    "date": "2026-06-27",
+    "productName": "Codex Factory Build Harness",
+    "productType": "Complex Project Production Harness for Codex",
+    "targetUsers": [
+        {"role": "Developer using Codex", "need": "Build complex full-stack projects with Codex as the primary builder"},
+        {"role": "Team lead / Architect", "need": "Orchestrate multi-agent builds with clear state and handoff"},
+        {"role": "Student / Learner", "need": "Get projects from idea to working code with diagnostic safety net"}
+    ],
+    "coreFunction": "Accept a project requirement → classify complexity → select build mode → generate blueprint → produce task graph → execute build (single or multi-agent) → run diagnostic gate → deliver",
+    "concreteUserFacingFunctions": [
+        {"id": "F01", "function": "Project Intake", "description": "User provides project path, description, or requirements file. Harness reads and classifies."},
+        {"id": "F02", "function": "Complexity Classifier", "description": "Auto-detect: file count, framework, auth, DB, multi-app, API count, risk level. Output: SIMPLE / MODERATE / COMPLEX."},
+        {"id": "F03", "function": "Mode Selector", "description": "Route to: Vanilla Mode / Build Lite / Build Pro / Diagnostic Gate Only, based on complexity and user goal."},
+        {"id": "F04", "function": "Blueprint Generator", "description": "Generate architecture blueprint: page tree, API outline, DB schema sketch, permission boundaries."},
+        {"id": "F05", "function": "Task Graph Generator", "description": "Produce dependency-ordered task graph with clear file ownership per task node."},
+        {"id": "F06", "function": "Build Execution Engine", "description": "Execute task graph: single-agent Vanilla or multi-agent allocation with state management."},
+        {"id": "F07", "function": "Diagnostic Gate", "description": "Post-build: run Diagnostic Pack (Quick/Student/Full) as readonly safety check."},
+        {"id": "F08", "function": "Targeted Repair", "description": "If diagnostic finds issues, user-approved targeted fixes only."},
+        {"id": "F09", "function": "State File Management", "description": "Persist project state, decisions, risks, progress across sessions."},
+        {"id": "F10", "function": "Handoff Packet", "description": "Generate portable state for continuation in new Codex window."}
+    ],
+    "nonGoals": [
+        "Replacing Vanilla Codex as default",
+        "Automatically repairing all found issues",
+        "Guaranteeing product quality",
+        "Replacing human code review",
+        "Being a CI/CD pipeline",
+        "Being a deployment tool",
+        "Being a monitoring/observability tool"
+    ],
+    "successCriteria": {
+        "MVP": "One real complex project built end-to-end with Build Harness, passing Diagnostic Gate, with verifiable state",
+        "v1": "3+ real projects of different types built successfully",
+        "v2": "Multi-agent build outperforms Vanilla on complex projects with measurable metrics"
+    }
+}

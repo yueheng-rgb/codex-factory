@@ -1,0 +1,94 @@
+﻿{
+    "bundles":  [
+                    {
+                        "name":  "Governance Core",
+                        "bundle_id":  "BUNDLE-001",
+                        "included_paths":  [
+                                               "AGENTS.md",
+                                               "APP_TYPE_ROUTER.md",
+                                               "STACK_DECISION_GUIDE.md",
+                                               "governance/"
+                                           ],
+                        "restore_notes":  "These files are FROZEN per V2.8 trunk manifest. Do not modify.",
+                        "item_count":  3,
+                        "verification_command":  "Get-FileHash \u003cpath\u003e -Algorithm SHA256"
+                    },
+                    {
+                        "name":  "V2.0 Release Reports",
+                        "bundle_id":  "BUNDLE-002",
+                        "included_paths":  [
+                                               "outputs/V2_0_*"
+                                           ],
+                        "restore_notes":  "V2.0 evidence is report-verified. No live rerun needed.",
+                        "item_count":  8,
+                        "verification_command":  "ls outputs/V2_0_*"
+                    },
+                    {
+                        "name":  "V2.1-V2.3 Reports",
+                        "bundle_id":  "BUNDLE-003",
+                        "included_paths":  [
+                                               "outputs/V2_1_*",
+                                               "outputs/V2_2_*",
+                                               "outputs/V2_3_*",
+                                               "outputs/V2_3_*"
+                                           ],
+                        "restore_notes":  "V2.1 artifact store, V2.2 reviews, V2.3 packs.",
+                        "item_count":  4,
+                        "verification_command":  "ls outputs/V2_[123]_*"
+                    },
+                    {
+                        "name":  "V2.4-V2.7 Stage Reports",
+                        "bundle_id":  "BUNDLE-004",
+                        "included_paths":  [
+                                               "outputs/V2_4/",
+                                               "outputs/V2_5/",
+                                               "outputs/V2_6/",
+                                               "outputs/V2_7/"
+                                           ],
+                        "restore_notes":  "Core validation stages with artifact-verified evidence.",
+                        "item_count":  4,
+                        "verification_command":  "ls outputs/V2_[4567]/"
+                    },
+                    {
+                        "name":  "V2.8 Audit Package",
+                        "bundle_id":  "BUNDLE-005",
+                        "included_paths":  [
+                                               "outputs/V2_8/"
+                                           ],
+                        "restore_notes":  "Cross-stage audit, claim matrix, frozen trunk, capability map.",
+                        "item_count":  7,
+                        "verification_command":  "ls outputs/V2_8/"
+                    },
+                    {
+                        "name":  "Expert Packs",
+                        "bundle_id":  "BUNDLE-006",
+                        "included_paths":  [
+                                               "governance/expert-packs/"
+                                           ],
+                        "restore_notes":  "6 packs ACTIVE. 4 runtime-validated.",
+                        "item_count":  23,
+                        "verification_command":  "ls governance/expert-packs/*/"
+                    },
+                    {
+                        "name":  "Review Receipts",
+                        "bundle_id":  "BUNDLE-007",
+                        "included_paths":  [
+                                               "reviews/"
+                                           ],
+                        "restore_notes":  "10 receipts. All self_declared_automated.",
+                        "item_count":  0,
+                        "verification_command":  "ls reviews/"
+                    },
+                    {
+                        "name":  "Artifact Store",
+                        "bundle_id":  "BUNDLE-008",
+                        "included_paths":  [
+                                               "artifacts/"
+                                           ],
+                        "restore_notes":  "21 artifact files from V2.1 CI run.",
+                        "item_count":  21,
+                        "verification_command":  "ls artifacts/RUN-V2_1-*/"
+                    }
+                ],
+    "snapshot_id":  "CODEX-FACTORY-V2-20260717"
+}

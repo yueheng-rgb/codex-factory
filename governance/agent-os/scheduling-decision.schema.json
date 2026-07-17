@@ -1,0 +1,10 @@
+﻿{
+  "schemaId": "scheduling-decision.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:10+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-C",
+  "nativeGenerated": true,
+  "requiredFields": ["decisionId","phase","capacityPreflightResult","decision","reason","timestamp"],
+  "decisionEnum": ["SPAWN","DELAY","BLOCK","REPLACE","ARCHIVE"],
+  "rules": ["decision_SPAWN_requires_preflight_ALLOWED","decision_BLOCK_records_blocking_reason","decision_REPLACE_links_replacement"]
+}

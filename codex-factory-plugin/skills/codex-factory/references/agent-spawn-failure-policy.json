@@ -1,0 +1,169 @@
+﻿{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "factory-resource-pack/policies/agent-spawn-failure-policy.json",
+  "title": "Agent Spawn Failure Policy",
+  "description": "Classification and handling protocol for agent spawn failures. Defines retry/replacement rules, failure exclusion from success counts, Main Agent fallback detection, and undeclared fallback prohibition.",
+  "phase": "H18",
+  "policyVersion": "1.0.0",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T12:00:00.000+08:00",
+  "generatedBy": "H18 Builder: POLICIES-SCHEMAS",
+  "spawnFailureClassification": {
+    "description": "Failures are classified by severity and remediability. Classification determines retry eligibility and whether the failure counts against phase success metrics.",
+    "classes": [
+      {
+        "class": "TRANSIENT",
+        "label": "Transient Failure",
+        "description": "Failure caused by temporary environmental condition (network timeout, resource contention, temporary filesystem lock).",
+        "retryAllowed": true,
+        "maxRetries": 3,
+        "retryBackoff": "exponential",
+        "baseBackoffSeconds": 5,
+        "countsAgainstSuccess": false,
+        "examples": [
+          "Subprocess timeout during spawn.",
+          "Temporary file lock on registry write.",
+          "Network blip during dependency fetch."
+        ]
+      },
+      {
+        "class": "CONFIGURATION",
+        "label": "Configuration Failure",
+        "description": "Failure caused by incorrect or missing configuration (invalid worker contract, missing required fields, scope path not found).",
+        "retryAllowed": true,
+        "maxRetries": 1,
+        "retryBackoff": "none",
+        "requiresConfigFix": true,
+        "countsAgainstSuccess": false,
+        "examples": [
+          "Worker contract missing required field 'phase'.",
+          "Scope directory does not exist on filesystem.",
+          "Invalid JSON in contract file."
+        ]
+      },
+      {
+        "class": "PERMANENT",
+        "label": "Permanent Failure",
+        "description": "Failure that cannot be resolved by retry or configuration fix. Requires alternative approach or human intervention.",
+        "retryAllowed": false,
+        "countsAgainstSuccess": true,
+        "examples": [
+          "Agent capability not available in current runtime.",
+          "Irreconcilable contract conflict with existing worker.",
+          "Phase already closed and sealed."
+        ]
+      },
+      {
+        "class": "UNDECLARED_FALLBACK",
+        "label": "Undeclared Fallback",
+        "description": "Main Agent executed worker-scope work without a declared spawn failure. This is a policy violation, not a technical failure.",
+        "retryAllowed": false,
+        "countsAgainstSuccess": true,
+        "isPolicyViolation": true,
+        "priority": "P0",
+        "detection": "Cross-check file modification timestamps in worker-owned directories against Main Agent session. If Main Agent wrote to worker scope without a declared spawn failure, this violation triggers.",
+        "examples": [
+          "Main Agent wrote to worker ownedFiles without spawn record.",
+          "Main Agent created artifacts in worker ownedDirectories without worker spawn.",
+          "Fallback work done by Main Agent with no AGENT_REGISTRY entry."
+        ]
+      }
+    ]
+  },
+  "retryProtocol": {
+    "description": "Protocol for retrying failed spawns.",
+    "rules": [
+      {
+        "rule": "maxRetriesPerClass",
+        "description": "Each failure class has a maximum retry count. TRANSIENT: 3, CONFIGURATION: 1, PERMANENT: 0, UNDECLARED_FALLBACK: 0.",
+        "tracking": "Retry count is tracked per agentId per phase."
+      },
+      {
+        "rule": "backoffStrategy",
+        "description": "TRANSIENT failures use exponential backoff (5s, 10s, 20s). CONFIGURATION failures retry immediately after fix.",
+        "implementation": "factoryctl spawn --retry implements backoff."
+      },
+      {
+        "rule": "retryExhaustion",
+        "description": "When maxRetries is exhausted for TRANSIENT or CONFIGURATION, the failure is escalated to PERMANENT.",
+        "action": "Record in AGENT_REGISTRY with status: spawn_failed_permanent."
+      },
+      {
+        "rule": "replacementProtocol",
+        "description": "On PERMANENT failure, a replacement agent may be spawned with a different agentId and identical contract scope.",
+        "constraints": [
+          "Replacement agent must have a distinct agentId.",
+          "Replacement agent inherits the failed agent's scope, dependencies, and handoff path.",
+          "Failed agent is recorded as excluded from success counts.",
+          "Replacement agent's contract must reference the replaced agentId."
+        ]
+      }
+    ]
+  },
+  "failedAgentExclusion": {
+    "description": "Failed agents are excluded from phase success metrics.",
+    "rules": [
+      {
+        "rule": "excludedFromSuccessCount",
+        "description": "Agents with PERMANENT or UNDECLARED_FALLBACK failure status do not count toward phase completion success metrics.",
+        "tracking": "factoryctl phase-status excludes agents with status spawn_failed_permanent or fallback_detected."
+      },
+      {
+        "rule": "excludedFromCompletionRatio",
+        "description": "Failed agents are excluded from the numerator and denominator of agent completion ratio calculations.",
+        "formula": "completionRatio = completedAgents / (totalAgents - permanentlyFailedAgents)"
+      },
+      {
+        "rule": "replacementInheritsMetrics",
+        "description": "A successful replacement agent counts toward completion. The failed agent it replaces does not.",
+        "constraint": "A replacement must complete successfully for its scope to be considered covered."
+      }
+    ]
+  },
+  "mainAgentFallbackDetection": {
+    "description": "Detection and handling of undeclared Main Agent fallback into worker scope.",
+    "detectionMethods": [
+      {
+        "method": "fileModificationAudit",
+        "description": "Check file modification timestamps in worker-owned directories. If any file was modified outside a worker session window, flag for investigation."
+      },
+      {
+        "method": "registryCrossCheck",
+        "description": "For every file in worker ownedDirectories, verify an AGENT_REGISTRY entry exists for the agent that created it."
+      },
+      {
+        "method": "contractScopeAudit",
+        "description": "Verify no agent wrote to files outside its contract scope.ownedFiles and scope.ownedDirectories."
+      }
+    ],
+    "violationHandling": {
+      "priority": "P0",
+      "action": "Block phase closure. Require explicit declaration or re-spawn of work.",
+      "remediation": [
+        "Option A: Declare the fallback retroactively (creates retroactive contract, nativeGenerated:false).",
+        "Option B: Re-spawn a proper worker to redo the work natively (nativeGenerated:true).",
+        "Option C: Exclude the affected scope from this phase and defer to next phase."
+      ]
+    }
+  },
+  "undeclaredFallbackProhibition": {
+    "description": "Main Agent must not perform worker-scope work without a declared spawn failure and AGENT_REGISTRY entry.",
+    "rules": [
+      {
+        "rule": "noSilentFallback",
+        "description": "If a spawn fails and Main Agent performs the work instead, this must be explicitly recorded as a spawn failure with class UNDECLARED_FALLBACK (or declared as a conscious fallback with registry entry).",
+        "priority": "P0"
+      },
+      {
+        "rule": "declaredFallbackAllowed",
+        "description": "If Main Agent declares a fallback BEFORE performing worker-scope work, and creates an AGENT_REGISTRY entry with status 'fallback_main_agent', this is allowed but the resulting artifacts are marked nativeGenerated:false.",
+        "constraint": "Declared fallback must be recorded before any file writes in the worker scope."
+      },
+      {
+        "rule": "noPostHocFallbackDeclaration",
+        "description": "Fallback cannot be declared after work is already done. This is equivalent to undeclared fallback.",
+        "priority": "P0"
+      }
+    ]
+  }
+}

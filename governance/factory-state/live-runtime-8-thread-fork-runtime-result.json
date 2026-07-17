@@ -1,0 +1,44 @@
+﻿{
+  "phase": "LIVE-RUNTIME-8",
+  "status": "PASS",
+  "verifierResult": "22/22 PASS",
+  "completedAt": "2026-06-25T00:49:41+08:00",
+  "nativeGenerated": true,
+  "subPhases": {
+    "A": { "status": "PASS", "description": "Runtime Carrier Capability Probe (11 carriers)" },
+    "B": { "status": "PASS", "description": "Fork/New/Resume Behavior Experiment" },
+    "C": { "status": "PASS", "description": "Startup Verification Enforcement on Carriers" },
+    "D": { "status": "PASS", "description": "Carrier Decision Matrix Update" },
+    "E": { "status": "PASS", "description": "Negative Controls (26/26)" }
+  },
+  "carrierClassification": {
+    "verified": 3,
+    "partiallyVerified": 5,
+    "hypothesis": 3,
+    "rejected": 1,
+    "primarySafeFallback": "manual_new_window_artifact_handoff"
+  },
+  "honestAssessment": {
+    "threadToolsExist": true,
+    "threadToolsTestedForLiveCarrier": false,
+    "reasonNotTested": "Creating real threads is invasive without explicit user request",
+    "noFakedResults": true,
+    "noOverstatedClaims": true
+  },
+  "negativeControls": {
+    "totalNegatives": 26,
+    "detectedAndBlocked": 26,
+    "gaps": 0
+  },
+  "recommendedNextPhase": "LIVE-RUNTIME-9",
+  "evidencePaths": [
+    "governance/factory-state/live-runtime-8-runtime-carrier-capability-probe.json",
+    "harness/runs/live-runtime-8-thread-fork-runtime-test/experiment-result.json",
+    "governance/factory-state/live-runtime-8-carrier-startup-verification-result.json",
+    "governance/factory-state/live-runtime-8-carrier-decision-update.json",
+    "governance/session-controller/session-carrier-decision-matrix.json",
+    "governance/factory-state/live-runtime-8-negative-controls-result.json",
+    "governance/factory-state/verifier-live-runtime-8-result.json",
+    "scripts/live-runtime-8-thread-fork-runtime-verify.ps1"
+  ]
+}

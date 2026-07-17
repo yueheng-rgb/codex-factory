@@ -1,0 +1,34 @@
+﻿{
+    "constraints":  {
+                        "noV05PackageCreated":  true,
+                        "no10RoleDefaultRestored":  true,
+                        "v04ReleaseZipUnchanged":  true,
+                        "noNewBenchmarkStarted":  true,
+                        "oldFinalPackageUnchanged":  true
+                    },
+    "intendedUse":  "LARGE_COMPLEX_PROJECTS",
+    "principles":  [
+                       "Codex Factory is primarily for large, complex, long-term projects, not small daily tasks",
+                       "v0.4 is a lightweight Process Integrity Layer — it is NOT the final Factory direction",
+                       "Multi-agent collaboration must be judged in large-project context, not small/medium benchmarks alone",
+                       "Sunk cost must not determine keep/cut decisions",
+                       "Emotional reassurance must not determine keep/cut decisions",
+                       "Evidence and hard logic drive direction, not habit or attachment to existing artifacts"
+                   ],
+    "ifMultiAgentDisproven":  "It should be deprecated with evidence and replaced by an alternative that DOES work for large projects",
+    "modeSeparation":  {
+                           "researchBenchmark":  "Controlled experiments comparing Vanilla, Factory Lite, and Agent Company modes",
+                           "dailyLightweight":  "v0.4 core (Manual Router, Proof-of-Read, Evidence Hierarchy, Contamination Logging) for everyday use",
+                           "releasePackage":  "Versioned, SHA256-verified release packages with manifest and forbidden claims",
+                           "largeProjectFactory":  "Full multi-agent orchestration with contracts, scopes, verifier gates, audit trails for complex projects"
+                       },
+    "phase":  "FACTORY-AGENT-0-A",
+    "generatedAt":  "2026-06-26T01:01:57.2974118+08:00",
+    "nativeGenerated":  true,
+    "ifMultiAgentProvenForLargeProjects":  "It should become the default capability for Codex Factory in large-project context, not an optional edge feature",
+    "keyDistinctions":  [
+                            "Small benchmark cannot alone decide large-project agent strategy",
+                            "EVAL-3/RUN-C failure does not prove multi-agent useless — only that 10-role model was overkill for TeamFlow",
+                            "DRY24 multi-agent success in Factory self-building is SELF_BUILDING_ONLY evidence — not benchmark evidence"
+                        ]
+}

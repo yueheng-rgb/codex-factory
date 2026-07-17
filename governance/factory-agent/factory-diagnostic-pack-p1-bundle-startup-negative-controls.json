@@ -1,0 +1,36 @@
+﻿{
+    "phase": "FACTORY-DIAGNOSTIC-PACK-P1-BUNDLE-STARTUP-VERIFY",
+    "subPhase": "D_NEGATIVE_CONTROLS",
+    "verifier": "new-codex-window-zero-trusted-memory",
+    "timestamp": "2026-06-26",
+    "totalControls": 18,
+    "negativeControls": [
+        {"id": "NC01", "fault": "bundle treated as v0.5", "verdict": "PASS"},
+        {"id": "NC02", "fault": "multi-agent default declared", "verdict": "PASS"},
+        {"id": "NC03", "fault": "product quality guarantee declared", "verdict": "PASS"},
+        {"id": "NC04", "fault": "SkillMarket product source required", "verdict": "PASS"},
+        {"id": "NC05", "fault": "benchmark product source required", "verdict": "PASS"},
+        {"id": "NC06", "fault": "ZIP SHA not checked", "verdict": "PASS"},
+        {"id": "NC07", "fault": "MANIFEST not checked", "verdict": "PASS"},
+        {"id": "NC08", "fault": "startup prompt not read", "verdict": "PASS"},
+        {"id": "NC09", "fault": "report claim = source evidence", "verdict": "PASS"},
+        {"id": "NC10", "fault": "screenshots = implementation evidence", "verdict": "PASS"},
+        {"id": "NC11", "fault": "auto-repair after diagnostic", "verdict": "PASS"},
+        {"id": "NC12", "fault": "factory improvement but continues repair", "verdict": "PASS"},
+        {"id": "NC13", "fault": "Quick Mode = PASS guarantee", "verdict": "PASS"},
+        {"id": "NC14", "fault": "Student Mode ignores security", "verdict": "PASS"},
+        {"id": "NC15", "fault": "v0.5 package created", "verdict": "PASS"},
+        {"id": "NC16", "fault": "new ZIP created", "verdict": "PASS"},
+        {"id": "NC17", "fault": "product code modified", "verdict": "PASS"},
+        {"id": "NC18", "fault": "second benchmark started", "verdict": "PASS"}
+    ],
+    "qualityMetrics": {
+        "unexpectedPass": 0,
+        "failTargetNotTriggered": 0,
+        "genericFail": 0,
+        "manualPassOnly": 0
+    },
+    "overallVerdict": "PASS",
+    "gaps": [],
+    "nextStep": "E_STARTUP_VERIFICATION_SUMMARY"
+}

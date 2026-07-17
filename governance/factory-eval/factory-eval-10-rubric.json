@@ -1,0 +1,115 @@
+﻿{
+  "phase": "FACTORY-EVAL-10-D",
+  "title": "Evaluation Rubric — LedgerFlow Lite Second Benchmark",
+  "createdAt": "2026-06-25T20:26:00+08:00",
+  "maxTotalScore": 100,
+  "dimensions": [
+    {
+      "id": "D01", "name": "Requirement Coverage", "maxScore": 24,
+      "description": "How many of the 16 functional requirements are fully implemented?",
+      "scoring": {"method": "binary per FR", "perItemScore": 1.5, "bonus": "All 16 = 24"},
+      "evidenceRequired": ["Code inspection", "API endpoint verification", "UI page existence"]
+    },
+    {
+      "id": "D02", "name": "API Contract Correctness", "maxScore": 16,
+      "description": "Do all API endpoints exist with correct request/response/error handling?",
+      "scoring": {"method": "endpoint count", "perEndpointScore": 1.0, "fullCoverageBonus": "All endpoints = 16"},
+      "evidenceRequired": ["Endpoint verification log", "Response schema verification"]
+    },
+    {
+      "id": "D03", "name": "Database Schema Quality", "maxScore": 10,
+      "description": "Proper constraints, indexes, relationships, normalization.",
+      "checklist": [
+        {"item": "Foreign keys on all relationships", "score": 2},
+        {"item": "UNIQUE constraints (email, invoice_number)", "score": 2},
+        {"item": "NOT NULL on required fields", "score": 1},
+        {"item": "Indexes on FK and filter columns", "score": 2},
+        {"item": "CHECK constraints on status, role", "score": 1},
+        {"item": "Timestamps on entities", "score": 1},
+        {"item": "Normalization (line items separate from invoice)", "score": 1}
+      ]
+    },
+    {
+      "id": "D04", "name": "Financial Calculation Correctness", "maxScore": 12,
+      "description": "Are line totals, subtotals, tax, and grand totals calculated correctly server-side?",
+      "checklist": [
+        {"item": "line_total = quantity * unit_price (server-side)", "score": 3},
+        {"item": "subtotal = sum of line_totals", "score": 2},
+        {"item": "tax = subtotal * tax_rate", "score": 2},
+        {"item": "grand_total = subtotal + tax", "score": 2},
+        {"item": "Calculations verified by test assertions", "score": 3}
+      ],
+      "antiGaming": "Client-only calculations count as 0. Must be server-side with test evidence."
+    },
+    {
+      "id": "D05", "name": "Approval Workflow Correctness", "maxScore": 10,
+      "description": "Is the approval workflow correct with proper state transitions and permissions?",
+      "checklist": [
+        {"item": "Valid transitions: draft→submitted→approved→paid", "score": 2},
+        {"item": "Valid transition: submitted→rejected→draft", "score": 2},
+        {"item": "Invalid transitions rejected with 400", "score": 2},
+        {"item": "Clerk can submit but not approve", "score": 2},
+        {"item": "Manager+ can approve/reject", "score": 2}
+      ]
+    },
+    {
+      "id": "D06", "name": "Auth and Authorization", "maxScore": 10,
+      "description": "JWT auth, bcrypt passwords, server-side permission enforcement.",
+      "checklist": [
+        {"item": "Unauthenticated → 401", "score": 2},
+        {"item": "Invalid JWT → 401", "score": 1},
+        {"item": "Viewer read-only enforcement", "score": 2},
+        {"item": "Clerk cannot approve → 403", "score": 2},
+        {"item": "bcrypt password storage", "score": 2},
+        {"item": "JWT validates every request", "score": 1}
+      ]
+    },
+    {
+      "id": "D07", "name": "Audit Trail", "maxScore": 5,
+      "description": "All key actions logged, append-only, queryable.",
+      "checklist": [
+        {"item": "Invoice CRUD logged", "score": 1.5},
+        {"item": "Status changes logged", "score": 1.5},
+        {"item": "Approval actions logged", "score": 1},
+        {"item": "Append-only, filterable", "score": 1}
+      ]
+    },
+    {
+      "id": "D08", "name": "Dashboard and Export", "maxScore": 5,
+      "description": "Dashboard with real aggregates. CSV export deterministic.",
+      "checklist": [
+        {"item": "Dashboard returns aggregated data", "score": 2},
+        {"item": "CSV export has deterministic columns", "score": 2},
+        {"item": "Dashboard values match database state", "score": 1}
+      ]
+    },
+    {
+      "id": "D09", "name": "UI and UX", "maxScore": 5,
+      "description": "Loading/empty/error states. Responsive. Functional UI.",
+      "checklist": [
+        {"item": "All pages have loading state", "score": 1.5},
+        {"item": "All pages have empty state", "score": 1.5},
+        {"item": "All pages have error state", "score": 1},
+        {"item": "Invoice detail shows line items", "score": 1}
+      ]
+    },
+    {
+      "id": "D10", "name": "Tests and Documentation", "maxScore": 3,
+      "description": "Real tests with assertions. Complete README.",
+      "checklist": [
+        {"item": "Financial calc tests with assertions", "score": 1},
+        {"item": "Workflow tests with assertions", "score": 1},
+        {"item": "README with setup/run/test", "score": 1}
+      ]
+    }
+  ],
+  "antiGaming": [
+    "Self-mapping is input, not final score",
+    "Process artifacts ≠ product quality",
+    "File/test counts ≠ quality proof",
+    "Placeholder implementations = 0",
+    "Fake tests (assert(true)) = 0",
+    "Client-only financial calcs = 0",
+    "Cannot-evaluate must be marked, not forced to PASS"
+  ]
+}

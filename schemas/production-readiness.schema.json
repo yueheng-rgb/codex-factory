@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codex-factory.local/schemas/production-readiness.schema.json",
+  "title": "Production Readiness Check",
+  "description": "Evaluates a Codex Factory project for production readiness across environment, database, CI/CD, security, deployment, and operations dimensions.",
+  "type": "object",
+  "required": ["project_path", "readiness_level", "score"],
+  "properties": {
+    "project_path": { "type": "string" },
+    "project_type": { "type": "string" },
+    "surfaces": { "type": "array", "items": { "type": "string" } },
+    "risk_profile": { "type": "string", "enum": ["LOW","MEDIUM","HIGH","CRITICAL","L_CLASS"] },
+    "expert_pack": { "type": "string" },
+    "deployment_target": { "type": "string" },
+    "score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "readiness_level": {
+      "type": "string",
+      "enum": ["NOT_READY","PARTIAL","READY_FOR_STAGING","READY_FOR_PRODUCTION_REVIEW"]
+    },
+    "checks": {
+      "type": "object",
+      "properties": {
+        "environment_variables": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "secrets_handling": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "database_configuration": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "migrations": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "seed_data": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "logging": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "error_handling": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "health_check": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "test_command": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "build_command": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "start_command": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "deployment_target": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "security_scan": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "load_smoke": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "rollback_notes": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } }
+      }
+    },
+    "missing_items": { "type": "array", "items": { "type": "string" } },
+    "blocking_items": { "type": "array", "items": { "type": "string" } },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "required_human_review": { "type": "boolean" },
+    "non_claims": { "type": "array", "items": { "type": "string" } },
+    "known_risks": { "type": "array", "items": { "type": "string" } }
+  }
+}

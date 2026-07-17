@@ -1,0 +1,117 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "skill-candidate.schema.json",
+  "title": "Skill Candidate",
+  "description": "A proposed Codex Factory skill, derived from knowledge capsules, external research, or project experience. Must pass full distillation pipeline before becoming a verified skill.",
+  "type": "object",
+  "required": ["skillId", "skillName", "triggerConditions", "instructions", "status", "sourceRefs", "trustLevel"],
+  "properties": {
+    "skillId": {
+      "type": "string",
+      "pattern": "^SKILL-CAND-[a-f0-9-]+$",
+      "description": "Candidate skill ID, e.g. SKILL-CAND-ecommerce-001"
+    },
+    "skillName": { "type": "string", "description": "Machine-readable name, e.g. 'ecommerce-inventory-patterns'" },
+    "displayName": { "type": "string", "description": "Human-readable name" },
+    "triggerConditions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": { "type": "string", "description": "When this skill should activate" },
+          "projectTypes": {
+            "type": "array",
+            "items": { "type": "string", "enum": ["content-site", "fullstack-admin", "saas-tool", "api-service", "miniapp", "mobile-app", "threejs-interactive"] }
+          },
+          "keywords": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "minItems": 1
+    },
+    "instructions": {
+      "type": "string",
+      "description": "The core SKILL.md content — what the agent should do when this skill is active"
+    },
+    "requiredInputs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "What inputs the agent needs to use this skill"
+    },
+    "expectedOutputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "format": { "type": "string" }
+        }
+      }
+    },
+    "allowedTools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tools this skill is allowed to use"
+    },
+    "forbiddenActions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Actions this skill must never perform"
+    },
+    "verifierRequired": {
+      "type": "boolean",
+      "description": "Whether a verifier must check the output of this skill"
+    },
+    "trustLevel": {
+      "type": "string",
+      "enum": ["UNVERIFIED", "AVAILABLE", "TRUSTED", "VERIFIED"],
+      "description": "Current trust level. Candidate starts at UNVERIFIED."
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["knowledge_capsule", "research_packet", "failure_lesson", "official_docs", "external_skill", "human_expert"] },
+          "refId": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["candidate", "adapted", "verified", "rejected", "deprecated", "quarantine"],
+      "default": "candidate"
+    },
+    "assessments": {
+      "type": "object",
+      "properties": {
+        "architect": { "type": "string", "enum": ["PENDING", "APPROVED", "REJECTED", "NEEDS_REVISION"] },
+        "security": { "type": "string", "enum": ["PENDING", "APPROVED", "BLOCKED", "NEEDS_REVISION"] },
+        "verifier": { "type": "string", "enum": ["PENDING", "PASS", "FAIL", "NEEDS_REVISION"] },
+        "integrator": { "type": "string", "enum": ["PENDING", "ACCEPTED", "REJECTED"] }
+      },
+      "default": { "architect": "PENDING", "security": "PENDING", "verifier": "PENDING", "integrator": "PENDING" }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Other skill IDs this skill depends on"
+    },
+    "conflicts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skill IDs this skill conflicts with"
+    },
+    "applicableAgentRoles": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Agent IDs that can load this skill"
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "default": "0.1.0" },
+    "rejectionReason": { "type": "string", "description": "Why this candidate was rejected, if status is rejected" }
+  }
+}

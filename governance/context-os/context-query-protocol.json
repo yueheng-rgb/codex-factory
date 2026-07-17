@@ -1,0 +1,23 @@
+﻿{
+  "schemaId": "context-query-protocol",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:10:21+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-3-C",
+  "nativeGenerated": true,
+  "queryModes": ["byType","byPhase","byConfidence","byMemoryId","allCurrent"],
+  "rules": {
+    "outputAlwaysIncludesEvidencePaths": true,
+    "outputAlwaysIncludesConfidenceAndSourceType": true,
+    "staleMemoryNeverReturnedAsTruth": true,
+    "lowConfidenceNeverUsedForGates": true,
+    "verifierJsonOverridesMemory": true,
+    "stateOverridesMemory": true,
+    "compressedSummaryNeverReturned": true,
+    "forbiddenConfidenceNeverReturned": true,
+    "conflictWithVerifierRequiresReconciliation": true,
+    "conflictWithStateRequiresReconciliation": true,
+    "missingSourceArtifactsCreatesRiskSignal": true
+  },
+  "defaultQuery": "allCurrent HIGH confidence entries",
+  "script": "scripts/context-os/query-memory.ps1"
+}

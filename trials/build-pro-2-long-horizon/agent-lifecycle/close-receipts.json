@@ -1,0 +1,26 @@
+﻿[
+    {
+        "receiptId":  "CR-PB-001",
+        "closedAt":  "2026-06-27T15:44:30.5366488+08:00",
+        "orphanCheck":  true,
+        "reason":  "All product tasks completed",
+        "agentId":  "product-builder-1",
+        "orphanDetails":  "No orphan agents"
+    },
+    {
+        "receiptId":  "CR-TD-001",
+        "closedAt":  "2026-06-27T15:44:30.5366488+08:00",
+        "orphanCheck":  true,
+        "reason":  "All test tasks completed",
+        "agentId":  "test-docs-builder-1",
+        "orphanDetails":  "No orphan agents"
+    },
+    {
+        "receiptId":  "CR-RV-001",
+        "closedAt":  "2026-06-27T15:44:30.5366488+08:00",
+        "orphanCheck":  true,
+        "reason":  "All verification tasks completed",
+        "agentId":  "reviewer-verifier-1",
+        "orphanDetails":  "No orphan agents"
+    }
+]

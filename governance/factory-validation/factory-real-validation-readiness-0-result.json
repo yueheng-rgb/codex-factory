@@ -1,0 +1,52 @@
+﻿{
+    "verifier_failed":  0,
+    "real_validation_started":  false,
+    "r1_ready":  true,
+    "v06_created":  false,
+    "phase":  "FACTORY-REAL-VALIDATION-READINESS-0",
+    "prerequisite_phases":  [
+                                "USER-HANDOFF-R1 (20/20 PASS)",
+                                "FACTORY-CONTEXT-LEDGER-RECONCILIATION-0 (45/45 PASS)"
+                            ],
+    "r1_conditions":  [
+                          "User must nominate a low-risk project satisfying selection criteria",
+                          "TCM blocked unless RISK-CS-002 resolved by user",
+                          "All 16 pre-trial safety gates must pass before trial starts",
+                          "User must explicitly approve trial"
+                      ],
+    "verifier_checks":  36,
+    "timestamp":  "2026-06-29T14:19:23+08:00",
+    "recommended_next":  [
+                             "User nominates project",
+                             "Project selection checklist",
+                             "User approval",
+                             "FACTORY-REAL-VALIDATION-0 (or pause)"
+                         ],
+    "negative_controls":  25,
+    "sub_step_status":  {
+                            "E":  "completed",
+                            "D":  "completed",
+                            "G":  "completed",
+                            "F":  "completed",
+                            "B":  "completed",
+                            "I":  "completed",
+                            "H":  "completed",
+                            "C":  "completed",
+                            "A":  "completed"
+                        },
+    "verdict":  "PASS",
+    "sub_steps":  [
+                      "A",
+                      "B",
+                      "C",
+                      "D",
+                      "E",
+                      "F",
+                      "G",
+                      "H",
+                      "I"
+                  ],
+    "cloud_recommended":  false,
+    "verifier_passed":  36,
+    "negative_controls_gaps":  0
+}

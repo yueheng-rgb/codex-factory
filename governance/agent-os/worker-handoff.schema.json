@@ -1,0 +1,17 @@
+﻿{
+  "schemaId": "worker-handoff.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:10+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-B",
+  "nativeGenerated": true,
+  "requiredFields": ["handoffId","agentId","phase","role","contractPath","artifactPaths","transcriptPath","evidenceSha256","timestamp","handoffHash"],
+  "rules": {
+    "handoffRequiredBeforeClose": true,
+    "artifactPathsMustBeRealFiles": true,
+    "transcriptMustExist": true,
+    "contractMustMatchAssignment": true,
+    "duplicateHandoffBlocked": true,
+    "staleHandoffDetected": true,
+    "missingEvidenceBlocksIntegration": true
+  }
+}

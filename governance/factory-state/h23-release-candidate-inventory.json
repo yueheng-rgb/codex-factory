@@ -1,0 +1,205 @@
+﻿{
+    "nativeGenerated":  true,
+    "verdict":  "PASS",
+    "generatedAt":  "2026-06-24T20:34:26+08:00",
+    "summary":  {
+                    "totalAssets":  13,
+                    "deprecated":  0,
+                    "coreRc":  7,
+                    "experimentalRc":  4,
+                    "finalPackageEligible":  7,
+                    "excluded":  2
+                },
+    "phase":  "H23-A",
+    "categories":  [
+                       {
+                           "id":  "CORE-01",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "H18 closure 84/84, DRY25 portability verified, MANIFEST.sha256 validated through H22",
+                           "lastVerifiedPhase":  "H22",
+                           "name":  "factory-resource-pack",
+                           "allowedUse":  "Portable resource distribution, fresh fixture bootstrap, session rotation evidence source",
+                           "finalPackageEligible":  true,
+                           "path":  "factory-resource-pack/",
+                           "status":  "CORE_RC",
+                           "forbiddenClaims":  [
+                                                   "production-release",
+                                                   "scoring-system-as-PASS-gate",
+                                                   "failure-router-runnable-core"
+                                               ],
+                           "verifierResultPath":  "governance/factory-state/verifier-h22-result.json"
+                       },
+                       {
+                           "id":  "CORE-02",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "Operational across H18-H22, verify/status/agents/progress/watch commands",
+                           "lastVerifiedPhase":  "H22",
+                           "name":  "factoryctl scripts",
+                           "allowedUse":  "Factory control plane CLI, phase verification, agent registry, progress tracking",
+                           "finalPackageEligible":  true,
+                           "path":  "scripts/factoryctl.ps1",
+                           "status":  "CORE_RC",
+                           "forbiddenClaims":  [
+                                                   "PATH-replacement-needed",
+                                                   "system-wide-install"
+                                               ]
+                       },
+                       {
+                           "id":  "CORE-03",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "current-factory-state.json, session-rotation-handoff.json, verifier results across all phases",
+                           "name":  "governance state",
+                           "allowedUse":  "Canonical state tracking, handoff evidence, verifier result storage",
+                           "finalPackageEligible":  true,
+                           "path":  "governance/factory-state/",
+                           "status":  "CORE_RC",
+                           "forbiddenClaims":  [
+                                                   "distributed-as-production-db",
+                                                   "unverified-as-fact"
+                                               ]
+                       },
+                       {
+                           "id":  "CORE-04",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "Applied across DRY/H phases. Classification framework stable.",
+                           "name":  "P0/P1/P2 decision policy",
+                           "allowedUse":  "Decision protocol, risk classification, claim governance",
+                           "finalPackageEligible":  true,
+                           "path":  "governance/policies/",
+                           "status":  "CORE_RC",
+                           "forbiddenClaims":  [
+                                                   "scoring-replacement",
+                                                   "automated-decision-without-human"
+                                               ]
+                       },
+                       {
+                           "id":  "CORE-05",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "DRY20/DRY24 worker contract enforcement. Cross-worker deps validated.",
+                           "name":  "worker contract schema",
+                           "allowedUse":  "Contract-first worker delegation, scope isolation",
+                           "finalPackageEligible":  true,
+                           "path":  "governance/schemas/",
+                           "status":  "CORE_RC",
+                           "forbiddenClaims":  [
+                                                   "automatic-enforcement",
+                                                   "runtime-mutation"
+                                               ]
+                       },
+                       {
+                           "id":  "CORE-06",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "DRY25-S0 path lookup repair. Relative paths. Fresh fixture compatible.",
+                           "name":  "bootstrap validation",
+                           "allowedUse":  "Resource pack validation, fresh fixture bootstrap",
+                           "finalPackageEligible":  true,
+                           "path":  "factory-resource-pack/bootstrap/",
+                           "status":  "CORE_RC",
+                           "forbiddenClaims":  [
+                                                   "absolute-path-dependency",
+                                                   "long-context-memory"
+                                               ]
+                       },
+                       {
+                           "id":  "CORE-07",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "H17→H22 negative controls patterns established. 18/20/24 negatives per phase.",
+                           "name":  "negative fixture templates",
+                           "allowedUse":  "Negative control templates, boundary enforcement",
+                           "finalPackageEligible":  true,
+                           "path":  "scripts/phase6c-*-negative-controls.ps1",
+                           "status":  "CORE_RC",
+                           "forbiddenClaims":  [
+                                                   "expectedClass-only",
+                                                   "preclassified-only"
+                                               ]
+                       },
+                       {
+                           "id":  "EXP-01",
+                           "requiresFutureRuntimeTest":  true,
+                           "evidenceBasis":  "H19 scaffold, DRY26 structural, DRY27 fixture stress (PARTIALLY_VERIFIED)",
+                           "name":  "codex-factory-plugin",
+                           "allowedUse":  "Development preview, structural reference, installability boundary",
+                           "finalPackageEligible":  false,
+                           "path":  "codex-factory-plugin/",
+                           "status":  "EXPERIMENTAL_RC",
+                           "forbiddenClaims":  [
+                                                   "production-ready",
+                                                   "runtime-verified",
+                                                   "cross-project-sync-verified"
+                                               ]
+                       },
+                       {
+                           "id":  "EXP-02",
+                           "requiresFutureRuntimeTest":  true,
+                           "evidenceBasis":  "H20 prototype, DRY27-C structural stress (PARTIALLY_VERIFIED)",
+                           "name":  "MCP factory verifier",
+                           "allowedUse":  "Prototype reference, MCP design pattern",
+                           "finalPackageEligible":  false,
+                           "path":  "codex-factory-plugin/mcp/",
+                           "status":  "EXPERIMENTAL_RC",
+                           "forbiddenClaims":  [
+                                                   "verifier-replacement",
+                                                   "production-MCP-server"
+                                               ]
+                       },
+                       {
+                           "id":  "EXP-03",
+                           "requiresFutureRuntimeTest":  true,
+                           "evidenceBasis":  "H21-B prototype, H21-C bug fixed, DRY27-D fixture stress (PARTIALLY_VERIFIED)",
+                           "name":  "monitoring prototype",
+                           "allowedUse":  "Prototype reference, safety boundary documentation",
+                           "finalPackageEligible":  false,
+                           "path":  "scripts/monitoring/",
+                           "status":  "EXPERIMENTAL_RC",
+                           "forbiddenClaims":  [
+                                                   "phase-closure-evidence",
+                                                   "production-monitoring",
+                                                   "alert-as-PASS"
+                                               ]
+                       },
+                       {
+                           "id":  "EXP-04",
+                           "requiresFutureRuntimeTest":  true,
+                           "evidenceBasis":  "H21-B template/schema/samples, DESIGN_FEASIBLE_IMPLEMENTATION_HYPOTHETICAL",
+                           "name":  "automation templates",
+                           "allowedUse":  "Design reference, template scaffolding",
+                           "finalPackageEligible":  false,
+                           "path":  "codex-factory-plugin/automation/",
+                           "status":  "EXPERIMENTAL_RC",
+                           "forbiddenClaims":  [
+                                                   "runtime-automation-verified",
+                                                   "scheduled-monitoring-verified"
+                                               ]
+                       },
+                       {
+                           "id":  "DEP-01",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "H18-A0: scoring systems gated from core. Not part of PASS/FAIL gate.",
+                           "name":  "scoring systems",
+                           "allowedUse":  "Historical reference only",
+                           "finalPackageEligible":  false,
+                           "path":  "historical/",
+                           "status":  "EXCLUDED",
+                           "forbiddenClaims":  [
+                                                   "PASS-gate",
+                                                   "verifier-replacement",
+                                                   "automated-decision"
+                                               ]
+                       },
+                       {
+                           "id":  "DEP-02",
+                           "requiresFutureRuntimeTest":  false,
+                           "evidenceBasis":  "Excluded from runnable core per H18-A0. Reference only.",
+                           "name":  "failure-router",
+                           "allowedUse":  "Historical reference only",
+                           "finalPackageEligible":  false,
+                           "path":  "historical/",
+                           "status":  "EXCLUDED",
+                           "forbiddenClaims":  [
+                                                   "runnable-core",
+                                                   "production-router"
+                                               ]
+                       }
+                   ]
+}

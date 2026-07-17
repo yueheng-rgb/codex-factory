@@ -1,0 +1,14 @@
+﻿{
+    "iterationMetrics":  [
+
+                         ],
+    "lastUpdated":  "2026-06-27T00:00:00+08:00",
+    "metrics":  {
+                    "estimatedParallelHours":  4,
+                    "totalIterations":  3,
+                    "agentCountTarget":  5,
+                    "estimatedSequentialHours":  8,
+                    "parallelizableTasks":  10,
+                    "totalTasksPlanned":  16
+                }
+}

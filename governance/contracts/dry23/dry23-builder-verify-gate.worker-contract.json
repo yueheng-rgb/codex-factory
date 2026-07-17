@@ -1,0 +1,105 @@
+﻿{
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-snapshot-manager",
+                                       "targetScope":  "packages/snapshot-manager/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                       "targetScope":  "packages/diagnosis-engine/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-risk-classifier",
+                                       "targetScope":  "packages/risk-classifier/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-evidence-collector",
+                                       "targetScope":  "packages/evidence-collector/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                       "targetScope":  "packages/diagnosis-reporter/"
+                                   }
+                               ],
+    "phase":  "DRY23-A",
+    "forkContext":  false,
+    "scope":  {
+                  "ownedFiles":  [
+                                     "packages/verify-gate/src/closure-gate.ts",
+                                     "packages/verify-gate/src/cross-module-contracts.ts",
+                                     "packages/verify-gate/src/gate-enforcer.ts",
+                                     "packages/verify-gate/src/gate-events.ts",
+                                     "packages/verify-gate/src/gate-history.ts",
+                                     "packages/verify-gate/src/gate-policy.ts",
+                                     "packages/verify-gate/src/gate-reporter.ts",
+                                     "packages/verify-gate/src/gate-validator.ts",
+                                     "packages/verify-gate/src/index.ts",
+                                     "packages/verify-gate/src/midflight-gate.ts",
+                                     "packages/verify-gate/src/preflight-gate.ts",
+                                     "packages/verify-gate/src/serializer.ts",
+                                     "packages/verify-gate/src/types.ts"
+                                 ],
+                  "forbiddenDirectories":  [
+                                               "governance/factory-state/",
+                                               "outputs/"
+                                           ],
+                  "ownedDirectories":  [
+                                           "packages/verify-gate/"
+                                       ]
+              },
+    "exportedApiSurface":  [
+                               "packages/verify-gate/src/closure-gate.ts",
+                               "packages/verify-gate/src/cross-module-contracts.ts",
+                               "packages/verify-gate/src/gate-enforcer.ts",
+                               "packages/verify-gate/src/gate-events.ts",
+                               "packages/verify-gate/src/gate-history.ts",
+                               "packages/verify-gate/src/gate-policy.ts",
+                               "packages/verify-gate/src/gate-reporter.ts",
+                               "packages/verify-gate/src/gate-validator.ts",
+                               "packages/verify-gate/src/midflight-gate.ts",
+                               "packages/verify-gate/src/preflight-gate.ts",
+                               "packages/verify-gate/src/serializer.ts",
+                               "packages/verify-gate/src/types.ts"
+                           ],
+    "isReadOnly":  false,
+    "allowedImports":  [
+
+                       ],
+    "evidencePath":  "governance/diagnosis/",
+    "forbiddenImports":  [
+                             {
+                                 "target":  "../../scripts/*",
+                                 "reason":  "Workers must not import scripts"
+                             }
+                         ],
+    "role":  "builder",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-24T00:38:00+08:00",
+    "contractVersion":  "1.0.0",
+    "integrationHandoff":  {
+                               "path":  "governance/diagnosis/dry23-closure-verify.json",
+                               "format":  "json",
+                               "expectedConsumer":  "dry23-integrator-1"
+                           },
+    "sourceEvidenceSha256":  {
+
+                             },
+    "generatedBy":  "DRY23-A contract-first",
+    "retroactive":  false,
+    "agentId":  "dry23-builder-verify-gate"
+}

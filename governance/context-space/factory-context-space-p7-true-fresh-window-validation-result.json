@@ -1,0 +1,74 @@
+﻿{
+    "warnings":  [
+                     "Attach Packet v3 next_recommended stale (shows P4 due to pre-P6 snapshot date)",
+                     "Snapshot date (07:55) predates P6 completion (13:00)"
+                 ],
+    "cloud_deferred":  true,
+    "v0_5_blocked":  true,
+    "sections":  [
+                     {
+                         "section":  "A",
+                         "name":  "Fresh Window Evidence Lock",
+                         "verdict":  "TRUE_FRESH_THREAD"
+                     },
+                     {
+                         "section":  "B",
+                         "name":  "Mount + Readiness Execution",
+                         "verdict":  "READY 10/10"
+                     },
+                     {
+                         "section":  "C",
+                         "name":  "Current State Verification",
+                         "verdict":  "CURRENT_STATE_CORRECT 18/18"
+                     },
+                     {
+                         "section":  "D",
+                         "name":  "Mainline Answer Test",
+                         "verdict":  "MAINLINE_ANSWER_TEST_PASS 8/8"
+                     },
+                     {
+                         "section":  "E",
+                         "name":  "Direction Guard v3 Fresh Window Check",
+                         "verdict":  "DIRECTION_GUARD_CORRECT 8/8 blocked"
+                     },
+                     {
+                         "section":  "F",
+                         "name":  "P6 Artifact Count Reconciliation",
+                         "verdict":  "DISCREPANCY_DOCUMENTED (9 categories vs 16 files)"
+                     },
+                     {
+                         "section":  "G",
+                         "name":  "True Fresh Window Usability Verdict",
+                         "verdict":  "TRUE_FRESH_WINDOW_VALIDATED_WITH_WARNINGS"
+                     },
+                     {
+                         "section":  "H",
+                         "name":  "Strategy Decision",
+                         "verdict":  "REALWORLD-2-P1 RECOMMENDED"
+                     },
+                     {
+                         "section":  "I",
+                         "name":  "Negative Controls",
+                         "verdict":  "NEGATIVE_CONTROLS_PASS 38/38"
+                     },
+                     {
+                         "section":  "J",
+                         "name":  "Verifier",
+                         "verdict":  "PASS 50/50"
+                     }
+                 ],
+    "verifier_checks":  50,
+    "strategy_frozen_unchanged":  true,
+    "verifier_result_path":  "governance/context-space/verifier-factory-context-space-p7-result.json",
+    "generated_at":  "2026-06-28T10:07:19+08:00",
+    "next_recommended":  [
+                             "REALWORLD-2-P1 (primary)",
+                             "CONTEXT-SPACE-P8 (alternative)"
+                         ],
+    "verdict":  "PASS",
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "p5_limitation":  "SAME_WINDOW_SIMULATED_USABILITY_PROVEN (preserved)",
+    "verifier_failed":  0,
+    "result_id":  "FACTORY-CONTEXT-SPACE-P7-TRUE-FRESH-WINDOW-VALIDATION-RESULT",
+    "verifier_passed":  50
+}

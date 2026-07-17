@@ -1,0 +1,69 @@
+﻿{
+    "hallucination_risk":  "LOW — API surface confirmed by official GitHub README and tutorial",
+    "source_backed":  true,
+    "sources":  [
+                    {
+                        "title":  "fastify/fastify-multipart README",
+                        "url":  "https://github.com/fastify/fastify-multipart/blob/c353f7ff094f6632378372c87c985ff9a000ff37/README.md",
+                        "type":  "official_repo"
+                    },
+                    {
+                        "title":  "Fastify Multipart File Upload — backend.cafe",
+                        "url":  "https://backend.cafe/fastify-multipart-upload",
+                        "type":  "tutorial"
+                    },
+                    {
+                        "title":  "Fastify中文网",
+                        "url":  "http://www.fastify.cn/",
+                        "type":  "official_docs_translation"
+                    }
+                ],
+    "dependency_choice":  "@fastify/multipart (official) + @fastify/static",
+    "UNSURE_resolved":  [
+                            "request.file() confirmed — returns object with .toBuffer(), .file (stream), .fields, .mimetype, .filename",
+                            "limits.fileSize confirmed as registration option",
+                            "@fastify/static is separate, for serving files after upload"
+                        ],
+    "task":  "Fastify File Upload / Multipart",
+    "group":  "C_STRUCTURED_SEARCH",
+    "design_plan":  {
+                        "rejected_alternatives":  [
+                                                      "busboy directly — @fastify/multipart wraps busboy, adds Fastify-native ergonomics",
+                                                      "multer — Express-only, not Fastify compatible",
+                                                      "bodyParser + base64 — not suitable for binary file uploads"
+                                                  ],
+                        "minimal_test":  [
+                                             "POST /upload multipart → 200 with file metadata",
+                                             "Oversized file → 413",
+                                             "Disallowed MIME → 400",
+                                             "Path traversal name → sanitized, not written to malicious path"
+                                         ],
+                        "adopted_approach":  "@fastify/multipart (official Fastify org plugin) with stream-to-disk pattern",
+                        "implementation_plan":  [
+                                                    "1. npm i @fastify/multipart",
+                                                    "2. fastify.register(require(\u0027@fastify/multipart\u0027), { limits: { fileSize: 5*1024*1024 } })",
+                                                    "3. POST /upload: const data = await request.file(); await fs.promises.writeFile(dest, await data.toBuffer())",
+                                                    "4. Sanitize filename: path.basename(originalname) + \u0027-\u0027 + crypto.randomUUID()",
+                                                    "5. Validate MIME: allowedTypes.includes(data.mimetype)",
+                                                    "6. Return { url, filename, size, mimetype }"
+                                                ],
+                        "key_source_backed_items":  [
+                                                        "Official GitHub README confirms: register with limits.fileSize, request.file() returns file object with .toBuffer(), .file (stream), .fields, .mimetype, .filename",
+                                                        "backend.cafe tutorial confirms pattern: const data = await request.file()",
+                                                        "Chinese docs (fastify.cn) confirm plugin API surface"
+                                                    ],
+                        "risk_list":  [
+                                          "fileSize limit must be set via attachFieldsToBody or limits option",
+                                          "path traversal in original filename — sanitize with path.basename + UUID",
+                                          "MIME type spoofing — validate against whitelist",
+                                          "temp file cleanup on failed uploads",
+                                          "stream backpressure for large files"
+                                      ],
+                        "dependency_choice":  [
+                                                  "@fastify/multipart (npm: @fastify/multipart, official Fastify org maintained)",
+                                                  "Node.js built-in: fs, path, crypto",
+                                                  "@fastify/static for serving uploaded files (optional)"
+                                              ]
+                    },
+    "source_count":  3
+}

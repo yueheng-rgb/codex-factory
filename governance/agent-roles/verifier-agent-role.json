@@ -1,0 +1,25 @@
+﻿{
+    "forbiddenActions":  [
+                             "modify-source-files",
+                             "modify-closed-reports",
+                             "modify-phase-lock",
+                             "handwrite-PASS-evidence"
+                         ],
+    "handoffRequired":  false,
+    "mustCheck":  [
+                      "evidence-integrity",
+                      "acceptance-24/24",
+                      "cross-worker-deps\u003e=45",
+                      "no-generic-FAIL",
+                      "no-final-ZIP",
+                      "closed-reports-unchanged"
+                  ],
+    "allowedActions":  [
+                           "read-source-files",
+                           "read-reports",
+                           "run-verification-scripts",
+                           "write-verifier-report"
+                       ],
+    "h10Required":  false,
+    "role":  "verifier"
+}

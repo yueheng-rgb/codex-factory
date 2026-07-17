@@ -1,0 +1,151 @@
+﻿{
+    "passed":  28,
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-REALWORLD-2-P4",
+    "generated_at":  "2026-06-28T10:45:58+08:00",
+    "verdict":  "PASS",
+    "total_checks":  28,
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P4",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-001",
+                       "desc":  "P3 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-002",
+                       "desc":  "Context scope lock JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-003",
+                       "desc":  "Failure reproduction JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-004",
+                       "desc":  "Runtime alignment JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-005",
+                       "desc":  "Root cause classification JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-006",
+                       "desc":  "Resolution plan JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-007",
+                       "desc":  "Implement/defer JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-008",
+                       "desc":  "Final validation JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-009",
+                       "desc":  "Security regression JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-010",
+                       "desc":  "P4 assessment JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-011",
+                       "desc":  "Phase close JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-012",
+                       "desc":  "Original unchanged"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-013",
+                       "desc":  "No deploy/remote"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-014",
+                       "desc":  "No production DB"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-015",
+                       "desc":  "No secret printed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-016",
+                       "desc":  "No real secrets introduced"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-017",
+                       "desc":  "No NBP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-018",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-019",
+                       "desc":  "No v0.5"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-020",
+                       "desc":  "No fake test PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-021",
+                       "desc":  "Skipped tests have reason"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-022",
+                       "desc":  "Neg controls JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-023",
+                       "desc":  "Neg controls 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-024",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-025",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-026",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-027",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P4-V-028",
+                       "desc":  "No manual PASS-only"
+                   }
+               ],
+    "failed":  0
+}

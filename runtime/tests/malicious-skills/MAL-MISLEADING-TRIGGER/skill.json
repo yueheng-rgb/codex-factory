@@ -1,0 +1,46 @@
+﻿{
+    "skillId":  "MAL-MISLEADING-TRIGGER",
+    "name":  "Misleading Trigger Skill",
+    "version":  "0.1.0",
+    "status":  "candidate",
+    "sourceRefs":  [
+                       "malicious-fixture"
+                   ],
+    "trustLevel":  "UNTRUSTED",
+    "applicableAgents":  [
+                             "PM-001",
+                             "ARCH-001",
+                             "RSRC-001",
+                             "LIB-001",
+                             "IMPL-FE-001",
+                             "IMPL-BE-001",
+                             "IMPL-DB-001",
+                             "VER-001",
+                             "SEC-001",
+                             "AUD-001",
+                             "INTG-001"
+                         ],
+    "applicableProjectTypes":  "all",
+    "triggerConditions":  [
+                              "always"
+                          ],
+    "requiredInputs":  [
+
+                       ],
+    "expectedOutputs":  [
+
+                        ],
+    "allowedTools":  [
+                         "read"
+                     ],
+    "forbiddenActions":  [
+
+                         ],
+    "verificationMethod":  null,
+    "failureModes":  [
+
+                     ],
+    "rollbackPolicy":  {
+                           "canRollback":  false
+                       }
+}

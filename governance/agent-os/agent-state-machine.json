@@ -1,0 +1,25 @@
+﻿{
+  "schemaId": "agent-state-machine",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T23:59:40+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-A",
+  "nativeGenerated": true,
+  "description": "Agent OS state machine enforcing lifecycle transitions with evidence requirements",
+  "rules": [
+    {"id":"SM-01","rule":"No state transition without required evidence"},
+    {"id":"SM-02","rule":"FAILED state can only be reached with failureEvidence"},
+    {"id":"SM-03","rule":"CLOSED requires VERIFIED first"},
+    {"id":"SM-04","rule":"ARCHIVED requires CLOSED first"},
+    {"id":"SM-05","rule":"REPLACED must link to replacement agentId"},
+    {"id":"SM-06","rule":"QUARANTINED excludes from active capacity and floors"},
+    {"id":"SM-07","rule":"HEARTBEAT timeout 5min without event transitions to audit review"},
+    {"id":"SM-08","rule":"HANDOFF_SUBMITTED blocks archive until INTEGRATION_REQUESTED"}
+  ],
+  "forbiddenTransitions": [
+    "CLOSED to RUNNING",
+    "ARCHIVED to any",
+    "QUARANTINED to RUNNING",
+    "VERIFIED to RUNNING",
+    "any direct to CLOSED without VERIFIED"
+  ]
+}

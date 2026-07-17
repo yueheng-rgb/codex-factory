@@ -1,0 +1,16 @@
+﻿{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Factory State Monitoring Result",
+    "type": "object",
+    "required": ["verdict","checkedAt","checks","alerts","doesNotMutateState"],
+    "properties": {
+        "verdict": {"type":"string","enum":["MONITORING_PASS","MONITORING_ALERT","MONITORING_ERROR"]},
+        "checkedAt": {"type":"string","format":"date-time"},
+        "checks": {"type":"array","items":{"type":"object","required":["checkId","status","detail"]}},
+        "alerts": {"type":"array","items":{"type":"string"}},
+        "evidencePaths": {"type":"array","items":{"type":"string"}},
+        "recommendedAction": {"type":"string"},
+        "doesNotMutateState": {"type":"boolean","const":true},
+        "prototype": {"type":"boolean","const":true}
+    }
+}

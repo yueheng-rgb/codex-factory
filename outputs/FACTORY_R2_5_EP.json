@@ -1,0 +1,209 @@
+﻿{
+    "phase":  "R2.5",
+    "mode":  "live_search",
+    "provider":  "zhipuai",
+    "selectedSearchPath":  "/api/paas/v4/web_search",
+    "search_engine":  "search_std",
+    "search_invoked":  true,
+    "query":  "Build Fastify API endpoint with cursor-based pagination, multi-field filtering, and text search for a products resource list",
+    "query_intents":  [
+                          "best_practice",
+                          "alternative_options"
+                      ],
+    "runtime_timestamp":  "2026-07-11T13:14:54.3566026+08:00",
+    "security_critical":  false,
+    "sources":  [
+                    {
+                        "title":  "基于 Spring MVC 的可扩展 RESTful API 架构设计与实现研究",
+                        "url":  "https://cloud.tencent.com/developer/article/2567542",
+                        "snippet":  "基于 Spring MVC 的可扩展 RESTful API 架构设计与实现研究随着微服务和云原生架构的发展,RESTful API 已成为现代应用的核心接口方式｡Java 与 Spring MVC 提供了成熟的框架和工具,能够帮助开发者构建高性能､可扩展的 RESTful API｡本篇文章将从项目结构､控制器设计､异常处理､版本控制到性能优化,详细讲解如何构建可扩展的 RESTful ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "JAVA TV",
+                        "url":  "https://baike.baidu.com/item/JAVA%20TV/7532322",
+                        "snippet":  "\"Java TVAPI被尽可能地限制在只适用于电视接收机的独特的功能上,一些消费电子装置通用的API,如持久存储机制,没有包括在其中｡1.1 电视接收机接收机分为三种类型:增强型广播､交互式广播和多网(multi-network)｡ 1) 增强型广播 传统广播电视的图形､图像和文本得到增强,并被作为广播内容一部分下传的Java程序控制｡",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "Python参考手册",
+                        "url":  "https://baike.baidu.com/item/Python%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/8496043",
+                        "snippet":  "\"《Python参考手册》是人民邮电出版社2011年1月1日出版的图书,作者是David M.Beazley｡内容简介《Python参考手册(第4版)》是权威的Python语言参考指南,内容涉及核心Python语言和Python库的最重要部分｡《Python参考手册(第4版)》内容简洁扼要､可读性强｡书中还包括了一些没有在Python官方文档或其他资料中出现过的一些高级的主题｡ ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GenericTypeParameterBuilder.MakePointerType 方法 (System.Reflection.Emit)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/system.reflection.emit.generictypeparameterbuilder.makepointertype(en-us,VS.85).aspx",
+                        "snippet":  "询问 Learn 询问 Learn 语言 csharp vb fsharp cpp 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Type Parameter Builder. Make Pointer Type 方法 定义 命名空间: 程序集: netstand...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GenericTypeParameterBuilder.MakePointerType 方法 (System.Reflection.Emit)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/4a8z8ayw(v=vs.80).aspx",
+                        "snippet":  "询问 Learn 询问 Learn 语言 csharp vb fsharp cpp 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Type Parameter Builder. Make Pointer Type 方法 定义 命名空间: 程序集: netstand...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GenericTypeParameterBuilder.MakePointerType 方法 (System.Reflection.Emit)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/system.reflection.emit.generictypeparameterbuilder.makepointertype(v=vs.80).ASPx",
+                        "snippet":  "询问 Learn 询问 Learn 语言 csharp vb fsharp cpp 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Type Parameter Builder. Make Pointer Type 方法 定义 命名空间: 程序集: netstand...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GenericTypeParameterBuilder.MakePointerType 方法 (System.Reflection.Emit)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/system.reflection.emit.generictypeparameterbuilder.makepointertype(vs.90).aspx",
+                        "snippet":  "询问 Learn 询问 Learn 语言 csharp vb fsharp cpp 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Type Parameter Builder. Make Pointer Type 方法 定义 命名空间: 程序集: netstand...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GenericTypeParameterBuilder.MakePointerType 方法 (System.Reflection.Emit)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/system.reflection.emit.generictypeparameterbuilder.makepointertype(ar-sa).aspx",
+                        "snippet":  "询问 Learn 询问 Learn 语言 csharp vb fsharp cpp 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Type Parameter Builder. Make Pointer Type 方法 定义 命名空间: 程序集: netstand...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "TypeBuilder.DefineGenericParameters 方法 (System.Reflection.Emit)",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/system.reflection.emit.typebuilder.definegenericparameters(d=printer,v=vs.90).ASPx",
+                        "snippet":  "更新:2007 年11 月 为当前类型定义泛型类型参数,指定参数的个数和名称,并返回一个GenericTypeParameterBuilder对象的数组,这些对象可用于设置参数的约束。 程序集:   mscorlib (在mscorlib.dll 中) 语法 C# public GenericTypeParameterBuilder[] DefineGenericParameters( param...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "TypeBuilder.DefineGenericParameters 方法 (System.Reflection.Emit)",
+                        "url":  "https://msdn.microsoft.com/zh-CN/library/system.reflection.emit.typebuilder.definegenericparameters(v=vs.80).ASPx",
+                        "snippet":  "注意:此方法在 .NET Framework 2.0 版中是新增的。 为当前类型定义泛型类型参数,指定参数的个数和名称,并返回一个GenericTypeParameterBuilder对象的数组,这些对象可用于设置参数的约束。 命名空间: System.Reflection.Emit 程序集: mscorlib(在mscorlib.dll 中) public GenericTypeParamete...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "#淘宝REST API 技术手册(精简版)",
+                        "url":  "https://cloud.tencent.com/developer/article/2698558",
+                        "snippet":  "import hashlibimport timefrom urllib.parse import quote_plusAPP_KEY = \"你的APP_KEY\"APP_SECRET = \"你的APP_SECRET\"GATEWAY_URL = \"https://gw.api.taobao.com/router/rest\"def generate_sign(params: dict) -\u003e str:...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "JsonQueryStringConverter 构造函数 (System.ServiceModel.Dispatcher)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/zh-cn/vstudio/system.servicemodel.dispatcher.jsonquerystringconverter.jsonquerystringconverter(v=vs.90)",
+                        "snippet":  "我们使用可选的 Cookie,通过社交媒体连接等方式改善你在我们网站上的体验,并且根据你的在线活动投放个性化的广告。 如果你拒绝可选 Cookie,则我们将仅使用为你提供服务所必须的 Cookie。 你可以单击页面底部的“管理 Cookie”更改你的选择。隐私声明第三方 Cookie 接受 拒绝 管理 Cookie 此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "WorkflowDesignerMessageFilter.OnQueryContinueDrag 方法 (QueryContinueDragEventArgs) (System.Workflow.ComponentModel.Design)",
+                        "url":  "http://msdn.microsoft.com/zh-cn/library/system.workflow.componentmodel.design.workflowdesignermessagefilter.onquerycontinuedrag.Aspx",
+                        "snippet":  "本文由机器翻译。若要查看英语原文,请勾选“英语”复选框。 也可将鼠标指针移到文本上,在弹出窗口中显示英语原文。 翻译 英语 WorkflowDesignerMessageFilter . OnQueryContinueDrag 方法 (QueryContinueDragEventArgs) .NET Framework (current version) 发布日期: 2016年5月 程序集:  S...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "fix(boilerplate): jest.config.js remove jsdom test env by frankcalise · Pull Request #2632 · infinitered/ignite · GitHub",
+                        "url":  "https://github.com/infinitered/ignite/pull/2632",
+                        "snippet":  "Appearance settings Platform Solutions Resources Search or jump to... Provide feedback Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "REST API Design: Filtering, Sorting, and Pagination  Moesif Blog",
+                        "url":  "https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/",
+                        "snippet":  "API design is becoming a core pillar of API product strategy regardless if the APIis public or used internally. Good API design improves the overall Developer Experience (DX)for any API program and ca...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "Flask-REST-JSONAPI — flask-rest-jsonapi 0.1 documentation",
+                        "url":  "https://flask-rest-jsonapi.readthedocs.io/",
+                        "snippet":  "Flask-REST-JSONAPI ¶ Flask-REST-JSONAPI is an extension for Flask that adds support for quickly building REST APIs with huge flexibility around the JSONAPI 1.0 specification. It is designed to fit the...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "zh"
+                    },
+                    {
+                        "title":  "RegularCommand can also take NestedLiteral parameters by retorquere · Pull Request #27 · dsifford/astrocite · GitHub",
+                        "url":  "https://github.com/dsifford/astrocite/pull/27",
+                        "snippet":  "# 27 Merged edited Loading Uh oh! There was an error while loading. Please reload this page . Copy link Copy Markdown Contributor edited Loading Uh oh! There was an error while loading. Please reload ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "TestResultParameterCollection.Add Method (String, String, String) (Microsoft.TeamFoundation.TestManagement.Client)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/dd984664.aspx",
+                        "snippet":  "This browser is no longer supported. Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support. Table of contents Exit editor mode Ask Learn Ask Learn...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "REST API for Administering Oracle NoSQL Database - configure",
+                        "url":  "https://docs.oracle.com/en/database/other-databases/nosql-database/24.3/rest-admin/op-v0-nosql-adminconfigure-post.html",
+                        "snippet":  "Previous Next JavaScript must be enabled to correctly display this content post /V0/nosql/admin#configure Configures a new store. This call must be made before any other administration can be performe...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    }
+                ],
+    "source_count":  19,
+    "official_sources_count":  0,
+    "authoritative_source_gap":  true,
+    "confidence_level":  "medium",
+    "quality_gate":  {
+                         "verdict":  "PASS_WITH_WARNINGS",
+                         "score":  16,
+                         "fatalRejections":  [
+
+                                             ]
+                     },
+    "research_coverage_summary":  "Covered: pagination patterns (cursor vs offset), REST API filtering conventions, query parameter design. 0 official sources.",
+    "implementation_checklist":  [
+                                     "1. Define query parameters: cursor, limit, sort, filter[field], search",
+                                     "2. Implement cursor-based pagination (not offset)",
+                                     "3. Build dynamic WHERE clause from filter params",
+                                     "4. Add text search with LIKE/ILIKE or full-text index",
+                                     "5. Return pagination metadata: nextCursor, hasMore, total",
+                                     "6. Validate and sanitize all query parameters",
+                                     "7. Test with empty, single, many, filtered, searched results"
+                                 ]
+}

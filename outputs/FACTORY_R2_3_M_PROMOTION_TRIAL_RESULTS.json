@@ -1,0 +1,16 @@
+﻿[
+    {
+        "skillId":  "CAP-SKILL-013",
+        "loaded":  true,
+        "behaviorDiff":  true,
+        "decision":  "factoryRuntimeVerified",
+        "evidence":  "Small project (\u003c10 pages/tables) requesting microservices -\u003e correctly flagged as overengineering"
+    },
+    {
+        "skillId":  "CAP-SKILL-014",
+        "loaded":  true,
+        "behaviorDiff":  true,
+        "decision":  "factoryRuntimeVerified",
+        "evidence":  "3/3 user requests correctly classified by type"
+    }
+]

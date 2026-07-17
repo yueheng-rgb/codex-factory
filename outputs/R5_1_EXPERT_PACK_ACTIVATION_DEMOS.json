@@ -1,0 +1,79 @@
+﻿{
+  "phase": "R5.1",
+  "timestamp": "2026-07-11T19:55:00+08:00",
+  "demo_cases_run": 6,
+  "results": [
+    {
+      "demo": "DEMO-1",
+      "task": "做个普通商品展示页",
+      "activated": true,
+      "expert_pack": "ecommerce",
+      "matched_keywords": ["商品", "商品展示"],
+      "surfaces": "7 surfaces (all optional except admin/api/db/docs)",
+      "risk_implication": "LOW/MEDIUM — product display without transactions",
+      "human_audit": false,
+      "status": "PASS"
+    },
+    {
+      "demo": "DEMO-2",
+      "task": "做一个商品库存管理后台",
+      "activated": true,
+      "expert_pack": "ecommerce",
+      "matched_keywords": ["商品", "库存", "管理"],
+      "surfaces": "admin-web + api-service + database (core)",
+      "risk_implication": "HIGH/CRITICAL — inventory adjustment",
+      "human_audit": true,
+      "status": "PASS"
+    },
+    {
+      "demo": "DEMO-3",
+      "task": "做一个带支付回调的订单系统",
+      "activated": true,
+      "expert_pack": "ecommerce",
+      "matched_keywords": ["订单", "支付", "支付回调"],
+      "surfaces": "api-service + database + background-worker",
+      "risk_implication": "CRITICAL — payment + order invariants required",
+      "human_audit": true,
+      "status": "PASS"
+    },
+    {
+      "demo": "DEMO-4",
+      "task": "做一个小程序商城带后台",
+      "activated": true,
+      "expert_pack": "ecommerce",
+      "matched_keywords": ["商城"],
+      "surfaces": "miniapp + admin-web + api-service + database + bg-worker + docs",
+      "risk_implication": "L_CLASS/CRITICAL — multi-surface combo",
+      "human_audit": true,
+      "status": "PASS"
+    },
+    {
+      "demo": "DEMO-5",
+      "task": "修改商品价格字段",
+      "activated": true,
+      "expert_pack": "ecommerce",
+      "matched_keywords": ["商品"],
+      "surfaces": "api-service (price modification path)",
+      "risk_implication": "CRITICAL — ECOM-R001 triggered, price invariants required",
+      "human_audit": true,
+      "status": "PASS"
+    },
+    {
+      "demo": "DEMO-6",
+      "task": "修改 README 里的商城介绍文案",
+      "activated": false,
+      "expert_pack": null,
+      "matched_keywords": [],
+      "exclusion_reason": "README in exclude_keywords cancels activation",
+      "risk_implication": "LOW — documentation change, no expert pack needed",
+      "human_audit": false,
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "total": 6,
+    "activated": 5,
+    "correctly_not_activated": 1,
+    "all_expectations_met": true
+  }
+}

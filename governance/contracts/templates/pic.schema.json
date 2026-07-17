@@ -1,0 +1,57 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pic.schema.json",
+  "title": "Project Intent Contract (PIC)",
+  "description": "Captures WHY the project exists. Created at project start by PM-001.",
+  "type": "object",
+  "required": ["contractId", "createdAt", "createdBy", "projectName", "projectType", "coreProblem", "targetUsers", "successCriteria", "nonGoals", "constraints"],
+  "properties": {
+    "contractId": {
+      "type": "string",
+      "pattern": "^PIC-PROJ-\\d+$",
+      "description": "Contract identifier, e.g. PIC-PROJ-051"
+    },
+    "version": { "type": "string", "default": "1.0.0" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string", "description": "Agent ID, e.g. PM-001" },
+    "lastModifiedAt": { "type": "string", "format": "date-time" },
+    "projectName": { "type": "string", "description": "Human-readable project name" },
+    "projectType": {
+      "type": "string",
+      "enum": ["content-site", "fullstack-admin", "saas-tool", "api-service", "miniapp", "mobile-app", "threejs-interactive"]
+    },
+    "complexity": { "type": "string", "enum": ["S", "M", "L", "XL"] },
+    "coreProblem": { "type": "string", "description": "One-sentence description of the core problem being solved" },
+    "targetUsers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "List of target user roles"
+    },
+    "successCriteria": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Measurable success criteria. If these are met, the project is a success."
+    },
+    "nonGoals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item": { "type": "string", "description": "What we will NOT do" },
+          "reason": { "type": "string", "description": "Why not" },
+          "riskIfAdded": { "type": "string", "description": "What risk it introduces if added" }
+        }
+      },
+      "description": "Explicitly scoped-out features and capabilities"
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Hard constraints (tech, budget, time, compliance)"
+    },
+    "approvedBy": { "type": "string", "description": "User or PM approval" },
+    "status": { "type": "string", "enum": ["DRAFT", "APPROVED", "SUPERSEDED"], "default": "DRAFT" }
+  }
+}

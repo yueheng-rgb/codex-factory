@@ -1,0 +1,45 @@
+﻿{
+    "evidencePaths":  [
+                          "session-rotation-handoff.json"
+                      ],
+    "doesNotMutateState":  true,
+    "checkedAt":  "2026-06-25T00:24:52+08:00",
+    "verdict":  "ROTATION_RECOMMENDED",
+    "riskSignals":  [
+                        {
+                            "signalId":  "SIG-STALE",
+                            "type":  "stale_handoff",
+                            "severity":  "P0"
+                        }
+                    ],
+    "recommendedAction":  {
+                              "userActionRequired":  true,
+                              "forbiddenAssumptions":  [
+                                                           "no full-context inheritance"
+                                                       ],
+                              "action":  "Session rotation recommended",
+                              "startupPacketPath":  "governance/automation-os/latest-rotation-recommendation.json"
+                          },
+    "checks":  [
+                   {
+                       "result":  "FAIL",
+                       "checkId":  "CHK02",
+                       "target":  "Handoff staleness",
+                       "riskSeverity":  "P0"
+                   },
+                   {
+                       "result":  "PASS",
+                       "checkId":  "CHK01",
+                       "target":  "State loads",
+                       "riskSeverity":  "P0"
+                   }
+               ],
+    "alerts":  [
+                   {
+                       "message":  "Handoff \u003e 24h stale",
+                       "checkId":  "CHK02",
+                       "alertId":  "ALERT-CHK02",
+                       "severity":  "P0"
+                   }
+               ]
+}

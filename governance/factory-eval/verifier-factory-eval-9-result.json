@@ -1,0 +1,125 @@
+﻿{
+    "passed":  23,
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "FINAL package SHA unchanged"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "No new final ZIP"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "FACTORY-EVAL-8 PASS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "EVAL-8 scores correctly represented"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "v0.4 decision matrix exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "Default operating model exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "3-role core model exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "Multi-agent escalation policy exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "Resource pack restructure plan exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "Keep/Cut/Defer report exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "v0.4 roadmap exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "Manual Router KEEP_DEFAULT"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "Proof-of-Read KEEP_DEFAULT"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "Contamination logging KEEP_DEFAULT"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "10-role model NOT default"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "Role-Agent not declared superior"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "One-benchmark caveat recorded"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "No product code modified during EVAL-9"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "No package/ZIP created"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "Negative controls report exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "Negative controls 26/0 gaps"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "No UNEXPECTED_PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "No generic FAIL"
+                    }
+                ],
+    "timestamp":  "2026-06-25T20:14:27+08:00",
+    "failed":  0,
+    "totalChecks":  23,
+    "phase":  "FACTORY-EVAL-9-I",
+    "title":  "Verifier Result - v0.4 Keep-Cut-Defer Decision"
+}

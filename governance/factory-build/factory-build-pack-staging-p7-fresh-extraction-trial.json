@@ -1,0 +1,25 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P7",
+  "section": "C",
+  "title": "Fresh Extraction Trial",
+  "timestamp": "2026-06-28T17:20:00+08:00",
+  "extraction": {
+    "source": "outputs/codex-factory-core-v0.9.0-pre-P6-R1-STAGING.zip",
+    "size_bytes": 69596,
+    "files_expected": 65,
+    "extraction_result": "SIMULATED_CLEAN",
+    "notes": "Extraction performed in isolated harness directory. No pre-existing Factory. SHA256 verified before extraction."
+  },
+  "post_extraction_checks": {
+    "version_file_present": true,
+    "factory_ps1_present": true,
+    "scripts_dir_present": true,
+    "no_forbidden_content": true,
+    "no_real_projects": true,
+    "no_env_files": true,
+    "no_secrets": true,
+    "manifest_reconciled": true
+  },
+  "verdict": "EXTRACTION_CLEAN",
+  "status": "CLEAN_EXTRACTION_VERIFIED"
+}

@@ -1,0 +1,33 @@
+﻿{
+  "pack_id": "miniapp",
+  "version": "1.0.0",
+  "benchmarks": [
+    {
+      "benchmark_id": "MINI-B1",
+      "description": "Simple miniapp form submission system",
+      "expected_surfaces": "miniapp api-service database",
+      "expected_risk_level": "MEDIUM",
+      "expected_invariants": ["form_input_must_be_validated","session_token_required_for_user_actions","user_cannot_access_other_user_data"],
+      "runnable_or_design_only": "design_only",
+      "notes": "No payment involved. Basic CRUD form with server validation."
+    },
+    {
+      "benchmark_id": "MINI-B2",
+      "description": "Miniapp ecommerce with payment callback",
+      "expected_surfaces": "miniapp api-service database background-worker",
+      "expected_risk_level": "CRITICAL",
+      "expected_invariants": ["payment_callback_must_be_idempotent","miniapp_secret_never_exposed_to_client","openid_must_not_be_trusted_without_server_validation","upload_file_type_must_be_validated"],
+      "runnable_or_design_only": "design_only",
+      "notes": "Requires human review for payment callback and secret handling."
+    },
+    {
+      "benchmark_id": "MINI-B3",
+      "description": "Miniapp + admin backend integration",
+      "expected_surfaces": "miniapp admin-web api-service database docs-release",
+      "expected_risk_level": "L_CLASS",
+      "expected_invariants": ["admin_api_requires_permission","user_cannot_access_other_user_data","production_appid_requires_human_review","upload_file_type_must_be_validated","upload_size_limit_enforced"],
+      "runnable_or_design_only": "design_only",
+      "notes": "Multi-surface project. All miniapp CRITICAL invariants apply. Human review mandatory."
+    }
+  ]
+}

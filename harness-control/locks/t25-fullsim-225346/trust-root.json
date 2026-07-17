@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  70,
+    "frozenAt":  "2026-06-18T22:53:47.3017594+08:00",
+    "runId":  "t25-fullsim-225346",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\t25-fullsim-225346\\trust-root.json",
+    "controlPlaneLockSha256":  "98a35d68d66401bf26be2d0a7a7fe3f8e7dc203520e4fedd1bfded25aabb527b",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "b07841b9049b101f5d55971e53ab5b2a3559d04cf306493bc163c29e53fb4e2a"
+}

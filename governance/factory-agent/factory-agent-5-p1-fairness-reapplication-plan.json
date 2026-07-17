@@ -1,0 +1,39 @@
+﻿{
+    "scope":  "Apply repaired policy fairly to all 4 runs",
+    "step":  "D_FAIRNESS_REAPPLICATION_PLAN",
+    "timestamp":  "2026-06-26T20:21:48.3941709+08:00",
+    "runs":  [
+                 {
+                     "expectedImpact":  "Minimal — Vanilla met most hard floors. Diagnostic metrics are supplementary.",
+                     "run":  "RUN-LP-A (Vanilla)",
+                     "reapplication":  "Re-score under repaired policy: sourceFileCount and exportCount become diagnostic, not hard blockers. Keep all other metrics.",
+                     "existingScore":  85.5
+                 },
+                 {
+                     "expectedImpact":  "Minimal — v0.4 scored lower primarily on non-gaming metrics.",
+                     "run":  "RUN-LP-B (v0.4 Factory Lite)",
+                     "reapplication":  "Re-score under repaired policy. Hard floors unchanged; diagnostic metrics supplementary.",
+                     "existingScore":  66
+                 },
+                 {
+                     "expectedImpact":  "Slight — old v0.5 may have benefited from file/export inflation; diagnostic-only treatment may lower score fairly.",
+                     "run":  "old RUN-LP-C (7-agent v0.5)",
+                     "reapplication":  "Re-score under repaired policy. AGENT-9 original result preserved as baseline.",
+                     "existingScore":  80
+                 },
+                 {
+                     "expectedImpact":  "Unblocking — remaining blockers were policy defects, not product defects. Repaired policy removes artificial barriers.",
+                     "run":  "RUN-LP-C-P1 (4-agent after R1)",
+                     "reapplication":  "Score under repaired policy. All hard floors met. Diagnostic metrics exceed floors (77 files \u003e 50, 198 exports \u003e 130 avg). Original BLOCKED_BY_REVIEWER remains historical record.",
+                     "existingScore":  "BLOCKED_BY_REVIEWER (unresolved)"
+                 }
+             ],
+    "constraints":  [
+                        "Do not modify any product code",
+                        "Do not erase AGENT-9 historical result",
+                        "Do not change non-gaming metric floors",
+                        "Do not apply policy change retroactively to R1 evidence",
+                        "Transparently document all re-scoring decisions"
+                    ],
+    "phase":  "FACTORY-AGENT-5-P1"
+}

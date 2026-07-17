@@ -1,0 +1,50 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "D",
+  "title": "Cleanup Modes",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "modes": [
+    {
+      "mode": "PLAN",
+      "description": "Preview only — show what would be cleaned up. No changes made.",
+      "default": true,
+      "requires_confirmation": false,
+      "output": "Cleanup plan report: keep list, delete list, confirm list, size delta",
+      "safety": "Read-only. No files modified."
+    },
+    {
+      "mode": "ARCHIVE",
+      "description": "Archive project: preserve CORE_EVIDENCE, prune CACHE, set status=ARCHIVED, disable default mount.",
+      "default": false,
+      "requires_confirmation": true,
+      "output": "Archive report: what was archived, what was preserved",
+      "safety": "CORE_EVIDENCE preserved. Reversible (user can unarchive)."
+    },
+    {
+      "mode": "FREEZE",
+      "description": "Freeze project: preserve all, set status=FROZEN, disable default mount. No cleanup.",
+      "default": false,
+      "requires_confirmation": true,
+      "output": "Freeze report: project frozen, no auto-mount",
+      "safety": "All data preserved. Fully reversible."
+    },
+    {
+      "mode": "PRUNE",
+      "description": "Prune CACHE + STALE + DUPLICATE. Preserve CORE_EVIDENCE and PHASE_ARTIFACTS.",
+      "default": false,
+      "requires_confirmation": true,
+      "output": "Prune report: what was removed, size reclaimed",
+      "safety": "CORE_EVIDENCE and PHASE_ARTIFACTS preserved. DUPLICATE keeps highest sourceTier."
+    },
+    {
+      "mode": "DELETE",
+      "description": "Delete project from Context Space. Requires PLAN preview + explicit CONFIRM.",
+      "default": false,
+      "requires_confirmation": true,
+      "requires_plan_first": true,
+      "output": "Delete report: what was deleted, what evidence was preserved (if any)",
+      "safety": "2-step: PLAN → review → CONFIRM. CORE_EVIDENCE requires --force-evidence flag. CORE_EVIDENCE deleted last."
+    }
+  ],
+  "status": "CLEANUP_MODES_DEFINED"
+}

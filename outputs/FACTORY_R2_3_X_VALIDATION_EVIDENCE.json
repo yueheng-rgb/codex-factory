@@ -1,0 +1,69 @@
+﻿{
+    "phase":  "R2.3-X",
+    "classification":  "A",
+    "design_advantage_translated":  true,
+    "recommended_next_step":  "R2.3-Y: Merge findings into Search Necessity Policy update",
+    "security_gap_was_critical":  true,
+    "classification_label":  "IMPLEMENTATION_VALUE_CONFIRMED",
+    "secret_safety_result":  "PASS",
+    "tasks":  [
+                  {
+                      "groupC":  {
+                                     "correct_api":  2,
+                                     "security":  2,
+                                     "total":  10,
+                                     "tests":  2,
+                                     "integration":  2,
+                                     "rework":  2
+                                 },
+                      "delta":  3,
+                      "task":  "Fastify File Upload",
+                      "key_difference":  "Better error handling, wider MIME support, double size enforcement",
+                      "groupA":  {
+                                     "correct_api":  2,
+                                     "security":  1,
+                                     "total":  7,
+                                     "tests":  1,
+                                     "integration":  2,
+                                     "rework":  1
+                                 }
+                  },
+                  {
+                      "groupC":  {
+                                     "correct_api":  2,
+                                     "security":  2,
+                                     "total":  9,
+                                     "tests":  2,
+                                     "integration":  1,
+                                     "rework":  2
+                                 },
+                      "delta":  4,
+                      "task":  "JWT Refresh Token",
+                      "key_difference":  "httpOnly cookie, SHA-256 hash, rotation, reuse detection, logout — 4 critical security features absent in Group A",
+                      "groupA":  {
+                                     "correct_api":  1,
+                                     "security":  0,
+                                     "total":  5,
+                                     "tests":  1,
+                                     "integration":  2,
+                                     "rework":  1
+                                 }
+                  }
+              ],
+    "rework_groupC":  1,
+    "rework_groupA":  1,
+    "contamination_detected":  false,
+    "aggregate_delta":  7,
+    "aggregate_groupC":  19,
+    "where_search_helped":  [
+                                "Security by Design (Task 3: 0→2 security score)",
+                                "API confidence (Task 1: 4 UNSURE→0)",
+                                "Error handling completeness (Task 1)"
+                            ],
+    "aggregate_groupA":  12,
+    "where_search_did_not_help":  [
+                                      "Basic API guess was correct (Task 1)",
+                                      "Added cookie parsing complexity (Task 3)"
+                                  ],
+    "keyLeaked":  false
+}

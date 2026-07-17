@@ -1,0 +1,10 @@
+﻿{
+    "productionRequiresE7":  true,
+    "section":  "K",
+    "dashboardCli":  true,
+    "recoveryScan":  true,
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0",
+    "evidenceLevels":  9,
+    "dashboardNotPrimaryEvidence":  true,
+    "r1EvidenceCeiling":  "E6"
+}

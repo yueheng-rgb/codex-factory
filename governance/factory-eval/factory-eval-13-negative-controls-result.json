@@ -1,0 +1,261 @@
+﻿{
+    "noFailTargetNotTriggered":  true,
+    "passed":  35,
+    "timestamp":  "2026-06-25T22:12:00+08:00",
+    "noGenericFail":  true,
+    "title":  "Negative Controls — EVAL-13 Independent Comparison",
+    "noExpectedClassOnly":  true,
+    "negatives":  [
+                      {
+                          "expectedRisk":  "Evaluation contamination",
+                          "fault":  "evaluator modifies RUN-D product code",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — all reads were read-only, no file writes to runs/vanilla/product/",
+                          "id":  1
+                      },
+                      {
+                          "expectedRisk":  "Evaluation contamination",
+                          "fault":  "evaluator modifies RUN-E product code",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — no modifications to runs/v04-factory-lite/product/",
+                          "id":  2
+                      },
+                      {
+                          "expectedRisk":  "Package tampering",
+                          "fault":  "evaluator modifies old FINAL package",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — SHA verified unchanged: 01640C0A...",
+                          "id":  3
+                      },
+                      {
+                          "expectedRisk":  "Premature finalization",
+                          "fault":  "new final ZIP created",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — no new final ZIPs",
+                          "id":  4
+                      },
+                      {
+                          "expectedRisk":  "Premature release",
+                          "fault":  "v0.4 release ZIP created",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — no v0.4 release ZIPs",
+                          "id":  5
+                      },
+                      {
+                          "expectedRisk":  "Premature finalization",
+                          "fault":  "v0.4 draft marked final",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — MANIFEST.json status: DRAFT_NOT_RELEASED",
+                          "id":  6
+                      },
+                      {
+                          "expectedRisk":  "Incomplete comparison",
+                          "fault":  "missing RUN-D accepted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — RUN-D product directory inspected and verified complete",
+                          "id":  7
+                      },
+                      {
+                          "expectedRisk":  "Incomplete comparison",
+                          "fault":  "missing RUN-E accepted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — RUN-E product directory inspected and verified complete",
+                          "id":  8
+                      },
+                      {
+                          "expectedRisk":  "Self-evaluation bias",
+                          "fault":  "self-mapping treated as final score",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — independent evaluator read product code directly, did not rely on self-mapping for scores",
+                          "id":  9
+                      },
+                      {
+                          "expectedRisk":  "Trust-based evaluation",
+                          "fault":  "run self-report trusted without artifact inspection",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — evaluator inspected actual source files, test code, and runtime evidence",
+                          "id":  10
+                      },
+                      {
+                          "expectedRisk":  "Quality inflation",
+                          "fault":  "file count used as quality proof",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — scores based on inspected implementation quality, not file counts",
+                          "id":  11
+                      },
+                      {
+                          "expectedRisk":  "Test gaming",
+                          "fault":  "test count used as quality proof without quality review",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — test QUALITY reviewed (REAL_BEHAVIORAL for both runs). RUN-D\u0027s 54 vs RUN-E\u0027s 32 did not determine scores.",
+                          "id":  12
+                      },
+                      {
+                          "expectedRisk":  "Quality inflation",
+                          "fault":  "process artifacts counted as product features",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — evidence hierarchy applied: POR, self-mapping, contamination logs classified as Tier 4, not counted in rubric",
+                          "id":  13
+                      },
+                      {
+                          "expectedRisk":  "Bias toward Factory",
+                          "fault":  "v0.4 declared better due only to process artifacts",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — RUN-E scored LOWER (95) than RUN-D (99). v0.4 process artifacts did not inflate score.",
+                          "id":  14
+                      },
+                      {
+                          "expectedRisk":  "Bias against Vanilla",
+                          "fault":  "Vanilla penalized for lacking v0.4 process artifacts",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — RUN-D scored HIGHER (99). No penalty for lacking POR, manual router, etc.",
+                          "id":  15
+                      },
+                      {
+                          "expectedRisk":  "Hidden cross-contamination",
+                          "fault":  "contamination ignored",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — contamination logs checked. Both runs CLEAN. Evaluator read-only confirmed.",
+                          "id":  16
+                      },
+                      {
+                          "expectedRisk":  "Hidden interventions",
+                          "fault":  "human intervention ignored",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — both runs logged 2 environmental interventions. Considered in evaluation.",
+                          "id":  17
+                      },
+                      {
+                          "expectedRisk":  "Test gaming",
+                          "fault":  "fake tests counted as real",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — all tests have real assertions on API responses. No assert(true) found.",
+                          "id":  18
+                      },
+                      {
+                          "expectedRisk":  "False implementation",
+                          "fault":  "placeholder approval workflow counted implemented",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — both runs have real state machines with transition validation and permission checks",
+                          "id":  19
+                      },
+                      {
+                          "expectedRisk":  "False calculation",
+                          "fault":  "fake financial calculation accepted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — both runs verified with exact-value test assertions: 2*100=200, 3*50=150, etc.",
+                          "id":  20
+                      },
+                      {
+                          "expectedRisk":  "Unsubstantiated scores",
+                          "fault":  "score-only PASS without evidence paths",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — each dimension score includes specific file evidence paths",
+                          "id":  21
+                      },
+                      {
+                          "expectedRisk":  "Critical issue masked",
+                          "fault":  "blocker ignored because score high",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — blocker check ran. No blockers found in either run.",
+                          "id":  22
+                      },
+                      {
+                          "expectedRisk":  "Guess-based scoring",
+                          "fault":  "cannot-evaluate forced into PASS",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — all dimensions had inspectable evidence. Nothing forced.",
+                          "id":  23
+                      },
+                      {
+                          "expectedRisk":  "Security blind spot",
+                          "fault":  "security omitted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — D06 (Auth) and Phase G security comparison both covered: bcrypt, JWT, server-side permissions, SQL injection",
+                          "id":  24
+                      },
+                      {
+                          "expectedRisk":  "Financial blind spot",
+                          "fault":  "financial correctness omitted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — D04 and Phase F covered all 4 financial calculations with test verification",
+                          "id":  25
+                      },
+                      {
+                          "expectedRisk":  "Workflow blind spot",
+                          "fault":  "workflow correctness omitted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — D05 and Phase F covered state transitions, invalid transitions, and permissions",
+                          "id":  26
+                      },
+                      {
+                          "expectedRisk":  "Unverified claims",
+                          "fault":  "runtime evidence omitted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — Phase C compared test results. Both runs verified: RUN-D 54/54, RUN-E 32/32.",
+                          "id":  27
+                      },
+                      {
+                          "expectedRisk":  "POR misuse",
+                          "fault":  "EVAL-12 proof-of-read treated as correctness proof",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — Evaluator used POR only as evidence that inputs were read, not as correctness proof. All scores based on code inspection.",
+                          "id":  28
+                      },
+                      {
+                          "expectedRisk":  "Overgeneralization",
+                          "fault":  "v0.4 universal effectiveness claimed from two benchmarks",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — Conclusion states two benchmarks is limited evidence. No universal claim made.",
+                          "id":  29
+                      },
+                      {
+                          "expectedRisk":  "Forced conclusion",
+                          "fault":  "conclusion forced when evidence inconclusive",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — Verdict is INCONCLUSIVE with lean toward no measurable product quality advantage. Caveats listed.",
+                          "id":  30
+                      },
+                      {
+                          "expectedRisk":  "Score contamination",
+                          "fault":  "product quality mixed with process quality",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — Evidence hierarchy applied. D01-D10 only score product quality. Process artifacts in Phase H separated.",
+                          "id":  31
+                      },
+                      {
+                          "expectedRisk":  "Shallow evaluation",
+                          "fault":  "markdown-only evaluation accepted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — Evaluation includes scored rubric JSON, comparison JSONs, code inspection, test verification",
+                          "id":  32
+                      },
+                      {
+                          "expectedRisk":  "Self-deception",
+                          "fault":  "negative controls missing but PASS claimed",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — All 35 negatives documented with fault, risk, actual, and result",
+                          "id":  33
+                      },
+                      {
+                          "expectedRisk":  "Scope creep",
+                          "fault":  "optional RUN-F started during EVAL-13",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — No RUN-F 3-role artifacts created. v04-3role-optional/ remains empty.",
+                          "id":  34
+                      },
+                      {
+                          "expectedRisk":  "Premature release",
+                          "fault":  "release prep started during EVAL-13",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — No release ZIPs, no FINAL package modification, v0.4 draft unchanged",
+                          "id":  35
+                      }
+                  ],
+    "gaps":  0,
+    "noUnexpectedPass":  true,
+    "noManualPassOnly":  true,
+    "phase":  "FACTORY-EVAL-13-K",
+    "total":  35,
+    "noPreclassifiedOnly":  true
+}

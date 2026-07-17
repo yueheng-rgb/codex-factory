@@ -1,0 +1,37 @@
+﻿{
+    "staging":  {
+                    "smokeTest":  "12/12 PASS",
+                    "files":  15,
+                    "root":  "factory-resource-pack-v0.9.0-pre-staging/",
+                    "shaGenerated":  true,
+                    "modules":  10,
+                    "manifestGenerated":  true
+                },
+    "negativeControls":  {
+                             "gaps":  0,
+                             "detected":  56,
+                             "total":  56
+                         },
+    "nextPhase":  "FACTORY-BUILD-REALWORLD-0 (when user has real project)",
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P1",
+    "date":  "2026-06-27",
+    "status":  "PASS",
+    "title":  "codex-factory-core v0.9.0-pre Staging Build",
+    "verifier":  {
+                     "failed":  0,
+                     "result":  "PASS",
+                     "total":  33,
+                     "passed":  33
+                 },
+    "keyConfirmations":  [
+                             "Build Lite = DEFAULT (auto-triggered)",
+                             "Native Build Pro = CONDITIONAL (user must confirm)",
+                             "Context Packet = REQUIRED for Build Pro",
+                             "External Memory = project state, not model expansion",
+                             "Diagnostic Gate = SUPPORT GATE only",
+                             "releaseAllowed = false",
+                             "v05Package = false",
+                             "No product source or trial products included",
+                             "No release ZIP or v0.5 package created"
+                         ]
+}

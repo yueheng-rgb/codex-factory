@@ -1,0 +1,67 @@
+﻿{
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "h15-contract-validator",
+                                       "targetScope":  "scripts/contracts/"
+                                   },
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "h15-dep-graph-extractor",
+                                       "targetScope":  "scripts/contracts/"
+                                   },
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "h15-scope-enforcer",
+                                       "targetScope":  "scripts/contracts/"
+                                   }
+                               ],
+    "phase":  "H15",
+    "forkContext":  false,
+    "scope":  {
+                  "forbiddenFiles":  [
+
+                                     ],
+                  "ownedFiles":  [
+                                     "governance/dependency-graphs/*"
+                                 ],
+                  "forbiddenDirectories":  {
+
+                                           },
+                  "ownedDirectories":  [
+                                           "governance/dependency-graphs/"
+                                       ]
+              },
+    "exportedApiSurface":  [
+                               "h15-integration-handoff: Integrates contract validation, dep graph, and scope enforcement outputs"
+                           ],
+    "isReadOnly":  false,
+    "allowedImports":  [
+
+                       ],
+    "evidencePath":  "governance/contracts/h15/",
+    "forbiddenImports":  [
+
+                         ],
+    "role":  "integrator",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-23T23:29:36+08:00",
+    "contractVersion":  "1.0.0",
+    "integrationHandoff":  {
+                               "path":  "governance/dependency-graphs/h15-cross-worker-dependency-graph.json",
+                               "format":  "json",
+                               "expectedConsumer":  "h15-integration-handoff"
+                           },
+    "sourceEvidenceSha256":  {
+
+                             },
+    "generatedBy":  "scripts/generate-handoff.ps1 (H15 phase)",
+    "retroactive":  false,
+    "agentId":  "h15-integration-handoff"
+}

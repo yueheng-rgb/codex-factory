@@ -1,0 +1,25 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P3",
+  "title": "Security-Deploy Gate + Realworld Lessons Integration",
+  "verdict": "PASS",
+  "timestamp": "2026-06-28T13:47:00+08:00",
+  "verifier": { "checks": 50, "passed": 50, "failed": 0, "verdict": "PASS" },
+  "bundle": {
+    "name": "codex-factory-core-v0.9.0-pre-P3-STAGING.zip",
+    "size": "52KB",
+    "files": 49,
+    "sha256": "161C70F3033EF8F4E6EFA41CC9E74B4CD9C8F81F750499BDB24AFB79F248AA49"
+  },
+  "integrated": [
+    "Security/Deploy Gate module (5 files + runtime script)",
+    "User Secret Rotation Boundary (8 rules)",
+    "Test Repair Policy (CLASSIFICATION_FIRST)",
+    "Real Deployed Project Workflow",
+    "Build Lite strengthened requirements",
+    "Context Space long-horizon requirement",
+    "3 new prompts",
+    "Updated VERSION.json, BOUNDARY.md, READMEs"
+  ],
+  "frozen_strategies": "All preserved. v0.5 BLOCKED. NBP conditional. No superiority claim.",
+  "next_recommended": ["FACTORY-BUILD-PACK-STAGING-P4", "FACTORY-CONTEXT-SPACE-P8", "User review"]
+}

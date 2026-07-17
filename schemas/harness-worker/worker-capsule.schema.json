@@ -1,0 +1,100 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Worker Capsule Schema",
+  "description": "Defines the input capsule passed to each Worker Agent before spawn. fork_context MUST be false.",
+  "schemaVersion": "H10-R1",
+  "type": "object",
+  "required": [
+    "runId", "phase", "workerId", "forkContext", "worktreePath",
+    "ownedFiles", "forbiddenFiles", "allowedDependencies", "forbiddenDependencies",
+    "requiredExports", "requiredEvidenceOutputs", "requiredScenarios",
+    "requiredNegativeControls", "inputContextSummary", "excludedContext",
+    "handoffRequirements", "mailboxRequirements", "createdAt"
+  ],
+  "properties": {
+    "runId": { "type": "string", "minLength": 1, "description": "Factory run identifier." },
+    "phase": { "type": "string", "minLength": 1, "description": "Current Factory phase." },
+    "workerId": { "type": "string", "minLength": 1, "description": "Unique worker identifier (e.g., worker-1, agent-s0-builder-data)." },
+    "agentId": { "type": "string", "description": "Codex agent ID after spawn. Optional before spawn, required after." },
+    "forkContext": { "type": "boolean", "description": "MUST be false. Workers receive clean context." },
+    "worktreePath": { "type": "string", "minLength": 1, "description": "Absolute or run-relative path to worker's exclusive worktree." },
+    "ownedFiles": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Files the Worker is allowed and required to create/modify."
+    },
+    "forbiddenFiles": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Files the Worker MUST NOT access. Empty list = isolation violation."
+    },
+    "allowedDependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Packages and imports the Worker is allowed to use."
+    },
+    "forbiddenDependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Packages and imports the Worker MUST NOT use."
+    },
+    "requiredExports": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Function/class/type names the Worker must export with exact signatures."
+    },
+    "requiredEvidenceOutputs": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Evidence files the Worker must produce (test results, typecheck output, etc.)."
+    },
+    "requiredScenarios": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Behavioral scenarios the Worker must handle."
+    },
+    "requiredNegativeControls": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Negative/failure scenarios the Worker must test."
+    },
+    "inputContextSummary": {
+      "type": "string", "minLength": 1,
+      "description": "Brief (under 500 chars) summary of what the Worker needs to know about the project."
+    },
+    "excludedContext": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicitly excluded context items (full conversation history, other worker capsules, phase lock internals, etc.)."
+    },
+    "handoffRequirements": {
+      "type": "object",
+      "required": ["branchResultRequired", "branchDeltaRequired", "sourceManifestRequired", "evidenceManifestRequired"],
+      "properties": {
+        "branchResultRequired": { "type": "boolean" },
+        "branchDeltaRequired": { "type": "boolean" },
+        "sourceManifestRequired": { "type": "boolean" },
+        "evidenceManifestRequired": { "type": "boolean" }
+      },
+      "description": "Handoff artifacts the Worker must produce before close."
+    },
+    "mailboxRequirements": {
+      "type": "object",
+      "properties": {
+        "mailboxMessageRequired": { "type": "boolean" },
+        "messageType": { "type": "string", "enum": ["HANDOFF", "SUBMIT", "COMPLETE"] }
+      },
+      "description": "Mailbox handoff requirements if agent-mailbox/ exists."
+    },
+    "createdAt": { "type": "string", "format": "date-time", "description": "ISO-8601 creation timestamp." }
+  },
+  "validationRules": {
+    "forkContextMustBeFalse": "forkContext must equal false. True = FAIL_PROFILE_BOUNDARY_VIOLATION.",
+    "worktreePathRequired": "worktreePath must be a non-empty string.",
+    "ownedFilesNonEmpty": "ownedFiles must contain at least one file.",
+    "forbiddenFilesNonEmpty": "forbiddenFiles must contain at least one forbidden path. Empty = isolation violation.",
+    "requiredEvidenceNonEmpty": "requiredEvidenceOutputs must contain at least one evidence item.",
+    "fullHistoryForbidden": "excludedContext must include 'full_conversation_history' and 'other_worker_capsules'.",
+    "noOtherWorkerCapsules": "Input context must not contain another worker's capsule content."
+  }
+}

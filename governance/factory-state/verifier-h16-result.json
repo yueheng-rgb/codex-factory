@@ -1,0 +1,96 @@
+{
+    "verifiedAt":  "2026-06-24T00:07:56+08:00",
+    "exitCode":  0,
+    "verifierPath":  "scripts/phase6c-h16-automated-diagnosis-factoryctl-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  17,
+    "passed":  17,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "parent DRY22 CLOSED"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "factoryctl verify operational"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "factoryctl verify JSON output"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "Diagnosis scripts exist \u003e=4"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "Diagnosis JSON exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "Diagnosis passes"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "H16 native agents \u003e=6"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "All H16 agents nativeGenerated"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "14 negatives"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "0 generic FAIL"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "0 preclassified-only"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "0 expectedClass-only"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "All transcripts"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "No DRY23 artifacts"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  16,
+                       "desc":  "Historical reconstructed preserved"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  17,
+                       "desc":  "factoryctl status operational"
+                   }
+               ],
+    "failed":  0
+}

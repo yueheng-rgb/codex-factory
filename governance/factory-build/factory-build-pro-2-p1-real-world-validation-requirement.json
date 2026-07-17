@@ -1,0 +1,24 @@
+﻿{
+    "section":  "H",
+    "v05Gate":  "v0.5 release gate: REAL_WORLD_VALIDATION must PASS",
+    "requirement":  {
+                        "criteria":  [
+                                         "Project chosen by a real user (not factory developer)",
+                                         "Project has external requirements (not factory-generated)",
+                                         "At least 2 iterations of real user feedback",
+                                         "Evidence collected: time, quality, user satisfaction, iteration count",
+                                         "Comparison with Vanilla or non-factory workflow"
+                                     ],
+                        "status":  "BLOCKED — no real-world project yet validated",
+                        "why":  [
+                                    "PRO-2 trial was harness-internal — same environment as factory development",
+                                    "NexusDesk Enterprise Lite is a synthetic product — not used by real users",
+                                    "Overfitting risk: factory may overfit to harness patterns",
+                                    "Real projects have external users, real deadlines, real constraints"
+                                ],
+                        "statement":  "Before v0.5 release can be considered, Codex Factory must be tested on at least one real-world project outside the factory harness."
+                    },
+    "date":  "2026-06-27",
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "title":  "Real-World Validation Requirement"
+}

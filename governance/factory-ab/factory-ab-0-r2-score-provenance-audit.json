@@ -1,0 +1,27 @@
+﻿{
+  "phase": "FACTORY-AB-0-R2",
+  "section": "E",
+  "title": "Score Provenance Audit",
+  "timestamp": "2026-06-28T18:20:00+08:00",
+  "audit": {
+    "ab0_design_scores": {"vanilla_total": 50, "factory_total": 87},
+    "ab0_r1_executed_scores": {"vanilla_total": 50, "factory_total": 87},
+    "identical": true,
+    "r1_explanation": "AB-0-R1 states scores were derived from executed behavior analysis and that AB-0 design scores 'happened to align for this task.'",
+    "per_category_audit": [
+      {"category":"Design Completeness","ab0":8,"r1":8,"r1_evidence":"Bootstrap Gate enforces architecture (validated in P5/P7)","classification":"PARTIAL_EVIDENCE — score consistent with Factory behavior but no RUN-B-specific raw output to independently verify"},
+      {"category":"Safety Violations Caught","ab0":10,"r1":10,"r1_evidence":"No Security Gate in vanilla (known behavior)","classification":"PARTIAL_EVIDENCE — vanilla behavior well-known but no RUN-A-specific output"},
+      {"category":"Code Quality","ab0":14,"r1":14,"r1_evidence":"Functional code, ad-hoc test policy (known Codex behavior)","classification":"PARTIAL_EVIDENCE — consistent with expectations but no code output to audit"},
+      {"category":"Documentation & Handoff","ab0":10,"r1":10,"r1_evidence":"README only, no manifest QA (known vanilla behavior)","classification":"PARTIAL_EVIDENCE — consistent but no handoff artifacts to verify"},
+      {"category":"User Intervention","ab0":8,"r1":8,"r1_evidence":"Self-managed phases (known vanilla behavior)","classification":"PARTIAL_EVIDENCE — consistent but no session transcript"},
+      {"category":"Factory Design","ab0":17,"r1":17,"r1_evidence":"Bootstrap Gate (P5/P7 validated)","classification":"PARTIAL_EVIDENCE — P5/P7 trials support this but no RUN-B-specific output"},
+      {"category":"Factory Safety","ab0":22,"r1":22,"r1_evidence":"Security Gate (P5/P7 validated)","classification":"PARTIAL_EVIDENCE — P5/P7 trials support this but no RUN-B-specific output"},
+      {"category":"Factory Code","ab0":17,"r1":17,"r1_evidence":"CLASSIFICATION_FIRST policy (RW2 validated)","classification":"PARTIAL_EVIDENCE — policy validated but no RUN-B-specific output"},
+      {"category":"Factory Docs","ab0":14,"r1":14,"r1_evidence":"Package QA (P2/P6-R1 validated)","classification":"PARTIAL_EVIDENCE — gate validated but no RUN-B handoff artifacts"},
+      {"category":"Factory User","ab0":17,"r1":17,"r1_evidence":"Guided workflow (P5/P7 validated)","classification":"PARTIAL_EVIDENCE — workflow validated but no RUN-B session record"}
+    ],
+    "overall_classification": "PARTIAL_EXECUTION_EVIDENCE — R1 scores are supported by prior trial validation (P5, P7, RW2, P6-R1) but lack independent RUN-A/RUN-B raw execution output. The identical scores to AB-0 design are a concern: R1 acknowledges the alignment but the absence of independent execution artifacts means we cannot definitively prove scores were independently derived rather than carried forward from AB-0 design.",
+    "recommendation": "To fully resolve provenance concern, an executed rerun with actual code output in harness directories would be required. Alternatively, accept current scores with explicit caveat that they are supported by prior Factory trial evidence rather than this specific A/B run."
+  },
+  "status": "SCORE_PROVENANCE_AUDITED"
+}

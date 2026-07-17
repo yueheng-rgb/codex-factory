@@ -1,0 +1,59 @@
+﻿{
+  "assessment_id": "FACTORY-CONTEXT-SPACE-P5-USER-BURDEN-ASSESSMENT",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "sub_step": "H",
+  "conclusion": "User burden is LOW. One short command suffices.",
+  "burden_questions": [
+    {
+      "question": "How many commands must user send?",
+      "answer": "1 (one short mount command)",
+      "burden": "LOW"
+    },
+    {
+      "question": "Does user need to paste long summary?",
+      "answer": "No. Snapshot Pack is auto-loaded from file.",
+      "burden": "NONE"
+    },
+    {
+      "question": "Does user need to know file paths?",
+      "answer": "No. Command references 'latest Snapshot' — system resolves path.",
+      "burden": "NONE"
+    },
+    {
+      "question": "Does user need to manually select snapshot?",
+      "answer": "No. System selects latest FRESH BALANCED Snapshot Pack.",
+      "burden": "NONE"
+    },
+    {
+      "question": "Can one short command mount and answer current direction?",
+      "answer": "Yes. '加载最新 Snapshot，判断当前方向' suffices.",
+      "burden": "LOW"
+    },
+    {
+      "question": "Is workflow simpler than pre-context-space rotation?",
+      "answer": "Yes. Pre-context-space required manual summary paste + file path knowledge + stale risk. Now: one command.",
+      "burden": "IMPROVED"
+    },
+    {
+      "question": "What remains manual?",
+      "answer": "User must type the mount command. Snapshot generation at phase-close is automated by scripts. True fresh-window trial (separate Codex instance) requires user to open new window — this is inherent, not a P5 defect.",
+      "burden": "MINIMAL"
+    }
+  ],
+  "user_actions_required": 1,
+  "automated_actions": [
+    "Snapshot Pack generation (at phase close)",
+    "Freshness validation",
+    "Fallback chain selection",
+    "Direction guard consultation",
+    "Compression level selection",
+    "File path resolution"
+  ],
+  "comparison_to_pre_context_space": {
+    "before": "User pastes long summary → Codex guesses phase → may resurrect stale context",
+    "after": "User types one short command → Snapshot auto-loads with freshness validation → correct direction returned",
+    "improvement": "SIGNIFICANT"
+  },
+  "remaining_manual_burden": "Opening a truly fresh Codex window (if desired) is manual but inherent to the concept. Snapshot Pack reduces what happens INSIDE that window to one command."
+}

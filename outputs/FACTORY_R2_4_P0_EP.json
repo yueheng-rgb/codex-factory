@@ -1,0 +1,208 @@
+﻿{
+    "phase":  "R2.4-P0",
+    "mode":  "live_search",
+    "provider":  "zhipuai",
+    "selectedSearchPath":  "/api/paas/v4/web_search",
+    "search_engine":  "search_std",
+    "search_invoked":  true,
+    "query":  "Implement Fastify multipart file upload endpoint with MIME validation and size limits",
+    "query_intents":  [
+                          "official_api_check",
+                          "best_practice"
+                      ],
+    "runtime_timestamp":  "2026-07-11T13:11:24.9499380+08:00",
+    "security_critical":  true,
+    "sources":  [
+                    {
+                        "title":  "GitHub - huangang/fastify-file-upload: Fastify plugin for uploading files · GitHub",
+                        "url":  "https://github.com/huangang/fastify-file-upload",
+                        "snippet":  "( req , reply ) { // some code to handle file const files = req . raw . files console . log ( files ) let fileArr = [ ] for ( let key in files ) { file",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/fastify-multipart: Multipart support for Fastify · GitHub",
+                        "url":  "https://github.com/fastify/fastify-multipart",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 459 Commits 459 Commits .github .github     benchmark benchmark     examples examples     lib lib     test test     types types  ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_SDK_repo",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "快速并且低开销的 web 框架,专为 Node.js 平台量身打造  Fastify中文文档  Fastify中文网",
+                        "url":  "http://www.fastify.cn/",
+                        "snippet":  "快速并且低开销的 web 框架,专为 Node.js 平台量身打造 为什么选择 Fastify? An efficient server implies a lower cost of the infrastructure, better responsiveness under load, and happy users. How can you efficiently handle the ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "zh"
+                    },
+                    {
+                        "title":  "goal-api/fastify-multipart.d.ts at main · paulooctavioINTELI/goal-api · GitHub",
+                        "url":  "https://github.com/paulooctavioINTELI/goal-api/blob/main/fastify-multipart.d.ts",
+                        "snippet":  " interface FastifyMultipartOptions { addToBody?: boolean; limits?: { fieldNameSize?: number; ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "FileSystem.OpenTextFieldParser 方法 (Microsoft.VisualBasic.FileIO)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/ZH-cn/library/microsoft.visualbasic.fileio.filesystem.opentextfieldparser.aspx",
+                        "snippet":  "... cli::array \u003cSystem::String ^\u003e ^ delimiters); C# 复制 public static Microsoft.VisualBasic.FileIO. TextFieldParser OpenTextFieldParser ( string file, params string [] delimiters ) ; static member ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "Perl网络编程",
+                        "url":  "https://baike.baidu.com/item/Perl%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/2257697",
+                        "snippet":  "\"《Perl网络编程》是清华大学出版社出版的图书,ISBN是7302052891｡内容简介这是一本使用Perl编程语言创建基于网络的应用程序的指导书｡ 全书内容分为四个部分:基础知识,为公共服务开发客户,开发TCP客户/服务器系统和高级主题｡",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "「Java」 - SpringBoot \u0026 FastDFS_知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/66469083",
+                        "snippet":  "一､FastDFS FastDFS是一个开源的轻量级分布式文件系统,它解决了大数据量存储和负载均衡等问题,特别适合以中小文件(建议范围:4 KB \u003c file_size \u003c 500 MB)为载体的在线服务,例如网盘､图床､广告和应用下载等业务的存储服务｡ FastDFS由C语言开发,支持Linux､FreeBSD等UNIX系统类Google ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "zh"
+                    },
+                    {
+                        "title":  "Google App Engine编程",
+                        "url":  "https://baike.baidu.com/item/Google%20App%20Engine%E7%BC%96%E7%A8%8B/8072270",
+                        "snippet":  "\"《Google App Engine编程》是2011年东南大学出版社出版的图书,作者是Sanderson｡基本内容目录 preface xiii 1. introducing google app engine 1 the runtime environment 2 the static file servers 4 the datastore 4 entities and ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "fastify-multipart/.editorconfig at main · AlvesJorge/fastify-multipart · GitHub",
+                        "url":  "https://github.com/AlvesJorge/fastify-multipart/blob/main/.editorconfig",
+                        "snippet":  "Navigation Menu Toggle navigation Appearance settings Search or jump to... Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved search Appea...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "在线调整文件系统大小时报错:resize2fs: Permission denied to resize filesystem-之路教程",
+                        "url":  "https://www.onitroad.com/jc/linux/faq/lvm-resize2fs-permission-denied-to-resize-filesystem.html",
+                        "snippet":  "问题 在CentOS/RHEL 6 上,LVM 卷组大小已扩展,尝试在线调整 LVM 卷组上的 ext4 文件系统大小失败,并显示以下错误。 1 2 3 4 5 6 resize2fs /dev/mapper/P05TRF1vg-vol_controlm resize2fs 1.43-WIP (20-Jun-2013) Filesystem at /dev/mapper/P05TRF1vg-vol...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "FileSystemProxy.OpenTextFieldParser Method (Microsoft.VisualBasic.MyServices)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/zh-CN/library/8hhhs6dk",
+                        "snippet":  "版本 Windows Desktop 10 ClipboardProxy FileSystemProxy RegistryProxy SpecialDirectoriesProxy 下载 PDF 目录 退出编辑器模式 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 System Proxy. Open Text Field Parser Me...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "Fastify Multipart File Upload",
+                        "url":  "https://backend.cafe/fastify-multipart-upload",
+                        "snippet":  "There is one concept to keep in mind: someone must consume the uploaded file.The consumer could be: Your implementation The plugin itself calling the toBuffer() method The part object The multipart co...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "zh"
+                    },
+                    {
+                        "title":  "PublisherIdentityPermissionAttribute.CertFile 属性 (System.Security.Permissions)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/ZH-CN/library/system.security.permissions.publisheridentitypermissionattribute.certfile",
+                        "snippet":  "我们使用可选的 Cookie,通过社交媒体连接等方式改善你在我们网站上的体验,并且根据你的在线活动投放个性化的广告。 如果你拒绝可选 Cookie,则我们将仅使用为你提供服务所必须的 Cookie。 你可以单击页面底部的“管理 Cookie”更改你的选择。隐私声明第三方 Cookie 接受 拒绝 管理 Cookie 此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "AuthenticationPayloadOption.TryCertificateFirst 屬性 (Microsoft.Data.Schema.ScriptDom.Sql)  Microsoft Learn",
+                        "url":  "https://msdn.microsoft.com/zh-tw/asp.net/microsoft.data.schema.scriptdom.sql.authenticationpayloadoption.trycertificatefirst(v=VS.80)",
+                        "snippet":  "已不再支援此瀏覽器。 請升級至 Microsoft Edge,以利用最新功能、安全性更新和技術支援。 目錄 結束編輯器模式 Ask Learn Ask Learn 語言 csharp jscript vb fsharp c++ 閱讀模式 目錄 閱讀英文 加 新增至計劃 新增 Markdown 列印 注意 需要授權才能存取此頁面。 您可以嘗試登入或 變更目錄 。 需要授權才能存取此頁面。 您可以嘗試...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "FailIfEmptyAccessKeyRemovingConverter 类(Microsoft.VisualStudio.PlatformUI)  Microsoft Learn",
+                        "url":  "https://msdn.microsoft.com/zh-cn/subscriptions/microsoft.visualstudio.platformui.failifemptyaccesskeyremovingconverter.aspx",
+                        "snippet":  "此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安全更新和技术支持。 目录 退出编辑器模式 询问 Learn 询问 Learn 语言 csharp jscript vb 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 反馈 本文内容 ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "SettingsOverridesTypeSection.Parameter Property (System.Fabric.Management.ServiceModel) - Azure for .NET Developers  Microsoft Learn",
+                        "url":  "https://docs.microsoft.com/zh-cn/dotnet/api/system.fabric.management.servicemodel.settingsoverridestypesection.parameter?view=azure-dotnet",
+                        "snippet":  "目录 退出编辑器模式 询问 Learn 询问 Learn 语言 csharp vb fsharp 读取模式 目录 使用英语阅读 添加 添加到计划 编辑 复制 Markdown 打印 你当前正在访问 Microsoft Azure Global Edition 技术文档网站。 如果需要访问由世纪互联运营的 Microsoft Azure 中国技术文档网站,请访问https://docs.azure....",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "SecurityPermissionAttribute.SkipVerification 属性 (System.Security.Permissions)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/system.security.permissions.securitypermissionattribute.skipverification(d=printer,v=VS.90)",
+                        "snippet":  "目录 退出编辑器模式 询问 Learn 询问 Learn 焦点模式 语言 csharp vb fsharp cpp 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Permission Attribute. Skip Verification 属性 定义 获取或设置一个值,该值指示是否声明跳过代码验证的权限。 p...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "OpenZFS 9403 - assertion failed in arc_buf_destroy() when concurrentl… by tcaputi · Pull Request #7822 · openzfs/zfs · GitHub",
+                        "url":  "https://github.com/openzfs/zfs/pull/7822",
+                        "snippet":  "Appearance settings Product Solutions Resources Search or jump to... Provide feedback Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved s...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "fastify/SECURITY.md at main · LarryJKarp/fastify · GitHub",
+                        "url":  "https://github.com/LarryJKarp/fastify/blob/main/SECURITY.md",
+                        "snippet":  "Navigation Menu Toggle navigation Appearance settings Search or jump to... Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved search Appea...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "ReflectionPermissionAttribute 属性 (System.Security.Permissions)",
+                        "url":  "https://msdn.microsoft.com/zh-cn/library/c86cea9d(vs.90).aspx",
+                        "snippet":  "本文档已存档,并且将不进行维护。 Visual Studio 2008 属性   名称 说明 Action 获取或设置安全性操作。 (继承自SecurityAttribute。) Flags 获取或设置当前允许使用的反射。 MemberAccess 获取或设置一个值,指示是否允许在非公共成员上调用操作。 ReflectionEmit 获取或设置一个值,指示是否允许在System.Reflectio...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    }
+                ],
+    "source_count":  20,
+    "official_sources_count":  null,
+    "authoritative_source_gap":  false,
+    "confidence_level":  "medium",
+    "quality_gate":  {
+                         "verdict":  "PASS_WITH_WARNINGS",
+                         "score":  18,
+                         "fatalRejections":  [
+
+                                             ]
+                     }
+}

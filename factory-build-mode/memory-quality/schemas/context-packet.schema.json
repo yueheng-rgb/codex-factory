@@ -1,0 +1,231 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codex-app-factory/schemas/context-packet.schema.json",
+  "title": "Context Packet",
+  "description": "A filtered, minimal (< 2000 words), high-quality document generated from external memory for a specific agent role.",
+  "type": "object",
+  "required": [
+    "packetId",
+    "packetType",
+    "targetPhase",
+    "targetRole",
+    "projectId",
+    "currentTrustedPhase",
+    "generatedAt",
+    "freshness",
+    "contextBudget",
+    "requiredReads",
+    "currentTaskGroup",
+    "relevantDecisions",
+    "activeRisks",
+    "rejectedClaims",
+    "verifierHistorySummary",
+    "evidencePaths",
+    "forbiddenAssumptions",
+    "allowedActions",
+    "forbiddenActions",
+    "openQuestions",
+    "summaryVerificationStatus"
+  ],
+  "properties": {
+    "packetId": {
+      "type": "string",
+      "description": "Unique packet identifier",
+      "pattern": "^CP-[A-Z0-9]+-[0-9]{14}$"
+    },
+    "packetType": {
+      "type": "string",
+      "description": "Context packet type",
+      "enum": [
+        "PHASE_START_PACKET",
+        "AGENT_START_PACKET",
+        "REVIEWER_PACKET",
+        "RECOVERY_PACKET",
+        "REPAIR_PACKET",
+        "USER_SUMMARY_PACKET"
+      ]
+    },
+    "targetPhase": {
+      "type": "string",
+      "description": "Target factory phase identifier"
+    },
+    "targetRole": {
+      "type": "string",
+      "description": "Target agent role",
+      "enum": ["builder", "verifier", "reviewer", "integrator", "auditor", "orchestrator"]
+    },
+    "projectId": {
+      "type": "string",
+      "description": "Project identifier"
+    },
+    "currentTrustedPhase": {
+      "type": "string",
+      "description": "Currently trusted phase at time of generation"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of packet generation"
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["expiresAt", "maxAgeMinutes", "stale"],
+      "properties": {
+        "expiresAt": { "type": "string", "format": "date-time" },
+        "maxAgeMinutes": { "type": "integer", "minimum": 1 },
+        "stale": { "type": "boolean" }
+      },
+      "description": "Packet freshness metadata"
+    },
+    "contextBudget": {
+      "type": "object",
+      "required": ["maxWords", "currentWordCount", "remaining"],
+      "properties": {
+        "maxWords": { "type": "integer", "default": 2000 },
+        "currentWordCount": { "type": "integer" },
+        "remaining": { "type": "integer" }
+      },
+      "description": "Word budget tracking"
+    },
+    "requiredReads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "reason"],
+        "properties": {
+          "path": { "type": "string" },
+          "reason": { "type": "string" },
+          "priority": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"] }
+        }
+      },
+      "description": "Files the target agent must read"
+    },
+    "currentTaskGroup": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["taskId", "status"],
+        "properties": {
+          "taskId": { "type": "string" },
+          "status": { "type": "string", "enum": ["pending", "in_progress", "completed", "blocked"] },
+          "assignee": { "type": "string" }
+        }
+      },
+      "description": "Current task group state"
+    },
+    "relevantDecisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["decisionId", "summary", "date", "rationale"],
+        "properties": {
+          "decisionId": { "type": "string" },
+          "summary": { "type": "string", "maxLength": 200 },
+          "date": { "type": "string", "format": "date" },
+          "rationale": { "type": "string", "maxLength": 500 },
+          "evidenceRef": { "type": "string" }
+        }
+      },
+      "description": "Recent decisions relevant to this context"
+    },
+    "activeRisks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["riskId", "description", "severity"],
+        "properties": {
+          "riskId": { "type": "string" },
+          "description": { "type": "string" },
+          "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"] },
+          "mitigation": { "type": "string" }
+        }
+      },
+      "description": "Currently active risks"
+    },
+    "rejectedClaims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claimId", "claim", "rejectionReason"],
+        "properties": {
+          "claimId": { "type": "string" },
+          "claim": { "type": "string" },
+          "rejectionReason": { "type": "string" },
+          "rejectedAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "description": "Claims that have been explicitly rejected"
+    },
+    "verifierHistorySummary": {
+      "type": "object",
+      "required": ["lastPhase", "lastResult", "checksRun", "checksPassed"],
+      "properties": {
+        "lastPhase": { "type": "string" },
+        "lastResult": { "type": "string", "enum": ["PASS", "FAIL", "BLOCKED"] },
+        "checksRun": { "type": "integer" },
+        "checksPassed": { "type": "integer" },
+        "lastVerifiedAt": { "type": "string", "format": "date-time" }
+      },
+      "description": "Summary of most recent verifier run"
+    },
+    "evidencePaths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "level", "description"],
+        "properties": {
+          "path": { "type": "string" },
+          "level": { "type": "string", "enum": ["L0", "L1", "L2", "L3", "L4", "L5"] },
+          "description": { "type": "string" },
+          "verified": { "type": "boolean" }
+        }
+      },
+      "description": "Evidence file paths with quality levels"
+    },
+    "forbiddenAssumptions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Assumptions the target agent must not make",
+      "minItems": 1
+    },
+    "allowedActions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Actions the target agent is permitted to take",
+      "minItems": 1
+    },
+    "forbiddenActions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Actions the target agent must not take",
+      "minItems": 1
+    },
+    "openQuestions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["questionId", "question"],
+        "properties": {
+          "questionId": { "type": "string" },
+          "question": { "type": "string" },
+          "askedBy": { "type": "string" },
+          "askedAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "description": "Unresolved questions the agent should be aware of"
+    },
+    "summaryVerificationStatus": {
+      "type": "object",
+      "required": ["verified", "method", "verifiedBy"],
+      "properties": {
+        "verified": { "type": "boolean" },
+        "method": { "type": "string" },
+        "verifiedBy": { "type": "string" },
+        "verifiedAt": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string" }
+      },
+      "description": "Whether the packet content has been verified against source evidence"
+    }
+  },
+  "additionalProperties": false
+}

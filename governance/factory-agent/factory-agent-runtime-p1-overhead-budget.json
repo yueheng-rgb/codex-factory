@@ -1,0 +1,28 @@
+﻿{
+    "tracking":  {
+                     "metrics":  [
+                                     "agentSpawnCount",
+                                     "agentCloseCount",
+                                     "artifactCount",
+                                     "wallClockEstimate",
+                                     "humanInterventionCount"
+                                 ],
+                     "requiredLog":  "logs/process-overhead.jsonl"
+                 },
+    "budget":  {
+                   "maxSpawnRounds":  2,
+                   "overheadMultiplierWarning":  2,
+                   "maxAgentCount":  4,
+                   "overheadMultiplierBlock":  3,
+                   "maxProcessArtifacts":  12
+               },
+    "timestamp":  "2026-06-26T18:47:55.4441842+08:00",
+    "previousDefect":  "AGENT-8 v0.5 had 3-4x overhead vs Vanilla. Overhead budget now enforced.",
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "document":  "overhead-budget",
+    "enforcement":  {
+                        "multiplier2xTo3x":  "WARN_IN_REPORT",
+                        "multiplierBelow2x":  "NO_ACTION",
+                        "multiplierAbove3x":  "BLOCK_CLOSURE"
+                    }
+}

@@ -1,0 +1,22 @@
+﻿{
+  "stage": "V2_7",
+  "mission_id": "CPM-001",
+  "total_reviews": 4,
+  "reviews": [
+    {"review_id":"V2_7-REV-001","type":"security_review","decision":"APPROVED_WITH_RISK","blocking":false,"findings":6},
+    {"review_id":"V2_7-REV-002","type":"business_invariant_review","decision":"APPROVED","blocking":false,"invariants_checked":10},
+    {"review_id":"V2_7-REV-003","type":"production_readiness_review","decision":"APPROVED_WITH_RISK","blocking":false,"gaps":6},
+    {"review_id":"V2_7-REV-004","type":"release_risk_review","decision":"APPROVED_WITH_RISK","blocking":false,"risks":6}
+  ],
+  "aggregate_decision": "APPROVED_WITH_RISK",
+  "review_coverage": {
+    "security": true,
+    "business_invariants": true,
+    "production_readiness": true,
+    "release_risk": true
+  },
+  "all_reviews_bound_to_artifacts": true,
+  "no_fake_approvals": true,
+  "human_review_required_triggered": true,
+  "human_review_status": "COMPLETED — 4 automated reviews with self_declared signature_mode"
+}

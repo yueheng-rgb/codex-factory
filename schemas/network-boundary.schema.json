@@ -1,0 +1,105 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Network Boundary Model",
+  "description": "Multi-level network access boundary for Factory tools",
+  "definitions": {
+    "networkBoundary": {
+      "type": "string",
+      "enum": ["no_network", "loopback_only", "local_lan", "external_readonly", "external_api", "external_write", "cloud_service"],
+      "description": "Maximum network access level a tool is allowed"
+    }
+  },
+  "networkLevels": {
+    "no_network": {
+      "level": 0,
+      "allowedRanges": [],
+      "blockedRanges": ["*"],
+      "humanApprovalRequired": false,
+      "secretsRequired": false,
+      "sandboxRequired": false,
+      "localFirstAllowed": true,
+      "usableByVerifier": true,
+      "usableBySearchProvider": false,
+      "usableByMCP": false,
+      "examples": ["Local CLI verifier", "Node.js SDK", "Read-only search adapter (manual intake)"]
+    },
+    "loopback_only": {
+      "level": 1,
+      "allowedRanges": ["127.0.0.0/8", "::1"],
+      "blockedRanges": ["0.0.0.0/0 (except loopback)", "public IP ranges"],
+      "humanApprovalRequired": false,
+      "secretsRequired": false,
+      "sandboxRequired": false,
+      "localFirstAllowed": true,
+      "usableByVerifier": true,
+      "usableBySearchProvider": false,
+      "usableByMCP": false,
+      "examples": ["Playwright verifier (localhost testing)", "Browser verifier", "Local API smoke test", "Dev server"]
+    },
+    "local_lan": {
+      "level": 2,
+      "allowedRanges": ["127.0.0.0/8", "::1", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"],
+      "blockedRanges": ["public IP ranges", "cloud service endpoints"],
+      "humanApprovalRequired": true,
+      "secretsRequired": false,
+      "sandboxRequired": false,
+      "localFirstAllowed": true,
+      "usableByVerifier": true,
+      "usableBySearchProvider": false,
+      "usableByMCP": false,
+      "examples": ["Docker runner (local)", "Local DB connection", "Miniapp dev tools"]
+    },
+    "external_readonly": {
+      "level": 3,
+      "allowedRanges": ["allowlisted hosts only", "GET requests only"],
+      "blockedRanges": ["non-allowlisted hosts", "POST/PUT/DELETE to external"],
+      "humanApprovalRequired": true,
+      "secretsRequired": false,
+      "sandboxRequired": true,
+      "localFirstAllowed": false,
+      "usableByVerifier": false,
+      "usableBySearchProvider": true,
+      "usableByMCP": false,
+      "examples": ["Search engine queries (read-only)", "Official docs fetcher"]
+    },
+    "external_api": {
+      "level": 4,
+      "allowedRanges": ["allowlisted API endpoints"],
+      "blockedRanges": ["non-allowlisted hosts"],
+      "humanApprovalRequired": true,
+      "secretsRequired": true,
+      "sandboxRequired": true,
+      "localFirstAllowed": false,
+      "usableByVerifier": false,
+      "usableBySearchProvider": true,
+      "usableByMCP": true,
+      "examples": ["GLM Search API", "Stitch MCP API", "DB MCP API", "Cloud API"]
+    },
+    "external_write": {
+      "level": 5,
+      "allowedRanges": ["allowlisted endpoints with write access"],
+      "blockedRanges": ["non-allowlisted hosts"],
+      "humanApprovalRequired": true,
+      "secretsRequired": true,
+      "sandboxRequired": true,
+      "localFirstAllowed": false,
+      "usableByVerifier": false,
+      "usableBySearchProvider": false,
+      "usableByMCP": true,
+      "examples": ["Stitch MCP (design generation)", "DB MCP (schema changes)"]
+    },
+    "cloud_service": {
+      "level": 6,
+      "allowedRanges": ["cloud service endpoints (AWS/GCP/Azure)"],
+      "blockedRanges": ["all non-cloud endpoints unless allowlisted"],
+      "humanApprovalRequired": true,
+      "secretsRequired": true,
+      "sandboxRequired": true,
+      "localFirstAllowed": false,
+      "usableByVerifier": false,
+      "usableBySearchProvider": false,
+      "usableByMCP": false,
+      "examples": ["Cloud runner", "Cloud MCP", "Remote deployment"]
+    }
+  }
+}

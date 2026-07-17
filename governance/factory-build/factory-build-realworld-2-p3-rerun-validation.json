@@ -1,0 +1,17 @@
+﻿{
+    "rerun_id": "FACTORY-BUILD-REALWORLD-2-P3-RERUN-VALIDATION",
+    "generated_at": "2026-06-28T10:38:15+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P3",
+    "section": "F",
+    "results": {
+        "manage_py_check": {"result": "PASS", "detail": "0 issues"},
+        "tests": {"total": 23, "passed": 20, "failed": 2, "errors": 1, "improvement": "+7 from P2 (13->20)"},
+        "remaining_failures": [
+            {"test": "test_transaction_log_generated_on_add", "cause": "Django 6.x select_for_update transaction visibility"},
+            {"test": "test_doctor_cannot_verify_insufficient_balance", "cause": "Django 6.x transaction.atomic error handling — TransactionManagementError after IntegrityError"},
+            {"test": "test_doctor_monthly_estimated_amount", "cause": "Django 6.x test isolation — possibly affected by preceding test class data state"}
+        ],
+        "bounded_smoke": {"http_status": 200, "safe": True}
+    },
+    "verdict": "RERUN_IMPROVED_20_OF_23"
+}

@@ -1,0 +1,68 @@
+﻿{
+    "allPassed":  true,
+    "timestamp":  "2026-06-25T22:40:19+08:00",
+    "results":  [
+                    {
+                        "step":  1,
+                        "pass":  true,
+                        "tier":  0,
+                        "name":  "Manual Router",
+                        "tierName":  "Factory Lite Core",
+                        "roleCount":  0,
+                        "mechanisms":  [
+                                           "constitution",
+                                           "task-classification",
+                                           "proof-of-read",
+                                           "build",
+                                           "tracking"
+                                       ]
+                    },
+                    {
+                        "step":  2,
+                        "pages":  [
+                                      "core/ALWAYS_ON_CONSTITUTION.md",
+                                      "core/proof-of-read-policy.json"
+                                  ],
+                        "pass":  true,
+                        "maxPages":  5,
+                        "name":  "Page Router",
+                        "pageCount":  2
+                    },
+                    {
+                        "step":  3,
+                        "disclaimerPresent":  true,
+                        "inputsRead":  2,
+                        "pass":  true,
+                        "name":  "POR Generation",
+                        "proofType":  "PROOF_OF_READ"
+                    },
+                    {
+                        "read":  [
+                                     "core/ALWAYS_ON_CONSTITUTION.md",
+                                     "core/manual-index.json"
+                                 ],
+                        "step":  4,
+                        "pass":  true,
+                        "allRead":  true,
+                        "required":  [
+                                         "core/ALWAYS_ON_CONSTITUTION.md",
+                                         "core/manual-index.json"
+                                     ],
+                        "name":  "Required-Reading Gate"
+                    },
+                    {
+                        "readonly":  true,
+                        "step":  5,
+                        "pass":  true,
+                        "name":  "Reviewer Checklist",
+                        "stepCount":  7
+                    },
+                    {
+                        "mcpExists":  true,
+                        "step":  6,
+                        "pass":  true,
+                        "name":  "Daily Use Path",
+                        "dailyExists":  true
+                    }
+                ]
+}

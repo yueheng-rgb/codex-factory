@@ -1,0 +1,27 @@
+﻿{
+    "REJECT":  [
+                   "v0.5 release",
+                   "Multi-agent default",
+                   "UI count as truth"
+               ],
+    "subPhase":  "F_KEEP_CUT_DEFER_REJECT",
+    "CUT":  [
+                "7-agent model",
+                "10-role model"
+            ],
+    "DEFER":  [
+                  "Agent lifecycle registry",
+                  "Overhead metrics",
+                  "Long-horizon native trial"
+              ],
+    "phase":  "FACTORY-BUILD-8-P1",
+    "KEEP":  [
+                 "Build Lite as practical default",
+                 "Native Build Pro conditional",
+                 "External memory",
+                 "Diagnostic gate",
+                 "Agent lifecycle policy",
+                 "Write-scope map",
+                 "Vanilla mode"
+             ]
+}

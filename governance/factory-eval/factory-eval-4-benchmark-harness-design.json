@@ -1,0 +1,96 @@
+﻿{
+  "phase": "FACTORY-EVAL-4",
+  "section": "F",
+  "title": "Benchmark Harness Design",
+  "createdAt": "2026-06-25T17:22:00+08:00",
+  "designPrinciple": "The harness provides consistent tooling for all three runs: fixture creation, artifact inventory, requirements coverage checking, structure checking, API contract checking, test running, and independent evaluation report generation. Harness is design-only in EVAL-4; implementation deferred to EVAL-5 execution.",
+  "harnessDirectory": "benchmark/teamflow-lite/harness/",
+  "components": [
+    {
+      "id": "H01",
+      "name": "Run Fixture Creator",
+      "script": "create-fixture.ps1",
+      "description": "Creates a fresh, empty workspace directory for a benchmark run. Copies the benchmark spec and run-specific configuration into the workspace.",
+      "inputs": ["run_id (A/B/C)", "target_workspace_path"],
+      "outputs": ["Clean workspace directory with benchmark spec"],
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "id": "H02",
+      "name": "Run Artifact Inventory",
+      "script": "inventory-artifacts.ps1",
+      "description": "Scans a completed run output directory and produces a machine-readable inventory of all files, their types, and sizes.",
+      "inputs": ["run_output_directory"],
+      "outputs": ["JSON inventory with file list, counts, extensions"],
+      "antiGaming": "File count is recorded but NOT used as quality score input",
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "id": "H03",
+      "name": "Requirements Coverage Checker",
+      "script": "check-requirements.ps1",
+      "description": "Checks the run output against the 11 functional requirements. Produces a coverage matrix.",
+      "inputs": ["run_output_directory", "benchmark_spec_path"],
+      "outputs": ["JSON coverage matrix (FR01-FR11 with detected/not_detected/uncertain)"],
+      "note": "This is a structural pre-check only. Final scoring is done by the independent evaluator.",
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "id": "H04",
+      "name": "Structure Checker",
+      "script": "check-structure.ps1",
+      "description": "Checks that expected directories and file patterns exist (e.g., backend/src, frontend/src, database/migrations, tests/).",
+      "inputs": ["run_output_directory"],
+      "outputs": ["JSON structure check result"],
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "id": "H05",
+      "name": "API Contract Checker",
+      "script": "check-api-contract.ps1",
+      "description": "Sends curl requests to each expected endpoint and records response status codes. Does not score — just produces a contract report for the evaluator.",
+      "inputs": ["base_url", "auth_token"],
+      "outputs": ["JSON with endpoint→status_code mapping"],
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "id": "H06",
+      "name": "Test Runner Wrapper",
+      "script": "run-tests.ps1",
+      "description": "Runs the project test suite and captures exit code + output.",
+      "inputs": ["run_output_directory"],
+      "outputs": ["Test output log + pass/fail count"],
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "id": "H07",
+      "name": "Independent Evaluation Report Generator",
+      "script": "generate-eval-report.ps1",
+      "description": "Takes the evaluator's per-dimension scores and evidence paths, and produces the structured evaluation JSON.",
+      "inputs": ["dimension_scores_json", "evidence_paths"],
+      "outputs": ["Structured evaluation report JSON"],
+      "status": "DESIGN_ONLY"
+    }
+  ],
+  "evaluationScripts": {
+    "directory": "benchmark/teamflow-lite/evaluation/",
+    "scripts": [
+      {
+        "name": "full-evaluation.ps1",
+        "description": "Orchestrates the full evaluation pipeline: inventory → structure → requirements → API → tests → rubric scoring → report",
+        "status": "DESIGN_ONLY"
+      }
+    ]
+  },
+  "skeletonStructure": {
+    "benchmark/teamflow-lite/": {
+      "spec/": ["benchmark-spec.md (copy of Section B)", "evaluation-rubric.md (copy of Section D)"],
+      "fixtures/": ["run-a-fixture/", "run-b-fixture/", "run-c-fixture/"],
+      "harness/": ["create-fixture.ps1 (skeleton)", "inventory-artifacts.ps1 (skeleton)", "check-requirements.ps1 (skeleton)", "check-structure.ps1 (skeleton)", "check-api-contract.ps1 (skeleton)", "run-tests.ps1 (skeleton)", "generate-eval-report.ps1 (skeleton)"],
+      "evaluation/": ["full-evaluation.ps1 (skeleton)"],
+      "results/": ["run-a/", "run-b/", "run-c/", "comparison/"]
+    }
+  },
+  "notImplemented": true,
+  "implementationDeferredTo": "FACTORY-EVAL-5 (Vanilla baseline run) and subsequent phases"
+}

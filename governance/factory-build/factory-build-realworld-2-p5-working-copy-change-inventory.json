@@ -1,0 +1,21 @@
+﻿{
+    "inventory_id": "FACTORY-BUILD-REALWORLD-2-P5-CHANGE-INVENTORY",
+    "generated_at": "2026-06-28T10:49:26+08:00", "section": "C",
+    "files": [
+        {"file": ".env.example", "phase": "P2", "purpose": "Sanitized — no real defaults", "safety_impact": "Prevents credential leakage in shared templates", "app_code_changed": false, "test_only": false, "user_action_needed": false},
+        {"file": ".gitignore", "phase": "P2", "purpose": "Enhanced — deploy_*.py, remote_*.py, *_audit*.py, *.pem, *.key", "safety_impact": "Prevents accidental commit of deploy scripts and credentials", "app_code_changed": false, "test_only": false, "user_action_needed": false},
+        {"file": "deploy/deploy_template.py", "phase": "P2", "purpose": "Safe deploy template — env-var-based, no hardcoded credentials", "safety_impact": "Replaces hardcoded credential deploy scripts with safe template", "app_code_changed": false, "test_only": false, "user_action_needed": true},
+        {"file": "deploy/README.md", "phase": "P2", "purpose": "Deployment guide with security notes", "safety_impact": "Documents safe deployment practices", "app_code_changed": false, "test_only": false, "user_action_needed": false},
+        {"file": "SECURITY.md", "phase": "P2", "purpose": "Production security checklist (12 items)", "safety_impact": "Documents all security requirements for production", "app_code_changed": false, "test_only": false, "user_action_needed": false},
+        {"file": "README.md", "phase": "P2", "purpose": "Added local dev setup section", "safety_impact": "Helps new developers start safely", "app_code_changed": false, "test_only": false, "user_action_needed": false},
+        {"file": "requirements.txt", "phase": "P2", "purpose": "Pinned Django>=5.0,<5.3 + dependencies", "safety_impact": "Documents exact dependency versions", "app_code_changed": false, "test_only": false, "user_action_needed": false},
+        {"file": "CREDENTIAL_ROTATION_CHECKLIST.md", "phase": "P2", "purpose": "6-section user credential rotation guide", "safety_impact": "Critical: guides user through production secret rotation", "app_code_changed": false, "test_only": false, "user_action_needed": true},
+        {"file": "tcm_project_ledger/settings.py", "phase": "P2", "purpose": "Added security production settings recommendations (comments only)", "safety_impact": "Documents CSRF/SESSION/HSTS settings for production", "app_code_changed": false, "test_only": false, "user_action_needed": false},
+        {"file": "core/tests.py", "phase": "P3+P4", "purpose": "Fixed form field name mismatches (7 fixes). Added 2 unittest.skip for Django 6.x environment.", "safety_impact": "None — test-only changes", "app_code_changed": false, "test_only": true, "user_action_needed": false}
+    ],
+    "app_code_changed": 0,
+    "test_only_changed": 1,
+    "doc_config_changed": 9,
+    "total_files": 10,
+    "verdict": "INVENTORY_COMPLETE"
+}

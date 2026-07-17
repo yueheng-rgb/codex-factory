@@ -1,0 +1,19 @@
+﻿{
+    "kit_id": "V3_3-REMOTE-CI-MANUAL-RUN-KIT-001",
+    "status": "READY",
+    "steps": [
+        {"step": 1, "action": "Push workflow to repo", "command": "git push origin main", "requires_token": false},
+        {"step": 2, "action": "Trigger workflow_dispatch on GitHub Actions UI", "url": "https://github.com/<org>/<repo>/actions/workflows/codex-factory-ci.yml", "requires_token": false},
+        {"step": 3, "action": "Wait for workflow completion", "duration": "1-3 minutes"},
+        {"step": 4, "action": "Download artifact ZIP from GitHub Actions", "artifact_name": "factory-artifacts-<testbed>"},
+        {"step": 5, "action": "Place ZIP at artifacts/remote/<run-id>/artifact.zip"},
+        {"step": 6, "action": "Run verifier", "command": "powershell -File runtime/remote-artifact-verifier.ps1 -Action verify -RunId <run-id>"}
+    ],
+    "non_claims": [
+        "Codex does NOT read or store your GitHub token",
+        "All steps are manual (browser-based)",
+        "No REMOTE_RUN_VERIFIED until artifact passes verification",
+        "Local template is NOT a remote run"
+    ],
+    "current_ci_state": "TEMPLATE_READY — awaiting user-supplied remote artifact"
+}

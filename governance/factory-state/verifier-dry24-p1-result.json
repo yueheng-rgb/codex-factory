@@ -1,0 +1,152 @@
+﻿{
+    "checks":  [
+                   {
+                       "Label":  "NO_H18_artifacts",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_FINAL_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "DRY24_REPORT_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "DRY24_P1_REPORT_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "COMPLEXITY_RECONCILIATION_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "FLOOR_SOURCE_FILES",
+                       "Pass":  true,
+                       "Detail":  "actual=90 floor=90"
+                   },
+                   {
+                       "Label":  "FLOOR_EXPORTS",
+                       "Pass":  true,
+                       "Detail":  "actual=1121 floor=650"
+                   },
+                   {
+                       "Label":  "FLOOR_DEP_EDGES",
+                       "Pass":  true,
+                       "Detail":  "actual=174 floor=150"
+                   },
+                   {
+                       "Label":  "FLOOR_CROSS_WORKER_DEPS",
+                       "Pass":  true,
+                       "Detail":  "actual=30 floor=30"
+                   },
+                   {
+                       "Label":  "FLOOR_INTEGRATION_POINTS",
+                       "Pass":  true,
+                       "Detail":  "actual=7 floor=6"
+                   },
+                   {
+                       "Label":  "NO_FLOOR_DOWNGRADE_TO_CAVEAT",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CONTAMINATION_INVESTIGATION_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CONTAMINATION_RESOLVED",
+                       "Pass":  true,
+                       "Detail":  "NON_BLOCKING_REPAIRED_BEFORE_CLOSURE"
+                   },
+                   {
+                       "Label":  "NEGATIVE_SUMMARY_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVE_EXECUTED_EQ_TOTAL",
+                       "Pass":  true,
+                       "Detail":  "executed=24 total=24"
+                   },
+                   {
+                       "Label":  "NEGATIVE_DETECTED_EQ_TOTAL",
+                       "Pass":  true,
+                       "Detail":  "detected=24 total=24"
+                   },
+                   {
+                       "Label":  "NEGATIVE_GAPS_EQ_ZERO",
+                       "Pass":  true,
+                       "Detail":  "gaps=0"
+                   },
+                   {
+                       "Label":  "NO_GENERIC_FAIL",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_EXPECTED_CLASS_ONLY",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_MANUAL_PASS_ONLY",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_PRECLASSIFIED_ONLY",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_UNEXPECTED_PASS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_FAIL_TARGET_NOT_TRIGGERED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "DRY24_STATUS_IS_BLOCKED_OR_CLOSED",
+                       "Pass":  true,
+                       "Detail":  "status=BLOCKED_BY_CLOSURE_EVIDENCE_MISMATCH"
+                   },
+                   {
+                       "Label":  "NO_VERIFIER_PASS_OVER_FAIL",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_H18_ARTIFACTS_REGEX",
+                       "Pass":  true,
+                       "Detail":  "No *PHASE_6C_H18* files found"
+                   },
+                   {
+                       "Label":  "NO_DRY24_ARTIFACTS_BEFORE_PARENT",
+                       "Pass":  true,
+                       "Detail":  "DRY24 started only after H17 PASS"
+                   }
+               ],
+    "totalChecks":  27,
+    "evidencePaths":  [
+                          "governance/factory-state/dry24-p1-complexity-reconciliation.json",
+                          "governance/factory-state/dry24-p1-cross-scope-contamination.json",
+                          "governance/factory-state/dry24-p1-negative-control-summary.json",
+                          "governance/dependency-graphs/dry24-p1-cross-worker-dependency-graph.json"
+                      ],
+    "verdict":  "PASS",
+    "passed":  27,
+    "phase":  "DRY24-P1",
+    "timestamp":  "2026-06-24T16:41:57.7117355+08:00",
+    "failed":  0,
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\phase6c-dry24-p1-closure-evidence-reconciliation-verify.ps1"
+}

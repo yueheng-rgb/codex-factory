@@ -1,0 +1,10 @@
+﻿{
+    "handoffId":  "SKILL-HOFF-SKILL-IMPORT-CAP-SKILL-004-20260709204311-INTEGRATOR-COMPLETE",
+    "timestamp":  "2026-07-09T20:43:11+08:00",
+    "pipelineId":  "SKILL-IMPORT-CAP-SKILL-004-20260709204311",
+    "capabilityId":  "CAP-SKILL-004",
+    "fromRole":  "INTEGRATOR",
+    "toRole":  "COMPLETE",
+    "decision":  "integrated",
+    "summary":  "Pipeline complete, status=verified"
+}

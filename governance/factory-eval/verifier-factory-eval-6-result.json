@@ -1,0 +1,122 @@
+{
+    "repairType":  "REPORT_STATE_ERROR_REPAIRED",
+    "totalChecks":  22,
+    "passed":  22,
+    "timestamp":  "2026-06-25T19:13:47+08:00",
+    "verifier":  "factory-eval-6-factory-lite",
+    "repairedVia":  "FACTORY-EVAL-6-P1",
+    "failed":  0,
+    "result":  "ALL_CHECKS_PASS",
+    "checks":  [
+                   {
+                       "detail":  "SHA: 01640C0A9257E613...",
+                       "result":  "PASS",
+                       "name":  "FINAL package exists and SHA matches"
+                   },
+                   {
+                       "detail":  "Only FINAL package exists",
+                       "result":  "PASS",
+                       "name":  "No new ZIP created"
+                   },
+                   {
+                       "detail":  "Last modified: 2026-06-24",
+                       "result":  "PASS",
+                       "name":  "FINAL package not modified"
+                   },
+                   {
+                       "detail":  "File found",
+                       "result":  "PASS",
+                       "name":  "FACTORY-EVAL-5 PASS exists"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "result":  "PASS",
+                       "name":  "Factory Lite run directory"
+                   },
+                   {
+                       "detail":  "FACTORY_LITE",
+                       "result":  "PASS",
+                       "name":  "RUN_METADATA runType"
+                   },
+                   {
+                       "detail":  "Yes",
+                       "result":  "PASS",
+                       "name":  "Role-Agent in forbidden list"
+                   },
+                   {
+                       "detail":  "Forbidden",
+                       "result":  "PASS",
+                       "name":  "Vanilla read forbidden"
+                   },
+                   {
+                       "detail":  "3/3 found",
+                       "result":  "PASS",
+                       "name":  "Proof-of-read receipts"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "result":  "PASS",
+                       "name":  "Product source directory"
+                   },
+                   {
+                       "detail":  "Found",
+                       "result":  "PASS",
+                       "name":  "Artifact inventory"
+                   },
+                   {
+                       "detail":  "30 passed",
+                       "result":  "PASS",
+                       "name":  "Test results (30 passed)"
+                   },
+                   {
+                       "detail":  "11/11 implemented",
+                       "result":  "PASS",
+                       "name":  "Requirements self-mapping"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Human intervention log"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Process overhead log"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Contamination log"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Run report"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Negative controls report"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Result JSON"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Product README"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Product package.json"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Effectiveness disclaimer present"
+                   }
+               ]
+}

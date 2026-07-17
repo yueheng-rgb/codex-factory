@@ -1,0 +1,184 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "Action proceeds without required-reading receipt",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_receipt",
+                          "id":  "N01"
+                      },
+                      {
+                          "fault":  "Receipt says read but no page paths",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_paths",
+                          "id":  "N02"
+                      },
+                      {
+                          "fault":  "Receipt lacks SHA",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_sha",
+                          "id":  "N03"
+                      },
+                      {
+                          "fault":  "Receipt lacks extracted rules",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_rules",
+                          "id":  "N04"
+                      },
+                      {
+                          "fault":  "Missing required page accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "missing_page",
+                          "id":  "N05"
+                      },
+                      {
+                          "fault":  "Wrong page accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "wrong_page",
+                          "id":  "N06"
+                      },
+                      {
+                          "fault":  "Stale page SHA accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "stale_sha",
+                          "id":  "N07"
+                      },
+                      {
+                          "fault":  "Compressed summary used as manual page",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "compressed_page",
+                          "id":  "N08"
+                      },
+                      {
+                          "fault":  "Markdown-only report as authoritative page",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_page",
+                          "id":  "N09"
+                      },
+                      {
+                          "fault":  "Proof-of-read marks phase PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "por_marks_pass",
+                          "id":  "N10"
+                      },
+                      {
+                          "fault":  "Proof-of-read treated as proof of correctness",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "por_correctness",
+                          "id":  "N11"
+                      },
+                      {
+                          "fault":  "Always-on constitution exceeds budget",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "constitution_oversize",
+                          "id":  "N12"
+                      },
+                      {
+                          "fault":  "Whole Factory manual loaded for small action",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "whole_manual",
+                          "id":  "N13"
+                      },
+                      {
+                          "fault":  "Context OS ignored for memory lookup",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ctxos_ignored",
+                          "id":  "N14"
+                      },
+                      {
+                          "fault":  "Role agent assignment without role pages",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "role_no_pages",
+                          "id":  "N15"
+                      },
+                      {
+                          "fault":  "Benchmark run without evaluation pages",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "bench_no_pages",
+                          "id":  "N16"
+                      },
+                      {
+                          "fault":  "Final packaging route omits boundary pages",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "final_no_boundary",
+                          "id":  "N17"
+                      },
+                      {
+                          "fault":  "Session rotation omits startup verification",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "rotation_no_startup",
+                          "id":  "N18"
+                      },
+                      {
+                          "fault":  "Verifier route omits evidence hierarchy",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "verify_no_evidence",
+                          "id":  "N19"
+                      },
+                      {
+                          "fault":  "Risk signal does not trigger required pages",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "risk_no_pages",
+                          "id":  "N20"
+                      },
+                      {
+                          "fault":  "Future role marked implemented without artifact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "future_role_fake",
+                          "id":  "N21"
+                      },
+                      {
+                          "fault":  "Codex self-report accepted as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "self_report_evidence",
+                          "id":  "N22"
+                      },
+                      {
+                          "fault":  "User concern treated as fact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "user_concern_fact",
+                          "id":  "N23"
+                      },
+                      {
+                          "fault":  "External claim used without source marker",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "external_unsourced",
+                          "id":  "N24"
+                      },
+                      {
+                          "fault":  "Receipt missing agentId/SYSTEM_EVENT",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "receipt_no_agent",
+                          "id":  "N25"
+                      },
+                      {
+                          "fault":  "Gate output markdown-only",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "gate_markdown",
+                          "id":  "N26"
+                      },
+                      {
+                          "fault":  "Required-reading warning treated as PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "warning_as_pass",
+                          "id":  "N27"
+                      },
+                      {
+                          "fault":  "Manual router modifies FINAL package",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "router_modifies_final",
+                          "id":  "N28"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  28,
+    "schemaId":  "factory-eval-2-negative-controls-result",
+    "totalNegatives":  28,
+    "phase":  "FACTORY-EVAL-2-H",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T16:01:00+08:00"
+}

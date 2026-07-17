@@ -1,0 +1,46 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "C",
+  "title": "Fair Prompt Design",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "design_principles": [
+    "Identical project requirements for both runs",
+    "No Factory-specific instructions in vanilla prompt",
+    "No hidden context leaked between runs",
+    "No pre-warmed Factory context",
+    "Both runs start from clean session",
+    "Identical success criteria"
+  ],
+  "run_a_vanilla": {
+    "prompt_file": "factory-ab/prompts/RUN_A_VANILLA_PROMPT.md",
+    "conditions": {
+      "factory_installed": false,
+      "build_lite": false,
+      "security_gate": false,
+      "package_qa": false,
+      "context_space": false,
+      "test_repair_policy": false,
+      "codex_default_only": true
+    },
+    "instructions": "Standard Codex prompt — build InventoryOps Portal Lite from requirements. No Factory tools, gates, or policies available."
+  },
+  "run_b_factory": {
+    "prompt_file": "factory-ab/prompts/RUN_B_FACTORY_PROMPT.md",
+    "conditions": {
+      "factory_installed": true,
+      "build_lite": true,
+      "security_gate": true,
+      "package_qa": true,
+      "context_space": true,
+      "test_repair_policy": true
+    },
+    "instructions": "Factory-assisted prompt — build InventoryOps Portal Lite using Build Lite workflow with all gates active."
+  },
+  "fairness_checks": [
+    {"check": "Same project requirements in both prompts", "status": "VERIFIED"},
+    {"check": "No Factory instructions in vanilla prompt", "status": "VERIFIED"},
+    {"check": "No hidden advantage for Factory run", "status": "VERIFIED"},
+    {"check": "Both prompts start from identical requirements text", "status": "VERIFIED"}
+  ],
+  "status": "FAIR_PROMPTS_DESIGNED"
+}

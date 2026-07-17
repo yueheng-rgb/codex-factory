@@ -1,0 +1,33 @@
+﻿{
+    "researchQuestion":  [
+                             null,
+                             "Best database for high-scale ecommerce"
+                         ],
+    "sourceList":  null,
+    "sourcePriority":  "medium",
+    "factClaims":  [
+                       null,
+                       {
+                           "claim":  "PostgreSQL works for high-scale ecommerce",
+                           "certainty":  "uncertain",
+                           "sourceIndex":  -1
+                       }
+                   ],
+    "freshnessRisk":  "unknown",
+    "applicability":  "to_be_reviewed",
+    "securityRisks":  [
+
+                      ],
+    "recommendedKnowledgeCapsules":  [
+
+                                     ],
+    "recommendedSkillCandidates":  [
+
+                                   ],
+    "requiredVerifier":  "librarian",
+    "caveats":  [
+                    "Read-only adapter: no API keys used",
+                    "No network calls made",
+                    "Results must be reviewed before entering knowledge bank"
+                ]
+}

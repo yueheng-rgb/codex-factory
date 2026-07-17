@@ -1,0 +1,141 @@
+﻿{
+    "passed":  26,
+    "verifier_id":  "VERIFIER-RC-USER-REVIEW-0",
+    "generated_at":  "2026-06-28T21:08:06+08:00",
+    "verdict":  "PASS",
+    "total_checks":  26,
+    "phase":  "RC-USER-REVIEW-0",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "RC-0 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "A: Scope lock report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "A: Scope lock JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "B: Package inventory report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "B: Package inventory JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "C: User review checklist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "D: Remaining blockers report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "E: Acceptance options report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "F: Safety boundary review"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "G: Strategy decision"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "H: Negative controls report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "RC0 package exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "RC0 SHA unchanged"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "releaseAllowed=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "v05Package=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "finalRelease=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "Blockers remain active"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "v0.5 remains BLOCKED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "No package modification during review"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "Negative controls: \u003e=25 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "Verifier script exists"
+                   }
+               ],
+    "failed":  0
+}

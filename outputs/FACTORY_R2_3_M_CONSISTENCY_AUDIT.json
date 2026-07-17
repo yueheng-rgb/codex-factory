@@ -1,0 +1,24 @@
+﻿{
+    "auditId":  "ECO-AUDIT-001",
+    "pass":  72,
+    "warn":  13,
+    "block":  0,
+    "warnings":  [
+                     "SKILL/CAP-SKILL-004",
+                     "XREG/CAP-SKILL-001",
+                     "XREG/CAP-SKILL-002",
+                     "XREG/CAP-SKILL-003",
+                     "XREG/CAP-SKILL-005",
+                     "XREG/CAP-SKILL-006",
+                     "XREG/CAP-SKILL-007",
+                     "XREG/CAP-SKILL-008",
+                     "XREG/CAP-SKILL-009",
+                     "XREG/CAP-SKILL-010",
+                     "XREG/CAP-SKILL-011",
+                     "XREG/CAP-SKILL-012",
+                     "XREG/CAP-SKILL-099"
+                 ],
+    "blockers":  [
+
+                 ]
+}

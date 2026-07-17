@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "business-invariant.schema.json",
+  "title": "Business Invariant",
+  "description": "A business rule that must hold true before, during, and after every state-changing operation.",
+  "type": "object",
+  "required": ["invariantId", "name", "description", "scope", "checkType"],
+  "properties": {
+    "invariantId": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "category": { "type": "string", "enum": ["data-integrity", "financial", "security", "state-machine", "access-control", "idempotency"] },
+    "scope": { "type": "string", "description": "What this invariant protects: entity, field, operation" },
+    "checkType": { "type": "string", "enum": ["pre-condition", "post-condition", "invariant-check", "audit-log"] },
+    "severity": { "type": "string", "enum": ["BLOCKER", "CRITICAL", "WARNING"] },
+    "rule": { "type": "string", "description": "Human-readable rule" },
+    "testExpression": { "type": "string", "description": "Expression to verify in tests" },
+    "appliesTo": { "type": "array", "items": { "type": "string" }, "description": "Risk levels or surface types this applies to" },
+    "requiresExplicitTest": { "type": "boolean" },
+    "violationAction": { "type": "string", "enum": ["REJECT", "BLOCK_DEPLOY", "REQUIRE_HUMAN_REVIEW"] }
+  }
+}

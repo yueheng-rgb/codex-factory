@@ -1,0 +1,10 @@
+﻿{
+    "maxAgents":  4,
+    "openAgents":  [
+                       "a1",
+                       "a2"
+                   ],
+    "staleAgents":  [
+
+                    ]
+}

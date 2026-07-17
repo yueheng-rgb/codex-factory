@@ -1,0 +1,15 @@
+﻿{
+    "pre_trial_gates":  16,
+    "title":  "Safety Boundary Checklist",
+    "post_trial_verifications":  5,
+    "during_trial_checks":  5,
+    "sub_step":  "D",
+    "any_violation_stops_trial":  true,
+    "total_safety_items":  26,
+    "critical_gates":  [
+                           "S-01",
+                           "S-06",
+                           "S-15",
+                           "S-16"
+                       ]
+}

@@ -1,0 +1,64 @@
+﻿{
+    "auditId":  "SKILL-AUDIT-CAP-SKILL-015-20260710003559",
+    "skillId":  "CAP-SKILL-015",
+    "skillVersion":  "1.0.0",
+    "sourceRefs":  [
+                       "Cursor rules specification",
+                       "Codex_App_Factory project rules patterns",
+                       "Community .cursorrules examples"
+                   ],
+    "auditorAgent":  "SEC-001",
+    "auditedAt":  "2026-07-10T00:35:59+08:00",
+    "verdict":  "pass_with_controls",
+    "riskScore":  5,
+    "requiredControls":  [
+                             "human_approval"
+                         ],
+    "stages":  {
+                   "metadata":  {
+                                    "passed":  true,
+                                    "findings":  [
+
+                                                 ]
+                                },
+                   "content":  {
+                                   "passed":  true,
+                                   "findings":  [
+
+                                                ]
+                               },
+                   "permission":  {
+                                      "passed":  false,
+                                      "findings":  [
+                                                       {
+                                                           "description":  "6 agents is overbroad",
+                                                           "severity":  "medium",
+                                                           "riskId":  "SKILL-RISK-024"
+                                                       }
+                                                   ]
+                                  },
+                   "supplyChain":  {
+                                       "passed":  true,
+                                       "findings":  [
+                                                        {
+                                                            "description":  "No hash/signature",
+                                                            "severity":  "medium",
+                                                            "riskId":  "SKILL-RISK-020"
+                                                        }
+                                                    ]
+                                   },
+                   "runtimeBehavior":  {
+                                           "passed":  true,
+                                           "findings":  [
+                                                            {
+                                                                "description":  "Needs runtime verification",
+                                                                "severity":  "medium",
+                                                                "riskId":  "SKILL-RISK-006"
+                                                            }
+                                                        ]
+                                       }
+               },
+    "evidenceRefs":  [
+                         "C:\\Codex_App_Factory\\governance\\skill-audits\\SKILL-AUDIT-CAP-SKILL-015-20260710003559.json"
+                     ]
+}

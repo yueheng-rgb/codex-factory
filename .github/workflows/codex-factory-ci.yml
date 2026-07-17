@@ -1,0 +1,70 @@
+﻿# Codex Factory V3.2 — GitHub Actions CI Workflow Template
+# WARNING: This is a TEMPLATE. It has NOT been executed on GitHub.
+# It contains NO real secrets. It requires manual workflow_dispatch trigger.
+# Status: TEMPLATE_READY — NOT remote-executed.
+
+name: Codex Factory CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      testbed:
+        description: 'Testbed to run'
+        required: false
+        default: 'products-api'
+        type: choice
+        options:
+          - products-api
+          - cross-pack-cpm-001
+          - admin-system-runtime-validation
+          - ecommerce-runtime-validation
+          - saas-runtime-validation
+          - miniapp-runtime-validation
+          - game-threejs-runtime-validation
+          - cpp-memory-safety-runtime-validation
+
+jobs:
+  snapshot-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Snapshot Verifier
+        shell: pwsh
+        run: powershell -File runtime/snapshot-verifier.ps1
+
+  regression:
+    needs: snapshot-verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Dependencies
+        run: cd testbeds/${{ inputs.testbed }} && npm ci
+      - name: Run Tests
+        run: cd testbeds/${{ inputs.testbed }} && npm test
+      - name: Secret Scan
+        shell: pwsh
+        run: |
+          $found = Select-String -Path "outputs/**/*.json","outputs/**/*.md" -Pattern '(sk-[a-zA-Z0-9]{20,})|(AIza[0-9A-Za-z\-_]{35})|(ghp_[a-zA-Z0-9]{36})|(AKIA[0-9A-Z]{16})' -ErrorAction SilentlyContinue
+          if ($found) { Write-Output "SECRETS_FOUND"; exit 1 } else { Write-Output "NO_SECRETS_FOUND" }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: factory-artifacts-${{ inputs.testbed }}
+          path: |
+            artifacts/
+            outputs/V2_9/V2_9_IMMUTABLE_SNAPSHOT_MANIFEST.json
+          retention-days: 7
+
+  frozen-trunk-check:
+    needs: regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen trunk not modified
+        shell: pwsh
+        run: |
+          $frozen = @("runtime/execution-runner.ps1","runtime/snapshot-verifier.ps1","governance/AGENTS.md","schemas/execution-run.schema.json")
+          Write-Output "Frozen trunk files listed — manual audit required for modifications"
+          Write-Output "Template is READ-ONLY; modifications require explicit approval"

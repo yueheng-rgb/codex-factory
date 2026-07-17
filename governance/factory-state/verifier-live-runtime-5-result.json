@@ -1,0 +1,245 @@
+﻿{
+    "passed":  39,
+    "checkedAt":  "2026-06-25T00:24:52+08:00",
+    "command":  "live-runtime-5-verify",
+    "totalChecks":  39,
+    "phase":  "LIVE-RUNTIME-5",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "LR4 verified",
+                       "result":  true,
+                       "name":  "LR4_PASS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "policy",
+                       "result":  true,
+                       "name":  "POLICY_EXISTS",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "trigger",
+                       "result":  true,
+                       "name":  "TRIGGER_EXISTS",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "schema",
+                       "result":  true,
+                       "name":  "SCHEMA_EXISTS",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "watcher",
+                       "result":  true,
+                       "name":  "WATCHER_SCRIPT",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "packet builder",
+                       "result":  true,
+                       "name":  "PACKET_SCRIPT",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "validator",
+                       "result":  true,
+                       "name":  "VALIDATE_SCRIPT",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "readOnly",
+                       "result":  true,
+                       "name":  "POLICY_READONLY",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "alert!=PASS",
+                       "result":  true,
+                       "name":  "ALERT_NOT_PASS",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "no mutation",
+                       "result":  true,
+                       "name":  "NO_MUTATION",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "no PASS",
+                       "result":  true,
+                       "name":  "NO_PASS_MARK",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "no ZIP",
+                       "result":  true,
+                       "name":  "NO_ZIP",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "no phase start",
+                       "result":  true,
+                       "name":  "NO_PHASE",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "no auto window",
+                       "result":  true,
+                       "name":  "NO_AUTO_WINDOW",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "no inheritance",
+                       "result":  true,
+                       "name":  "NO_INHERITANCE",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "no compressed",
+                       "result":  true,
+                       "name":  "NO_COMPRESSED",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "15 targets",
+                       "result":  true,
+                       "name":  "MONITORING_TARGETS",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "result exists",
+                       "result":  true,
+                       "name":  "WATCHER_RESULT",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "doesNotMutate=True",
+                       "result":  true,
+                       "name":  "WR_DOES_NOT_MUTATE",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "checks=12",
+                       "result":  true,
+                       "name":  "WR_HAS_CHECKS",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "evidence paths=9",
+                       "result":  true,
+                       "name":  "WR_HAS_EVIDENCE",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "sample OK",
+                       "result":  true,
+                       "name":  "SAMPLE_OK",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "sample REC",
+                       "result":  true,
+                       "name":  "SAMPLE_REC",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "sample REQ",
+                       "result":  true,
+                       "name":  "SAMPLE_REQ",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "packet dir",
+                       "result":  true,
+                       "name":  "PACKET_DIR",
+                       "id":  27
+                   },
+                   {
+                       "detail":  "packets=2",
+                       "result":  true,
+                       "name":  "PACKETS_EXIST",
+                       "id":  28
+                   },
+                   {
+                       "detail":  "sim exists",
+                       "result":  true,
+                       "name":  "SIM_EXISTS",
+                       "id":  29
+                   },
+                   {
+                       "detail":  "scenarios=8",
+                       "result":  true,
+                       "name":  "SIM_8_8",
+                       "id":  30
+                   },
+                   {
+                       "detail":  "all match",
+                       "result":  true,
+                       "name":  "SIM_ALL_MATCH",
+                       "id":  31
+                   },
+                   {
+                       "detail":  "readonly",
+                       "result":  true,
+                       "name":  "SIM_READONLY",
+                       "id":  32
+                   },
+                   {
+                       "detail":  "negatives",
+                       "result":  true,
+                       "name":  "NEG_EXISTS",
+                       "id":  33
+                   },
+                   {
+                       "detail":  "26",
+                       "result":  true,
+                       "name":  "NEG_26",
+                       "id":  34
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_ZERO",
+                       "id":  35
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL",
+                       "id":  36
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EC",
+                       "id":  37
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GF",
+                       "id":  38
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PC",
+                       "id":  39
+                   }
+               ],
+    "failed":  0
+}

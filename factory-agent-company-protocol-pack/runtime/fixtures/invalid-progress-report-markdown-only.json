@@ -1,0 +1,14 @@
+﻿{
+  "reportId": "report-ag2-bad-000001",
+  "agentId": "ag2-bad-1",
+  "capsuleId": "capsule-ag2-bad1-20260626030000",
+  "phase": "FACTORY-AGENT-2",
+  "reportType": "PROGRESS",
+  "timestamp": "2026-06-26T03:15:00+08:00",
+  "detail": "Done.",
+  "completionPercent": 100,
+  "filesCreated": [],
+  "blockersDetected": [],
+  "nextExpectedMilestone": "Done",
+  "nativeGenerated": true
+}

@@ -1,0 +1,68 @@
+﻿{
+  "agentId": "VER-001",
+  "role": "Verifier Agent",
+  "category": "Quality",
+  "type": "on-demand",
+  "version": "2.0.0",
+  "status": "ACTIVE",
+  "description": "Verify implementation against contracts, run tests, check negative controls, attribute failures. Reject non-compliant implementations.",
+  "responsibilities": [
+    "Run unit, integration, and E2E tests",
+    "Validate implementation against agent contracts",
+    "Execute negative controls (error paths, edge cases)",
+    "Check all four UI states (loading, empty, error, success)",
+    "Attribute test failures to specific agent + file",
+    "Report gaps (missing states, untested paths)"
+  ],
+  "permissions": {
+    "read": ["all_project_files"],
+    "write": ["verification_reports_only", "test_files_only"],
+    "execute": ["shell_command(test runners)", "apply_patch(test files)", "node_repl(browser test)"]
+  },
+  "allowedWriteScopes": [
+    "projects/{projectId}/reports/verification/",
+    "projects/{projectId}/tests/"
+  ],
+  "forbiddenActions": [
+    "modify_implementation_code",
+    "fake_test_results",
+    "skip_negative_controls",
+    "mark_PASS_with_unresolved_failures"
+  ],
+  "allowedSkills": {
+    "required": ["codex-factory", "webapp-preview-testing"],
+    "optional": ["browser"],
+    "forbidden": ["imagegen", "documents", "spreadsheets", "pdf", "presentations"]
+  },
+  "requiredInputs": [
+    "implementer_outputs",
+    "agent_contracts",
+    "verifier_schema",
+    "negative_control_definitions"
+  ],
+  "requiredOutputs": [
+    {
+      "name": "verifier_report",
+      "fields": ["verifierVerdict", "testResults", "contractValidations", "negativeControls", "gaps", "failureAttribution"]
+    }
+  ],
+  "handoffRequired": true,
+  "handoffFormat": {
+    "to": "INTG-001",
+    "handoffType": "VERIFICATION_REPORT",
+    "requiresApproval": false
+  },
+  "evidenceLevel": "HIGH",
+  "failurePolicy": {
+    "testFailure": "attribute_to_specific_agent_and_file",
+    "falsePASS": "re_run_with_tighter_checks",
+    "corruptFixture": "report_request_fixture_rebuild",
+    "cannotVerify": "report_gap_suggest_manual_verification",
+    "maxRetries": 2
+  },
+  "contextBudget": 4000,
+  "closeCondition": "Verification complete, report handed off",
+  "driftRisks": ["false_PASS", "missed_edge_case", "corrupt_test_fixture"],
+  "reviewGate": "Integrator",
+  "includedInBenchmark": true
+}

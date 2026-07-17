@@ -1,0 +1,41 @@
+﻿{
+  "capsuleId": "capsule-ag2-builder1-20260626030000",
+  "phase": "FACTORY-AGENT-2",
+  "agentId": "ag2-builder-1",
+  "role": "Builder",
+  "forkContext": false,
+  "ownedScope": ["packages/auth-module/src/", "packages/auth-module/tests/"],
+  "forbiddenScope": ["packages/payments/", "config/secrets/", "_integrate/"],
+  "allowedImports": ["shared/types/", "factory-resource-pack/"],
+  "forbiddenImports": ["packages/payments/", "private-keys/"],
+  "expectedOutputs": [
+    {"path": "packages/auth-module/src/login.ts", "description": "Login handler"},
+    {"path": "packages/auth-module/src/register.ts", "description": "Registration handler"},
+    {"path": "packages/auth-module/tests/login.test.ts", "description": "Login tests"}
+  ],
+  "requiredEvidence": ["transcript", "sha256-manifest", "test-output"],
+  "handoffRequirements": {
+    "fileList": true,
+    "sha256": true,
+    "transcriptRef": true,
+    "contractChecklist": true
+  },
+  "closeConditions": [
+    {"reason": "COMPLETED", "condition": "All expectedOutputs exist with valid SHA256"},
+    {"reason": "FAILED", "condition": "Any P0 blocker unresolved for 2 retry cycles"},
+    {"reason": "STALE", "condition": "No progress event for 30 minutes"},
+    {"reason": "REPLACED", "condition": "Orchestrator issues replacement capsule"}
+  ],
+  "antiDeceptionChecks": [
+    {"checkId": "ADC-001", "description": "No manual PASS-only", "severity": "P0"},
+    {"checkId": "ADC-002", "description": "No expectedClass-only", "severity": "P0"},
+    {"checkId": "ADC-003", "description": "No generic FAIL", "severity": "P0"}
+  ],
+  "escalationTriggers": [
+    {"triggerId": "ESC-001", "condition": "Forbidden scope write detected", "escalationPath": "ORCHESTRATOR", "severity": "P0"},
+    {"triggerId": "ESC-002", "condition": "SHA mismatch in handoff", "escalationPath": "ORCHESTRATOR", "severity": "P0"}
+  ],
+  "assignedBy": "ag2-orchestrator",
+  "assignedAt": "2026-06-26T03:00:00+08:00",
+  "contractVersion": "1.0.0"
+}

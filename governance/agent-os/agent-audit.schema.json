@@ -1,0 +1,15 @@
+﻿{
+  "schemaId": "agent-audit.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:10+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-B",
+  "nativeGenerated": true,
+  "requiredFields": ["auditId","auditorAgentId","auditScope","timestamp","findings","auditHash"],
+  "findingTypes": ["evidence_gap","role_violation","hash_break","stale_handoff","duplicate_handoff","post_hoc_contract","failed_counted","missing_receipt","undeclared_fallback"],
+  "rules": {
+    "auditorReadonly": true,
+    "findingsBlockClosure": true,
+    "gapsMustBeAddressed": true,
+    "violationsMustBeQuarantined": true
+  }
+}

@@ -1,0 +1,15 @@
+﻿{
+    "verdict": "MONITORING_PASS",
+    "checkedAt": "2026-06-24T18:30:00+08:00",
+    "checks": [
+        {"checkId":"PHASE_MISMATCH","status":"PASS","detail":"currentTrustedPhase=H20 matches expected"},
+        {"checkId":"FINAL_ZIP_EARLY","status":"PASS","detail":"No final ZIP found"},
+        {"checkId":"MANIFEST_SHA_MISMATCH","status":"PASS","detail":"SHA256 matches"},
+        {"checkId":"FACTORYCTL_FAIL","status":"PASS","detail":"factoryctl verify: PASS (29 checks)"}
+    ],
+    "alerts": [],
+    "evidencePaths": ["governance/factory-state/current-factory-state.json"],
+    "recommendedAction": "None",
+    "doesNotMutateState": true,
+    "prototype": true
+}

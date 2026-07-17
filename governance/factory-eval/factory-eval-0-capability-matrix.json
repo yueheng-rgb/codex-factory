@@ -1,0 +1,120 @@
+﻿{
+    "totalCapabilities":  21,
+    "capabilities":  [
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "FINAL package + 50+ verifier JSONs",
+                             "capability":  "Codex Factory internal governance"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "H13-C; 20+ subagent spawns",
+                             "capability":  "Real spawn_agent + fork_context:false"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "DRY21-24 fork_context:false for builders",
+                             "capability":  "Worker isolation"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "6 subagents; agent-active-archive-index.json",
+                             "capability":  "Agent lifecycle and close/archive"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "H13-C agent-truthfulness-result.json",
+                             "capability":  "Agent report honesty"
+                         },
+                         {
+                             "classification":  "PARTIALLY_SOLVED",
+                             "evidence":  "DRY19-B-P2; not fully automated",
+                             "capability":  "Main Agent fallback detection"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "50+ verifier scripts enforce contracts",
+                             "capability":  "Contract-first enforcement"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "500+ negatives across all phases",
+                             "capability":  "Verifier / negative controls"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "FACTORY_CURRENT_CONTEXT_PACKET.json; 5 ledgers",
+                             "capability":  "Context OS external memory"
+                         },
+                         {
+                             "classification":  "PARTIALLY_SOLVED",
+                             "evidence":  "LR4 prototype; not production-tested",
+                             "capability":  "MCP Memory query layer"
+                         },
+                         {
+                             "classification":  "PARTIALLY_SOLVED",
+                             "evidence":  "LR5/LR9; readonly; real scheduling untested",
+                             "capability":  "Automation Watcher"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "LR6; policy + matrix + exec packets",
+                             "capability":  "Session Controller"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "LR10; payload generator + templates",
+                             "capability":  "Semi-automatic rotation UX"
+                         },
+                         {
+                             "classification":  "SOLVED_BY_EVIDENCE",
+                             "evidence":  "20+ rotations; PRIMARY_SAFE_FALLBACK",
+                             "capability":  "Manual new window + artifact handoff"
+                         },
+                         {
+                             "classification":  "NOT_SOLVED",
+                             "evidence":  "LR8: HYPOTHESIS; no live test",
+                             "capability":  "Automatic window/thread creation"
+                         },
+                         {
+                             "classification":  "NOT_SOLVED",
+                             "evidence":  "LR8: REJECTED; no carrier supports this",
+                             "capability":  "Fork/new thread full context inheritance"
+                         },
+                         {
+                             "classification":  "NOT_SOLVED",
+                             "evidence":  "EXPERIMENTAL per state file",
+                             "capability":  "Skill/plugin production readiness"
+                         },
+                         {
+                             "classification":  "UNKNOWN_REQUIRES_REVIEW",
+                             "evidence":  "NEEDS_WEB_SEARCH",
+                             "capability":  "DeepSeek / 1M context strategy"
+                         },
+                         {
+                             "classification":  "UNKNOWN_REQUIRES_REVIEW",
+                             "evidence":  "NEEDS_CODEX_SELF_CHECK",
+                             "capability":  "Manual router / proof-of-read"
+                         },
+                         {
+                             "classification":  "UNKNOWN_REQUIRES_REVIEW",
+                             "evidence":  "NEEDS_WEB_SEARCH + NEEDS_CODEX_SELF_CHECK",
+                             "capability":  "Role-specialized agent company model"
+                         },
+                         {
+                             "classification":  "NOT_SOLVED",
+                             "evidence":  "Factory only tested on itself; no benchmark",
+                             "capability":  "Real non-Factory project effectiveness"
+                         }
+                     ],
+    "classificationCounts":  {
+                                 "SOLVED_BY_EVIDENCE":  11,
+                                 "NOT_SOLVED":  4,
+                                 "UNKNOWN_REQUIRES_REVIEW":  3,
+                                 "PARTIALLY_SOLVED":  3,
+                                 "CLAIMED_BUT_NOT_PROVEN":  0
+                             },
+    "generatedAt":  "2026-06-25T15:46:22+08:00",
+    "schemaId":  "factory-eval-0-capability-matrix",
+    "criticalGap":  "Real non-Factory project effectiveness is NOT_SOLVED"
+}

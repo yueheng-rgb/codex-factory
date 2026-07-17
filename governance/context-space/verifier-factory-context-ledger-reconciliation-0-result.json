@@ -1,0 +1,235 @@
+﻿{
+    "timestamp":  "2026-06-29T13:43:36+08:00",
+    "passed":  45,
+    "verdict":  "PASS",
+    "failed":  0,
+    "total_checks":  45,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V01",
+                       "desc":  "Phase ledger exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V02",
+                       "desc":  "Phase ledger has 72+ entries"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-RELEASE-READINESS-0",
+                       "desc":  "Phase FACTORY-RELEASE-READINESS-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-RELEASE-CANDIDATE-0",
+                       "desc":  "Phase FACTORY-RELEASE-CANDIDATE-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-RC-USER-REVIEW-0",
+                       "desc":  "Phase RC-USER-REVIEW-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-RC-USER-ACCEPTANCE-0",
+                       "desc":  "Phase RC-USER-ACCEPTANCE-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-RC-SMOKE-0",
+                       "desc":  "Phase RC-SMOKE-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-RC-SMOKE-1",
+                       "desc":  "Phase RC-SMOKE-1 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-V0.5-DECISION-0",
+                       "desc":  "Phase V0.5-DECISION-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-V0.5-RELEASE-CREATION-0",
+                       "desc":  "Phase V0.5-RELEASE-CREATION-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-V0.5-POST-RELEASE-SMOKE",
+                       "desc":  "Phase V0.5-POST-RELEASE-SMOKE in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-USER-HANDOFF-0",
+                       "desc":  "Phase USER-HANDOFF-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-USER-HANDOFF-R1",
+                       "desc":  "Phase USER-HANDOFF-R1 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-DEFAULT-WORKFLOW-0",
+                       "desc":  "Phase FACTORY-DEFAULT-WORKFLOW-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-PROJECT-ISOLATION-0",
+                       "desc":  "Phase FACTORY-PROJECT-ISOLATION-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-STATE-DASHBOARD-0",
+                       "desc":  "Phase FACTORY-STATE-DASHBOARD-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-RECOVERY-0",
+                       "desc":  "Phase FACTORY-RECOVERY-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-MULTI-AGENT-ORCHESTRATION-1",
+                       "desc":  "Phase FACTORY-MULTI-AGENT-ORCHESTRATION-1 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-EVIDENCE-TAXONOMY-0",
+                       "desc":  "Phase FACTORY-EVIDENCE-TAXONOMY-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-PROJECT-LIFECYCLE-0",
+                       "desc":  "Phase FACTORY-PROJECT-LIFECYCLE-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-V05-R1-INTEGRATION-PLAN",
+                       "desc":  "Phase FACTORY-V05-R1-INTEGRATION-PLAN in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-FACTORY-V05-R1-INTEGRATION-0",
+                       "desc":  "Phase FACTORY-V05-R1-INTEGRATION-0 in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V-PHASE-V05-R1-POST-INTEGRATION-SMOKE",
+                       "desc":  "Phase V05-R1-POST-INTEGRATION-SMOKE in ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V10",
+                       "desc":  "Conversation-space exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V11",
+                       "desc":  "CS completed_phases has 30+ groups"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V12",
+                       "desc":  "CS current_phase is REAL-VALIDATION-READINESS-0"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V13",
+                       "desc":  "CS mentions USER-HANDOFF-R1"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V20",
+                       "desc":  "Direction-guard exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V21",
+                       "desc":  "DG no longer recommends P7"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V23",
+                       "desc":  "DG recommends REAL-VALIDATION"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V24",
+                       "desc":  "DG rules intact (13)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V30",
+                       "desc":  "Active-thread exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V31",
+                       "desc":  "AT currentPhase is REAL-VALIDATION-READINESS-0"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V40",
+                       "desc":  "Attach Packet exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V41",
+                       "desc":  "AP freshness FRESH"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V42",
+                       "desc":  "AP mount_count \u003e= 16"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V43",
+                       "desc":  "AP lastCompletedPhase = USER-HANDOFF-R1"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V50",
+                       "desc":  "Fresh snapshot SNAP-FW exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V60",
+                       "desc":  "No v0.6"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V61",
+                       "desc":  "No real validation B-I"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V62",
+                       "desc":  "RISK-CS-002 preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V63",
+                       "desc":  "Phase-ledger backup exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V70",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V71",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V72",
+                       "desc":  "No manual PASS-only"
+                   }
+               ],
+    "phase":  "FACTORY-CONTEXT-LEDGER-RECONCILIATION-0"
+}

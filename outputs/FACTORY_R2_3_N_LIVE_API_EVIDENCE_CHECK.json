@@ -1,0 +1,78 @@
+﻿{
+  "auditId": "CLAIM-AUDIT-R2-3-N-001",
+  "date": "2026-07-10",
+  "phase": "FACTORY-R2.3-N",
+  "classification": "B_LIVE_API_READY_NOT_EXECUTED",
+  "summary": "live_api code path exists and is gated correctly, but no real API key was present, no human explicitly approved live_api, and no outbound API request was ever made. The adapter framework (manual, dry_run, gate, quality, ledger, intake) is fully operational.",
+  "evidence": {
+    "q1_live_api_executed": {
+      "result": false,
+      "detail": "Zero live_api+ALLOW_WITH_CONTROLS entries. All 9 live_api entries are PENDING_HUMAN(6) or REJECT(3)."
+    },
+    "q2_api_key_exists": {
+      "result": false,
+      "detail": "ZHIPUAI_API_KEY and GLM_API_KEY not set in Process, User, or Machine scope."
+    },
+    "q3_key_from_env_only": {
+      "result": true,
+      "detail": "Adapter and secret-presence-check both enforce env-var-only policy. No key found in any file."
+    },
+    "q4_user_approved_live_api": {
+      "result": false,
+      "detail": "No record of explicit user approval for real live_api calls. Simulation used -UserApproval=true for framework testing."
+    },
+    "q5_real_outbound_request": {
+      "result": false,
+      "detail": "Zero successful Invoke-RestMethod to open.bigmodel.cn. Simulation S06 used fake key; the real call failed."
+    },
+    "q6_real_provider_response": {
+      "result": false,
+      "detail": "No ZhipuAI API response data exists. All 44 ledger results are mock/manual."
+    },
+    "q7_mode_distribution": {
+      "manual": {"count": 17, "allow": 13, "reject": 4},
+      "dry_run": {"count": 18, "allow": 6, "reject": 8, "downgraded": 4},
+      "live_api": {"count": 9, "pending_human": 6, "reject": 3}
+    },
+    "q8_live_api_allow_with_controls": {
+      "result": false,
+      "count": 0,
+      "detail": "No live_api entry with ALLOW_WITH_CONTROLS."
+    },
+    "q9_special_decisions": {
+      "LIVE_API_NOT_EXECUTED_BY_POLICY": {"count": 0, "note": "Schema defines this but it was never used"},
+      "DOWNGRADED_TO_DRY_RUN": {"count": 4, "mode": "dry_run", "downgradedFrom": "live_api"},
+      "missing_key": {"count": 4, "captured_as": "DOWNGRADED_TO_DRY_RUN"}
+    },
+    "q10_overstatements": {
+      "count": 5,
+      "files": [
+        {"file": "FACTORY_R2_3_N_EXTERNAL_SEARCH_PROVIDER_ADAPTER_REPORT.md", "claim": "first real external", "severity": "HIGH"},
+        {"file": "FACTORY_R2_3_N_EXTERNAL_SEARCH_PROVIDER_ADAPTER_REPORT.md", "claim": "production search", "severity": "MEDIUM"},
+        {"file": "FACTORY_R2_3_N_GLM_SEARCH_ADAPTER_DESIGN.md", "claim": "first real API / real API call", "severity": "HIGH"},
+        {"file": "FACTORY_R2_3_N_GLM_SEARCH_ADAPTER_DESIGN.md", "claim": "first external_api provider", "severity": "MEDIUM"},
+        {"file": "FACTORY_R2_3_N_RESEARCH_INTAKE_INTEGRATION_REPORT.md", "claim": "real ZhipuAI API call", "severity": "HIGH"}
+      ]
+    }
+  },
+  "corrections_required": true,
+  "verified_deliverables": [
+    "3-mode adapter framework (manual/dry_run/live_api code paths)",
+    "Secret handling policy and presence check",
+    "Search Quality Gate v2 (12-point)",
+    "Research Intake integration",
+    "Search Invocation Ledger (44 entries)",
+    "Tool Permission Gate integration",
+    "10/10 simulation PASS (framework validation)",
+    "32/32 verification PASS"
+  ],
+  "not_delivered": [
+    "Real GLM/Zhipu API connection",
+    "Real outbound network request",
+    "Real provider response data",
+    "Any live_api + ALLOW_WITH_CONTROLS ledger entry",
+    "Human approval for live API",
+    "API key deployment"
+  ],
+  "recommended_phase_rename": "R2.3-N should be described as: External Search Provider Adapter MVP (framework ready, live API gated)"
+}

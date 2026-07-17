@@ -1,0 +1,248 @@
+﻿{
+    "phase":  "FACTORY-EVAL-2-C",
+    "schemaId":  "factory-page-router",
+    "generatedAt":  "2026-06-25T15:59:08+08:00",
+    "version":  "1.0.0",
+    "routes":  [
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "small",
+                       "action":  "spawn_agent",
+                       "requiredPages":  [
+                                             "AGNT-001",
+                                             "AGNT-002"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "small",
+                       "action":  "create_worker_contract",
+                       "requiredPages":  [
+                                             "WRKR-001",
+                                             "CTRC-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "medium",
+                       "action":  "integrate_worker_results",
+                       "requiredPages":  [
+                                             "WRKR-001",
+                                             "WRKR-002",
+                                             "CTRC-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "medium",
+                       "action":  "verify_phase",
+                       "requiredPages":  [
+                                             "EVID-001",
+                                             "VERF-001",
+                                             "NEGC-001",
+                                             "RISK-001",
+                                             "EVAL-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "medium",
+                       "action":  "close_phase",
+                       "requiredPages":  [
+                                             "VERF-001",
+                                             "NEGC-001",
+                                             "EVID-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "medium",
+                       "action":  "session_rotation",
+                       "requiredPages":  [
+                                             "ROTA-001",
+                                             "ROTA-002",
+                                             "CTXR-001",
+                                             "STRT-001",
+                                             "COMP-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "medium",
+                       "action":  "context_recovery",
+                       "requiredPages":  [
+                                             "CTXR-001",
+                                             "STRT-001",
+                                             "EVID-001",
+                                             "COMP-001",
+                                             "RISK-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "small",
+                       "action":  "final_packaging",
+                       "requiredPages":  [
+                                             "FINA-001",
+                                             "EVID-001",
+                                             "VERF-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "medium",
+                       "action":  "benchmark_run",
+                       "requiredPages":  [
+                                             "BENC-001",
+                                             "EVAL-001",
+                                             "EVID-001",
+                                             "VERF-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "small",
+                       "action":  "role_agent_assignment",
+                       "requiredPages":  [
+                                             "AGNT-002",
+                                             "AGNT-003",
+                                             "SKIL-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+                                         "RISK-001"
+                                     ],
+                       "budget":  "small",
+                       "action":  "external_claim_use",
+                       "requiredPages":  [
+                                             "EVID-001",
+                                             "COMP-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+                                         "RISK-001"
+                                     ],
+                       "budget":  "small",
+                       "action":  "long_context_use",
+                       "requiredPages":  [
+                                             "COMP-001",
+                                             "EVID-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+                                         "RISK-001"
+                                     ],
+                       "budget":  "small",
+                       "action":  "compressed_summary_risk",
+                       "requiredPages":  [
+                                             "COMP-001",
+                                             "EVID-001",
+                                             "CTXR-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+                                         "RISK-001"
+                                     ],
+                       "budget":  "small",
+                       "action":  "proof_of_read_failure",
+                       "requiredPages":  [
+                                             "EVID-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "small",
+                       "action":  "capacity_preflight_risk",
+                       "requiredPages":  [
+                                             "AGNT-001",
+                                             "RISK-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "small",
+                       "action":  "stale_agent_risk",
+                       "requiredPages":  [
+                                             "AGNT-001",
+                                             "AGNT-002",
+                                             "RISK-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "small",
+                       "action":  "memory_conflict",
+                       "requiredPages":  [
+                                             "CTXR-001",
+                                             "EVID-001",
+                                             "RISK-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+
+                                     ],
+                       "budget":  "small",
+                       "action":  "sha_mismatch",
+                       "requiredPages":  [
+                                             "EVID-001",
+                                             "RISK-001",
+                                             "FINA-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+                                         "RISK-001"
+                                     ],
+                       "budget":  "small",
+                       "action":  "automation_alert",
+                       "requiredPages":  [
+                                             "EVID-001",
+                                             "ROTA-001",
+                                             "COMP-001"
+                                         ]
+                   },
+                   {
+                       "riskPages":  [
+                                         "RISK-001"
+                                     ],
+                       "budget":  "small",
+                       "action":  "future_role_eval",
+                       "requiredPages":  [
+                                             "AGNT-003",
+                                             "BENC-001",
+                                             "EVAL-001"
+                                         ]
+                   }
+               ]
+}

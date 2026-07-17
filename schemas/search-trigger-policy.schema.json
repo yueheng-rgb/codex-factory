@@ -1,0 +1,64 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "search-trigger-policy.schema.json",
+  "title": "Search Trigger Policy — need_search Detector Rules",
+  "description": "Defines when Codex Factory should trigger a search (need_search=true) vs when it should not (need_search=false). Search is NOT a one-time pre-task action; it can be triggered at any phase.",
+  "type": "object",
+  "required": ["policyId", "triggers", "nonTriggers", "searchModes", "budget"],
+  "properties": {
+    "policyId": { "type": "string", "pattern": "^SRCH-TRIG-POL-\\d{3}$" },
+    "triggers": {
+      "type": "object",
+      "description": "Conditions that set need_search=true",
+      "properties": {
+        "frameworkOrLibraryReference": { "type": "boolean", "description": "Task references a framework, library, API, CLI tool, or config option" },
+        "versionOrLatestPattern": { "type": "boolean", "description": "Task involves specific version, latest syntax, or release notes" },
+        "externalPlatformReference": { "type": "boolean", "description": "Task involves external platforms: WeChat, payment, maps, cloud, object storage" },
+        "buildOrTestFailure": { "type": "boolean", "description": "Build/test/lint failure possibly from external dependency or version incompatibility" },
+        "newDependencyIntroduction": { "type": "boolean", "description": "Codex is about to introduce a new dependency" },
+        "evidencePackInsufficient": { "type": "boolean", "description": "Existing Evidence Pack lacks sufficient evidence for decision" },
+        "conflictingSources": { "type": "boolean", "description": "Multiple sources disagree on facts" },
+        "securityOrCVE": { "type": "boolean", "description": "Security vulnerability, CVE, or dependency upgrade needed" },
+        "userRequestsLatest": { "type": "boolean", "description": "User explicitly asks for latest information" },
+        "lowConfidence": { "type": "boolean", "description": "Agent has low confidence in external facts" }
+      }
+    },
+    "nonTriggers": {
+      "type": "object",
+      "description": "Conditions that do NOT trigger search",
+      "properties": {
+        "pureInternalLogic": { "type": "boolean", "description": "Task involves only project-internal code logic" },
+        "userProvidedCompleteDocs": { "type": "boolean", "description": "User has provided complete documentation" },
+        "simpleRefactor": { "type": "boolean", "description": "Simple refactoring of existing code" },
+        "dataStructureModification": { "type": "boolean", "description": "Clear data structure modification without external reference" },
+        "styleOnlyChange": { "type": "boolean", "description": "Pure style/format change without new library" },
+        "evidencePackSufficient": { "type": "boolean", "description": "Existing Evidence Pack provides sufficient evidence" }
+      }
+    },
+    "searchModes": {
+      "type": "object",
+      "properties": {
+        "defaultMode": { "type": "string", "enum": ["manual", "dry_run"], "default": "dry_run" },
+        "availableModes": { "type": "array", "items": { "type": "string", "enum": ["manual", "dry_run", "live_api"] } },
+        "modeSelectionRule": { "type": "string", "description": "live_api only if API key present AND human approved; otherwise fallback to dry_run" }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "maxSearchRoundsPerTask": { "type": "integer", "default": 5 },
+        "maxSourcesPerRound": { "type": "integer", "default": 10 },
+        "maxOfficialDocsPreferred": { "type": "boolean", "default": true },
+        "stopCondition": { "type": "string", "description": "Stop when: evidence sufficient, max rounds reached, or human escalation" }
+      }
+    },
+    "agentAccess": {
+      "type": "object",
+      "properties": {
+        "canTriggerSearch": { "type": "array", "items": { "type": "string" }, "default": ["RSRC-001", "LIB-001"] },
+        "canReadEvidencePack": { "type": "array", "items": { "type": "string" }, "default": ["ARCH-001", "VER-001", "IMPL-FE-001", "IMPL-BE-001"] },
+        "cannotCallProviderDirectly": { "type": "array", "items": { "type": "string" }, "default": ["IMPL-FE-001", "IMPL-BE-001", "IMPL-DB-001"] }
+      }
+    }
+  }
+}

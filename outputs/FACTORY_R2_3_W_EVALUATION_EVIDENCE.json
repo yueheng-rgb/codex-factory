@@ -1,0 +1,69 @@
+﻿{
+    "official_source_count":  1,
+    "phase":  "R2.3-W",
+    "cases_where_baseline_was_enough":  [
+                                            "Core RBAC model",
+                                            "bcrypt password hashing",
+                                            "JWT Bearer header pattern"
+                                        ],
+    "where_search_did_not_help":  [
+                                      "search_std Chinese-language bias limited English Fastify docs",
+                                      "Official docs under-represented (1/9 sources)"
+                                  ],
+    "total_delta":  6,
+    "total_groupA_score":  12,
+    "keyLeaked":  false,
+    "cost_vs_value":  "POSITIVE — 7 queries prevented estimated 1-3 hours rework per task + security regressions",
+    "recommended_next_step":  "R2.3-X: Real Implementation Trial with search-guided designs",
+    "search_queries_total":  7,
+    "where_search_helped":  [
+                                "API surface confirmation (Task 1)",
+                                "Ecosystem gap discovery (Task 2)",
+                                "Security best practice confirmation (Task 3)"
+                            ],
+    "remaining_risks":  [
+                            "search_std language bias",
+                            "Design-only validation, no runtime test yet",
+                            "Low official docs hit rate"
+                        ],
+    "tasks":  [
+                  {
+                      "groupA_score":  4,
+                      "verdict":  "SEARCH_CLEARLY_HELPED",
+                      "task":  "Fastify File Upload",
+                      "groupC_score":  7,
+                      "delta":  3
+                  },
+                  {
+                      "groupA_score":  4,
+                      "verdict":  "SEARCH_MODERATELY_HELPED",
+                      "task":  "RBAC Permissions",
+                      "groupC_score":  5,
+                      "delta":  1
+                  },
+                  {
+                      "groupA_score":  4,
+                      "verdict":  "SEARCH_CLEARLY_HELPED",
+                      "task":  "JWT Refresh Token",
+                      "groupC_score":  6,
+                      "delta":  2
+                  }
+              ],
+    "classification_label":  "EXTERNAL_SEARCH_VALUE_CONFIRMED",
+    "secret_safety_result":  "PASS",
+    "sources_total":  9,
+    "group_b_skipped":  true,
+    "group_b_deepseek_native_status":  "SKIPPED_NOT_AVAILABLE",
+    "classification":  "A",
+    "total_groupC_score":  18,
+    "tasks_significantly_improved":  2,
+    "cases_search_prevented_wrong_direction":  [
+                                                   "request.parts() vs request.file() API confusion",
+                                                   "refresh token in localStorage XSS risk",
+                                                   "Searching for non-existent Fastify RBAC plugin",
+                                                   "Using unmaintained accesscontrol npm"
+                                               ],
+    "tasks_improved":  3,
+    "group_b_skip_reason":  "No native search tool available in current Codex/DeepSeek environment",
+    "unsure_items_resolved":  13
+}

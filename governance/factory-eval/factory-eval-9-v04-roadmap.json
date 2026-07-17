@@ -1,0 +1,54 @@
+﻿{
+  "phase": "FACTORY-EVAL-9-G",
+  "title": "v0.4 Roadmap and Next Experiment",
+  "createdAt": "2026-06-25T20:07:00+08:00",
+  "evidenceBase": "FACTORY-EVAL-5 through EVAL-8: 4 phases of benchmark evaluation completed",
+  "recommendation": "STOP / User Review Before Repackaging (Option D)",
+  "rationale": "One benchmark (TeamFlow Lite) showed Factory Lite works but is insufficient to generalize. v0.4 packaging should not happen without user review of EVAL-9 decisions.",
+  "options": [
+    {
+      "id": "A",
+      "name": "FACTORY-V04-PREP: Build v0.4 Resource Pack Draft",
+      "timing": "After user confirms EVAL-9 decisions",
+      "prerequisite": "Explicit user confirmation",
+      "risk": "Packaging before second benchmark may lock in untested assumptions"
+    },
+    {
+      "id": "B",
+      "name": "FACTORY-EVAL-10: Second Benchmark on Different Project",
+      "timing": "After user review",
+      "projectCandidates": ["Habit Tracker (mobile-ish)", "Bookmark Manager (CRUD-heavy)", "TCM Therapy Registration (form-heavy)"],
+      "goal": "Test if Factory Lite generalizes beyond TeamFlow Lite",
+      "risk": "May delay v0.4 packaging"
+    },
+    {
+      "id": "C",
+      "name": "FACTORY-EVAL-10: Factory Lite Robustness Stress Test",
+      "timing": "After user review",
+      "scenarios": ["User interrupts mid-build", "Requirements change mid-build", "Multi-session continuity", "Large project (30+ FRs)"],
+      "goal": "Test Factory Lite under adverse conditions",
+      "risk": "Stress testing may reveal gaps but is time-intensive"
+    },
+    {
+      "id": "D",
+      "name": "STOP: User Review Before Repackaging",
+      "timing": "Now",
+      "action": "Present EVAL-9 decisions. Wait for user to confirm: (a) agree with KEEP/CUT/DEFER, (b) choose next phase, (c) authorize v0.4 repackaging.",
+      "risk": "None — safest option"
+    }
+  ],
+  "recommendedOrder": [
+    "1. User reviews EVAL-9 decisions (NOW)",
+    "2. User confirms or adjusts KEEP/CUT/DEFER",
+    "3. If confirmed: FACTORY-V04-PREP (build resource pack draft)",
+    "4. If cautious: FACTORY-EVAL-10 (second benchmark first)",
+    "5. After v0.4 draft: stress test or second benchmark",
+    "6. Final: v0.4 release only with user confirmation"
+  ],
+  "caveats": [
+    "One benchmark (TeamFlow Lite) showed Factory Lite works. This is promising but not proof of universal effectiveness.",
+    "Role-Agent underperformance may be specific to single-agent simulation. Multi-agent context was not tested.",
+    "3-role model is a hypothesis from EVAL-8 evidence, not yet benchmarked.",
+    "v0.4 should be marked as EXPERIMENTAL until second benchmark confirms."
+  ]
+}

@@ -1,0 +1,118 @@
+﻿{
+    "all_checks_pass":  true,
+    "generated_at":  "2026-06-28T10:04:44+08:00",
+    "verification_id":  "FACTORY-CONTEXT-SPACE-P7-CURRENT-STATE-VERIFICATION",
+    "verification_verdict":  "CURRENT_STATE_CORRECT",
+    "section":  "C",
+    "checks":  [
+                   {
+                       "detail":  "Phase ledger shows P6 as latest completed (2026-06-28T13:00:00)",
+                       "pass":  true,
+                       "id":  "CSV-001",
+                       "desc":  "CONTEXT-SPACE-P6 is latest completed phase"
+                   },
+                   {
+                       "detail":  "verifier-factory-context-space-p6-result.json: 38/38 PASS",
+                       "pass":  true,
+                       "id":  "CSV-002",
+                       "desc":  "P6 verifier/result paths exist"
+                   },
+                   {
+                       "detail":  "P5 claim-correction.json confirms SAME_WINDOW_SIMULATED_USABILITY_PROVEN",
+                       "pass":  true,
+                       "id":  "CSV-003",
+                       "desc":  "P5 limitation preserved: same-window simulation, not true fresh-window proof"
+                   },
+                   {
+                       "detail":  "P6 strategy-decision.json recommends P7",
+                       "pass":  true,
+                       "id":  "CSV-004",
+                       "desc":  "P7 is current validation activity"
+                   },
+                   {
+                       "detail":  "direction-guard.json nextRecommendedPhases = [P7, REALWORLD-2-P1]",
+                       "pass":  true,
+                       "id":  "CSV-005",
+                       "desc":  "No stale recommendation to continue older subphases"
+                   },
+                   {
+                       "detail":  "P4-R1 coverage-reconciliation: 24/24 achieved, gap closed",
+                       "pass":  true,
+                       "id":  "CSV-006",
+                       "desc":  "No stale P4 16-snapshot gap remains unresolved"
+                   },
+                   {
+                       "detail":  "P4-R1 verifier: 20/20 PASS, 8 NBP/QA snapshots generated",
+                       "pass":  true,
+                       "id":  "CSV-007",
+                       "desc":  "P4-R1 24/24 coverage repair recognized"
+                   },
+                   {
+                       "detail":  "DG-004 frozen; v0.5 release permanently blocked in blockedPhases",
+                       "pass":  true,
+                       "id":  "CSV-008",
+                       "desc":  "v0.5 blocked flag active"
+                   },
+                   {
+                       "detail":  "DG-002 frozen; Build Lite default",
+                       "pass":  true,
+                       "id":  "CSV-009",
+                       "desc":  "Build Lite default flag active"
+                   },
+                   {
+                       "detail":  "DG-003 frozen; NBP conditional not default",
+                       "pass":  true,
+                       "id":  "CSV-010",
+                       "desc":  "Native Build Pro conditional flag active"
+                   },
+                   {
+                       "detail":  "FROZEN-004: Package QA Gate is final handoff gate",
+                       "pass":  true,
+                       "id":  "CSV-011",
+                       "desc":  "Package QA final gate flag active"
+                   },
+                   {
+                       "detail":  "Context Packet required for NBP/long-horizon/recovery/native agent start",
+                       "pass":  true,
+                       "id":  "CSV-012",
+                       "desc":  "Context Packet required status active"
+                   },
+                   {
+                       "detail":  "DG-006 frozen; cloud deferred in P6 strategy",
+                       "pass":  true,
+                       "id":  "CSV-013",
+                       "desc":  "Cloud deferred flag active"
+                   },
+                   {
+                       "detail":  "DG-005 frozen; multi-agent not default",
+                       "pass":  true,
+                       "id":  "CSV-014",
+                       "desc":  "Multi-agent rejected flag active"
+                   },
+                   {
+                       "detail":  "DG-001 through DG-013, all frozen",
+                       "pass":  true,
+                       "id":  "CSV-015",
+                       "desc":  "Direction Guard has 13 rules, 10+ frozen"
+                   },
+                   {
+                       "detail":  "MRC-007: no duplicate phases confirmed",
+                       "pass":  true,
+                       "id":  "CSV-016",
+                       "desc":  "Phase ledger has 33 entries, no duplicates"
+                   },
+                   {
+                       "detail":  "DG v3 correctly blocks \u0027release v0.5 zip publish deploy\u0027",
+                       "pass":  true,
+                       "id":  "CSV-017",
+                       "desc":  "No stale recommendation to release v0.5"
+                   },
+                   {
+                       "detail":  "DG-012 frozen: Snapshot is derived context, not evidence",
+                       "pass":  true,
+                       "id":  "CSV-018",
+                       "desc":  "Snapshot Pack not treated as verifier evidence"
+                   }
+               ],
+    "phase":  "FACTORY-CONTEXT-SPACE-P7"
+}

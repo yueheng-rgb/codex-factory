@@ -1,0 +1,8 @@
+﻿{
+    "newScripts":  3,
+    "section":  "F",
+    "noDestructiveDefault":  true,
+    "existingPreserved":  true,
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0",
+    "fixtureLevel":  true
+}

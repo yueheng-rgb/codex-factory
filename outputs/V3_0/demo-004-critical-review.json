@@ -1,0 +1,27 @@
+﻿{
+    "demo": "DEMO-004",
+    "runner_type": "sandbox",
+    "risk_level": "CRITICAL",
+    "task": "CRITICAL Review Run — cross-pack-cpm-001 testbed",
+    "working_directory": "testbeds/cross-pack-cpm-001",
+    "tests_run": 17,
+    "tests_passed": 17,
+    "tests_failed": 0,
+    "exit_code": 0,
+    "final_status": "PASS",
+    "human_review_required": true,
+    "linked_review_id": "V3_0-REV-001",
+    "review_decision": "APPROVED_WITH_RISK",
+    "artifact_bound": true,
+    "artifact_paths": [
+        "artifacts/runs/DEMO-004-150930/stdout.log",
+        "artifacts/runs/DEMO-004-150930/run-record.json"
+    ],
+    "snapshot_verified": true,
+    "non_claims": [
+        "local_named_reviewer is NOT a real company-level human approval",
+        "This review is for RC validation, NOT production sign-off",
+        "Reviewer alias is a local identifier, NOT a verified identity"
+    ],
+    "known_issue": "execution-runner.ps1 has path nesting bug for stderr path"
+}

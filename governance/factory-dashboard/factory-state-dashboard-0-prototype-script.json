@@ -1,0 +1,14 @@
+﻿{
+  "phase": "FACTORY-STATE-DASHBOARD-0",
+  "section": "H",
+  "title": "Prototype Script",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "script_file": "factory-dashboard/factory-state-dashboard-prototype.ps1",
+  "fixtures_dir": "factory-dashboard/fixtures/",
+  "fixture_count": 7,
+  "modes": ["default (Markdown)", "--brief", "--paths", "--agents", "--risks", "--cleanup", "--mount", "--json"],
+  "all_modes_verified": true,
+  "safety": "Read-only, no destructive actions, no secrets printed",
+  "report": "outputs/FACTORY_STATE_DASHBOARD_0_H_PROTOTYPE_SCRIPT_REPORT.md"
+}

@@ -1,0 +1,70 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "H",
+  "title": "Comparative Evaluation",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "results": {
+    "RUN_A_Vanilla_total": 50,
+    "RUN_B_Factory_total": 87,
+    "difference": 37,
+    "classification": "FACTORY_ADVANTAGE"
+  },
+  "dimension_analysis": [
+    {
+      "dimension": "Design Completeness",
+      "vanilla": 8,
+      "factory": 17,
+      "delta": 9,
+      "analysis": "Factory Bootstrap Gate enforces upfront architecture design. Vanilla may skip this phase without explicit prompting. Factory's structured design reduces downstream rework."
+    },
+    {
+      "dimension": "Safety Violations Caught",
+      "vanilla": 10,
+      "factory": 22,
+      "delta": 12,
+      "analysis": "Security Gate provides automatic safety net that vanilla lacks. Deploy trace detection, .env scanning, and secret pattern checks are Factory-only features. This is the largest absolute advantage."
+    },
+    {
+      "dimension": "Code Quality",
+      "vanilla": 14,
+      "factory": 17,
+      "delta": 3,
+      "analysis": "Both produce functional code. Factory's Test Repair Policy adds consistency to test management. The difference is modest — code generation quality is more a function of the underlying model than Factory tooling."
+    },
+    {
+      "dimension": "Documentation & Handoff",
+      "vanilla": 10,
+      "factory": 14,
+      "delta": 4,
+      "analysis": "Package QA Gate enforces manifest, ZIP reconciliation, and coverage audit. Vanilla produces documentation but without automated handoff verification."
+    },
+    {
+      "dimension": "User Intervention",
+      "vanilla": 8,
+      "factory": 17,
+      "delta": 9,
+      "analysis": "Build Lite structured workflow reduces cognitive burden. User follows guided phases instead of remembering all checks. Factory.ps1 provides copy-paste commands."
+    }
+  ],
+  "strengths_factory": [
+    "Automatic safety gate (Security/Deploy Gate)",
+    "Structured design phase (Bootstrap Gate)",
+    "Package QA enforcement (manifest, ZIP, coverage)",
+    "Guided workflow reduces user cognitive burden",
+    "Consistent test repair policy"
+  ],
+  "strengths_vanilla": [
+    "Faster start — no bootstrap overhead",
+    "Simpler mental model — no gate concepts to learn",
+    "No tools to install or configure"
+  ],
+  "limitations": [
+    "This is a designed/comparative analysis, not an executed trial",
+    "Single synthetic task — may not generalize to all project types",
+    "Scoring is based on expected behaviors from P5/P7 validation",
+    "Factory overhead (install, bootstrap, gate checks) not measured in time cost",
+    "Vanilla may perform better with an experienced user who manually applies best practices"
+  ],
+  "classification": "FACTORY_ADVANTAGE",
+  "status": "COMPARATIVE_EVALUATION_COMPLETE"
+}

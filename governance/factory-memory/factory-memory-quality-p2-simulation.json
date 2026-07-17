@@ -1,0 +1,88 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "J",
+  "title": "Simulation: Memory Ingestion + Validation",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "simulation_scenarios": [
+    {
+      "id": "SIM-001",
+      "name": "Valid phase result — PASS",
+      "input": "Phase result with evidence_path, caveat, score, valid status/category",
+      "expected": "Validator PASS. Memory record written.",
+      "result": "PASS"
+    },
+    {
+      "id": "SIM-002",
+      "name": "Missing evidence_path — BLOCKED",
+      "input": "Phase result without evidence_path",
+      "expected": "Validator BLOCKED by VAL-001. Record rejected.",
+      "result": "BLOCKED"
+    },
+    {
+      "id": "SIM-003",
+      "name": "Missing caveat for PARTIAL — BLOCKED",
+      "input": "PARTIAL status record with no caveat",
+      "expected": "Validator BLOCKED by VAL-003. Record rejected.",
+      "result": "BLOCKED"
+    },
+    {
+      "id": "SIM-004",
+      "name": "DESIGN_ONLY without tag — BLOCKED",
+      "input": "Design analysis presented as execution evidence, no DESIGN_ONLY tag",
+      "expected": "Validator BLOCKED by VAL-005. Record rejected.",
+      "result": "BLOCKED"
+    },
+    {
+      "id": "SIM-005",
+      "name": "Overclaim 'proves superiority' — WARN",
+      "input": "Summary contains 'proves Factory superiority'",
+      "expected": "Validator WARN by VAL-013. Record accepted with warning.",
+      "result": "PASS_WITH_WARNINGS"
+    },
+    {
+      "id": "SIM-006",
+      "name": "Summary > 500 chars — BLOCKED",
+      "input": "Summary field at 750 characters",
+      "expected": "Validator BLOCKED by VAL-002. Record rejected.",
+      "result": "BLOCKED"
+    },
+    {
+      "id": "SIM-007",
+      "name": "Socratic triggered for direction conflict",
+      "input": "Two active strategies contradict; ambiguity about next direction",
+      "expected": "Socratic Gate triggers. Max 3 questions. Clarification before ingestion.",
+      "result": "SOCRATIC_TRIGGERED"
+    },
+    {
+      "id": "SIM-008",
+      "name": "Socratic NOT triggered for normal phase close",
+      "input": "Normal phase close with clear verifier result",
+      "expected": "Socratic Gate does NOT trigger. Normal ingestion proceeds.",
+      "result": "SOCRATIC_NOT_TRIGGERED"
+    },
+    {
+      "id": "SIM-009",
+      "name": "Secret pattern detected — BLOCKED",
+      "input": "Summary contains API key pattern",
+      "expected": "Validator BLOCKED by VAL-008. Record rejected.",
+      "result": "BLOCKED"
+    },
+    {
+      "id": "SIM-010",
+      "name": "RETIRED without reason — BLOCKED",
+      "input": "Status=RETIRED but no retired_reason",
+      "expected": "Validator BLOCKED by VAL-012. Record rejected.",
+      "result": "BLOCKED"
+    }
+  ],
+  "simulation_summary": {
+    "total": 10,
+    "pass": 1,
+    "pass_with_warnings": 1,
+    "blocked": 6,
+    "socratic_triggered": 1,
+    "socratic_not_triggered": 1,
+    "all_expected_behaviors_match": true
+  },
+  "status": "SIMULATION_COMPLETE"
+}

@@ -1,0 +1,75 @@
+﻿{
+    "defaultOperatingModel":  "Factory Lite Core (Tier 0, 0 roles, ~200ms overhead)",
+    "positioning":  "PROCESS_INTEGRITY_LAYER",
+    "totalFiles":  38,
+    "finalZipCreated":  false,
+    "twoBenchmarkCaveat":  "Two benchmarks is limited evidence. More benchmarks needed for robust generalizability claims.",
+    "evidence":  {
+                     "netAssessment":  "Two benchmarks: 1 positive, 1 negative. Product quality effect is CONDITIONAL. Process integrity benefits are CONSISTENT.",
+                     "EVAL-13":  "LedgerFlow Lite: Vanilla 99 \u003e v0.4 Factory 95 (-4). v0.4 does NOT always improve quality. Verdict: INCONCLUSIVE.",
+                     "EVAL-8":  "TeamFlow Lite: Factory Lite 94 \u003e Vanilla 86 (+8). v0.4 CAN improve quality."
+                 },
+    "name":  "Codex Factory v0.4 Resource Pack",
+    "deferredModules":  [
+                            "context-recovery-deferred/README.md",
+                            "context-recovery-deferred/multi-agent-escalation-policy.json"
+                        ],
+    "archivedModules":  [
+                            "archive/README.md",
+                            "archive/10-role-model-archive-note.json"
+                        ],
+    "defaultModules":  [
+                           "core/ALWAYS_ON_CONSTITUTION.md",
+                           "core/manual-index.json",
+                           "core/page-router.json",
+                           "core/proof-of-read.schema.json",
+                           "core/proof-of-read-policy.json",
+                           "core/required-reading-gate-policy.json",
+                           "core/evidence-hierarchy.md",
+                           "core/contamination-logging-policy.json",
+                           "core/anti-gaming-policy.json",
+                           "core/context-budget-policy.json",
+                           "core/same-requirements-policy.json",
+                           "core/quality-gap-trigger-policy.json"
+                       ],
+    "topLevelDocs":  [
+                         "POSITIONING.md",
+                         "EVIDENCE_BASIS.md",
+                         "BOUNDARY.md",
+                         "README.md",
+                         "USAGE_QUICKSTART.md",
+                         "CHANGELOG_DRAFT.md",
+                         "INSTALL_DRAFT.md"
+                     ],
+    "generatedAt":  "2026-06-25T22:18:48+08:00",
+    "description":  "Process integrity layer for Codex-assisted development. Provides audit trail, contamination control, anti-gaming, and evidence discipline. Product quality improvement is CONDITIONAL, not guaranteed.",
+    "status":  "DRAFT_NOT_RELEASED",
+    "oneBenchmarkLimitation":  false,
+    "version":  "0.4.0-draft",
+    "productQualityImprovement":  "CONDITIONAL_NOT_GUARANTEED",
+    "forbiddenClaims":  [
+                            "v0.4 universally improves product quality",
+                            "v0.4 always beats Vanilla",
+                            "Factory Lite guarantees better output",
+                            "process artifacts equal product quality",
+                            "proof-of-read proves correctness",
+                            "3-role is proven necessary",
+                            "10-role is default",
+                            "v0.4 is final release",
+                            "file/test counts prove quality",
+                            "v0.4 replaces good engineering judgment"
+                        ],
+    "optionalModules":  [
+                            "optional-3role/architect-profile.json",
+                            "optional-3role/builder-profile.json",
+                            "optional-3role/reviewer-profile.json",
+                            "review/reviewer-checklist.json",
+                            "review/quality-gap-reviewer-checklist.json"
+                        ],
+    "qualityGapTriggers":  "core/quality-gap-trigger-policy.json",
+    "docs":  [
+                 "docs/WHEN_TO_USE_FACTORY_LITE.md",
+                 "docs/WHEN_NOT_TO_USE_FACTORY.md",
+                 "docs/COMMON_FAILURE_MODES.md"
+             ]
+}

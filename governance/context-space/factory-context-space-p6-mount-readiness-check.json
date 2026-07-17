@@ -1,0 +1,22 @@
+﻿{
+  "check_id": "FACTORY-CONTEXT-SPACE-P6-MOUNT-READINESS-CHECK",
+  "generated_at": "2026-06-28T13:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P6",
+  "sub_step": "G",
+  "description": "Post-phase-close verification that the external conversation space is ready for a fresh mount",
+  "checks": [
+    {"id": "MRC-001", "check": "phase-ledger.jsonl has latest phase entry", "required": true},
+    {"id": "MRC-002", "check": "All 8 snapshot types exist with freshnessStatus=FRESH", "required": true},
+    {"id": "MRC-003", "check": "Attach Packet v3 exists with freshnessStatus=FRESH", "required": true},
+    {"id": "MRC-004", "check": "direction-guard.json currentPhase matches latest phase-ledger", "required": true},
+    {"id": "MRC-005", "check": "SQLite index v2 timestamp >= latest phase-ledger timestamp", "required": true},
+    {"id": "MRC-006", "check": "No snapshots with freshnessStatus=STALE", "required": true},
+    {"id": "MRC-007", "check": "No duplicate phase entries in phase-ledger", "required": true},
+    {"id": "MRC-008", "check": "evidence-index.json references new verifier result", "required": true},
+    {"id": "MRC-009", "check": "All frozen strategy flags preserved in direction-guard", "required": true},
+    {"id": "MRC-010", "check": "No active blockers that would prevent mount", "required": true}
+  ],
+  "pass_condition": "All 10 MRC checks pass",
+  "fail_action": "BLOCK phase close completion. Run repair steps for failed checks.",
+  "user_command_for_mount": "加载最新 Snapshot，判断当前方向"
+}

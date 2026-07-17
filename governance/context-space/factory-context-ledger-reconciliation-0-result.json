@@ -1,0 +1,40 @@
+﻿{
+    "evidence_sources":  [
+                             "governance/factory-release/verifier-*.json (14 files)",
+                             "governance/factory-workflow/verifier-*.json",
+                             "governance/factory-isolation/verifier-*.json",
+                             "governance/factory-dashboard/verifier-*.json",
+                             "governance/factory-recovery/verifier-*.json",
+                             "governance/factory-multi-agent/verifier-*.json",
+                             "governance/factory-evidence/verifier-*.json",
+                             "governance/factory-lifecycle/verifier-*.json",
+                             "governance/factory-ab/verifier-*.json (4 files)",
+                             "governance/factory-build/verifier-*-pack-staging-*.json (8 files)"
+                         ],
+    "v06_not_created":  true,
+    "timestamp":  "2026-06-29T13:42:38+08:00",
+    "real_validation_not_started":  true,
+    "mount_readiness":  {
+                            "mount_count":  16,
+                            "tier2":  47,
+                            "tier1":  10,
+                            "freshness":  "FRESH",
+                            "last_completed":  "USER-HANDOFF-R1"
+                        },
+    "no_chat_summary_used":  true,
+    "phases_reconciled":  27,
+    "defect_description":  "External Conversation Space did not ingest completed release, theory, and R1 phases",
+    "verdict":  "PASS",
+    "files_modified":  [
+                           "governance/context-space/current/phase-ledger.jsonl (+27 entries)",
+                           "external-conversation-space/data/conversation-space.json (completed_phases rebuilt)",
+                           "governance/context-space/current/direction-guard.json (nextRecommendedPhases fixed)",
+                           "governance/context-space/current/active-thread.json (currentPhase aligned)",
+                           "external-conversation-space/data/attach-packet-latest.json (mount #16, FRESH)",
+                           "factory-context-space/data/attach-packet-v3-latest.json (snapshot SNAP-FW-20260629-134200)"
+                       ],
+    "phase":  "FACTORY-CONTEXT-LEDGER-RECONCILIATION-0",
+    "risk_cs_002_preserved":  true,
+    "total_phases_in_ledger":  72,
+    "defect":  "CTX-LEDGER-001"
+}

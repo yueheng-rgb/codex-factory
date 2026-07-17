@@ -1,0 +1,8 @@
+﻿{
+    "passed":  11,
+    "patternsChecked":  11,
+    "section":  "I",
+    "failed":  0,
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE",
+    "noOverclaimFound":  true
+}

@@ -1,0 +1,29 @@
+﻿{
+    "includes":  [
+                     "factory-build-mode/memory-quality/",
+                     "factory-build-mode/runtime/memory/",
+                     "governance/factory-memory/",
+                     "outputs/MEMORY_QUALITY_0*",
+                     "outputs/smoke-*",
+                     "scripts/",
+                     "MANIFEST.json",
+                     "MANIFEST.sha256"
+                 ],
+    "bundleSizeKB":  49.6,
+    "section":  "H",
+    "excludes":  [
+                     "Product source",
+                     "SkillMarket",
+                     "DevFlow",
+                     "SkillForge",
+                     "AtlasOps",
+                     "Release ZIPs",
+                     "v0.5 package"
+                 ],
+    "phase":  "FACTORY-MEMORY-QUALITY-0-P1",
+    "date":  "2026-06-27",
+    "status":  "COMPLETED",
+    "title":  "Dedicated Audit Bundle",
+    "bundlePath":  "outputs/FACTORY_MEMORY_QUALITY_0_P1_AUDIT_BUNDLE.zip",
+    "totalFiles":  41
+}

@@ -1,0 +1,9 @@
+﻿{
+    "boundaries":  [
+                       {
+                           "module":  "auth",
+                           "actualImports":  "payments/checkout.ts",
+                           "forbiddenImports":  "payments/"
+                       }
+                   ]
+}

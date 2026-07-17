@@ -1,0 +1,27 @@
+﻿{
+  "policy_version": "2.2.0",
+  "effective_date": "2026-07-12",
+  "mandatory_review_conditions": [
+    {"id":"MR-01","condition":"CRITICAL risk profile","reviewer":"business|security"},
+    {"id":"MR-02","condition":"L_CLASS project","reviewer":"architecture|release"},
+    {"id":"MR-03","condition":"Production readiness above READY_FOR_STAGING","reviewer":"release"},
+    {"id":"MR-04","condition":"Release packaging (major version)","reviewer":"release"},
+    {"id":"MR-05","condition":"External engine finding marked false positive","reviewer":"security"},
+    {"id":"MR-06","condition":"Security-sensitive changes","reviewer":"security"},
+    {"id":"MR-07","condition":"Payment/pricing/tenant isolation changes","reviewer":"business"},
+    {"id":"MR-08","condition":"Compression summary conflict with trusted state","reviewer":"operator"},
+    {"id":"MR-09","condition":"Report drift detected","reviewer":"operator"},
+    {"id":"MR-10","condition":"Rollback or migration approval","reviewer":"architecture"}
+  ],
+  "receipt_rules": {
+    "must_reference_artifact_ids": true,
+    "missing_artifact_blocks_review": true,
+    "nonzero_exit_max_decision": "APPROVED_WITH_RISK",
+    "reviewer_must_see_claims": true,
+    "receipt_enters_audit_ledger": true,
+    "no_fake_reviewer": true,
+    "cannot_be_auto_generated_by_agent": true,
+    "approval_does_not_override_failed_tests": true,
+    "non_claims_required_for_approved_with_risk": true
+  }
+}

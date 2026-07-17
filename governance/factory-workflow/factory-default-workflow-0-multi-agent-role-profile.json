@@ -1,0 +1,57 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "E",
+  "title": "Multi-Agent Role Profile Draft",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "DRAFT",
+  "profile_file": "factory-workflow/MULTI_AGENT_ROLE_PROFILE_DRAFT.md",
+  "roles": [
+    {
+      "name": "Architect Agent",
+      "responsibility": "Project structure, module boundaries, API contract design, database schema",
+      "inputs": ["Factory Boot Summary", "user requirements"],
+      "outputs": ["Architecture doc", "API sketch", "DB schema", "module tree"],
+      "write_scope": "Design docs only",
+      "cannot": ["Write implementation code", "Modify files outside design scope"]
+    },
+    {
+      "name": "Backend Worker Agent",
+      "responsibility": "Server-side implementation, API endpoints, database operations, middleware",
+      "inputs": ["Architecture doc", "API sketch", "DB schema"],
+      "outputs": ["Backend code files", "route handlers", "DB migrations"],
+      "write_scope": "Backend code",
+      "cannot": ["Modify frontend code", "Change architecture decisions"]
+    },
+    {
+      "name": "Frontend Worker Agent",
+      "responsibility": "Client-side implementation, UI components, state management, routing",
+      "inputs": ["Architecture doc", "UI design", "API contract"],
+      "outputs": ["Frontend code files", "components", "pages"],
+      "write_scope": "Frontend code",
+      "cannot": ["Modify backend code", "Change API contract unilaterally"]
+    },
+    {
+      "name": "Integrator Agent",
+      "responsibility": "Cross-cutting integration, contract validation, end-to-end wiring",
+      "inputs": ["Backend outputs", "Frontend outputs", "API contract"],
+      "outputs": ["Integration fixes", "Contract validation report"],
+      "write_scope": "Integration layer",
+      "cannot": ["Introduce new features"]
+    },
+    {
+      "name": "QA / Verifier Agent",
+      "responsibility": "Verification, testing, negative controls, final report",
+      "inputs": ["All agent outputs", "Acceptance criteria"],
+      "outputs": ["Verification report", "Test results", "Negative control pass/fail"],
+      "write_scope": "Reports only",
+      "cannot": ["Modify source files"]
+    }
+  ],
+  "assignment_rules": {
+    "small_fullstack_lt_10_files": ["Architect", "1 Worker (single agent sufficient)"],
+    "medium_fullstack_10_30_files": ["Architect", "Backend Worker", "Frontend Worker"],
+    "large_fullstack_30_plus_files": ["Architect", "Backend Worker", "Frontend Worker", "Integrator", "QA"]
+  },
+  "refinement_phase": "FACTORY-MULTI-AGENT-ORCHESTRATION-1",
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_E_MULTI_AGENT_ROLE_PROFILE_REPORT.md"
+}

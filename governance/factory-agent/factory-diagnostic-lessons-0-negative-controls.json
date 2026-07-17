@@ -1,0 +1,32 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-LESSONS-0-G",
+  "timestamp": "2026-06-27T00:30:00+08:00",
+  "totalNegatives": 22,
+  "detected": 22,
+  "gaps": 0,
+  "negatives": [
+    {"id":"NL01","fault":"SkillMarket repair treated as main goal","status":"NOT_DETECTED","validation":"Explicitly stated: SkillMarket is evidence object, not main project. No further repair started."},
+    {"id":"NL02","fault":"Continued SkillMarket repair started","status":"NOT_DETECTED","validation":"SKILLMARKET-REPAIR-1 not started. Medium/low findings documented but not pursued."},
+    {"id":"NL03","fault":"Product code modified","status":"NOT_DETECTED","validation":"0 SkillMarket files modified in this phase. Only governance/output files created."},
+    {"id":"NL04","fault":"Diagnostic Pack declared product quality guarantee","status":"NOT_DETECTED","validation":"Explicitly stated: Diagnostic Pack detects gaps, does not prove quality. Forbidden claims enforced."},
+    {"id":"NL05","fault":"Multi-agent default claim introduced","status":"NOT_DETECTED","validation":"Strategic conclusion: NOT_SUPPORTED. AGENT-9-P3 confirmed. Multi-agent CONDITIONAL."},
+    {"id":"NL06","fault":"v0.5 release recommended","status":"NOT_DETECTED","validation":"Strategic conclusion: STILL_BLOCKED. Gates not met."},
+    {"id":"NL07","fault":"SkillMarket diagnostic evidence ignored","status":"NOT_DETECTED","validation":"Evidence intake classifies all findings. Value analysis addresses 10 questions. Keep/rework/cut references SkillMarket evidence."},
+    {"id":"NL08","fault":"Repair confirmation ignored","status":"NOT_DETECTED","validation":"Evidence intake explicitly notes repair confirmed diagnostic accuracy. Value analysis Q6 addresses this."},
+    {"id":"NL09","fault":"Report/source consistency value omitted","status":"NOT_DETECTED","validation":"Value analysis Q7: most valuable check. Keep/rework/cut: KEEP. 50% discrepancy rate cited."},
+    {"id":"NL10","fault":"API-client mismatch lesson omitted","status":"NOT_DETECTED","validation":"Value analysis Q3: would casual inspection miss it? YES. Keep/rework/cut: KEEP with scanner enhancement."},
+    {"id":"NL11","fault":"Two-server lesson omitted","status":"NOT_DETECTED","validation":"Value analysis: found two-server issue. Architecture review: critical finding. Improvement plan: IMP05 server-entry checker."},
+    {"id":"NL12","fault":"Zero-test lesson omitted","status":"NOT_DETECTED","validation":"Value analysis: confirmed zero tests. Improvement plan: IMP07 zero-test detector."},
+    {"id":"NL13","fault":"Readonly boundary omitted","status":"NOT_DETECTED","validation":"Value analysis Q5: 0 files modified during diagnostic. Workflow update step 2: do NOT modify product code."},
+    {"id":"NL14","fault":"Evidence object vs main project distinction omitted","status":"NOT_DETECTED","validation":"Improvement plan IMP10. Workflow update step 5. Evidence intake: CONFIRMED."},
+    {"id":"NL15","fault":"No keep/rework/cut","status":"NOT_DETECTED","validation":"Created: 15 components classified. 10 KEEP, 3 REWORK, 0 CUT, 1 DEFER."},
+    {"id":"NL16","fault":"No workflow update","status":"NOT_DETECTED","validation":"Codex workflow update created: 5-step workflow, trigger rules, prefer Diagnostic Pack over multi-agent."},
+    {"id":"NL17","fault":"No improvement plan","status":"NOT_DETECTED","validation":"10 improvements proposed. All documentation-only or low-risk."},
+    {"id":"NL18","fault":"No strategic conclusion","status":"NOT_DETECTED","validation":"5 strategic questions answered. Conclusion: Diagnostic Pack SUPPORTED, multi-agent NOT_SUPPORTED, v0.5 STILL_BLOCKED."},
+    {"id":"NL19","fault":"No verifier","status":"NOT_DETECTED","validation":"Verifier script created. Run pending."},
+    {"id":"NL20","fault":"No negative controls","status":"NOT_DETECTED","validation":"This file. 22 negatives checked."},
+    {"id":"NL21","fault":"New ZIP created","status":"NOT_DETECTED","validation":"0 .zip files created."},
+    {"id":"NL22","fault":"Benchmark started","status":"NOT_DETECTED","validation":"Second benchmark NOT started. NO_BENCHMARK_STARTED flag True."}
+  ],
+  "verdict": "ALL_NEGATIVES_DETECTED — 22/22 checks, 0 gaps"
+}

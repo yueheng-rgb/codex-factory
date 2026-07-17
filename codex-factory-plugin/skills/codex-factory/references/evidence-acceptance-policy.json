@@ -1,0 +1,108 @@
+﻿{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "factory-resource-pack/policies/evidence-acceptance-policy.json",
+  "title": "Evidence Acceptance Policy",
+  "description": "Defines the evidence hierarchy, acceptance criteria, and mandatory evidence requirements for Factory verifier verdicts. Establishes what constitutes valid, trustworthy evidence for PASS, FAIL, and CAVEAT outcomes.",
+  "phase": "H18",
+  "policyVersion": "1.0.0",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T12:00:00.000+08:00",
+  "generatedBy": "H18 Builder: POLICIES-SCHEMAS",
+  "evidenceHierarchy": {
+    "description": "Evidence types ordered by trustworthiness. Higher tiers can corroborate or override lower tiers. Lower tiers alone cannot override higher tiers.",
+    "tiers": [
+      {
+        "level": 1,
+        "type": "verifierResult",
+        "label": "Verifier JSON Result",
+        "trustLevel": "highest",
+        "requiredFor": ["PASS", "FAIL"],
+        "description": "Machine-readable JSON output from an automated verifier module. Must include verifierName, targetGate, outcome (PASS/FAIL), evidenceRefs, and timestamp.",
+        "format": "JSON with required fields: verifierName, targetGate, outcome, evidenceRefs[], timestamp",
+        "minimumFields": ["verifierName", "targetGate", "outcome", "evidenceRefs", "timestamp"]
+      },
+      {
+        "level": 2,
+        "type": "transcript",
+        "label": "Worker Completion Transcript",
+        "trustLevel": "high",
+        "requiredFor": ["workerCompletion"],
+        "description": "Full execution transcript from a worker agent session. Must be complete (not summarized, not compressed).",
+        "format": "Plain text or structured log; must include agentId, phase, startTimestamp, endTimestamp",
+        "antiTamper": "SHA256 hash of transcript must be recorded in evidence entry."
+      },
+      {
+        "level": 3,
+        "type": "registryEntry",
+        "label": "Agent Registry Entry",
+        "trustLevel": "high",
+        "requiredFor": ["agentLifecycle"],
+        "description": "Entry in AGENT_REGISTRY.json recording agent spawn, completion, or termination.",
+        "format": "JSON conforming to agent-registry-entry schema",
+        "minimumFields": ["agentId", "phase", "status", "spawnedAt"]
+      },
+      {
+        "level": 4,
+        "type": "progressEvent",
+        "label": "Progress Event",
+        "trustLevel": "medium",
+        "requiredFor": ["phaseTransition"],
+        "description": "Entry in AGENT_PROGRESS.jsonl recording a phase transition or milestone event.",
+        "format": "JSONL conforming to progress-event schema",
+        "minimumFields": ["agentId", "phase", "eventType", "timestamp"]
+      },
+      {
+        "level": 5,
+        "type": "summary",
+        "label": "Summary / Narrative",
+        "trustLevel": "untrusted",
+        "requiredFor": [],
+        "description": "Human-readable summary or narrative description. Not accepted as primary evidence. Must be corroborated by tier 1-4 evidence.",
+        "restrictions": [
+          "Cannot be sole evidence for any PASS verdict.",
+          "Cannot override a FAIL verdict from a higher tier.",
+          "Compressed summaries (after context compression) are explicitly prohibited as evidence.",
+          "Codex self-report summaries without independent verifier confirmation are prohibited."
+        ]
+      }
+    ]
+  },
+  "mandatoryEvidenceByOutcome": {
+    "PASS": {
+      "requires": ["verifierResult"],
+      "description": "Every PASS verdict must be backed by at least one verifier JSON result. No manual PASS-only verdicts.",
+      "exceptions": "None. Manual PASS is always prohibited."
+    },
+    "FAIL": {
+      "requires": ["verifierResult"],
+      "description": "Every FAIL verdict must reference a specific target gate and include the verifier result that detected the failure.",
+      "prohibited": [
+        "Generic FAIL with no specific target gate.",
+        "FAIL_TARGET_NOT_TRIGGERED without a named target gate.",
+        "expectedClass-only FAIL (must name target gate and verifier)."
+      ]
+    },
+    "CAVEAT": {
+      "requires": ["verifierResult OR transcript"],
+      "description": "Caveats must reference either a verifier finding or a transcript excerpt showing the gap.",
+      "priorityMustBeDeclared": true
+    }
+  },
+  "prohibitedEvidence": {
+    "compressedSummary": "Any summary produced after context compression. Rendered untrusted by context-compression-policy.",
+    "codexSelfReport": "Codex capability claims not independently verified by a verifier module.",
+    "scoreComputedOutput": "Any PASS/FAIL derived from a computed score rather than a binary verifier check (SCORING_SYSTEM_GATE).",
+    "rewrittenHistorical": "Historical evidence from DRY19/DRY20/DRY23/P2/H17/DRY24 that has been rewritten or reinterpreted.",
+    "undeclaredFallback": "Evidence of Main Agent fallback that was not declared in the agent spawn record.",
+    "manualOnlyVerdict": "PASS, FAIL, or CAVEAT verdict without machine-readable verifier output or transcript backing."
+  },
+  "evidenceChainRequirements": {
+    "description": "For a PASS verdict to be valid, the evidence chain must be complete: verifier result references evidence entries, which reference transcripts or progress events, which reference the artifacts they describe.",
+    "requiredLinks": [
+      "verifierResult.evidenceRefs -> evidenceEntry.filePath",
+      "evidenceEntry.transcriptRef -> transcript artifact",
+      "progressEvent.evidenceRefs -> evidence entries or artifacts"
+    ],
+    "brokenChainIsP1": true
+  }
+}

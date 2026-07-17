@@ -1,0 +1,37 @@
+﻿{
+    "checkedAt":  "2026-06-24T20:10:05+08:00",
+    "verdict":  "PASS",
+    "passed":  36,
+    "sourceEvidenceSha256":  {
+                                 "h22-cloud-sync-automation-capability-classification.json":  "A11CAD8EE1D09E9AFDD77CA29BF1F91E4E416528FC040A8001674D9AB28E86D2",
+                                 "h22-experimental-packaging-manifest.json":  "0201C9A33B334AF528E689D722BAF1E0DF089EE25E9F14FD1E28D419BE1F115F",
+                                 "PACKAGING_MANIFEST.json":  "919051510D77A98042130F8047E4DB09C70822E5CED91AB676588F28771C3442",
+                                 "h22-packaging-boundary-inventory.json":  "48BA3D14D0BE18659B35DFC22D3EDFF25A8101FFD64A6EED775E6054296F2C62"
+                             },
+    "phase":  "H22",
+    "totalChecks":  36,
+    "subPhases":  {
+                      "H22-B":  {
+                                    "status":  "PASS",
+                                    "description":  "Capability classification: 12 claims, 2 VERIFIED_FACT, 4 PARTIALLY_VERIFIED, 3 HYPOTHESIS, 1 REJECTED"
+                                },
+                      "H22-E":  {
+                                    "status":  "PASS",
+                                    "description":  "Comprehensive verifier: 36/36 PASS, 6 categories"
+                                },
+                      "H22-D":  {
+                                    "status":  "PASS",
+                                    "description":  "20 boundary negative controls: 20/20 PASS, 0 unexpected"
+                                },
+                      "H22-C":  {
+                                    "status":  "PASS",
+                                    "description":  "Experimental packaging manifest: 6 boundary docs, PACKAGING_MANIFEST.json with 11 forbidden claims"
+                                },
+                      "H22-A":  {
+                                    "status":  "PASS",
+                                    "description":  "Packaging boundary inventory: 7 categories, 4 STABLE, 3 EXPERIMENTAL"
+                                }
+                  },
+    "failed":  0,
+    "parentPhase":  "H21"
+}

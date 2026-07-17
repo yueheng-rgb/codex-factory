@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  177,
+    "frozenAt":  "2026-06-19T18:54:12.5615973+08:00",
+    "runId":  "C-RUN-F2-R2-REDISPATCH",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\C-RUN-F2-R2-REDISPATCH\\trust-root.json",
+    "controlPlaneLockSha256":  "a7a49608a2ea8439e2a705ece01131e19c19e94b0ba4c38421f833aad07d75dd",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "4bb176b2596dd93dbab7e228311b4a323b6429023214349d212264cd558d8885"
+}

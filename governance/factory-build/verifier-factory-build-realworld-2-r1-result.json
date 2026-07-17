@@ -1,0 +1,8 @@
+﻿{
+    "verifier":  "factory-build-realworld-2-r1-contamination-aware-evaluation-verify.ps1",
+    "passed":  34,
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-27T20:55:40+08:00",
+    "failed":  0,
+    "total_checks":  34
+}

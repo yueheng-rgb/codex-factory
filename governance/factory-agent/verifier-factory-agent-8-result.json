@@ -1,0 +1,162 @@
+﻿{
+    "checks":  [
+                   {
+                       "detail":  "zips_in_run=0 v05_in_outputs=0",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "NO_NEW_ZIP"
+                   },
+                   {
+                       "detail":  "path exists: True",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "FACTORY_AGENT_7_PASS"
+                   },
+                   {
+                       "detail":  "path=C:\\Codex_App_Factory\\harness\\benchmarks\\factory-agent-large-project\\runs\\v05-agent-company",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "RUN_LP_C_DIR"
+                   },
+                   {
+                       "detail":  "agentCompanyMode=True",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "RUN_METADATA.v05AgentCompany"
+                   },
+                   {
+                       "detail":  "v05=True",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "RUN_METADATA.v05ReleaseUsed"
+                   },
+                   {
+                       "detail":  "spawnedAgents=True",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "RUN_METADATA.spawnedAgents"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "TASK_GRAPH"
+                   },
+                   {
+                       "detail":  "count=4",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "WORKER_CAPSULES"
+                   },
+                   {
+                       "detail":  "builders=7 total=23",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_REGISTRY_BUILDERS"
+                   },
+                   {
+                       "detail":  "all forkContext=false",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "FORK_CONTEXT_FALSE"
+                   },
+                   {
+                       "detail":  "all nativeGenerated=true",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "NATIVE_GENERATED"
+                   },
+                   {
+                       "detail":  "gatekeepers=3",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "GATEKEEPER_READONLY"
+                   },
+                   {
+                       "detail":  "spawns=7 completes=7",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "LIFECYCLE_EVENTS"
+                   },
+                   {
+                       "detail":  "count=4",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "HANDOFFS"
+                   },
+                   {
+                       "detail":  "count=4",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "CLOSE_RECEIPTS"
+                   },
+                   {
+                       "detail":  "",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "GATE_REVIEWER-RESULT"
+                   },
+                   {
+                       "detail":  "",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "GATE_VERIFIER-RESULT"
+                   },
+                   {
+                       "detail":  "",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "GATE_INTEGRITY-RESULT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "PRODUCT_DIR"
+                   },
+                   {
+                       "detail":  "ts_files=71 test_files=22",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "SOURCE_FILES"
+                   },
+                   {
+                       "detail":  "207/207 tests pass",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "TEST_SUITE_ALL_PASS"
+                   },
+                   {
+                       "detail":  "references=0",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "NO_RUN_AB_REFERENCES"
+                   },
+                   {
+                       "detail":  "claims=0",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "NO_EFFECTIVENESS_CLAIMS"
+                   },
+                   {
+                       "detail":  "confirmed",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "NO_FINAL_ZIP"
+                   },
+                   {
+                       "detail":  "status=IN_PROGRESS",
+                       "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+                       "pass":  true,
+                       "name":  "RUN_METADATA_STATUS"
+                   }
+               ],
+    "totalChecks":  25,
+    "verdict":  "PASS",
+    "warnings":  0,
+    "passed":  25,
+    "timestamp":  "2026-06-26T18:07:42.8823009+08:00",
+    "verifier":  "factory-agent-8-v05-agent-company-run-verify.ps1",
+    "failed":  0,
+    "parentPhase":  "FACTORY-AGENT-7"
+}

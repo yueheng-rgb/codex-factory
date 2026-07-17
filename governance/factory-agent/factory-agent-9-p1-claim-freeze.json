@@ -1,0 +1,75 @@
+﻿{
+    "phase":  "FACTORY-AGENT-9-P1",
+    "timestamp":  "2026-06-26T18:38:57.6205878+08:00",
+    "document":  "claim-freeze",
+    "frozenClaims":  [
+                         {
+                             "claim":  "Multi-agent is the default for all Factory projects",
+                             "status":  "REJECTED",
+                             "reason":  "AGENT-9 proved NO_BENEFIT on OpsFlow Lite"
+                         },
+                         {
+                             "claim":  "v0.5 Agent Company is superior to Vanilla Codex",
+                             "status":  "REJECTED",
+                             "reason":  "Vanilla scored 85.5 vs v0.5 80.0"
+                         },
+                         {
+                             "claim":  "207 tests proves better quality",
+                             "status":  "REJECTED",
+                             "reason":  "Different test methodologies; Vanilla had per-DB-table tests"
+                         },
+                         {
+                             "claim":  "Multi-agent should be abandoned",
+                             "status":  "REJECTED",
+                             "reason":  "Worker isolation, registry, anti-deception are real gains"
+                         },
+                         {
+                             "claim":  "v0.5 evidence quality = product quality",
+                             "status":  "REJECTED",
+                             "reason":  "Evidence quality (9/10) did not translate to product score"
+                         },
+                         {
+                             "claim":  "AGENT-8 caveats are ignorable",
+                             "status":  "REJECTED",
+                             "reason":  "Endpoint/export floor misses are structural, not cosmetic"
+                         },
+                         {
+                             "claim":  "Multi-agent is only for large projects",
+                             "status":  "INCONCLUSIVE",
+                             "reason":  "H1 is HIGH probability but not yet proven"
+                         },
+                         {
+                             "claim":  "v0.4 is better than v0.5",
+                             "status":  "REJECTED",
+                             "reason":  "v0.5 (80.0) \u003e v0.4 (66.0) on all dimensions"
+                         },
+                         {
+                             "claim":  "Larger benchmark will prove multi-agent",
+                             "status":  "INCONCLUSIVE",
+                             "reason":  "Hypothesis, not fact; needs falsification path"
+                         },
+                         {
+                             "claim":  "Fewer agents would fix the gap",
+                             "status":  "INCONCLUSIVE",
+                             "reason":  "H8 is HIGH probability but not yet tested"
+                         },
+                         {
+                             "claim":  "Reviewer/Verifier agents alone add value",
+                             "status":  "SUPPORTED",
+                             "reason":  "Gatekeepers caught real issues without code modification"
+                         },
+                         {
+                             "claim":  "Worker isolation (fork_context:false) is proven possible",
+                             "status":  "SUPPORTED",
+                             "reason":  "7 agents completed without scope violation"
+                         }
+                     ],
+    "forbiddenClaimClasses":  [
+                                  "multi-agent-default",
+                                  "v05-superior-to-vanilla",
+                                  "207-tests-equals-quality",
+                                  "process-artifacts-as-product-proof",
+                                  "benchmark-size-assumption-as-fact",
+                                  "sunk-cost-continuation"
+                              ]
+}

@@ -1,0 +1,4 @@
+﻿{"graphId":"tg-ag3-cycle","phaseId":"FACTORY-AGENT-3","projectId":"cycle-test","maxParallelAgents":2,"tasks":[
+  {"taskId":"a","taskTitle":"Task A","roleNeeded":"Builder","dependencies":["b"],"expectedOutputs":["a.txt"],"status":"pending"},
+  {"taskId":"b","taskTitle":"Task B","roleNeeded":"Builder","dependencies":["a"],"expectedOutputs":["b.txt"],"status":"pending"}
+]}

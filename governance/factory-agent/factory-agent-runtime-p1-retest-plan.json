@@ -1,0 +1,29 @@
+﻿{
+    "document":  "retest-plan",
+    "nextPhaseName":  "OpsFlow v0.5 Simplified Agent Company Re-Test",
+    "failureConditions":  [
+                              "P1 score below Vanilla without compensating value",
+                              "P1 misses floors",
+                              "P1 overhead remains \u003e 2x",
+                              "P1 produces process theater without product gain",
+                              "P1 requires excessive human intervention"
+                          ],
+    "successConditions":  [
+                              "P1 score \u003e Vanilla 85.5 by meaningful margin, OR",
+                              "P1 equals Vanilla product quality AND improves diagnosability with overhead \u003c 2x AND no floor miss",
+                              "P1 must beat old v0.5 score 80.0",
+                              "P1 must not miss endpoint/module floors",
+                              "P1 overhead lower than 7-agent mode"
+                          ],
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "timestamp":  "2026-06-26T18:47:55.4441842+08:00",
+    "noReleaseClaim":  "Even if P1 passes, no release ZIP. Multi-agent not default until confirmed across additional benchmark.",
+    "falsificationPath":  "If P1 loses to Vanilla, multi-agent implementation line is NOT proven at this scale. Preserve diagnostic agents only.",
+    "nextPhase":  "FACTORY-AGENT-8-P1",
+    "requirements":  {
+                         "newRunDirectory":  "harness/benchmarks/factory-agent-large-project/runs/v05-agent-company-p1/",
+                         "benchmark":  "Same OpsFlow Enterprise Lite (AGENT-5 requirements)",
+                         "runDirectories":  "Do NOT modify RUN-LP-A/B/C",
+                         "agentModel":  "4-agent P1 (Orchestrator + Product Builder + Test/Integration/Docs Builder + Reviewer-Verifier)"
+                     }
+}

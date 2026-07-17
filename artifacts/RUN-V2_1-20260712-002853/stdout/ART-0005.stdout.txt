@@ -1,0 +1,71 @@
+﻿
+> admin-system-runtime-validation@1.0.0 test
+> npx vitest run --reporter=verbose
+
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Codex_App_Factory/testbeds/admin-system-runtime-validation[39m
+
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 1: admin_required_for_admin_routes[2m > [22mrejects unauthenticated access to admin route[32m 2[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 1: admin_required_for_admin_routes[2m > [22mrejects invalid user ID on admin route[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 1: admin_required_for_admin_routes[2m > [22mallows valid admin user on admin route[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 2: role_permission_must_be_enforced[2m > [22mallows admin with correct permission[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 2: role_permission_must_be_enforced[2m > [22mrejects viewer without resource:write permission[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 2: role_permission_must_be_enforced[2m > [22mrejects operator without resource:delete permission[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 2: role_permission_must_be_enforced[2m > [22mallows SUPER_ADMIN all permissions (*)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 3: ordinary_admin_cannot_escalate_role[2m > [22mallows SUPER_ADMIN to escalate any role[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 3: ordinary_admin_cannot_escalate_role[2m > [22mrejects ADMIN escalating to SUPER_ADMIN[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 3: ordinary_admin_cannot_escalate_role[2m > [22mrejects OPERATOR escalating anyone to ADMIN[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 3: ordinary_admin_cannot_escalate_role[2m > [22mallows ADMIN to demote to lower role[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 4: destructive_action_requires_confirmation[2m > [22mrejects delete without confirmation token[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 4: destructive_action_requires_confirmation[2m > [22mallows delete with correct confirmation token[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 4: destructive_action_requires_confirmation[2m > [22mrejects delete with wrong confirmation token[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 5: deleted_record_not_listed_by_default[2m > [22mdoes not list deleted resources by default[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 5: deleted_record_not_listed_by_default[2m > [22mlists deleted resources when includeDeleted=true[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 6: status_transition_allowed[2m > [22mallows DRAFT -> ACTIVE[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 6: status_transition_allowed[2m > [22mrejects DRAFT -> ARCHIVED (invalid transition)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 6: status_transition_allowed[2m > [22mrejects DELETED -> ACTIVE (deleted cannot transition)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 7: protected_fields_cannot_be_modified_without_permission[2m > [22mallows SUPER_ADMIN to modify protectedData[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 7: protected_fields_cannot_be_modified_without_permission[2m > [22mrejects OPERATOR from modifying protectedData[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 8: batch_operation_must_be_scoped[2m > [22mrejects batch delete with no filter and no IDs[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 8: batch_operation_must_be_scoped[2m > [22mrejects batch delete exceeding hard limit[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 8: batch_operation_must_be_scoped[2m > [22mrequires confirmation token for batch delete[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 8: batch_operation_must_be_scoped[2m > [22mallows scoped batch delete with IDs and confirmation[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 9: audit_log_required_for_sensitive_actions[2m > [22mcreates audit log on resource creation[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 9: audit_log_required_for_sensitive_actions[2m > [22mcreates audit log on delete[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 9: audit_log_required_for_sensitive_actions[2m > [22mcreates audit log on role change[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 9: audit_log_required_for_sensitive_actions[2m > [22mcreates audit log on permission denied[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 9: audit_log_required_for_sensitive_actions[2m > [22mcreates audit log on export[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 9: audit_log_required_for_sensitive_actions[2m > [22mcreates audit log on import[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 10: export_requires_permission[2m > [22mallows export for user with export:read[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 10: export_requires_permission[2m > [22mrejects export for operator without export:read[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 10: export_requires_permission[2m > [22mrejects export with invalid fields[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 11: import_requires_validation[2m > [22mallows valid import by SUPER_ADMIN[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 11: import_requires_validation[2m > [22mrejects import with missing name[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 11: import_requires_validation[2m > [22mrejects import with unknown fields[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 11: import_requires_validation[2m > [22mrejects import by non-admin user[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 12: pagination_limit_enforced[2m > [22mrejects page size exceeding max limit[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 12: pagination_limit_enforced[2m > [22mallows page size within limit[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 12: pagination_limit_enforced[2m > [22mcaps at max when pageSize is exactly 100[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 13: search_filter_must_be_whitelisted[2m > [22mrejects search on non-whitelisted field[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mInvariant 13: search_filter_must_be_whitelisted[2m > [22mallows search on whitelisted field (name)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 1: unauthenticated access to admin route — BLOCKED[2m > [22mreturns UNAUTHORIZED for null user on resource list[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 1: unauthenticated access to admin route — BLOCKED[2m > [22mreturns UNAUTHORIZED for null user on export[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 2: viewer accessing forbidden resource — BLOCKED[2m > [22mrejects viewer from writing resources[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 3: operator escalating to SUPER_ADMIN — BLOCKED[2m > [22mrejects operator escalating self[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 4: delete without confirmation — BLOCKED[2m > [22mrejects delete without confirmation token[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 5: batch operation exceeds scope — BLOCKED[2m > [22mrejects batch delete with no scope[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 6: sensitive action without audit log — IMPOSSIBLE[2m > [22malways creates audit log on resource creation[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 6: sensitive action without audit log — IMPOSSIBLE[2m > [22malways creates audit log on status change[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 7: export without permission — BLOCKED[2m > [22mrejects operator export[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 8: import with invalid fields — BLOCKED[2m > [22mrejects import with unknown column[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mNegative Control 8: import with invalid fields — BLOCKED[2m > [22mrejects import with empty name[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mEdge cases[2m > [22mrejects access to deleted resource[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mEdge cases[2m > [22mrejects status change on non-existent resource[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mEdge cases[2m > [22mrejects batch status update with empty IDs[32m 0[2mms[22m[39m
+ [32m✓[39m tests/admin-validation.test.ts[2m > [22mEdge cases[2m > [22mlists resources with correct pagination[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m58 passed[39m[22m[90m (58)[39m
+[2m   Start at [22m 00:29:01
+[2m   Duration [22m 427ms[2m (transform 72ms, setup 0ms, collect 96ms, tests 8ms, environment 0ms, prepare 120ms)[22m
+

@@ -1,0 +1,51 @@
+{
+  "policyId": "H17-CLAIM-CLASSIFICATION-POLICY",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T15:05:59.982826+08:00",
+  "generatedDuringPhase": "H17-A",
+  "nativeGenerated": true,
+  "claimClasses": {
+    "VERIFIED_FACT": {
+      "description": "Claim backed by machine-readable evidence with SHA256 verification",
+      "mayDriveArchitecture": true,
+      "mayDrivePhaseTransition": true
+    },
+    "HARD_LOGIC": {
+      "description": "Claim that follows logically from VERIFIED_FACTs or repo state",
+      "mayDriveArchitecture": true,
+      "mayDrivePhaseTransition": true
+    },
+    "HYPOTHESIS_REQUIRES_VALIDATION": {
+      "description": "Claim that must be validated before use as evidence",
+      "mayDriveArchitecture": false,
+      "mayDrivePhaseTransition": false,
+      "requiredAction": "Design and run validation test before use"
+    },
+    "USER_STRATEGIC_PREFERENCE": {
+      "description": "User-directed choice about direction, scope, or priority",
+      "mayDriveArchitecture": true,
+      "mayDrivePhaseTransition": true,
+      "rule": "Must be recorded as user preference, not as verified fact"
+    },
+    "CODEX_SELF_REPORT_ONLY": {
+      "description": "Claim from Codex natural language output, not backed by artifact",
+      "mayDriveArchitecture": false,
+      "mayDrivePhaseTransition": false,
+      "rule": "Cannot drive architecture; must be validated before use"
+    },
+    "REJECTED_OR_UNSUPPORTED": {
+      "description": "Claim that has been tested and found false, or lacks any supporting evidence",
+      "mayDriveArchitecture": false,
+      "mayDrivePhaseTransition": false
+    }
+  },
+  "requiredFieldsPerClaim": [
+    "claimText",
+    "source",
+    "evidencePathOrCitation",
+    "validationStatus",
+    "allowedUse",
+    "mayDriveArchitecture"
+  ],
+  "generatedAtRepairedDuringPhase": "H17-P1"
+}

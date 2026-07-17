@@ -1,0 +1,118 @@
+﻿{
+  "expert_pack_id": "ecommerce",
+  "domain": "Ecommerce",
+  "version": "1.0.0",
+  "description": "Ecommerce domain expert pack. Covers product catalog, inventory, shopping cart, orders, payment callbacks, admin management, user accounts, and promotions. Does NOT constitute a complete production ecommerce platform.",
+
+  "supported_project_types": ["fullstack-admin", "backend-api", "frontend-app", "CLI-tool"],
+  "supported_surfaces": [
+    { "surface_id": "ecom-public-web", "surface_type": "public-web", "purpose": "Customer-facing storefront: product browsing, cart, checkout", "required": false, "recommended_starter": "vite-react-content-site", "risk_level_default": "MEDIUM" },
+    { "surface_id": "ecom-miniapp", "surface_type": "miniapp", "purpose": "WeChat/Alipay mini-program storefront", "required": false, "recommended_starter": null, "risk_level_default": "MEDIUM" },
+    { "surface_id": "ecom-admin-web", "surface_type": "admin-web", "purpose": "Admin dashboard: product management, order management, inventory, pricing", "required": true, "recommended_starter": "next-fullstack-admin", "risk_level_default": "HIGH" },
+    { "surface_id": "ecom-api", "surface_type": "api-service", "purpose": "REST API: products, inventory, cart, orders, payments, users", "required": true, "recommended_starter": "node-api-postgres", "risk_level_default": "HIGH" },
+    { "surface_id": "ecom-database", "surface_type": "database", "purpose": "Persistent storage: products, orders, users, inventory, payments", "required": true, "recommended_starter": null, "risk_level_default": "CRITICAL" },
+    { "surface_id": "ecom-background-worker", "surface_type": "background-worker", "purpose": "Async order processing, payment confirmation, stock sync, notifications", "required": false, "recommended_starter": null, "risk_level_default": "HIGH" },
+    { "surface_id": "ecom-docs", "surface_type": "docs-release", "purpose": "API documentation, deployment guide, business rules", "required": true, "recommended_starter": null, "risk_level_default": "LOW" }
+  ],
+
+  "default_surface_templates": [
+    { "template_id": "ecom-storefront-only", "description": "Product display only, no transactions", "surfaces": ["public-web"], "risk_level": "LOW" },
+    { "template_id": "ecom-admin-only", "description": "Backend admin for product/inventory management", "surfaces": ["admin-web","api-service","database"], "risk_level": "HIGH" },
+    { "template_id": "ecom-fullstore", "description": "Complete store with cart, orders, payments", "surfaces": ["public-web","admin-web","api-service","database","background-worker","docs-release"], "risk_level": "CRITICAL" },
+    { "template_id": "ecom-miniapp-store", "description": "Mini-program store with admin backend", "surfaces": ["miniapp","admin-web","api-service","database","background-worker","docs-release"], "risk_level": "L_CLASS" },
+    { "template_id": "ecom-marketplace-lite", "description": "Multi-vendor marketplace basics", "surfaces": ["public-web","admin-web","api-service","database","background-worker","docs-release"], "risk_level": "L_CLASS" }
+  ],
+
+  "domain_risk_rules": [
+    { "rule_id": "ECOM-R001", "trigger": "price.*(modify|change|update|set|adjust)", "risk_level": "CRITICAL", "reason": "Price modification affects revenue and customer trust", "critical_fields": ["price","amount","total"], "required_reviewers": ["business","security"], "human_audit_required": true },
+    { "rule_id": "ECOM-R002", "trigger": "(payment|checkout|wechat_pay|alipay|stripe)", "risk_level": "CRITICAL", "reason": "Payment logic errors cause financial loss", "critical_fields": ["payment_status","transaction_id","amount"], "required_reviewers": ["security","business","payment"], "human_audit_required": true },
+    { "rule_id": "ECOM-R003", "trigger": "(inventory|stock|warehouse).*(adjust|change|decrease|increase)", "risk_level": "CRITICAL", "reason": "Inventory errors cause overselling or stockout", "critical_fields": ["inventory","stock_quantity","stock_delta"], "required_reviewers": ["business"], "human_audit_required": true },
+    { "rule_id": "ECOM-R004", "trigger": "(order|cart|checkout).*(create|submit|confirm|process)", "risk_level": "HIGH", "reason": "Order processing affects fulfillment", "critical_fields": ["order_total","order_status","items"], "required_reviewers": ["business"], "human_audit_required": false },
+    { "rule_id": "ECOM-R005", "trigger": "(refund|cancel|return).*(order|payment)", "risk_level": "CRITICAL", "reason": "Refund logic errors cause financial loss", "critical_fields": ["refund_amount","payment_status","order_status"], "required_reviewers": ["business","security","payment"], "human_audit_required": true },
+    { "rule_id": "ECOM-R006", "trigger": "(discount|coupon|promotion|flash_sale)", "risk_level": "HIGH", "reason": "Discount errors cause revenue loss or customer disputes", "critical_fields": ["discount_amount","discount_rate","promotion_rules"], "required_reviewers": ["business"], "human_audit_required": false },
+    { "rule_id": "ECOM-R007", "trigger": "(user|account|login|register|auth).*(role|permission|admin)", "risk_level": "CRITICAL", "reason": "Permission errors cause unauthorized access to admin/pricing", "critical_fields": ["user_role","permission","token"], "required_reviewers": ["security"], "human_audit_required": true },
+    { "rule_id": "ECOM-R008", "trigger": "(product|item).*(create|add|publish|list)", "risk_level": "MEDIUM", "reason": "Standard CRUD, low risk unless combined with price/inventory/payment", "critical_fields": [], "required_reviewers": [], "human_audit_required": false }
+  ],
+
+  "business_invariants": [
+    { "invariant_id": "price_non_negative", "description": "Product price must be non-negative", "severity": "CRITICAL", "category": "pricing", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "price_not_zero_unless_explicit_free", "description": "Zero price requires explicit free indicator", "severity": "CRITICAL", "category": "pricing", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "inventory_non_negative", "description": "Inventory count must be non-negative", "severity": "CRITICAL", "category": "inventory", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "order_total_matches_items", "description": "Order total must equal sum of item prices * quantities", "severity": "CRITICAL", "category": "order", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "payment_idempotency_required", "description": "Payment callbacks must be idempotent — duplicate callbacks must not double-charge", "severity": "CRITICAL", "category": "payment", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "paid_order_cannot_be_modified_without_refund_flow", "description": "Paid orders cannot be modified without going through refund flow", "severity": "CRITICAL", "category": "order", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "cancelled_order_cannot_be_paid", "description": "Cancelled orders cannot be paid", "severity": "CRITICAL", "category": "order", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "archived_product_not_sellable", "description": "Archived products cannot be added to cart or ordered", "severity": "HIGH", "category": "product", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "user_cannot_modify_price", "description": "Non-admin users cannot modify product price", "severity": "CRITICAL", "category": "permission", "enforcement_point": "route-layer", "test_required": true },
+    { "invariant_id": "admin_required_for_price_change", "description": "Only admin role can change product prices", "severity": "CRITICAL", "category": "permission", "enforcement_point": "route-layer", "test_required": true },
+    { "invariant_id": "stock_delta_must_be_audited", "description": "Every inventory adjustment must be auditable with timestamp and operator", "severity": "HIGH", "category": "audit", "enforcement_point": "service-layer", "test_required": true },
+    { "invariant_id": "refund_amount_cannot_exceed_paid_amount", "description": "Refund amount must not exceed the originally paid amount", "severity": "CRITICAL", "category": "payment", "enforcement_point": "service-layer", "test_required": true }
+  ],
+
+  "required_tests": [
+    "price_validation_tests",
+    "inventory_adjustment_tests",
+    "order_total_calculation_tests",
+    "payment_callback_idempotency_tests",
+    "permission_role_tests",
+    "status_transition_tests",
+    "destructive_action_confirmation_tests"
+  ],
+
+  "required_external_engines": [
+    { "engine_id": "semgrep", "required": true, "note": "Security static analysis for payment/auth code paths" },
+    { "engine_id": "autocannon", "required": true, "note": "API load smoke for product listing and order endpoints" },
+    { "engine_id": "playwright", "required": false, "note": "UI smoke for storefront and admin if available" },
+    { "engine_id": "codeql", "required": false, "note": "Deep static analysis (optional, heavy)" },
+    { "engine_id": "k6", "required": false, "note": "Structured load testing (optional)" }
+  ],
+
+  "human_audit_points": [
+    "Price modification logic — must be reviewed by business owner",
+    "Payment callback handling — must be reviewed by security reviewer",
+    "Refund flow — must be reviewed by business + security",
+    "Permission/role assignment — must be reviewed by security reviewer",
+    "Inventory adjustment with financial impact — must be reviewed by business owner"
+  ],
+
+  "benchmark_cases": [
+    { "benchmark_id": "ECOM-B1", "description": "Simple product display page, no transactions", "expected_surfaces": ["public-web"], "expected_risk_level": "LOW", "expected_invariants": [], "runnable_or_design_only": "runnable" },
+    { "benchmark_id": "ECOM-B2", "description": "Product inventory admin backend", "expected_surfaces": ["admin-web","api-service","database"], "expected_risk_level": "HIGH", "expected_invariants": ["inventory_non_negative","stock_delta_must_be_audited"], "runnable_or_design_only": "runnable" },
+    { "benchmark_id": "ECOM-B3", "description": "Full store with cart, orders, payment callback", "expected_surfaces": ["public-web","admin-web","api-service","database","background-worker","docs-release"], "expected_risk_level": "CRITICAL", "expected_invariants": ["price_non_negative","inventory_non_negative","order_total_matches_items","payment_idempotency_required","paid_order_cannot_be_modified_without_refund_flow","refund_amount_cannot_exceed_paid_amount"], "runnable_or_design_only": "design_only" },
+    { "benchmark_id": "ECOM-B4", "description": "Mini-program store with admin backend", "expected_surfaces": ["miniapp","admin-web","api-service","database","background-worker","docs-release"], "expected_risk_level": "L_CLASS", "expected_invariants": ["price_non_negative","inventory_non_negative","order_total_matches_items","payment_idempotency_required","user_cannot_modify_price","admin_required_for_price_change","refund_amount_cannot_exceed_paid_amount"], "runnable_or_design_only": "design_only" }
+  ],
+
+  "non_claims": [
+    "This pack does NOT constitute a complete, production-ready ecommerce system",
+    "This pack does NOT include PCI-DSS compliance certification",
+    "This pack does NOT handle real payment gateway integration (only design patterns)",
+    "This pack does NOT include tax calculation logic",
+    "This pack does NOT include shipping/logistics integration",
+    "This pack does NOT include multi-currency support",
+    "This pack does NOT include GDPR/data-privacy compliance",
+    "This pack is a DESIGN AID — domain rules, invariants, and test patterns",
+    "Actual implementation requires domain expert review and production hardening"
+  ],
+
+  "activation_conditions": {
+    "keywords": [
+      "商城", "电商", "商店", "店铺", "商品", "购物", "购物车",
+      "订单", "支付", "退款", "库存", "促销", "优惠券", "折扣",
+      "ecommerce", "shop", "store", "product catalog", "shopping cart",
+      "order system", "payment callback", "checkout", "inventory",
+      "wechat pay", "alipay", "refund", "discount", "coupon",
+      "商品管理", "订单系统", "支付回调", "商品展示", "库存管理"
+    ],
+    "min_surfaces": 1,
+    "exclude_keywords": ["文档修改", "README", "文案", "样式调整"]
+  },
+
+  "integration_points": {
+    "surface_plan": true,
+    "risk_classifier": true,
+    "invariant_engine": true,
+    "engine_broker": true,
+    "gate_detection": true,
+    "risk_gate": true
+  }
+}

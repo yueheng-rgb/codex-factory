@@ -1,0 +1,31 @@
+﻿{
+  "stage": "V2_5",
+  "component": "playwright-reliability",
+  "date": "2026-07-12",
+  "classification": "PASS",
+  "v2_4_status": "TOOL_FAILED — browser version mismatch",
+  "playwright_version": "1.61.1",
+  "browsers_installed": {
+    "chromium": "149.0.7827.55 (playwright chromium v1228)",
+    "firefox": "v1522",
+    "webkit": "v2287",
+    "ffmpeg": "v1011",
+    "install_location": "C:\\Users\\90961\\AppData\\Local\\ms-playwright"
+  },
+  "fix_applied": "Installed @playwright/test in vite-threejs-interactive, chromium-1228 already present from prior install",
+  "smoke_test": {
+    "target": "http://localhost:5200 (vite-threejs-interactive starter)",
+    "results": [
+      { "check": "page_navigation", "status": "PASS" },
+      { "check": "canvas_exists", "status": "PASS", "detail": "canvas element found in DOM" },
+      { "check": "page_title", "status": "PASS", "detail": "PROJECT_NAME" }
+    ],
+    "all_checks_pass": true
+  },
+  "non_claims": [
+    "This is a CANVAS SMOKE check, NOT a full E2E UI test suite",
+    "Does NOT validate Three.js rendering correctness",
+    "Does NOT test user interaction flows"
+  ],
+  "classification_note": "Playwright can launch headless Chromium, navigate to threejs starter, and confirm canvas element exists with no fatal errors"
+}

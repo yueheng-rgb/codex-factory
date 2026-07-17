@@ -1,0 +1,375 @@
+﻿{
+    "phase":  "FACTORY-AGENT-4",
+    "verdict":  "PASS",
+    "totalChecks":  73,
+    "passed":  73,
+    "failed":  0,
+    "timestamp":  "2026-06-26T16:23:35.5465441+08:00",
+    "checks":  [
+                   {
+                       "Label":  "V04_ZIP_OK",
+                       "Pass":  true,
+                       "Detail":  "v0.4 ZIP"
+                   },
+                   {
+                       "Label":  "AGENT3_PASS",
+                       "Pass":  true,
+                       "Detail":  "AGENT-3 verifier"
+                   },
+                   {
+                       "Label":  "NO_BENCHMARK",
+                       "Pass":  true,
+                       "Detail":  "No benchmark"
+                   },
+                   {
+                       "Label":  "NO_V05",
+                       "Pass":  true,
+                       "Detail":  "No v0.5"
+                   },
+                   {
+                       "Label":  "ARCHIVED_10",
+                       "Pass":  true,
+                       "Detail":  "10-role archived"
+                   },
+                   {
+                       "Label":  "DIR_integration",
+                       "Pass":  true,
+                       "Detail":  "integration dir"
+                   },
+                   {
+                       "Label":  "DIR_anti-deception",
+                       "Pass":  true,
+                       "Detail":  "anti-deception dir"
+                   },
+                   {
+                       "Label":  "DIR_drift",
+                       "Pass":  true,
+                       "Detail":  "drift dir"
+                   },
+                   {
+                       "Label":  "DIR_closure",
+                       "Pass":  true,
+                       "Detail":  "closure dir"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-handoff-completeness.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-handoff-completeness.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-handoff-completeness.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-handoff-completeness.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-interface-contracts.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-interface-contracts.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-interface-contracts.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-interface-contracts.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-shared-schema-consistency.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-shared-schema-consistency.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-shared-schema-consistency.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-shared-schema-consistency.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-integration-readiness.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-integration-readiness.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-integration-readiness.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-integration-readiness.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_run-integration-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "run-integration-gate.ps1"
+                   },
+                   {
+                       "Label":  "JSON_run-integration-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_run-integration-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-hidden-fallback.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-hidden-fallback.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-hidden-fallback.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-hidden-fallback.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-self-report-vs-evidence.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-self-report-vs-evidence.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-self-report-vs-evidence.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-self-report-vs-evidence.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-completion-claim-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-completion-claim-integrity.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-completion-claim-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-completion-claim-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_run-anti-deception-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "run-anti-deception-gate.ps1"
+                   },
+                   {
+                       "Label":  "JSON_run-anti-deception-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_run-anti-deception-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-architecture-drift.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-architecture-drift.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-architecture-drift.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-architecture-drift.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-style-drift.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-style-drift.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-style-drift.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-style-drift.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-quality-gap-triggers.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-quality-gap-triggers.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-quality-gap-triggers.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-quality-gap-triggers.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_run-drift-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "run-drift-gate.ps1"
+                   },
+                   {
+                       "Label":  "JSON_run-drift-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_run-drift-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_check-phase-closure-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "check-phase-closure-integrity.ps1"
+                   },
+                   {
+                       "Label":  "JSON_check-phase-closure-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_check-phase-closure-integrity.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "SCRIPT_run-large-project-phase-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "run-large-project-phase-gate.ps1"
+                   },
+                   {
+                       "Label":  "JSON_run-large-project-phase-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "JSON output"
+                   },
+                   {
+                       "Label":  "NOHC_run-large-project-phase-gate.ps1",
+                       "Pass":  true,
+                       "Detail":  "No hardcode"
+                   },
+                   {
+                       "Label":  "HANDOFF_PASS",
+                       "Pass":  true,
+                       "Detail":  "Handoff valid"
+                   },
+                   {
+                       "Label":  "HANDOFF_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Handoff blocked"
+                   },
+                   {
+                       "Label":  "CONTRACT_PASS",
+                       "Pass":  true,
+                       "Detail":  "Contract valid"
+                   },
+                   {
+                       "Label":  "CONTRACT_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Contract blocked"
+                   },
+                   {
+                       "Label":  "SCHEMA_PASS",
+                       "Pass":  true,
+                       "Detail":  "Schema valid"
+                   },
+                   {
+                       "Label":  "SCHEMA_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Schema blocked"
+                   },
+                   {
+                       "Label":  "FALLBACK_PASS",
+                       "Pass":  true,
+                       "Detail":  "No fallback"
+                   },
+                   {
+                       "Label":  "FALLBACK_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Fallback blocked"
+                   },
+                   {
+                       "Label":  "SELFREPORT_PASS",
+                       "Pass":  true,
+                       "Detail":  "Self-report valid"
+                   },
+                   {
+                       "Label":  "SELFREPORT_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Self-report blocked"
+                   },
+                   {
+                       "Label":  "DRIFT_PASS",
+                       "Pass":  true,
+                       "Detail":  "Drift valid"
+                   },
+                   {
+                       "Label":  "DRIFT_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Drift blocked"
+                   },
+                   {
+                       "Label":  "QUALITY_PASS",
+                       "Pass":  true,
+                       "Detail":  "Quality valid"
+                   },
+                   {
+                       "Label":  "QUALITY_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Quality blocked"
+                   },
+                   {
+                       "Label":  "CLOSURE_PASS",
+                       "Pass":  true,
+                       "Detail":  "Closure valid"
+                   },
+                   {
+                       "Label":  "CLOSURE_FAIL",
+                       "Pass":  true,
+                       "Detail":  "Closure blocked"
+                   },
+                   {
+                       "Label":  "SIM_DIR",
+                       "Pass":  true,
+                       "Detail":  "Sim dir"
+                   },
+                   {
+                       "Label":  "NEG_SUMMARY",
+                       "Pass":  true,
+                       "Detail":  "Neg summary"
+                   },
+                   {
+                       "Label":  "PREFLIGHT",
+                       "Pass":  true,
+                       "Detail":  "Preflight"
+                   }
+               ]
+}

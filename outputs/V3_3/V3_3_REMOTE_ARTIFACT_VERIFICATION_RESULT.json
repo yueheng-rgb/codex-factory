@@ -1,0 +1,46 @@
+﻿{
+    "checks":  [
+                   {
+                       "detail":  "C:\\Codex_App_Factory/artifacts/remote/demo-local-shape/artifact.zip",
+                       "status":  "PASS",
+                       "check":  "artifact_zip_exists"
+                   },
+                   {
+                       "detail":  "8c252c63709ec90fa81999b99538ddf5c9045f25342551682714cae8cb4fb554",
+                       "status":  "PASS",
+                       "check":  "artifact_hash"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "artifact_extraction"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "ci_receipt_present"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "stdout_stderr_present"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "snapshot_evidence_present"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "secret_scan"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "run_id_not_placeholder"
+                   }
+               ],
+    "verified_at":  "2026-07-17T16:39:18.3448768+08:00",
+    "final_status":  "REMOTE_ARTIFACT_VERIFIED",
+    "non_claims":  [
+                       "Remote artifact verifier is READY but no real GitHub Actions artifact provided yet",
+                       "Do NOT claim REMOTE_ARTIFACT_VERIFIED without passing all checks",
+                       "local-generated artifacts must be marked LOCAL_REMOTE_SHAPE_VALIDATED"
+                   ],
+    "run_id":  "demo-local-shape"
+}

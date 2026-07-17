@@ -1,0 +1,35 @@
+﻿{
+  "stage": "V2_5",
+  "component": "miniapp-autocannon",
+  "date": "2026-07-12",
+  "classification": "PASS",
+  "v2_4_status": "BLOCKED — tsx server compilation error",
+  "root_cause": "UTF-8 BOM (0xEF 0xBB 0xBF) in package.json caused tsx internal package.json parser to fail with 'Error parsing: package.json'",
+  "fix_applied": "Removed BOM from testbeds/miniapp-runtime-validation/package.json, re-encoded as UTF-8 without BOM",
+  "server_start": {
+    "host": "0.0.0.0",
+    "port": 3200,
+    "command": "npx tsx src/server.ts",
+    "startup_time": "~3s",
+    "health_check": { "status": "ok", "pack": "miniapp-runtime-validation" }
+  },
+  "autocannon_result": {
+    "tool": "autocannon v8.0.0",
+    "target": "http://localhost:3200/health",
+    "duration_s": 5,
+    "connections": 10,
+    "requests_total": 275500,
+    "requests_per_sec_avg": 55100.8,
+    "errors": 0,
+    "timeouts": 0,
+    "latency_avg_ms": 0.01,
+    "latency_max_ms": 12,
+    "bytes_read": "61.2 MB"
+  },
+  "non_claims": [
+    "This is a LOCAL SMOKE test, NOT a production capacity benchmark",
+    "276k requests on health endpoint does NOT represent real API throughput",
+    "Do NOT claim support for '1M concurrent users' based on this smoke"
+  ],
+  "classification_note": "autocannon smoke is CLEAN — server serves health endpoint with no errors under 10 concurrent connections for 5 seconds"
+}

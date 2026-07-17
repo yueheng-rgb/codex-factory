@@ -1,0 +1,30 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P3",
+  "section": "A",
+  "title": "Evidence Intake and Scope Lock",
+  "timestamp": "2026-06-28T13:44:00+08:00",
+  "mount_readiness": { "checks_total": 10, "checks_passed": 10, "ready": true },
+  "input_phases": {
+    "PACK_STAGING_P2": { "verdict": "PASS", "verifier": "36/36", "integrated": "Package QA Gate" },
+    "CONTEXT_SPACE_P7": { "verdict": "PASS", "verifier": "50/50", "integrated": "True fresh-window mount" },
+    "REALWORLD_2_P5": { "verdict": "PASS", "verifier": "27/27", "tests": "21/2/0" },
+    "REALWORLD_2_LESSONS_0": { "verdict": "PASS", "verifier": "50/50", "integrated": "Security/Deploy Gate, Secret Boundary, Test Repair Policy, Build Lite rules" }
+  },
+  "scope_lock": {
+    "purpose": "Integrate REALWORLD-2 lessons into staging pack: Security/Deploy Gate, User Secret Rotation Boundary, Test Repair Policy, Real Deployed Project Workflow, Build Lite rules, Context Space requirements",
+    "is_release": false,
+    "is_v05": false,
+    "modifies_projects": false,
+    "deploys": false,
+    "creates_bundle": true,
+    "bundle_type": "STAGING_NOT_RELEASE"
+  },
+  "rejected_claims": [
+    "staging P3 = release",
+    "REALWORLD-2 = Factory superiority proof",
+    "working copy local readiness = production readiness",
+    "Security/Deploy Gate = deployment permission",
+    "Package QA = product correctness proof"
+  ],
+  "status": "SCOPE_LOCKED"
+}

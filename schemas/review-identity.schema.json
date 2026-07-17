@@ -1,0 +1,15 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Review Identity",
+  "description": "Codex Factory V3.0 — Human Review Identity Modes",
+  "type": "object",
+  "required": ["review_id","identity_mode","timestamp"],
+  "properties": {
+    "review_id": {"type":"string"},
+    "identity_mode": {"type":"string","enum":["self_declared_automated","local_named_reviewer","signed_local_receipt","external_identity_required"]},
+    "reviewer_alias": {"type":"string","description":"Required for local_named_reviewer and signed_local_receipt"},
+    "signature_hash": {"type":"string","description":"Required for signed_local_receipt — SHA256 of receipt content + reviewer alias"},
+    "timestamp": {"type":"string","format":"date-time"},
+    "non_claims": {"type":"array","items":{"type":"string"}}
+  }
+}

@@ -1,0 +1,118 @@
+﻿{
+    "date":  "2026-07-09T20:53:58+08:00",
+    "passCount":  22,
+    "failCount":  0,
+    "allPassed":  true,
+    "scenarios":  [
+                      {
+                          "Scenario":  "1: Fixture AGENTS.md exists",
+                          "Passed":  true,
+                          "Detail":  "C:\\Codex_App_Factory\\skills\\CAP-SKILL-004\\examples\\fixture-agents-md.md"
+                      },
+                      {
+                          "Scenario":  "1b: Fixture contains build command",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "1c: Fixture contains test command",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "1d: Fixture contains lint command",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "1e: Fixture contains security boundary",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "1f: Fixture contains JWT rule",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "1g: Fixture contains handoff rule",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "2: Build command extracted",
+                          "Passed":  true,
+                          "Detail":  "Found: npm run build"
+                      },
+                      {
+                          "Scenario":  "2b: Test command extracted",
+                          "Passed":  true,
+                          "Detail":  "Found: npm test"
+                      },
+                      {
+                          "Scenario":  "2c: Lint command extracted",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "3: Security rules detected",
+                          "Passed":  true,
+                          "Detail":  "Found: 1"
+                      },
+                      {
+                          "Scenario":  "4: Directory rules extracted",
+                          "Passed":  true,
+                          "Detail":  "Found: 3"
+                      },
+                      {
+                          "Scenario":  "5: Base context created (no skills)",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "5b: Context created WITH CAP-SKILL-004",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "5c: loadedSkillRefs injected",
+                          "Passed":  true,
+                          "Detail":  "Count: 1"
+                      },
+                      {
+                          "Scenario":  "5d: skillsLoadedCount = 1",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "5e: Base context has 0 loaded skills",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "6: Usage records exist for CAP-SKILL-004",
+                          "Passed":  true,
+                          "Detail":  "Records: 5"
+                      },
+                      {
+                          "Scenario":  "6b: Most recent record is \u0027loaded\u0027",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "7: Conflict detected: AGENTS.md=TS, user=JS",
+                          "Passed":  true,
+                          "Detail":  ""
+                      },
+                      {
+                          "Scenario":  "8: Rollback record written",
+                          "Passed":  true,
+                          "Detail":  "RecordId: SKILL-USE-CAP-SKILL-004-INTG-001-20260709205358"
+                      },
+                      {
+                          "Scenario":  "9: Quarantine cap rejected (no skill dir)",
+                          "Passed":  true,
+                          "Detail":  "Reason: REJECT: Skill dir not found: C:\\Codex_App_Factory\\skills\\CAP-MCP-014"
+                      }
+                  ]
+}

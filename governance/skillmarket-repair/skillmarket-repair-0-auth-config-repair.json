@@ -1,0 +1,29 @@
+{
+  "phase": "SKILLMARKET-REPAIR-0-D",
+  "timestamp": "2026-06-26T23:35:00+08:00",
+  "jwtFix": {
+    "before": {
+      "rootMiddleware": "hardcoded SECRET='<EXAMPLE_JWT_SECRET_PLACEHOLDER>'",
+      "envFile": "JWT_SECRET=ecommerce_jwt_2024_secret",
+      "mismatch": true,
+      "description": "Root auth.js and .env had DIFFERENT secret values"
+    },
+    "after": {
+      "srcMiddleware": "process.env.JWT_SECRET || 'ecommerce_jwt_2024_secret'",
+      "envFile": "JWT_SECRET=ecommerce_jwt_2024_secret",
+      "mismatch": false,
+      "description": "src/middleware/auth.js reads from env with fallback. Single source of truth."
+    },
+    "fixMethod": "Consolidated to server/src/index.js which uses dotenv + src/middleware/auth.js which reads process.env.JWT_SECRET. Root auth.js is now unreachable (root index.js delegates to src/)."
+  },
+  "authConfigFiles": {
+    "modified": [],
+    "alreadyCorrect": ["server/src/middleware/auth.js", "server/src/index.js (require('dotenv'))"]
+  },
+  "createdFiles": ["server/.env.example"],
+  "adminMerchantAuth": {
+    "adminMiddleware": "adminOnly() in src/middleware/auth.js — checks role==='admin'",
+    "merchantMiddleware": "merchantOnly() in src/middleware/auth.js — checks role==='merchant' (WAS MISSING in root-level)",
+    "staffMiddleware": "staffOnly() in src/middleware/auth.js — allows admin OR merchant"
+  }
+}

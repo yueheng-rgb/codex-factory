@@ -1,0 +1,152 @@
+﻿[
+    {
+        "Label":  "REALWORLD-1-P1 complete",
+        "Result":  "PASS",
+        "Detail":  "Evidence freeze exists"
+    },
+    {
+        "Label":  "PACK-STAGING-P1 PASS exists",
+        "Result":  "PASS",
+        "Detail":  "Prior staging result"
+    },
+    {
+        "Label":  "Evidence intake exists",
+        "Result":  "PASS",
+        "Detail":  "Phase A"
+    },
+    {
+        "Label":  "Verifier repair exists",
+        "Result":  "PASS",
+        "Detail":  "P0 fix applied, 25/25 PASS"
+    },
+    {
+        "Label":  "validate-project.ps1 exists",
+        "Result":  "PASS",
+        "Detail":  "P1 entrypoint"
+    },
+    {
+        "Label":  "smoke-bounded.ps1 exists",
+        "Result":  "PASS",
+        "Detail":  "P1 bounded smoke"
+    },
+    {
+        "Label":  "context-packet-auto.ps1 exists",
+        "Result":  "PASS",
+        "Detail":  "P2 auto-gen"
+    },
+    {
+        "Label":  "Report templates exist",
+        "Result":  "PASS",
+        "Detail":  "Usage docs"
+    },
+    {
+        "Label":  "Phase auto-chain policy draft only",
+        "Result":  "PASS",
+        "Detail":  "Draft policy, not implemented"
+    },
+    {
+        "Label":  "Manifest updated",
+        "Result":  "PASS",
+        "Detail":  "Files: 22"
+    },
+    {
+        "Label":  "Staging bundle exists",
+        "Result":  "PASS",
+        "Detail":  "C:\\Codex_App_Factory\\factory-resource-pack-v0.9.0-pre-staging"
+    },
+    {
+        "Label":  "SHA exists",
+        "Result":  "PASS",
+        "Detail":  "MANIFEST.sha256 present"
+    },
+    {
+        "Label":  "Extraction smoke executed",
+        "Result":  "PASS",
+        "Detail":  "Phase I: validate-project PASS on extracted copy"
+    },
+    {
+        "Label":  "Bundle readiness exists",
+        "Result":  "PASS",
+        "Detail":  "Phase K"
+    },
+    {
+        "Label":  "Status = STAGING_NOT_RELEASE",
+        "Result":  "PASS",
+        "Detail":  "STAGING_NOT_RELEASE"
+    },
+    {
+        "Label":  "releaseAllowed = false",
+        "Result":  "PASS",
+        "Detail":  "releaseAllowed=False"
+    },
+    {
+        "Label":  "v05Package = false",
+        "Result":  "PASS",
+        "Detail":  "v05Package=False"
+    },
+    {
+        "Label":  "buildLiteDefault = true",
+        "Result":  "PASS",
+        "Detail":  "Build Lite is default"
+    },
+    {
+        "Label":  "nativeBuildProConditional = true",
+        "Result":  "PASS",
+        "Detail":  "Build Pro is conditional"
+    },
+    {
+        "Label":  "contextPacketRequiredForPro = true",
+        "Result":  "PASS",
+        "Detail":  "Required for Pro"
+    },
+    {
+        "Label":  "No v0.5 package",
+        "Result":  "PASS",
+        "Detail":  "No v0.5 directory"
+    },
+    {
+        "Label":  "No new release ZIP",
+        "Result":  "PASS",
+        "Detail":  "New ZIPs: 0"
+    },
+    {
+        "Label":  "No product source in bundle",
+        "Result":  "PASS",
+        "Detail":  "Source files: 0"
+    },
+    {
+        "Label":  "No trial products",
+        "Result":  "PASS",
+        "Detail":  "Trial artifacts: 0"
+    },
+    {
+        "Label":  "No real project working copy",
+        "Result":  "PASS",
+        "Detail":  "No harness/ in staging"
+    },
+    {
+        "Label":  "No multi-agent default",
+        "Result":  "PASS",
+        "Detail":  "No such claim in any staging file"
+    },
+    {
+        "Label":  "Negative controls 50+",
+        "Result":  "PASS",
+        "Detail":  "DEFENCE_HELD count: 51"
+    },
+    {
+        "Label":  "No UNEXPECTED_PASS",
+        "Result":  "PASS",
+        "Detail":  "Verified"
+    },
+    {
+        "Label":  "No FAIL_TARGET_NOT_TRIGGERED",
+        "Result":  "PASS",
+        "Detail":  "Verified"
+    },
+    {
+        "Label":  "No generic FAIL",
+        "Result":  "PASS",
+        "Detail":  "All results specific"
+    }
+]

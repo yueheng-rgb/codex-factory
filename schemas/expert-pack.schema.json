@@ -1,0 +1,141 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codex-factory.local/schemas/expert-pack.schema.json",
+  "title": "Expert Pack",
+  "description": "Domain-specific capability pack for Codex Factory — surfaces, risks, invariants, tests, engines, and benchmarks for a project domain.",
+  "type": "object",
+  "required": ["expert_pack_id", "domain", "version", "supported_surfaces", "domain_risk_rules", "business_invariants"],
+  "properties": {
+    "expert_pack_id": {
+      "type": "string",
+      "description": "Unique identifier, e.g. 'ecommerce', 'saas-tool', 'miniapp'"
+    },
+    "domain": {
+      "type": "string",
+      "description": "Human-readable domain name, e.g. 'Ecommerce', 'SaaS Tool'"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of this pack"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this expert pack covers"
+    },
+    "supported_project_types": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "APP_TYPE_ROUTER project types this pack supports"
+    },
+    "supported_surfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["surface_id", "surface_type", "purpose"],
+        "properties": {
+          "surface_id": { "type": "string" },
+          "surface_type": { "type": "string", "enum": ["api-service","admin-web","public-web","frontend-web","miniapp","mobile-app","threejs-interactive","background-worker","database","docs-release"] },
+          "purpose": { "type": "string" },
+          "required": { "type": "boolean", "default": false },
+          "recommended_starter": { "type": "string" },
+          "risk_level_default": { "type": "string", "enum": ["LOW","MEDIUM","HIGH","CRITICAL","L_CLASS"] }
+        }
+      }
+    },
+    "default_surface_templates": {
+      "type": "array",
+      "items": { "type": "object" },
+      "description": "Recommended surface compositions for common scenarios"
+    },
+    "domain_risk_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule_id", "trigger", "risk_level"],
+        "properties": {
+          "rule_id": { "type": "string" },
+          "trigger": { "type": "string", "description": "Keyword or pattern that triggers this rule" },
+          "risk_level": { "type": "string", "enum": ["LOW","MEDIUM","HIGH","CRITICAL","L_CLASS"] },
+          "reason": { "type": "string" },
+          "critical_fields": { "type": "array", "items": { "type": "string" } },
+          "required_reviewers": { "type": "array", "items": { "type": "string" } },
+          "human_audit_required": { "type": "boolean" }
+        }
+      }
+    },
+    "business_invariants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["invariant_id", "description", "severity"],
+        "properties": {
+          "invariant_id": { "type": "string" },
+          "description": { "type": "string" },
+          "severity": { "type": "string", "enum": ["CRITICAL","HIGH","MEDIUM","LOW"] },
+          "category": { "type": "string" },
+          "enforcement_point": { "type": "string", "enum": ["service-layer","repository-layer","route-layer","database","all"] },
+          "test_required": { "type": "boolean" }
+        }
+      }
+    },
+    "required_tests": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Test categories that must exist for this domain"
+    },
+    "required_external_engines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "engine_id": { "type": "string" },
+          "required": { "type": "boolean" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "human_audit_points": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Points in the pipeline where human audit is required for this domain"
+    },
+    "benchmark_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "benchmark_id": { "type": "string" },
+          "description": { "type": "string" },
+          "expected_surfaces": { "type": "array", "items": { "type": "string" } },
+          "expected_risk_level": { "type": "string" },
+          "expected_invariants": { "type": "array", "items": { "type": "string" } },
+          "runnable_or_design_only": { "type": "string", "enum": ["runnable","design_only"] }
+        }
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "What this pack explicitly does NOT claim to support"
+    },
+    "activation_conditions": {
+      "type": "object",
+      "properties": {
+        "keywords": { "type": "array", "items": { "type": "string" } },
+        "min_surfaces": { "type": "integer", "default": 1 },
+        "exclude_keywords": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "integration_points": {
+      "type": "object",
+      "properties": {
+        "surface_plan": { "type": "boolean" },
+        "risk_classifier": { "type": "boolean" },
+        "invariant_engine": { "type": "boolean" },
+        "engine_broker": { "type": "boolean" },
+        "gate_detection": { "type": "boolean" },
+        "risk_gate": { "type": "boolean" }
+      }
+    }
+  }
+}

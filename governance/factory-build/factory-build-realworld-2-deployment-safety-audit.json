@@ -1,0 +1,40 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-D",
+  "title": "Deployment & Production Safety Audit",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "project": "tcm-project-ledger",
+  "deploy_script_classification": {
+    "PRODUCTION_RISK": ["deploy_full.py", "deploy_zh.py", "remote_check.py", "remote_check2.py", "upload_and_run.py", "test_server.py", "check_zhangsan.py"],
+    "LOCAL_ONLY": ["remote_script.py", "fix_hint.py", "fix_multiple.py", "fix_pinyin2.py", "fix_redirect.py", "_audit2.py", "_audit3.py", "_full_audit.py", "_fix_load2.py", "_fix_load_pos.py"],
+    "REMOTE_MUTATING": ["deploy_full.py", "deploy_zh.py", "upload_and_run.py"],
+    "SAFE_DOC_ONLY": [],
+    "UNKNOWN_RISK": []
+  },
+  "production_commands_identified": [
+    "sftp.put (file upload)",
+    "python3 manage.py migrate (DB migration)",
+    "python3 manage.py check (Django check)",
+    "sudo systemctl restart tcm-ledger (service restart)",
+    "Remote Django ORM queries",
+    "Remote HTTP requests to production"
+  ],
+  "infrastructure": {
+    "web_server": "Nginx",
+    "wsgi_server": "Gunicorn",
+    "service_manager": "systemd",
+    "cloud_provider": "Alibaba Cloud ECS",
+    "deploy_path": "/opt/tcm_project_ledger",
+    "service_name": "tcm-ledger"
+  },
+  "risks": {
+    "hardcoded_credentials_in_deploy_scripts": "CRITICAL",
+    "no_cicd_pipeline": "HIGH",
+    "no_rollback_mechanism": "HIGH",
+    "no_staging_environment": "MEDIUM",
+    "no_deployment_logging": "MEDIUM",
+    "manual_script_deployment": "MEDIUM"
+  },
+  "no_execution_performed": true,
+  "report_path": "outputs/FACTORY_BUILD_REALWORLD_2_D_DEPLOYMENT_SAFETY_AUDIT_REPORT.md",
+  "status": "COMPLETE"
+}

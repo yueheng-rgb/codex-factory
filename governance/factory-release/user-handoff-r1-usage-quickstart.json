@@ -1,0 +1,8 @@
+﻿{
+    "handoffFullPaths":  true,
+    "multiAgentRequiresConfirmation":  true,
+    "section":  "E",
+    "cleanupPlanFirst":  true,
+    "phase":  "USER-HANDOFF-R1",
+    "defaultFlow":  5
+}

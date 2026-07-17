@@ -1,0 +1,90 @@
+﻿{
+    "verifier":  "factory-agent-8-p1-r1-lifecycle-reconcile-verify.ps1",
+    "passed":  16,
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+    "failed":  0,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "EVIDENCE_LOCK"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "LATE_CAPSULE"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "LATE_HANDOFF"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "LATE_RECEIPT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "LATE_GENERATED_TRUE"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "ORIGINAL_MISSING_TRUE"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "CLOSE_STATUS_LATE"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "BLOCKED_PRESERVED"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "AUDIT_EXISTS"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "AUDIT_NO_VIOLATION"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "RECHECK_EXISTS"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "NO_PRODUCT_MODIFIED"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "NO_NEW_AGENT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "NO_ZIP"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "NEGATIVE_REPORT"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T20:02:39.1748673+08:00",
+                       "pass":  true,
+                       "name":  "MAIN_REPORT"
+                   }
+               ],
+    "totalChecks":  16
+}

@@ -1,0 +1,24 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "B",
+  "title": "Task and Rubric Freeze",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "freeze_decision": "REUSE_AB0_DESIGN",
+  "frozen_assets": {
+    "task": "InventoryOps Portal Lite (from AB-0 Section B)",
+    "prompt_vanilla": "factory-ab/prompts/RUN_A_VANILLA_PROMPT.md",
+    "prompt_factory": "factory-ab/prompts/RUN_B_FACTORY_PROMPT.md",
+    "scoring_rubric": "AB-0 Section D — 5 dimensions, 100 points",
+    "fixtures": "harness/ab-0-r1/shared-fixtures/",
+    "safety_boundaries": "No real secrets, no deploy, no production DB, no Native Build Pro"
+  },
+  "changes_from_ab0": [],
+  "freeze_checks": [
+    {"check": "Same task requirements as AB-0", "status": "VERIFIED"},
+    {"check": "Same prompt files as AB-0", "status": "VERIFIED"},
+    {"check": "Same scoring rubric as AB-0", "status": "VERIFIED"},
+    {"check": "Same safety boundaries as AB-0", "status": "VERIFIED"},
+    {"check": "No task changes that affect fairness", "status": "VERIFIED"}
+  ],
+  "status": "TASK_AND_RUBRIC_FROZEN"
+}

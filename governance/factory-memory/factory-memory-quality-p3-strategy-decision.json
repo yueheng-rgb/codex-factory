@@ -1,0 +1,15 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "L",
+  "title": "Strategy Decision",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "decisions": {
+    "q1_cleanup_planning": {"question":"Does P3 solve user-visible cleanup planning?","answer":"YES — PLAN mode provides preview of keep/delete/confirm with sizes. All modes generate reports. User sees what will happen before any action."},
+    "q2_manual": {"question":"What remains manual?","answer":"User must explicitly choose mode and confirm destructive actions. 2-step DELETE (PLAN → CONFIRM). --ForceEvidence for CORE_EVIDENCE deletion. No auto-cleanup."},
+    "q3_delete_safe": {"question":"Is destructive delete safe to expose?","answer":"YES with safeguards: PLAN preview required, --Confirm required, CORE_EVIDENCE preserved by default, --ForceEvidence for full deletion, CONTEXT SPACE ONLY (never touches real project files)."},
+    "q4_staging": {"question":"Should cleanup be integrated into staging pack?","answer":"YES — PACK-STAGING-P8 should integrate Memory Quality P2 (minimal ingestion) + P3 (retention cleanup) into the staging bundle."},
+    "q5_next": {"question":"Recommended next?","answer":"PACK-STAGING-P8 (integrate P2+P3 into staging) OR return to AB-0-R2 for release evidence. Memory quality pipeline (P2→P3) is internally complete."},
+    "q6_v05": {"question":"Does v0.5 remain blocked?","answer":"YES — v0.5 remains BLOCKED. Memory quality is internal optimization. 3 CRITICAL/HIGH blockers still active."}
+  },
+  "status": "STRATEGY_DECIDED"
+}

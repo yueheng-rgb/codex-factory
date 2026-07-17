@@ -1,0 +1,32 @@
+﻿{
+  "stage": "V2_8",
+  "map_type": "verified_capability",
+  "map_date": "2026-07-17",
+  "capabilities": [
+    {"id":"CAP-001","name":"Canonical Search / Evidence Pack","status":"VERIFIED","evidence":"AGENTS.md search doctrine, pre-build-research-gate.ps1, search-doctrine-regression-tests.ps1","notes":"Evidence Pack v2, Quality Gate v5, P0/P1/P2 classification operational"},
+    {"id":"CAP-002","name":"Trusted Memory / Compression Defense","status":"VERIFIED","evidence":"resume-gate.ps1, memory-admission-gate.ps1","notes":"V2.6 resume gate stress: 3/3 stale/invalid claims correctly BLOCKED"},
+    {"id":"CAP-003","name":"Artifact Store","status":"VERIFIED","evidence":"outputs/V2_7/artifact-V2_7-ART-001.json","notes":"stdout/stderr/exit_code capture works. Artifact binding operational."},
+    {"id":"CAP-004","name":"Audit Ledger / Hash Chain","status":"VERIFIED","evidence":"integration-ledger.json in cross-pack testbeds","notes":"Ledger entries exist for V2_6 multi-agent smokes"},
+    {"id":"CAP-005","name":"Human Review Console","status":"VERIFIED_WITH_LIMITATIONS","evidence":"human-review-console.ps1, 8 review receipts (4 V2_2 + 4 V2_7)","notes":"self_declared_automated signature_mode — not real human sign-off. Limitation documented."},
+    {"id":"CAP-006","name":"Expert Pack System","status":"VERIFIED","evidence":"governance/expert-packs/ — 6 packs, schema, invariants, benchmarks","notes":"6/6 packs ACTIVE, 4/6 packs runtime-validated with testbeds"},
+    {"id":"CAP-007","name":"Ecommerce Runtime Validation","status":"VERIFIED","evidence":"testbeds/ecommerce-runtime-validation — 29/29 PASS","notes":"CRITICAL invariants: price, inventory, payment, status transitions"},
+    {"id":"CAP-008","name":"SaaS Runtime Validation","status":"VERIFIED","evidence":"testbeds/saas-runtime-validation — 27/27 PASS","notes":"CRITICAL invariants: tenant isolation, quota, subscription"},
+    {"id":"CAP-009","name":"Admin Runtime Validation","status":"VERIFIED","evidence":"testbeds/admin-system-runtime-validation — 58/58 PASS","notes":"CRITICAL invariants: RBAC, destructive confirm, audit"},
+    {"id":"CAP-010","name":"Miniapp Runtime Validation","status":"VERIFIED","evidence":"testbeds/miniapp-runtime-validation — 27/27 PASS","notes":"CRITICAL invariants: openid, session, secret, payment, upload"},
+    {"id":"CAP-011","name":"Game/ThreeJS Runtime Validation","status":"VERIFIED","evidence":"testbeds/game-threejs-runtime-validation — 30/30 PASS","notes":"CRITICAL invariants: animation bounds, asset allowlist, score trust"},
+    {"id":"CAP-012","name":"C++ Memory Safety Runtime Validation","status":"VERIFIED_WITH_LIMITATIONS","evidence":"testbeds/cpp-memory-safety-runtime-validation — 41/41 PASS","notes":"Concept-level only. Sanitizer TOOL_UNAVAILABLE. winget install LLVM.LLVM documented."},
+    {"id":"CAP-013","name":"Cross-Pack Mission Matrix","status":"VERIFIED","evidence":"outputs/V2_6/ — 8 missions, 4 conflicts resolved","notes":"3 CRITICAL, 4 HIGH, 1 L_CLASS. Invariant merge operational."},
+    {"id":"CAP-014","name":"Multi-Agent Smoke","status":"VERIFIED","evidence":"V2_6 CPM-001 3 workers, CPM-004 worker","notes":"Worker handoff, integration ledger, cross-worker gaps detected (valuable finding)"},
+    {"id":"CAP-015","name":"Production Readiness Pilot","status":"VERIFIED_WITH_LIMITATIONS","evidence":"outputs/V2_7/ — 24-pt checker, 4 reviews, release gate","notes":"READY_FOR_PRODUCTION_REVIEW ≠ production-ready. 6 blocking gaps. self_declared reviews."},
+    {"id":"CAP-016","name":"External Engine Reliability","status":"VERIFIED_WITH_LIMITATIONS","evidence":"outputs/V2_5/ — semgrep 1.169.0, autocannon 8.0.0, playwright 1.61.1","notes":"semgrep CLEAN on most testbeds. Playwright canvas smoke PASS. C++ sanitizer UNAVAILABLE."}
+  ],
+  "summary": {
+    "total_capabilities": 16,
+    "verified": 12,
+    "verified_with_limitations": 4,
+    "simulated": 0,
+    "design_only": 0,
+    "partial": 0,
+    "not_production_claim": "ALL — none of these capabilities claim production readiness"
+  }
+}

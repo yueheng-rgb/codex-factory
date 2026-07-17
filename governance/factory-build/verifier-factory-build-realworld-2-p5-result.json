@@ -1,0 +1,146 @@
+﻿{
+    "passed":  27,
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-REALWORLD-2-P5",
+    "generated_at":  "2026-06-28T10:49:51+08:00",
+    "verdict":  "PASS",
+    "total_checks":  27,
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P5",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-001",
+                       "desc":  "P4 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-002",
+                       "desc":  "Context scope lock JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-003",
+                       "desc":  "Timeline summary JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-004",
+                       "desc":  "Change inventory JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-005",
+                       "desc":  "Validation summary JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-006",
+                       "desc":  "Security checklist JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-007",
+                       "desc":  "User review guide JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-008",
+                       "desc":  "Evidence package plan JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-009",
+                       "desc":  "Final assessment JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-010",
+                       "desc":  "Phase close JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-011",
+                       "desc":  "Test status: 21/2/0 not 23/23"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-012",
+                       "desc":  "Skipped tests not hidden"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-013",
+                       "desc":  "Original unchanged"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-014",
+                       "desc":  "No deploy/remote"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-015",
+                       "desc":  "No production DB"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-016",
+                       "desc":  "No secret printed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-017",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-018",
+                       "desc":  "No v0.5"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-019",
+                       "desc":  "No NBP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-020",
+                       "desc":  "No production readiness overclaim"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-021",
+                       "desc":  "Neg controls JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-022",
+                       "desc":  "Neg controls 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-023",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-024",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-025",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-026",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P5-V-027",
+                       "desc":  "No manual PASS-only"
+                   }
+               ],
+    "failed":  0
+}

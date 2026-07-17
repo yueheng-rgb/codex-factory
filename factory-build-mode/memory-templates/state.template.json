@@ -1,0 +1,25 @@
+﻿{
+    "$schema": "codex-factory-state",
+    "version": "0.1.0",
+    "projectName": "",
+    "currentStage": "INTAKE",
+    "stages": {
+        "INTAKE": "PENDING",
+        "CLASSIFY": "PENDING",
+        "ROUTE": "PENDING",
+        "BLUEPRINT": "PENDING",
+        "TASK_GRAPH": "PENDING",
+        "BUILD": "PENDING",
+        "DIAGNOSTIC_GATE": "PENDING",
+        "REPAIR": "PENDING",
+        "DELIVER": "PENDING"
+    },
+    "selectedMode": "",
+    "complexityLevel": "",
+    "agentCount": 1,
+    "lastAction": "",
+    "lastActionTimestamp": "",
+    "sessionCount": 0,
+    "decisions": [],
+    "activeRisks": []
+}

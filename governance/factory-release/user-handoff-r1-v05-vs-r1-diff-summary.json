@@ -1,0 +1,14 @@
+﻿{
+    "phase":  "USER-HANDOFF-R1",
+    "section":  "C",
+    "r1NotAdds":  [
+                      "cloud",
+                      "production",
+                      "real validation",
+                      "v0.6",
+                      "auto multi-agent",
+                      "build pro default"
+                  ],
+    "v05Features":  "Core tooling",
+    "r1Adds":  7
+}

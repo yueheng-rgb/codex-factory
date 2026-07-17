@@ -1,0 +1,126 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-dry19-b-p0-target-scenario-directness-preflight-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  23,
+    "passed":  23,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "H12-P3 report exists and PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "DRY19-B has not started"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "DRY19-B negative-control plan exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "Scenario alias map exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "Every Group B/C target-gate negative has an alias mapping (15 mappings)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "Every mapping has intendedInvariant"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "Every mapping has actualTargetScenarioId"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "Every mapping has aliasStrength"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "Every mapping has sourceEvidence"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "No WEAK alias accepted for execution"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "No INVALID alias accepted for execution"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "No PARTIAL critical alias accepted for execution"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "Critical invariants are EXACT or STRONG only (accepted subset)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "Directness preflight result exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "executionAllowed is false (expected — plan repair required)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  16,
+                       "desc":  "Plan repair log exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  17,
+                       "desc":  "FACTORY_TASK_QUEUE consistent: DRY19-B blocked by directness-preflight"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  18,
+                       "desc":  "DRY19-B executionStarted=false"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  19,
+                       "desc":  "DRY19-B not started"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  20,
+                       "desc":  "No generic FAIL classifications"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  21,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  22,
+                       "desc":  "Closed reports unchanged"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  23,
+                       "desc":  "DRY2-C through DRY13-C remain paused"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T13:12:27.433+08:00"
+}

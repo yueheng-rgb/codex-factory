@@ -1,0 +1,141 @@
+﻿{
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V00",
+                        "desc":  "BUILD-8 PASS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "Evidence freeze exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "Lifecycle audit exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "UI count interpretation exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "Lifecycle policy exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "Strategy freeze exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "Keep/cut/defer matrix exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "Next phase decision exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "3 agents audited"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "All agents completed"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "No stale agents"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "No orphan agents"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "Build Lite = practical default"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "Native Build Pro = conditional"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "v0.5 = blocked"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "Multi-agent default = rejected"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "Next phase recommended"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "v0.5 still blocked in decision"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "Multi-agent default still rejected"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "No v0.5 package"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "No release ZIP"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "No BUILD-8 product modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "No prior products modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "No UNEXPECTED_PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V24",
+                        "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V25",
+                        "desc":  "Verifier complete"
+                    }
+                ],
+    "failedChecks":  0,
+    "overall":  "PASS",
+    "passedChecks":  26,
+    "totalChecks":  26,
+    "phase":  "FACTORY-BUILD-8-P1",
+    "date":  "2026-06-27T11:41:38.5544317+08:00",
+    "verifier":  "factory-build-8-p1-strategy-freeze-agent-lifecycle-audit-verify.ps1"
+}

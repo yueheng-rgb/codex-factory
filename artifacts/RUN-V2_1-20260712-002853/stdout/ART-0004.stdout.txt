@@ -1,0 +1,40 @@
+﻿
+> saas-runtime-validation@1.0.0 test
+> npx vitest run --reporter=verbose
+
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Codex_App_Factory/testbeds/saas-runtime-validation[39m
+
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: tenant_data_isolation[2m > [22mallows user to access own tenant data[32m 2[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: user_cannot_access_other_tenant_data[2m > [22mblocks cross-tenant data access[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: deleted_workspace_cannot_generate[2m > [22mblocks generation on deleted workspace[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: deleted_workspace_cannot_generate[2m > [22mallows generation on active workspace[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: subscription_status_controls_access[2m > [22mallows access with active subscription[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: expired_subscription_cannot_generate[2m > [22mblocks generation with expired subscription[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: usage_quota_non_negative[2m > [22mallows valid quota decrement[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: usage_quota_non_negative[2m > [22mrejects decrement exceeding quota[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: quota_decrement_must_be_atomic[2m > [22mprevents negative quota after decrement[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: generation_cost_must_be_recorded[2m > [22mrecords cost on generation[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: generation_history_belongs_to_tenant[2m > [22mreturns only tenant-scoped generation history[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: api_key_never_exposed_to_client[2m > [22mreturns masked key, never full key[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: provider_key_server_side_only[2m > [22mnever exposes provider key to client[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: billing_webhook_idempotency_required[2m > [22mprocesses webhook once, skips duplicate[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: rate_limit_enforced_per_user_or_tenant[2m > [22mallows requests under limit[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: rate_limit_enforced_per_user_or_tenant[2m > [22mblocks requests over limit[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: admin_required_for_plan_change[2m > [22mallows ADMIN to change plan[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mInvariant: admin_required_for_plan_change[2m > [22mrejects MEMBER from changing plan[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mNegative Control 1: cross-tenant data access — BLOCKED[2m > [22mrejects accessing other tenant data[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mNegative Control 2: expired subscription generates — BLOCKED[2m > [22mrejects generation on expired sub[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mNegative Control 3: quota goes negative — BLOCKED[2m > [22mrejects decrement beyond quota[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mNegative Control 4: generation without cost recording — IMPOSSIBLE[2m > [22malways records cost on generation[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mNegative Control 5: API key returned to client — REDACTED[2m > [22mnever exposes full API key to client[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mNegative Control 6: provider key in client response — REDACTED[2m > [22mprovider key is never in any response[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mNegative Control 7: duplicate billing webhook — IDEMPOTENT[2m > [22mprocesses event only once[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mNegative Control 8: non-admin changes plan — BLOCKED[2m > [22mrejects MEMBER plan change[32m 0[2mms[22m[39m
+ [32m✓[39m tests/saas-validation.test.ts[2m > [22mEdge cases[2m > [22mrejects user creation on deleted workspace[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m27 passed[39m[22m[90m (27)[39m
+[2m   Start at [22m 00:28:59
+[2m   Duration [22m 413ms[2m (transform 47ms, setup 0ms, collect 61ms, tests 6ms, environment 0ms, prepare 123ms)[22m
+

@@ -1,0 +1,12 @@
+﻿{
+  "phase": "FACTORY-STATE-DASHBOARD-0",
+  "section": "E",
+  "title": "Agent Ledger View",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "view_file": "factory-dashboard/AGENT_LEDGER_VIEW.md",
+  "schema_file": "factory-dashboard/schemas/agent-ledger-view.schema.json",
+  "display_fields": ["agent_id", "agent_role", "projectId", "timestamp", "phase", "input_artifacts", "output_artifacts", "verdict", "known_caveats", "parent_agent", "handoff_to", "foreign_references"],
+  "integrity_checks": ["Missing projectId", "Anonymous agent", "No output files", "No verdict", "No integrator verdict", "No failure attribution"],
+  "report": "outputs/FACTORY_STATE_DASHBOARD_0_E_AGENT_LEDGER_VIEW_REPORT.md"
+}

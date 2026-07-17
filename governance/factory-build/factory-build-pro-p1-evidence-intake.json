@@ -1,0 +1,31 @@
+﻿{
+  "phase": "FACTORY-BUILD-PRO-P1",
+  "subPhase": "A_EVIDENCE_INTAKE",
+  "date": "2026-06-27",
+  "intakeSummary": {
+    "build7Pass": true,
+    "build8Pass": true,
+    "build8p1Pass": true,
+    "nativeSpawnAvailable": true,
+    "forkContextFalseProven": true,
+    "writeScopeViolationsBuild8": 0,
+    "build8AgentLifecycleClean": true,
+    "buildLitePracticalDefault": true,
+    "nativeBuildProConditional": true,
+    "v05Blocked": true,
+    "multiAgentDefaultRejected": true
+  },
+  "claimClassification": {
+    "SUPPORTED": [
+      "Native spawn_agent is functional with fork_context:false",
+      "3-agent Native Build Pro produced complete AtlasOps Portal Lite",
+      "Build Lite is best cost/benefit for single developers",
+      "Native Build Pro shows value for complex projects"
+    ],
+    "OVERSTRONG_CLAIM": [
+      "multi-agent default rejected permanently",
+      "Build Pro can never be default"
+    ],
+    "CORRECTION": "Language changed from 'permanently rejected' to 'rejected under current evidence; Native Build Pro remains conditional; future evidence may justify broader use only through explicit release/default gate'"
+  }
+}

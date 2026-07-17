@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  110,
+    "frozenAt":  "2026-06-20T20:55:24.0778755+08:00",
+    "runId":  "dry1-b-negative-no-rework",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\dry1-b-negative-no-rework\\trust-root.json",
+    "controlPlaneLockSha256":  "870402eac6716a0659602cd4c1a07db973000e9f2b60e6974529a41e8595b65a",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "68f3d670b7f8f4a3a51acd9d9a65e232b474a9cd75683b83720aa449039b9cb4"
+}

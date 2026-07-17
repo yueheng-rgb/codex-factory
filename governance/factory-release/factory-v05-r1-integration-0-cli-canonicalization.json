@@ -1,0 +1,9 @@
+﻿{
+    "backwardCompat":  true,
+    "preservedCommands":  4,
+    "section":  "G",
+    "alias":  "factoryctl.ps1",
+    "newCommands":  5,
+    "canonicalName":  "factory.ps1",
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0"
+}

@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  139,
+    "frozenAt":  "2026-06-19T14:16:06.2160032+08:00",
+    "runId":  "phase6c-a2-positive-regression",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\phase6c-a2-positive-regression\\trust-root.json",
+    "controlPlaneLockSha256":  "bbf60c289d8d1edcf0872cf65880026a107d35afe8b3ec96bd2dbceedba709d8",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "ef480b6a190ada17359387967fc6e1b9df3d23502f6b079bf4e91f070ed42f36"
+}

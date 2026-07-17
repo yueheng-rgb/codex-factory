@@ -1,0 +1,11 @@
+﻿{
+    "result_summary":  "17/17 PASS",
+    "artifact_id":  "V2_7-ART-001",
+    "started_at":  "2026-07-17T13:50:18.8640390+08:00",
+    "stdout":  "\r\n\u003e cross-pack-cpm-001-testbed@1.0.0 test\r\n\u003e vitest run\r\n\r\nnode.exe : \u001b[33mThe CJS build of Vite\u0027s Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cj\r\ns-node-api-deprecated for more details.\u001b[39m\r\n所在位置 行:1 字符: 1\r\n+ \u0026 \"C:\\Program Files\\nodejs/node.exe\" \"C:\\Program Files\\nodejs/node_mo ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (\u001b[33mThe CJS bu...e details.\u001b[39m:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n\r\n\u001b[7m\u001b[1m\u001b[36m RUN \u001b[39m\u001b[22m\u001b[27m \u001b[36mv1.6.1\u001b[39m \u001b[90mC:/Codex_App_Factory/testbeds/cross-pack-cpm-001\u001b[39m\r\n\r\n \u001b[32m✓\u001b[39m tests/cross-pack-cpm-001.test.ts \u001b[2m (\u001b[22m\u001b[2m17 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 83\u001b[2mms\u001b[22m\u001b[39m\r\n\r\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\r\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (17)\u001b[39m\r\n\u001b[2m   Start at \u001b[22m 13:50:21\r\n\u001b[2m   Duration \u001b[22m 1.06s\u001b[2m (transform 48ms, setup 0ms, collect 564ms, tests 83ms, environment 0ms, prepare 193ms)\u001b[22m\r\n\r\n",
+    "command":  "npm test",
+    "working_directory":  "testbeds/cross-pack-cpm-001",
+    "duration_seconds":  4.2261868,
+    "finished_at":  "2026-07-17T13:50:23.0902258+08:00",
+    "exit_code":  0
+}

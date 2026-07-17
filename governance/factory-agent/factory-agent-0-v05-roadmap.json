@@ -1,0 +1,125 @@
+﻿{
+    "gateAfterAgent4":  "DESIGN_COMPLETE — user must confirm before starting benchmarks (AGENT-5 through AGENT-9)",
+    "nativeGenerated":  true,
+    "totalPhases":  10,
+    "phases":  [
+                   {
+                       "stopConditions":  [
+                                              "Schema conflict with v0.4 core",
+                                              "Protocol complexity exceeds large-project benefit threshold"
+                                          ],
+                       "name":  "Agent Company Protocol Pack",
+                       "evidenceNeeded":  "Protocol peer review; schema validation",
+                       "passCriteria":  "All schemas validate; protocols are machine-readable; negative controls pass",
+                       "expectedArtifacts":  [
+                                                 "agent-company-protocol.md",
+                                                 "worker-contract-v05.schema.json",
+                                                 "worker-handoff.schema.json",
+                                                 "spawn-protocol.md"
+                                             ],
+                       "objective":  "Formalize 5-role agent model with contracts, scopes, handoff schemas, and spawn protocols",
+                       "phase":  "FACTORY-AGENT-1"
+                   },
+                   {
+                       "name":  "Worker Capsule + Reporting + Handoff Schemas",
+                       "evidenceNeeded":  "Worker lifecycle test with 3+ agents",
+                       "passCriteria":  "Workers can register, report, and handoff without Main Agent fallback",
+                       "expectedArtifacts":  [
+                                                 "worker-capsule.ps1",
+                                                 "worker-report.ps1",
+                                                 "handoff-validate.ps1"
+                                             ],
+                       "objective":  "Implement worker reporting protocol with registry entries, progress events, handoff SHA256, and transcript references",
+                       "phase":  "FACTORY-AGENT-2"
+                   },
+                   {
+                       "name":  "Orchestrator Scheduler + Capacity + Lifecycle",
+                       "evidenceNeeded":  "Orchestration test with 5+ agents",
+                       "passCriteria":  "Orchestrator can spawn N agents, detect failures, retire stale agents",
+                       "expectedArtifacts":  [
+                                                 "orchestrator-scheduler.ps1",
+                                                 "capacity-preflight.ps1",
+                                                 "lifecycle-manager.ps1"
+                                             ],
+                       "objective":  "Implement task graph creation, contract generation, capacity preflight, spawn/failure classification, and agent lifecycle management",
+                       "phase":  "FACTORY-AGENT-3"
+                   },
+                   {
+                       "name":  "Integration + Anti-Deception + Drift Gates",
+                       "evidenceNeeded":  "Contamination injection test; 12+ negatives",
+                       "passCriteria":  "Integrator can merge without contamination; verifier detects undeclared fallback",
+                       "expectedArtifacts":  [
+                                                 "integration-protocol.md",
+                                                 "anti-deception-gates.ps1",
+                                                 "drift-detector-v05.ps1"
+                                             ],
+                       "objective":  "Implement integrator merge protocol, verifier anti-deception gates, and drift detection for multi-agent context",
+                       "phase":  "FACTORY-AGENT-4"
+                   },
+                   {
+                       "phase":  "FACTORY-AGENT-5",
+                       "expectedArtifacts":  [
+                                                 "benchmark-spec.md",
+                                                 "benchmark-fixture/",
+                                                 "measurement-protocol.ps1"
+                                             ],
+                       "name":  "Large Project Benchmark Design (Detailed)",
+                       "objective":  "Finalize benchmark project specification, fixture setup, and measurement protocol",
+                       "evidenceNeeded":  "Independent review of benchmark fairness"
+                   },
+                   {
+                       "phase":  "FACTORY-AGENT-6",
+                       "expectedArtifacts":  [
+                                                 "RUN-1 report",
+                                                 "RUN-1 metrics.json",
+                                                 "RUN-1 transcript"
+                                             ],
+                       "name":  "Vanilla Large Project Baseline",
+                       "objective":  "Run Vanilla Codex on the benchmark project; measure all key metrics",
+                       "evidenceNeeded":  "Full baseline measurements"
+                   },
+                   {
+                       "phase":  "FACTORY-AGENT-7",
+                       "expectedArtifacts":  [
+                                                 "RUN-2 report",
+                                                 "RUN-2 metrics.json"
+                                             ],
+                       "name":  "v0.4 Factory Lite Large Project Run",
+                       "objective":  "Run v0.4 Factory Lite Core on the benchmark project",
+                       "evidenceNeeded":  "Comparison data vs Vanilla baseline"
+                   },
+                   {
+                       "phase":  "FACTORY-AGENT-8",
+                       "expectedArtifacts":  [
+                                                 "RUN-3 report",
+                                                 "RUN-3 metrics.json",
+                                                 "agent-overhead.json"
+                                             ],
+                       "name":  "v0.5 Agent Company Large Project Run",
+                       "objective":  "Run v0.5 Agent Company Mode on the benchmark project",
+                       "evidenceNeeded":  "Comparison data vs Vanilla and v0.4; agent overhead breakdown"
+                   },
+                   {
+                       "phase":  "FACTORY-AGENT-9",
+                       "expectedArtifacts":  [
+                                                 "comparison-report.md",
+                                                 "multi-agent-default-decision.json"
+                                             ],
+                       "name":  "Independent Comparison + Default Decision",
+                       "objective":  "Compare all 3 runs; decide whether multi-agent becomes default for large projects",
+                       "evidenceNeeded":  "All 3 RUN metrics; falsification protocol applied"
+                   },
+                   {
+                       "phase":  "FACTORY-V05-PREP",
+                       "expectedArtifacts":  [
+                                                 "v0.5 release ZIP (conditional)"
+                                             ],
+                       "name":  "v0.5 Release Preparation",
+                       "objective":  "Only if evidence supports: prepare v0.5 release package",
+                       "evidenceNeeded":  "FACTORY-AGENT-9 PASS with multi-agent benefit demonstrated"
+                   }
+               ],
+    "gateAfterAgent9":  "EVIDENCE_GATE — multi-agent becomes default ONLY if AGENT-9 shows clear benefit",
+    "generatedAt":  "2026-06-26T01:03:37.0880322+08:00",
+    "phase":  "FACTORY-AGENT-0-H"
+}

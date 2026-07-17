@@ -1,0 +1,49 @@
+﻿{
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "multiAgentDefault":  false,
+    "changesMade":  {
+                        "overheadBudget":  "Added: WARN at 2x, BLOCK at 3x",
+                        "floorEnforcement":  "Added mid-run blocking floor checker (6 floors)",
+                        "sevenAgentStatus":  "ARCHIVED_NOT_DEFAULT",
+                        "agentModel":  "7-agent -\u003e 4-agent candidate",
+                        "gatekeeperMerge":  "3 separate gatekeepers -\u003e 1 combined Reviewer-Verifier",
+                        "fourAgentStatus":  "NOT_DEFAULT_NOT_PROVEN",
+                        "caveatBlocking":  "Reviewer caveats now BLOCKING for 8 categories"
+                    },
+    "nextPhaseName":  "OpsFlow v0.5 Simplified Agent Company Re-Test",
+    "successConditions":  [
+                              "P1 score \u003e Vanilla 85.5 OR equals with compensating value",
+                              "Must beat old v0.5 score 80.0",
+                              "No floor misses",
+                              "Overhead \u003c 2x Vanilla"
+                          ],
+    "phaseName":  "Simplified Agent Company Runtime Hardening",
+    "timestamp":  "2026-06-26T18:48:47.8991818+08:00",
+    "recommendedNextPhase":  "FACTORY-AGENT-8-P1",
+    "outputs":  [
+                    "outputs/FACTORY_AGENT_RUNTIME_P1_SIMPLIFIED_AGENT_REPORT.md",
+                    "outputs/FACTORY_AGENT_RUNTIME_P1_NEGATIVE_CONTROLS_REPORT.md",
+                    "governance/factory-agent/factory-agent-runtime-p1-simplified-agent-result.json",
+                    "scripts/factory-agent-runtime-p1-simplified-agent-verify.ps1",
+                    "factory-agent-company-protocol-pack/roles/*-p1.md",
+                    "factory-agent-company-protocol-pack/policies/*-policy.json"
+                ],
+    "simulationVerdict":  "5 scenarios: all gates work correctly",
+    "parentDecision":  "HYBRID-P1",
+    "verifierResult":  {
+                           "path":  "governance/factory-agent/verifier-factory-agent-runtime-p1-result.json",
+                           "verdict":  "PASS",
+                           "checksFailed":  0,
+                           "checksPassed":  32
+                       },
+    "evidenceIntake":  "18 items classified: 8 KEEP, 5 REWORK, 3 CUT, 1 DEFER, 1 REJECT",
+    "parentPhase":  "FACTORY-AGENT-9-P1",
+    "verdict":  "PASS",
+    "noReleaseClaim":  true,
+    "negativeControls":  {
+                             "gaps":  0,
+                             "detected":  36,
+                             "total":  36,
+                             "executed":  36
+                         }
+}

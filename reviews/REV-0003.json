@@ -1,0 +1,33 @@
+﻿{
+    "review_id":  "REV-0003",
+    "session_id":  "SESS-20260712-004352",
+    "reviewer_role":  "operator",
+    "reviewer_name_or_alias":  "carol-ops-lead",
+    "review_scope":  "compression summary vs trusted state conflict — deprecated direction claim",
+    "risk_level":  "CRITICAL",
+    "reviewed_artifacts":  [
+                               "ART-0001",
+                               "ART-0007"
+                           ],
+    "reviewed_claims":  [
+                            "Trusted State: Search Agent as Future Default = DEPRECATED",
+                            "Compression summary: Search Agent = viable"
+                        ],
+    "decision":  "REJECTED",
+    "required_changes":  [
+
+                         ],
+    "reviewer_notes":  "Compression summary claim rejected. Trusted State is authoritative. Resume gate correct to BLOCKED. User must verify trusted state before proceeding.",
+    "timestamp":  "2026-07-12T00:43:52+08:00",
+    "linked_audit_ledger_entry":  "",
+    "linked_artifact_ids":  [
+                                "ART-0001",
+                                "ART-0007"
+                            ],
+    "linked_artifact_store_index":  "",
+    "non_claims":  [
+
+                   ],
+    "signature_mode":  "local_receipt",
+    "cannot_be_auto_generated_by_agent":  true
+}

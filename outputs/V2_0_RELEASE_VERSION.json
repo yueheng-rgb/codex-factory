@@ -1,0 +1,41 @@
+﻿{
+  "release_name": "Codex Factory v2.0",
+  "release_stage": "stable mission-validated release",
+  "release_version": "2.0.0",
+  "release_date": "2026-07-12",
+  "baseline_source": [
+    "v1.0 Foundation Release (search/multi-agent/verifier/harness/bootstrap)",
+    "v1.3 Trust Closure & Operational Maturity (trusted memory/compression defense/audit trail/hash chain)",
+    "v2.0-RC Real Project Mission Trial (3 expert packs/multi-agent/mission project)"
+  ],
+  "predecessor_versions": [
+    "v0.9.0-pre-RC (pre-release candidate)",
+    "v1.0.0 (Foundation Release)",
+    "v1.1.0 (Admin System Expert Pack)",
+    "v1.1.1 (Admin Runtime Validation)",
+    "v1.2.0 (External Engine Expansion)",
+    "v1.3.0 (Trust Closure)"
+  ],
+  "not_final_product": true,
+  "not_production_system": true,
+  "production_system_claim": false,
+  "key_metrics": {
+    "regression_tests": 210,
+    "regression_passed": 210,
+    "expert_packs": 3,
+    "invariants_enforced": 16,
+    "runnable_starters": 5,
+    "testbeds": 5,
+    "mission_projects": 1,
+    "external_engines_available": 3,
+    "external_engines_total": 6,
+    "governance_files": 400
+  },
+  "frozen_trunks": [
+    "search (canonical/Evidence Pack/Quality Gate/Pre-Build Research Gate)",
+    "multi-agent (worker/capsule/contract/handoff/integrator)",
+    "verifier (evidence binding/audit trail/hash chain)",
+    "harness (regression/testbed governance)",
+    "AGENTS.md (Factory Bootstrap)"
+  ]
+}

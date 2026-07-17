@@ -1,0 +1,236 @@
+﻿{
+    "sessionOrigin":  "new-window",
+    "generatedAt":  "2026-06-24T17:34:01+08:00",
+    "verdict":  "PASS",
+    "recommendationDetail":  "DRY25-S0 complete. All tooling bugs repaired. All verifiers clean. No blocking issues.",
+    "totalChecks":  30,
+    "phase":  "DRY25-session-rotation-startup-verification",
+    "s0VerifierResult":  "30/30 PASS",
+    "parentPhase":  "H18",
+    "h18Status":  "PASS",
+    "h18VerifierResult":  "84/84 PASS",
+    "finalZipExists":  false,
+    "h18PostCompletionResult":  "87/87 PASS",
+    "currentTrustedPhase":  "H18",
+    "checks":  [
+                   {
+                       "expected":  "H18",
+                       "verdict":  "PASS",
+                       "checkId":  "STATE_currentTrustedPhase",
+                       "actual":  "H18"
+                   },
+                   {
+                       "expected":  "PASS",
+                       "verdict":  "PASS",
+                       "checkId":  "STATE_h18Status",
+                       "actual":  "PASS"
+                   },
+                   {
+                       "expected":  "false",
+                       "verdict":  "PASS",
+                       "checkId":  "STATE_finalZipExists",
+                       "actual":  "false"
+                   },
+                   {
+                       "expected":  "factory-resource-pack/",
+                       "verdict":  "PASS",
+                       "checkId":  "STATE_resourcePackPath",
+                       "actual":  "factory-resource-pack/"
+                   },
+                   {
+                       "expected":  "exists",
+                       "verdict":  "PASS",
+                       "checkId":  "HANDOFF_pointerExists",
+                       "actual":  "exists"
+                   },
+                   {
+                       "expected":  "true",
+                       "verdict":  "PASS",
+                       "checkId":  "HANDOFF_nativeGenerated",
+                       "actual":  "true"
+                   },
+                   {
+                       "expected":  "present",
+                       "verdict":  "PASS",
+                       "checkId":  "HANDOFF_compressionCaveat",
+                       "actual":  "present"
+                   },
+                   {
+                       "expected":  "exists",
+                       "verdict":  "PASS",
+                       "checkId":  "HANDOFF_capsuleExists",
+                       "actual":  "exists"
+                   },
+                   {
+                       "expected":  "sourceEvidenceHashes",
+                       "verdict":  "PASS",
+                       "checkId":  "HANDOFF_evidenceHashesCanonical",
+                       "actual":  "sourceEvidenceHashes (3 entries)"
+                   },
+                   {
+                       "expected":  "84/84",
+                       "verdict":  "PASS",
+                       "checkId":  "VERIFIER_h18Exists",
+                       "actual":  "84/84 PASS"
+                   },
+                   {
+                       "expected":  "87/87 PASS",
+                       "verdict":  "PASS",
+                       "checkId":  "VERIFIER_h18PostCompletion",
+                       "actual":  "87/87 PASS"
+                   },
+                   {
+                       "expected":  "30/30 PASS",
+                       "verdict":  "PASS",
+                       "checkId":  "VERIFIER_s0",
+                       "actual":  "30/30 PASS"
+                   },
+                   {
+                       "expected":  "exists",
+                       "verdict":  "PASS",
+                       "checkId":  "MANIFEST_exists",
+                       "actual":  "exists"
+                   },
+                   {
+                       "expected":  "match",
+                       "verdict":  "PASS",
+                       "checkId":  "MANIFEST_sha256Match",
+                       "actual":  "match"
+                   },
+                   {
+                       "expected":  "0",
+                       "verdict":  "PASS",
+                       "checkId":  "NEG_noDRY25Mission",
+                       "actual":  "0"
+                   },
+                   {
+                       "expected":  "0",
+                       "verdict":  "PASS",
+                       "checkId":  "NEG_noH19Artifacts",
+                       "actual":  "0"
+                   },
+                   {
+                       "expected":  "0",
+                       "verdict":  "PASS",
+                       "checkId":  "NEG_noFinalZip",
+                       "actual":  "0"
+                   },
+                   {
+                       "expected":  "absent",
+                       "verdict":  "PASS",
+                       "checkId":  "EXCL_noScoringInCore",
+                       "actual":  "absent"
+                   },
+                   {
+                       "expected":  "absent",
+                       "verdict":  "PASS",
+                       "checkId":  "EXCL_noFailureRouterInCore",
+                       "actual":  "absent"
+                   },
+                   {
+                       "expected":  "caveated",
+                       "verdict":  "PASS",
+                       "checkId":  "EXCL_compressedSummaryNotEvidence",
+                       "actual":  "caveated"
+                   },
+                   {
+                       "expected":  "gated",
+                       "verdict":  "PASS",
+                       "checkId":  "EXCL_noUnverifiedClaims",
+                       "actual":  "gated"
+                   },
+                   {
+                       "expected":  "PASS 0 FAIL modules",
+                       "verdict":  "PASS",
+                       "checkId":  "TOOLING_factoryctlVerify",
+                       "actual":  "PASS 0 FAIL modules"
+                   },
+                   {
+                       "expected":  "PASS",
+                       "verdict":  "PASS",
+                       "checkId":  "TOOLING_handoffIntegrity",
+                       "actual":  "PASS (canonical field)"
+                   },
+                   {
+                       "expected":  "PASS",
+                       "verdict":  "PASS",
+                       "checkId":  "TOOLING_workerBoundaries",
+                       "actual":  "PASS (9 legacy, 0 violating)"
+                   },
+                   {
+                       "expected":  "PASS 14/14",
+                       "verdict":  "PASS",
+                       "checkId":  "TOOLING_bootstrapValidator",
+                       "actual":  "PASS 14/14"
+                   },
+                   {
+                       "expected":  "87/87 PASS",
+                       "verdict":  "PASS",
+                       "checkId":  "TOOLING_h18PostCompletion",
+                       "actual":  "87/87 PASS"
+                   },
+                   {
+                       "expected":  "30/30 PASS",
+                       "verdict":  "PASS",
+                       "checkId":  "TOOLING_s0Verifier",
+                       "actual":  "30/30 PASS"
+                   },
+                   {
+                       "expected":  "2 files",
+                       "verdict":  "PASS",
+                       "checkId":  "CLASS_dry25StartupHandoffAllowed",
+                       "actual":  "2 files"
+                   },
+                   {
+                       "expected":  "2 files",
+                       "verdict":  "PASS",
+                       "checkId":  "CLASS_dry25StartupVerificationAllowed",
+                       "actual":  "2 files"
+                   },
+                   {
+                       "expected":  "0",
+                       "verdict":  "PASS",
+                       "checkId":  "CLASS_dry25MissionForbidden",
+                       "actual":  "0"
+                   }
+               ],
+    "dry25Goal":  "Test whether H18 resource pack can be consumed by a fresh project fixture without hidden current-repo dependencies",
+    "allowedNextPhase":  "DRY25 or H19",
+    "recommendedNextPhase":  "DRY25",
+    "postS0Repair":  true,
+    "repairs":  [
+                    {
+                        "fix":  "Field name compatibility: sourceEvidenceHashes canonical",
+                        "result":  "PASS",
+                        "id":  "R1",
+                        "file":  "scripts/diagnosis/check-handoff-integrity.ps1"
+                    },
+                    {
+                        "fix":  "Legacy agent classification: active/legacy/violating",
+                        "result":  "PASS",
+                        "id":  "R2",
+                        "file":  "scripts/diagnosis/check-worker-boundaries.ps1"
+                    },
+                    {
+                        "fix":  "Path fix + Get-FileHash + context-aware checks",
+                        "result":  "PASS (14/14)",
+                        "id":  "R3",
+                        "file":  "factory-resource-pack/bootstrap/validate-resource-pack.ps1"
+                    },
+                    {
+                        "fix":  "Post-completion mode with artifact classification",
+                        "result":  "PASS (87/87)",
+                        "id":  "R4",
+                        "file":  "scripts/phase6c-h18-resource-pack-foundation-verify.ps1"
+                    },
+                    {
+                        "fix":  "5-category classification system",
+                        "result":  "PASS",
+                        "id":  "R5",
+                        "file":  "governance/factory-state/artifact-classification.json"
+                    }
+                ],
+    "passCount":  30,
+    "recommendation":  "START DRY25",
+    "nativeGenerated":  true
+}

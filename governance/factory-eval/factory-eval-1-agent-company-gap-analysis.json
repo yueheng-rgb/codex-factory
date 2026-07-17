@@ -1,0 +1,87 @@
+﻿{
+    "whatWeNeed":  [
+                       "Role definitions with output contracts per specialist",
+                       "Role-specific SKILL.md or reference files",
+                       "Role-to-role handoff protocol (not just worker-to-main)",
+                       "Drift detection: verifier checks role output matches role definition",
+                       "Overhead budget: max agents per project phase"
+                   ],
+    "currentAgentRoles":  [
+                              "main",
+                              "builder",
+                              "explorer",
+                              "verifier",
+                              "auditor",
+                              "integrator",
+                              "worker",
+                              "scheduler"
+                          ],
+    "driftRisks":  [
+                       "Agent role drift: PM agent starts writing code instead of scoping",
+                       "Authority confusion: architect and engineer disagree with no resolution",
+                       "Overhead spiral: too many agents coordinating on simple tasks",
+                       "Context dilution: each agent consumes context but adds marginal value",
+                       "Verifier gaming: agents learn to satisfy verifier without real quality"
+                   ],
+    "verdict":  "Role-specialized agent model is worth designing (FACTORY-EVAL-3) but must include drift controls and output contracts. Do NOT implement before Manual Router (FACTORY-EVAL-2) because agents need to read their role definitions.",
+    "driftControlsProposed":  [
+                                  "Each specialist role has explicit output contract (what they produce, not what they do)",
+                                  "Verifier checks role-specific outputs, not self-reported activity",
+                                  "Agent handoff receipts track who produced what",
+                                  "Main Agent retains gate authority — specialist agents recommend, Main Agent decides"
+                              ],
+    "phase":  "FACTORY-EVAL-1-C",
+    "generatedAt":  "2026-06-25T15:53:44+08:00",
+    "potentialSpecialistRoles":  [
+                                     {
+                                         "doesFactoryHave":  false,
+                                         "need":  "Scope management, requirement clarity, task decomposition",
+                                         "riskWithout":  "Scope creep, unclear requirements",
+                                         "role":  "PM/Product"
+                                     },
+                                     {
+                                         "doesFactoryHave":  false,
+                                         "need":  "System design, tech decisions, component boundaries",
+                                         "riskWithout":  "Inconsistent architecture, wrong tech choices",
+                                         "role":  "Architect"
+                                     },
+                                     {
+                                         "doesFactoryHave":  false,
+                                         "need":  "UI implementation, component design, accessibility",
+                                         "riskWithout":  "Poor UI quality",
+                                         "role":  "Frontend Engineer"
+                                     },
+                                     {
+                                         "doesFactoryHave":  false,
+                                         "need":  "API design, database, business logic",
+                                         "riskWithout":  "Inconsistent APIs, data issues",
+                                         "role":  "Backend Engineer"
+                                     },
+                                     {
+                                         "doesFactoryHave":  false,
+                                         "need":  "Threat modeling, auth, data protection",
+                                         "riskWithout":  "Security vulnerabilities",
+                                         "role":  "Security Engineer"
+                                     },
+                                     {
+                                         "doesFactoryHave":  false,
+                                         "need":  "Test design, edge cases, regression",
+                                         "riskWithout":  "Untested code, regressions",
+                                         "role":  "QA Engineer"
+                                     },
+                                     {
+                                         "doesFactoryHave":  false,
+                                         "need":  "Deployment, CI/CD, monitoring",
+                                         "riskWithout":  "Manual deployment, no monitoring",
+                                         "role":  "DevOps"
+                                     }
+                                 ],
+    "schemaId":  "factory-eval-1-agent-company-gap-analysis",
+    "whatWeHave":  [
+                       "Agent OS with lifecycle, event bus, authority matrix",
+                       "spawn_agent with fork_context:false (builder isolation)",
+                       "Verifier + negative control infrastructure",
+                       "Contract-first enforcement pattern",
+                       "Agent handoff and receipt protocols"
+                   ]
+}

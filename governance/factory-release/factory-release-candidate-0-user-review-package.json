@@ -1,0 +1,22 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "I",
+    "title": "User Review Package",
+    "timestamp": "2026-06-28T20:37:00+08:00",
+    "artifacts": {
+        "user_review_guide": "outputs/RC0_USER_REVIEW_GUIDE.md",
+        "rc_package": "outputs/codex-factory-core-v0.9.0-pre-RC0.zip",
+        "sha256_file": "outputs/codex-factory-core-v0.9.0-pre-RC0.zip.sha256",
+        "manifest": "outputs/RC0_MANIFEST.json",
+        "metadata": "factory-release/RC0_METADATA.json"
+    },
+    "key_messages": [
+        "RC0 is a candidate, not a release",
+        "Do not use in production",
+        "v0.5 is still BLOCKED",
+        "RC0 can be extracted and smoke-tested",
+        "RC0 preserves all non-release boundaries",
+        "RC0 contains no forbidden content"
+    ],
+    "section_verdict": "COMPLETE"
+}

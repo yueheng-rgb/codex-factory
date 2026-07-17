@@ -1,0 +1,59 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence-pack.schema.json",
+  "title": "Evidence Pack — Curated Search Evidence for Agent Consumption",
+  "description": "Standard evidence package produced by the Evidence Search Loop. Contains curated, quality-gated search results ready for agent context injection. Implementer agents consume this, NOT raw search results.",
+  "type": "object",
+  "required": ["evidenceId", "task", "projectId", "searchRound", "triggerReason", "sources", "qualityGateStatus"],
+  "properties": {
+    "evidenceId": { "type": "string", "pattern": "^EVID-\\d{8}-\\d{3}$" },
+    "task": { "type": "string", "description": "The task this evidence was gathered for" },
+    "projectId": { "type": "string" },
+    "phaseId": { "type": "string" },
+    "searchRound": { "type": "integer", "minimum": 1, "description": "Which round of iterative search this evidence comes from" },
+    "queryTime": { "type": "string", "format": "date-time" },
+    "triggerReason": {
+      "type": "string",
+      "enum": ["initial_search", "error_driven_search", "version_uncertainty_search", "dependency_introduction_search", "conflicting_sources_search", "verification_failure_search", "user_requested"]
+    },
+    "provider": { "type": "string", "enum": ["glm_search", "manual", "chatgpt_manual", "dry_run"] },
+    "mode": { "type": "string", "enum": ["manual", "dry_run", "live_api"] },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url", "sourceType"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "sourceType": { "type": "string", "enum": ["official_doc", "release_note", "github_issue", "stackoverflow", "community_blog", "ai_generated", "unknown"] },
+          "authority": { "type": "string", "enum": ["high", "medium", "low", "unknown"] },
+          "freshness": { "type": "string", "enum": ["current", "recent", "stale", "unknown"] },
+          "retrievedAt": { "type": "string", "format": "date-time" },
+          "claimSupported": { "type": "string", "description": "The specific claim this source supports" },
+          "evidenceExcerpt": { "type": "string", "description": "Relevant excerpt from the source" },
+          "uncertainty": { "type": "string", "enum": ["none", "low", "medium", "high"] }
+        }
+      }
+    },
+    "qualityGateStatus": {
+      "type": "object",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "score": { "type": "integer" },
+        "verdict": { "type": "string", "enum": ["high_quality", "acceptable", "needs_review", "reject"] },
+        "trustRecommendation": { "type": "string", "enum": ["trusted_reference", "reference_only", "needs_human_review", "do_not_use"] }
+      }
+    },
+    "allowedNextActions": { "type": "array", "items": { "type": "string" }, "description": "What agents may do with this evidence" },
+    "forbiddenUse": { "type": "array", "items": { "type": "string" }, "description": "What MUST NOT be done with this evidence" },
+    "usableByAgents": { "type": "array", "items": { "type": "string" }, "description": "Agent IDs allowed to use this evidence" },
+    "notUsableByAgents": { "type": "array", "items": { "type": "string" }, "description": "Agent IDs explicitly forbidden from using this evidence" },
+    "conflictsDetected": { "type": "boolean", "description": "Whether conflicting information was found across sources" },
+    "deltaFromPreviousRound": { "type": "string", "description": "What changed since the previous search round" },
+    "roundHistory": {
+      "type": "array",
+      "items": { "type": "string", "description": "Evidence IDs from previous rounds" }
+    }
+  }
+}

@@ -1,0 +1,280 @@
+﻿{
+    "noFailTargetNotTriggered":  true,
+    "passed":  33,
+    "timestamp":  "2026-06-25T22:28:42+08:00",
+    "noGenericFail":  true,
+    "title":  "Negative Controls — v0.4 RC Release Prep",
+    "noExpectedClassOnly":  true,
+    "negatives":  [
+                      {
+                          "id":  1,
+                          "expectedRisk":  "Premature release",
+                          "fault":  "v0.4 release ZIP created",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "No v0.4 release ZIP found. MANIFEST.releaseZipCreated=false.",
+                          "target":  "No v0.4 release ZIP exists"
+                      },
+                      {
+                          "id":  2,
+                          "expectedRisk":  "Package tampering",
+                          "fault":  "old FINAL package modified",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "SHA: 01640C0A... verified unchanged.",
+                          "target":  "FINAL package SHA unchanged"
+                      },
+                      {
+                          "id":  3,
+                          "expectedRisk":  "Data loss",
+                          "fault":  "old FINAL package deleted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "CODEX_FACTORY_FINAL_PACKAGE.zip exists at outputs/.",
+                          "target":  "FINAL package exists"
+                      },
+                      {
+                          "id":  4,
+                          "expectedRisk":  "Premature finalization",
+                          "fault":  "v0.4 marked final release",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.status: RELEASE_CANDIDATE_NOT_FINAL.",
+                          "target":  "MANIFEST.status is RC_NOT_FINAL"
+                      },
+                      {
+                          "id":  5,
+                          "expectedRisk":  "Overclaiming",
+                          "fault":  "universal product quality claim appears",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "DO_NOT_CLAIM_UNIVERSAL_QUALITY.md explicitly forbids this. All docs audited clean.",
+                          "target":  "No \u0027universally improves\u0027 in any doc"
+                      },
+                      {
+                          "id":  6,
+                          "expectedRisk":  "Evidence cherry-picking",
+                          "fault":  "EVAL-13 INCONCLUSIVE omitted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "EVIDENCE_BASIS.md: \u0027EVAL-13: Vanilla 99 \u003e v0.4 95, INCONCLUSIVE\u0027.",
+                          "target":  "EVIDENCE_BASIS includes EVAL-13 INCONCLUSIVE"
+                      },
+                      {
+                          "id":  7,
+                          "expectedRisk":  "Evidence deletion",
+                          "fault":  "EVAL-8 positive evidence omitted",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "EVIDENCE_BASIS.md: \u0027EVAL-8: Factory Lite 94 \u003e Vanilla 86 (+8)\u0027.",
+                          "target":  "EVIDENCE_BASIS includes EVAL-8"
+                      },
+                      {
+                          "id":  8,
+                          "expectedRisk":  "Quality inflation",
+                          "fault":  "process artifacts counted as product quality",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "POSITIONING.md: \u0027NOT a system where process artifacts substitute for product quality\u0027.",
+                          "target":  "Evidence hierarchy enforced"
+                      },
+                      {
+                          "id":  9,
+                          "expectedRisk":  "POR misuse",
+                          "fault":  "proof-of-read claims correctness",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.forbiddenClaims includes \u0027proof-of-read proves correctness\u0027.",
+                          "target":  "POR disclaimer states NOT correctness proof"
+                      },
+                      {
+                          "id":  10,
+                          "expectedRisk":  "Architecture regression",
+                          "fault":  "10-role model default",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "10-role in archivedModules, not in defaultModules. Escalation policy: \u0027never activate\u0027.",
+                          "target":  "10-role archived, not in defaultModules"
+                      },
+                      {
+                          "id":  11,
+                          "expectedRisk":  "Role inflation",
+                          "fault":  "specialist roles default",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Factory Lite Core = Tier 0, 0 roles. 3-role = optional, on-demand only.",
+                          "target":  "Only Factory Lite Core is default"
+                      },
+                      {
+                          "id":  12,
+                          "expectedRisk":  "Mechanism inflation",
+                          "fault":  "Context OS made default",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Context OS is in deferredModules, not in defaultModules.",
+                          "target":  "Context OS in deferredModules"
+                      },
+                      {
+                          "id":  13,
+                          "expectedRisk":  "Mechanism inflation",
+                          "fault":  "MCP Memory made default",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MCP Memory referenced in deferred, not in default.",
+                          "target":  "MCP in deferredModules"
+                      },
+                      {
+                          "id":  14,
+                          "expectedRisk":  "Mechanism inflation",
+                          "fault":  "Automation Watcher made default actor",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Automation/Session Controller deferred, not in default path.",
+                          "target":  "Automation in deferred"
+                      },
+                      {
+                          "id":  15,
+                          "expectedRisk":  "Mechanism inflation",
+                          "fault":  "Session Controller made default actor",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Deferred, not default.",
+                          "target":  "Session Controller in deferred"
+                      },
+                      {
+                          "id":  16,
+                          "expectedRisk":  "Reviewer overreach",
+                          "fault":  "Reviewer allowed to silently rewrite implementation",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Reviewer P1 antiPatterns[0]: \u0027Reviewer silently fixes gaps — must flag, not fix\u0027.",
+                          "target":  "Reviewer antiPatterns forbid silent fixes"
+                      },
+                      {
+                          "id":  17,
+                          "expectedRisk":  "Missing mechanism",
+                          "fault":  "quality-gap triggers missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "quality-gap-trigger-policy.json with QG01-QG05 triggers found.",
+                          "target":  "QG01-QG05 exist"
+                      },
+                      {
+                          "id":  18,
+                          "expectedRisk":  "UI gap undetected",
+                          "fault":  "UI-depth trigger missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG01 detects: landing page only, missing loading/empty/error states.",
+                          "target":  "QG01 detects UI depth risks"
+                      },
+                      {
+                          "id":  19,
+                          "expectedRisk":  "Doc gap undetected",
+                          "fault":  "missing README trigger missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG02 detects: Missing README, missing run instructions.",
+                          "target":  "QG02 detects doc risks"
+                      },
+                      {
+                          "id":  20,
+                          "expectedRisk":  "Test gap undetected",
+                          "fault":  "superficial tests trigger missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG03 detects: superficial tests, fake assertions, no edge cases.",
+                          "target":  "QG03 detects test quality risks"
+                      },
+                      {
+                          "id":  21,
+                          "expectedRisk":  "Domain gap undetected",
+                          "fault":  "financial/security trigger missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "QG04 detects: financial calc, permissions, workflow, audit, security gaps.",
+                          "target":  "QG04 detects domain correctness risks"
+                      },
+                      {
+                          "id":  22,
+                          "expectedRisk":  "Portability failure",
+                          "fault":  "scripts contain hardcoded absolute path",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Scripts validated: no absolute paths to C:\\\\Codex_App_Factory.",
+                          "target":  "No C:\\\\Codex_App_Factory in scripts"
+                      },
+                      {
+                          "id":  23,
+                          "expectedRisk":  "Integrity gap",
+                          "fault":  "manifest missing SHA per file",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.files has 48 entries, each with path, sha256, size.",
+                          "target":  "MANIFEST.files[] includes sha256 per file"
+                      },
+                      {
+                          "id":  24,
+                          "expectedRisk":  "Premature finalization",
+                          "fault":  "manifest status final instead of RC",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.status: RELEASE_CANDIDATE_NOT_FINAL.",
+                          "target":  "MANIFEST.status = RELEASE_CANDIDATE_NOT_FINAL"
+                      },
+                      {
+                          "id":  25,
+                          "expectedRisk":  "Missing validation",
+                          "fault":  "validation script missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "VALIDATION_CHECKLIST.md with pre-release and smoke test sections.",
+                          "target":  "VALIDATION_CHECKLIST.md exists"
+                      },
+                      {
+                          "id":  26,
+                          "expectedRisk":  "Untested RC",
+                          "fault":  "smoke test missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "factory-v04-rc-validation-result.json: 5/5 smoke tests PASS.",
+                          "target":  "RC validation includes smoke tests"
+                      },
+                      {
+                          "id":  27,
+                          "expectedRisk":  "Undocumented RC",
+                          "fault":  "user review guide missing",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "USER_REVIEW_GUIDE.md with what changed, defaults, optionals, forbidden claims.",
+                          "target":  "USER_REVIEW_GUIDE.md exists"
+                      },
+                      {
+                          "id":  28,
+                          "expectedRisk":  "Bypassed gate",
+                          "fault":  "release confirmation falsely recorded",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST: userConfirmationRequiredForZip=true. No ZIP created.",
+                          "target":  "MANIFEST.userConfirmationRequiredForZip=true"
+                      },
+                      {
+                          "id":  29,
+                          "expectedRisk":  "Production mislabeling",
+                          "fault":  "plugin scaffold marked production",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "No plugin/* directory. README states: no plugin installation required.",
+                          "target":  "No plugin production claim"
+                      },
+                      {
+                          "id":  30,
+                          "expectedRisk":  "Legacy mechanism",
+                          "fault":  "deprecated scoring systems in core",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "defaultModules has no scoring/rubric. Rubric is in governance/ not core/.",
+                          "target":  "No scoring system in defaultModules"
+                      },
+                      {
+                          "id":  31,
+                          "expectedRisk":  "Legacy mechanism",
+                          "fault":  "failure-router in runnable core",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "No failure-router in core/. Deferred/archived properly.",
+                          "target":  "No failure-router in defaultModules"
+                      },
+                      {
+                          "id":  32,
+                          "expectedRisk":  "False state",
+                          "fault":  "finalZipCreated marked true",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.finalZipCreated: false.",
+                          "target":  "MANIFEST.finalZipCreated=false"
+                      },
+                      {
+                          "id":  33,
+                          "expectedRisk":  "False state",
+                          "fault":  "releaseZipCreated marked true",
+                          "result":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.releaseZipCreated: false.",
+                          "target":  "MANIFEST.releaseZipCreated=false"
+                      }
+                  ],
+    "gaps":  0,
+    "noUnexpectedPass":  true,
+    "noManualPassOnly":  true,
+    "phase":  "FACTORY-V04-RELEASE-PREP-G",
+    "total":  33,
+    "noPreclassifiedOnly":  true
+}

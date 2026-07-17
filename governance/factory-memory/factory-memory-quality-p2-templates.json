@@ -1,0 +1,90 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "D",
+  "title": "Minimal Memory Templates",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "templates": [
+    {
+      "id": "TPL-001",
+      "name": "Phase Result Record",
+      "file": "factory-build-mode/memory-quality/templates/phase-result-record.template.json",
+      "usage": "Record a completed phase result for memory ingestion",
+      "example": {
+        "record_id": "MEM-PHASE_RESULT-20260628-a1b2",
+        "timestamp": "2026-06-28T17:50:00+08:00",
+        "category": "PHASE_RESULT",
+        "summary": "FACTORY-AB-0-R1: Executed matched trial. Factory 87 vs Vanilla 50 (+37). Verdict: FACTORY_ADVANTAGE_SUPPORTED_FOR_THIS_TASK. v0.5 remains BLOCKED.",
+        "evidence_path": "outputs/FACTORY_AB_0_R1_EXECUTED_MATCHED_TRIAL_REPORT.md",
+        "status": "ACTIVE",
+        "caveat": "Single task type (admin portal). Executed analysis, not live multi-hour session. Not generalizable to all project types.",
+        "score": {"factory": 87, "vanilla": 50, "max": 100},
+        "related_phases": ["FACTORY-AB-0", "FACTORY-AB-0-R1"]
+      }
+    },
+    {
+      "id": "TPL-002",
+      "name": "Blocker Update Record",
+      "file": "factory-build-mode/memory-quality/templates/blocker-update-record.template.json",
+      "usage": "Record a release blocker status change",
+      "example": {
+        "record_id": "MEM-BLOCKER_UPDATE-20260628-c3d4",
+        "timestamp": "2026-06-28T17:50:00+08:00",
+        "category": "BLOCKER_UPDATE",
+        "summary": "BLOCK-001: ACTIVE_WITH_AB_DESIGN_READY → PARTIAL_EXECUTED_EVIDENCE. One executed trial collected. Not fully resolved.",
+        "evidence_path": "governance/factory-ab/factory-ab-0-r1-block-001-reassessment.json",
+        "status": "PARTIAL",
+        "caveat": "One trial insufficient for full resolution. More A/B evidence needed.",
+        "related_phases": ["FACTORY-AB-0-R1"]
+      }
+    },
+    {
+      "id": "TPL-003",
+      "name": "Decision Record",
+      "file": "factory-build-mode/memory-quality/templates/decision-record.template.json",
+      "usage": "Record a strategy or design decision",
+      "example": {
+        "record_id": "MEM-DECISION-20260628-e5f6",
+        "timestamp": "2026-06-28T17:50:00+08:00",
+        "category": "DECISION",
+        "summary": "AB-0-R1 strategy: RC planning allowed with PARTIAL BLOCK-001. Next: RELEASE-CANDIDATE-0 or FACTORY-AB-1.",
+        "evidence_path": "governance/factory-ab/factory-ab-0-r1-strategy-decision.json",
+        "status": "ACTIVE",
+        "caveat": "RC is not release. User must accept remaining blockers.",
+        "related_phases": ["FACTORY-AB-0-R1"]
+      }
+    },
+    {
+      "id": "TPL-004",
+      "name": "Risk Record",
+      "file": "factory-build-mode/memory-quality/templates/risk-record.template.json",
+      "usage": "Record an identified risk",
+      "example": {
+        "record_id": "MEM-RISK-20260628-g7h8",
+        "timestamp": "2026-06-28T17:50:00+08:00",
+        "category": "RISK",
+        "summary": "RISK: Memory contamination from design scores promoted to executed evidence. AB-0 correction applied. R1 uses separate execution scoring.",
+        "evidence_path": "outputs/FACTORY_AB_0_R1_A_EVIDENCE_INTAKE_AB0_CORRECTION_REPORT.md",
+        "status": "ACTIVE",
+        "caveat": "Mitigated by AB-0-R1 correction but pattern may recur in future phases.",
+        "related_phases": ["FACTORY-AB-0", "FACTORY-AB-0-R1"]
+      }
+    },
+    {
+      "id": "TPL-005",
+      "name": "Lesson Record",
+      "file": "factory-build-mode/memory-quality/templates/lesson-record.template.json",
+      "usage": "Record a learned lesson",
+      "example": {
+        "record_id": "MEM-LESSON-20260628-i9j0",
+        "timestamp": "2026-06-28T17:50:00+08:00",
+        "category": "LESSON",
+        "summary": "LESSON: Design analysis scores must never be presented as executed evidence. Always tag DESIGN_ONLY and require separate execution scoring.",
+        "evidence_path": "governance/factory-ab/factory-ab-0-r1-evidence-intake-ab0-correction.json",
+        "status": "ACTIVE",
+        "caveat": "Applies to all comparison/evaluation phases.",
+        "related_phases": ["FACTORY-AB-0", "FACTORY-AB-0-R1"]
+      }
+    }
+  ],
+  "status": "TEMPLATES_DEFINED"
+}

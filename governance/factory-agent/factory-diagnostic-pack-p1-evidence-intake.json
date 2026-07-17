@@ -1,0 +1,29 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-PACK-P1",
+  "subPhase": "A_EVIDENCE_INTAKE",
+  "timestamp": "2026-06-27T01:00:00+08:00",
+  "prerequisitePhases": [
+    {"phase":"FACTORY-AGENT-DIAGNOSTIC-PACK","verdict":"PASS","checks":"54/54"},
+    {"phase":"FACTORY-DIAGNOSTIC-SMOKE-0","verdict":"PASS","checks":"48/48"},
+    {"phase":"SKILLMARKET-REPAIR-0","verdict":"PASS","checks":"40/40"},
+    {"phase":"FACTORY-DIAGNOSTIC-LESSONS-0","verdict":"PASS","checks":"23/23"}
+  ],
+  "auditBundle": {
+    "path": "outputs/FACTORY_DIAGNOSTIC_AUDIT_BUNDLE.zip",
+    "files": 59,
+    "size": "91 KB",
+    "covers": ["diagnostic-pack","smoke-0","repair-0","lessons-0"]
+  },
+  "evidenceSummary": {
+    "diagnosticPackUseful": {"classification":"SUPPORTED","evidence":"14 real defects found on SkillMarket. 5 critical+high confirmed actionable."},
+    "quickModeNeeded": {"classification":"SUPPORTED","evidence":"25-item full checklist is too heavy for small projects. Quick Mode would reduce to ~12 items."},
+    "studentProjectModeNeeded": {"classification":"SUPPORTED","evidence":"SkillMarket is a student project. Specialized checks for report/source consistency, startup, grading readiness would add value."},
+    "reportVsSourceModeNeeded": {"classification":"SUPPORTED","evidence":"50% discrepancy rate on SkillMarket. Focused report-vs-source mode would be the highest-signal first pass."},
+    "stopAfterDiagnosticNeeded": {"classification":"SUPPORTED","evidence":"SkillMarket diagnostic found 14 defects. Repair was separate phase. Explicit stop rule prevents drift."},
+    "multiAgentNotDefault": {"classification":"SUPPORTED","evidence":"SkillMarket evidence confirms single-agent diagnostic is sufficient. AGENT-9-P3 stands."},
+    "v05StillBlocked": {"classification":"SUPPORTED","evidence":"No benchmark data. One diagnostic trial ≠ release evidence."},
+    "skillMarketIsEvidenceObject": {"classification":"CONFIRMED","evidence":"Lessons extracted. No further repair needed."},
+    "scannerGuidanceNeeded": {"classification":"SUPPORTED","evidence":"API-client mismatch, server entry ambiguity, JWT config, zero-test, hardcoded secret — each needs a quick scanner hint."}
+  },
+  "p1Scope": "Documentation-only. Add 3 modes, scanner guidance, stop-after-diagnostic rule. No code changes. No ZIP creation."
+}

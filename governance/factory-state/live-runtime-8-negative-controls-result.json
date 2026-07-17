@@ -1,0 +1,250 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "id":  "N01",
+                          "name":  "fork_full_inheritance",
+                          "fault":  "Fork claims full context inheritance without proof",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Carrier capability probe"
+                      },
+                      {
+                          "id":  "N02",
+                          "name":  "new_thread_no_startup",
+                          "fault":  "New thread starts major phase without startup verification",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Startup enforcement"
+                      },
+                      {
+                          "id":  "N03",
+                          "name":  "resume_trusts_compressed",
+                          "fault":  "Resume thread trusts compressed summary",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Startup enforcement"
+                      },
+                      {
+                          "id":  "N04",
+                          "name":  "wakeup_as_new_context",
+                          "fault":  "Automation wakeup treated as new context",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED (REJECTED)",
+                          "target":  "Carrier probe"
+                      },
+                      {
+                          "id":  "N05",
+                          "name":  "subagent_as_branch",
+                          "fault":  "Subagent treated as user-visible branch",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED (INTERNAL_ONLY)",
+                          "target":  "Carrier probe"
+                      },
+                      {
+                          "id":  "N06",
+                          "name":  "carrier_no_files",
+                          "fault":  "Fork/new carrier omits required read files",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Execution packet"
+                      },
+                      {
+                          "id":  "N07",
+                          "name":  "carrier_no_mcp",
+                          "fault":  "Carrier skips MCP memory query",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Execution packet"
+                      },
+                      {
+                          "id":  "N08",
+                          "name":  "carrier_no_verify",
+                          "fault":  "Carrier skips factoryctl verify",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Startup contract"
+                      },
+                      {
+                          "id":  "N09",
+                          "name":  "carrier_no_recon",
+                          "fault":  "Carrier skips cross-session reconciliation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Startup contract"
+                      },
+                      {
+                          "id":  "N10",
+                          "name":  "rejected_verified",
+                          "fault":  "Rejected claim becomes verified",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Carrier probe"
+                      },
+                      {
+                          "id":  "N11",
+                          "name":  "fallback_removed",
+                          "fault":  "Manual fallback removed despite unverified fork",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Decision matrix"
+                      },
+                      {
+                          "id":  "N12",
+                          "name":  "self_report_proof",
+                          "fault":  "Codex self-report used as sole proof",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Carrier probe"
+                      },
+                      {
+                          "id":  "N13",
+                          "name":  "unavailable_verified",
+                          "fault":  "Unavailable carrier marked VERIFIED",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED (HYPOTHESIS only)",
+                          "target":  "Carrier probe"
+                      },
+                      {
+                          "id":  "N14",
+                          "name":  "thread_error_ignored",
+                          "fault":  "Thread API error ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Experiment report"
+                      },
+                      {
+                          "id":  "N15",
+                          "name":  "fork_no_evidence",
+                          "fault":  "Fork experiment missing transcript/evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Experiment report"
+                      },
+                      {
+                          "id":  "N16",
+                          "name":  "startup_fail_continues",
+                          "fault":  "Startup verification failure still allows continuation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Startup enforcement"
+                      },
+                      {
+                          "id":  "N17",
+                          "name":  "carrier_mutate_phase",
+                          "fault":  "Carrier mutates currentTrustedPhase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Controller policy"
+                      },
+                      {
+                          "id":  "N18",
+                          "name":  "carrier_mark_pass",
+                          "fault":  "Carrier marks phase PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Controller policy"
+                      },
+                      {
+                          "id":  "N19",
+                          "name":  "carrier_create_zip",
+                          "fault":  "Carrier creates final ZIP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Controller policy"
+                      },
+                      {
+                          "id":  "N20",
+                          "name":  "compressed_evidence",
+                          "fault":  "Compressed summary used as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Startup contract"
+                      },
+                      {
+                          "id":  "N21",
+                          "name":  "branch_as_memory",
+                          "fault":  "Branch treated as reliable memory expansion",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Carrier probe"
+                      },
+                      {
+                          "id":  "N22",
+                          "name":  "fork_true_default",
+                          "fault":  "spawn_agent fork_context:true used as default builder isolation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Builder policy"
+                      },
+                      {
+                          "id":  "N23",
+                          "name":  "markdown_only",
+                          "fault":  "Carrier result markdown-only",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Verifier"
+                      },
+                      {
+                          "id":  "N24",
+                          "name":  "no_evidence_path",
+                          "fault":  "No evidence path in carrier capability record",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Carrier probe"
+                      },
+                      {
+                          "id":  "N25",
+                          "name":  "auto_window",
+                          "fault":  "Automatic window creation claimed without proof",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED (REJECTED)",
+                          "target":  "Carrier probe"
+                      },
+                      {
+                          "id":  "N26",
+                          "name":  "persistent_state",
+                          "fault":  "Carrier test creates persistent state without cleanup",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "actual":  "DETECTED_AND_BLOCKED",
+                          "expected":  "BLOCKED",
+                          "target":  "Experiment report"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  26,
+    "schemaId":  "live-runtime-8-negative-controls-result",
+    "totalNegatives":  26,
+    "phase":  "LIVE-RUNTIME-8-E",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T00:49:00+08:00"
+}

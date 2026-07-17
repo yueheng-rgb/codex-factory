@@ -1,0 +1,56 @@
+{
+  "protocolId": "H17-C-SESSION-ROTATION-PROTOCOL",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T02:19:28.466143+08:00",
+  "generatedDuringPhase": "H17-C",
+  "nativeGenerated": true,
+  "rotationTriggers": [
+    {
+      "trigger": "COMPRESSION_LEVEL_3",
+      "action": "FORCE_ROTATION",
+      "priority": "P0"
+    },
+    {
+      "trigger": "COMPRESSION_LEVEL_2_AFTER_LEVEL_3",
+      "action": "ROTATION_RECOMMENDED",
+      "priority": "P1"
+    },
+    {
+      "trigger": "STALE_CONTEXT_DETECTED",
+      "action": "FORCE_ROTATION",
+      "priority": "P0"
+    },
+    {
+      "trigger": "PHASE_CLOSURE",
+      "action": "HANDOFF_AND_ROTATE",
+      "priority": "P1"
+    },
+    {
+      "trigger": "USER_REQUESTED",
+      "action": "HANDOFF_AND_ROTATE",
+      "priority": "P2"
+    }
+  ],
+  "handoffArtifacts": [
+    "governance/factory-state/session-rotation-handoff.json",
+    "governance/factory-state/current-factory-state.json",
+    "governance/factory-state/AGENT_REGISTRY.json",
+    "governance/factory-state/AGENT_PROGRESS.jsonl",
+    "governance/compression/compression-counter.json"
+  ],
+  "rotationSteps": [
+    "1. Run factoryctl verify --json",
+    "2. Update session-rotation-handoff.json with SHA256",
+    "3. Save pending state to disk",
+    "4. Generate handoff report",
+    "5. New session MUST run factoryctl verify --json first",
+    "6. New session MUST load compression counter"
+  ],
+  "doNotAssume": [
+    "Auto-conversation-creation (CC-003 partially verified)",
+    "Full context inheritance across sessions (CC-004 unverified)",
+    "Context increase in new window (CC-005 unverified)",
+    "CLI resume capability (CC-008 unverified)"
+  ],
+  "safePath": "Artifact-based handoff with SHA256 evidence chain"
+}

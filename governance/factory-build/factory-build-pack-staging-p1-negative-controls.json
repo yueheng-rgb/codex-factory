@@ -1,0 +1,573 @@
+﻿{
+    "detected":  56,
+    "undetected":  0,
+    "totalNegatives":  56,
+    "section":  "N",
+    "failTargetNotTriggered":  0,
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P1",
+    "date":  "2026-06-27",
+    "negatives":  [
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC01",
+                          "fault":  "release ZIP created",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC02",
+                          "fault":  "v0.5 package created",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC03",
+                          "fault":  "staging treated as release",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC04",
+                          "fault":  "Build Pro declared default",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC05",
+                          "fault":  "multi-agent default claimed",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC06",
+                          "fault":  "Build Lite default omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC07",
+                          "fault":  "Native Build Pro conditional omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC08",
+                          "fault":  "Context Packet optional for Native Build Pro",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC09",
+                          "fault":  "Recovery allowed without recovery packet",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC10",
+                          "fault":  "native agent start allowed without AGENT_START_PACKET",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC11",
+                          "fault":  "Diagnostic Gate treated as mainline",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC12",
+                          "fault":  "external memory called model memory expansion",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC13",
+                          "fault":  "compressed summary treated as evidence",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC14",
+                          "fault":  "product source included",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC15",
+                          "fault":  "trial product included",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC16",
+                          "fault":  "SkillMarket included",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC17",
+                          "fault":  "DevFlow included",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC18",
+                          "fault":  "SkillForge included",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC19",
+                          "fault":  "AtlasOps included",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC20",
+                          "fault":  "NexusDesk included",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC21",
+                          "fault":  "old release ZIP included",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC22",
+                          "fault":  "old FINAL package modified",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC23",
+                          "fault":  "v0.4 release modified",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC24",
+                          "fault":  "7-agent restored",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC25",
+                          "fault":  "10-role restored",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC26",
+                          "fault":  "Native Build Pro allowed without registry",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC27",
+                          "fault":  "Native Build Pro allowed without close receipts",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC28",
+                          "fault":  "UI count treated as lifecycle truth",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC29",
+                          "fault":  "mode selection docs omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC30",
+                          "fault":  "user prompts omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC31",
+                          "fault":  "installation docs omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC32",
+                          "fault":  "module boundary omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC33",
+                          "fault":  "context packet files omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC34",
+                          "fault":  "generate-context-packet missing",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC35",
+                          "fault":  "validate-context-packet missing",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC36",
+                          "fault":  "memory-quality omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC37",
+                          "fault":  "external-memory omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC38",
+                          "fault":  "diagnostic-gate omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC39",
+                          "fault":  "governance omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC40",
+                          "fault":  "manifest missing",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC41",
+                          "fault":  "SHA manifest missing",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC42",
+                          "fault":  "smoke test omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC43",
+                          "fault":  "verifier omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC44",
+                          "fault":  "negative controls omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC45",
+                          "fault":  "no evidence paths",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC46",
+                          "fault":  "cloud memory claimed implemented",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC47",
+                          "fault":  "release gate skipped",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC48",
+                          "fault":  "real-world validation requirement removed",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC49",
+                          "fault":  "user manual burden ignored",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC50",
+                          "fault":  "pack includes audit ZIP",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC51",
+                          "fault":  "staging scripts unable to locate dependencies",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC52",
+                          "fault":  "context packet schema omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC53",
+                          "fault":  "agent registry schema omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC54",
+                          "fault":  "handoff/close receipt schema omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC55",
+                          "fault":  "v0.5 status missing",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC56",
+                          "fault":  "microphase split recommended",
+                          "result":  "DETECTED",
+                          "risk":  "Staging integrity compromised",
+                          "target":  "PACK-STAGING-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      }
+                  ],
+    "title":  "Negative Controls",
+    "unexpectedPass":  0
+}

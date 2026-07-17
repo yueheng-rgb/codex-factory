@@ -1,0 +1,513 @@
+﻿{
+    "detected":  50,
+    "undetected":  0,
+    "totalNegatives":  50,
+    "section":  "K",
+    "failTargetNotTriggered":  0,
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "date":  "2026-06-27",
+    "negatives":  [
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC01",
+                          "fault":  "PRO-2 evidence overstated as v0.5 proof",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC02",
+                          "fault":  "Build Pro declared default",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC03",
+                          "fault":  "Multi-agent default claimed",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC04",
+                          "fault":  "Build Lite demoted",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC05",
+                          "fault":  "Context Packet remains optional for Native Build Pro",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC06",
+                          "fault":  "Context Packet called model memory expansion",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC07",
+                          "fault":  "Compressed summary trusted",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC08",
+                          "fault":  "External memory treated as perfect truth",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC09",
+                          "fault":  "v0.5 package created",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC10",
+                          "fault":  "Release ZIP created",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC11",
+                          "fault":  "Product code modified",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC12",
+                          "fault":  "Prior products modified",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC13",
+                          "fault":  "SkillMarket modified",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC14",
+                          "fault":  "DevFlow modified",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC15",
+                          "fault":  "Diagnostic Pack treated as mainline",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC16",
+                          "fault":  "Pack architecture omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC17",
+                          "fault":  "User workflow omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC18",
+                          "fault":  "Mode selection update omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC19",
+                          "fault":  "Real-world validation omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC20",
+                          "fault":  "Risk register omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC21",
+                          "fault":  "Next phase decision omitted",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC22",
+                          "fault":  "No verifier",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC23",
+                          "fault":  "No negative controls",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC24",
+                          "fault":  "Agent count used as product quality",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC25",
+                          "fault":  "Process artifact used as product quality",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC26",
+                          "fault":  "Context packet count used as quality proof",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC27",
+                          "fault":  "Memory file count used as quality proof",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC28",
+                          "fault":  "Cloud memory claimed implemented",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC29",
+                          "fault":  "Queryable memory claimed implemented",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC30",
+                          "fault":  "7-agent restored",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC31",
+                          "fault":  "10-role restored",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC32",
+                          "fault":  "Native Build Pro allowed without user approval",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC33",
+                          "fault":  "Native Build Pro allowed without context packet",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC34",
+                          "fault":  "Native Build Pro allowed without registry",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC35",
+                          "fault":  "Recovery allowed without recovery packet",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC36",
+                          "fault":  "Summary accepted without evidence",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC37",
+                          "fault":  "Verifier blind spots ignored",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC38",
+                          "fault":  "User manual burden ignored",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC39",
+                          "fault":  "Overfitting to harness trials ignored",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC40",
+                          "fault":  "Real-world project requirement skipped",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC41",
+                          "fault":  "Packaging started as release",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC42",
+                          "fault":  "v0.5 status missing",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC43",
+                          "fault":  "Build Lite default missing",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC44",
+                          "fault":  "Native Build Pro conditional missing",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC45",
+                          "fault":  "Memory Quality status missing",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC46",
+                          "fault":  "Context packet required status missing",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC47",
+                          "fault":  "No evidence paths",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC48",
+                          "fault":  "No claim classification",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC49",
+                          "fault":  "Microphase split recommended",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      },
+                      {
+                          "verification":  "Guard active",
+                          "id":  "NC50",
+                          "fault":  "PRO-2 started again unnecessarily",
+                          "result":  "DETECTED",
+                          "risk":  "Strategy integrity compromised",
+                          "target":  "PRO-2-P1",
+                          "unexpectedPass":  false,
+                          "failTargetNotTriggered":  false
+                      }
+                  ],
+    "title":  "Negative Controls",
+    "unexpectedPass":  0
+}

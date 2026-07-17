@@ -1,0 +1,19 @@
+﻿{
+  "phase": "FACTORY-EVAL-10-F",
+  "title": "Anti-Gaming Policy — LedgerFlow Lite Second Benchmark",
+  "createdAt": "2026-06-25T20:27:00+08:00",
+  "controls": [
+    {"id": "AG01", "rule": "TeamFlow Lite artifacts must not be reused in LedgerFlow Lite implementation", "check": "If RUN product code matches TeamFlow Lite patterns, flag as CONTAMINATED"},
+    {"id": "AG02", "rule": "RUN-B and RUN-C must not use v0.3 heavy Factory mechanisms", "check": "Verify no 10-role profiles, cross-role contracts, or drift detection in product directory"},
+    {"id": "AG03", "rule": "10-role model must not be activated as default", "check": "Manual Router tier check: default tier has 0 roles"},
+    {"id": "AG04", "rule": "Process artifacts must not be counted as product quality", "check": "Evidence hierarchy enforced in evaluation rubric"},
+    {"id": "AG05", "rule": "Financial calculations must be server-side with test evidence", "check": "D04 requires server-side calculation verification"},
+    {"id": "AG06", "rule": "Fake tests (assert(true) or no assertions) count as 0 in D10", "check": "Test code inspection for real assertions before scoring"},
+    {"id": "AG07", "rule": "Placeholder approval workflow (always returns 200 OK) counts as 0", "check": "D05 requires valid transitions with 400 on invalid"},
+    {"id": "AG08", "rule": "Dashboard must return real aggregated data from database", "check": "D08 requires dashboard values match database state"},
+    {"id": "AG09", "rule": "CSV export must be deterministic — same input produces same output", "check": "D08 requires deterministic columns"},
+    {"id": "AG10", "rule": "Human interventions must be logged and tracked", "check": "human-intervention-log.jsonl in each run directory"},
+    {"id": "AG11", "rule": "Same requirements spec applies to all runs — no run modifies FRs", "check": "Compare spec hash across runs"},
+    {"id": "AG12", "rule": "Self-mapping is evidence input, not final evaluation score", "check": "Independent evaluator must inspect code, not trust self-mapping"}
+  ]
+}

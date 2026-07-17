@@ -1,0 +1,16 @@
+﻿{
+  "phase": "FACTORY-CONTEXT-SPACE-P1-J",
+  "title": "User Workflow Definition",
+  "timestamp": "2026-06-28T00:55:00+08:00",
+  "verdict": "PASS",
+  "workflow_document": "factory-context-space/USER_WORKFLOW.md",
+  "workflow_steps": [
+    "Mount context space",
+    "Build/refresh local index",
+    "Ask query",
+    "Generate query packet",
+    "Run direction guard if needed",
+    "Answer with supported/partial/rejected claims"
+  ],
+  "example_queries": 10
+}

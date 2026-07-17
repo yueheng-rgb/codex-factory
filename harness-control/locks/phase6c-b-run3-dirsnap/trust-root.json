@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  154,
+    "frozenAt":  "2026-06-19T14:53:10.4557538+08:00",
+    "runId":  "phase6c-b-run3-dirsnap",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\phase6c-b-run3-dirsnap\\trust-root.json",
+    "controlPlaneLockSha256":  "a9c73a8216932d7e5f08377fbd33e2ce5af1bf96866312c43f79f45527841ba3",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "25eebc36cec29df0203eb3e76b12034e3ab4d723b47ac97a12d36dcbb17ae27f"
+}

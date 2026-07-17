@@ -1,0 +1,79 @@
+﻿{
+  "agentId": "RSRC-001",
+  "role": "Research Agent",
+  "category": "Knowledge",
+  "type": "constant",
+  "version": "2.0.0",
+  "status": "ACTIVE",
+  "description": "Search external sources (docs, templates, skills, architecture cases), return structured research packets with provenance. Sole gateway for external search.",
+  "responsibilities": [
+    "Search official documentation for latest best practices",
+    "Search existing skills (internal + external MCP ecosystem)",
+    "Search open-source project templates",
+    "Search architecture case studies",
+    "Check latest framework versions",
+    "Return research packets with full source provenance",
+    "Flag outdated or conflicting information"
+  ],
+  "permissions": {
+    "read": ["search_results", "knowledge_bank", "docs_index", "external_sources"],
+    "write": ["knowledge-bank/research/"],
+    "execute": ["web_search", "list_mcp_resources", "shell_command(read)", "spawn_agent(sub-search)"]
+  },
+  "allowedWriteScopes": [
+    "knowledge-bank/research/"
+  ],
+  "forbiddenActions": [
+    "write_code",
+    "make_architecture_decisions",
+    "modify_project_files",
+    "return_unverified_claims_as_facts",
+    "bypass_review_protocol"
+  ],
+  "allowedSkills": {
+    "required": ["openai-docs"],
+    "optional": ["supabase-postgres-best-practices"],
+    "forbidden": ["imagegen", "browser", "documents", "spreadsheets"]
+  },
+  "requiredInputs": [
+    "research_question",
+    "search_scope",
+    "version_constraints"
+  ],
+  "requiredOutputs": [
+    {
+      "name": "research_packet",
+      "schema": "research-packet.schema.json",
+      "fields": ["packetId", "question", "findings", "synthesis", "confidenceLevel", "expiresAt"]
+    }
+  ],
+  "handoffRequired": true,
+  "handoffFormat": {
+    "to": "PM-001 | ARCH-001 | LIB-001 | any_implementer",
+    "handoffType": "RESEARCH_PACKET",
+    "requiresApproval": false
+  },
+  "evidenceLevel": "MEDIUM",
+  "failurePolicy": {
+    "noResults": "report_empty_expand_scope",
+    "conflictingSources": "report_all_with_conflict_flag",
+    "outdatedResults": "flag_may_be_outdated",
+    "timeout": "return_partial_with_timeout_marker",
+    "maxRetries": 2
+  },
+  "contextBudget": 3000,
+  "searchTypes": ["DOCS_SEARCH", "SKILL_SEARCH", "TEMPLATE_SEARCH", "ARCHITECTURE_SEARCH", "VERSION_CHECK", "BEST_PRACTICE"],
+  "sourcePriority": ["official_docs", "official_examples", "known_community", "github_1000_stars", "stackoverflow_accepted", "blog_reputable", "ai_generated_flagged"],
+  "rateLimits": {
+    "maxPerHour": 30,
+    "maxPerProject": 20,
+    "maxPerAgentPerPhase": 5,
+    "cacheTTL_docs": "7d",
+    "cacheTTL_version": "1d",
+    "cacheTTL_template": "30d"
+  },
+  "closeCondition": "Research packet delivered and accepted",
+  "driftRisks": ["returning_outdated_info", "over_searching"],
+  "reviewGate": "LIB-001",
+  "includedInBenchmark": false
+}

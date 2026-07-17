@@ -1,0 +1,10 @@
+﻿{
+    "phase":  "USER-HANDOFF-R1",
+    "type":  "LOCAL_TOOLING_PATCH_RELEASE",
+    "section":  "J",
+    "SHA":  "D563C5E462314E9EEC858E3E0E9D4E2B4131B0546B3FA289B4BD8EB1BE5E6A6B",
+    "readyForUser":  true,
+    "totalChecksPassed":  347,
+    "features":  7,
+    "package":  "codex-factory-core-v0.5.1-r1.zip"
+}

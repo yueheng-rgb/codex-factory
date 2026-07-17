@@ -1,0 +1,172 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "UX payload marks phase PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ux_marks_pass",
+                          "id":  "N01"
+                      },
+                      {
+                          "fault":  "UX payload mutates currentTrustedPhase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ux_mutates_phase",
+                          "id":  "N02"
+                      },
+                      {
+                          "fault":  "UX payload creates final ZIP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ux_creates_zip",
+                          "id":  "N03"
+                      },
+                      {
+                          "fault":  "UX claims automatic window creation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ux_auto_window",
+                          "id":  "N04"
+                      },
+                      {
+                          "fault":  "UX claims full context inheritance",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ux_full_inheritance",
+                          "id":  "N05"
+                      },
+                      {
+                          "fault":  "UX claims branch/fork is memory expansion",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ux_branch_memory",
+                          "id":  "N06"
+                      },
+                      {
+                          "fault":  "UX treats compressed summary as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ux_compressed",
+                          "id":  "N07"
+                      },
+                      {
+                          "fault":  "UX treats automation alert as verifier PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ux_alert_pass",
+                          "id":  "N08"
+                      },
+                      {
+                          "fault":  "Payload omits evidence paths",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "payload_no_evidence",
+                          "id":  "N09"
+                      },
+                      {
+                          "fault":  "Payload omits startup packet",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "payload_no_startup",
+                          "id":  "N10"
+                      },
+                      {
+                          "fault":  "Payload omits execution packet",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "payload_no_exec",
+                          "id":  "N11"
+                      },
+                      {
+                          "fault":  "Payload omits verifier commands",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "payload_no_cmds",
+                          "id":  "N12"
+                      },
+                      {
+                          "fault":  "Payload omits MCP queries",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "payload_no_mcp",
+                          "id":  "N13"
+                      },
+                      {
+                          "fault":  "Payload omits rejected claims",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "payload_no_rejected",
+                          "id":  "N14"
+                      },
+                      {
+                          "fault":  "New window prompt trusts pasted summary",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "prompt_trusts_summary",
+                          "id":  "N15"
+                      },
+                      {
+                          "fault":  "New window prompt skips startup verification",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "prompt_skips_startup",
+                          "id":  "N16"
+                      },
+                      {
+                          "fault":  "ROTATION_REQUIRED allows old window to start major phase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "required_allows_major",
+                          "id":  "N17"
+                      },
+                      {
+                          "fault":  "WATCHER_ERROR allows continuation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "error_allows",
+                          "id":  "N18"
+                      },
+                      {
+                          "fault":  "Startup FAIL allows continuation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "startup_fail_continues",
+                          "id":  "N19"
+                      },
+                      {
+                          "fault":  "WATCHER_OK creates unnecessary rotation packet",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ok_creates_payload",
+                          "id":  "N20"
+                      },
+                      {
+                          "fault":  "User action required omitted when carrier unavailable",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "user_action_omitted",
+                          "id":  "N21"
+                      },
+                      {
+                          "fault":  "Manual new window fallback removed",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "fallback_removed",
+                          "id":  "N22"
+                      },
+                      {
+                          "fault":  "Same-thread wakeup described as new context",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "wakeup_as_context",
+                          "id":  "N23"
+                      },
+                      {
+                          "fault":  "Subagent described as user-visible branch",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "subagent_branch",
+                          "id":  "N24"
+                      },
+                      {
+                          "fault":  "Payload markdown-only accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_only",
+                          "id":  "N25"
+                      },
+                      {
+                          "fault":  "Payload lacks schema validation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_schema",
+                          "id":  "N26"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  26,
+    "schemaId":  "live-runtime-10-negative-controls-result",
+    "totalNegatives":  26,
+    "phase":  "LIVE-RUNTIME-10-E",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T00:57:33+08:00"
+}

@@ -1,0 +1,124 @@
+﻿{
+    "scenario":  "New Codex window with no conversation memory — recovers state from Context OS artifacts only",
+    "simulationId":  "LIVE-RUNTIME-3-D-STARTUP-RECOVERY",
+    "verdict":  "RECOVERY_SUCCESSFUL",
+    "sourcesUsed":  [
+                        "FACTORY_CURRENT_CONTEXT_PACKET.json",
+                        "FACTORY_MEMORY_INDEX.json",
+                        "current-factory-state.json",
+                        "FACTORY_CONTEXT_PACKETS/*",
+                        "CODEX_FACTORY_FINAL_PACKAGE.zip"
+                    ],
+    "sourcesNotUsed":  [
+                           "conversation memory",
+                           "compressed summary",
+                           "Codex self-report",
+                           "markdown-only PASS"
+                       ],
+    "generatedAt":  "2026-06-25T00:11:05+08:00",
+    "nativeGenerated":  true,
+    "totalSteps":  10,
+    "stepsPassed":  10,
+    "steps":  [
+                  {
+                      "step":  1,
+                      "result":  "currentTrustedPhase=FINAL",
+                      "status":  "OK",
+                      "action":  "Read FACTORY_CURRENT_CONTEXT_PACKET.json"
+                  },
+                  {
+                      "step":  2,
+                      "result":  "finalPackageStatus=CREATED_AND_VALIDATED",
+                      "status":  "OK",
+                      "action":  "Read current-factory-state.json"
+                  },
+                  {
+                      "step":  3,
+                      "result":  "Match=True",
+                      "status":  "OK",
+                      "action":  "Validate FINAL ZIP SHA256"
+                  },
+                  {
+                      "step":  4,
+                      "result":  "HIGH entries=14, total=20",
+                      "status":  "OK",
+                      "action":  "Query FACTORY_MEMORY_INDEX for HIGH entries"
+                  },
+                  {
+                      "step":  5,
+                      "result":  "Packets=6",
+                      "status":  "OK",
+                      "action":  "Enumerate context packets"
+                  },
+                  {
+                      "step":  6,
+                      "result":  "accepted=False, rejected=True",
+                      "status":  "OK",
+                      "action":  "Check: full context inheritance NOT accepted"
+                  },
+                  {
+                      "step":  7,
+                      "result":  "accepted=False, rejected=True",
+                      "status":  "OK",
+                      "action":  "Check: auto window creation NOT accepted"
+                  },
+                  {
+                      "step":  8,
+                      "result":  "rejectedClaims=Full context inheritance, Automatic window creation without verification, Plugin production-ready, Automation production-ready, Compressed summary as evidence",
+                      "status":  "OK",
+                      "action":  "Check: plugin marked EXPERIMENTAL"
+                  },
+                  {
+                      "step":  9,
+                      "result":  "exists=True",
+                      "status":  "OK",
+                      "action":  "Check: Agent OS event bus exists"
+                  },
+                  {
+                      "step":  10,
+                      "result":  "LIVE-RUNTIME-4 / MCP Memory Server or LIVE-RUNTIME-4 / Automation Rotation Watcher",
+                      "status":  "OK",
+                      "action":  "Read recommended next phase"
+                  }
+              ],
+    "recoveredFacts":  {
+                           "finalZipSha256":  "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+                           "agentOSEstablished":  true,
+                           "noFullContextInheritance":  true,
+                           "recommendedNextPhase":  "LIVE-RUNTIME-4 / MCP Memory Server or LIVE-RUNTIME-4 / Automation Rotation Watcher",
+                           "liveRuntimePhases":  {
+                                                     "LIVE-RUNTIME-0":  "PASS — Agent + Context Risk Discovery",
+                                                     "LIVE-RUNTIME-1":  "PASS — P0 Gap Close Sprint",
+                                                     "LIVE-RUNTIME-2":  "PASS — Agent OS + Accountability Bus",
+                                                     "LIVE-RUNTIME-3":  "IN_PROGRESS — Context OS + External Memory Index"
+                                                 },
+                           "activeRisks":  [
+                                               {
+                                                   "risk":  "Shared memory divergence",
+                                                   "severity":  "P0",
+                                                   "status":  "UNRESOLVED"
+                                               },
+                                               {
+                                                   "risk":  "Verifier overfitting",
+                                                   "severity":  "P1",
+                                                   "status":  "UNRESOLVED"
+                                               },
+                                               {
+                                                   "risk":  "Automation rotation watcher not implemented",
+                                                   "severity":  "P1",
+                                                   "status":  "UNRESOLVED"
+                                               }
+                                           ],
+                           "noAutoWindowCreation":  true,
+                           "rejectedClaims":  [
+                                                  "Full context inheritance",
+                                                  "Automatic window creation without verification",
+                                                  "Plugin production-ready",
+                                                  "Automation production-ready",
+                                                  "Compressed summary as evidence"
+                                              ],
+                           "finalPackageStatus":  "CREATED_AND_VALIDATED",
+                           "pluginStatus":  "EXPERIMENTAL",
+                           "currentTrustedPhase":  "FINAL"
+                       }
+}

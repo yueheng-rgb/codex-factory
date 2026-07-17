@@ -1,0 +1,102 @@
+﻿{
+    "version":  "1.0.0",
+    "requiredInputs":  [
+                           {
+                               "name":  "projectRoot",
+                               "description":  "Path to project root directory"
+                           }
+                       ],
+    "triggerConditions":  [
+                              "project has .cursorrules or similar rule files",
+                              "CAP-SKILL-004 is loaded and finds AGENTS.md",
+                              "new agent enters project for first time"
+                          ],
+    "expectedOutputs":  [
+                            {
+                                "format":  "string array",
+                                "name":  "ruleFilesFound",
+                                "description":  "List of rule files discovered"
+                            },
+                            {
+                                "format":  "string array",
+                                "name":  "namingRules",
+                                "description":  "Extracted naming conventions"
+                            },
+                            {
+                                "format":  "string array",
+                                "name":  "directoryRules",
+                                "description":  "Directory structure rules"
+                            },
+                            {
+                                "format":  "string array",
+                                "name":  "importRules",
+                                "description":  "Import convention rules"
+                            },
+                            {
+                                "format":  "string array",
+                                "name":  "ciRules",
+                                "description":  "CI/CD pipeline rules"
+                            }
+                        ],
+    "applicableAgents":  [
+                             "PM-001",
+                             "ARCH-001",
+                             "RSRC-001",
+                             "LIB-001",
+                             "IMPL-FE-001",
+                             "IMPL-BE-001"
+                         ],
+    "sourceRefs":  [
+                       "Cursor rules specification",
+                       "Codex_App_Factory project rules patterns",
+                       "Community .cursorrules examples"
+                   ],
+    "forbiddenActions":  [
+                             "modify_rule_files",
+                             "enforce_rules_automatically",
+                             "override_agents_md_with_project_rules",
+                             "write_project_code_based_on_rules"
+                         ],
+    "skillId":  "CAP-SKILL-015",
+    "name":  "project-rules-ecosystem",
+    "status":  "candidate",
+    "failureModes":  [
+                         {
+                             "recovery":  "Return empty extraction, note no project-specific rules",
+                             "symptom":  "Skill loads but finds nothing",
+                             "mode":  "No rule files found"
+                         },
+                         {
+                             "recovery":  "Flag conflict; AGENTS.md takes precedence per CAP-SKILL-004",
+                             "symptom":  "AGENTS.md and .cursorrules disagree",
+                             "mode":  "Conflicting rules"
+                         }
+                     ],
+    "applicableProjectTypes":  [
+                                   "fullstack-admin",
+                                   "saas-tool",
+                                   "content-site",
+                                   "api-service",
+                                   "miniapp",
+                                   "mobile-app",
+                                   "threejs-interactive"
+                               ],
+    "allowedTools":  [
+                         "read"
+                     ],
+    "rollbackPolicy":  {
+                           "canRollback":  true,
+                           "rollbackProcedure":  "Remove skill from context; clear extracted rules",
+                           "dataLossRisk":  "none"
+                       },
+    "trustLevel":  "AVAILABLE",
+    "verificationMethod":  {
+                               "behaviorCheck":  "Test with project containing .cursorrules; verify all rule categories extracted",
+                               "requiredEvidence":  [
+                                                        "rule_file_discovery",
+                                                        "naming_rule_extraction",
+                                                        "directory_rule_extraction"
+                                                    ],
+                               "formatCheck":  "Verify SKILL.md has complete extraction categories"
+                           }
+}

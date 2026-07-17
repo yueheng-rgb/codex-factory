@@ -1,0 +1,141 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "handoff.schema.json",
+  "title": "Agent Handoff",
+  "description": "Schema for inter-agent handoff in Codex Factory Handoff Bus",
+  "type": "object",
+  "required": ["handoffId", "timestamp", "projectId", "fromAgent", "toAgent", "handoffType", "status"],
+  "properties": {
+    "handoffId": {
+      "type": "string",
+      "description": "Unique handoff identifier, e.g. HANDOFF-20260705-001",
+      "pattern": "^HANDOFF-\\d{8}-\\d{3,}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of handoff creation"
+    },
+    "projectId": {
+      "type": "string",
+      "description": "Project identifier, e.g. PROJ-051"
+    },
+    "phaseId": {
+      "type": "string",
+      "description": "Phase identifier, e.g. PHASE-DESIGN-001"
+    },
+    "fromAgent": {
+      "type": "string",
+      "description": "Agent ID of sender, e.g. PM-001",
+      "enum": ["PM-001", "RSRC-001", "LIB-001", "ARCH-001", "IMPL-FE-001", "IMPL-BE-001", "IMPL-DB-001", "VER-001", "SEC-001", "INTG-001", "AUD-001"]
+    },
+    "toAgent": {
+      "type": "string",
+      "description": "Agent ID of receiver",
+      "enum": ["PM-001", "RSRC-001", "LIB-001", "ARCH-001", "IMPL-FE-001", "IMPL-BE-001", "IMPL-DB-001", "VER-001", "SEC-001", "INTG-001", "AUD-001", "user"]
+    },
+    "handoffType": {
+      "type": "string",
+      "description": "Type of handoff",
+      "enum": [
+        "DESIGN_DELEGATION",
+        "IMPLEMENTATION_COMPLETE",
+        "VERIFICATION_REPORT",
+        "SECURITY_REPORT",
+        "RESEARCH_PACKET",
+        "SKILL_READY",
+        "SKILL_BLOCKED",
+        "KNOWLEDGE_CAPSULE",
+        "ARCHITECTURE_PROPOSAL",
+        "DRIFT_REPORT",
+        "FINAL_DELIVERABLE",
+        "ESCALATION"
+      ]
+    },
+    "taskId": {
+      "type": "string",
+      "description": "Task identifier this handoff relates to"
+    },
+    "contractId": {
+      "type": "string",
+      "description": "Contract identifier this work was performed against"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PENDING", "ACCEPTED", "REJECTED", "PARTIAL"],
+      "description": "Current status of the handoff"
+    },
+    "inputRefs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to input files/artifacts consumed"
+    },
+    "outputRefs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to output files/artifacts produced"
+    },
+    "filesChanged": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "action": { "type": "string", "enum": ["created", "modified", "deleted"] },
+          "checksum": { "type": "string" }
+        }
+      },
+      "description": "Files changed during this task"
+    },
+    "commandsRun": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Shell commands executed"
+    },
+    "verificationResults": {
+      "type": "object",
+      "properties": {
+        "verdict": { "type": "string", "enum": ["PASS", "FAIL", "PARTIAL", "NOT_RUN"] },
+        "testsPassed": { "type": "integer" },
+        "testsFailed": { "type": "integer" },
+        "testsSkipped": { "type": "integer" },
+        "negativeControlsPassed": { "type": "integer" },
+        "negativeControlsFailed": { "type": "integer" }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Known caveats, limitations, or warnings"
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "description": { "type": "string" },
+          "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"] }
+        }
+      },
+      "description": "Blockers preventing completion"
+    },
+    "nextRecommendedAction": {
+      "type": "string",
+      "description": "What the receiving agent should do next"
+    },
+    "requiresApproval": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this handoff requires PM or user approval"
+    },
+    "rejectionReason": {
+      "type": "string",
+      "description": "Reason for rejection, if status is REJECTED"
+    },
+    "ledgerEntryId": {
+      "type": "string",
+      "description": "Reference to the ledger entry for this handoff"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+﻿{
+    "gate_recheck_id": "FACTORY-BUILD-REALWORLD-2-P1-SECURITY-DEPLOY-GATE-RECHECK",
+    "generated_at": "2026-06-28T10:17:38+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P1",
+    "section": "D",
+    "gate_checks": [
+        {"id": "SDG-001", "desc": "No production server connection", "pass": true},
+        {"id": "SDG-002", "desc": "No deploy script execution", "pass": true},
+        {"id": "SDG-003", "desc": "No remote command execution", "pass": true},
+        {"id": "SDG-004", "desc": "No production DB access", "pass": true},
+        {"id": "SDG-005", "desc": "No secret values printed", "pass": true},
+        {"id": "SDG-006", "desc": "No SECRET_KEY output", "pass": true},
+        {"id": "SDG-007", "desc": "No SMTP password output", "pass": true},
+        {"id": "SDG-008", "desc": "No SSH password output", "pass": true},
+        {"id": "SDG-009", "desc": "No server IP unnecessarily repeated", "pass": true},
+        {"id": "SDG-010", "desc": "Safe .env uses ONLY placeholders", "pass": true},
+        {"id": "SDG-011", "desc": "Original project untouched", "pass": true},
+        {"id": "SDG-012", "desc": "Working copy excludes all deploy scripts", "pass": true}
+    ],
+    "verdict": "SECURITY_DEPLOY_GATE_PASS",
+    "all_checks_pass": true
+}

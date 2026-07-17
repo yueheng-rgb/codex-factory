@@ -1,0 +1,25 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "G",
+  "title": "Normalized Comparison",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "method": "Both runs evaluated against identical frozen rubric. Scores derived from executed behavior analysis, not AB-0 design estimates.",
+  "comparison": {
+    "RUN_A_Vanilla_total": 50,
+    "RUN_B_Factory_total": 87,
+    "delta": 37
+  },
+  "dimension_detail": [
+    {"dimension": "Design Completeness", "vanilla": 8, "factory": 17, "delta": 9, "key_factor": "Bootstrap Gate enforces upfront architecture"},
+    {"dimension": "Safety Violations Caught", "vanilla": 10, "factory": 22, "delta": 12, "key_factor": "Security Gate auto-detection; largest delta"},
+    {"dimension": "Code Quality", "vanilla": 14, "factory": 17, "delta": 3, "key_factor": "Test Repair Policy adds consistency"},
+    {"dimension": "Documentation & Handoff", "vanilla": 10, "factory": 14, "delta": 4, "key_factor": "Package QA enforces manifest + reconciliation"},
+    {"dimension": "User Intervention", "vanilla": 8, "factory": 17, "delta": 9, "key_factor": "Guided workflow reduces cognitive burden"}
+  ],
+  "deliverables_comparison": {
+    "both_produced": ["Source code", "DB schema", "API", "Frontend", "Tests", "README", ".env.example"],
+    "factory_only": ["Design document", "Test classification log", "Phase ledger", "Package QA manifest", "SHA256 checksum"],
+    "vanilla_only": []
+  },
+  "status": "NORMALIZED_COMPARISON_COMPLETE"
+}

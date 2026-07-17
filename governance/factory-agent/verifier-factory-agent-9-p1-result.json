@@ -1,0 +1,143 @@
+﻿{
+    "verifier":  "factory-agent-9-p1-no-benefit-root-cause-verify.ps1",
+    "passed":  22,
+    "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+    "warnings":  0,
+    "verdict":  "PASS",
+    "totalChecks":  22,
+    "checks":  [
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "FINAL_ZIP_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "NO_V05_ZIP"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "NO_NEW_RUN_ZIP"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_9_PASS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "EVIDENCE_LOCK_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "VANILLA_SCORE_85_5"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "V05_SCORE_80_0"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "V05_NOT_BEAT_VANILLA"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "ROOT_CAUSE_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "CLAIM_FREEZE_EXISTS"
+                   },
+                   {
+                       "detail":  "found=True",
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "MULTI_AGENT_DEFAULT_REJECTED"
+                   },
+                   {
+                       "detail":  "found=True",
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "V05_SUPERIOR_REJECTED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "DECISION_OPTIONS_EXIST"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "RECOMMENDATION_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "RECOMMENDATION_CHOSEN"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "NO_RELEASE_PREP"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "NO_DEFAULT_DECLARED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "REPORT_ROOT_CAUSE"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "REPORT_NEGATIVE_CONTROLS"
+                   },
+                   {
+                       "detail":  "evaluator-readonly",
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "NO_PRODUCT_MODIFIED"
+                   },
+                   {
+                       "detail":  "confirmed",
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "NO_BENCHMARK_STARTED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:41:06.2618383+08:00",
+                       "pass":  true,
+                       "name":  "VERIFIER_EXISTS"
+                   }
+               ],
+    "failed":  0
+}

@@ -1,0 +1,100 @@
+﻿{
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                       "targetScope":  "packages/diagnosis-engine/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-evidence-collector",
+                                       "targetScope":  "packages/evidence-collector/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-risk-classifier",
+                                       "targetScope":  "packages/risk-classifier/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                       "targetScope":  "packages/diagnosis-reporter/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-verify-gate",
+                                       "targetScope":  "packages/verify-gate/"
+                                   }
+                               ],
+    "phase":  "DRY23-A",
+    "forkContext":  false,
+    "scope":  {
+                  "ownedFiles":  [
+                                     "packages/snapshot-manager/src/snapshot-archive.ts",
+                                     "packages/snapshot-manager/src/snapshot-comparator.ts",
+                                     "packages/snapshot-manager/src/snapshot-diff.ts",
+                                     "packages/snapshot-manager/src/snapshot-events.ts",
+                                     "packages/snapshot-manager/src/snapshot-lifecycle.ts",
+                                     "packages/snapshot-manager/src/snapshot-reporter.ts",
+                                     "packages/snapshot-manager/src/snapshot-retention.ts",
+                                     "packages/snapshot-manager/src/snapshot-store.ts",
+                                     "packages/snapshot-manager/src/snapshot-validator.ts",
+                                     "packages/snapshot-manager/src/types.ts"
+                                 ],
+                  "forbiddenDirectories":  [
+                                               "governance/factory-state/",
+                                               "outputs/"
+                                           ],
+                  "ownedDirectories":  [
+                                           "packages/snapshot-manager/"
+                                       ]
+              },
+    "exportedApiSurface":  [
+                               "packages/snapshot-manager/src/snapshot-archive.ts",
+                               "packages/snapshot-manager/src/snapshot-comparator.ts",
+                               "packages/snapshot-manager/src/snapshot-diff.ts",
+                               "packages/snapshot-manager/src/snapshot-events.ts",
+                               "packages/snapshot-manager/src/snapshot-lifecycle.ts",
+                               "packages/snapshot-manager/src/snapshot-reporter.ts",
+                               "packages/snapshot-manager/src/snapshot-retention.ts",
+                               "packages/snapshot-manager/src/snapshot-store.ts",
+                               "packages/snapshot-manager/src/snapshot-validator.ts",
+                               "packages/snapshot-manager/src/types.ts"
+                           ],
+    "isReadOnly":  false,
+    "allowedImports":  [
+
+                       ],
+    "evidencePath":  "governance/diagnosis/",
+    "forbiddenImports":  [
+                             {
+                                 "target":  "../../scripts/*",
+                                 "reason":  "Workers must not import scripts"
+                             }
+                         ],
+    "role":  "builder",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-24T00:38:00+08:00",
+    "contractVersion":  "1.0.0",
+    "integrationHandoff":  {
+                               "path":  "governance/diagnosis/dry23-closure-verify.json",
+                               "format":  "json",
+                               "expectedConsumer":  "dry23-integrator-1"
+                           },
+    "sourceEvidenceSha256":  {
+
+                             },
+    "generatedBy":  "DRY23-A contract-first",
+    "retroactive":  false,
+    "agentId":  "dry23-builder-snapshot-manager"
+}

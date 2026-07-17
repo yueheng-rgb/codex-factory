@@ -1,0 +1,50 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "recovery-plan.schema.json",
+  "title": "Recovery Plan",
+  "type": "object",
+  "required": ["planId", "projectId", "timestamp", "recoveryLevel", "findings", "actions"],
+  "properties": {
+    "planId": { "type": "string", "format": "uuid" },
+    "projectId": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "recoveryLevel": { "type": "string", "enum": ["LEVEL_0", "LEVEL_1", "LEVEL_2", "LEVEL_3"] },
+    "dashboardHealthBefore": { "type": "string" },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["failureModeId", "severity", "action"],
+        "properties": {
+          "failureModeId": { "type": "string", "pattern": "^FM-\\d{2}$" },
+          "severity": { "type": "string", "enum": ["CRITICAL", "WARNING"] },
+          "description": { "type": "string" },
+          "action": { "type": "string" },
+          "autoRepairAllowed": { "type": "boolean" },
+          "userConfirmationRequired": { "type": "boolean" },
+          "status": { "type": "string", "enum": ["PENDING", "AUTO_REPAIRED", "CONFIRMED", "EXECUTED", "SKIPPED", "BLOCKED"] }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "actionType", "description"],
+        "properties": {
+          "step": { "type": "integer" },
+          "actionType": { "type": "string", "enum": ["AUTO_REBUILD_DERIVED_CACHE","AUTO_REGENERATE_SNAPSHOT","AUTO_REGENERATE_ATTACH_PACKET","AUTO_REINDEX","USER_CONFIRM_IDENTITY","USER_CONFIRM_MIGRATION","BLOCK_AND_REPORT","RESTORE_FROM_ARCHIVE","CREATE_REPAIR_PLAN","MANUAL_REVIEW_REQUIRED","DO_NOT_REPAIR"] },
+          "description": { "type": "string" },
+          "targetPath": { "type": "string" },
+          "safeForAuto": { "type": "boolean" },
+          "status": { "type": "string", "enum": ["PENDING", "COMPLETED", "FAILED", "SKIPPED"] },
+          "result": { "type": "string" }
+        }
+      }
+    },
+    "blockedOperations": { "type": "array", "items": { "type": "string" } },
+    "userConfirmationsRequired": { "type": "integer" },
+    "userConfirmationsReceived": { "type": "integer" },
+    "overallStatus": { "type": "string", "enum": ["DRAFT", "AWAITING_CONFIRMATION", "IN_PROGRESS", "COMPLETED", "ABORTED"] }
+  }
+}

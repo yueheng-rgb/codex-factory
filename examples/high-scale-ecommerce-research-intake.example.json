@@ -1,0 +1,61 @@
+﻿{
+  "intakeId": "INTAKE-20260705-001",
+  "query": {
+    "question": "高并发电商系统的架构设计最佳实践是什么？包括库存扣减、订单状态机、支付幂等、读写分离、缓存策略、消息队列选型",
+    "searchMode": "knowledge_reserve",
+    "domain": "ecommerce",
+    "context": "为 Codex Factory 建立电商系统架构 playbook，用于未来生成高并发电商项目时的架构参考",
+    "requestedBy": "human-architect",
+    "versionConstraints": "2024-2026 年最新实践"
+  },
+  "provider": {
+    "providerId": "human-research-20260705",
+    "type": "human_manual",
+    "capability": "Human researcher compiling multiple AI and search engine results",
+    "strengths": ["cross-reference multiple sources", "domain expertise", "can validate code snippets"],
+    "weaknesses": ["slow", "subjective filtering", "may miss niche sources"],
+    "freshness": "as-of-2026-07",
+    "citationRequirement": "always",
+    "trustLimit": "TRUSTED",
+    "canBeDirectSource": false
+  },
+  "rawResult": "综合多个来源（ChatGPT-4o、Perplexity Pro、Google Search、阿里技术博客、美团技术博客、AWS Architecture Blog）的搜索结果。\n\n## 库存扣减\n- 推荐方案：数据库行级锁 + 条件UPDATE（WHERE stock >= quantity）\n- 备选：Redis 预减库存 + DB 最终一致性\n- 反模式：先查再改（非原子）\n- 参考：阿里《高并发库存扣减方案》、美团《库存系统设计》\n\n## 订单状态机\n- 推荐状态：PENDING → PAID → PROCESSING → SHIPPED → DELIVERED → (REFUNDING → REFUNDED)\n- 每个状态转换必须有幂等键\n- 参考：eCommerce order state machine patterns\n\n## 支付幂等\n- 必须使用幂等键（idempotency key），由客户端生成\n- 服务端存储幂等键 + 结果映射\n- 支付回调必须验证签名\n- 参考：Stripe API idempotency、支付宝异步通知规范\n\n## 读写分离\n- 主库写 + 多读副本\n- 复制延迟需要业务感知（写后立即读走主库）\n- 参考：PostgreSQL streaming replication + Pgpool-II\n\n## 缓存策略\n- Cache-Aside 模式（最常用）\n- 商品详情：Redis + TTL + 主动失效\n- 库存：不建议长缓存（实时性要求高）\n- 参考：AWS ElastiCache best practices\n\n## 消息队列\n- 订单异步处理：RocketMQ（阿里系）/ Kafka（通用）\n- 事件驱动解耦：订单创建 → 库存扣减 → 物流创建\n- 必须保证至少一次投递 + 消费幂等\n- 参考：Apache Kafka exactly-once semantics",
+  "links": [
+    {"url": "https://developer.aliyun.com/article/high-concurrency-inventory", "title": "阿里高并发库存扣减方案", "type": "blog", "relevance": "high"},
+    {"url": "https://tech.meituan.com/inventory-system-design", "title": "美团库存系统设计", "type": "blog", "relevance": "high"},
+    {"url": "https://stripe.com/docs/api/idempotent_requests", "title": "Stripe Idempotency", "type": "official_docs", "relevance": "high"},
+    {"url": "https://www.postgresql.org/docs/current/high-availability.html", "title": "PostgreSQL High Availability", "type": "official_docs", "relevance": "high"},
+    {"url": "https://kafka.apache.org/documentation/#semantics", "title": "Kafka Exactly-Once Semantics", "type": "official_docs", "relevance": "high"},
+    {"url": "https://aws.amazon.com/caching/best-practices/", "title": "AWS Caching Best Practices", "type": "official_docs", "relevance": "medium"}
+  ],
+  "sourceTitles": [
+    "阿里高并发库存扣减方案",
+    "美团库存系统设计",
+    "Stripe Idempotency API",
+    "PostgreSQL High Availability",
+    "Kafka Exactly-Once Semantics",
+    "AWS Caching Best Practices"
+  ],
+  "publishDates": ["2024-03", "2024-06", "2025-01", "2025-03", "2025-06", "2024-11"],
+  "claimedFacts": [
+    {"claim": "库存扣减必须使用条件UPDATE而非先查后改", "sourceIndex": 0, "confidence": "high"},
+    {"claim": "订单状态机至少需要6个状态", "sourceIndex": 1, "confidence": "medium"},
+    {"claim": "支付幂等键必须由客户端生成并持久化", "sourceIndex": 2, "confidence": "high"},
+    {"claim": "读写分离的复制延迟需要业务感知", "sourceIndex": 3, "confidence": "high"},
+    {"claim": "商品详情缓存适合Cache-Aside模式", "sourceIndex": 5, "confidence": "medium"},
+    {"claim": "库存数据不建议长缓存", "sourceIndex": 0, "confidence": "high"}
+  ],
+  "codeSnippets": [
+    {
+      "language": "sql",
+      "code": "UPDATE inventory SET stock = stock - ? WHERE product_id = ? AND stock >= ?",
+      "sourceIndex": 0,
+      "safeForDirectUse": true
+    }
+  ],
+  "uncertainty": "low",
+  "providerConfidence": "high",
+  "userNotes": "这是为 Codex Factory 电商 playbook 准备的知识储备搜索。来源质量高（阿里、美团、Stripe、PostgreSQL官方、Kafka官方）。建议重点验证库存扣减的条件UPDATE方案和订单状态机设计。",
+  "submittedAt": "2026-07-05T14:00:00+08:00",
+  "submittedBy": "human-architect"
+}

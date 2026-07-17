@@ -1,0 +1,166 @@
+﻿{
+    "filesFound":  [
+                       ".\\AGENTS.md",
+                       ".\\src\\AGENTS.md"
+                   ],
+    "buildCommands":  [
+                          {
+                              "scope":  "/",
+                              "command":  "npm run build",
+                              "source":  "AGENTS.md"
+                          }
+                      ],
+    "testCommands":  [
+                         {
+                             "scope":  "/",
+                             "command":  "npm test",
+                             "source":  "AGENTS.md"
+                         }
+                     ],
+    "lintCommands":  [
+                         {
+                             "scope":  "/",
+                             "command":  "npm run lint",
+                             "source":  "AGENTS.md"
+                         }
+                     ],
+    "securityBoundaries":  [
+                               {
+                                   "rule":  "No hardcoded secrets/tokens/passwords",
+                                   "source":  "AGENTS.md"
+                               },
+                               {
+                                   "rule":  "Bind to 127.0.0.1 only",
+                                   "source":  "AGENTS.md"
+                               },
+                               {
+                                   "rule":  "No external network calls without approval",
+                                   "source":  "AGENTS.md"
+                               },
+                               {
+                                   "rule":  "Route handlers must use try/catch (src/ scope)",
+                                   "source":  "AGENTS.md"
+                               }
+                           ],
+    "directoryRules":  [
+                           {
+                               "rule":  "Application source code. Only server entry points and route handlers.",
+                               "directory":  "src/",
+                               "source":  "AGENTS.md"
+                           },
+                           {
+                               "rule":  "Test files. Mirror `src/` structure.",
+                               "directory":  "tests/",
+                               "source":  "AGENTS.md"
+                           },
+                           {
+                               "rule":  "Configuration files (if added). Must NOT contain secrets.",
+                               "directory":  "config/",
+                               "source":  "AGENTS.md"
+                           }
+                       ],
+    "conventions":  [
+                        {
+                            "rule":  "const/let over var",
+                            "source":  "AGENTS.md"
+                        },
+                        {
+                            "rule":  "Async/await preferred",
+                            "source":  "AGENTS.md"
+                        },
+                        {
+                            "rule":  "kebab-case filenames, camelCase identifiers",
+                            "source":  "AGENTS.md"
+                        }
+                    ],
+    "forbiddenActions":  [
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "place business logic in the root directory."
+                             },
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "create `dist/`, `build/`, or `.next/` directories — this is a Node.js project."
+                             },
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "commit `.env` files."
+                             },
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "hardcode secrets, tokens, or passwords in source code."
+                             },
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "install packages outside `dependencies` or `devDependencies` without approval."
+                             },
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "modify `package.json` scripts without updating AGENTS.md and README.md."
+                             },
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "change the server port from 3456 without explicit instruction."
+                             },
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "add database dependencies without architectural review."
+                             },
+                             {
+                                 "source":  "AGENTS.md",
+                                 "action":  "expose internal errors to API responses."
+                             }
+                         ],
+    "handoffRequirements":  [
+                                {
+                                    "field":  "taskId",
+                                    "description":  "Unique task identifier",
+                                    "source":  "AGENTS.md"
+                                },
+                                {
+                                    "field":  "filesChanged",
+                                    "description":  "List of files modified",
+                                    "source":  "AGENTS.md"
+                                },
+                                {
+                                    "field":  "commandsRun",
+                                    "description":  "Commands executed during verification",
+                                    "source":  "AGENTS.md"
+                                },
+                                {
+                                    "field":  "verificationResults",
+                                    "description":  "Build/test/lint results",
+                                    "source":  "AGENTS.md"
+                                },
+                                {
+                                    "field":  "caveats",
+                                    "description":  "Known issues or incomplete work",
+                                    "source":  "AGENTS.md"
+                                },
+                                {
+                                    "field":  "nextRecommendedAction",
+                                    "description":  "What the next agent should do",
+                                    "source":  "AGENTS.md"
+                                }
+                            ],
+    "userInstructionPriority":  "AGENTS.md rules are ADVISORY — user instructions take precedence",
+    "conflictWarnings":  [
+                             "Multiple AGENTS.md files found — nested files override root for their scope"
+                         ],
+    "contractInputs":  {
+                           "pic":  [
+                                       "build: npm run build",
+                                       "test: npm test",
+                                       "lint: npm run lint"
+                                   ],
+                           "ac":  [
+                                      "conventions detected: 3 rules"
+                                  ],
+                           "fc":  [
+                                      "directory structure: 3 rules"
+                                  ],
+                           "ngc":  [
+                                       "security boundaries: 4 rules"
+                                   ]
+                       }
+}

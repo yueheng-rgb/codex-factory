@@ -1,0 +1,184 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "Controller mutates currentTrustedPhase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "controller_mutate_phase",
+                          "id":  "N01"
+                      },
+                      {
+                          "fault":  "Controller marks phase PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "controller_mark_PASS",
+                          "id":  "N02"
+                      },
+                      {
+                          "fault":  "Controller creates final ZIP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "controller_create_ZIP",
+                          "id":  "N03"
+                      },
+                      {
+                          "fault":  "Controller starts new phase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "controller_start_phase",
+                          "id":  "N04"
+                      },
+                      {
+                          "fault":  "Claims automatic window creation without proof",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "auto_window_no_proof",
+                          "id":  "N05"
+                      },
+                      {
+                          "fault":  "Claims full context inheritance",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "full_inheritance_claim",
+                          "id":  "N06"
+                      },
+                      {
+                          "fault":  "Treats fork as memory expansion",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "fork_as_memory",
+                          "id":  "N07"
+                      },
+                      {
+                          "fault":  "Treats subagent as user-visible branch",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "subagent_as_branch",
+                          "id":  "N08"
+                      },
+                      {
+                          "fault":  "Uses compressed summary as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "compressed_evidence",
+                          "id":  "N09"
+                      },
+                      {
+                          "fault":  "Omits startup verification",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "omit_startup_verification",
+                          "id":  "N10"
+                      },
+                      {
+                          "fault":  "Startup packet omits required read files",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "pkt_no_read_files",
+                          "id":  "N11"
+                      },
+                      {
+                          "fault":  "Startup packet omits MCP queries",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "pkt_no_mcp",
+                          "id":  "N12"
+                      },
+                      {
+                          "fault":  "Startup packet omits verifier commands",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "pkt_no_verifier",
+                          "id":  "N13"
+                      },
+                      {
+                          "fault":  "Startup verification fail still allows new phase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "startup_fail_allows_phase",
+                          "id":  "N14"
+                      },
+                      {
+                          "fault":  "Automation wakeup treated as new context",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "wakeup_as_context",
+                          "id":  "N15"
+                      },
+                      {
+                          "fault":  "fork_context:true used as default builder isolation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "fork_true_builder_default",
+                          "id":  "N16"
+                      },
+                      {
+                          "fault":  "fork_context:false ignored for builders",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "fork_false_ignored",
+                          "id":  "N17"
+                      },
+                      {
+                          "fault":  "Stale handoff accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "stale_handoff_accepted",
+                          "id":  "N18"
+                      },
+                      {
+                          "fault":  "factoryctl verify FAIL ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "factoryctl_fail_ignored",
+                          "id":  "N19"
+                      },
+                      {
+                          "fault":  "Context OS memory validation FAIL ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "memory_fail_ignored",
+                          "id":  "N20"
+                      },
+                      {
+                          "fault":  "MCP memory FAIL ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_fail_ignored",
+                          "id":  "N21"
+                      },
+                      {
+                          "fault":  "Capacity preflight risk ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "capacity_risk_ignored",
+                          "id":  "N22"
+                      },
+                      {
+                          "fault":  "Unsafe active stale agent ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "stale_agent_ignored",
+                          "id":  "N23"
+                      },
+                      {
+                          "fault":  "Selected carrier unsupported but marked verified",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "unsupported_carrier_verified",
+                          "id":  "N24"
+                      },
+                      {
+                          "fault":  "Manual user action required but omitted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "user_action_omitted",
+                          "id":  "N25"
+                      },
+                      {
+                          "fault":  "Rejected claim becomes verified",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "rejected_becomes_verified",
+                          "id":  "N26"
+                      },
+                      {
+                          "fault":  "No evidence path in execution packet",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_evidence_path",
+                          "id":  "N27"
+                      },
+                      {
+                          "fault":  "Markdown-only controller result accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_only_controller",
+                          "id":  "N28"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "subPhase":  "F",
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  28,
+    "totalNegatives":  28,
+    "phase":  "LIVE-RUNTIME-6",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T00:35:09+08:00"
+}

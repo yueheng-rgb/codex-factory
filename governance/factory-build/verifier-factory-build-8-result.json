@@ -1,0 +1,156 @@
+﻿{
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V00",
+                        "desc":  "BUILD-7 PASS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "Sealed spec exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "Trial directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "RUN-LITE product exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "RUN-LITE routes exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "RUN-LITE frontend exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "RUN-LITE has external memory"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "RUN-LITE has tests"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "RUN-PRO product exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "RUN-PRO routes exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "RUN-PRO frontend exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "RUN-PRO has external memory"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "RUN-PRO has tests"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "RUN-PRO has integration result"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "Native agents spawned (3)"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "fork_context:false used"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "Agent capsules exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "Write scope map exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "All agents closed with completed status"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "RUN-LITE did not use native agents"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "Both runs have RUN-PRO gate results"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "Both runs have recovery results"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "No v0.5 package"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "No release ZIP"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V24",
+                        "desc":  "No multi-agent default claim"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V25",
+                        "desc":  "No prior products modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V26",
+                        "desc":  "No UNEXPECTED_PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V27",
+                        "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V28",
+                        "desc":  "Verifier complete"
+                    }
+                ],
+    "failedChecks":  0,
+    "overall":  "PASS",
+    "passedChecks":  29,
+    "totalChecks":  29,
+    "phase":  "FACTORY-BUILD-8",
+    "date":  "2026-06-27T11:32:09.3282579+08:00",
+    "verifier":  "factory-build-8-native-build-pro-matched-trial-verify.ps1"
+}

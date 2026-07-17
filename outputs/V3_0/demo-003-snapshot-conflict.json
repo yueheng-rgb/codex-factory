@@ -1,0 +1,7 @@
+﻿{
+    "claimed_task":  "use Firecrawl as canonical search for evidence gathering",
+    "demo":  "DEMO-003",
+    "overall":  "BLOCKED",
+    "deprecated_detected":  true,
+    "reason":  "Firecrawl is reader/extractor only, NOT canonical search. Deprecated lock: Firecrawl_is_reader_only_not_canonical_search"
+}

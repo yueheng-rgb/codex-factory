@@ -1,0 +1,22 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "K",
+  "title": "User Workflow",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "user_facing_rules": {
+    "normal_answers": "Normal Codex answers remain detailed and helpful. Minimal Mode applies ONLY to memory ingestion, not to user-facing responses.",
+    "memory_ingestion": "Memory records are minimal (≤500 chars) with evidence_path and caveat. User can request review before ingestion.",
+    "socratic_questions": "Socratic questions appear ONLY for high-risk ambiguity (direction conflict, release boundary, security, unclear scope). Max 3 questions. Normal phases do not trigger Socratic.",
+    "user_commands": [
+      {"command": "写入最简记忆记录", "effect": "Force minimal memory record creation for current phase"},
+      {"command": "不要写入外接对话空间", "effect": "Skip memory ingestion for this phase"},
+      {"command": "审查记忆记录后再写入", "effect": "Show memory record for user review before ingestion"},
+      {"command": "标记此记录为 RETIRED", "effect": "Mark a memory record as RETIRED with reason"}
+    ]
+  },
+  "prompts": {
+    "write_minimal_memory": "factory-build-mode/memory-quality/prompts/write-minimal-memory-record.prompt.md",
+    "run_socratic": "factory-build-mode/memory-quality/prompts/run-socratic-clarification.prompt.md"
+  },
+  "status": "USER_WORKFLOW_DEFINED"
+}

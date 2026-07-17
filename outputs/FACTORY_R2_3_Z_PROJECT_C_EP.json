@@ -1,0 +1,202 @@
+﻿{
+    "authoritative_source_gap":  true,
+    "queries":  [
+                    {
+                        "query":  "Node.js CLI tool secure API key storage environment variable encrypted config best practice 2025",
+                        "count":  10,
+                        "intent":  "best_practice"
+                    },
+                    {
+                        "query":  "Node.js dotenv keytar secret management CLI security credential storage official",
+                        "count":  10,
+                        "intent":  "official_api_check"
+                    }
+                ],
+    "sources":  [
+                    {
+                        "snippet":  "AI 工具 AI 开发环境 Trae - AI 原生开发环境 Qoder - AI 编程 IDE AI 应用开发平台 秒哒 - 一句话生成应用 MonkeyCode - AI 应用开发平台 搭子 - AI 办公智能体 Token 节省计划 Coding Plan - DeepSeek､Kimi､GLM､Doubao 讯飞星辰 MaaS - 免费模型调用平台 阿里云 Token Plan - ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Node.js 在线工具  菜鸟工具",
+                        "url":  "https://c.runoob.com/compile/22/"
+                    },
+                    {
+                        "snippet":  "mssql:\ninsert into [dbo].[tutorials]([title],[description],[published],[createdAt],[updatedAt])\nvalues(N\u0027涂聚文\u0027,N\u0027涂聚文\u0027,0,\u00272025-05-04\u0027,\u00272025-05-04\u0027);\ngo\ninsert into [dbo].",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "node.js: mssql2019 sequelize6 es6 ORM in vscode and WebStorm 2023.1",
+                        "url":  "https://cloud.tencent.com/developer/article/2693603"
+                    },
+                    {
+                        "snippet":  "mysql:\nselect * from tutorials;\n# CREATE TABLE IF NOT EXISTS `tutorials` (`id` INTEGER NOT NULL auto_increment , `title` VARCHAR(255), `description` VARCHAR(255), `published` TINYINT(1), `createdAt` D...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "node.js: mysql sequelize es6 ORM in vscode and WebStorm 2023.1",
+                        "url":  "https://cloud.tencent.com/developer/article/2693439"
+                    },
+                    {
+                        "snippet":  "2.检查Express路由先看核心代码,登录端点用jsonwebtoken生成token,存到Redis:constexpress=require(\u0027express\u0027);constjwt=require(\u0027jsonwebtoken\u0027);constredis=require(\u0027redis\u0027);constapp=express();constredisClient=redis.createClient...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Node.js 微服务内存泄漏的排查与解决",
+                        "url":  "https://cloud.tencent.com/developer/article/2563078"
+                    },
+                    {
+                        "snippet":  "\"浙江双友机电集团股份有限公司(以下简称:浙江双友),创建于一九七九年十二月,集团总部设于浙江省玉环县机电工业园区｡浙江双友是一家集研发､生产､贸易与一体的多元化股份制企业集团,麾下拥有十几家全资､控股子公司,主要业务涉及机械制造､进出口贸易､电镀､环保､采矿业､纺织业､房地产等行业,集团本部占地面积150余亩｡",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "双友集团",
+                        "url":  "https://baike.sogou.com/v9200973.htm"
+                    },
+                    {
+                        "snippet":  "\"杨旭东,男｡1988年和1993年分获清华大学学士和硕士学位, 1999年获美国麻省理工学院博士学位｡1999-2005年任教于美国迈阿密大学并获得终身教授教席｡杨教授十几年来一直从事建筑能源和环境方面的国际前沿研究｡学习经历1990-1993 清华大学热能工程系空气调节工程专业 工学硕士｡ 1983-1988清华大学热能工程系空气调节工程专业 工学学士｡工作经历2005.7-今 ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "杨旭东",
+                        "url":  "https://baike.sogou.com/v64524487.htm"
+                    },
+                    {
+                        "snippet":  "1.介绍非专业前端开发工程师在构建项目时遇到如下问题:ERROR: This version of pnpm requires at least Node.js v16.14The current version of Node.js is v14.17.0Visit https://r.pnpm.io/comp to see the list of past pnpm versions ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Node【工具 01】Node Version Manager nvm 安装使用(Node.js版本管理工具)",
+                        "url":  "https://cloud.tencent.com/developer/article/2553408"
+                    },
+                    {
+                        "snippet":  "我在Node.js中有这个函数 let inPath = process.argv[2] || \u0027file.txt\u0027;let outPath = process.argv[3] || \u0027result.txt\u0027;fs.open(inPath, \u0027r\u0027, (errIn, fdIn) =\u003e { fs.open(outPath, \u0027w\u0027, (errOut, fdOut) =\u003e { let buffer =...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "将node.js脚本转换为C# - 我爱学习网",
+                        "url":  "https://www.5axxw.com/questions/content/uc758u"
+                    },
+                    {
+                        "snippet":  "node . js server . setsecurecontext()方法 原文: https://www . geesforgeks . org/node-js-server-setsecurecontext-method/ server . setsecurecontext() 是tls 模块内的 Socket 类的内置应用编程接口,用于替换现有服务器的安全上下文。 语法: server....",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "node . js server . setsecurecontext()方法 开发文档",
+                        "url":  "https://moonapi.com/news/9624.html"
+                    },
+                    {
+                        "snippet":  "[javascript] 复制代码 代码如下: var studs = [{name: \u0027clap\u0027, age: 15}, {name: \u0027merry\u0027, age: 10}]; function sortbyage(a, b) { //按年龄从小到大排列 return a.age \u003e b.age; } function sortbyname(a, b) { return a.name \u003e b.na...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Javascript自定义排序 node运行 实例 - IT知识教程 - 中企动力",
+                        "url":  "https://www.300.cn/itzspd/743360.html"
+                    },
+                    {
+                        "snippet":  "Node.js® is a JavaScript runtime built on Chrome\u0027s V8 JavaScript engine. For more information, go to https://nodejs.org/ . Visit Node.js https://nodejs.",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Node.js",
+                        "url":  "https://node.js.org/"
+                    },
+                    {
+                        "snippet":  "IT之家 4 月13 日消息,漏洞赏金平台 HackerOne 宣布,由于近年来有大量用户利用 AI 扫描提交漏洞报告,导致开源生态平衡遭打破,发现漏洞的速度赶不上修复漏洞的速度,同时也存在大量虚假漏洞报告,因此即日起平台“互联网漏洞赏金计划”(IBB)将停止接收新的漏洞提交报告,而这一变化也迅速波及多个开源项目｡ Node.js 官方随后发布公告称,由于 HackerOne ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "AI 生成的虚假漏洞报告泛滥,Node.js 暂停提供安全赏金",
+                        "url":  "https://www.ithome.com/0/938/692.htm"
+                    },
+                    {
+                        "snippet":  "\"2014年8月29日,国家安全监管总局办公厅以安监总厅〔2014〕89号印发《安全生产工作国家秘密定密管理暂行办法》｡该《办法》分总则､定密授权､定密责任人､国家秘密确定､国家秘密变更､国家秘密解除､定密监督､法律责任､附则9章44条,自印发之日起施行｡通知国家安全监管总局办公厅关于印发《安全生产工作国家秘密定密管理暂行办法》的通知 安监总厅〔2014〕89号 各省､自治区､直辖市及 ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "安全生产工作国家秘密定密管理暂行办法",
+                        "url":  "https://baike.sogou.com/v99725985.htm"
+                    },
+                    {
+                        "snippet":  "var set = new Set();set.add();console.log(\"test1 : \" + set.has(set.has());set.add();console.log(\"test2 : \" + set.keys(set.values(set.entries());set.delete();console.log(\"test3 : \" + set.has(set.has())...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "在node.js中使用Set_安科网",
+                        "url":  "https://www.ancii.com/at0pnyau/"
+                    },
+                    {
+                        "snippet":  "node . js server . setsecurecontext()方法 原文: https://www . geesforgeks . org/node-js-server-setsecurecontext-method/ server . setsecurecontext() 是tls 模块内的 Socket 类的内置应用编程接口,用于替换现有服务器的安全上下文。 语法: server....",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "node . js server . setsecurecontext()方法 开发文档",
+                        "url":  "https://moonapi.com/news/9624.html"
+                    },
+                    {
+                        "snippet":  "此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安全更新和技术支持。 目录 退出编辑器模式 询问 Learn 询问 Learn 语言 csharp jscript c++ jsharp vb 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "NeedFresherCredentialsException 构造函数 (Microsoft.IdentityModel.SecurityTokenService)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/zh-cn/library/ee747650.aspx"
+                    },
+                    {
+                        "snippet":  "非常不错的Node.JS学习教程,免费分享! 这是一个nodejs系列教程,讲述nodejs编程的方方面面,从入门到精通、有基础知识,也有高级技巧。 内容个涉及:语法、函数、特定用法、模块、实用性技术、产品常用的相关知识与案例、黑科技类知识等。 全系列教程以案例、实例为重,基本每篇都会有示例代码,以达到眼见为实的效果,同时也会有相关理论说明。",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "72篇Node.JS教程:Node.JS编程从入门到精通_知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/606469254"
+                    },
+                    {
+                        "snippet":  "Navigation Menu Toggle navigation Appearance settings Search or jump to... Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved search Appea...",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_language":  "en",
+                        "source_tier":  "tier_2_silver",
+                        "source_origin":  "provider_search_result",
+                        "title":  "nodejs-vagrant/LICENSE at master · ErasmoLeon/nodejs-vagrant · GitHub",
+                        "url":  "https://github.com/ErasmoLeon/nodejs-vagrant/blob/master/LICENSE"
+                    },
+                    {
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 30 Commits api api     html html     tools/ doc tools/ doc     README.md README.md     View all files Version: v0.6.11 Commit has...",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_language":  "en",
+                        "source_tier":  "tier_2_silver",
+                        "source_origin":  "provider_search_result",
+                        "title":  "GitHub - terrykingcha/NodeJSDocCN: NodeJS Documents (Simple Chinese Version)",
+                        "url":  "https://github.com/terrykingcha/NodeJSDocCN/tree/master"
+                    },
+                    {
+                        "snippet":  "PDF 举报 版权受限,无法下载 MIke Cantelon 编著,吴海星 翻译 cewin95 粉丝: 1 私信 资源创作成就榜 近7天 排名 用户 得分 1 BIZKEEN 资源量7w+ . 下载次数24 1953 2 xinshenghuo22 资源量6.8k+ . 下载次数4 1363 3 chaoyunsmumudn 资源量3.0k+ . 下载次数4 1148 4 stsdddd 资源量...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Node.js实战[电子版]资源-CSDN下载",
+                        "url":  "https://download.csdn.net/download/cewin95/9939253"
+                    }
+                ],
+    "phase":  "R2.3-Z",
+    "task":  "secret-management-p0",
+    "official_sources_count":  0,
+    "source_count":  20,
+    "project_type":  "cli-tool"
+}

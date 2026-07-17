@@ -1,0 +1,18 @@
+﻿{
+    "closedNoReceiptCount":  36,
+    "totalAgents":  67,
+    "archivedCount":  67,
+    "unsafeStaleCount":  0,
+    "activeCount":  0,
+    "subPhase":  "B",
+    "rules":  {
+                  "unsafeStaleMustBeZero":  true,
+                  "quarantinedExcludedFromFloors":  true,
+                  "failedReplacedExcluded":  true,
+                  "archivedExcluded":  true
+              },
+    "phase":  "LIVE-RUNTIME-1",
+    "generatedAt":  "2026-06-24T23:54:18+08:00",
+    "nativeGenerated":  true,
+    "closedCount":  31
+}

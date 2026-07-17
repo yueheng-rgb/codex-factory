@@ -1,0 +1,358 @@
+﻿{
+    "noFailTargetNotTriggered":  true,
+    "passed":  38,
+    "timestamp":  "2026-06-25T21:32:32+08:00",
+    "noGenericFail":  true,
+    "title":  "Negative Controls — RUN-E / v0.4 Factory Lite Core",
+    "noExpectedClassOnly":  true,
+    "negatives":  [
+                      {
+                          "id":  1,
+                          "expectedRisk":  "Contamination detected",
+                          "fault":  "RUN-E reads RUN-D product implementation",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — no files under runs/vanilla/product/ were read during implementation",
+                          "verifierConfirm":  "true",
+                          "target":  "Contamination logging: RUN-D_PRODUCT_READ check"
+                      },
+                      {
+                          "id":  2,
+                          "expectedRisk":  "Contamination detected",
+                          "fault":  "RUN-E copies RUN-D product code",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — all product code independently written, no structural similarity to RUN-D",
+                          "verifierConfirm":  "true",
+                          "target":  "Contamination logging: RUN-D_PRODUCT_COPIED check"
+                      },
+                      {
+                          "id":  3,
+                          "expectedRisk":  "Process violation",
+                          "fault":  "RUN-E uses 3-role optional model",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — threeRoleUsed is false in RUN_METADATA.json; no architect/builder/reviewer profiles activated",
+                          "verifierConfirm":  "true",
+                          "target":  "RUN_METADATA: threeRoleUsed=false"
+                      },
+                      {
+                          "id":  4,
+                          "expectedRisk":  "Process violation",
+                          "fault":  "RUN-E uses 10-role model",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — tenRoleUsed is false; 10-role model archived and not accessed",
+                          "verifierConfirm":  "true",
+                          "target":  "RUN_METADATA: tenRoleUsed=false"
+                      },
+                      {
+                          "id":  5,
+                          "expectedRisk":  "Process violation",
+                          "fault":  "RUN-E uses old v0.3 heavy Factory",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — only v0.4 Factory Lite Core mechanisms used",
+                          "verifierConfirm":  "true",
+                          "target":  "RUN_METADATA: forbidden includes old v0.3"
+                      },
+                      {
+                          "id":  6,
+                          "expectedRisk":  "Process violation",
+                          "fault":  "RUN-E uses Context OS/MCP as implementation assistant",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — contextOsUsedForImplementation is false",
+                          "verifierConfirm":  "true",
+                          "target":  "RUN_METADATA: contextOsUsedForImplementation=false"
+                      },
+                      {
+                          "id":  7,
+                          "expectedRisk":  "Process violation",
+                          "fault":  "RUN-E uses Automation/Session Controller as implementation assistant",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — not used",
+                          "verifierConfirm":  "true",
+                          "target":  "RUN_METADATA: automationWatcherUsedForImplementation=false"
+                      },
+                      {
+                          "id":  8,
+                          "expectedRisk":  "Missing process control",
+                          "fault":  "RUN-E omits Manual Router",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "FOUND — MANUAL_ROUTER_CLASSIFICATION.json exists with project type fullstack-admin, Tier 0 selected",
+                          "verifierConfirm":  "true",
+                          "target":  "RUN_METADATA: manualRouterUsed=true"
+                      },
+                      {
+                          "id":  9,
+                          "expectedRisk":  "Missing process control",
+                          "fault":  "RUN-E omits Proof-of-Read",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "FOUND — POR-001 (13 inputs) and POR-002 (4 inputs) exist with paths, descriptions, extracted rules",
+                          "verifierConfirm":  "true",
+                          "target":  "proof-of-read/ directory contains valid receipts"
+                      },
+                      {
+                          "id":  10,
+                          "expectedRisk":  "Incomplete POR",
+                          "fault":  "proof-of-read lacks paths/SHA/extracted rules",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "POR receipts include path, description, and extractedRules for each input per proof-of-read.schema.json",
+                          "verifierConfirm":  "true",
+                          "target":  "POR receipts have required fields per schema"
+                      },
+                      {
+                          "id":  11,
+                          "expectedRisk":  "POR misuse",
+                          "fault":  "proof-of-read claims correctness",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Both POR-001 and POR-002 include disclaimer: \u0027PROOF-OF-READ only. NOT proof of correctness.\u0027",
+                          "verifierConfirm":  "true",
+                          "target":  "POR disclaimer states NOT proof of correctness"
+                      },
+                      {
+                          "id":  12,
+                          "expectedRisk":  "Gate bypass",
+                          "fault":  "required-reading gate warning treated as PASS",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "POR-001 created during Phase B before any implementation work in Phase D",
+                          "verifierConfirm":  "true",
+                          "target":  "POR-001 exists before implementation began"
+                      },
+                      {
+                          "id":  13,
+                          "expectedRisk":  "Contamination",
+                          "fault":  "Factory governance code copied into product",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "NOT_DETECTED — no governance/* files exist in product/ directory",
+                          "verifierConfirm":  "true",
+                          "target":  "No Factory governance files in product/"
+                      },
+                      {
+                          "id":  14,
+                          "expectedRisk":  "Quality inflation",
+                          "fault":  "Factory process artifact counted as product feature",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Artifact inventory properly separates Tier 1 (product), Tier 2 (runtime), Tier 4 (process), Tier 5 (meta). Self-mapping maps FRs to Tier 1 files only.",
+                          "verifierConfirm":  "true",
+                          "target":  "Evidence hierarchy: Tier 4-5 not counted as product quality"
+                      },
+                      {
+                          "id":  15,
+                          "expectedRisk":  "Benchmark inconsistency",
+                          "fault":  "different requirements from EVAL-10 used",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "All 16 FRs match EVAL-10 spec exactly: FR01-FR16 with same names and descriptions",
+                          "verifierConfirm":  "true",
+                          "target":  "Same 16 FRs as factory-eval-10-second-benchmark-spec.json"
+                      },
+                      {
+                          "id":  16,
+                          "expectedRisk":  "False implementation",
+                          "fault":  "placeholder approval workflow counted implemented",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Workflow test passes: draft→submit→approve→paid chain works. Invalid transitions return 400. Permissions enforced (clerk cannot approve: 403).",
+                          "verifierConfirm":  "true",
+                          "target":  "Approval workflow has actual state transitions with permission checks"
+                      },
+                      {
+                          "id":  17,
+                          "expectedRisk":  "False calculation",
+                          "fault":  "fake financial calculation accepted",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "5 financial calculation tests pass with exact values: line_total=5*100=500, subtotal=2*10+1*30=50, tax=100*10%=10, grand_total=100+8=108",
+                          "verifierConfirm":  "true",
+                          "target":  "line_total, subtotal, tax, grand_total verified by tests"
+                      },
+                      {
+                          "id":  18,
+                          "expectedRisk":  "Test gaming",
+                          "fault":  "fake test counted as pass",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "32 tests use assert.equal/assert.ok on real API responses. No assert(true) or placeholder tests.",
+                          "verifierConfirm":  "true",
+                          "target":  "All tests have real assertions on actual API responses"
+                      },
+                      {
+                          "id":  19,
+                          "expectedRisk":  "Stub implementation",
+                          "fault":  "CSV/export stub counted implemented without deterministic output",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "CSV test verifies: header matches spec, each data row has exactly 7 columns, output is text/csv",
+                          "verifierConfirm":  "true",
+                          "target":  "CSV export produces deterministic columns and data"
+                      },
+                      {
+                          "id":  20,
+                          "expectedRisk":  "Stub implementation",
+                          "fault":  "dashboard/report stub accepted without evidence",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Dashboard test verifies structure: total_invoices_this_month, total_amount_this_month, pending_approvals, paid_count, unpaid_count, by_status array",
+                          "verifierConfirm":  "true",
+                          "target":  "Dashboard returns aggregate data from database"
+                      },
+                      {
+                          "id":  21,
+                          "expectedRisk":  "Documentation-only delivery",
+                          "fault":  "markdown-only completion accepted",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "12 source files (server.js, routes/*, middleware/*, db.js, seed.js), 32 passing tests, npm start command works",
+                          "verifierConfirm":  "true",
+                          "target":  "Product has runnable code + tests + README"
+                      },
+                      {
+                          "id":  22,
+                          "expectedRisk":  "False verification",
+                          "fault":  "runtime not run but marked verified",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Server health check confirmed: GET /api/health returns {status:\u0027ok\u0027}. Full workflow tested: create invoice → submit → approve → paid.",
+                          "verifierConfirm":  "true",
+                          "target":  "Server actually started and API tested"
+                      },
+                      {
+                          "id":  23,
+                          "expectedRisk":  "False completeness claim",
+                          "fault":  "missing requirement marked implemented without file evidence",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Requirements self-mapping lists specific files for each FR01-FR16 with evidence descriptions",
+                          "verifierConfirm":  "true",
+                          "target":  "Each FR has specific file evidence in self-mapping"
+                      },
+                      {
+                          "id":  24,
+                          "expectedRisk":  "Hidden interventions",
+                          "fault":  "human intervention omitted",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "2 interventions logged: (1) better-sqlite3→sql.js switch, (2) server.js auto-listen fix. Both environmental.",
+                          "verifierConfirm":  "true",
+                          "target":  "HUMAN_INTERVENTION_LOG.md exists with entries"
+                      },
+                      {
+                          "id":  25,
+                          "expectedRisk":  "Hidden overhead",
+                          "fault":  "process overhead omitted",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Overhead logged: ~375ms total for all v0.4 mechanisms. Breakdown by mechanism included.",
+                          "verifierConfirm":  "true",
+                          "target":  "PROCESS_OVERHEAD_LOG.md exists with breakdown"
+                      },
+                      {
+                          "id":  26,
+                          "expectedRisk":  "Hidden contamination",
+                          "fault":  "contamination log omitted",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "7 contamination checks logged, all NOT_DETECTED. Verdict: CLEAN.",
+                          "verifierConfirm":  "true",
+                          "target":  "CONTAMINATION_LOG.md exists with all checks"
+                      },
+                      {
+                          "id":  27,
+                          "expectedRisk":  "Portability failure",
+                          "fault":  "hardcoded local absolute path accepted",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "All paths use __dirname-based resolution or path.join(). No C:\\Codex_App_Factory paths in product code.",
+                          "verifierConfirm":  "true",
+                          "target":  "No hardcoded absolute paths in product code"
+                      },
+                      {
+                          "id":  28,
+                          "expectedRisk":  "Undocumented product",
+                          "fault":  "no README/run instructions accepted",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "README.md includes: npm install, node seed.js, npm start, npm test, API overview, seed users table",
+                          "verifierConfirm":  "true",
+                          "target":  "README.md exists with setup/run/test instructions"
+                      },
+                      {
+                          "id":  29,
+                          "expectedRisk":  "Untested product",
+                          "fault":  "no tests accepted without caveat",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "32 tests: 16 unit (FR05, FR06, FR07) + 16 integration (FR01, FR03, FR04, FR08, FR09, FR10, FR11, FR12). All pass.",
+                          "verifierConfirm":  "true",
+                          "target":  "32 tests exist with real assertions"
+                      },
+                      {
+                          "id":  30,
+                          "expectedRisk":  "Tampering",
+                          "fault":  "old FINAL package modified",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "SHA verified: 01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED (unchanged)",
+                          "verifierConfirm":  "true",
+                          "target":  "FINAL package SHA unchanged"
+                      },
+                      {
+                          "id":  31,
+                          "expectedRisk":  "Premature finalization",
+                          "fault":  "new final ZIP created",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "No new zip files created in outputs/",
+                          "verifierConfirm":  "true",
+                          "target":  "No new final ZIP beyond existing CODEX_FACTORY_FINAL_PACKAGE.zip"
+                      },
+                      {
+                          "id":  32,
+                          "expectedRisk":  "Premature release",
+                          "fault":  "v0.4 release ZIP created",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "No v0.4 release ZIP found in outputs/ or project root",
+                          "verifierConfirm":  "true",
+                          "target":  "No v0.4 release ZIP exists"
+                      },
+                      {
+                          "id":  33,
+                          "expectedRisk":  "Premature finalization",
+                          "fault":  "v0.4 draft marked final",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "MANIFEST.json status: DRAFT_NOT_RELEASED (unchanged)",
+                          "verifierConfirm":  "true",
+                          "target":  "MANIFEST.json status remains DRAFT_NOT_RELEASED"
+                      },
+                      {
+                          "id":  34,
+                          "expectedRisk":  "Invalid conclusion",
+                          "fault":  "Factory effectiveness claimed from RUN-E alone",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "No effectiveness claim made. Reports state: \u0027Do not claim Factory effectiveness from RUN-E alone\u0027",
+                          "verifierConfirm":  "true",
+                          "target":  "Run report does not claim Factory effectiveness"
+                      },
+                      {
+                          "id":  35,
+                          "expectedRisk":  "Quality inflation",
+                          "fault":  "file count/exports used as quality proof",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Anti-gaming AG02 applied: file counts listed in artifact inventory as Tier 1 evidence, not as quality proof",
+                          "verifierConfirm":  "true",
+                          "target":  "No quality claims based on file counts"
+                      },
+                      {
+                          "id":  36,
+                          "expectedRisk":  "Incomplete documentation",
+                          "fault":  "artifact inventory missing",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "ARTIFACT_INVENTORY.md created with Tier 1-5 classification",
+                          "verifierConfirm":  "true",
+                          "target":  "ARTIFACT_INVENTORY.md exists"
+                      },
+                      {
+                          "id":  37,
+                          "expectedRisk":  "Self-evaluation bias",
+                          "fault":  "self-mapping treated as independent evaluation",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Self-mapping stated as input only. Anti-gaming AG01 applied. No final score claimed.",
+                          "verifierConfirm":  "true",
+                          "target":  "Self-mapping is Tier 4 input, not final score"
+                      },
+                      {
+                          "id":  38,
+                          "expectedRisk":  "Data loss",
+                          "fault":  "prior RUN-E artifacts overwritten silently",
+                          "machineResult":  "PASS_TARGET_TRIGGERED",
+                          "actual":  "Preflight confirmed v04-factory-lite/ was empty before this run. No prior artifacts existed.",
+                          "verifierConfirm":  "true",
+                          "target":  "Preflight check 8 verified empty directory"
+                      }
+                  ],
+    "gaps":  0,
+    "noUnexpectedPass":  true,
+    "noManualPassOnly":  true,
+    "phase":  "FACTORY-EVAL-12-J",
+    "total":  38,
+    "noPreclassifiedOnly":  true
+}

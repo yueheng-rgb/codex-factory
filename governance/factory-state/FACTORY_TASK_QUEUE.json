@@ -1,0 +1,50 @@
+﻿{
+    "tasks":  [
+                  {
+                      "taskId":  "h12-build-factoryctl",
+                      "phase":  "H12",
+                      "type":  "builder",
+                      "status":  "done",
+                      "priority":  5,
+                      "allowedAgentType":  "builder",
+                      "ownerAgentRole":  "builder",
+                      "h10IsolationRequired":  false,
+                      "createdAt":  "2026-06-23T11:47:43.242+08:00",
+                      "updatedAt":  "2026-06-23T11:47:43.242+08:00"
+                  },
+                  {
+                      "taskId":  "h12-create-task-queue",
+                      "phase":  "H12",
+                      "type":  "builder",
+                      "status":  "done",
+                      "priority":  5,
+                      "allowedAgentType":  "builder",
+                      "ownerAgentRole":  "builder",
+                      "h10IsolationRequired":  false,
+                      "createdAt":  "2026-06-23T11:47:43.242+08:00",
+                      "updatedAt":  "2026-06-23T11:47:43.242+08:00"
+                  },
+                  {
+                      "taskId":  "dry19-b-negative-plan",
+                      "phase":  "DRY19-B",
+                      "type":  "negative-plan",
+                      "status":  "done",
+                      "priority":  3,
+                      "allowedAgentType":  "skeptic",
+                      "ownerAgentRole":  "skeptic",
+                      "blockedBy":  [
+
+                                    ],
+                      "parentPositiveRun":  "DRY19-A",
+                      "parentPositiveStatus":  "PASS",
+                      "executionStarted":  true,
+                      "startRequiresExplicitUserInstruction":  true,
+                      "h10IsolationRequired":  false,
+                      "createdAt":  "2026-06-23T11:47:43.242+08:00",
+                      "updatedAt":  "2026-06-23T13:27:56.017+08:00",
+                      "preflightResult":  "PASS",
+                      "preflightRepairsRequired":  0
+                  }
+              ],
+    "updatedAt":  "2026-06-23T13:27:56.017+08:00"
+}

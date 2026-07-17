@@ -1,0 +1,206 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P7",
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-PACK-STAGING-P7",
+    "generated_at":  "2026-06-28T17:29:36+08:00",
+    "verdict":  "PASS",
+    "total_checks":  39,
+    "passed":  39,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "RELEASE-READINESS-0 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "P6-R1 staging bundle exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "Evidence intake exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "Clean trial environment design exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "Fresh extraction trial exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "Clean user workflow trial exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "Gate trigger trial exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "User instruction clarity audit exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "A/B evidence design exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Release blocker recheck exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "Safety boundary verification exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "Strategy decision exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "Simple project: Security Gate NOT triggered"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "Deployed trace: Security Gate TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "Long-horizon: Context Space REQUIRED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "Package QA required on handoff"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "releaseAllowed=false in all files"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "v05Package=false in all files"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "No real projects/secrets"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "No deploy/remote/production DB"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "No Factory superiority overclaim"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "No production readiness overclaim"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "BLOCK-001 not falsely resolved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "BLOCK-002 not falsely resolved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "BLOCK-003 not falsely resolved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "BLOCK-004 not falsely resolved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "Negative controls: 46 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "Negative controls: all DEFENCE_HELD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V034",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V035",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V036",
+                       "desc":  "Verifier script exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V037",
+                       "desc":  "3/3 workflows pass"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V038",
+                       "desc":  "Gate triggers: 5/5 correct"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V039",
+                       "desc":  "Clarity audit: 10/10 pass"
+                   }
+               ]
+}

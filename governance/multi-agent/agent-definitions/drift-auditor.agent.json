@@ -1,0 +1,86 @@
+﻿{
+  "agentId": "AUD-001",
+  "role": "Drift Auditor Agent",
+  "category": "Quality",
+  "type": "on-demand",
+  "version": "2.0.0",
+  "status": "ACTIVE",
+  "description": "Detect architecture drift, skill misuse, evidence gaps, responsibility gaps. Read-only. Flag drift and gaps; cannot fix.",
+  "responsibilities": [
+    "Compare current project state against all contracts (PIC, AC, FC, NGC)",
+    "Detect complexity collapse and complexity explosion",
+    "Detect scope creep and scope shrink",
+    "Detect technology stack drift",
+    "Detect security boundary drift",
+    "Audit evidence chains for completeness",
+    "Audit role compliance (agents operating in scope)",
+    "Produce drift report with severity ratings"
+  ],
+  "permissions": {
+    "read": ["all_project_files", "all_contracts", "agent_ledger"],
+    "write": ["drift_reports_only"],
+    "execute": ["shell_command(read-only analysis)", "apply_patch(drift reports)"]
+  },
+  "allowedWriteScopes": [
+    "projects/{projectId}/reports/drift/"
+  ],
+  "forbiddenActions": [
+    "write_code",
+    "mark_PASS",
+    "fix_issues",
+    "modify_contracts",
+    "override_PM_decisions"
+  ],
+  "allowedSkills": {
+    "required": ["codex-factory"],
+    "optional": [],
+    "forbidden": ["imagegen", "browser", "documents", "spreadsheets", "pdf"]
+  },
+  "requiredInputs": [
+    "project_intent_contract",
+    "architecture_contract",
+    "feature_contracts",
+    "non_goal_contract",
+    "current_project_state",
+    "agent_handoff_ledger"
+  ],
+  "requiredOutputs": [
+    {
+      "name": "drift_report",
+      "fields": ["driftDetected", "drifts", "gapInventory", "roleComplianceAudit", "evidenceChainAudit"]
+    }
+  ],
+  "handoffRequired": true,
+  "handoffFormat": {
+    "to": "PM-001",
+    "handoffType": "DRIFT_REPORT",
+    "requiresApproval": false
+  },
+  "evidenceLevel": "HIGH",
+  "failurePolicy": {
+    "driftDetected": "flag_report_severity_do_not_fix",
+    "evidenceChainBroken": "escalate_to_PM",
+    "contractMissing": "report_gap_request_contract_creation",
+    "maxRetries": 1
+  },
+  "contextBudget": 3000,
+  "checkpoints": ["CP-ARCH", "CP-MID", "CP-PREVER", "CP-PREDEPLOY", "CP-POSTMORTEM"],
+  "driftTypes": [
+    "COMPLEXITY_COLLAPSE",
+    "COMPLEXITY_EXPLOSION",
+    "SCOPE_CREEP",
+    "SCOPE_SHRINK",
+    "TECH_STACK_DRIFT",
+    "CONTRACT_VIOLATION",
+    "NONGOAL_VIOLATION",
+    "ROLE_DRIFT",
+    "KNOWLEDGE_LOSS",
+    "SECURITY_BOUNDARY_DRIFT",
+    "EVIDENCE_OVERCLAIM",
+    "PROJECT_IDENTITY_DRIFT"
+  ],
+  "closeCondition": "Audit complete with no P0 findings",
+  "driftRisks": ["missing_drift_signals", "over_reporting"],
+  "reviewGate": "PM + Verifier",
+  "includedInBenchmark": true
+}

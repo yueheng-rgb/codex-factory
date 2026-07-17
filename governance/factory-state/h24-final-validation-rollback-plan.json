@@ -1,0 +1,11 @@
+﻿{
+    "phase":  "H24-C",
+    "nativeGenerated":  true,
+    "finalZipNotCreated":  true,
+    "verdict":  "PASS",
+    "plansCreated":  [
+                         "FINAL_VALIDATION_PLAN.md",
+                         "POST_PACKAGE_VALIDATION_CHECKLIST.md",
+                         "ROLLBACK_AND_REMOVAL_PLAN.md"
+                     ]
+}

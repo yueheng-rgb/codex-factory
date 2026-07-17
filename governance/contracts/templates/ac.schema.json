@@ -1,0 +1,86 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ac.schema.json",
+  "title": "Architecture Contract (AC)",
+  "description": "Captures HOW the system is built. Created by ARCH-001 after architecture design.",
+  "type": "object",
+  "required": ["contractId", "createdAt", "createdBy", "techStack", "moduleBoundaries", "apiContracts", "dbSchema", "authModel", "pageTree"],
+  "properties": {
+    "contractId": {
+      "type": "string",
+      "pattern": "^AC-PROJ-\\d+$",
+      "description": "e.g. AC-PROJ-051"
+    },
+    "version": { "type": "string", "default": "1.0.0" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "lastModifiedAt": { "type": "string", "format": "date-time" },
+    "techStack": {
+      "type": "object",
+      "properties": {
+        "frontend": { "type": "string" },
+        "backend": { "type": "string" },
+        "database": { "type": "string" },
+        "orm": { "type": "string" },
+        "auth": { "type": "string" },
+        "ui": { "type": "string" },
+        "styling": { "type": "string" },
+        "testing": { "type": "string" },
+        "hosting": { "type": "string" }
+      }
+    },
+    "moduleBoundaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "module": { "type": "string" },
+          "responsibility": { "type": "string" },
+          "owner": { "type": "string", "description": "Agent ID" },
+          "dependencies": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "apiContracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "method": { "type": "string", "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"] },
+          "path": { "type": "string" },
+          "auth": { "type": "string", "enum": ["none", "optional", "required", "admin"] },
+          "request": { "type": "object" },
+          "response": { "type": "object" },
+          "errors": { "type": "array", "items": { "type": "object" } }
+        }
+      }
+    },
+    "dbSchema": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string" },
+        "tables": { "type": "array" }
+      }
+    },
+    "authModel": { "type": "string", "description": "e.g. JWT + WeChat OAuth, NextAuth.js + OAuth" },
+    "pageTree": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of all pages/routes"
+    },
+    "firstSliceScope": { "type": "string", "description": "What is in the first MVP slice" },
+    "designDecisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "decision": { "type": "string" },
+          "reason": { "type": "string" },
+          "alternatives": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "approvedBy": { "type": "string" },
+    "status": { "type": "string", "enum": ["DRAFT", "APPROVED", "SUPERSEDED"], "default": "DRAFT" }
+  }
+}

@@ -1,0 +1,26 @@
+﻿{
+  "integration_id": "FACTORY-CONTEXT-SPACE-P6-BOOTSTRAP-INTEGRATION",
+  "generated_at": "2026-06-28T13:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P6",
+  "sub_step": "H",
+  "description": "Integration of Phase Close Context Update into Factory Bootstrap flow",
+  "bootstrap_integration_points": [
+    {
+      "point": "After APP_TYPE_ROUTER judgment",
+      "action": "Check mount-readiness. If not ready, run mount-readiness repair.",
+      "mandatory": true
+    },
+    {
+      "point": "Before Expertise Flow output",
+      "action": "Load current direction-guard to ensure frozen strategy is enforced.",
+      "mandatory": true
+    },
+    {
+      "point": "On phase completion (verifier PASS)",
+      "action": "Trigger Phase Close Context Update Gate automatically.",
+      "mandatory": true
+    }
+  ],
+  "agents_md_integration": "AGENTS.md already enforces Factory Bootstrap. P6 adds: after bootstrap, Codex MUST validate mount-readiness (via snapshot freshness) before proceeding. This is a BOOT-002 hardening.",
+  "boot_defect_reference": "BOOT-001 (fixed in AGENTS.md). P6 adds BOOT-002: mount-readiness check after bootstrap."
+}

@@ -1,0 +1,97 @@
+﻿{
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "timestamp":  "2026-06-26T18:47:10.6462604+08:00",
+    "document":  "evidence-intake",
+    "intakes":  [
+                    {
+                        "reason":  "Evidence-backed; must not be rewritten",
+                        "disposition":  "KEEP",
+                        "item":  "AGENT-9 MULTI_AGENT_NO_BENEFIT verdict"
+                    },
+                    {
+                        "reason":  "Simplify+harden is the right path",
+                        "disposition":  "KEEP",
+                        "item":  "AGENT-9-P1 HYBRID-P1 decision"
+                    },
+                    {
+                        "reason":  "Failed benchmark; H8 HIGH probability wrong form",
+                        "disposition":  "CUT",
+                        "item":  "7-agent implementation mode"
+                    },
+                    {
+                        "reason":  "Not release-ready; NO_BENEFIT on only benchmark",
+                        "disposition":  "REJECT",
+                        "item":  "v0.5 release readiness"
+                    },
+                    {
+                        "reason":  "Proven possible; 7 agents without scope violation",
+                        "disposition":  "KEEP",
+                        "item":  "Worker isolation (fork_context:false)"
+                    },
+                    {
+                        "reason":  "Owning scope + forbidden scope are essential boundaries",
+                        "disposition":  "KEEP",
+                        "item":  "Agent capsules"
+                    },
+                    {
+                        "reason":  "Audit trail; evidence quality gain proven",
+                        "disposition":  "KEEP",
+                        "item":  "Handoffs + close receipts"
+                    },
+                    {
+                        "reason":  "Diagnostic visibility; native generation proven",
+                        "disposition":  "KEEP",
+                        "item":  "Agent registry + lifecycle"
+                    },
+                    {
+                        "reason":  "Hidden fallback detection; integrity checker PASS",
+                        "disposition":  "KEEP",
+                        "item":  "Anti-deception gate"
+                    },
+                    {
+                        "reason":  "Combine into single Reviewer-Verifier to reduce overhead",
+                        "disposition":  "REWORK",
+                        "item":  "Gatekeeper roles (separate reviewer/verifier/integrity)"
+                    },
+                    {
+                        "reason":  "H4 root cause; closure-critical deficits must block",
+                        "disposition":  "REWORK",
+                        "item":  "Reviewer caveats as non-blocking"
+                    },
+                    {
+                        "reason":  "H3 root cause; must check floors during implementation",
+                        "disposition":  "REWORK",
+                        "item":  "Orchestrator without mid-run floor enforcement"
+                    },
+                    {
+                        "reason":  "H8 root cause; 2 builders (Product + Tests/Integration/Docs) is simpler",
+                        "disposition":  "REWORK",
+                        "item":  "4 builders (DB/Backend/Frontend/Tests)"
+                    },
+                    {
+                        "reason":  "H6 root cause; keep only closure-critical artifacts",
+                        "disposition":  "CUT",
+                        "item":  "Process theater (excessive artifacts)"
+                    },
+                    {
+                        "reason":  "H2 root cause; add overhead budget with blocker thresholds",
+                        "disposition":  "REWORK",
+                        "item":  "Overhead 3-4x without budget"
+                    },
+                    {
+                        "reason":  "H7 root cause; Vanilla is the baseline to beat, not dismiss",
+                        "disposition":  "KEEP",
+                        "item":  "Vanilla Codex strength"
+                    },
+                    {
+                        "reason":  "Never return to unvalidated 10-role complexity",
+                        "disposition":  "REJECT",
+                        "item":  "10-role old model"
+                    },
+                    {
+                        "reason":  "May have diagnostic value but not in simplified core",
+                        "disposition":  "DEFER",
+                        "item":  "Proof-of-Read receipts (v0.4)"
+                    }
+                ]
+}

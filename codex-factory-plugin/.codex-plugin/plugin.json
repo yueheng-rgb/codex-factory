@@ -1,0 +1,30 @@
+﻿{
+    "version":  "0.1.0",
+    "name":  "codex-factory",
+    "skills":  "./skills/",
+    "description":  "Codex App Factory — structured multi-agent project building with phase-driven development, verifier-based gating, worker contracts, and evidence hierarchy.",
+    "metadata":  {
+                     "scaffoldStatus":  "EXPERIMENTAL",
+                     "scaffoldNote":  "H19 scaffold only. Not production-ready. Requires install and portability test before H20.",
+                     "suggestedTestPhase":  "H20",
+                     "requiresInstallTest":  true
+                 },
+    "author":  {
+                   "name":  "Codex Factory Team"
+               },
+    "interface":  {
+                      "developerName":  "Codex Factory Team",
+                      "displayName":  "Codex Factory",
+                      "capabilities":  [
+                                           "multi-agent",
+                                           "phase-verifier",
+                                           "worker-contracts",
+                                           "session-rotation",
+                                           "resource-pack-validation"
+                                       ],
+                      "longDescription":  "Codex App Factory provides structured multi-agent project building: phase-driven DRY/H/P development, verifier-based PASS/FAIL gating, worker contracts with scope isolation, evidence hierarchy, claim classification, P0/P1/P2 decision protocol, session rotation handoff, and resource pack portability validation. H19 scaffold — experimental, not production-ready.",
+                      "shortDescription":  "Multi-agent project building with phases, verifiers, and contracts.",
+                      "defaultPrompt":  "Help me scaffold a new Factory project. Run factoryctl verify.",
+                      "category":  "Developer Tools"
+                  }
+}

@@ -1,0 +1,45 @@
+﻿{
+    "scriptSizeKB":  15.9,
+    "outputs":  [
+                    "JSON (stdout or file)",
+                    "Markdown (optional file)"
+                ],
+    "scriptPath":  "factory-build-mode/runtime/memory/generate-context-packet.ps1",
+    "section":  "C",
+    "parameters":  [
+                       "-ProjectRoot",
+                       "-TargetPhase",
+                       "-TargetRole",
+                       "-PacketType",
+                       "-OutputJson",
+                       "-OutputMarkdown",
+                       "-MaxAgeMinutes"
+                   ],
+    "exclusions":  [
+                       "Product source code",
+                       "SkillMarket",
+                       "DevFlow",
+                       "SkillForge",
+                       "AtlasOps",
+                       "Release artifacts",
+                       "Compressed summary as evidence"
+                   ],
+    "phase":  "FACTORY-MEMORY-QUALITY-0-P1",
+    "date":  "2026-06-27",
+    "status":  "COMPLETED",
+    "title":  "Context Packet Generator Implementation",
+    "features":  [
+                     "Reads .codex-factory/",
+                     "Validates required memory files",
+                     "Task graph integration",
+                     "Active risks",
+                     "Rejected claims",
+                     "Verifier history",
+                     "Evidence paths L3+",
+                     "Forbidden assumptions",
+                     "Role-specific context",
+                     "Word budget enforcement",
+                     "Stale packet detection",
+                     "Summary verification status"
+                 ]
+}

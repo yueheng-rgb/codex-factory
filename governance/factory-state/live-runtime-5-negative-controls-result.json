@@ -1,0 +1,172 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "Automation alert treated as verifier PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "alert_as_PASS",
+                          "id":  "N01"
+                      },
+                      {
+                          "fault":  "Watcher mutates currentTrustedPhase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mutate_phase",
+                          "id":  "N02"
+                      },
+                      {
+                          "fault":  "Watcher marks phase PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mark_PASS",
+                          "id":  "N03"
+                      },
+                      {
+                          "fault":  "Watcher creates final ZIP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "create_ZIP",
+                          "id":  "N04"
+                      },
+                      {
+                          "fault":  "Watcher starts new phase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "start_phase",
+                          "id":  "N05"
+                      },
+                      {
+                          "fault":  "Watcher claims automatic window creation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "auto_window",
+                          "id":  "N06"
+                      },
+                      {
+                          "fault":  "Watcher claims full context inheritance",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "full_inheritance",
+                          "id":  "N07"
+                      },
+                      {
+                          "fault":  "Watcher uses compressed summary as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "compressed_evidence",
+                          "id":  "N08"
+                      },
+                      {
+                          "fault":  "Watcher ignores phase mismatch",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_phase_mismatch",
+                          "id":  "N09"
+                      },
+                      {
+                          "fault":  "Watcher ignores ZIP mismatch",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_zip_mismatch",
+                          "id":  "N10"
+                      },
+                      {
+                          "fault":  "Watcher ignores manifest SHA mismatch",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_sha",
+                          "id":  "N11"
+                      },
+                      {
+                          "fault":  "Watcher ignores factoryctl FAIL",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_factoryctl",
+                          "id":  "N12"
+                      },
+                      {
+                          "fault":  "Watcher ignores MCP memory FAIL",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_mcp",
+                          "id":  "N13"
+                      },
+                      {
+                          "fault":  "Watcher ignores Context OS validation FAIL",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_memory",
+                          "id":  "N14"
+                      },
+                      {
+                          "fault":  "Watcher ignores unsafe stale agent",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_stale",
+                          "id":  "N15"
+                      },
+                      {
+                          "fault":  "Watcher ignores capacity preflight risk",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_capacity",
+                          "id":  "N16"
+                      },
+                      {
+                          "fault":  "Watcher ignores stale handoff",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ignore_handoff",
+                          "id":  "N17"
+                      },
+                      {
+                          "fault":  "Watcher omits evidence paths",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_evidence",
+                          "id":  "N18"
+                      },
+                      {
+                          "fault":  "Watcher output markdown-only",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_only",
+                          "id":  "N19"
+                      },
+                      {
+                          "fault":  "Watcher recommendation lacks startup packet",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_startup_pkt",
+                          "id":  "N20"
+                      },
+                      {
+                          "fault":  "Startup packet omits verifier commands",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "pkt_no_verifier",
+                          "id":  "N21"
+                      },
+                      {
+                          "fault":  "Startup packet omits rejected claims",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "pkt_no_rejected",
+                          "id":  "N22"
+                      },
+                      {
+                          "fault":  "Watcher uses conversation memory as source",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "conversation_memory",
+                          "id":  "N23"
+                      },
+                      {
+                          "fault":  "Watcher suppresses riskSignals",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "suppress_signals",
+                          "id":  "N24"
+                      },
+                      {
+                          "fault":  "Watcher says WATCHER_OK despite known drift",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "OK_despite_drift",
+                          "id":  "N25"
+                      },
+                      {
+                          "fault":  "Watcher result schema missing",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "schema_missing",
+                          "id":  "N26"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "subPhase":  "E",
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  26,
+    "totalNegatives":  26,
+    "phase":  "LIVE-RUNTIME-5",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T00:24:24+08:00"
+}

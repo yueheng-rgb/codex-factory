@@ -1,0 +1,241 @@
+﻿{
+    "passed":  46,
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-REALWORLD-2-P1",
+    "generated_at":  "2026-06-28T10:21:35+08:00",
+    "verdict":  "PASS",
+    "total_checks":  46,
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P1",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-001",
+                       "desc":  "REALWORLD-2 intake result exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-002",
+                       "desc":  "REALWORLD-2-R1 contamination-aware evaluation exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-003",
+                       "desc":  "P7 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-004",
+                       "desc":  "Context mount phase start JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-005",
+                       "desc":  "Context mount phase start report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-006",
+                       "desc":  "Intake evidence recheck JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-007",
+                       "desc":  "Intake evidence recheck report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-008",
+                       "desc":  "Working copy directory exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-009",
+                       "desc":  "Working copy has manage.py"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-010",
+                       "desc":  "Working copy creation report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-011",
+                       "desc":  "Original project NOT modified"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-012",
+                       "desc":  "No .env in working copy (excluded)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-013",
+                       "desc":  "Secret-safe config plan JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-014",
+                       "desc":  "Secret-safe config plan report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-015",
+                       "desc":  ".codex-factory/ directory exists in working copy"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-016",
+                       "desc":  "Context Packet exists in .codex-factory/"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-017",
+                       "desc":  "Env/dependency discovery JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-018",
+                       "desc":  "Env/dependency discovery report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-019",
+                       "desc":  "Local Django baseline JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-020",
+                       "desc":  "Local Django baseline report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-021",
+                       "desc":  "Bounded smoke JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-022",
+                       "desc":  "Bounded smoke report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-023",
+                       "desc":  "Security/deploy gate pre-validation JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-024",
+                       "desc":  "Security/deploy gate post-validation JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-025",
+                       "desc":  "Targeted repair plan JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-026",
+                       "desc":  "Targeted repair plan report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-027",
+                       "desc":  "Assessment JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-028",
+                       "desc":  "Assessment report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-029",
+                       "desc":  "Phase close context update JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-030",
+                       "desc":  "Phase close context update report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-031",
+                       "desc":  "No deploy script executed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-032",
+                       "desc":  "No secret value printed in any output"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-033",
+                       "desc":  "No Native Build Pro started"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-034",
+                       "desc":  "No v0.5 package created"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-035",
+                       "desc":  "No release ZIP created"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-036",
+                       "desc":  "No production DB accessed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-037",
+                       "desc":  "Negative controls JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-038",
+                       "desc":  "Negative controls report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-039",
+                       "desc":  "Negative controls: 0 triggered, 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-040",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-041",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-042",
+                       "desc":  "No generic FAIL — all checks use specific IDs"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-043",
+                       "desc":  "No expectedClass-only pass"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-044",
+                       "desc":  "No manual PASS-only (verifier script exists)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-045",
+                       "desc":  "Verifier script exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "RW2P1-V-046",
+                       "desc":  "Working copy inventory exists"
+                   }
+               ],
+    "failed":  0
+}

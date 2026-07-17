@@ -1,0 +1,67 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fc.schema.json",
+  "title": "Feature Contract (FC)",
+  "description": "Captures WHAT each feature does. Created per feature by Architect or PM.",
+  "type": "object",
+  "required": ["contractId", "createdAt", "createdBy", "feature", "userStory", "acceptanceCriteria", "states", "apiEndpoints"],
+  "properties": {
+    "contractId": {
+      "type": "string",
+      "pattern": "^FC-PROJ-\\d+-[A-Z]+-\\d+$",
+      "description": "e.g. FC-PROJ-051-AUTH-001"
+    },
+    "version": { "type": "string", "default": "1.0.0" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "lastModifiedAt": { "type": "string", "format": "date-time" },
+    "feature": { "type": "string", "description": "Feature name, e.g. 用户认证" },
+    "userStory": { "type": "string", "description": "As a [role], I want [goal], so that [benefit]" },
+    "acceptanceCriteria": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Specific, testable acceptance criteria"
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "state": { "type": "string", "enum": ["loading", "empty", "error", "success", "idle", "submitting", "disabled"] },
+          "description": { "type": "string" },
+          "uiRendering": { "type": "string" }
+        }
+      },
+      "description": "All UI states that must be handled"
+    },
+    "apiEndpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "method": { "type": "string" },
+          "path": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "uiComponents": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Key UI components needed"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Other features or contracts this depends on"
+    },
+    "testScenarios": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Key test scenarios (happy path + edge cases)"
+    },
+    "priority": { "type": "string", "enum": ["P0", "P1", "P2", "P3"], "description": "Implementation priority" },
+    "status": { "type": "string", "enum": ["DRAFT", "APPROVED", "IMPLEMENTED", "VERIFIED", "SUPERSEDED"], "default": "DRAFT" }
+  }
+}

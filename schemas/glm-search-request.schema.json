@@ -1,0 +1,65 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "glm-search-request.schema.json",
+  "title": "GLM Search Adapter — Request",
+  "description": "Request format for the GLM Search Adapter. Supports manual, dry_run, and live_api modes.",
+  "type": "object",
+  "required": ["requestId", "query", "providerMode"],
+  "properties": {
+    "requestId": { "type": "string", "pattern": "^GLM-REQ-\\d{4}$" },
+    "query": { "type": "string", "minLength": 1, "description": "Search query string" },
+    "searchIntent": {
+      "type": "string",
+      "enum": ["knowledge_reserve", "project_time"],
+      "description": "knowledge_reserve = building Factory knowledge; project_time = getting latest for active project"
+    },
+    "providerMode": {
+      "type": "string",
+      "enum": ["manual", "dry_run", "live_api"],
+      "description": "manual = human/AI provided results; dry_run = mock fixture; live_api = real GLM API call"
+    },
+    "domains": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional domain filter, e.g. ['github.com', 'nextjs.org']"
+    },
+    "dateRange": {
+      "type": "object",
+      "properties": {
+        "from": { "type": "string", "format": "date" },
+        "to": { "type": "string", "format": "date" }
+      }
+    },
+    "resultCount": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 },
+    "freshnessRequirement": {
+      "type": "string",
+      "enum": ["real_time", "last_week", "last_month", "last_6_months", "last_year", "any"],
+      "default": "any"
+    },
+    "citationRequired": { "type": "boolean", "default": true },
+    "userApproval": { "type": "boolean", "description": "Whether human approved this search" },
+    "manualInput": {
+      "type": "object",
+      "description": "Required when providerMode=manual",
+      "properties": {
+        "rawResult": { "type": "string" },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": { "type": "string", "format": "uri" },
+              "title": { "type": "string" },
+              "snippet": { "type": "string" },
+              "sourceType": { "type": "string", "enum": ["official_docs", "blog", "github", "paper", "community", "ai_generated", "unknown"] },
+              "publishDate": { "type": "string", "format": "date" }
+            }
+          }
+        }
+      }
+    },
+    "projectId": { "type": "string" },
+    "phaseId": { "type": "string" },
+    "agentId": { "type": "string", "description": "Must be RSRC-001 or LIB-001" }
+  }
+}

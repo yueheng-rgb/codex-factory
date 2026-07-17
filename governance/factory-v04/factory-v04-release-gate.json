@@ -1,0 +1,30 @@
+﻿{
+    "confirmationMeaning":  {
+                                "twoBenchmarkLimitationAccepted":  true,
+                                "processIntegrityPositioningAccepted":  true,
+                                "conditionalQualityClaimAccepted":  true,
+                                "eval13InconclusiveAccepted":  true
+                            },
+    "allowedAction":  "CREATE_V04_RELEASE_ZIP",
+    "previousGateState":  "READY_FOR_USER_CONFIRMATION",
+    "phase":  "FACTORY-V04-RELEASE-ZIP-A",
+    "generatedAt":  "2026-06-26T00:35:43.4938486+08:00",
+    "nativeGenerated":  true,
+    "userConfirmationReceived":  true,
+    "forbiddenActions":  [
+                             "modify old FINAL package (final-package/)",
+                             "claim universal quality improvement",
+                             "restore 10-role default",
+                             "delete evidence caveats (EVAL-13 INCONCLUSIVE)",
+                             "modify benchmark product code",
+                             "run new benchmarks"
+                         ],
+    "releasePackageInfo":  {
+                               "version":  "0.4.0",
+                               "productQualityImprovement":  "CONDITIONAL_NOT_GUARANTEED",
+                               "sourceRC":  "factory-resource-pack-v0.4-rc/",
+                               "targetZipName":  "CODEX_FACTORY_V04_RELEASE_PACKAGE.zip",
+                               "positioning":  "PROCESS_INTEGRITY_LAYER",
+                               "status":  "RELEASE_CANDIDATE_NOT_FINAL"
+                           }
+}

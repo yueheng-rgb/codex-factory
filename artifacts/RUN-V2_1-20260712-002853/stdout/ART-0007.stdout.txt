@@ -1,0 +1,51 @@
+﻿
+> inventory-subscription-admin@1.0.0 test
+> npx vitest run --reporter=verbose
+
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Codex_App_Factory/missions/inventory-subscription-admin[39m
+
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: admin_required_for_admin_routes[2m > [22mrejects null user[32m 1[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: admin_required_for_admin_routes[2m > [22mrejects invalid user[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: admin_required_for_admin_routes[2m > [22mallows valid admin[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: role_permission_must_be_enforced[2m > [22mallows correct perm[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: role_permission_must_be_enforced[2m > [22mrejects missing perm[32m 1[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: role_permission_must_be_enforced[2m > [22mSUPER_ADMIN passes all[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: ordinary_admin_cannot_escalate_role[2m > [22mblocks ADMIN to SUPER_ADMIN[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: ordinary_admin_cannot_escalate_role[2m > [22mblocks OPERATOR to ADMIN[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: ordinary_admin_cannot_escalate_role[2m > [22mallows SUPER_ADMIN escalation[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: destructive_action_requires_confirmation[2m > [22mrejects delete without token[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: destructive_action_requires_confirmation[2m > [22mallows delete with token[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: audit_log_required_for_sensitive_actions[2m > [22mcreates audit on product create[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mAdmin: audit_log_required_for_sensitive_actions[2m > [22mcreates audit on role change[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEcommerce: price_non_negative[2m > [22mrejects negative price[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEcommerce: price_non_negative[2m > [22mallows zero price[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEcommerce: price_non_negative[2m > [22mrejects negative price update[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEcommerce: inventory_non_negative[2m > [22mallows positive inventory[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEcommerce: inventory_non_negative[2m > [22mrejects negative inventory create[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEcommerce: stock_delta_must_be_audited[2m > [22mrecords inventory adjustments[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEcommerce: archived_product_not_sellable[2m > [22mrejects inventory adjust on archived[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEcommerce: admin_required_for_price_change[2m > [22mrejects operator price change[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mSaaS: tenant_data_isolation[2m > [22mrejects cross-tenant product create[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mSaaS: tenant_data_isolation[2m > [22mrejects viewing other tenant data by non-admin[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mSaaS: subscription_status_controls_access[2m > [22mblocks expired tenant[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mSaaS: usage_quota_non_negative[2m > [22mrejects negative quota[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mSaaS: usage_quota_non_negative[2m > [22mallows normal quota[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mSaaS: quota_decrement_must_be_atomic[2m > [22mblocks exceeding quota[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC1: Unauthenticated admin route[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC2: Viewer writes product[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC3: Operator escalates self[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC4: Delete without confirmation[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC5: Negative inventory adjustment[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC6: Cross-tenant inventory[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC7: Expired subscription blocks access[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC8: Quota exceeded[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC9: Operator price change[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mNC10: Invalid status transition[2m > [22mBLOCKED[32m 0[2mms[22m[39m
+ [32m✓[39m tests/mission.test.ts[2m > [22mEdge: Status transitions[2m > [22mDRAFT -> ACTIVE -> SUSPENDED -> ACTIVE -> ARCHIVED[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m38 passed[39m[22m[90m (38)[39m
+[2m   Start at [22m 00:29:05
+[2m   Duration [22m 419ms[2m (transform 58ms, setup 0ms, collect 77ms, tests 6ms, environment 0ms, prepare 113ms)[22m
+

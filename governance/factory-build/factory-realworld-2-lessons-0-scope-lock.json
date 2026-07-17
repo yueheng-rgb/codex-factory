@@ -1,0 +1,64 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "A",
+  "title": "Context Mount + Scope Lock",
+  "timestamp": "2026-06-28T10:55:04+08:00",
+  "mount_readiness": {
+    "checks_total": 10,
+    "checks_passed": 10,
+    "ready": true
+  },
+  "scope_lock": {
+    "phase_purpose": "Convert REALWORLD-2 7-phase TCM Django project validation into permanent Factory rules, strategy updates, risk register updates, and user-facing documentation",
+    "is_documentation_phase": true,
+    "modifies_projects": false,
+    "creates_release": false,
+    "deploys": false
+  },
+  "frozen_strategies_preserved": [
+    "DG-001: No pre-coding before Bootstrap",
+    "DG-002: Build Lite is default build mode",
+    "DG-003: Native Build Pro is conditional, not default",
+    "DG-004: v0.5 release blocked",
+    "DG-005: Multi-agent is NOT default",
+    "DG-006: No cloud without local MVP proof",
+    "DG-007: No micro-phase splitting",
+    "DG-008: Compressed summary cannot be evidence",
+    "DG-009: Completed phases cannot be shown as pending",
+    "DG-010: Attach Packet must carry freshnessStatus and sourceOfTruthPaths",
+    "DG-011: ULTRA_COMPACT snapshot cannot be used for autonomous continuation",
+    "DG-012: Snapshot Pack is not verifier evidence",
+    "DG-013: Fresh window must validate snapshot freshness before mounting"
+  ],
+  "sections": [
+    "A: Context mount + scope lock",
+    "B: Full history evidence intake (8 threads)",
+    "C: Phase-by-phase lessons extraction",
+    "D: Build Lite rule update",
+    "E: Security/Deploy Gate formalization",
+    "F: User secret rotation boundary",
+    "G: Test repair policy",
+    "H: Context Space effectiveness assessment",
+    "I: Staging Pack integration plan",
+    "J: Risk register update",
+    "K: User-facing summary (Chinese)",
+    "L: Phase close context update",
+    "M: Negative controls (45 items)",
+    "N: Verifier script + run"
+  ],
+  "constraints": [
+    "DO NOT modify original project",
+    "DO NOT print secret values (SSH, SECRET_KEY, SMTP, tokens, server IPs)",
+    "DO NOT create release ZIP",
+    "DO NOT create v0.5 package",
+    "DO NOT start Native Build Pro",
+    "DO NOT deploy or connect to servers",
+    "DO NOT access production DB",
+    "DO NOT claim 21/2/0 is 23/23 full pass",
+    "DO NOT claim production deployment readiness",
+    "DO NOT claim Factory superiority over vanilla Codex"
+  ],
+  "input_phase": "FACTORY-BUILD-REALWORLD-2-P5 (PASS)",
+  "output_phase": "FACTORY-REALWORLD-2-LESSONS-0 (PASS/FAIL)",
+  "status": "SCOPE_LOCKED"
+}

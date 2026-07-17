@@ -1,0 +1,32 @@
+﻿{
+    "recommendedNextAction":  "LIVE-RUNTIME-5 / Automation Rotation Watcher",
+    "activeRisks":  [
+                        {
+                            "status":  "UNRESOLVED",
+                            "risk":  "Shared memory divergence",
+                            "severity":  "P0"
+                        },
+                        {
+                            "status":  "UNRESOLVED",
+                            "risk":  "Verifier overfitting",
+                            "severity":  "P1"
+                        }
+                    ],
+    "hypothesisClaims":  [
+                             "fork_context preserves full context",
+                             "thread wakeup automation works"
+                         ],
+    "rejectedClaims":  [
+                           "Full context inheritance",
+                           "Automatic window creation",
+                           "Plugin production-ready",
+                           "Compressed summary as evidence"
+                       ],
+    "tool":  "factory.memory.openRisks",
+    "experimentalComponents":  [
+                                   "codex-factory-plugin",
+                                   "MCP factory verifier",
+                                   "monitoring prototype",
+                                   "automation templates"
+                               ]
+}

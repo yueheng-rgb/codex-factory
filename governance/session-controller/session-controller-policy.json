@@ -1,0 +1,25 @@
+﻿{
+  "schemaId": "session-controller-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:34:03+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-6-B",
+  "nativeGenerated": true,
+  "description": "Session Controller — router, not closer. Converts watcher recommendations into execution packets.",
+  "rules": {
+    "controllerIsRouterNotCloser": true,
+    "recommendationIsNotVerifierPass": true,
+    "carrierIsNotTrustedMemory": true,
+    "artifactStartupVerificationMandatory": true,
+    "manualNewWindowAlwaysSafeFallback": true,
+    "forkNewThreadOptionalCarrierOnly": true,
+    "subagentNotUserVisibleBranch": true,
+    "builderDefaultForkContextFalse": true,
+    "compressedSummaryNotEvidence": true,
+    "cannotMutateGovernanceState": true,
+    "cannotMarkPhasePASS": true,
+    "cannotCreateFinalZIP": true,
+    "cannotStartNewPhase": true,
+    "cannotClaimAutomaticWindowCreation": true,
+    "cannotClaimFullContextInheritance": true
+  }
+}

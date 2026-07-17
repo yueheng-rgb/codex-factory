@@ -1,0 +1,31 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "G",
+    "title": "RC Extraction Smoke",
+    "timestamp": "2026-06-28T20:36:00+08:00",
+    "extraction": {
+        "result": "SUCCESS",
+        "errors": 0,
+        "targetDir": "%TEMP%/rc0-extraction-smoke",
+        "filesExtracted": 2735,
+        "directories": 227
+    },
+    "structure_verification": {
+        "all_expected_paths_found": true,
+        "missing": []
+    },
+    "flag_verification": {
+        "artifactType": {"expected": "RELEASE_CANDIDATE", "actual": "RELEASE_CANDIDATE", "ok": true},
+        "isRelease": {"expected": false, "actual": false, "ok": true},
+        "isV05": {"expected": false, "actual": false, "ok": true},
+        "rcCandidate": {"expected": true, "actual": true, "ok": true},
+        "releaseAllowed": {"expected": false, "actual": false, "ok": true},
+        "v05Package": {"expected": false, "actual": false, "ok": true},
+        "finalRelease": {"expected": false, "actual": false, "ok": true}
+    },
+    "forbidden_content": {
+        "all_clean": true,
+        "violations": []
+    },
+    "section_verdict": "PASS"
+}

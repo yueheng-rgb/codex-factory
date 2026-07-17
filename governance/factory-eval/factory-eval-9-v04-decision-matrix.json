@@ -1,0 +1,291 @@
+﻿{
+  "phase": "FACTORY-EVAL-9-A",
+  "title": "Factory v0.4 Decision Matrix",
+  "createdAt": "2026-06-25T20:05:00+08:00",
+  "evidenceBase": "FACTORY-EVAL-8 independent comparison: Factory Lite 94 > Role-Agent 93 > Vanilla 86",
+  "decisions": [
+    {
+      "mechanism": "Always-On Constitution",
+      "decision": "KEEP_DEFAULT",
+      "evidence": "Core to all Factory runs. Global rules (anti-overengineering, security, UI quality) applied in all three runs.",
+      "benefit": "Prevents common mistakes without process overhead",
+      "overhead": "Negligible — read once at session start",
+      "risk": "Constitution may grow too long and be ignored",
+      "defaultUse": "Loaded at start of every Factory-assisted session",
+      "conditionalUse": "N/A — always on",
+      "v04Action": "Keep as-is. Review constitution length periodically."
+    },
+    {
+      "mechanism": "Manual Router",
+      "decision": "KEEP_DEFAULT",
+      "evidence": "EVAL-8: Both Factory runs benefited. Prevents scope leakage. Low overhead (~100ms).",
+      "benefit": "Routes work to correct role/task; prevents scope creep",
+      "overhead": "~100ms per routing decision",
+      "risk": "Over-routing simple tasks adds friction",
+      "defaultUse": "Used before any non-trivial task",
+      "conditionalUse": "Skip for trivial single-file reads/writes",
+      "v04Action": "Keep as default core mechanism."
+    },
+    {
+      "mechanism": "Proof-of-Read",
+      "decision": "KEEP_DEFAULT",
+      "evidence": "EVAL-8: Both Factory runs used POR. Ensures agent reads requirements before building.",
+      "benefit": "Prevents building without understanding requirements",
+      "overhead": "~50ms per POR generation",
+      "risk": "POR may become ritual without actual reading",
+      "defaultUse": "Required before implementation work begins",
+      "conditionalUse": "Skip for purely conversational/informational tasks",
+      "v04Action": "Keep as default. Add spot-check mechanism to verify actual reading."
+    },
+    {
+      "mechanism": "Required-Reading Gate",
+      "decision": "KEEP_DEFAULT",
+      "evidence": "Related to Manual Router + POR. Works as a pre-condition check.",
+      "benefit": "Blocks work until prerequisites are read",
+      "overhead": "Minimal — part of Router flow",
+      "risk": "Gate may be bypassed if not enforced",
+      "defaultUse": "Integrated into Manual Router ROUTE-4 step",
+      "conditionalUse": "N/A",
+      "v04Action": "Keep integrated into Manual Router."
+    },
+    {
+      "mechanism": "Evidence Hierarchy",
+      "decision": "KEEP_DEFAULT",
+      "evidence": "EVAL-8: Critical for separating process evidence from product evidence. Prevents counting process artifacts as quality.",
+      "benefit": "Prevents false confidence from process artifacts",
+      "overhead": "Minimal — classification at report time",
+      "risk": "Over-classification may become its own process theater",
+      "defaultUse": "Used in all evaluation/reporting contexts",
+      "conditionalUse": "N/A",
+      "v04Action": "Keep. Simplify classification tiers."
+    },
+    {
+      "mechanism": "Contamination Logging",
+      "decision": "KEEP_DEFAULT",
+      "evidence": "EVAL-8: Critical for multi-run benchmarks. All three runs tracked contamination.",
+      "benefit": "Ensures independent runs in benchmarks",
+      "overhead": "Minimal — append-only JSONL",
+      "risk": "Logging without enforcement is documentary only",
+      "defaultUse": "Active in benchmark/comparison contexts",
+      "conditionalUse": "Skip for single-run non-benchmark projects",
+      "v04Action": "Keep. Active in multi-run contexts."
+    },
+    {
+      "mechanism": "Anti-Gaming Controls",
+      "decision": "KEEP_DEFAULT",
+      "evidence": "EVAL-8: 36 negative controls verified. Essential for benchmark integrity.",
+      "benefit": "Prevents evaluation gaming (fake tests, placeholder features, etc.)",
+      "overhead": "~200ms per negative control verification",
+      "risk": "Controls may not catch novel gaming strategies",
+      "defaultUse": "Active in all evaluation contexts",
+      "conditionalUse": "Skip for non-evaluation development",
+      "v04Action": "Keep. Expand as new gaming patterns discovered."
+    },
+    {
+      "mechanism": "Independent Evaluator Rubric",
+      "decision": "KEEP_OPTIONAL",
+      "evidence": "EVAL-8: 100-point rubric produced clear, defensible comparisons. But only needed for benchmark/comparison contexts.",
+      "benefit": "Objective, evidence-backed scoring",
+      "overhead": "Significant — requires code inspection, evidence gathering",
+      "risk": "Rubric may become checkbox exercise without real inspection",
+      "defaultUse": "Active only in benchmark/evaluation contexts",
+      "conditionalUse": "For important projects: use simplified rubric (pass/fail per FR)",
+      "v04Action": "Keep as optional. Default: simplified pass/fail. Benchmark: full 100-point."
+    },
+    {
+      "mechanism": "Context Budget Policy",
+      "decision": "KEEP_DEFAULT",
+      "evidence": "Not directly tested in EVAL-8 but essential for session management.",
+      "benefit": "Prevents context overflow in long sessions",
+      "overhead": "Minimal — passive tracking",
+      "risk": "Overly aggressive budgeting may interrupt useful work",
+      "defaultUse": "Active in all sessions",
+      "conditionalUse": "Thresholds adjustable per project",
+      "v04Action": "Keep as passive mechanism. Do not make it interrupt work."
+    },
+    {
+      "mechanism": "Context OS / Agent OS Event Bus",
+      "decision": "DEFER",
+      "evidence": "EVAL-8: Not tested. The 10-role model attempted agent management but the event bus layer was not evaluated independently.",
+      "benefit": "Potential for structured agent communication",
+      "overhead": "High — adds architectural layer",
+      "risk": "Becomes its own system before demonstrating value",
+      "defaultUse": "Not active in v0.4",
+      "conditionalUse": "Revisit if multi-agent experiments show need",
+      "v04Action": "Defer to post-v0.4. Do not include in core."
+    },
+    {
+      "mechanism": "MCP Memory",
+      "decision": "DEFER",
+      "evidence": "EVAL-8: Not tested in benchmark context.",
+      "benefit": "Potential for persistent agent memory",
+      "overhead": "Unknown — not measured",
+      "risk": "Adds complexity without proven benefit",
+      "defaultUse": "Not active in v0.4",
+      "conditionalUse": "Experimental only",
+      "v04Action": "Defer. Evaluate separately from Factory core."
+    },
+    {
+      "mechanism": "Automation Watcher",
+      "decision": "DEFER",
+      "evidence": "EVAL-8: Not tested. Unclear benefit for project building.",
+      "benefit": "Autonomous monitoring capability",
+      "overhead": "High — runs continuously",
+      "risk": "Autonomous agent acting without human oversight",
+      "defaultUse": "Not active in v0.4",
+      "conditionalUse": "User opt-in only",
+      "v04Action": "Defer to user-facing feature, not Factory mechanism."
+    },
+    {
+      "mechanism": "Session Controller",
+      "decision": "KEEP_OPTIONAL",
+      "evidence": "Not tested in EVAL-8 but useful for long-running sessions.",
+      "benefit": "Manages session lifecycle, rotation, handoff",
+      "overhead": "Moderate",
+      "risk": "May rotate sessions unnecessarily",
+      "defaultUse": "Active only in long-running sessions (>30min)",
+      "conditionalUse": "User-configurable thresholds",
+      "v04Action": "Keep as optional. Simplify triggers."
+    },
+    {
+      "mechanism": "10-role Company Model",
+      "decision": "CUT_DEFAULT",
+      "evidence": "EVAL-8: Role-Agent (93) scored lower than Factory Lite (94) with 7.8x overhead. 10 roles for 11-FR project is excessive.",
+      "benefit": "Role separation for complex projects",
+      "overhead": "~1555ms — highest of all mechanisms",
+      "risk": "Process theater: creating process artifacts instead of product quality",
+      "defaultUse": "NOT active in v0.4 default",
+      "conditionalUse": "Only for projects with >20 FRs or explicit multi-agent infrastructure",
+      "v04Action": "CUT from default. Archive as reference pattern."
+    },
+    {
+      "mechanism": "3-role Core Model",
+      "decision": "KEEP_OPTIONAL",
+      "evidence": "EVAL-8 recommendation: replace 10-role with 3-role (Architect, Builder, Reviewer).",
+      "benefit": "Lightweight role separation without excessive overhead",
+      "overhead": "~400ms estimated (3 roles with handoffs)",
+      "risk": "Still adds overhead vs no-role (Vanilla) approach",
+      "defaultUse": "Optional — activate for projects where role separation adds value",
+      "conditionalUse": "Activate when: project has auth/RBAC, multiple data entities, or UI+API layers",
+      "v04Action": "Design as optional pattern. Not forced."
+    },
+    {
+      "mechanism": "Cross-role Contracts",
+      "decision": "DEFER",
+      "evidence": "EVAL-8: Contracts added process artifacts without quality benefit in single-agent context.",
+      "benefit": "Clarity when multiple agents work independently",
+      "overhead": "~200ms per contract definition",
+      "risk": "Contract creation becomes substitute for actual integration",
+      "defaultUse": "NOT active in v0.4 default",
+      "conditionalUse": "Only when multiple agents independently write to same codebase",
+      "v04Action": "Defer to multi-agent projects only."
+    },
+    {
+      "mechanism": "Drift Detection",
+      "decision": "DEFER",
+      "evidence": "EVAL-8: Drift detection logged but did not prevent drift. Documentary, not preventive.",
+      "benefit": "Potential to catch scope creep",
+      "overhead": "~100ms per check",
+      "risk": "Logging drift without preventing it adds process without value",
+      "defaultUse": "NOT active in v0.4 default",
+      "conditionalUse": "Revisit when prevention mechanism is designed",
+      "v04Action": "Defer. Needs prevention, not just logging."
+    },
+    {
+      "mechanism": "Role Skill Profiles",
+      "decision": "DEFER",
+      "evidence": "EVAL-8: Profiles defined for 10 roles but for single-agent context, skill routing is implicit.",
+      "benefit": "Clear skill boundaries for multi-agent systems",
+      "overhead": "Moderate — profile creation and maintenance",
+      "risk": "Profiles constrain flexibility without adding value in single-agent",
+      "defaultUse": "NOT active in v0.4 default",
+      "conditionalUse": "Only when 3-role or multi-agent models are active",
+      "v04Action": "Defer. Tie to role model activation."
+    },
+    {
+      "mechanism": "Specialist Roles (Frontend/Backend/DB/QA/Security)",
+      "decision": "CUT_DEFAULT",
+      "evidence": "EVAL-8: 5 implementation roles for a monolith is over-segmentation. Single Builder role sufficient.",
+      "benefit": "Specialization for large teams",
+      "overhead": "~200ms per role activation",
+      "risk": "Fragments simple work unnecessarily",
+      "defaultUse": "NOT active in v0.4 default",
+      "conditionalUse": "Merge into Builder role in 3-role model",
+      "v04Action": "CUT from default. Fold into Builder."
+    },
+    {
+      "mechanism": "Verifier",
+      "decision": "REWORK",
+      "evidence": "EVAL-8: Verifier checked process compliance but added separate role overhead. EVAL-8 evaluator was more effective as merged Reviewer.",
+      "benefit": "Process integrity checking",
+      "overhead": "~150ms",
+      "risk": "Verifier checking verifier = infinite regress",
+      "defaultUse": "Merged into Reviewer role",
+      "conditionalUse": "Standalone Verifier only for formal benchmark evaluations",
+      "v04Action": "REWORK: merge Verifier into Reviewer role in 3-role model."
+    },
+    {
+      "mechanism": "Auditor",
+      "decision": "REWORK",
+      "evidence": "EVAL-8: Auditor checked evidence chains but overlap with Verifier is significant.",
+      "benefit": "Evidence traceability",
+      "overhead": "~100ms",
+      "risk": "Duplicates Verifier work in single-agent context",
+      "defaultUse": "Merged into Reviewer role",
+      "conditionalUse": "Standalone Auditor for compliance-heavy projects",
+      "v04Action": "REWORK: merge Auditor into Reviewer role."
+    },
+    {
+      "mechanism": "Reviewer merged role",
+      "decision": "KEEP_OPTIONAL",
+      "evidence": "EVAL-8 recommendation: merge Verifier + Auditor + QA into single Reviewer.",
+      "benefit": "Single review role covers testing, verification, and audit",
+      "overhead": "~200ms for full review cycle",
+      "risk": "Merged role may become too broad",
+      "defaultUse": "Active in 3-role model",
+      "conditionalUse": "Scope-limited: Reviewer tests, verifies process, and audits evidence — does NOT write implementation",
+      "v04Action": "Design as core of 3-role model."
+    },
+    {
+      "mechanism": "Handoff Format",
+      "decision": "REWORK",
+      "evidence": "EVAL-8: 8 handoffs with evidence paths for single-agent build is process theater.",
+      "benefit": "Structured communication between roles",
+      "overhead": "~100ms per handoff",
+      "risk": "Handoff ceremony replaces actual communication",
+      "defaultUse": "Lighter format: single JSON with artifacts list, POR receipt, and contract reference",
+      "conditionalUse": "Full format only for multi-agent handoffs",
+      "v04Action": "REWORK: simplify to minimal format. One handoff per role transition, not per artifact."
+    },
+    {
+      "mechanism": "Final Packaging Machinery",
+      "decision": "DEFER",
+      "evidence": "EVAL-8: ZIP packaging not evaluated. User confirmation required per rules.",
+      "benefit": "Creates distributable Factory package",
+      "overhead": "Moderate",
+      "risk": "Premature packaging locks in untested mechanisms",
+      "defaultUse": "NOT active in v0.4",
+      "conditionalUse": "Only with explicit user confirmation after v0.4 review",
+      "v04Action": "Defer to post-v0.4 user decision."
+    },
+    {
+      "mechanism": "Plugin/Skill Scaffold",
+      "decision": "KEEP_OPTIONAL",
+      "evidence": "Not tested in EVAL-8. Skills are a Codex capability, not Factory-specific.",
+      "benefit": "Reusable skill packaging",
+      "overhead": "Scaffold creation overhead",
+      "risk": "Minimal — optional feature",
+      "defaultUse": "Available but not activated by default",
+      "conditionalUse": "User-requested skill/plugin creation",
+      "v04Action": "Keep as optional utility. Not a Factory mechanism proper."
+    }
+  ],
+  "summary": {
+    "KEEP_DEFAULT": 8,
+    "KEEP_OPTIONAL": 4,
+    "CUT_DEFAULT": 2,
+    "DEFER": 6,
+    "REWORK": 3,
+    "totalMechanisms": 26
+  }
+}

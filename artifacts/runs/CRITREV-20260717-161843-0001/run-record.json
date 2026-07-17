@@ -1,0 +1,33 @@
+﻿{
+    "stderr_path":  "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stderr.log",
+    "command":  "npm test",
+    "snapshot_verified":  true,
+    "non_claims":  [
+                       "This is a V3.1 CI/Remote RC runner, NOT a production cloud platform",
+                       "Isolation is directory-level, NOT VM/container-level",
+                       "Sandbox mode is simulated via workspace copy, NOT kernel isolation",
+                       "Do NOT use for production deployment or sensitive data"
+                   ],
+    "environment_snapshot":  {
+                                 "cwd":  "C:\\Codex_App_Factory",
+                                 "workspace_copy":  "testbeds/cross-pack-cpm-001 -\u003e workspaces/runs/CRITREV-20260717-161843-0001",
+                                 "node_version":  "v24.15.0",
+                                 "os":  "Windows_NT AMD64",
+                                 "npm_version":  "11.12.1"
+                             },
+    "run_id":  "CRITREV-20260717-161843-0001",
+    "secret_policy_result":  "NOT_CHECKED",
+    "exit_code":  0,
+    "final_status":  "PASS",
+    "stdout_path":  "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stdout.log",
+    "working_directory":  "testbeds/cross-pack-cpm-001",
+    "started_at":  "2026-07-17T16:18:43.9625181+08:00",
+    "runner_type":  "sandbox",
+    "task_id":  "CRITICAL-REVIEW-CPM-001",
+    "artifact_paths":  [
+                           "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stdout.log",
+                           "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stderr.log"
+                       ],
+    "finished_at":  "2026-07-17T16:18:50.1814386+08:00",
+    "command_redacted":  "npm test"
+}

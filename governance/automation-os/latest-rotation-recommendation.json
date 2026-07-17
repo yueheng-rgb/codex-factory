@@ -1,0 +1,173 @@
+﻿{
+    "checks":  [
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\governance\\factory-state\\current-factory-state.json",
+                       "result":  "PASS",
+                       "checkId":  "CHK01",
+                       "target":  "State loads",
+                       "riskSeverity":  "P0"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\governance\\factory-state\\session-rotation-handoff.json",
+                       "result":  "PASS",
+                       "checkId":  "CHK02",
+                       "target":  "Handoff staleness",
+                       "riskSeverity":  "P2"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\governance\\factory-state\\session-rotation-handoff.json",
+                       "result":  "PASS",
+                       "checkId":  "CHK03",
+                       "target":  "Phase consistency",
+                       "riskSeverity":  "P1"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\outputs\\CODEX_FACTORY_FINAL_PACKAGE.zip",
+                       "result":  "PASS",
+                       "checkId":  "CHK04",
+                       "target":  "Final ZIP SHA",
+                       "riskSeverity":  "P0"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\scripts\\factoryctl.ps1",
+                       "result":  "PASS",
+                       "checkId":  "CHK05",
+                       "target":  "factoryctl verify",
+                       "riskSeverity":  "P0"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\governance\\factory-state\\agent-active-archive-index.json",
+                       "result":  "PASS",
+                       "checkId":  "CHK06",
+                       "target":  "Unsafe stale agents",
+                       "riskSeverity":  "P0"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\scripts\\live-runtime\\check-agent-capacity-preflight.ps1",
+                       "result":  "FAIL",
+                       "checkId":  "CHK07",
+                       "target":  "Capacity preflight",
+                       "riskSeverity":  "P0"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\scripts\\live-runtime\\check-cross-session-state-reconciliation.ps1",
+                       "result":  "FAIL",
+                       "checkId":  "CHK08",
+                       "target":  "Reconciliation",
+                       "riskSeverity":  "P1"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\scripts\\context-os\\validate-context-memory.ps1",
+                       "result":  "FAIL",
+                       "checkId":  "CHK09",
+                       "target":  "Memory validation",
+                       "riskSeverity":  "P1"
+                   },
+                   {
+                       "evidencePath":  "C:\\Codex_App_Factory\\codex-factory-plugin\\mcp\\factory-memory\\server.ps1",
+                       "result":  "FAIL",
+                       "checkId":  "CHK10",
+                       "target":  "MCP memory query",
+                       "riskSeverity":  "P2"
+                   },
+                   {
+                       "evidencePath":  null,
+                       "result":  "PASS",
+                       "checkId":  "CHK11",
+                       "target":  "Plugin EXPERIMENTAL",
+                       "riskSeverity":  "P1"
+                   },
+                   {
+                       "evidencePath":  null,
+                       "result":  "PASS",
+                       "checkId":  "CHK12",
+                       "target":  "Compression checkpoint",
+                       "riskSeverity":  "P0"
+                   }
+               ],
+    "checkedAt":  "2026-06-25T00:23:49+08:00",
+    "evidencePaths":  [
+                          "C:\\Codex_App_Factory\\governance\\factory-state\\current-factory-state.json",
+                          "C:\\Codex_App_Factory\\governance\\factory-state\\session-rotation-handoff.json",
+                          "C:\\Codex_App_Factory\\outputs\\CODEX_FACTORY_FINAL_PACKAGE.zip",
+                          "C:\\Codex_App_Factory\\scripts\\factoryctl.ps1",
+                          "C:\\Codex_App_Factory\\governance\\factory-state\\agent-active-archive-index.json",
+                          "C:\\Codex_App_Factory\\scripts\\live-runtime\\check-agent-capacity-preflight.ps1",
+                          "C:\\Codex_App_Factory\\scripts\\live-runtime\\check-cross-session-state-reconciliation.ps1",
+                          "C:\\Codex_App_Factory\\scripts\\context-os\\validate-context-memory.ps1",
+                          "C:\\Codex_App_Factory\\codex-factory-plugin\\mcp\\factory-memory\\server.ps1"
+                      ],
+    "verdict":  "ROTATION_REQUIRED",
+    "recommendedAction":  {
+                              "userActionRequired":  true,
+                              "forbiddenAssumptions":  [
+                                                           "no full-context inheritance",
+                                                           "no automatic window creation",
+                                                           "no compressed summary as evidence"
+                                                       ],
+                              "action":  "Session rotation required before new phase",
+                              "startupPacketPath":  "governance/automation-os/latest-rotation-recommendation.json"
+                          },
+    "command":  "rotation-watcher",
+    "riskSignals":  [
+                        {
+                            "signalId":  "SIG-CHK07",
+                            "recommendation":  "Verify Capacity preflight",
+                            "source":  "rotation-watcher",
+                            "type":  "Capacity preflight",
+                            "severity":  "P0"
+                        },
+                        {
+                            "signalId":  "SIG-CHK08",
+                            "recommendation":  "Verify Reconciliation",
+                            "source":  "rotation-watcher",
+                            "type":  "Reconciliation",
+                            "severity":  "P1"
+                        },
+                        {
+                            "signalId":  "SIG-CHK09",
+                            "recommendation":  "Verify Memory validation",
+                            "source":  "rotation-watcher",
+                            "type":  "Memory validation",
+                            "severity":  "P1"
+                        },
+                        {
+                            "signalId":  "SIG-CHK10",
+                            "recommendation":  "Verify MCP memory query",
+                            "source":  "rotation-watcher",
+                            "type":  "MCP memory query",
+                            "severity":  "P2"
+                        }
+                    ],
+    "alerts":  [
+                   {
+                       "message":  "FAIL: Capacity preflight",
+                       "checkId":  "CHK07",
+                       "recommendedAction":  "Investigate Capacity preflight",
+                       "alertId":  "ALERT-CHK07",
+                       "severity":  "P0"
+                   },
+                   {
+                       "message":  "FAIL: Reconciliation",
+                       "checkId":  "CHK08",
+                       "recommendedAction":  "Investigate Reconciliation",
+                       "alertId":  "ALERT-CHK08",
+                       "severity":  "P1"
+                   },
+                   {
+                       "message":  "FAIL: Memory validation",
+                       "checkId":  "CHK09",
+                       "recommendedAction":  "Investigate Memory validation",
+                       "alertId":  "ALERT-CHK09",
+                       "severity":  "P1"
+                   },
+                   {
+                       "message":  "FAIL: MCP memory query",
+                       "checkId":  "CHK10",
+                       "recommendedAction":  "Investigate MCP memory query",
+                       "alertId":  "ALERT-CHK10",
+                       "severity":  "P2"
+                   }
+               ],
+    "doesNotMutateState":  true
+}

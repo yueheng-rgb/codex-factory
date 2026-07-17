@@ -1,0 +1,130 @@
+﻿{
+  "expert_pack_id": "admin-system",
+  "domain": "Admin System / Management Backend",
+  "version": "1.0.0",
+  "description": "Admin System Expert Pack. Covers admin authentication, role-based access control, CRUD table management, form validation, batch operations, audit logging, destructive action confirmation, status transitions, import/export controls, pagination, and search filters. Does NOT constitute a complete production admin platform.",
+
+  "supported_project_types": ["fullstack-admin", "backend-api", "frontend-app"],
+  "supported_surfaces": [
+    { "surface_id": "admin-web", "surface_type": "admin-web", "purpose": "Admin dashboard: user management, CRUD tables, forms, batch operations, audit viewer", "required": true, "recommended_starter": "next-fullstack-admin", "risk_level_default": "HIGH" },
+    { "surface_id": "admin-api", "surface_type": "api-service", "purpose": "Admin REST API: CRUD, permissions, batch, audit, export", "required": true, "recommended_starter": "node-api-postgres", "risk_level_default": "HIGH" },
+    { "surface_id": "admin-database", "surface_type": "database", "purpose": "Persistent storage: users, roles, permissions, audit_logs, managed entities", "required": true, "recommended_starter": null, "risk_level_default": "CRITICAL" },
+    { "surface_id": "admin-public-web", "surface_type": "public-web", "purpose": "Optional public-facing pages that admin manages", "required": false, "recommended_starter": "vite-react-content-site", "risk_level_default": "LOW" },
+    { "surface_id": "admin-docs", "surface_type": "docs-release", "purpose": "Admin manual, permission matrix, audit policy, deployment guide", "required": true, "recommended_starter": null, "risk_level_default": "LOW" }
+  ],
+
+  "default_surface_templates": [
+    { "template_id": "admin-crud-only", "description": "Simple CRUD admin for a single entity type, no complex permissions", "surfaces": ["admin-web","api-service","database"], "risk_level": "MEDIUM" },
+    { "template_id": "admin-with-roles", "description": "Admin with role-based access control and audit log", "surfaces": ["admin-web","api-service","database","docs-release"], "risk_level": "HIGH" },
+    { "template_id": "admin-full", "description": "Full admin system with RBAC, batch ops, export, audit log, status workflows", "surfaces": ["admin-web","api-service","database","docs-release"], "risk_level": "CRITICAL" },
+    { "template_id": "admin-super-admin", "description": "Multi-tenant or system-level admin with super-admin, org-admin, operator roles", "surfaces": ["admin-web","api-service","database","docs-release"], "risk_level": "L_CLASS" }
+  ],
+
+  "domain_risk_rules": [
+    { "rule_id": "ADMIN-R001", "trigger": "(role|permission|RBAC|access.?control).*(assign|modify|change|escalate|grant)", "risk_level": "CRITICAL", "reason": "Role escalation or unauthorized permission grant causes security breach", "critical_fields": ["role","permissions","user_id"], "required_reviewers": ["security"], "human_audit_required": true },
+    { "rule_id": "ADMIN-R002", "trigger": "(delete|remove|destroy|batch.*delete|mass.*delete).*(user|record|data|entity)", "risk_level": "CRITICAL", "reason": "Destructive operations must have confirmation and audit trail", "critical_fields": ["deleted_at","deleted_by","is_deleted"], "required_reviewers": ["security"], "human_audit_required": true },
+    { "rule_id": "ADMIN-R003", "trigger": "(password|credential|secret).*(reset|change|update|store)", "risk_level": "CRITICAL", "reason": "Credential operations must be secure and audited", "critical_fields": ["password_hash","credential","secret"], "required_reviewers": ["security"], "human_audit_required": true },
+    { "rule_id": "ADMIN-R004", "trigger": "(audit.?log|audit.?trail|activity.?log).*(view|access|query|export)", "risk_level": "HIGH", "reason": "Audit log access itself must be controlled and logged", "critical_fields": ["audit_log","activity_log"], "required_reviewers": ["security"], "human_audit_required": false },
+    { "rule_id": "ADMIN-R005", "trigger": "(export|download|extract).*(csv|excel|json|data|report)", "risk_level": "HIGH", "reason": "Data export can leak sensitive information; must require permission", "critical_fields": ["export_data","download_url"], "required_reviewers": ["security"], "human_audit_required": false },
+    { "rule_id": "ADMIN-R006", "trigger": "(import|upload|batch.*create).*(csv|excel|json|file)", "risk_level": "HIGH", "reason": "Import operations risk data corruption and injection; must validate", "critical_fields": ["import_file","batch_data"], "required_reviewers": ["security"], "human_audit_required": false },
+    { "rule_id": "ADMIN-R007", "trigger": "(batch|bulk|mass).*(update|modify|change|process)", "risk_level": "HIGH", "reason": "Batch operations can cause widespread data changes; must be scoped and reversible", "critical_fields": ["batch_scope","affected_count"], "required_reviewers": ["business"], "human_audit_required": false },
+    { "rule_id": "ADMIN-R008", "trigger": "(status|state).*(transition|change|flow|workflow)", "risk_level": "HIGH", "reason": "Status transitions must respect allowed state machine paths", "critical_fields": ["status","previous_status"], "required_reviewers": ["business"], "human_audit_required": false },
+    { "rule_id": "ADMIN-R009", "trigger": "(form|field).*(validation|validate|required|format|sanitize)", "risk_level": "MEDIUM", "reason": "Form validation gaps cause data quality issues and potential injection", "critical_fields": ["form_data","input"], "required_reviewers": [], "human_audit_required": false },
+    { "rule_id": "ADMIN-R010", "trigger": "(pagination|page|limit|offset|infinite.?scroll).*(query|list|fetch|api)", "risk_level": "MEDIUM", "reason": "Unbounded queries cause performance degradation and potential DoS", "critical_fields": ["page","limit","pageSize"], "required_reviewers": [], "human_audit_required": false }
+  ],
+
+  "invariant_ids": [
+    "admin_required_for_admin_routes",
+    "role_permission_must_be_enforced",
+    "ordinary_admin_cannot_escalate_role",
+    "destructive_action_requires_confirmation",
+    "deleted_record_not_listed_by_default",
+    "status_transition_allowed",
+    "protected_fields_cannot_be_modified_without_permission",
+    "batch_operation_must_be_scoped",
+    "audit_log_required_for_sensitive_actions",
+    "export_requires_permission",
+    "import_requires_validation",
+    "pagination_limit_enforced",
+    "search_filter_must_be_whitelisted"
+  ],
+
+  "required_tests": [
+    "admin_authentication_tests",
+    "role_permission_enforcement_tests",
+    "crud_operation_tests",
+    "form_validation_tests",
+    "destructive_action_confirmation_tests",
+    "status_transition_tests",
+    "batch_operation_scope_tests",
+    "audit_log_creation_tests",
+    "export_permission_tests",
+    "import_validation_tests",
+    "pagination_limit_tests"
+  ],
+
+  "required_external_engines": [
+    { "engine_id": "semgrep", "required": true, "note": "Security static analysis for auth, injection, and permission bypass" },
+    { "engine_id": "autocannon", "required": false, "note": "API load smoke for admin CRUD and list endpoints" },
+    { "engine_id": "playwright", "required": false, "note": "Admin UI smoke if web surface available" },
+    { "engine_id": "codeql", "required": false, "note": "Deep static analysis (optional, heavy)" },
+    { "engine_id": "k6", "required": false, "note": "Structured load testing for pagination and batch operations" }
+  ],
+
+  "human_audit_points": [
+    "Role escalation logic — must be reviewed by security reviewer",
+    "Permission assignment and RBAC model — must be reviewed by security reviewer",
+    "Destructive operations (delete, batch delete) — must be reviewed by security reviewer",
+    "Credential and password handling — must be reviewed by security reviewer",
+    "Data export with sensitive fields — must be reviewed by security reviewer",
+    "Batch operations affecting large datasets — must be reviewed by business owner",
+    "Status transition state machine — must be reviewed by business owner",
+    "Audit log integrity and retention — must be reviewed by security reviewer"
+  ],
+
+  "benchmark_cases": [
+    { "benchmark_id": "ADMIN-B1", "description": "Simple CRUD admin for a single entity with basic auth", "expected_surfaces": ["admin-web","api-service","database"], "expected_risk_level": "MEDIUM", "expected_invariants": ["admin_required_for_admin_routes","pagination_limit_enforced"], "runnable_or_design_only": "runnable" },
+    { "benchmark_id": "ADMIN-B2", "description": "Admin system with role-based access control and audit log", "expected_surfaces": ["admin-web","api-service","database","docs-release"], "expected_risk_level": "HIGH", "expected_invariants": ["admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role","audit_log_required_for_sensitive_actions","pagination_limit_enforced"], "runnable_or_design_only": "runnable" },
+    { "benchmark_id": "ADMIN-B3", "description": "Full admin with batch ops, export, status workflows", "expected_surfaces": ["admin-web","api-service","database","docs-release"], "expected_risk_level": "CRITICAL", "expected_invariants": ["admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role","destructive_action_requires_confirmation","batch_operation_must_be_scoped","export_requires_permission","status_transition_allowed","audit_log_required_for_sensitive_actions","pagination_limit_enforced"], "runnable_or_design_only": "design_only" },
+    { "benchmark_id": "ADMIN-B4", "description": "Super-admin system with multi-level roles and import", "expected_surfaces": ["admin-web","api-service","database","docs-release"], "expected_risk_level": "L_CLASS", "expected_invariants": ["admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role","destructive_action_requires_confirmation","deleted_record_not_listed_by_default","status_transition_allowed","protected_fields_cannot_be_modified_without_permission","batch_operation_must_be_scoped","audit_log_required_for_sensitive_actions","export_requires_permission","import_requires_validation","pagination_limit_enforced","search_filter_must_be_whitelisted"], "runnable_or_design_only": "design_only" }
+  ],
+
+  "non_claims": [
+    "This pack does NOT constitute a complete, production-ready admin system",
+    "This pack does NOT include SSO/SAML/OIDC integration",
+    "This pack does NOT include real-time notification or websocket infrastructure",
+    "This pack does NOT include complex workflow engine (multi-step approval chains)",
+    "This pack does NOT include data warehouse or BI dashboard capabilities",
+    "This pack does NOT include multi-language i18n for admin UI",
+    "This pack does NOT include accessibility (a11y) compliance",
+    "This pack is a DESIGN AID — domain rules, invariants, and test patterns",
+    "Actual implementation requires domain expert review, security audit, and production hardening"
+  ],
+
+  "activation_conditions": {
+    "keywords": [
+      "后台管理", "管理系统", "管理后台", "后台系统",
+      "admin", "dashboard", "管理端", "后台", "控制台",
+      "用户管理", "角色管理", "权限管理", "RBAC",
+      "角色权限", "管理员", "超级管理员", "操作员",
+      "CRUD管理", "表格管理", "表单管理", "列表管理",
+      "批量操作", "批量删除", "批量修改", "批量导入",
+      "审计日志", "操作日志", "audit log", "audit trail",
+      "状态流转", "状态管理", "status workflow",
+      "数据导出", "数据导入", "export", "import",
+      "admin panel", "admin console", "management console",
+      "后台CRUD", "管理CRUD", "admin CRUD"
+    ],
+    "min_surfaces": 1,
+    "exclude_keywords": ["文档修改", "README", "文案", "样式调整", "商城", "电商", "ecommerce", "SaaS", "saas"]
+  },
+
+  "integration_points": {
+    "surface_plan": true,
+    "risk_classifier": true,
+    "invariant_engine": true,
+    "engine_broker": true,
+    "gate_detection": true,
+    "risk_gate": true
+  }
+}

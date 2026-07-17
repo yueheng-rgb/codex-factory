@@ -1,0 +1,31 @@
+﻿{
+    "phase":  "6C-H11",
+    "summary":  {
+                    "requiresRerun":  1,
+                    "partialCount":  0,
+                    "exactCount":  0,
+                    "strongCount":  0,
+                    "blockerCount":  1,
+                    "weakCount":  0,
+                    "totalMappings":  1,
+                    "invalidCount":  1
+                },
+    "runId":  "h11-fixture",
+    "aliasMappings":  [
+                          {
+                              "sourceEvidence":  [
+                                                     "file.js:s6_broken"
+                                                 ],
+                              "rerunRequired":  true,
+                              "actualScenarioId":  "s6_broken",
+                              "intendedScenarioId":  "s6",
+                              "requiresDirectScenario":  true,
+                              "intendedInvariant":  "ir_6",
+                              "negativeId":  "neg-6",
+                              "equivalenceJustification":  "Not equivalent. Must rerun.",
+                              "acceptedForClosure":  false,
+                              "aliasStrength":  "INVALID"
+                          }
+                      ],
+    "createdAt":  "2026-06-22T23:16:40.5062924+08:00"
+}

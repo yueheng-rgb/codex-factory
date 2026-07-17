@@ -1,0 +1,28 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "K",
+  "title": "User Cleanup Workflow",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "user_facing_examples": [
+    {"command":"只列出外接对话空间占用，不删除","effect":"Show inventory of all projects with size by category"},
+    {"command":"冻结这个项目，不再默认挂载","effect":"FREEZE mode — all data preserved, auto-mount disabled"},
+    {"command":"归档这个项目，但保留证据","effect":"ARCHIVE mode — CORE_EVIDENCE preserved, CACHE pruned"},
+    {"command":"裁剪旧快照和临时缓存","effect":"PRUNE mode — remove CACHE+STALE+DUPLICATE only"},
+    {"command":"删除这个项目外接对话空间，先给我计划","effect":"PLAN mode preview → user reviews → re-run with --Confirm"}
+  ],
+  "prompts": {
+    "cleanup_plan": "factory-build-mode/memory-quality/prompts/cleanup-plan.prompt.md",
+    "archive": "factory-build-mode/memory-quality/prompts/archive-context-space.prompt.md",
+    "freeze": "factory-build-mode/memory-quality/prompts/freeze-context-space.prompt.md",
+    "prune": "factory-build-mode/memory-quality/prompts/prune-context-cache.prompt.md",
+    "delete": "factory-build-mode/memory-quality/prompts/delete-context-space.prompt.md"
+  },
+  "safety_defaults": [
+    "Default mode is PLAN (preview only, no changes)",
+    "DELETE requires PLAN preview + explicit --Confirm",
+    "CORE_EVIDENCE requires --ForceEvidence to delete",
+    "Real project files never touched by Context Space cleanup",
+    "All cleanup generates report with keep/delete/confirm lists"
+  ],
+  "status": "USER_CLEANUP_WORKFLOW_DEFINED"
+}

@@ -1,0 +1,36 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "B",
+  "title": "Matched Task Selection",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "selected_task": {
+    "name": "InventoryOps Portal Lite",
+    "type": "synthetic-safe-fixture",
+    "description": "A full-stack inventory management admin portal with CRUD operations, role-based access, and reporting. Synthetic — no real data, no secrets, no deployment.",
+    "requirements": [
+      "CRUD for inventory items (name, sku, quantity, location, status)",
+      "Role-based access: admin (full CRUD), operator (view + update quantity), viewer (read-only)",
+      "Dashboard with summary stats (total items, low stock alerts, by location)",
+      "REST API with pagination, filtering, sorting",
+      "Database: PostgreSQL schema with migrations",
+      "Backend: Python FastAPI or Node.js Express",
+      "Frontend: React admin-style SPA",
+      "Unit tests for API endpoints",
+      "Package QA: final ZIP handoff with manifest",
+      "README with install + run instructions",
+      "One deploy-trace fixture: .env.production.example (empty template, no real secrets)",
+      "One safety-sensitive scenario: alert when deleting items with stock > 0"
+    ],
+    "complexity": "MEDIUM — enough to test Factory value (gates, structure, policy)",
+    "safety": {
+      "no_real_secrets": true,
+      "no_real_env": true,
+      "no_real_projects": true,
+      "no_deployment": true,
+      "no_production_db": true,
+      "all_synthetic": true
+    }
+  },
+  "selection_rationale": "InventoryOps provides sufficient complexity (CRUD, RBAC, API, DB, tests, handoff) to exercise Build Lite structure, Security Gate triggers, Package QA gate, and Test Repair Policy — without requiring real secrets or deployment.",
+  "status": "TASK_SELECTED"
+}

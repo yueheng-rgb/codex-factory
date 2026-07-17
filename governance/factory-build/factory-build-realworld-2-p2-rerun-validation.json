@@ -1,0 +1,12 @@
+﻿{
+    "rerun_validation_id": "FACTORY-BUILD-REALWORLD-2-P2-RERUN-VALIDATION",
+    "generated_at": "2026-06-28T10:29:39+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P2",
+    "section": "G",
+    "checks": {
+        "manage_py_check": {"result": "PASS", "detail": "0 issues"},
+        "tests": {"total": 23, "passed": 13, "failed": 8, "errors": 2, "same_as_p1": true, "note": "No test code changed; hardening was documentation/config only"},
+        "bounded_smoke": {"result": "PASS", "http_status": 200, "page": "登录 - 中医康复科项目登记"}
+    },
+    "verdict": "VALIDATION_RERUN_CONSISTENT_WITH_P1"
+}

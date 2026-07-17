@@ -1,0 +1,170 @@
+﻿{
+    "verificationId":  "R2.3-N-VER-001",
+    "phase":  "FACTORY-R2.3-N",
+    "passCount":  32,
+    "failCount":  0,
+    "totalChecks":  32,
+    "timestamp":  "2026-07-10T01:32:50+08:00",
+    "checks":  [
+                   {
+                       "id":  "SCH-schemas\\search-provider-secret-policy.schema.json",
+                       "name":  "exists+parse",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCH-schemas\\glm-search-request.schema.json",
+                       "name":  "exists+parse",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCH-schemas\\glm-search-response.schema.json",
+                       "name":  "exists+parse",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCH-schemas\\search-invocation.schema.json",
+                       "name":  "exists+parse",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCH-schemas\\research-intake.schema.json",
+                       "name":  "exists+parse",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCH-schemas\\network-boundary.schema.json",
+                       "name":  "exists+parse",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCR-runtime\\glm-search-adapter.ps1",
+                       "name":  "exists",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCR-runtime\\secret-presence-check.ps1",
+                       "name":  "exists",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCR-runtime\\search-invocation-logger.ps1",
+                       "name":  "exists",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCR-runtime\\search-result-quality-gate.ps1",
+                       "name":  "exists",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCR-runtime\\tool-permission-gate.ps1",
+                       "name":  "exists",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SCR-runtime\\read-only-search-adapter.ps1",
+                       "name":  "exists",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "REG-GLM",
+                       "name":  "tool registry exists",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "REG-GLM-STATUS",
+                       "name":  "GLM tool registered",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "REG-GLM-AGENTS",
+                       "name":  "allowedAgents correct",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "REG-GLM-FORBIDDEN",
+                       "name":  "Implementer forbidden",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "REG-GLM-BOUNDARY",
+                       "name":  "networkBoundary=external_api",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "REG-GLM-SECRETS",
+                       "name":  "requiredSecrets=true",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "REG-GLM-HUMAN",
+                       "name":  "humanConfirmationRequired=true",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "REG-GLM-EXISTS",
+                       "name":  "GLM entry found",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "GOV-SI-DIR",
+                       "name":  "search invocations dir",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SEC-PRESENT",
+                       "name":  "secret check runs",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SEC-NO-LEAK",
+                       "name":  "key value not in check result",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SEC-LEAK-DETECT",
+                       "name":  "leak detection works",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "ACC-RSRC-001",
+                       "name":  "RSRC-001 search allowed",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "ACC-LIB-001",
+                       "name":  "LIB-001 search allowed",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "ACC-IMPL",
+                       "name":  "IMPL agent blocked",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "INTAKE-EXISTS",
+                       "name":  "manual result accepted",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "INTAKE-CONVERT",
+                       "name":  "intake conversion works",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SIM-FILE",
+                       "name":  "simulation results exist",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SIM-ALL",
+                       "name":  "10/10 scenarios pass",
+                       "result":  "PASS"
+                   },
+                   {
+                       "id":  "SAFE-NO-LEAK",
+                       "name":  "no API key in recent outputs",
+                       "result":  "PASS"
+                   }
+               ]
+}

@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P8",
+  "section": "A",
+  "title": "P8 Evidence Intake and Integration Scope",
+  "timestamp": "2026-06-28T18:10:00+08:00",
+  "inherited": {
+    "MEMORY_QUALITY_P2": "PASS 37/37",
+    "MEMORY_QUALITY_P3": "PASS 37/37",
+    "PACK_STAGING_P6_R1": "PASS 31/31",
+    "PACK_STAGING_P7": "PASS 39/39",
+    "RELEASE_READINESS_0": "PASS 29/29",
+    "v0_5": "BLOCKED"
+  },
+  "p8_purpose": {
+    "primary": "Integrate Memory Quality P2+P3 into staging pack",
+    "is": ["update VERSION/BOUNDARY", "populate memory-quality module", "integrate validator + cleanup planner", "update CLI + phase close", "update docs + prompts", "create P8 staging bundle (non-release)"],
+    "is_not": ["v0.5 release", "RC creation", "cloud deployment", "AB continuation", "destructive cleanup"]
+  },
+  "status": "EVIDENCE_INTAKE_AND_INTEGRATION_SCOPE_LOCKED"
+}

@@ -1,0 +1,261 @@
+﻿{
+    "phase":  "FACTORY-REALWORLD-2-LESSONS-0",
+    "verifier_id":  "VERIFIER-FACTORY-REALWORLD-2-LESSONS-0",
+    "generated_at":  "2026-06-28T11:02:06+08:00",
+    "verdict":  "PASS",
+    "total_checks":  50,
+    "passed":  50,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "REALWORLD-2-P5 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "Section A: Scope lock JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "Section B: Evidence intake JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "Section C: Phase lessons JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "Section D: Build Lite rule update JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "Section E: Security/Deploy Gate JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "Section F: User secret rotation boundary JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "Section G: Test repair policy JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "Section H: Context Space assessment JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Section I: Staging integration plan JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "Section J: Risk register update JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "Section K: User-facing summary JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "Section L: Phase close context update JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "Section M: Negative controls JSON"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "Section A report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "Section B report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "Section C report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "Section D report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "Section E report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "Section F report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "Section G report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "Section H report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "Section I report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "Section J report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "Section K report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "Section L report"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "Build Lite default preserved (DG-002 frozen)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "Native Build Pro conditional preserved (DG-003 frozen)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "v0.5 blocked preserved (DG-004 frozen)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "Security/Deploy Gate formalized with blocking checks"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "Context Space required for long-horizon projects"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "Package QA final gate preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "Diagnostic Gate support-only preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V034",
+                       "desc":  "No Factory superiority overclaim in reports"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V035",
+                       "desc":  "No production deployment readiness overclaim"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V036",
+                       "desc":  "No secret values printed in reports"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V037",
+                       "desc":  "No release ZIP created"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V038",
+                       "desc":  "No v0.5 package created"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V039",
+                       "desc":  "No Native Build Pro started"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V040",
+                       "desc":  "No real project modification"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V041",
+                       "desc":  "Negative controls: 45 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V042",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V043",
+                       "desc":  "Negative controls: all DEFENCE_HELD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V044",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V045",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V046",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V047",
+                       "desc":  "No expectedClass-only checks"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V048",
+                       "desc":  "No manual PASS-only checks"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V049",
+                       "desc":  "Mount readiness 10/10"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V050",
+                       "desc":  "Verifier script exists"
+                   }
+               ]
+}

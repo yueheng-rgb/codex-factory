@@ -1,0 +1,569 @@
+﻿{
+    "planId":  "CAP-PLAN-PROJ-DEBUG-001-PHASE-DESIGN",
+    "projectId":  "PROJ-DEBUG-001",
+    "phaseId":  "PHASE-DESIGN",
+    "projectType":  "fullstack-admin",
+    "requestedMode":  "full",
+    "generatedAt":  "2026-07-09T20:30:40+08:00",
+    "constraints":  {
+                        "localFirst":  true,
+                        "networkAllowed":  true,
+                        "cloudAllowed":  false,
+                        "secretsAllowed":  false,
+                        "sandboxAvailable":  false,
+                        "humanApprovalAvailable":  false
+                    },
+    "activeAgents":  [
+                         "LIB-001"
+                     ],
+    "summary":  {
+                    "totalCapabilitiesInScope":  77,
+                    "allowedCount":  7,
+                    "monitorOnlyCount":  1,
+                    "blockedCount":  0,
+                    "pendingHumanCount":  1,
+                    "pendingSandboxCount":  0,
+                    "rejectedCount":  1,
+                    "unevaluatedCount":  67
+                },
+    "allowedCapabilities":  [
+                                {
+                                    "capabilityId":  "CAP-SKILL-003",
+                                    "name":  "cursor-rules",
+                                    "type":  "skill",
+                                    "trustLevel":  "TRUSTED",
+                                    "recommendedAction":  "adapt",
+                                    "priority":  "P1",
+                                    "securityRisk":  "low",
+                                    "reason":  "ALLOW: Capability \u0027CAP-SKILL-003\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-DEBUG-001\u0027. Controls: write_scope_confirmed",
+                                    "agentId":  "LIB-001"
+                                },
+                                {
+                                    "capabilityId":  "CAP-SKILL-007",
+                                    "name":  "skill-creator",
+                                    "type":  "skill",
+                                    "trustLevel":  "VERIFIED",
+                                    "recommendedAction":  "import",
+                                    "priority":  "P1",
+                                    "securityRisk":  "low",
+                                    "reason":  "ALLOW: Capability \u0027CAP-SKILL-007\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-DEBUG-001\u0027. Controls: write_scope_confirmed",
+                                    "agentId":  "LIB-001"
+                                },
+                                {
+                                    "capabilityId":  "CAP-SKILL-002",
+                                    "name":  "claude-agent-skills",
+                                    "type":  "skill",
+                                    "trustLevel":  "TRUSTED",
+                                    "recommendedAction":  "adapt",
+                                    "priority":  "P2",
+                                    "securityRisk":  "low",
+                                    "reason":  "ALLOW: Capability \u0027CAP-SKILL-002\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-DEBUG-001\u0027. Controls: write_scope_confirmed",
+                                    "agentId":  "LIB-001"
+                                },
+                                {
+                                    "capabilityId":  "CAP-KNOW-004",
+                                    "name":  "open-source-project-docs",
+                                    "type":  "knowledge_source",
+                                    "trustLevel":  "TRUSTED",
+                                    "recommendedAction":  "import",
+                                    "priority":  "P2",
+                                    "securityRisk":  "low",
+                                    "reason":  "ALLOW: Capability \u0027CAP-KNOW-004\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-DEBUG-001\u0027. Controls: network_access",
+                                    "agentId":  "LIB-001"
+                                },
+                                {
+                                    "capabilityId":  "CAP-SKILL-001",
+                                    "name":  "openai-codex-skills",
+                                    "type":  "skill",
+                                    "trustLevel":  "VERIFIED",
+                                    "recommendedAction":  "import",
+                                    "priority":  "P1",
+                                    "securityRisk":  "low",
+                                    "reason":  "ALLOW: Capability \u0027CAP-SKILL-001\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-DEBUG-001\u0027. Controls: write_scope_confirmed",
+                                    "agentId":  "LIB-001"
+                                },
+                                {
+                                    "capabilityId":  "CAP-SRCH-006",
+                                    "name":  "github-repo-search",
+                                    "type":  "search_provider",
+                                    "trustLevel":  "VERIFIED",
+                                    "recommendedAction":  "import",
+                                    "priority":  "P1",
+                                    "securityRisk":  "low",
+                                    "reason":  "ALLOW: Capability \u0027CAP-SRCH-006\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-DEBUG-001\u0027. Controls: network_access",
+                                    "agentId":  "LIB-001"
+                                },
+                                {
+                                    "capabilityId":  "CAP-SKILL-008",
+                                    "name":  "skill-installer",
+                                    "type":  "skill",
+                                    "trustLevel":  "VERIFIED",
+                                    "recommendedAction":  "adapt",
+                                    "priority":  "P1",
+                                    "securityRisk":  "medium",
+                                    "reason":  "ALLOW: Capability \u0027CAP-SKILL-008\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-DEBUG-001\u0027. Controls: write_scope_confirmed, network_access",
+                                    "agentId":  "LIB-001"
+                                }
+                            ],
+    "monitorOnlyCapabilities":  [
+                                    {
+                                        "capabilityId":  "CAP-MCP-010",
+                                        "name":  "memory-mcp",
+                                        "type":  "mcp_server",
+                                        "trustLevel":  "AVAILABLE",
+                                        "recommendedAction":  "monitor",
+                                        "priority":  "P2",
+                                        "securityRisk":  "low",
+                                        "reason":  "MONITOR_ONLY: Capability \u0027CAP-MCP-010\u0027 recommended action is \u0027monitor\u0027 — observe only, do not invoke",
+                                        "agentId":  "LIB-001"
+                                    }
+                                ],
+    "blockedCapabilities":  [
+
+                            ],
+    "pendingHumanCapabilities":  [
+                                     {
+                                         "capabilityId":  "CAP-SKILL-099",
+                                         "name":  "community-skill-for-review",
+                                         "type":  "skill",
+                                         "trustLevel":  "AVAILABLE",
+                                         "recommendedAction":  "import",
+                                         "priority":  "P3",
+                                         "securityRisk":  "medium",
+                                         "reason":  "PENDING_HUMAN: Capability \u0027CAP-SKILL-099\u0027 trust level \u0027AVAILABLE\u0027 requires human confirmation",
+                                         "agentId":  "LIB-001"
+                                     }
+                                 ],
+    "pendingSandboxCapabilities":  [
+
+                                   ],
+    "rejectedCapabilities":  [
+                                 {
+                                     "capabilityId":  "CAP-MCP-005",
+                                     "name":  "github-mcp",
+                                     "type":  "mcp_server",
+                                     "trustLevel":  "VERIFIED",
+                                     "recommendedAction":  "import",
+                                     "priority":  "P1",
+                                     "securityRisk":  "high",
+                                     "reason":  "REJECT: Capability \u0027CAP-MCP-005\u0027 requires secrets (GitHub token) but no auth configured",
+                                     "agentId":  "LIB-001"
+                                 }
+                             ],
+    "unevaluatedCapabilities":  [
+                                    {
+                                        "capabilityId":  "CAP-SKILL-004",
+                                        "name":  "agents-md-ecosystem",
+                                        "type":  "skill",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SKILL-005",
+                                        "name":  "supabase-postgres-best-practices",
+                                        "type":  "skill",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SKILL-006",
+                                        "name":  "playwright-interactive",
+                                        "type":  "skill",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SKILL-010",
+                                        "name":  "google-engineering-practices",
+                                        "type":  "skill",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SKILL-011",
+                                        "name":  "trailofbits-security-skills",
+                                        "type":  "skill",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SKILL-012",
+                                        "name":  "airbnb-javascript-style-guide",
+                                        "type":  "skill",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-001",
+                                        "name":  "stitch-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-002",
+                                        "name":  "figma-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-003",
+                                        "name":  "browser-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-004",
+                                        "name":  "playwright-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-006",
+                                        "name":  "postgres-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-007",
+                                        "name":  "filesystem-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-008",
+                                        "name":  "brave-search-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-009",
+                                        "name":  "context7-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-011",
+                                        "name":  "sequential-thinking-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-012",
+                                        "name":  "security-scanner-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-013",
+                                        "name":  "package-manager-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-MCP-014",
+                                        "name":  "cloud-provider-mcp",
+                                        "type":  "mcp_server",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLI-001",
+                                        "name":  "nextjs-cli",
+                                        "type":  "cli_tool",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLI-002",
+                                        "name":  "prisma-cli",
+                                        "type":  "cli_tool",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLI-004",
+                                        "name":  "vitest",
+                                        "type":  "cli_tool",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLI-005",
+                                        "name":  "eslint-prettier",
+                                        "type":  "cli_tool",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLI-006",
+                                        "name":  "playwright-test",
+                                        "type":  "cli_tool",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SDK-001",
+                                        "name":  "next-auth",
+                                        "type":  "sdk",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SDK-005",
+                                        "name":  "prisma-client",
+                                        "type":  "sdk",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SDK-006",
+                                        "name":  "react-hook-form-zod",
+                                        "type":  "sdk",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-TMPL-001",
+                                        "name":  "create-t3-app",
+                                        "type":  "template",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-TMPL-002",
+                                        "name":  "next-enterprise",
+                                        "type":  "template",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-TMPL-003",
+                                        "name":  "bulletproof-react",
+                                        "type":  "template",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-TMPL-004",
+                                        "name":  "shadcn-ui-blocks",
+                                        "type":  "template",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-TMPL-008",
+                                        "name":  "django-admin-starter",
+                                        "type":  "template",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-GEN-001",
+                                        "name":  "v0-dev",
+                                        "type":  "generator",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-GEN-002",
+                                        "name":  "bolt-new",
+                                        "type":  "generator",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-GEN-003",
+                                        "name":  "lovable-dev",
+                                        "type":  "generator",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-GEN-004",
+                                        "name":  "prisma-generate",
+                                        "type":  "generator",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-GEN-005",
+                                        "name":  "openapi-generator",
+                                        "type":  "generator",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-001",
+                                        "name":  "typescript-compiler",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-002",
+                                        "name":  "eslint-verifier",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-003",
+                                        "name":  "vitest-verifier",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-004",
+                                        "name":  "playwright-verifier",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-005",
+                                        "name":  "npm-audit",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-006",
+                                        "name":  "build-verifier",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-007",
+                                        "name":  "api-contract-verifier",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-008",
+                                        "name":  "architecture-drift-verifier",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-009",
+                                        "name":  "package-qa-verifier",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-VER-010",
+                                        "name":  "frontend-visual-verifier",
+                                        "type":  "verifier",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SRCH-001",
+                                        "name":  "glm-search",
+                                        "type":  "search_provider",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SRCH-002",
+                                        "name":  "chatgpt-search",
+                                        "type":  "search_provider",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SRCH-003",
+                                        "name":  "claude-search",
+                                        "type":  "search_provider",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SRCH-004",
+                                        "name":  "perplexity-search",
+                                        "type":  "search_provider",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SRCH-005",
+                                        "name":  "google-search",
+                                        "type":  "search_provider",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SRCH-007",
+                                        "name":  "official-docs-search",
+                                        "type":  "search_provider",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SRCH-009",
+                                        "name":  "zhihu-juejin-csdn",
+                                        "type":  "search_provider",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-SRCH-010",
+                                        "name":  "paper-search",
+                                        "type":  "search_provider",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-RUN-001",
+                                        "name":  "local-windows-runner",
+                                        "type":  "runner",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-RUN-003",
+                                        "name":  "docker-runner",
+                                        "type":  "runner",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-RUN-004",
+                                        "name":  "ci-runner",
+                                        "type":  "runner",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-RUN-005",
+                                        "name":  "browser-runner",
+                                        "type":  "runner",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLD-001",
+                                        "name":  "supabase-managed-db",
+                                        "type":  "cloud_service",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLD-002",
+                                        "name":  "vercel-hosting",
+                                        "type":  "cloud_service",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLD-003",
+                                        "name":  "cloud-object-storage",
+                                        "type":  "cloud_service",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLD-004",
+                                        "name":  "cloud-queue-service",
+                                        "type":  "cloud_service",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLD-005",
+                                        "name":  "cloud-secrets-manager",
+                                        "type":  "cloud_service",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-CLD-006",
+                                        "name":  "cloud-observability",
+                                        "type":  "cloud_service",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-KNOW-001",
+                                        "name":  "official-framework-docs",
+                                        "type":  "knowledge_source",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-KNOW-002",
+                                        "name":  "rfc-and-standards",
+                                        "type":  "knowledge_source",
+                                        "reason":  "No active agent in applicableAgents"
+                                    },
+                                    {
+                                        "capabilityId":  "CAP-KNOW-003",
+                                        "name":  "big-tech-engineering-blogs",
+                                        "type":  "knowledge_source",
+                                        "reason":  "No active agent in applicableAgents"
+                                    }
+                                ],
+    "capabilityRiskSummary":  {
+                                  "totalInScope":  77,
+                                  "riskDistribution":  {
+                                                           "unknown":  0,
+                                                           "medium":  19,
+                                                           "high":  8,
+                                                           "low":  49,
+                                                           "none":  0,
+                                                           "critical":  1
+                                                       }
+                              },
+    "recommendedNextAction":  "resolve_pending_human_approvals"
+}

@@ -1,0 +1,17 @@
+﻿{
+    "audit_id": "FACTORY-BUILD-REALWORLD-2-P4-TARGET-RUNTIME-ALIGNMENT-AUDIT",
+    "generated_at": "2026-06-28T10:43:53+08:00", "phase": "FACTORY-BUILD-REALWORLD-2-P4", "section": "C",
+    "findings": {
+        "requirements_target": "Django>=5.0,<5.3",
+        "installed_django": "6.0.6",
+        "python_version": "3.13.13",
+        "database_test_backend": "SQLite (in-memory)",
+        "environment_mismatch": true,
+        "mismatch_type": "Django 6.0.6 installed but project targets 5.x",
+        "impact": "3 remaining test failures caused by Django 6.x transaction isolation changes + 1 P3 fix miss",
+        "django5_available": false,
+        "django5_needs_network": true,
+        "network_install_approved": false
+    },
+    "verdict": "ENVIRONMENT_MISMATCH_DOCUMENTED"
+}

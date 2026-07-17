@@ -1,0 +1,130 @@
+﻿{
+  "backcheckId": "H11-DRY18-B-P1-ALIAS-BACKCHECK-V1",
+  "phase": "6C-H11",
+  "subject": "DRY18-B-P1 scenario-alias-map.json",
+  "subjectPath": "harness/runs/dry18-b-live-negative-controls/scenario-alias-map.json",
+  "createdAt": "2026-06-23T00:00:00+08:00",
+  "codexFactoryVersion": "Phase 6C",
+
+  "backcheckSummary": "All 12 DRY18-B-P1 aliases classified against H11 directness policy. DRY18 closure accepted historically. One critical invariant (unauthorized-close) uses PARTIAL alias — acceptable historically, direct scenario recommended for future.",
+
+  "aliasClassifications": [
+    {
+      "negativeId": "dry18-b-negative-duplicate-alert-idempotency",
+      "strengthInP1": "STRONG",
+      "h11Strength": "STRONG",
+      "criticalCategory": null,
+      "h11Compliant": true,
+      "notes": "Same invariant and assertion path. Source evidence from incidentStore.js:13-15."
+    },
+    {
+      "negativeId": "dry18-b-negative-invalid-status-transition",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "security_workflow_state_changes",
+      "h11Compliant": true,
+      "notes": "Exact match. Critical category covered directly."
+    },
+    {
+      "negativeId": "dry18-b-negative-unauthorized-close",
+      "strengthInP1": "PARTIAL",
+      "h11Strength": "PARTIAL",
+      "criticalCategory": "authorization",
+      "h11Compliant": false,
+      "h11Verdict": "HISTORICALLY_ACCEPTED",
+      "notes": "PARTIAL alias on critical authorization invariant. Accepted historically for DRY18 closure. Future phases must use direct scenario."
+    },
+    {
+      "negativeId": "dry18-b-negative-containment-not-required",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "security_workflow_state_changes",
+      "h11Compliant": true,
+      "notes": "Exact match. Critical category covered directly."
+    },
+    {
+      "negativeId": "dry18-b-negative-remediation-not-required",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "security_workflow_state_changes",
+      "h11Compliant": true,
+      "notes": "Exact match."
+    },
+    {
+      "negativeId": "dry18-b-negative-postmortem-before-closure",
+      "strengthInP1": "STRONG",
+      "h11Strength": "STRONG",
+      "criticalCategory": "incident_closure_escalation",
+      "h11Compliant": true,
+      "notes": "Inverse formulation of same gate. Source evidence supports equivalence."
+    },
+    {
+      "negativeId": "dry18-b-negative-evidence-not-linked",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "evidence_integrity",
+      "h11Compliant": true,
+      "notes": "Exact match. Critical category covered directly."
+    },
+    {
+      "negativeId": "dry18-b-negative-timeline-unordered",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "audit_integrity",
+      "h11Compliant": true,
+      "notes": "Exact match."
+    },
+    {
+      "negativeId": "dry18-b-negative-timeline-mutable-after-closure",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "irreversible_lifecycle_transitions",
+      "h11Compliant": true,
+      "notes": "Exact match. Tests timeline immutability after closure."
+    },
+    {
+      "negativeId": "dry18-b-negative-report-missing-sections",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "evidence_integrity",
+      "h11Compliant": true,
+      "notes": "Exact match."
+    },
+    {
+      "negativeId": "dry18-b-negative-sensitive-values-not-redacted",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "redaction_sensitive_data",
+      "h11Compliant": true,
+      "notes": "Exact match. Critical category covered directly."
+    },
+    {
+      "negativeId": "dry18-b-negative-audit-missing-mutations",
+      "strengthInP1": "EXACT",
+      "h11Strength": "EXACT",
+      "criticalCategory": "audit_integrity",
+      "h11Compliant": true,
+      "notes": "Exact match."
+    }
+  ],
+
+  "summary": {
+    "totalAliases": 12,
+    "h11Compliant": 11,
+    "h11NonCompliant": 1,
+    "nonCompliantDetails": [
+      {
+        "negativeId": "dry18-b-negative-unauthorized-close",
+        "issue": "PARTIAL alias on critical authorization invariant",
+        "historicalAcceptance": true,
+        "futureRecommendation": "Add dedicated scenario: unauthorized_role_cannot_close_incident to incidentWorkflowScenarios.js",
+        "blockerForClosure": false
+      }
+    ]
+  },
+
+  "historicalAcceptanceStatement": "DRY18-B-P1 was closed before H11 policy existed. Its PARTIAL alias for unauthorized-close is accepted historically. This backcheck does not reopen DRY18. All future phases with critical authorization invariants must use EXACT or STRONG aliases.",
+
+  "dry18RemainsClosed": true,
+  "dry19NotStarted": true
+}

@@ -1,0 +1,12 @@
+﻿{
+    "audit_id": "V3_2-GHA-TEMPLATE-AUDIT-001",
+    "template_path": ".github/workflows/codex-factory-ci.yml",
+    "validation": "CI_TEMPLATE_VALID",
+    "execution_status": "NOT_EXECUTED",
+    "act_available": false,
+    "remote_run_evidence": null,
+    "checks_passed": 6,
+    "checks_total": 7,
+    "unavailable": ["act"],
+    "non_claims": ["Template only — NOT remote-executed", "No GitHub token required for audit"]
+}

@@ -1,0 +1,82 @@
+﻿{
+    "task":  "Login Authentication: Session vs JWT vs Refresh Token",
+    "group":  "C_STRUCTURED_SEARCH",
+    "hallucination_risk":  "LOW-MODERATE — core JWT patterns confirmed; @fastify/jwt specifics from general knowledge",
+    "source_count":  3,
+    "sources":  [
+                    {
+                        "title":  "JWT身份验证 — Tencent Cloud",
+                        "url":  "https://cloud.tencent.com/developer/article/2625669",
+                        "type":  "article"
+                    },
+                    {
+                        "title":  "Session vs JWT — Tencent Cloud",
+                        "url":  "https://cloud.tencent.com/developer/article/2562638",
+                        "type":  "article"
+                    },
+                    {
+                        "title":  "Cookie/Session/Token/JWT详解 — Tencent Cloud",
+                        "url":  "https://cloud.tencent.com/developer/article/2554974",
+                        "type":  "article"
+                    }
+                ],
+    "source_backed":  true,
+    "UNSURE_resolved":  [
+                            "Refresh token storage: SHA-256 hash in DB is standard practice (confirmed by sources)",
+                            "httpOnly cookie for refresh token is recommended over localStorage (confirmed)",
+                            "Token rotation + reuse detection is best practice (confirmed)",
+                            "argon2 preferred for new projects; bcrypt acceptable for existing (confirmed)",
+                            "@fastify/jwt refresh workflow: custom DB logic needed, not built-in (general knowledge confirmed)"
+                        ],
+    "design_plan":  {
+                        "minimal_test":  [
+                                             "Valid login → access token + refresh cookie set",
+                                             "Wrong password → 401",
+                                             "Valid refresh → new access token + rotated refresh cookie",
+                                             "Reuse revoked refresh → entire family revoked, 401",
+                                             "Expired access but valid refresh → can refresh",
+                                             "Expired refresh → 401, must re-login",
+                                             "CSRF: cross-origin POST /refresh without proper Origin → rejected"
+                                         ],
+                        "rejected_alternatives":  [
+                                                      "Session-based (Redis store) — adds infrastructure dependency, not ideal for stateless REST API",
+                                                      "JWT-only no refresh — poor UX, forces frequent re-login",
+                                                      "Refresh token in localStorage — XSS vulnerable, confirmed bad practice across sources",
+                                                      "OAuth2/OIDC full flow — overkill for single admin dashboard, but viable for multi-service",
+                                                      "Access token in cookie only — complicates mobile/non-browser clients"
+                                                  ],
+                        "dependency_choice":  [
+                                                  "@fastify/jwt for access token signing/verification",
+                                                  "@fastify/cookie for refresh token cookie management",
+                                                  "bcrypt (still safe, widely supported) or argon2 (newer, preferred for new projects per OWASP)",
+                                                  "refresh_tokens DB table: id, user_id, token_hash, family_id, expires_at, revoked_at, created_at"
+                                              ],
+                        "implementation_plan":  [
+                                                    "1. POST /login: bcrypt.compare credentials → issue { accessToken (15min), refreshToken (7d httpOnly cookie) }",
+                                                    "2. POST /refresh: read refreshToken from cookie, validate hash in DB, rotate (new refresh + revoke old family or single), issue new access token",
+                                                    "3. POST /logout: revoke refresh token in DB, clear cookie",
+                                                    "4. Middleware: fastify.addHook(\u0027onRequest\u0027, async (req, reply) =\u003e { await req.jwtVerify() })",
+                                                    "5. Token family: on refresh, either rotate entire family (safer) or single token",
+                                                    "6. Reuse detection: if a revoked refresh token is presented, revoke entire family (stolen token detection)"
+                                                ],
+                        "search_gaps":  [
+                                            "No @fastify/jwt-specific refresh workflow documentation found in search results",
+                                            "Java-focused JWT results dominated; Node.js/Fastify specifics from general knowledge",
+                                            "No official Fastify auth tutorial in top search results"
+                                        ],
+                        "adopted_approach":  "JWT access token (15min, Bearer header) + refresh token (7d, httpOnly Secure SameSite=Strict cookie) with rotation and reuse detection",
+                        "key_source_backed_items":  [
+                                                        "Tencent Cloud dev articles confirm JWT refresh token best practice: short-lived access + long-lived refresh",
+                                                        "Cookie httpOnly + Secure + SameSite=Strict is standard recommendation",
+                                                        "Token rotation + reuse detection is industry standard for refresh tokens",
+                                                        "bcrypt still widely recommended; argon2 preferred for new projects per OWASP"
+                                                    ],
+                        "risk_list":  [
+                                          "httpOnly cookie prevents XSS but CSRF still possible without SameSite",
+                                          "Token family rotation adds complexity — need careful transaction handling",
+                                          "Refresh token hash storage: use SHA-256, not raw token",
+                                          "bcrypt vs argon2: both acceptable, argon2 preferred per OWASP 2025 but bcrypt still widely used",
+                                          "JWT signing secret rotation: needs key versioning for zero-downtime rotation"
+                                      ]
+                    }
+}

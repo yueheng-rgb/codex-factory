@@ -1,0 +1,29 @@
+﻿{
+  "scenario": "COMPRESSION_DEFENSE",
+  "description": "Simulated context compression with 2 deliberate errors to test Resume Gate and Trusted State",
+  "compressed_summary": {
+    "source": "compression_summary",
+    "phase_claimed": "R5.0",
+    "claims": [
+      "Search Agent as Future Default should be the primary architecture direction",
+      "Regression: 101/101 tests PASS. Benchmark suite v2 is latest.",
+      "codeql is AVAILABLE and fully integrated",
+      "All 3 expert packs are active"
+    ]
+  },
+  "errors_injected": [
+    {"error": "Claims Search Agent as default — DEPRECATED direction", "severity": "CRITICAL"},
+    {"error": "Claims 101/101 tests — STALE_METRIC (current is 172)", "severity": "HIGH"},
+    {"error": "Claims codeql AVAILABLE — STALE (trusted state says TOOL_UNAVAILABLE)", "severity": "MEDIUM"}
+  ],
+  "resume_gate_result": {
+    "allowed": false,
+    "reason": "QUARANTINED — 3 stale/deprecated references detected",
+    "deprecated_hits": ["Search Agent as Future Default"],
+    "stale_metrics": ["Regression: claimed 101, actual 172"],
+    "stale_engine": ["codeql: claimed AVAILABLE, actual TOOL_UNAVAILABLE"],
+    "resolution": "NEEDS_RECONCILIATION — compression summary must be corrected before trusted memory admission"
+  },
+  "trusted_state_priority": "Trusted Project State (v1.3) overrides all compression summary claims",
+  "verdict": "Compression defense WORKS — stale/deprecated content correctly blocked"
+}

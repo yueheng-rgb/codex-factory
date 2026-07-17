@@ -1,0 +1,132 @@
+﻿{
+    "passed":  20,
+    "gaps":  [
+
+             ],
+    "verdict":  "PASS",
+    "failed":  0,
+    "checks":  [
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Missing SKILL.md",
+                       "id":  "01",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Missing references directory",
+                       "id":  "02",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Missing scripts directory",
+                       "id":  "03",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No auto-load claim",
+                       "id":  "04",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Missing P0/P1/P2 protocol",
+                       "id":  "05",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Compressed summary not evidence",
+                       "id":  "06",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No scoring as PASS/FAIL",
+                       "id":  "07",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Main Agent fallback prohibited",
+                       "id":  "08",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Missing plugin.json",
+                       "id":  "09",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No absolute repo paths",
+                       "id":  "10",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No production-ready claim",
+                       "id":  "11",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No cloud sync claim",
+                       "id":  "12",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No auto thread handoff claim",
+                       "id":  "13",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Missing MCP schema",
+                       "id":  "14",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP FAIL not converted",
+                       "id":  "15",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP output machine-readable",
+                       "id":  "16",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No failure-router core",
+                       "id":  "17",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No VERIFIED_FACT claim",
+                       "id":  "18",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No final ZIP",
+                       "id":  "19",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No conversation memory as evidence",
+                       "id":  "20",
+                       "signalDetected":  true
+                   }
+               ],
+    "phase":  "DRY26-D",
+    "totalNegatives":  20
+}

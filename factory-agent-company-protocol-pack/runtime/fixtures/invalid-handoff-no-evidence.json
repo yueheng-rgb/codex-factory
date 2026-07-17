@@ -1,0 +1,13 @@
+﻿{
+  "handoffId": "handoff-ag2-bad-20260626040000",
+  "agentId": "ag2-bad-1",
+  "capsuleId": "capsule-ag2-bad1-20260626030000",
+  "phase": "FACTORY-AGENT-2",
+  "timestamp": "2026-06-26T04:00:00+08:00",
+  "files": [],
+  "contractChecklist": [],
+  "transcriptRef": "",
+  "knownIssues": [],
+  "nativeGenerated": true,
+  "verifiedBy": null
+}

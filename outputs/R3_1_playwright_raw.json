@@ -1,0 +1,11 @@
+{
+  "status": "TOOL_FAILED",
+  "findings": [
+    {
+      "rule_id": "playwright-exception",
+      "severity": "ERROR",
+      "message": "browserType.launch: Executable doesn't exist at C:\\Users\\90961\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1200\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+    }
+  ],
+  "errors": []
+}

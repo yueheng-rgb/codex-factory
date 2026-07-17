@@ -1,0 +1,104 @@
+﻿{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "factory-resource-pack/schemas/evidence-entry.schema.json",
+  "title": "Evidence Entry Schema",
+  "description": "Schema for individual evidence entries in the Factory evidence registry. Each entry records a file artifact, its integrity hash, generation metadata, and links to supporting transcripts and verifier results.",
+  "phase": "H18",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T12:00:00.000+08:00",
+  "type": "object",
+  "required": [
+    "filePath",
+    "sha256",
+    "nativeGenerated",
+    "phase",
+    "timestamp"
+  ],
+  "properties": {
+    "filePath": {
+      "type": "string",
+      "description": "Absolute or workspace-relative path to the evidence artifact file."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$",
+      "description": "SHA256 hash of the file content at the time of recording."
+    },
+    "size": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "File size in bytes. Optional but recommended."
+    },
+    "nativeGenerated": {
+      "type": "boolean",
+      "description": "Whether this artifact was natively generated during its declared phase."
+    },
+    "reconstructedFrom": {
+      "type": "string",
+      "description": "If reconstructed, path to the source evidence used for reconstruction."
+    },
+    "phase": {
+      "type": "string",
+      "description": "Factory phase during which this artifact was created."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this evidence entry was recorded."
+    },
+    "transcriptRef": {
+      "type": "string",
+      "description": "Path to the worker transcript that covers the creation of this artifact."
+    },
+    "verifierRefs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Paths to verifier result JSON files that reference this evidence entry.",
+      "minItems": 0
+    },
+    "agentId": {
+      "type": "string",
+      "description": "Agent that created or owns this artifact."
+    },
+    "compressionLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3,
+      "description": "Context compression level of the session when this artifact was created.",
+      "default": 0
+    },
+    "category": {
+      "type": "string",
+      "enum": ["source", "config", "contract", "transcript", "verifier-result", "handoff", "registry", "progress", "negative-fixture", "other"],
+      "description": "Category of evidence artifact."
+    },
+    "contentType": {
+      "type": "string",
+      "description": "MIME type or file extension category (e.g., application/json, text/markdown)."
+    },
+    "generatedBy": {
+      "type": "string",
+      "description": "Script, agent role, or process that generated this artifact."
+    },
+    "stability": {
+      "type": "string",
+      "enum": ["stable", "volatile", "deprecated"],
+      "description": "Stability marker for reference material.",
+      "default": "stable"
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Any warnings associated with this evidence entry (e.g., SCORING_SYSTEM_GATE, compression-level warnings)."
+    },
+    "supersededBy": {
+      "type": "string",
+      "description": "If this evidence entry has been superseded, path to the replacement entry."
+    },
+    "supersedes": {
+      "type": "string",
+      "description": "If this evidence entry supersedes a prior entry, path to the prior entry."
+    }
+  },
+  "additionalProperties": false
+}

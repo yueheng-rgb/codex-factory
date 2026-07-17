@@ -1,0 +1,126 @@
+﻿{
+    "totalChecks":  23,
+    "checks":  {
+                   "V19":  {
+                               "detail":  "New ZIPs in last 2h: 0",
+                               "description":  "No new ZIP created during verification",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "Found: 0 v0.5 files",
+                               "description":  "No v0.5 package included",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "No product superiority claim",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "Controls: 18, Gaps: 0",
+                               "description":  "Negative controls executed with 0 gaps",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "Found: 0 product source files",
+                               "description":  "No product source code included",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "No multi-agent default claim",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "EVIDENCE_INDEX exists",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "Expected: 47378B3649B38082A3F52FD2DEE106E26F7A48B1692D2CC7A1456231AF47E1C5 | Actual: 47378B3649B38082A3F52FD2DEE106E26F7A48B1692D2CC7A1456231AF47E1C5",
+                               "description":  "ZIP SHA256 matches expected",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "New benchmark artifacts in last 2h: 0",
+                               "description":  "No benchmark started",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "Mode selection simulation report exists",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "Mode docs exist (DIAGNOSTIC_MODES, QUICK, STUDENT, REPORT_VS_SOURCE)",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "C:\\Codex_App_Factory\\harness\\diagnostic-runs\\diagnostic-pack-p1-bundle-startup-verify",
+                               "description":  "Extraction succeeded",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "C:\\Codex_App_Factory\\outputs\\FACTORY_DIAGNOSTIC_PACK_V1.1.0_AUDIT_BUNDLE.zip",
+                               "description":  "Bundle ZIP exists",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "Modified product files in last 2h: 0",
+                               "description":  "No product code modified",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "All required report outputs exist",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "Startup prompt exists",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "README_BUNDLE exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "Stop-after-diagnostic rule exists and is clear",
+                               "pass":  true
+                           },
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "BOUNDARY_AND_CLAIMS exists",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "All required governance JSONs exist",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "MANIFEST.json exists",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "MANIFEST.sha256 exists",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "INSTALL_AND_USE exists",
+                               "pass":  true
+                           }
+               },
+    "verdict":  "PASS",
+    "passCount":  23,
+    "phase":  "FACTORY-DIAGNOSTIC-PACK-P1-BUNDLE-STARTUP-VERIFY",
+    "timestamp":  "2026-06-26T23:52:39+08:00",
+    "failCount":  0,
+    "verifier":  "factory-diagnostic-pack-p1-bundle-startup-verify.ps1"
+}

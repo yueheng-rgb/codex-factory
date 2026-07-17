@@ -1,0 +1,39 @@
+﻿{
+  "expert_pack_id": "cpp-memory-safety",
+  "domain": "C/C++ Memory Safety",
+  "version": "1.0.0",
+  "description": "C/C++ Memory Safety Expert Pack — buffer overflow, use-after-free, pointer safety, sanitizer toolchain, build system, file parsing, concurrency. Does NOT claim live ASan/UBSan/Valgrind integration unless actually run.",
+  "supported_project_types": ["CLI-tool","backend-api"],
+  "supported_surfaces": [
+    {"surface_id":"cpp-native","surface_type":"CLI-tool","purpose":"Native C/C++ executable or library","required":true,"recommended_starter":null,"risk_level_default":"HIGH"},
+    {"surface_id":"cpp-build","surface_type":"CLI-tool","purpose":"Build system: CMake/Makefile/MSBuild with sanitizer flags","required":true,"recommended_starter":null,"risk_level_default":"MEDIUM"},
+    {"surface_id":"cpp-tests","surface_type":"CLI-tool","purpose":"Test runner with sanitizer-enabled builds","required":true,"recommended_starter":null,"risk_level_default":"HIGH"}
+  ],
+  "risk_rules": [
+    {"rule_id":"CPP-R01","condition":"Buffer/array access without bounds check","risk":"CRITICAL","required":"bounds check + human review"},
+    {"rule_id":"CPP-R02","condition":"Use-after-free / dangling pointer","risk":"CRITICAL","required":"smart pointer / nullify + human review"},
+    {"rule_id":"CPP-R03","condition":"File/data parser without input limits","risk":"CRITICAL","required":"bounded parsing + human review"},
+    {"rule_id":"CPP-R04","condition":"Multi-threaded shared state access","risk":"HIGH","required":"mutex/lock + TSan test"},
+    {"rule_id":"CPP-R05","condition":"Format string vulnerability (user-controlled format)","risk":"HIGH","required":"format string literal only"},
+    {"rule_id":"CPP-R06","condition":"Sanitizer toolchain not integrated","risk":"HIGH","required":"ASan/UBSan build flags in build system"},
+    {"rule_id":"CPP-R07","condition":"Undefined behavior from compiler/static analysis","risk":"MEDIUM","required":"fix or document + risk assessment"}
+  ],
+  "activation_conditions": {
+    "keywords": ["C++","C语言","c++","cpp","C code","native code","内存安全","memory safety","buffer overflow","缓冲区溢出","use-after-free","sanitizer","ASan","UBSan","Valgrind","CMake","file parser","native library","C/C++","malloc","free","pointer"],
+    "min_surfaces": 1,
+    "exclude_keywords": ["文档修改","README","文案"]
+  },
+  "integration_points": {
+    "surface_plan": true,"risk_classifier": true,"invariant_engine": true,"engine_broker": true,"gate_detection": true,"risk_gate": true,"human_review_gate": true
+  },
+  "non_claims": [
+    "This pack does NOT claim live ASan/UBSan/Valgrind integration has been run on this Factory",
+    "This pack does NOT constitute a complete C/C++ security audit or penetration test",
+    "This pack does NOT include CodeQL C/C++ query execution (requires CodeQL CLI installation)",
+    "This pack is a DESIGN AID — domain rules, invariants, and test patterns for memory safety"
+  ],
+  "status": "ACTIVE",
+  "created_at": "2026-07-12",
+  "runtime_validated": false,
+  "sanitizer_live_validated": false
+}

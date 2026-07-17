@@ -1,0 +1,31 @@
+﻿{
+  "release": "Codex Factory v2.0.0",
+  "total_regression": 210,
+  "total_passed": 210,
+  "testbeds": [
+    {"id":1,"name":"Products API","tests":23,"passed":23,"status":"PASS","command":"npm test","directory":"testbeds/products-api"},
+    {"id":2,"name":"Mini Inventory Admin","tests":22,"passed":22,"status":"PASS","command":"npm test","directory":"pilots/mini-inventory-admin"},
+    {"id":3,"name":"Ecommerce Runtime","tests":29,"passed":29,"status":"PASS","command":"npm test","directory":"testbeds/ecommerce-runtime-validation"},
+    {"id":4,"name":"SaaS Runtime","tests":27,"passed":27,"status":"PASS","command":"npm test","directory":"testbeds/saas-runtime-validation"},
+    {"id":5,"name":"Admin System Runtime","tests":58,"passed":58,"status":"PASS","command":"npm test","directory":"testbeds/admin-system-runtime-validation"},
+    {"id":6,"name":"Node API Starter","tests":13,"passed":13,"status":"PASS","command":"npm test","directory":"runnable-starters/node-api-postgres"},
+    {"id":7,"name":"Mission Project","tests":38,"passed":38,"status":"PASS","command":"npm test","directory":"missions/inventory-subscription-admin"}
+  ],
+  "auxiliary_checks": [
+    {"id":8,"name":"Three.js Build Check","command":"npm run build","directory":"runnable-starters/vite-threejs-interactive"},
+    {"id":9,"name":"Expert Pack Loader - Admin","command":"file check","path":"governance/expert-packs/admin-system-pack.json"},
+    {"id":10,"name":"Expert Pack Loader - Ecommerce","command":"file check","path":"testbeds/products-api/business-invariants.json"},
+    {"id":11,"name":"Expert Pack Loader - SaaS","command":"file check","path":"testbeds/saas-runtime-validation/business-invariants.json"},
+    {"id":12,"name":"Compression Verifier","command":"runtime/compression-summary-verifier.ps1"},
+    {"id":13,"name":"Resume Gate","command":"runtime/resume-gate.ps1"},
+    {"id":14,"name":"Audit Ledger","path":"outputs/audit-ledger.json"},
+    {"id":15,"name":"Evidence Hash Chain","command":"runtime/evidence-hash-chain.ps1"},
+    {"id":16,"name":"Multi-Agent Stress Results","path":"outputs/V1_3_MULTI_AGENT_STRESS_RESULTS.json"},
+    {"id":17,"name":"Engine Reliability Matrix","path":"outputs/V1_3_ENGINE_RELIABILITY_MATRIX.json"},
+    {"id":18,"name":"Capability Closure Matrix","path":"outputs/V1_3_CAPABILITY_CLOSURE_MATRIX.json"},
+    {"id":19,"name":"Production Readiness Assessment","details":"saas-runtime:84, others:55-60"},
+    {"id":20,"name":"Deprecated Lock Check","count":15,"status":"all preserved"}
+  ],
+  "deprecated_locks_preserved": 15,
+  "last_verified": "2026-07-12"
+}

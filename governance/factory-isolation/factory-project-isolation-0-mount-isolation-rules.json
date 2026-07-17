@@ -1,0 +1,24 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "D",
+  "title": "Mount Isolation Rules",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "rules_file": "factory-isolation/MOUNT_ISOLATION_RULES.md",
+  "mount_validation_rules": [
+    {"id": 1, "rule": "Attach Packet must match projectId + pathFingerprint", "action": "REJECT on mismatch"},
+    {"id": 2, "rule": "Snapshot must match projectId", "action": "REJECT on mismatch"},
+    {"id": 3, "rule": "Phase ledger must match projectId", "action": "REJECT on mismatch"},
+    {"id": 4, "rule": "Foreign risk/blocker marked FOREIGN_PROJECT_CONTEXT", "action": "ACCEPT as reference only"},
+    {"id": 5, "rule": "Foreign context never mounted as current state", "action": "View only, no block, no modify"}
+  ],
+  "cross_project_global_artifacts": [
+    "Global user preferences",
+    "Global policy",
+    "Factory version/config",
+    "Project registry",
+    "Skill definitions"
+  ],
+  "mount_gate_steps": 8,
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_D_MOUNT_ISOLATION_RULES_REPORT.md"
+}

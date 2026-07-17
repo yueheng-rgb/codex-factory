@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "search-loop-state.schema.json",
+  "title": "Search Loop State — Iterative Search Round Tracking",
+  "description": "Tracks state across multiple rounds of iterative search. Prevents infinite loops and enforces budget constraints.",
+  "type": "object",
+  "required": ["loopId", "taskId", "currentRound", "maxRounds", "budget", "rounds"],
+  "properties": {
+    "loopId": { "type": "string", "pattern": "^LOOP-\\d{8}-\\d{3}$" },
+    "taskId": { "type": "string" },
+    "projectId": { "type": "string" },
+    "currentRound": { "type": "integer", "minimum": 1 },
+    "maxRounds": { "type": "integer", "default": 5 },
+    "status": { "type": "string", "enum": ["active", "stopped_evidence_sufficient", "stopped_max_rounds", "stopped_human_escalated", "stopped_error"] },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "maxSearchRoundsPerTask": { "type": "integer", "default": 5 },
+        "maxSourcesPerRound": { "type": "integer", "default": 10 },
+        "maxOfficialDocsPreferred": { "type": "boolean", "default": true },
+        "stopCondition": { "type": "string", "description": "Stop when evidence sufficient, max rounds reached, or human escalation" },
+        "humanEscalationCondition": { "type": "string", "description": "Escalate when: 3 consecutive rounds without new evidence, conflicting sources unresolved, or security concern" }
+      }
+    },
+    "rounds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "round": { "type": "integer" },
+          "triggerReason": { "type": "string" },
+          "evidenceId": { "type": "string" },
+          "sourceCount": { "type": "integer" },
+          "newEvidenceCount": { "type": "integer" },
+          "delta": { "type": "string" },
+          "qualityScore": { "type": "integer" },
+          "timestamp": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "escalationHistory": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Records of human escalation events"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+﻿{
+    "guardrailRoles":  2,
+    "maxAgents":  8,
+    "roles":  5,
+    "version":  "0.5.0-candidate",
+    "basedOn":  [
+                    "FACTORY-AGENT-0 architecture draft",
+                    "DRY24 multi-agent evidence",
+                    "H15/H17/DRY23-P2 governance evidence"
+                ],
+    "generatedAt":  "2026-06-26T01:16:28.8344649+08:00",
+    "name":  "Agent Company Protocol Pack",
+    "nativeGenerated":  true,
+    "status":  "PROTOCOL_DRAFT_NOT_RELEASED",
+    "boundaryRules":  [
+                          "No v0.5 release",
+                          "Multi-agent not proven default",
+                          "10-role archived",
+                          "Large-project only",
+                          "Verifier-based gating"
+                      ]
+}

@@ -1,0 +1,66 @@
+﻿{
+  "agentId": "SEC-001",
+  "role": "Security Agent",
+  "category": "Quality",
+  "type": "on-demand",
+  "version": "2.0.0",
+  "status": "ACTIVE",
+  "description": "Audit for secrets, security vulnerabilities, deployment readiness. Block deployment if security issues found.",
+  "responsibilities": [
+    "Scan for hardcoded secrets (API keys, passwords, tokens)",
+    "Audit authentication and authorization flows",
+    "Check for SQL injection, XSS, CSRF vulnerabilities",
+    "Verify all auth checks are server-side",
+    "Audit environment variable handling",
+    "Report deploy readiness with gate verdict"
+  ],
+  "permissions": {
+    "read": ["all_project_files"],
+    "write": ["security_reports_only"],
+    "execute": ["shell_command(grep, rg)", "apply_patch(security reports)"]
+  },
+  "allowedWriteScopes": [
+    "projects/{projectId}/reports/security/"
+  ],
+  "forbiddenActions": [
+    "modify_source_code",
+    "print_secrets_in_output",
+    "execute_deployment",
+    "mark_PASS_with_unresolved_HIGH_severity"
+  ],
+  "allowedSkills": {
+    "required": ["codex-factory", "auth-permission-security"],
+    "optional": ["openai-docs"],
+    "forbidden": ["browser", "imagegen", "documents", "spreadsheets"]
+  },
+  "requiredInputs": [
+    "all_project_files",
+    "gate_configuration",
+    "security_rule_library"
+  ],
+  "requiredOutputs": [
+    {
+      "name": "security_report",
+      "fields": ["secretsFound", "vulnerabilities", "deployReadiness", "gateVerdict", "recommendations", "checksRun"]
+    }
+  ],
+  "handoffRequired": true,
+  "handoffFormat": {
+    "to": "INTG-001",
+    "handoffType": "SECURITY_REPORT",
+    "requiresApproval": false
+  },
+  "evidenceLevel": "HIGH",
+  "failurePolicy": {
+    "secretFound": "BLOCK_immediately_report_do_not_print_secret",
+    "falsePositive": "document_as_known_false_positive_PASS_with_note",
+    "cannotScan": "report_as_unscanned",
+    "maxRetries": 1
+  },
+  "contextBudget": 3000,
+  "closeCondition": "Security audit complete, report handed off",
+  "driftRisks": ["false_negative_missed_secret", "false_positive_blocking"],
+  "reviewGate": "Integrator",
+  "includedInBenchmark": true,
+  "securityChecks": ["secret_scan", "auth_audit", "sql_injection_check", "xss_check", "csrf_check", "env_var_audit"]
+}

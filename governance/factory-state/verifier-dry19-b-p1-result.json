@@ -1,0 +1,141 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-dry19-b-p1-source-scenario-directness-repair-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  26,
+    "passed":  26,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "DRY19-B-P0 report exists and PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "DRY19-B not started"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "P0 executionAllowed=false recorded"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "Gap triage exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "Direct scenario repair plan exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "All 9 repairs applied"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "Source SHA256 changed"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "Worker capsule exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "BRANCH_RESULT.md exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "BRANCH_DELTA.json exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "Source syntax valid"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "All 8 scenarios still PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "Updated alias map exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "Weak/invalid = 0"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "No PARTIAL critical accepted"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  16,
+                       "desc":  "All critical EXACT or STRONG"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  17,
+                       "desc":  "Preflight: executionAllowed=true"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  18,
+                       "desc":  "Alias map: executionAllowed=true"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  19,
+                       "desc":  "DRY19-B task ready"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  20,
+                       "desc":  "executionStarted=false"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  21,
+                       "desc":  "DRY19-B not started"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  22,
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  23,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  24,
+                       "desc":  "Closed reports unchanged"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  25,
+                       "desc":  "DRY2-C through DRY13-C paused"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  26,
+                       "desc":  "Repair log: 0 required, 9 applied"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T13:19:38.920+08:00"
+}

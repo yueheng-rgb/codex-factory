@@ -1,0 +1,51 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P7",
+  "section": "D",
+  "title": "Clean User Workflow Trial",
+  "timestamp": "2026-06-28T17:20:00+08:00",
+  "workflows": [
+    {
+      "id": "WF-1",
+      "name": "Simple project — install + bootstrap + preflight + phase-close",
+      "fixture": "fresh-simple-project",
+      "steps": [
+        {"step": 1, "command": "factory.ps1 install", "expected": "3 modes available, Build Lite default", "result": "PASS"},
+        {"step": 2, "command": "factory.ps1 bootstrap", "expected": "18/18 checks, VERSION/BOUNDARY/modules validated", "result": "PASS"},
+        {"step": 3, "command": "factory.ps1 preflight", "expected": "fixtures validated, Security Gate NOT triggered", "result": "PASS"},
+        {"step": 4, "command": "factory.ps1 phase-close", "expected": "ledger/snapshot/guard updated, verifier run", "result": "PASS"}
+      ],
+      "verdict": "WORKFLOW_PASS"
+    },
+    {
+      "id": "WF-2",
+      "name": "Deployed-trace project — Security Gate blocks deploy",
+      "fixture": "fresh-deployed-trace-project",
+      "steps": [
+        {"step": 1, "command": "factory.ps1 install", "expected": "same as WF-1", "result": "PASS"},
+        {"step": 2, "command": "factory.ps1 bootstrap", "expected": "18/18 checks", "result": "PASS"},
+        {"step": 3, "command": "factory.ps1 preflight", "expected": "Security Gate TRIGGERED, 6 blocking checks fire", "result": "PASS"},
+        {"step": 4, "command": "factory.ps1 phase-close", "expected": "BLOCKED status recorded, no ZIP handoff", "result": "PASS"}
+      ],
+      "verdict": "WORKFLOW_PASS"
+    },
+    {
+      "id": "WF-3",
+      "name": "Long-horizon project — Context Space required",
+      "fixture": "fresh-long-horizon-project",
+      "steps": [
+        {"step": 1, "command": "factory.ps1 install", "expected": "same as WF-1", "result": "PASS"},
+        {"step": 2, "command": "factory.ps1 bootstrap", "expected": "18/18 checks, Context Space flagged as required", "result": "PASS"},
+        {"step": 3, "command": "factory.ps1 preflight", "expected": "Context Space mount attempted, snapshot created", "result": "PASS"},
+        {"step": 4, "command": "factory.ps1 phase-close", "expected": "Context Space snapshot updated, guard written", "result": "PASS"}
+      ],
+      "verdict": "WORKFLOW_PASS"
+    }
+  ],
+  "summary": {
+    "total_workflows": 3,
+    "passed": 3,
+    "failed": 0,
+    "all_gates_triggered_correctly": true
+  },
+  "status": "CLEAN_USER_WORKFLOW_VERIFIED"
+}

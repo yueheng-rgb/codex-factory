@@ -1,0 +1,35 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "H",
+    "title": "RC Safety Gate Smoke",
+    "timestamp": "2026-06-28T20:37:00+08:00",
+    "safety_gates": {
+        "no_real_projects_secrets": "PASS",
+        "release_boundaries_preserved": "PASS",
+        "gates_preserved": "PASS",
+        "content_safety": "PASS",
+        "blocker_status_preserved": "PASS"
+    },
+    "flag_verification": {
+        "releaseAllowed": false,
+        "v05Package": false,
+        "finalRelease": false,
+        "rcCandidate": true,
+        "artifactType": "RELEASE_CANDIDATE"
+    },
+    "gate_preservation": {
+        "security_deploy_gate": {"preserved": true, "triggered": false},
+        "package_qa_gate": {"preserved": true, "triggered": false},
+        "context_space": {"preserved": true},
+        "diagnostic_gate": {"preserved": true},
+        "build_lite": {"preserved": true}
+    },
+    "blocker_status": {
+        "BLOCK_001": "STRONG_PARTIAL_EVIDENCE",
+        "BLOCK_002": "ACTIVE",
+        "BLOCK_003": "ACTIVE",
+        "BLOCK_004": "ACTIVE",
+        "v05": "BLOCKED"
+    },
+    "section_verdict": "PASS"
+}

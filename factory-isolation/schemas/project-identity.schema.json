@@ -1,0 +1,44 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "project-identity.schema.json",
+  "title": "Project Identity",
+  "type": "object",
+  "required": [
+    "projectId",
+    "projectName",
+    "rootPath",
+    "factoryInstallPath",
+    "governancePath",
+    "outputsPath",
+    "createdAt",
+    "lastMountedAt",
+    "status",
+    "pathFingerprint",
+    "contentFingerprint",
+    "userConfirmedIdentity"
+  ],
+  "properties": {
+    "projectId": { "type": "string", "format": "uuid" },
+    "projectName": { "type": "string", "minLength": 1 },
+    "rootPath": { "type": "string" },
+    "workingCopyPath": { "type": "string" },
+    "factoryInstallPath": { "type": "string" },
+    "externalConversationSpacePath": { "type": "string" },
+    "governancePath": { "type": "string" },
+    "outputsPath": { "type": "string" },
+    "agentLedgerPath": { "type": "string" },
+    "cleanupStatePath": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "lastMountedAt": { "type": "string", "format": "date-time" },
+    "status": {
+      "type": "string",
+      "enum": ["ACTIVE", "PAUSED", "ARCHIVED", "FROZEN", "DELETED", "MIGRATED", "UNKNOWN_NEEDS_CONFIRMATION"]
+    },
+    "parentProjectId": { "type": ["string", "null"], "format": "uuid" },
+    "sourceProjectId": { "type": ["string", "null"], "format": "uuid" },
+    "pathFingerprint": { "type": "string" },
+    "contentFingerprint": { "type": "string" },
+    "userConfirmedIdentity": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,47 @@
+{
+  "policyId": "H17-C-STALE-CONTEXT-DETECTION-POLICY",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T02:19:28.466143+08:00",
+  "generatedDuringPhase": "H17-C",
+  "nativeGenerated": true,
+  "detectionMethods": [
+    {
+      "method": "COMPRESSION_COUNTER_CHECK",
+      "description": "If counter gte 3 context is stale",
+      "gate": "compression-counter.json"
+    },
+    {
+      "method": "FACTORYCTL_VERIFY_BASELINE",
+      "description": "Run factoryctl verify at session start",
+      "gate": "factoryctl verify --json"
+    },
+    {
+      "method": "SHA256_STATE_CHAIN",
+      "description": "Compare state SHA256 with handoff SHA256",
+      "gate": "session-rotation-handoff.json"
+    },
+    {
+      "method": "AGENT_PROGRESS_TAIL",
+      "description": "Check last 5 progress events",
+      "gate": "AGENT_PROGRESS.jsonl"
+    },
+    {
+      "method": "ARTIFACT_VS_SUMMARY",
+      "description": "Compare handoff artifact list with repo files",
+      "gate": "summary-vs-artifact check"
+    }
+  ],
+  "staleContextIndicators": [
+    "compression counter unknown or missing",
+    "handoff SHA256 mismatch",
+    "AGENT_PROGRESS gaps",
+    "factoryctl verify different result",
+    "compressed summary claims without artifact paths",
+    "natural language differs from machine-readable state"
+  ],
+  "rules": {
+    "staleContextBlocksImplementation": true,
+    "staleContextRequiresFactoryctlVerify": true,
+    "summaryIsNotEvidenceOfFreshness": true
+  }
+}

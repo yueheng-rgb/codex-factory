@@ -1,0 +1,10 @@
+﻿{
+    "handoffId":  "SKILL-HOFF-SKILL-IMPORT-CAP-SKILL-004-20260709204342-VERIFIER-INTEGRATOR",
+    "timestamp":  "2026-07-09T20:43:42+08:00",
+    "pipelineId":  "SKILL-IMPORT-CAP-SKILL-004-20260709204342",
+    "capabilityId":  "CAP-SKILL-004",
+    "fromRole":  "VERIFIER",
+    "toRole":  "INTEGRATOR",
+    "decision":  "approved",
+    "summary":  "Verification complete with caveats"
+}

@@ -1,0 +1,65 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "K",
+  "title": "Release Blocker Recheck",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "recheck": [
+    {
+      "id": "BLOCK-001",
+      "blocker": "No vanilla Codex A/B comparison evidence",
+      "severity": "CRITICAL",
+      "before_r1": "ACTIVE_WITH_AB_DESIGN_READY",
+      "r1_impact": "Executed trial evidence collected. Factory 87 vs Vanilla 50 on InventoryOps. Not fully resolved.",
+      "new_status": "PARTIAL_EXECUTED_EVIDENCE"
+    },
+    {
+      "id": "BLOCK-002",
+      "blocker": "No production deployment validation",
+      "severity": "HIGH",
+      "before_r1": "ACTIVE",
+      "r1_impact": "No impact — R1 is local trial, not production deployment.",
+      "new_status": "ACTIVE"
+    },
+    {
+      "id": "BLOCK-003",
+      "blocker": "Local dev ≠ production readiness",
+      "severity": "CRITICAL",
+      "before_r1": "ACTIVE",
+      "r1_impact": "No impact — R1 does not address production readiness.",
+      "new_status": "ACTIVE"
+    },
+    {
+      "id": "BLOCK-004",
+      "blocker": "User explicit approval required",
+      "severity": "CRITICAL",
+      "before_r1": "ACTIVE",
+      "r1_impact": "No impact — user has not approved v0.5 release.",
+      "new_status": "ACTIVE"
+    },
+    {
+      "id": "BLOCK-005",
+      "blocker": "Phase-close verifier boundary",
+      "severity": "LOW",
+      "before_r1": "ACCEPTED_WITH_POLICY",
+      "r1_impact": "No impact.",
+      "new_status": "ACCEPTED_WITH_POLICY"
+    },
+    {
+      "id": "BLOCK-006",
+      "blocker": "Factory-side dependency",
+      "severity": "LOW",
+      "before_r1": "DOCUMENTED",
+      "r1_impact": "No impact.",
+      "new_status": "DOCUMENTED"
+    }
+  ],
+  "summary": {
+    "total": 6,
+    "partial_executed_evidence": 1,
+    "active": 3,
+    "accepted": 1,
+    "documented": 1,
+    "v0_5_verdict": "BLOCKED — 3 CRITICAL/HIGH ACTIVE, 1 PARTIAL_EXECUTED_EVIDENCE. v0.5 not ready."
+  },
+  "status": "BLOCKER_RECHECK_COMPLETE"
+}

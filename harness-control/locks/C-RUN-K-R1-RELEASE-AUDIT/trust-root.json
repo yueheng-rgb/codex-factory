@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  193,
+    "frozenAt":  "2026-06-19T22:41:23.0906565+08:00",
+    "runId":  "C-RUN-K-R1-RELEASE-AUDIT",
+    "trustRootFile":  "C:\\Codex_App_Factory\\habit-tracker-k\\..\\harness-control\\locks\\C-RUN-K-R1-RELEASE-AUDIT\\trust-root.json",
+    "controlPlaneLockSha256":  "6c57345b6b11fb01e1a1e6085c5b0896100311a0ec533176633e92ae9438775b",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "9b2f044561efa25c8f5853a82b90dfbc1f7b3268e4db1e152869cdde13a59955"
+}

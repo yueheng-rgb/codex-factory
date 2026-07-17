@@ -1,0 +1,18 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-LESSONS-0-E",
+  "timestamp": "2026-06-27T00:20:00+08:00",
+  "proposedImprovements": [
+    {"id":"IMP01","name":"Quick-Start Mode","description":"~12-item checklist skipping CANNOT_EVALUATE items (UI states, runtime evidence with no running app). For first-pass diagnostic on projects <50 files.","implementation":"Documentation-only: add quick-checklist.md to diagnostic pack. No code changes."},
+    {"id":"IMP02","name":"Student-Project Mode","description":"Adjusted floor expectations. Student projects can pass with documentation gaps but NOT with security/auth gaps.","implementation":"Add student-project-floor.json to diagnostic pack."},
+    {"id":"IMP03","name":"Report-vs-Source Mode","description":"Focused mode for projects with docx/pdf reports making implementation claims. Prioritizes C (report/source consistency) over other checks.","implementation":"Documentation-only: add report-vs-source-mode.md."},
+    {"id":"IMP04","name":"API-Client Mismatch Scanner","description":"Automated hint: compare frontend api/index.js calls against backend route files. Flag discrepancies.","implementation":"Documentation pattern: manual check enhanced with grep-like hints. No automation script."},
+    {"id":"IMP05","name":"Server-Entry Ambiguity Checker","description":"Detect when project has multiple index.js/app.js/main.js entry points pointing to different implementations.","implementation":"Documentation: add 'multiple entry point' to architecture review checklist."},
+    {"id":"IMP06","name":"JWT/Config Consistency Checker","description":"Compare .env values against hardcoded secrets in middleware. Flag mismatches.","implementation":"Documentation pattern: check-list item RV10 enhanced."},
+    {"id":"IMP07","name":"Zero-Test Detector","description":"Quick scan: any test framework config? any test files? any test script in package.json? If all no → flag.","implementation":"Already covered by G (test quality review). Enhance with explicit zero-test flag."},
+    {"id":"IMP08","name":"Dist/Build Source Boundary Checker","description":"Detect dist/ or build/ directories in source tree. Flag as potential source/build confusion.","implementation":"Already covered by RV20. Add explicit dist/ detection hint."},
+    {"id":"IMP09","name":"Stop-After-Diagnostic Rule","description":"Explicit rule: after diagnostic, stop and report findings. Only proceed to repair if user explicitly requests it. Prevent diagnostic→repair drift.","implementation":"Add STOP_AFTER_DIAGNOSTIC rule to BOUNDARY.md and DAILY_USE.md."},
+    {"id":"IMP10","name":"Evidence Object vs Main Project Distinction","description":"When using diagnostic on a real project for Factory evidence: label project as EVIDENCE_OBJECT. Do not let repair become main line.","implementation":"Add to when-to-use.md and RUN_METADATA template."}
+  ],
+  "implementationGuidance": "All improvements are DOCUMENTATION-ONLY or low-risk checklist enhancements. No code changes to diagnostic pack scripts. No new verifier logic needed. Implement in FACTORY-DIAGNOSTIC-PACK-P1 if user approves.",
+  "riskAssessment": "LOW — all changes are additive documentation. No breaking changes to existing checklist or verifier."
+}

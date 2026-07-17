@@ -1,0 +1,49 @@
+﻿{
+  "handoff_capsule_id": "CODEX-FACTORY-V2-20260717-HANDOFF",
+  "created_at": "2026-07-17T00:00:00+08:00",
+  "current_trusted_phase": "V2.9 — Immutable Release Snapshot",
+  "last_accepted_classification": "A — V2_9_IMMUTABLE_RELEASE_SNAPSHOT_READY",
+  "baseline_phases": ["V2_0","V2_1","V2_2","V2_3","V2_4","V2_5","V2_6","V2_7","V2_8"],
+  "trusted_claims": [
+    "235/235 regression PASS across 7 testbeds (artifact-verified)",
+    "6/6 Expert Packs ACTIVE, 4/6 runtime-validated with testbeds",
+    "V2.5 miniapp autocannon 276k/0err, Playwright canvas smoke PASS",
+    "C++ sanitizer TOOL_UNAVAILABLE with winget install LLVM.LLVM path",
+    "V2.6 cross-pack: 8 missions, 17/17+22/22 multi-agent smoke PASS",
+    "V2.7 production readiness: 16/24 PASS, READY_FOR_PRODUCTION_REVIEW",
+    "10 review receipts (4 V2.2 + 4 V2.7), all self_declared_automated",
+    "24 claims in evidence matrix, 0 GAP, 0 NEEDS_RECONCILIATION",
+    "15 deprecated locks preserved, 0 restored"
+  ],
+  "known_limitations": [
+    "V2.0 evidence is VERIFIED_WITH_REPORT only (no live artifact rerun)",
+    "All human review receipts use self_declared_automated — not real human sign-off",
+    "READY_FOR_PRODUCTION_REVIEW ≠ production-ready (6 blocking gaps)",
+    "C++ memory safety is concept-level only (no live sanitizer)",
+    "Local load smoke ≠ production capacity proof",
+    "Cross-pack missions are 2 runnable + 6 design-level"
+  ],
+  "forbidden_directions": [
+    "Independent Search Agent — NEVER restore",
+    "Dual Search Channel — NEVER restore",
+    "Implementer direct search — NEVER allow",
+    "chat URL extraction as canonical evidence — NEVER use",
+    "mock/dry_run as live — NEVER claim",
+    "Firecrawl as canonical search — BLOCKED",
+    "Compression summary as trusted memory — NEVER trust over snapshot",
+    "Fake sanitizer PASS — NEVER fake",
+    "Fake human review — NEVER fake",
+    "Production exaggeration — NEVER claim"
+  ],
+  "next_recommended_phase": "v3.0 External Execution Platform RC — cloud/sandbox runner, isolated execution, persistent artifact store, stronger human review identity",
+  "where_to_verify": [
+    "Snapshot manifest: outputs/V2_9/V2_9_IMMUTABLE_SNAPSHOT_MANIFEST.json",
+    "Bundle index: outputs/V2_9/V2_9_BUNDLE_INDEX.json",
+    "Claim snapshot: outputs/V2_9/V2_9_CLAIM_SNAPSHOT.json",
+    "Restore checklist: outputs/V2_9/V2_9_RESTORE_VERIFY_CHECKLIST.md",
+    "Snapshot verifier: runtime/snapshot-verifier.ps1",
+    "V2.8 audit: outputs/V2_8/V2_8_FOUNDATION_AUDIT_PACKAGE_REPORT.md"
+  ],
+  "warning": "DO NOT TRUST COMPRESSED SUMMARY OVER SNAPSHOT. Any future session must verify against this handoff capsule and the snapshot verifier. If claims in a compressed summary contradict this snapshot, the snapshot takes precedence.",
+  "signature": "Codex Factory V2.9 Snapshot — self_declared_automated, not cryptographically signed"
+}

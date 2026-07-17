@@ -1,0 +1,7 @@
+﻿# Agent Handoff Index
+# Format: JSONL (one JSON object per line)
+# Created: 2026-07-05
+# Phase: FACTORY-R2.1-INFRA-MVP
+#
+{"caveats":["Dark mode not yet implemented"],"requiresApproval":false,"phaseId":"PHASE-SIM-001","projectId":"PROJ-SIM-001","inputRefs":["projects/PROJ-SIM-001/docs/architecture/design.md"],"outputRefs":["projects/PROJ-SIM-001/src/app/page.tsx"],"status":"PENDING","verificationResults":{"negativeControlsPassed":3,"negativeControlsFailed":0,"verdict":"PASS","testsPassed":5,"testsSkipped":0,"testsFailed":0},"fromAgent":"IMPL-FE-001","handoffType":"IMPLEMENTATION_COMPLETE","taskId":"TASK-001","handoffId":"HANDOFF-SIM-001","blockers":[],"nextRecommendedAction":"Integrate with backend implementation","toAgent":"INTG-001","timestamp":"2026-07-05T21:38:49+08:00","filesChanged":[{"path":"projects/PROJ-SIM-001/src/app/page.tsx","checksum":"abc123","action":"created"}],"contractId":"FC-PROJ-SIM-001-FE-001","commandsRun":["npm run build"]}
+{"toAgent":"INTG-001","filesChanged":[],"nextRecommendedAction":"Review","projectId":"PROJ-VERIFY-001","taskId":"TASK-001","handoffId":"HANDOFF-VFY-001","phaseId":"PHASE-VERIFY-001","status":"PENDING","fromAgent":"IMPL-FE-001","handoffType":"IMPLEMENTATION_COMPLETE","timestamp":"2026-07-05T21:38:57+08:00"}

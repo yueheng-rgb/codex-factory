@@ -1,0 +1,39 @@
+﻿{
+    "index_id":  "ART-INDEX-V3",
+    "created_at":  "2026-07-17T15:09:05.0959811+08:00",
+    "artifacts":  [
+                      {
+                          "path":  "C:\\Codex_App_Factory\\artifacts\\runs\\DEMO-001-150926\\run-record.json",
+                          "artifact_id":  "ART-DEMO-001-150926",
+                          "size":  536,
+                          "retention_policy":  "phase_duration",
+                          "created_at":  "2026-07-17T15:09:26.4382720+08:00",
+                          "final_status":  "PASS",
+                          "sha256":  "E09BE93EC0AED0C76ACF05B130FB27BF59BF3B016BE2DBE26E798964CB6569EB",
+                          "run_id":  "DEMO-001-150926",
+                          "exit_code":  0
+                      },
+                      {
+                          "path":  "C:\\Codex_App_Factory\\artifacts\\runs\\DEMO-002-150929\\run-record.json",
+                          "artifact_id":  "ART-DEMO-002-150929",
+                          "size":  551,
+                          "retention_policy":  "phase_duration",
+                          "created_at":  "2026-07-17T15:09:29.8960521+08:00",
+                          "final_status":  "FAIL",
+                          "sha256":  "4321CB0FDC82C036215DD0DFF6F8D77FC1FD8F85B40A1744A622095715561EC3",
+                          "run_id":  "DEMO-002-150929",
+                          "exit_code":  1
+                      },
+                      {
+                          "path":  "C:\\Codex_App_Factory\\artifacts\\runs\\DEMO-004-150930\\run-record.json",
+                          "artifact_id":  "ART-DEMO-004-150930",
+                          "size":  656,
+                          "retention_policy":  "phase_duration",
+                          "created_at":  "2026-07-17T15:09:30.0083509+08:00",
+                          "final_status":  "PASS",
+                          "sha256":  "54723595E595A8C86EF14C6680DA8A6213CA9017350C6B14EBC23DEDF46CD3D9",
+                          "run_id":  "DEMO-004-150930",
+                          "exit_code":  0
+                      }
+                  ]
+}

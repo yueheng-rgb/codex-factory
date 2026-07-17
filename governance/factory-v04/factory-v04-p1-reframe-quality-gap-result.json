@@ -1,0 +1,29 @@
+﻿{
+    "v04Status":  "DRAFT_NOT_RELEASED",
+    "changes":  {
+                    "evidenceReconciled":  true,
+                    "productQualityConditional":  true,
+                    "newPositioning":  "PROCESS_INTEGRITY_LAYER",
+                    "manifestUpdated":  true,
+                    "escalationRepaired":  true,
+                    "positioningReframed":  true,
+                    "qualityGapTriggersAdded":  true,
+                    "reviewerP1Added":  true
+                },
+    "negativeControls":  {
+                             "gaps":  0,
+                             "total":  26,
+                             "passed":  26
+                         },
+    "recommendation":  "USER_REVIEW — then EVAL-14, EVAL-15, or RELEASE-PREP",
+    "releaseZipCreated":  false,
+    "phase":  "FACTORY-V04-P1",
+    "timestamp":  "2026-06-25T22:20:48+08:00",
+    "status":  "COMPLETE",
+    "title":  "v0.4 Reframe + Quality Gap Repair",
+    "verifier":  {
+                     "failed":  0,
+                     "total":  21,
+                     "passed":  21
+                 }
+}

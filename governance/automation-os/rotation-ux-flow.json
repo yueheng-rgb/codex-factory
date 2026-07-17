@@ -1,0 +1,120 @@
+﻿{
+    "version":  "1.0.0",
+    "corePrinciples":  [
+                           "Semi-automatic means: system prepares; user confirms/opens carrier; new carrier verifies",
+                           "UX is not evidence",
+                           "Alert is not PASS",
+                           "Payload is not trusted state",
+                           "Startup verification remains mandatory"
+                       ],
+    "description":  "Semi-automatic rotation UX flows: system prepares; user confirms/opens carrier; new carrier verifies.",
+    "generatedAt":  "2026-06-25T00:57:16+08:00",
+    "phase":  "LIVE-RUNTIME-10-A",
+    "schemaId":  "rotation-ux-flow",
+    "flows":  [
+                  {
+                      "userFacingInstruction":  "No rotation needed. Factory state is clean. Continue current work.",
+                      "id":  "FLOW-WATCHER_OK",
+                      "watcherVerdict":  "WATCHER_OK",
+                      "allowedNextActions":  [
+                                                 "continue_current_phase",
+                                                 "narrow_task"
+                                             ],
+                      "requiredArtifacts":  [
+
+                                            ],
+                      "machineAction":  "no_action",
+                      "newWindowRequired":  false,
+                      "verifierCommands":  [
+
+                                           ],
+                      "forbiddenActions":  [
+
+                                           ],
+                      "userActionRequired":  false
+                  },
+                  {
+                      "userFacingInstruction":  "Rotation recommended before starting any new major phase. Current window may finish narrow tasks. Open new window with startup packet for major phase work.",
+                      "id":  "FLOW-ROTATION_RECOMMENDED",
+                      "watcherVerdict":  "ROTATION_RECOMMENDED",
+                      "allowedNextActions":  [
+                                                 "finish_current_narrow_task",
+                                                 "open_new_window_for_major_phase"
+                                             ],
+                      "requiredArtifacts":  [
+                                                "startup_packet",
+                                                "execution_packet",
+                                                "evidence_paths"
+                                            ],
+                      "machineAction":  "generate_rotation_payload",
+                      "newWindowRequired":  "recommended_before_major_phase",
+                      "verifierCommands":  [
+                                               "factoryctl verify --json",
+                                               "cross-session reconciliation",
+                                               "startup verification contract"
+                                           ],
+                      "forbiddenActions":  [
+                                               "start_new_major_phase_in_current_window",
+                                               "ignore_rotation_recommendation_for_major_phase"
+                                           ],
+                      "userActionRequired":  true
+                  },
+                  {
+                      "userFacingInstruction":  "ROTATION REQUIRED. Current window may ONLY finish its current narrow task. Do NOT start any new major phase. Open a new Codex window, paste the startup packet below, and run startup verification before continuing.",
+                      "id":  "FLOW-ROTATION_REQUIRED",
+                      "watcherVerdict":  "ROTATION_REQUIRED",
+                      "allowedNextActions":  [
+                                                 "finish_current_narrow_task_only"
+                                             ],
+                      "requiredArtifacts":  [
+                                                "startup_packet",
+                                                "execution_packet",
+                                                "context_packet",
+                                                "factory_state",
+                                                "evidence_paths",
+                                                "verifier_commands"
+                                            ],
+                      "machineAction":  "generate_rotation_payload_blocking",
+                      "newWindowRequired":  true,
+                      "verifierCommands":  [
+                                               "factoryctl verify --json",
+                                               "cross-session reconciliation",
+                                               "startup verification contract",
+                                               "capacity preflight"
+                                           ],
+                      "forbiddenActions":  [
+                                               "start_new_major_phase",
+                                               "spawn_new_workers",
+                                               "extend_current_phase",
+                                               "ignore_rotation"
+                                           ],
+                      "userActionRequired":  true
+                  },
+                  {
+                      "userFacingInstruction":  "WATCHER ERROR. Rotation watcher could not complete. Manual inspection required before any phase continuation. Do NOT assume state is clean.",
+                      "id":  "FLOW-WATCHER_ERROR",
+                      "watcherVerdict":  "WATCHER_ERROR",
+                      "allowedNextActions":  [
+                                                 "manual_inspection_only",
+                                                 "report_watcher_error"
+                                             ],
+                      "requiredArtifacts":  [
+                                                "watcher_error_output",
+                                                "factory_state"
+                                            ],
+                      "machineAction":  "block_major_phase_require_inspection",
+                      "newWindowRequired":  "manual_inspection_required",
+                      "verifierCommands":  [
+                                               "factoryctl verify --json",
+                                               "manual inspection"
+                                           ],
+                      "forbiddenActions":  [
+                                               "start_any_phase",
+                                               "spawn_workers",
+                                               "assume_clean_state",
+                                               "ignore_error"
+                                           ],
+                      "userActionRequired":  true
+                  }
+              ]
+}

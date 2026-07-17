@@ -1,0 +1,132 @@
+﻿{
+    "passed":  20,
+    "gaps":  [
+
+             ],
+    "verdict":  "PASS",
+    "failed":  0,
+    "checks":  [
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP FAIL not converted",
+                       "id":  "01",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP output machine-readable",
+                       "id":  "02",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP preserves risk signals",
+                       "id":  "03",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP has configurable repo path",
+                       "id":  "04",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP marked EXPERIMENTAL",
+                       "id":  "05",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "MCP tool schema exists",
+                       "id":  "06",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "factory.verify prototype exists",
+                       "id":  "07",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "validateResourcePack FAIL preserved",
+                       "id":  "08",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "FAIL sample shows FAIL verdict",
+                       "id":  "09",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No full context inheritance claim",
+                       "id":  "10",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Artifact handoff remains primary",
+                       "id":  "11",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No compressed summary as evidence",
+                       "id":  "12",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Automation NOT production-ready",
+                       "id":  "13",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Automation must not mutate state",
+                       "id":  "14",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Automation alert != verifier PASS",
+                       "id":  "15",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "Plugin remains EXPERIMENTAL",
+                       "id":  "16",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No unverified VERIFIED_FACT",
+                       "id":  "17",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No final ZIP",
+                       "id":  "18",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "No conversation memory as evidence",
+                       "id":  "19",
+                       "signalDetected":  true
+                   },
+                   {
+                       "verdict":  "PASS",
+                       "description":  "All negatives have specific checks",
+                       "id":  "20",
+                       "signalDetected":  true
+                   }
+               ],
+    "phase":  "H20-E",
+    "totalNegatives":  20
+}

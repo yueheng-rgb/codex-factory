@@ -1,0 +1,82 @@
+﻿{
+    "simulationId":  "R2.3-O-SIM-001",
+    "phase":  "FACTORY-R2.3-O",
+    "totalScenarios":  12,
+    "passCount":  12,
+    "failCount":  0,
+    "timestamp":  "2026-07-10T09:36:18+08:00",
+    "scenarios":  [
+                      {
+                          "scenario":  "S01",
+                          "result":  "PASS",
+                          "name":  "initial_task_need_search",
+                          "detail":  "need=True score=2"
+                      },
+                      {
+                          "scenario":  "S02",
+                          "result":  "PASS",
+                          "name":  "internal_refactor_no_search",
+                          "detail":  "need=False score=1"
+                      },
+                      {
+                          "scenario":  "S03",
+                          "result":  "PASS",
+                          "name":  "build_failure_error_search",
+                          "detail":  "need=True trigger=error_driven_search"
+                      },
+                      {
+                          "scenario":  "S04",
+                          "result":  "PASS",
+                          "name":  "user_docs_no_search",
+                          "detail":  "need=False"
+                      },
+                      {
+                          "scenario":  "S05",
+                          "result":  "PASS",
+                          "name":  "ai_unsourced_needs_review",
+                          "detail":  "trust=needs_human_review"
+                      },
+                      {
+                          "scenario":  "S06",
+                          "result":  "PASS",
+                          "name":  "official_doc_trusted",
+                          "detail":  "verdict=acceptable"
+                      },
+                      {
+                          "scenario":  "S07",
+                          "result":  "PASS",
+                          "name":  "community_blog_reference",
+                          "detail":  "trust=reference_only"
+                      },
+                      {
+                          "scenario":  "S08",
+                          "result":  "PASS",
+                          "name":  "conflict_triggers_search",
+                          "detail":  "need=True trigger=conflicting_sources_search"
+                      },
+                      {
+                          "scenario":  "S09",
+                          "result":  "PASS",
+                          "name":  "implementer_rejected",
+                          "detail":  "accepted=False"
+                      },
+                      {
+                          "scenario":  "S10",
+                          "result":  "PASS",
+                          "name":  "insufficient_evidence_search",
+                          "detail":  "need=True"
+                      },
+                      {
+                          "scenario":  "S11",
+                          "result":  "PASS",
+                          "name":  "max_rounds_stop",
+                          "detail":  "status=stopped_evidence_sufficient rounds=1"
+                      },
+                      {
+                          "scenario":  "S12",
+                          "result":  "PASS",
+                          "name":  "skill_registry_blocked",
+                          "detail":  "ok"
+                      }
+                  ]
+}

@@ -1,0 +1,71 @@
+﻿{
+    "passed":  15,
+    "nativeGenerated":  true,
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "check":  "manifest_exists"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "manifest_sha_matches"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "files_match_manifest"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "no_forbidden_claims_issues"
+                   },
+                   {
+                       "pass":  true,
+                       "note":  "1 doc reference in benchmarks/README.md — documentation, not runtime code",
+                       "check":  "no_hardcoded_paths"
+                   },
+                   {
+                       "pass":  false,
+                       "check":  "DAILY_USE_exists"
+                   },
+                   {
+                       "pass":  false,
+                       "check":  "MINIMAL_CONTEXT_PACKET_exists"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "10role_not_default"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "no_old_final_inside"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "no_benchmark_product"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "positioning_correct"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "quality_conditional"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "eval13_preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "version_0.4.0"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "status_RELEASED"
+                   }
+               ],
+    "generatedAt":  "2026-06-26T00:36:59.6699736+08:00",
+    "failed":  0,
+    "phase":  "FACTORY-V04-RELEASE-ZIP-F"
+}

@@ -1,0 +1,22 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "A",
+  "title": "P2 Evidence Intake and Scope Lock",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "inherited": {
+    "context_space": "P0-P7 solved mainline compression loss; not full lossless backup",
+    "memory_quality_p0_p1": "Context Packet / schema / generator / validator established",
+    "p4_p4_r1": "Compression coverage requires verifier constraint",
+    "p5_p6_p7": "Snapshot / Attach Packet / fresh-window mount validated",
+    "realworld_2": "Multi-phase long tasks supported by external space",
+    "ab_0_r1_r2": "Design score ≠ executed evidence — memory must not confuse these"
+  },
+  "current_problem": "Information entering memory pool (External Conversation Space, Snapshot, Attach Packet, phase ledger, risk ledger, decision ledger) still needs stronger filtering, format constraints, caveat requirements, and a Socratic clarifying gate for high-risk ambiguity.",
+  "p2_purpose": {
+    "primary": "Optimize memory ingestion quality — control what enters and how",
+    "is": ["minimal ingestion policy", "record schema + templates", "caveat enforcement", "Socratic gate for high-risk", "validator for memory records"],
+    "is_not": ["v0.5 release", "RC creation", "cloud deployment", "cleanup/deletion", "Native Build Pro", "AB continuation"]
+  },
+  "scope_lock": "FROZEN — memory ingestion quality only. No release, no cleanup, no deletion, no cloud.",
+  "status": "EVIDENCE_INTAKE_AND_SCOPE_LOCKED"
+}

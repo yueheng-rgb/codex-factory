@@ -1,0 +1,58 @@
+﻿{
+    "phase":  "H21-C",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-24T19:55:21+08:00",
+    "boundaries":  [
+                       {
+                           "mechanism":  "Separate verdict enum: MONITORING_PASS/ALERT/ERROR vs PASS/FAIL",
+                           "rule":  "Automation alert is not verifier PASS",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "evidenceWeight: signal-only",
+                           "rule":  "Monitoring result is not phase closure evidence",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "doesNotMutateState: true enforced in schema",
+                           "rule":  "Monitoring must be readonly",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "No write path in monitoring script",
+                           "rule":  "Monitoring cannot update currentTrustedPhase",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "No phase verdict in monitoring output",
+                           "rule":  "Monitoring cannot mark phase PASS",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "No file creation in monitoring",
+                           "rule":  "Monitoring cannot create final ZIP",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "Readonly access only",
+                           "rule":  "Monitoring cannot archive/modify evidence",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "factoryctl verify result passed through verbatim",
+                           "rule":  "Monitoring cannot suppress verifier FAIL",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "Separate verdict enum — no conversion path",
+                           "rule":  "Monitoring cannot convert alert to PASS",
+                           "enforced":  true
+                       },
+                       {
+                           "mechanism":  "recommendedAction field is advisory, not executable",
+                           "rule":  "Monitoring can recommend action only",
+                           "enforced":  true
+                       }
+                   ],
+    "verdict":  "PASS"
+}

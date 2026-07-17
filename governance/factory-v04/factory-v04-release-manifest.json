@@ -1,0 +1,293 @@
+﻿{
+    "positioning":  "PROCESS_INTEGRITY_LAYER",
+    "forbiddenClaims":  [
+                            "v0.4 universally improves product quality",
+                            "v0.4 always beats Vanilla",
+                            "Factory Lite guarantees better output",
+                            "process artifacts equal product quality",
+                            "proof-of-read proves correctness",
+                            "10-role model is default",
+                            "automation creates new context",
+                            "plugin is production ready unless separately proven"
+                        ],
+    "twoBenchmarkLimitation":  true,
+    "totalFiles":  47,
+    "sourceEvidence":  [
+                           "FACTORY-EVAL-8",
+                           "FACTORY-EVAL-13",
+                           "FACTORY-V04-P1",
+                           "FACTORY-V04-P2"
+                       ],
+    "archivedModules":  [
+                            "10-role model (archive/)"
+                        ],
+    "version":  "0.4.0",
+    "optionalModules":  [
+                            "3-role profiles (architect/builder/reviewer)",
+                            "quality-gap reviewer checklist"
+                        ],
+    "userConfirmationReceived":  true,
+    "description":  "Process integrity layer for Codex-assisted development.",
+    "name":  "Codex Factory v0.4 Resource Pack",
+    "productQualityImprovement":  "CONDITIONAL_NOT_GUARANTEED",
+    "deferredModules":  [
+                            "Context OS",
+                            "MCP Memory",
+                            "Automation Watcher",
+                            "Session Controller",
+                            "10-role model"
+                        ],
+    "tenRoleDefault":  false,
+    "eval13InconclusivePreserved":  true,
+    "releaseDate":  "2026-06-26T00:36:07.6025467+08:00",
+    "status":  "RELEASED",
+    "sourceRC":  "factory-resource-pack-v0.4-rc/",
+    "proofOfReadProvesCorrectness":  false,
+    "userConfirmationRequired":  true,
+    "files":  [
+                  {
+                      "path":  "archive/10-role-model-archive-note.json",
+                      "sha256":  "C8E0CF53B4ACB63FA602326AAD2719C1510298834B149D9919933D9E41C8D896",
+                      "size":  464
+                  },
+                  {
+                      "path":  "archive/README.md",
+                      "sha256":  "B4A1C4EC20D9C15259448F460D081B7A214F1009937880480E06FBE9F9892F68",
+                      "size":  1077
+                  },
+                  {
+                      "path":  "benchmarks/README.md",
+                      "sha256":  "76B2CDA97DB674B49F6612C2E66078311DFD45036CA492BBAA6B3427EB8C756E",
+                      "size":  880
+                  },
+                  {
+                      "path":  "BOUNDARY.md",
+                      "sha256":  "0E42BAF0537FA7DDFDFE10DA60D9F70A968645307DE5D943D4DC7EC76273F22E",
+                      "size":  1224
+                  },
+                  {
+                      "path":  "CHANGELOG.md",
+                      "sha256":  "4277A34DB6E6D703A1D75B0705FD922548996D7E0633FAF22C97A7C1992DAFEF",
+                      "size":  775
+                  },
+                  {
+                      "path":  "context-recovery-deferred/multi-agent-escalation-policy.json",
+                      "sha256":  "A4A5A05526AEC281D25BECDC5C9FA491F27CD8A42E65CE6B066FF778DE8FBB0B",
+                      "size":  2902
+                  },
+                  {
+                      "path":  "context-recovery-deferred/README.md",
+                      "sha256":  "E7C02E38DA6A31F1C259B5767849EE9BBBCFC955AB03E1AA9A228A1390A517FA",
+                      "size":  1416
+                  },
+                  {
+                      "path":  "core/ALWAYS_ON_CONSTITUTION.md",
+                      "sha256":  "6C7EEE6FD735E83DCBFF02E922FA1908432FE31549F1D48DF51EA822F49F015B",
+                      "size":  1934
+                  },
+                  {
+                      "path":  "core/anti-gaming-policy.json",
+                      "sha256":  "31FD8B2285F5D4A105ACA88AC4206CAACD11A560736BAC81C53F0243921BEAC6",
+                      "size":  998
+                  },
+                  {
+                      "path":  "core/contamination-logging-policy.json",
+                      "sha256":  "46B3FD5BEA59EFF559DE087F36929975E8B0C110E60DEA2B4F32594B92EB2967",
+                      "size":  650
+                  },
+                  {
+                      "path":  "core/context-budget-policy.json",
+                      "sha256":  "52583D46CAFE2BF79F54A8243BC06DF35DA1C0BC444AD31AB04DB6C620B54A22",
+                      "size":  532
+                  },
+                  {
+                      "path":  "core/evidence-hierarchy.md",
+                      "sha256":  "4BF539EFAA64FFFF30D9BE6617850646D624874D80466BAF38DA388F15159CDB",
+                      "size":  955
+                  },
+                  {
+                      "path":  "core/manual-index.json",
+                      "sha256":  "FD37F799465D0DC730462E430A5C9870F0F6D83352B77820AEA57431F0DB3E75",
+                      "size":  1581
+                  },
+                  {
+                      "path":  "core/MINIMAL_CONTEXT_PACKET.md",
+                      "sha256":  "013BBF0EAC809EB1248706D9D24C306B077587604E3EBC73599753743FE8B467",
+                      "size":  2704
+                  },
+                  {
+                      "path":  "core/page-router.json",
+                      "sha256":  "EDF159A2A1880089C7A7E1BA83C464C26D2CA385B5EC273C8EC5EBA2D9D75F6F",
+                      "size":  1098
+                  },
+                  {
+                      "path":  "core/proof-of-read.schema.json",
+                      "sha256":  "D0ADB7164948FD3688AED8FA3A93D55D3D3FF6D8FF2C915CA01D0C79C9CA5458",
+                      "size":  983
+                  },
+                  {
+                      "path":  "core/proof-of-read-policy.json",
+                      "sha256":  "ABCABBAC49D24B8FE990E9E8434C8F572D55B9591260CD80095776BB1294D3B5",
+                      "size":  848
+                  },
+                  {
+                      "path":  "core/quality-gap-trigger-policy.json",
+                      "sha256":  "6EBC79910521823525C23A2F5D48BD793C743943B416F9ECC7951970C59BC2D0",
+                      "size":  6382
+                  },
+                  {
+                      "path":  "core/required-reading-gate-policy.json",
+                      "sha256":  "A141716E4A1BEE0321F8736FD0D5CB22E62CF33BA7B57B79C46E57517864BCF8",
+                      "size":  513
+                  },
+                  {
+                      "path":  "core/same-requirements-policy.json",
+                      "sha256":  "474266AFDA3A24720FC59AF7C11A7ECC71A08E81EF7041FD0B575FC080F81D23",
+                      "size":  466
+                  },
+                  {
+                      "path":  "DAILY_USE.md",
+                      "sha256":  "E2892F095DE239EB2D914F01CA39385D691AB5FEB8378AD3D9DC7FB168172173",
+                      "size":  2212
+                  },
+                  {
+                      "path":  "DO_NOT_CLAIM_UNIVERSAL_QUALITY.md",
+                      "sha256":  "E5788086372D6FCAF160F7072AE3D98A96ADA14F0A1D3B8AF3FF1AA5E9BEC379",
+                      "size":  609
+                  },
+                  {
+                      "path":  "docs/COMMON_FAILURE_MODES.md",
+                      "sha256":  "104A227ED8DE9F786D6CBC7488CA55C933DCE567AA6299050DAF61985319C3CC",
+                      "size":  1770
+                  },
+                  {
+                      "path":  "docs/README.md",
+                      "sha256":  "6A2EC2752F3E9390B7511CC2165DC8FFF150CBAD189087EDAC711C2C95CE6F8A",
+                      "size":  902
+                  },
+                  {
+                      "path":  "docs/WHEN_NOT_TO_USE_FACTORY.md",
+                      "sha256":  "961D1A9163B877A3F53ED62478C1C37E7C2F5A1540806186C70E4512B3EC42EF",
+                      "size":  1045
+                  },
+                  {
+                      "path":  "docs/WHEN_TO_USE_FACTORY_LITE.md",
+                      "sha256":  "0E46C402A46FC2BC4AB245F12223F7082293A10327B70F0A61CBA466AC984154",
+                      "size":  1431
+                  },
+                  {
+                      "path":  "EVIDENCE_BASIS.md",
+                      "sha256":  "3A23DCB82B3F397967582F8CBCC72E5F3E6B5A4F1C6CCCF7612E92B5E8C73882",
+                      "size":  1437
+                  },
+                  {
+                      "path":  "INSTALL.md",
+                      "sha256":  "80F23735EBC88F595605C750F9F655D300139E5531679850ABE65E100AFBF4B1",
+                      "size":  691
+                  },
+                  {
+                      "path":  "MANIFEST.json",
+                      "sha256":  "9F0EB55D3BBC9F823D1B1770F01401971DE4E3B4934D51CB035FF20420FC451C",
+                      "size":  15891
+                  },
+                  {
+                      "path":  "MANIFEST.sha256",
+                      "sha256":  "9EBA88C6810ACB40A0D072F9E1E06815F0D159255A317E6571D9FAFCC596C44C",
+                      "size":  64
+                  },
+                  {
+                      "path":  "optional-3role/architect-profile.json",
+                      "sha256":  "CE2D09ADDE30DE91AC2B23BAB3AFDF3CAF2AE93807E990AC8997B556FEF3A254",
+                      "size":  518
+                  },
+                  {
+                      "path":  "optional-3role/builder-profile.json",
+                      "sha256":  "4913D49B96529F050C9D55A357D28E03DC0C9C941EBC941F6F85B816E9583648",
+                      "size":  440
+                  },
+                  {
+                      "path":  "optional-3role/README.md",
+                      "sha256":  "8A8626D6DA024F5631151001149280C975EF69FEB2C8B56CB0F67046C963A91D",
+                      "size":  757
+                  },
+                  {
+                      "path":  "optional-3role/reviewer-profile.json",
+                      "sha256":  "E47D2B09462926D0F653AC4604F2A6C5D3F401E2B8FC91390C41A4576085371D",
+                      "size":  535
+                  },
+                  {
+                      "path":  "POSITIONING.md",
+                      "sha256":  "BDA4B03DE2B2E7CF39C91123BC8DA8C9F7A8D30E3A64F1B921428D1EFBD1142F",
+                      "size":  2674
+                  },
+                  {
+                      "path":  "README.md",
+                      "sha256":  "83199C4BBC36C88C1487C051A97ECE6757D503C1738A21104E9B90AB09571068",
+                      "size":  1118
+                  },
+                  {
+                      "path":  "RELEASE_NOTES_RC.md",
+                      "sha256":  "BF1364C6688B87ADEE4A6DAF637FF9426D043852477E210ABE0688631453B1FD",
+                      "size":  1567
+                  },
+                  {
+                      "path":  "review/quality-gap-reviewer-checklist.json",
+                      "sha256":  "4CA8912706839779A35178F1B112207E763858989E6123A926E85143D9690189",
+                      "size":  5559
+                  },
+                  {
+                      "path":  "review/README.md",
+                      "sha256":  "A5ECE766E4E45764D6527C3F46608F2E663C8066BC1DD6E822BF5A07F891C6FC",
+                      "size":  548
+                  },
+                  {
+                      "path":  "review/reviewer-checklist.json",
+                      "sha256":  "72BBD6D17FD647E6ED335BDC27AE689116DBEFE41D5D0A6F933938140116CAA2",
+                      "size":  1258
+                  },
+                  {
+                      "path":  "ROLLBACK_AND_REMOVAL.md",
+                      "sha256":  "B6A7363844A6AE48C95554B67D643C38FAE3B033EF76FFB3CAA738E6D92E83B7",
+                      "size":  428
+                  },
+                  {
+                      "path":  "schemas/schema-index.json",
+                      "sha256":  "7959DE97EDD91082058370C0531891F3B6D6BD52E755379C2AE99ADE8A07A71F",
+                      "size":  804
+                  },
+                  {
+                      "path":  "scripts/README.md",
+                      "sha256":  "C65A91EA823E89AF87C8DA83DFBC3A89C63A5DA44F1DC5EC7290F6B1CDF33B87",
+                      "size":  403
+                  },
+                  {
+                      "path":  "scripts/smoke-test.ps1",
+                      "sha256":  "DF315B0F866D17F71C7F1A16FE3AABC4C579E37E660C8A9DE48BEBA3A3B29E62",
+                      "size":  4445
+                  },
+                  {
+                      "path":  "scripts/validate-draft.ps1",
+                      "sha256":  "7D42808D51E165177113BCC7A2D28BF6143FA732A9FA114DA973E9519C670C6B",
+                      "size":  4533
+                  },
+                  {
+                      "path":  "USAGE_QUICKSTART.md",
+                      "sha256":  "182958AC5879EE365E04DC91D98A17B206E54EAA6ED9FD016D0A514B312AE4DE",
+                      "size":  1391
+                  },
+                  {
+                      "path":  "USER_REVIEW_GUIDE.md",
+                      "sha256":  "37D40F9574856935DEAA0837AC4BF027D4E3DE01E66B6C42BCA32F7244605AAA",
+                      "size":  1393
+                  }
+              ],
+    "defaultModules":  [
+                           "Manual Router",
+                           "Proof-of-Read",
+                           "Evidence Hierarchy",
+                           "Contamination Logging",
+                           "quality-gap triggers",
+                           "DAILY_USE.md",
+                           "MINIMAL_CONTEXT_PACKET.md"
+                       ]
+}

@@ -1,0 +1,56 @@
+﻿{
+    "group":  "A_NO_SEARCH",
+    "sources":  [
+
+                ],
+    "source_count":  0,
+    "hallucination_risk":  "MODERATE-HIGH — multiple security-critical UNSURE items in auth design",
+    "design_plan":  {
+                        "rejected_alternatives":  [
+                                                      "Session-based (express-session + Redis) — adds Redis dependency, not RESTful",
+                                                      "JWT-only no refresh — forces frequent re-login, poor UX",
+                                                      "OAuth2 full flow — overkill for internal admin dashboard",
+                                                      "API keys — not suitable for user-facing login"
+                                                  ],
+                        "minimal_test":  [
+                                             "Valid login → tokens returned",
+                                             "Invalid credentials → 401",
+                                             "Valid refresh → new access token",
+                                             "Revoked refresh → 401",
+                                             "Expired access → 401, can refresh",
+                                             "Reused refresh → revoked, 401"
+                                         ],
+                        "adopted_approach":  "JWT access token (short-lived, 15min) + refresh token (long-lived, 7d, stored in httpOnly cookie or DB)",
+                        "implementation_plan":  [
+                                                    "1. POST /login: validate credentials, bcrypt.compare, issue access+refresh tokens",
+                                                    "2. POST /refresh: validate refresh token, rotate (issue new, revoke old), issue new access",
+                                                    "3. POST /logout: revoke refresh token in DB",
+                                                    "4. Middleware: fastify.addHook(\u0027onRequest\u0027, jwt.verify)",
+                                                    "5. Access token: 15min, in Authorization: Bearer header",
+                                                    "6. Refresh token: 7d, in httpOnly Secure SameSite=Strict cookie"
+                                                ],
+                        "UNSURE_items":  [
+                                             "Should refresh tokens be stored hashed (SHA-256) or as random opaque strings?",
+                                             "@fastify/jwt v9 exact API for refresh workflow?",
+                                             "Is argon2 preferred over bcrypt in 2025?",
+                                             "Refresh token rotation best practice: revoke entire family or just the used token?",
+                                             "httpOnly cookie vs Authorization header: which is current best practice for SPAs?"
+                                         ],
+                        "risk_list":  [
+                                          "Refresh token stored in localStorage → XSS vulnerable",
+                                          "Access token too long-lived → no revocation window",
+                                          "Refresh token reuse → need rotation + reuse detection",
+                                          "Password hashing: bcrypt vs argon2 — which is current best practice?",
+                                          "Token blacklist not implemented → cannot force logout",
+                                          "CSRF if refresh token in cookie without SameSite"
+                                      ],
+                        "dependency_choice":  [
+                                                  "@fastify/jwt for signing/verifying JWT",
+                                                  "@fastify/cookie for refresh token cookie",
+                                                  "bcrypt or argon2 for password hashing",
+                                                  "refresh_tokens table in DB with user_id, token_hash, expires_at, revoked"
+                                              ]
+                    },
+    "source_backed":  false,
+    "task":  "Login Authentication: Session vs JWT vs Refresh Token"
+}

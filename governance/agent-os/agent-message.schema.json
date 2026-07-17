@@ -1,0 +1,16 @@
+﻿{
+  "schemaId": "agent-message.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:10+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-B",
+  "nativeGenerated": true,
+  "requiredFields": ["messageId","fromAgentId","toAgentId","messageType","timestamp","content","messageHash"],
+  "messageTypes": ["handoff","request","response","alert","receipt","audit_finding"],
+  "rules": {
+    "handoffMustIncludeArtifactPaths": true,
+    "requestMustSpecifyScope": true,
+    "alertMustIncludeRiskSignal": true,
+    "receiptMustReferenceEventId": true,
+    "auditFindingMustIncludeEvidenceGap": true
+  }
+}

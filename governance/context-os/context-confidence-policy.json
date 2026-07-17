@@ -1,0 +1,20 @@
+﻿{
+  "schemaId": "context-confidence-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:09:03+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-3-A",
+  "nativeGenerated": true,
+  "confidenceAssignments": {
+    "HIGH": {"criteria":"Backed by verifier JSON + SHA256 + Agent OS event chain","examples":["verifier PASS result","factoryctl verify output","manifest SHA match"]},
+    "MEDIUM": {"criteria":"Backed by machine-readable evidence but not full event chain","examples":["markdown report with verifier reference","prototype result with handoffs"]},
+    "LOW": {"criteria":"Natural language or inference without machine-readable backing","examples":["Codex self-report","user memory entry","assistant summary"]},
+    "FORBIDDEN": {"criteria":"Known unreliable sources","examples":["compressed summary","manual PASS","expectedClass-only"]}
+  },
+  "rules": {
+    "confidenceDecaysOverTime": true,
+    "HIGH decays to MEDIUM after 7 days without revalidation": true,
+    "MEDIUM decays to LOW after 3 days without revalidation": true,
+    "LOW never used for gate decisions": true,
+    "FORBIDDEN never indexed": true
+  }
+}

@@ -1,0 +1,125 @@
+﻿{
+    "verifier":  "factory-diagnostic-lessons-0-verify.ps1",
+    "fail":  0,
+    "timestamp":  "2026-06-26T22:52:49.3976397+08:00",
+    "passRatio":  "23/23",
+    "total":  23,
+    "pass":  23,
+    "checks":  [
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3460046+08:00",
+                       "pass":  true,
+                       "name":  "diagnostic-pack-verifier-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3500837+08:00",
+                       "pass":  true,
+                       "name":  "smoke0-verifier-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3506227+08:00",
+                       "pass":  true,
+                       "name":  "repair0-verifier-exists"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3516282+08:00",
+                       "pass":  true,
+                       "name":  "lessons-evidence-intake"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3526481+08:00",
+                       "pass":  true,
+                       "name":  "lessons-value-analysis"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3526481+08:00",
+                       "pass":  true,
+                       "name":  "lessons-keep-rework-cut"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3526481+08:00",
+                       "pass":  true,
+                       "name":  "lessons-codex-workflow-update"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3526481+08:00",
+                       "pass":  true,
+                       "name":  "lessons-pack-improvement-plan"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3526481+08:00",
+                       "pass":  true,
+                       "name":  "lessons-strategic-conclusion"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3536360+08:00",
+                       "pass":  true,
+                       "name":  "lessons-negative-controls"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3536360+08:00",
+                       "pass":  true,
+                       "name":  "lessons-result"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3546280+08:00",
+                       "pass":  true,
+                       "name":  "no-v05-dir"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3596274+08:00",
+                       "pass":  true,
+                       "name":  "no-new-zip"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3596274+08:00",
+                       "pass":  true,
+                       "name":  "no-skillmarket-code-modified"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3806273+08:00",
+                       "pass":  true,
+                       "name":  "skillmarket-not-mainline"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3816284+08:00",
+                       "pass":  true,
+                       "name":  "no-repair1-started"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3856480+08:00",
+                       "pass":  true,
+                       "name":  "conclusion-diagnostic-supported"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3876285+08:00",
+                       "pass":  true,
+                       "name":  "conclusion-multiagent-not-default"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3886369+08:00",
+                       "pass":  true,
+                       "name":  "conclusion-v05-blocked"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3906363+08:00",
+                       "pass":  true,
+                       "name":  "conclusion-next-phase-specified"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3926354+08:00",
+                       "pass":  true,
+                       "name":  "neg-22-total"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3936278+08:00",
+                       "pass":  true,
+                       "name":  "neg-all-detected"
+                   },
+                   {
+                       "timestamp":  "2026-06-26T22:52:49.3946376+08:00",
+                       "pass":  true,
+                       "name":  "neg-zero-gaps"
+                   }
+               ]
+}

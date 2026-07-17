@@ -1,0 +1,30 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "H",
+  "title": "CLI Name Reconciliation",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "reconciliation_file": "factory-workflow/CLI_NAME_RECONCILIATION.md",
+  "registered_names": [
+    {"canonical": "factory", "location": "Factory CLI entry point", "type": "user-facing"},
+    {"canonical": "package-qa-check.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "generate-context-packet.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "validate-context-packet.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "append-decision.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "generate-handoff.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "init-memory.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "read-memory.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "recover-startup.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "update-state.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "update-task.ps1", "location": "factory-build-mode/", "type": "internal"},
+    {"canonical": "validate-memory.ps1", "location": "factory-build-mode/", "type": "internal"}
+  ],
+  "mismatch_policy": {
+    "script_referenced_by_wrong_name": "Log warning, use canonical name",
+    "user_uses_wrong_name": "Accept with warning, suggest canonical name",
+    "script_renamed_but_old_referenced": "Log FATAL if both names exist",
+    "name_collision": "Log FATAL, block until resolved"
+  },
+  "warning_format": "⚠ CLI NAME WARNING: 'old-name' was used but canonical name is 'new-name'.",
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_H_CLI_NAME_RECONCILIATION_REPORT.md"
+}

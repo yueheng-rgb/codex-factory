@@ -1,0 +1,22 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-LESSONS-0-C",
+  "timestamp": "2026-06-27T00:10:00+08:00",
+  "decisions": [
+    {"component":"Reviewer-Verifier readonly mode","decision":"KEEP","evidence":"Proven: found 14 defects without modifying code. Essential safety property.","impact":"No change needed. Core value proposition."},
+    {"component":"Report/Source Consistency Check","decision":"KEEP","evidence":"50% discrepancy rate on SkillMarket. Highest-signal check.","impact":"Keep as-is. Most valuable single check."},
+    {"component":"Runtime Surface Review","decision":"KEEP","evidence":"Found two-server issue. Critical for multi-app projects.","impact":"Keep. Add 'server-entry ambiguity checker' as enhancement."},
+    {"component":"API-Client Alignment Check","decision":"KEEP","evidence":"Found 4 missing route groups. High signal.","impact":"Keep. Add 'API-client mismatch scanner' as enhancement."},
+    {"component":"Auth/JWT/RBAC Check","decision":"KEEP","evidence":"Found JWT mismatch, credential exposure, missing merchant middleware.","impact":"Keep. Add 'JWT/config consistency checker' as enhancement."},
+    {"component":"Test Evidence Quality Check","decision":"KEEP","evidence":"Confirmed zero tests. Surfaces the most common student project gap.","impact":"Keep. Add 'zero-test detector' as enhancement."},
+    {"component":"Evidence Hierarchy","decision":"KEEP","evidence":"Prevents counting process artifacts as product quality. Valuable for report-heavy projects.","impact":"Keep but simplify for first-pass. Quick checklist version."},
+    {"component":"Anti-Deception Checklist","decision":"KEEP","evidence":"Found self-report (features claimed but not implemented) and hidden fallback (dashboard error swallowing).","impact":"Keep. High-signal for report-source comparison."},
+    {"component":"Contamination/Build Artifact Check","decision":"KEEP","evidence":"Found writer scripts in runtime, dist/ in source. Low but real signal.","impact":"Keep but make optional for single-developer projects."},
+    {"component":"Findings Backlog Format","decision":"KEEP","evidence":"Proven: 14 findings with severity, evidence paths, repair suggestions. Clean handoff to repair phase.","impact":"Keep as-is."},
+    {"component":"Floor Check Policy","decision":"REWORK","evidence":"Valuable concept but SkillMarket trial showed mid-run floor NOT_MET across the board. Needs better graduation between NOT_MET and BLOCKED.","impact":"Add 'student project floor' level — different expectations from production floors."},
+    {"component":"Checklist (25 items)","decision":"REWORK","evidence":"8 categories is right number. 25 items is right scope. But some items (UI states) are CANNOT_EVALUATE for readonly mode.","impact":"Add 'quick mode' (~12 items) skipping CANNOT_EVALUATE items. Add 'student-project mode' with appropriate expectations."},
+    {"component":"When-to-use / When-not-to-use","decision":"KEEP","evidence":"Decision tree helped select appropriate activation. SkillMarket was a good fit.","impact":"Keep. Add 'evidence object vs main project' distinction."},
+    {"component":"Contamination checklist (11 items)","decision":"DEFER","evidence":"Low signal for single-developer projects. Valuable for multi-agent but that's conditional.","impact":"Make optional. Only activate when multi-run or multi-agent context detected."},
+    {"component":"UI state checks (RV11-14)","decision":"REWORK","evidence":"CANNOT_EVALUATE in readonly mode without running app.","impact":"Move to 'deep diagnostic' mode. First-pass skips these."}
+  ],
+  "summary": {"keep":10,"rework":3,"cut":0,"defer":1}
+}

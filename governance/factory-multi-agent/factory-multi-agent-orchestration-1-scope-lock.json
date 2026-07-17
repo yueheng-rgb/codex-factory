@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-MULTI-AGENT-ORCHESTRATION-1","section":"A","title":"Orchestration Scope Lock","timestamp":"2026-06-29T00:00:00+08:00","status":"ACTIVE","inherited":["USER-HANDOFF-0","DEFAULT-WORKFLOW-0","PROJECT-ISOLATION-0","STATE-DASHBOARD-0","RECOVERY-0"],"goal":"Safe,accountable,user-confirmed multi-agent orchestration preserving Build Lite fallback"}

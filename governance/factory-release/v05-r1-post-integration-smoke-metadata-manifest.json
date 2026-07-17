@@ -1,0 +1,9 @@
+﻿{
+    "checksFailed":  0,
+    "section":  "C",
+    "shaFileExists":  true,
+    "metadataExists":  true,
+    "checksPassed":  11,
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE",
+    "manifestExists":  true
+}

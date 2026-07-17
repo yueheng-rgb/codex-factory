@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "C",
+  "title": "Retention Policy",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "retention_policy": {
+    "name": "CONTEXT_SPACE_RETENTION_POLICY v1.0.0",
+    "rules": [
+      {"id": "RET-001", "rule": "CORE_EVIDENCE (verifier results, final reports, SHA256, governance JSONs): PERMANENT — never auto-deleted", "category": "CORE_EVIDENCE"},
+      {"id": "RET-002", "rule": "PHASE_ARTIFACTS (reports, ledgers, decisions): PROJECT_LIFETIME — deleted only with project", "category": "PHASE_ARTIFACTS"},
+      {"id": "RET-003", "rule": "CACHE (old snapshots, intermediates): PRUNABLE — user can prune, default keep last 5 phases", "category": "CACHE"},
+      {"id": "RET-004", "rule": "STALE (retired/superseded): RETIRE_OR_PRUNE — user can retire or prune after confirmation", "category": "STALE"},
+      {"id": "RET-005", "rule": "DUPLICATE (same evidence, lower tier): DEDUP — keep highest sourceTier, remove lower", "category": "DUPLICATE"},
+      {"id": "RET-006", "rule": "FROZEN projects: all categories preserved, no auto-cleanup, no default mount", "category": "ALL"},
+      {"id": "RET-007", "rule": "ARCHIVED projects: CORE_EVIDENCE preserved, CACHE pruned, no mount", "category": "ALL"},
+      {"id": "RET-008", "rule": "DELETE: requires 2-step confirmation (PLAN → review → CONFIRM). CORE_EVIDENCE deletable only with explicit --force-evidence flag", "category": "ALL"}
+    ]
+  },
+  "status": "RETENTION_POLICY_DEFINED"
+}

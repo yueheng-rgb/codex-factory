@@ -1,0 +1,33 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P5",
+  "section": "K",
+  "title": "Strategy Decision",
+  "timestamp": "2026-06-28T16:52:00+08:00",
+  "decisions": {
+    "q1_toolchain_usable": {
+      "question": "Is P4 one-command toolchain usable?",
+      "answer": "YES — All 3 install modes, bootstrap 18/18, preflight on 3 fixture types, phase-close with verifier validation, E2E ALL_PASS",
+      "evidence": "Install(3/3 pass), Bootstrap(READY), Preflight(3/3 fixtures PASS), PhaseClose(match=3ok, mismatch=caught, no-verifier=warned), E2E(ALL_PASS)"
+    },
+    "q2_still_hard": {
+      "question": "What is still hard for users?",
+      "answer": "Path management (SourcePath, TargetPath), no copy-paste examples in QUICKSTART, no meta-script for full chain",
+      "recommendation": "P6 usability polish: auto-detect paths, copy-paste examples, optional factory.ps1 meta-script"
+    },
+    "q3_release_readiness": {
+      "question": "Is P5 enough for release-readiness audit?",
+      "answer": "YES — Toolchain proven functional with safe fixtures. Usability gaps are minor. Ready for criteria audit, not release.",
+      "recommendation": "RELEASE-READINESS-0 audit next if user wants; v0.5 remains BLOCKED"
+    },
+    "q4_next_phase": {
+      "question": "Recommended next?",
+      "answer": "PACK-STAGING-P6 (usability repair/CLI polish) OR RELEASE-READINESS-0 (criteria audit only) OR user review",
+      "preference": "P6 if friction matters; RELEASE-READINESS-0 if criteria audit is priority"
+    },
+    "q5_v05_blocked": {
+      "question": "Should v0.5 remain blocked?",
+      "answer": "YES — No comparative evidence. No vanilla baseline. No production validation. v0.5 remains BLOCKED."
+    }
+  },
+  "status": "DECISIONS_RECORDED"
+}

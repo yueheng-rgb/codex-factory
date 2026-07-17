@@ -1,0 +1,9 @@
+﻿{
+    "canonicalTarget":  "factory.ps1",
+    "userScripts":  6,
+    "section":  "E",
+    "cliDocsFound":  2,
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE",
+    "cliEntry":  "factoryctl.ps1",
+    "cmdSurface":  6
+}

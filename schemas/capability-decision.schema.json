@@ -1,0 +1,69 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-factory/schemas/capability-decision.schema.json",
+  "title": "Capability Decision Record",
+  "description": "Records decisions made by the Capability Permission Gate for audit and traceability.",
+  "type": "object",
+  "required": ["decisionId", "timestamp", "projectId", "phaseId", "agentId", "capabilityId", "decision", "reason"],
+  "properties": {
+    "decisionId": {
+      "type": "string",
+      "pattern": "^CDEC-[A-Z]+-[0-9]{3}-[0-9]{14}$",
+      "description": "Unique decision ID, e.g. CDEC-IMPL-FE-001-20260709120000"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when decision was made"
+    },
+    "projectId": {
+      "type": "string",
+      "description": "Project identifier"
+    },
+    "phaseId": {
+      "type": "string",
+      "description": "Phase identifier"
+    },
+    "agentId": {
+      "type": "string",
+      "description": "Agent identifier (e.g. PM-001, IMPL-FE-001)"
+    },
+    "capabilityId": {
+      "type": "string",
+      "pattern": "^CAP-[A-Z]+-[0-9]{3}$",
+      "description": "Capability identifier from registry"
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["allow", "reject", "pending_human", "pending_sandbox", "monitor_only"],
+      "description": "The decision rendered by the permission gate"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Human-readable reason for the decision"
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": ["none", "low", "medium", "high", "critical", "unknown"],
+      "description": "Risk level of the capability at decision time"
+    },
+    "requiredControls": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Controls that must be in place (secrets_configured, sandbox_environment, etc.)"
+    },
+    "gateChecks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Individual gate check results that led to this decision"
+    },
+    "capabilityName": {
+      "type": "string",
+      "description": "Human-readable name of the capability"
+    },
+    "capabilityType": {
+      "type": "string",
+      "description": "Type of capability (skill, mcp_server, verifier, etc.)"
+    }
+  }
+}

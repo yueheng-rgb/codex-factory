@@ -1,0 +1,47 @@
+﻿{
+  "phase": "LIVE-RUNTIME-7",
+  "status": "PASS",
+  "verifierResult": "36/36 PASS",
+  "completedAt": "2026-06-25T00:45:12+08:00",
+  "nativeGenerated": true,
+  "subPhases": {
+    "A": { "status": "PASS", "description": "Recovery Drill Scenario Definition (4 scenarios)" },
+    "B": { "status": "PASS", "description": "E2E Recovery Drill Harness (all 4 scenarios)" },
+    "C": { "status": "PASS", "description": "New Carrier Startup Simulation" },
+    "D": { "status": "PASS", "description": "Safe Continuation Mini-Task" },
+    "E": { "status": "PASS", "description": "Negative Controls (30/30)" }
+  },
+  "drillResults": {
+    "totalScenarios": 4,
+    "allPass": true,
+    "noConversationMemoryUsed": true,
+    "noCompressedSummaryUsed": true,
+    "scenarios": ["DRL-01 COMPACT", "DRL-02 STALE", "DRL-03 CONFLICT", "DRL-04 CLEAN"]
+  },
+  "newCarrierStartup": {
+    "stateRecovered": true,
+    "evidenceSources": 8,
+    "startupVerificationPassed": true
+  },
+  "safeContinuation": {
+    "miniTaskComplete": true,
+    "isReadOnly": true,
+    "didNotModifyFinalPackage": true,
+    "didNotCreateZip": true
+  },
+  "negativeControls": {
+    "totalNegatives": 30,
+    "detectedAndBlocked": 30,
+    "gaps": 0
+  },
+  "recommendedNextPhase": "LIVE-RUNTIME-8",
+  "evidencePaths": [
+    "governance/factory-state/live-runtime-7-recovery-drill-scenario.json",
+    "harness/runs/live-runtime-7-e2e-context-recovery/drill-summary.json",
+    "harness/runs/live-runtime-7-e2e-context-recovery/new-carrier-startup/startup-simulation-result.json",
+    "governance/factory-state/live-runtime-7-safe-continuation-note.json",
+    "governance/factory-state/live-runtime-7-negative-controls-result.json",
+    "governance/factory-state/verifier-live-runtime-7-result.json",
+    "scripts/live-runtime-7-e2e-context-limit-recovery-verify.ps1"
+  ]
+}

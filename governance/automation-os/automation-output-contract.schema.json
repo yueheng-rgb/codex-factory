@@ -1,0 +1,38 @@
+﻿{
+    "immutableRules":  {
+                           "cannotCreateFinalZip":  true,
+                           "doesNotMutateState":  true,
+                           "alertIsNotVerifierPass":  true,
+                           "cannotStartPhase":  true,
+                           "cannotMarkPass":  true,
+                           "cannotClaimNewContext":  true
+                       },
+    "requiredFields":  [
+                           "automationRunId",
+                           "runMode",
+                           "checkedAt",
+                           "watcherResultPath",
+                           "verdict",
+                           "alerts",
+                           "riskSignals",
+                           "evidencePaths",
+                           "recommendedAction",
+                           "userActionRequired"
+                       ],
+    "version":  "1.0.0",
+    "forbiddenInOutput":  [
+                              "currentTrustedPhase mutation",
+                              "phase status change",
+                              "final ZIP creation",
+                              "new context creation claim"
+                          ],
+    "phase":  "LIVE-RUNTIME-9-C",
+    "generatedAt":  "2026-06-25T00:53:41+08:00",
+    "nativeGenerated":  true,
+    "schemaId":  "automation-output-contract",
+    "runModes":  [
+                     "REAL_SCHEDULED",
+                     "MANUAL_TRIGGERED",
+                     "SCHEDULED_MODE_SIMULATION"
+                 ]
+}

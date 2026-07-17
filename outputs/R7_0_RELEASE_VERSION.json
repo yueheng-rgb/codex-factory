@@ -1,0 +1,39 @@
+﻿{
+  "release_name": "Codex Factory v1.0",
+  "release_stage": "stable foundation release",
+  "release_date": "2026-07-11",
+  "baseline_source": "R5.0 Foundation RC + R6.1 Benchmark Suite v3",
+  "release_scope": "platform foundation + expert pack runtime validation + production hardening foundation",
+  "not_final_product": true,
+  "version": "1.0.0",
+  "codename": "Foundation",
+  "predecessor": "Foundation RC (R5.0)",
+  "key_metrics": {
+    "total_tests": 114,
+    "tests_passing": 114,
+    "benchmarks_defined": 10,
+    "benchmarks_passing": 10,
+    "expert_packs": 2,
+    "expert_packs_validated": 2,
+    "runnable_starters": 6,
+    "testbeds": 3,
+    "pilots": 1,
+    "engines_available": 3,
+    "runtime_scripts": 65,
+    "schemas": 38
+  },
+  "whats_new_from_rc": [
+    "Ecommerce Expert Pack with 29-test runtime validation",
+    "SaaS Tool Expert Pack with 27-test runtime validation",
+    "Production Hardening Foundation (readiness checker, CI/CD, deployment manifest)",
+    "Benchmark Suite v3 (10 benchmarks, 100% pass)",
+    "Capability Matrix v3 (surface/risk/invariant/engine accuracy all 100%)",
+    "Playwright engine now AVAILABLE (was TOOL_FAILED)",
+    "autocannon port now configurable (was hardcoded 3000)"
+  ],
+  "production_readiness": {
+    "highest_score": 84,
+    "highest_level": "READY_FOR_STAGING",
+    "note": "Not READY_FOR_PRODUCTION. v1.0 is a foundation release, not a production deployment."
+  }
+}

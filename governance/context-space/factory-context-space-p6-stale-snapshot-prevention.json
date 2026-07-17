@@ -1,0 +1,46 @@
+﻿{
+  "prevention_id": "FACTORY-CONTEXT-SPACE-P6-STALE-SNAPSHOT-PREVENTION",
+  "generated_at": "2026-06-28T13:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P6",
+  "sub_step": "F",
+  "mechanisms": [
+    {
+      "mechanism": "Phase Close Auto-Refresh",
+      "description": "Every phase close regenerates all snapshots. No snapshot survives more than one phase gap.",
+      "coverage": "All 8 snapshot types"
+    },
+    {
+      "mechanism": "FreshnessStatus validation on mount",
+      "description": "Before mounting, snapshot freshnessStatus is checked. STALE/UNKNOWN snapshots are rejected.",
+      "coverage": "Mount protocol (DG-013)"
+    },
+    {
+      "mechanism": "Timestamp comparison",
+      "description": "Snapshot generated_at is compared against latest phase-ledger entry. If snapshot is older, it is STALE.",
+      "coverage": "All snapshot consumers"
+    },
+    {
+      "mechanism": "Auto-RETIRE on age",
+      "description": "Snapshots older than 2 completed phases are auto-RETIRED during phase close cleanup.",
+      "coverage": "AR-006"
+    },
+    {
+      "mechanism": "Attach Packet v3 fallback",
+      "description": "If all snapshots are stale, Attach Packet v3 provides a single-point fallback.",
+      "coverage": "Fallback chain tier 2"
+    },
+    {
+      "mechanism": "Mount-readiness check",
+      "description": "Post-phase-close check ensures all snapshots are FRESH before declaring mount-ready.",
+      "coverage": "Gate step 11"
+    }
+  ],
+  "what_constitutes_stale": [
+    "freshnessStatus != FRESH",
+    "generated_at older than latest phase-ledger timestamp",
+    "snapshot references completed phase as current",
+    "sourceOfTruthPaths point to non-existent files",
+    "frozen_conclusions missing newly-added items from last phase"
+  ],
+  "verdict": "Stale snapshot prevention is structural, not advisory. Phase close auto-refresh + mount validation + fallback chain form a defense-in-depth against staleness."
+}

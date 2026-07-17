@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "native-agent-close-receipt.schema.json",
+  "title": "Native Agent Close Receipt",
+  "description": "Schema for recording agent close_agent return value",
+  "type": "object",
+  "required": ["agentId", "closedAt", "previousStatus"],
+  "properties": {
+    "agentId": {"type": "string"},
+    "agentNickname": {"type": "string"},
+    "closedAt": {"type": "string", "format": "date-time"},
+    "previousStatus": {"type": "string", "description": "Status returned by close_agent"},
+    "outputVerified": {"type": "boolean"},
+    "lifecycleComplete": {"type": "boolean"}
+  }
+}

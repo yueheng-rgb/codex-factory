@@ -1,0 +1,14 @@
+﻿{
+    "claims":  [
+                   {
+                       "claimId":  "RC001",
+                       "claim":  "Multi-agent is default",
+                       "rejectionReason":  "AGENT-9-P3: CONDITIONAL only"
+                   },
+                   {
+                       "claimId":  "RC002",
+                       "claim":  "P1 \u003e Vanilla product quality",
+                       "rejectionReason":  "No evidence"
+                   }
+               ]
+}

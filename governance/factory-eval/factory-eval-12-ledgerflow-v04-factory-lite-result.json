@@ -1,0 +1,49 @@
+﻿{
+    "contaminationVerdict":  "CLEAN",
+    "phase":  "FACTORY-EVAL-12",
+    "tests":  {
+                  "grandTotal":  {
+                                     "failed":  0,
+                                     "total":  32,
+                                     "passed":  32
+                                 },
+                  "integration":  {
+                                      "failed":  0,
+                                      "total":  16,
+                                      "passed":  16
+                                  },
+                  "unit":  {
+                               "failed":  0,
+                               "total":  16,
+                               "passed":  16
+                           }
+              },
+    "manualRouterUsed":  true,
+    "processOverhead":  "~375ms",
+    "negativeControls":  {
+                             "gaps":  0,
+                             "total":  38,
+                             "passed":  38
+                         },
+    "verifier":  {
+                     "failed":  0,
+                     "total":  28,
+                     "passed":  28
+                 },
+    "timestamp":  "2026-06-25T21:34:18+08:00",
+    "factoryLiteCoreUsed":  true,
+    "benchmark":  "LedgerFlow Lite",
+    "tenRoleUsed":  false,
+    "proofOfReadUsed":  true,
+    "v04DraftUsed":  true,
+    "runId":  "FACTORY-EVAL-12-RUN-E-V04-FACTORY-LITE",
+    "threeRoleUsed":  false,
+    "humanInterventions":  2,
+    "status":  "COMPLETE",
+    "runType":  "V04_FACTORY_LITE_CORE",
+    "functionalRequirements":  {
+                                   "verified":  16,
+                                   "total":  16,
+                                   "implemented":  16
+                               }
+}

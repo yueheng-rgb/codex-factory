@@ -1,0 +1,40 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ngc.schema.json",
+  "title": "Non-Goal Contract (NGC)",
+  "description": "Captures what the project explicitly WILL NOT do. Created at project start, updated as needed.",
+  "type": "object",
+  "required": ["contractId", "createdAt", "createdBy", "projectId", "nonGoals"],
+  "properties": {
+    "contractId": {
+      "type": "string",
+      "pattern": "^NGC-PROJ-\\d+$",
+      "description": "e.g. NGC-PROJ-051"
+    },
+    "version": { "type": "string", "default": "1.0.0" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string" },
+    "lastModifiedAt": { "type": "string", "format": "date-time" },
+    "projectId": { "type": "string" },
+    "nonGoals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item", "reason", "riskIfAdded"],
+        "properties": {
+          "item": { "type": "string", "description": "What we will NOT build" },
+          "reason": { "type": "string", "description": "Why this is excluded" },
+          "riskIfAdded": { "type": "string", "description": "Risk/consequence if someone adds it anyway" },
+          "revisitCondition": { "type": "string", "description": "Condition under which we might reconsider" }
+        }
+      },
+      "minItems": 1
+    },
+    "violationResponse": {
+      "type": "string",
+      "description": "Default response when a non-goal is detected in implementation",
+      "default": "Flag to PM. If intentional, update NGC. If unintentional, remove from implementation."
+    },
+    "status": { "type": "string", "enum": ["DRAFT", "ACTIVE", "SUPERSEDED"], "default": "ACTIVE" }
+  }
+}

@@ -1,0 +1,37 @@
+﻿{
+  "phase": "R5.3",
+  "timestamp": "2026-07-11T21:35:00+08:00",
+  "demo_cases_run": 6,
+  "results": [
+    { "demo": "DEMO-1", "task": "做一个 AI SaaS 工具", "activated": true, "pack": "saas-tool", "keywords": ["SaaS","saas","AI SaaS"], "status": "PASS" },
+    { "demo": "DEMO-2", "task": "做一个带用量额度的 AI 生成平台", "activated": true, "pack": "saas-tool", "keywords": ["用量","额度"], "status": "PASS" },
+    { "demo": "DEMO-3", "task": "做一个多租户工作区系统", "activated": true, "pack": "saas-tool", "keywords": ["多租户","工作区"], "status": "PASS" },
+    { "demo": "DEMO-4", "task": "做一个带订阅套餐和 webhook 的工具", "activated": true, "pack": "saas-tool", "keywords": ["订阅","套餐","webhook"], "status": "PASS" },
+    { "demo": "DEMO-5", "task": "修改 API key 存储逻辑", "activated": true, "pack": "saas-tool", "keywords": ["API key"], "status": "PASS" },
+    { "demo": "DEMO-6", "task": "修改 README 里的 SaaS 产品介绍", "activated": false, "pack": null, "reason": "README exclusion", "status": "PASS" }
+  ],
+  "expert_pack_system_reusability": {
+    "packs_in_registry": 2,
+    "infrastructure_code_changes": 0,
+    "loader_works_with_both": true,
+    "activation_works_with_both": true,
+    "schema_reused": true
+  },
+  "saas_pack_stats": {
+    "surfaces": 6,
+    "risk_rules": 10,
+    "invariants": 14,
+    "required_tests": 10,
+    "engines": 5,
+    "human_audit_points": 7,
+    "benchmarks": 4,
+    "non_claims": 9
+  },
+  "regression": {
+    "products_api": "23/23 PASS",
+    "ecommerce_runtime_validation": "29/29 PASS",
+    "mini_inventory_admin": "22/22 PASS",
+    "ecommerce_pack": "loadable",
+    "foundation_rc": "intact"
+  }
+}

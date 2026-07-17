@@ -1,0 +1,21 @@
+﻿{
+  "schemaId": "agent-communication-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:40+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-D",
+  "nativeGenerated": true,
+  "channels": {
+    "orchestrator_to_builder": {"direction":"one_way","message":"contract + scope","response":"handoff"},
+    "builder_to_integrator": {"direction":"one_way","message":"handoff + artifacts","response":"integration_result"},
+    "integrator_to_verifier": {"direction":"one_way","message":"integration_result","response":"PASS_or_FAIL"},
+    "verifier_to_auditor": {"direction":"one_way","message":"verifier_result","response":"audit_findings"},
+    "any_to_recorder": {"direction":"append_only","message":"event","response":"receipt"}
+  },
+  "forbidden": [
+    "builder_to_builder_direct_mutation",
+    "orchestrator_to_worker_scope_write",
+    "verifier_to_implementation_write",
+    "integrator_bypass",
+    "agent_self_PASS_claim"
+  ]
+}

@@ -1,0 +1,32 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P3",
+  "step": "A_EVIDENCE_FREEZE",
+  "timestamp": "2026-06-26T20:48:35.7238582+08:00",
+  "frozenFacts": [
+    {"fact":"AGENT-9 historical: MULTI_AGENT_NO_BENEFIT for OpsFlow product quality","classification":"SUPPORTED","source":"factory-agent-9-large-project-comparison-conclusion.json"},
+    {"fact":"AGENT-9-P2: P1_PROCESS_BENEFIT_BUT_NO_PRODUCT_SUPERIORITY","classification":"SUPPORTED","source":"factory-agent-9-p2-independent-comparison-conclusion.json"},
+    {"fact":"Product-only winner: Vanilla, 85","classification":"SUPPORTED","source":"factory-agent-9-p2-scored-rubric.json"},
+    {"fact":"P1 product-only: 84 (gap: -1)","classification":"SUPPORTED","source":"factory-agent-9-p2-scored-rubric.json"},
+    {"fact":"P1 composite: 79.30 (rank 1)","classification":"SUPPORTED","source":"factory-agent-9-p2-scored-rubric.json"},
+    {"fact":"old v0.5 7-agent composite: 73.10","classification":"SUPPORTED","source":"factory-agent-9-p2-scored-rubric.json"},
+    {"fact":"v0.4 composite: 67.75","classification":"SUPPORTED","source":"factory-agent-9-p2-scored-rubric.json"},
+    {"fact":"Vanilla composite: 65.75","classification":"SUPPORTED","source":"factory-agent-9-p2-scored-rubric.json"},
+    {"fact":"P1 beats old v0.5 on composite","classification":"SUPPORTED","source":"factory-agent-9-p2-p1-effectiveness-analysis.json"},
+    {"fact":"P1 beats v0.4 on composite","classification":"SUPPORTED","source":"factory-agent-9-p2-p1-effectiveness-analysis.json"},
+    {"fact":"P1 does not beat Vanilla on product quality","classification":"SUPPORTED","source":"factory-agent-9-p2-p1-effectiveness-analysis.json"},
+    {"fact":"source/export hard floors were policy defects, repaired by AGENT-5-P1","classification":"SUPPORTED","source":"factory-agent-5-p1-benchmark-floor-policy-repair-result.json"},
+    {"fact":"4-agent P1 evidence stronger than 7-agent, but not product-superior to Vanilla","classification":"SUPPORTED","source":"factory-agent-9-p2-process-evidence-overhead.json"},
+    {"fact":"v0.5 package not recommended yet","classification":"SUPPORTED","source":"factory-agent-9-p2-independent-comparison-conclusion.json"},
+    {"fact":"Multi-agent product superiority not proven","classification":"SUPPORTED","source":"factory-agent-9-p2-p1-effectiveness-analysis.json"},
+    {"fact":"Multi-agent process/evidence benefit is real","classification":"SUPPORTED","source":"factory-agent-9-p2-p1-effectiveness-analysis.json"}
+  ],
+  "unsupportedClaims": [
+    "Multi-agent improves product quality (UNSUPPORTED: P1 84 vs Vanilla 85)",
+    "Multi-agent should be default for all projects (UNSUPPORTED: no product superiority)",
+    "v0.5 package is ready for release (UNSUPPORTED: gates not met)",
+    "P1 runtime is a product quality enhancer (UNSUPPORTED: evidence shows process benefit only)"
+  ],
+  "inconclusiveClaims": [
+    "Multi-agent would improve product quality on larger projects (no evidence yet)"
+  ]
+}

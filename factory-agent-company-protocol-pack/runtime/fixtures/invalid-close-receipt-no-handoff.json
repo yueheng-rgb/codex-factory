@@ -1,0 +1,14 @@
+﻿{
+  "receiptId": "receipt-ag2-bad-FAILED-20260626043000",
+  "agentId": "ag2-bad-1",
+  "phase": "FACTORY-AGENT-2",
+  "role": "Builder",
+  "closedAt": "2026-06-26T04:30:00+08:00",
+  "closeReason": "FAILED",
+  "outputSummary": "Work incomplete. Agent terminated.",
+  "evidencePaths": [],
+  "verifierConfirmation": false,
+  "integrityCheckPassed": false,
+  "nativeGenerated": true,
+  "spawnFailureClassified": "TRANSIENT"
+}

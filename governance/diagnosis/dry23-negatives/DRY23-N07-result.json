@@ -1,0 +1,13 @@
+﻿{
+    "timestamp":  "2026-06-24T00:48:48.3501880+08:00",
+    "negativeId":  "DRY23-N07",
+    "verifyOutput":  "{\r\n    \"command\":  \"verify\",\r\n    \"phase\":  \"latest\",\r\n    \"verdict\":  \"PASS\",\r\n    \"totalChecks\":  29,\r\n    \"modules\":  [\r\n                    {\r\n                        \"verdict\":  \"PASS_WITH_CAVEATS\",\r\n                        \"checks\":  10\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  3\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    }\r\n                ],\r\n    \"checkedAt\":  \"2026-06-24T00:48:48+08:00\"\r\n}",
+    "faultManifest":  {
+                          "id":  "DRY23-N07",
+                          "name":  "Forbidden Import",
+                          "timestamp":  "2026-06-24T00:48:41.5104831+08:00",
+                          "expectedFailureClass":  "FORBIDDEN_IMPORT",
+                          "targetGate":  "forbidden-import-check",
+                          "category":  "contract_enforcement"
+                      }
+}

@@ -1,0 +1,249 @@
+﻿{
+    "nativeGenerated":  true,
+    "capabilities":  [
+                         {
+                             "domain":  "Skills",
+                             "source":  "Filesystem evidence: ~/.codex/skills/.system/ contains 5 system skills with SKILL.md + references/scripts",
+                             "id":  "CAP-SKILL-01",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "Codex supports skills with SKILL.md + references/scripts/assets",
+                             "allowedUse":  "May create Codex skills from Factory resource pack assets",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "C:\\Users\\90961\\.codex\\skills\\.system\\skill-creator\\SKILL.md",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "Skills",
+                             "source":  "Filesystem evidence: 15 skills present under .agents\\skills\\ with SKILL.md, included in available skills list",
+                             "id":  "CAP-SKILL-02",
+                             "suggestedFuturePhase":  "H20",
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "note":  "Both paths work; exact priority/override rules between .agents and .codex not formally tested",
+                             "claim":  "Local skill path %USERPROFILE%\\.agents\\skills\\ is equivalent to native Codex skills path",
+                             "allowedUse":  "May reference .agents\\skills\\ as skill source; equivalent to .codex\\skills\\ for personal skills",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "C:\\Users\\90961\\.agents\\skills\\",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "Skills",
+                             "source":  "Available skills list: skill-creator listed with SKILL.md at .codex/skills/.system/skill-creator/",
+                             "id":  "CAP-SKILL-03",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "skill-creator tool exists and is callable",
+                             "allowedUse":  "May use skill-creator to scaffold Factory resource pack skills",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "C:\\Users\\90961\\.codex\\skills\\.system\\skill-creator\\SKILL.md",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "Skills",
+                             "source":  "Conceptual analysis: Factory assets (protocols, policies, schemas) map to skill/references/ structure",
+                             "id":  "CAP-SKILL-04",
+                             "suggestedFuturePhase":  "H19-B",
+                             "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                             "claim":  "Factory resource pack assets can be converted to Codex skills",
+                             "allowedUse":  "Hypothesis for H19-B scaffold; must validate with skill-creator",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "N/A — not yet tested",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "Skills",
+                             "source":  "Available skills list: skill-installer SKILL.md exists",
+                             "id":  "CAP-SKILL-05",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "skill-installer can install skills from curated list or GitHub repo",
+                             "allowedUse":  "May use skill-installer as distribution mechanism for Factory skills",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "C:\\Users\\90961\\.codex\\skills\\.system\\skill-installer\\SKILL.md",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "Plugins",
+                             "source":  "plugin-creator SKILL.md confirms optional --with-skills --with-mcp --with-apps flags",
+                             "id":  "CAP-PLUG-01",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "Codex plugins can bundle skills / MCP / app integrations",
+                             "allowedUse":  "Factory can be packaged as a Codex plugin bundling skills + MCP + app",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "C:\\Users\\90961\\.codex\\skills\\.system\\plugin-creator\\SKILL.md",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "Plugins",
+                             "source":  "plugin-creator SKILL.md documents plugin.json schema, marketplace.json, create_basic_plugin.py",
+                             "id":  "CAP-PLUG-02",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "Plugin scaffold format is documented (.codex-plugin/plugin.json)",
+                             "allowedUse":  "May create scaffold with known schema",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "C:\\Users\\90961\\.codex\\skills\\.system\\plugin-creator\\SKILL.md",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "Plugins",
+                             "source":  "Available skills list: plugin-creator listed with SKILL.md",
+                             "id":  "CAP-PLUG-03",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "plugin-creator tool exists and is callable",
+                             "allowedUse":  "May use plugin-creator to scaffold Factory plugin",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "C:\\Users\\90961\\.codex\\skills\\.system\\plugin-creator\\SKILL.md",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "Plugins",
+                             "source":  "Conceptual analysis: plugin scaffold uses relative paths and marketplace discovery",
+                             "id":  "CAP-PLUG-04",
+                             "suggestedFuturePhase":  "H19-C",
+                             "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                             "claim":  "Factory can become a plugin without hardcoded local paths",
+                             "allowedUse":  "Hypothesis for H19-C scaffold; verify no absolute paths after packaging",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "C:\\Codex_App_Factory\\factory-resource-pack\\MANIFEST.json",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "MCP",
+                             "source":  "Runtime evidence: node_repl MCP server is active, js tool available via mcp__node_repl__js",
+                             "id":  "CAP-MCP-01",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "Codex supports MCP servers",
+                             "allowedUse":  "MCP is a viable extension mechanism for Factory",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "Tool list contains mcp__node_repl__js, mcp__node_repl__js_add_node_module_dir, mcp__node_repl__js_reset",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "MCP",
+                             "source":  "Conceptual: factoryctl verify --json produces machine-readable JSON; MCP tools return JSON",
+                             "id":  "CAP-MCP-02",
+                             "suggestedFuturePhase":  "H19-D",
+                             "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                             "claim":  "factoryctl verify can be exposed as MCP tool",
+                             "allowedUse":  "Hypothesis for H19-D feasibility design",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "N/A — not yet implemented",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "MCP",
+                             "source":  "Structural analysis: MCP tools return structured JSON; factoryctl verify already outputs JSON",
+                             "id":  "CAP-MCP-03",
+                             "suggestedFuturePhase":  "H19-D",
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "claim":  "MCP tool output can remain machine-readable and verifier-backed",
+                             "allowedUse":  "Design constraint: MCP wrapper must preserve machine-readable output",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "factoryctl verify --json output format confirmed",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "Threads",
+                             "source":  "App context: create_thread, fork_thread, handoff_thread, set_thread_archived, set_thread_pinned tools listed",
+                             "id":  "CAP-THREAD-01",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "Codex supports thread creation/fork/handoff/archive/pin",
+                             "allowedUse":  "Thread handoff may complement session-rotation-handoff.json",
+                             "mayDriveArchitecture":  true,
+                             "evidencePath":  "App context tool list",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "Threads",
+                             "source":  "Conceptual: handoff_thread does structured state transfer; session-rotation-handoff.json is factory-specific",
+                             "id":  "CAP-THREAD-02",
+                             "suggestedFuturePhase":  "H20",
+                             "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                             "claim":  "Thread handoff can replace or complement session-rotation-handoff.json",
+                             "allowedUse":  "May explore thread handoff as additional handoff mechanism; factory JSON handoff remains primary",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "governance/factory-state/session-rotation-handoff.json",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "Automations",
+                             "source":  "App context: automation_update tool, recurring automations, monitors, follow-ups listed",
+                             "id":  "CAP-AUTO-01",
+                             "suggestedFuturePhase":  "H20",
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "claim":  "Codex automation can periodically run factoryctl verify",
+                             "allowedUse":  "May design automation for factory state monitoring; not yet tested",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "App context mentions automation_update, recurring automations, monitors",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "Automations",
+                             "source":  "Conceptual: monitors + recurring automations imply state-check capability",
+                             "id":  "CAP-AUTO-02",
+                             "suggestedFuturePhase":  "H20",
+                             "classification":  "CODEX_SELF_REPORT_ONLY",
+                             "claim":  "Automation can monitor factory state drift",
+                             "allowedUse":  "Do not architect around automation until tested",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "App context description only; no actual test performed",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "Browser/Playwright",
+                             "source":  "Available skills: browser:control-in-app-browser, playwright-interactive; MCP node_repl runs Playwright",
+                             "id":  "CAP-EXT-01",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "Codex supports in-app browser control and Playwright",
+                             "allowedUse":  "Available for end-to-end testing of Factory-generated projects",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "Skill list + mcp__node_repl__js can import playwright",
+                             "requiresFutureTest":  false
+                         },
+                         {
+                             "domain":  "Workspace Dependencies",
+                             "source":  "App context: codex_app__load_workspace_dependencies tool listed",
+                             "id":  "CAP-EXT-02",
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "claim":  "Codex can load workspace dependencies (Node.js, Python, docs libraries)",
+                             "allowedUse":  "May use for document/spreadsheet/slides generation in Factory output",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "App context tool list",
+                             "requiresFutureTest":  true
+                         },
+                         {
+                             "domain":  "Inline Comments",
+                             "source":  "App context: code-comment directive documented with title, body, file, start, end, priority",
+                             "id":  "CAP-EXT-03",
+                             "classification":  "VERIFIED_FACT",
+                             "claim":  "Codex supports inline code comments via ::code-comment{...} directive",
+                             "allowedUse":  "May use for H19 repair annotations",
+                             "mayDriveArchitecture":  false,
+                             "evidencePath":  "App context inline code comments section",
+                             "requiresFutureTest":  false
+                         }
+                     ],
+    "generatedAt":  "2026-06-24T19:19:42+08:00",
+    "summary":  {
+                    "PARTIALLY_VERIFIED":  4,
+                    "CODEX_SELF_REPORT_ONLY":  10,
+                    "totalClaims":  19,
+                    "VERIFIED_FACT":  10,
+                    "HYPOTHESIS_REQUIRES_VALIDATION":  4,
+                    "REJECTED_OR_UNSUPPORTED":  0
+                },
+    "phase":  "H19-A",
+    "rules":  {
+                  "mayDriveArchitectureOnlyIf":  [
+                                                     "Classification is VERIFIED_FACT or PARTIALLY_VERIFIED",
+                                                     "Evidence path points to verifiable artifact",
+                                                     "Claim does not rely solely on Codex self-report"
+                                                 ],
+                  "noUnsupportedClaims":  [
+                                              "REJECTED_OR_UNSUPPORTED"
+                                          ],
+                  "requiresValidationBeforeUse":  [
+                                                      "HYPOTHESIS_REQUIRES_VALIDATION"
+                                                  ],
+                  "forbiddenAsArchitectureDriver":  [
+                                                        "CODEX_SELF_REPORT_ONLY"
+                                                    ]
+              }
+}

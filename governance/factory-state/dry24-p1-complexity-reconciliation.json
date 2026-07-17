@@ -1,0 +1,634 @@
+{
+  "phase": "DRY24-P1",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:39:40.531206",
+  "methodology": "Machine-counted from actual TypeScript source files. No historical/excluded files counted.",
+  "metrics": {
+    "sourceFiles": {
+      "floor": 90,
+      "actual": 90,
+      "met": true
+    },
+    "exports": {
+      "floor": 650,
+      "actual": 1121,
+      "met": true
+    },
+    "depGraphEdges": {
+      "floor": 150,
+      "actual": 174,
+      "met": true
+    },
+    "crossWorkerDeps": {
+      "floor": 30,
+      "actual": 30,
+      "met": true
+    },
+    "integrationPoints": {
+      "floor": 6,
+      "actual": 7,
+      "met": true,
+      "note": "7 packages each with index.ts barrel = 7 integration points"
+    }
+  },
+  "packageBreakdown": {
+    "agent-reliability-runtime": {
+      "files": 10,
+      "exports": 121,
+      "fileList": [
+        {
+          "file": "AgentCapacityCheck.ts",
+          "size": 8010,
+          "exports": 10
+        },
+        {
+          "file": "AgentCleanupManager.ts",
+          "size": 12827,
+          "exports": 12
+        },
+        {
+          "file": "AgentHealthMonitor.ts",
+          "size": 13710,
+          "exports": 13
+        },
+        {
+          "file": "AgentIsolationValidator.ts",
+          "size": 12755,
+          "exports": 14
+        },
+        {
+          "file": "AgentLifecyclePolicy.ts",
+          "size": 13196,
+          "exports": 15
+        },
+        {
+          "file": "AgentSpawnRetryPolicy.ts",
+          "size": 13871,
+          "exports": 13
+        },
+        {
+          "file": "MainAgentFallbackDetector.ts",
+          "size": 7510,
+          "exports": 10
+        },
+        {
+          "file": "ReliabilityReport.ts",
+          "size": 13059,
+          "exports": 15
+        },
+        {
+          "file": "SpawnFailureDetector.ts",
+          "size": 9305,
+          "exports": 10
+        },
+        {
+          "file": "index.ts",
+          "size": 4477,
+          "exports": 9
+        }
+      ]
+    },
+    "context-governance-runtime": {
+      "files": 10,
+      "exports": 128,
+      "fileList": [
+        {
+          "file": "CompressionPolicy.ts",
+          "size": 12954,
+          "exports": 13
+        },
+        {
+          "file": "CompressionTracker.ts",
+          "size": 9155,
+          "exports": 11
+        },
+        {
+          "file": "ContextIntegrityChecker.ts",
+          "size": 14308,
+          "exports": 13
+        },
+        {
+          "file": "EvidenceFreshnessValidator.ts",
+          "size": 14271,
+          "exports": 15
+        },
+        {
+          "file": "GovernanceAuditTrail.ts",
+          "size": 13624,
+          "exports": 15
+        },
+        {
+          "file": "SessionHandoffManager.ts",
+          "size": 13324,
+          "exports": 13
+        },
+        {
+          "file": "SessionRotationProtocol.ts",
+          "size": 11750,
+          "exports": 16
+        },
+        {
+          "file": "StaleContextDetector.ts",
+          "size": 10165,
+          "exports": 11
+        },
+        {
+          "file": "SummaryArtifactChecker.ts",
+          "size": 11756,
+          "exports": 12
+        },
+        {
+          "file": "index.ts",
+          "size": 5528,
+          "exports": 9
+        }
+      ]
+    },
+    "factory-decision-engine": {
+      "files": 10,
+      "exports": 173,
+      "fileList": [
+        {
+          "file": "DecisionIntegrityChecker.ts",
+          "size": 7673,
+          "exports": 24
+        },
+        {
+          "file": "DecisionPolicyEngine.ts",
+          "size": 9000,
+          "exports": 32
+        },
+        {
+          "file": "DecisionRecorder.ts",
+          "size": 10477,
+          "exports": 15
+        },
+        {
+          "file": "P0Blocker.ts",
+          "size": 7580,
+          "exports": 11
+        },
+        {
+          "file": "P1GateEnforcer.ts",
+          "size": 11015,
+          "exports": 16
+        },
+        {
+          "file": "PhaseTransitionGate.ts",
+          "size": 11294,
+          "exports": 17
+        },
+        {
+          "file": "PriorityAuditTrail.ts",
+          "size": 5705,
+          "exports": 19
+        },
+        {
+          "file": "PriorityClassifier.ts",
+          "size": 10302,
+          "exports": 11
+        },
+        {
+          "file": "RuleConflictResolver.ts",
+          "size": 8032,
+          "exports": 19
+        },
+        {
+          "file": "index.ts",
+          "size": 4376,
+          "exports": 9
+        }
+      ]
+    },
+    "progress-integrity": {
+      "files": 10,
+      "exports": 112,
+      "fileList": [
+        {
+          "file": "ArtifactEvidenceValidator.ts",
+          "size": 7575,
+          "exports": 5
+        },
+        {
+          "file": "EventGapDetector.ts",
+          "size": 7014,
+          "exports": 22
+        },
+        {
+          "file": "EvidenceChainValidator.ts",
+          "size": 6282,
+          "exports": 23
+        },
+        {
+          "file": "ProgressIntegrityReport.ts",
+          "size": 10457,
+          "exports": 5
+        },
+        {
+          "file": "ProgressReconciliation.ts",
+          "size": 7343,
+          "exports": 19
+        },
+        {
+          "file": "ProgressValidator.ts",
+          "size": 10046,
+          "exports": 10
+        },
+        {
+          "file": "RegistryChecker.ts",
+          "size": 10126,
+          "exports": 4
+        },
+        {
+          "file": "TranscriptVerifier.ts",
+          "size": 7298,
+          "exports": 4
+        },
+        {
+          "file": "index.ts",
+          "size": 3154,
+          "exports": 4
+        },
+        {
+          "file": "types.ts",
+          "size": 9734,
+          "exports": 16
+        }
+      ]
+    },
+    "architecture-drift-detector": {
+      "files": 11,
+      "exports": 154,
+      "fileList": [
+        {
+          "file": "APISurfaceDiffer.ts",
+          "size": 7634,
+          "exports": 7
+        },
+        {
+          "file": "DeadExportDetector.ts",
+          "size": 9202,
+          "exports": 9
+        },
+        {
+          "file": "DependencyCycleDetector.ts",
+          "size": 12715,
+          "exports": 16
+        },
+        {
+          "file": "DependencyDriftDetector.ts",
+          "size": 9467,
+          "exports": 7
+        },
+        {
+          "file": "DriftPreventionPolicy.ts",
+          "size": 15672,
+          "exports": 26
+        },
+        {
+          "file": "DriftReport.ts",
+          "size": 17226,
+          "exports": 24
+        },
+        {
+          "file": "DuplicateFunctionDetector.ts",
+          "size": 9979,
+          "exports": 7
+        },
+        {
+          "file": "IntegrationHubBloatDetector.ts",
+          "size": 9333,
+          "exports": 9
+        },
+        {
+          "file": "PackageResponsibilityMap.ts",
+          "size": 12816,
+          "exports": 23
+        },
+        {
+          "file": "UnwiredFileDetector.ts",
+          "size": 9268,
+          "exports": 16
+        },
+        {
+          "file": "index.ts",
+          "size": 6455,
+          "exports": 10
+        }
+      ]
+    },
+    "worker-contract-engine": {
+      "files": 11,
+      "exports": 126,
+      "fileList": [
+        {
+          "file": "ContractAuditTrail.ts",
+          "size": 16503,
+          "exports": 27
+        },
+        {
+          "file": "ContractDependencyGraph.ts",
+          "size": 11436,
+          "exports": 20
+        },
+        {
+          "file": "ContractDriftDetector.ts",
+          "size": 10142,
+          "exports": 4
+        },
+        {
+          "file": "ContractEnforcer.ts",
+          "size": 12334,
+          "exports": 9
+        },
+        {
+          "file": "ContractGenerator.ts",
+          "size": 9157,
+          "exports": 9
+        },
+        {
+          "file": "ContractRegistry.ts",
+          "size": 11605,
+          "exports": 4
+        },
+        {
+          "file": "ContractSchema.ts",
+          "size": 639,
+          "exports": 1
+        },
+        {
+          "file": "ContractValidator.ts",
+          "size": 14634,
+          "exports": 8
+        },
+        {
+          "file": "IntegrationHandoffManager.ts",
+          "size": 13274,
+          "exports": 21
+        },
+        {
+          "file": "ScopeEnforcementEngine.ts",
+          "size": 10617,
+          "exports": 16
+        },
+        {
+          "file": "index.ts",
+          "size": 6698,
+          "exports": 7
+        }
+      ]
+    },
+    "dry24-integration-hub": {
+      "files": 28,
+      "exports": 307,
+      "fileList": [
+        {
+          "file": "CrossPackageRouter.ts",
+          "size": 4756,
+          "exports": 24
+        },
+        {
+          "file": "HubAuditLog.ts",
+          "size": 6036,
+          "exports": 21
+        },
+        {
+          "file": "HubRegistry.ts",
+          "size": 5297,
+          "exports": 35
+        },
+        {
+          "file": "IntegrationContractValidator.ts",
+          "size": 7088,
+          "exports": 20
+        },
+        {
+          "file": "context-decision-bridge.ts",
+          "size": 2522,
+          "exports": 8
+        },
+        {
+          "file": "context-drift-contract-bridge.ts",
+          "size": 2070,
+          "exports": 8
+        },
+        {
+          "file": "context-progress-bridge.ts",
+          "size": 2517,
+          "exports": 8
+        },
+        {
+          "file": "contract-drift-bridge.ts",
+          "size": 12273,
+          "exports": 18
+        },
+        {
+          "file": "contract-enforcement-bridge.ts",
+          "size": 2056,
+          "exports": 8
+        },
+        {
+          "file": "cross-worker-contract-validator.ts",
+          "size": 2629,
+          "exports": 8
+        },
+        {
+          "file": "decision-drift-contract-bridge.ts",
+          "size": 2058,
+          "exports": 8
+        },
+        {
+          "file": "decision-progress-bridge.ts",
+          "size": 2515,
+          "exports": 8
+        },
+        {
+          "file": "dependency-graph-bridge.ts",
+          "size": 2047,
+          "exports": 8
+        },
+        {
+          "file": "drift-contracts-bridge.ts",
+          "size": 2521,
+          "exports": 8
+        },
+        {
+          "file": "drift-contracts-integration.ts",
+          "size": 7854,
+          "exports": 14
+        },
+        {
+          "file": "drift-reliability-bridge.ts",
+          "size": 2526,
+          "exports": 8
+        },
+        {
+          "file": "index.ts",
+          "size": 2461,
+          "exports": 4
+        },
+        {
+          "file": "integration-event-bus.ts",
+          "size": 2616,
+          "exports": 8
+        },
+        {
+          "file": "integration-health-check.ts",
+          "size": 2627,
+          "exports": 8
+        },
+        {
+          "file": "multi-bridge-orchestrator.ts",
+          "size": 2148,
+          "exports": 9
+        },
+        {
+          "file": "progress-contracts-bridge.ts",
+          "size": 2515,
+          "exports": 8
+        },
+        {
+          "file": "progress-drift-contract-bridge.ts",
+          "size": 2059,
+          "exports": 8
+        },
+        {
+          "file": "reliability-context-bridge.ts",
+          "size": 2673,
+          "exports": 10
+        },
+        {
+          "file": "reliability-decision-bridge.ts",
+          "size": 2525,
+          "exports": 8
+        },
+        {
+          "file": "reliability-drift-contract-bridge.ts",
+          "size": 2057,
+          "exports": 8
+        },
+        {
+          "file": "reliability-progress-bridge.ts",
+          "size": 2520,
+          "exports": 8
+        },
+        {
+          "file": "scope-isolation-bridge.ts",
+          "size": 2062,
+          "exports": 8
+        },
+        {
+          "file": "verifier-gate-bridge.ts",
+          "size": 2047,
+          "exports": 8
+        }
+      ]
+    }
+  },
+  "excludedFromCount": [
+    "Historical repo files outside packages/",
+    "harness/ subtree files",
+    "governance/ JSON contract files (not TypeScript source)",
+    "outputs/ markdown reports",
+    "scripts/ PowerShell files",
+    "node_modules/"
+  ],
+  "evidencePaths": {
+    "packagesTree": "packages/",
+    "dependencyGraph": "C:\\Codex_App_Factory\\governance\\dependency-graphs\\dry24-p1-cross-worker-dependency-graph.json",
+    "agentRegistry": "governance/factory-state/AGENT_REGISTRY.json",
+    "agentProgress": "governance/factory-state/AGENT_PROGRESS.jsonl"
+  },
+  "allFiles": [
+    "agent-reliability-runtime/src/AgentCapacityCheck.ts",
+    "agent-reliability-runtime/src/AgentCleanupManager.ts",
+    "agent-reliability-runtime/src/AgentHealthMonitor.ts",
+    "agent-reliability-runtime/src/AgentIsolationValidator.ts",
+    "agent-reliability-runtime/src/AgentLifecyclePolicy.ts",
+    "agent-reliability-runtime/src/AgentSpawnRetryPolicy.ts",
+    "agent-reliability-runtime/src/MainAgentFallbackDetector.ts",
+    "agent-reliability-runtime/src/ReliabilityReport.ts",
+    "agent-reliability-runtime/src/SpawnFailureDetector.ts",
+    "agent-reliability-runtime/src/index.ts",
+    "context-governance-runtime/src/CompressionPolicy.ts",
+    "context-governance-runtime/src/CompressionTracker.ts",
+    "context-governance-runtime/src/ContextIntegrityChecker.ts",
+    "context-governance-runtime/src/EvidenceFreshnessValidator.ts",
+    "context-governance-runtime/src/GovernanceAuditTrail.ts",
+    "context-governance-runtime/src/SessionHandoffManager.ts",
+    "context-governance-runtime/src/SessionRotationProtocol.ts",
+    "context-governance-runtime/src/StaleContextDetector.ts",
+    "context-governance-runtime/src/SummaryArtifactChecker.ts",
+    "context-governance-runtime/src/index.ts",
+    "factory-decision-engine/src/DecisionIntegrityChecker.ts",
+    "factory-decision-engine/src/DecisionPolicyEngine.ts",
+    "factory-decision-engine/src/DecisionRecorder.ts",
+    "factory-decision-engine/src/P0Blocker.ts",
+    "factory-decision-engine/src/P1GateEnforcer.ts",
+    "factory-decision-engine/src/PhaseTransitionGate.ts",
+    "factory-decision-engine/src/PriorityAuditTrail.ts",
+    "factory-decision-engine/src/PriorityClassifier.ts",
+    "factory-decision-engine/src/RuleConflictResolver.ts",
+    "factory-decision-engine/src/index.ts",
+    "progress-integrity/src/ArtifactEvidenceValidator.ts",
+    "progress-integrity/src/EventGapDetector.ts",
+    "progress-integrity/src/EvidenceChainValidator.ts",
+    "progress-integrity/src/ProgressIntegrityReport.ts",
+    "progress-integrity/src/ProgressReconciliation.ts",
+    "progress-integrity/src/ProgressValidator.ts",
+    "progress-integrity/src/RegistryChecker.ts",
+    "progress-integrity/src/TranscriptVerifier.ts",
+    "progress-integrity/src/index.ts",
+    "progress-integrity/src/types.ts",
+    "architecture-drift-detector/src/APISurfaceDiffer.ts",
+    "architecture-drift-detector/src/DeadExportDetector.ts",
+    "architecture-drift-detector/src/DependencyCycleDetector.ts",
+    "architecture-drift-detector/src/DependencyDriftDetector.ts",
+    "architecture-drift-detector/src/DriftPreventionPolicy.ts",
+    "architecture-drift-detector/src/DriftReport.ts",
+    "architecture-drift-detector/src/DuplicateFunctionDetector.ts",
+    "architecture-drift-detector/src/IntegrationHubBloatDetector.ts",
+    "architecture-drift-detector/src/PackageResponsibilityMap.ts",
+    "architecture-drift-detector/src/UnwiredFileDetector.ts",
+    "architecture-drift-detector/src/index.ts",
+    "worker-contract-engine/src/ContractAuditTrail.ts",
+    "worker-contract-engine/src/ContractDependencyGraph.ts",
+    "worker-contract-engine/src/ContractDriftDetector.ts",
+    "worker-contract-engine/src/ContractEnforcer.ts",
+    "worker-contract-engine/src/ContractGenerator.ts",
+    "worker-contract-engine/src/ContractRegistry.ts",
+    "worker-contract-engine/src/ContractSchema.ts",
+    "worker-contract-engine/src/ContractValidator.ts",
+    "worker-contract-engine/src/IntegrationHandoffManager.ts",
+    "worker-contract-engine/src/ScopeEnforcementEngine.ts",
+    "worker-contract-engine/src/index.ts",
+    "dry24-integration-hub/src/CrossPackageRouter.ts",
+    "dry24-integration-hub/src/HubAuditLog.ts",
+    "dry24-integration-hub/src/HubRegistry.ts",
+    "dry24-integration-hub/src/IntegrationContractValidator.ts",
+    "dry24-integration-hub/src/context-decision-bridge.ts",
+    "dry24-integration-hub/src/context-drift-contract-bridge.ts",
+    "dry24-integration-hub/src/context-progress-bridge.ts",
+    "dry24-integration-hub/src/contract-drift-bridge.ts",
+    "dry24-integration-hub/src/contract-enforcement-bridge.ts",
+    "dry24-integration-hub/src/cross-worker-contract-validator.ts",
+    "dry24-integration-hub/src/decision-drift-contract-bridge.ts",
+    "dry24-integration-hub/src/decision-progress-bridge.ts",
+    "dry24-integration-hub/src/dependency-graph-bridge.ts",
+    "dry24-integration-hub/src/drift-contracts-bridge.ts",
+    "dry24-integration-hub/src/drift-contracts-integration.ts",
+    "dry24-integration-hub/src/drift-reliability-bridge.ts",
+    "dry24-integration-hub/src/index.ts",
+    "dry24-integration-hub/src/integration-event-bus.ts",
+    "dry24-integration-hub/src/integration-health-check.ts",
+    "dry24-integration-hub/src/multi-bridge-orchestrator.ts",
+    "dry24-integration-hub/src/progress-contracts-bridge.ts",
+    "dry24-integration-hub/src/progress-drift-contract-bridge.ts",
+    "dry24-integration-hub/src/reliability-context-bridge.ts",
+    "dry24-integration-hub/src/reliability-decision-bridge.ts",
+    "dry24-integration-hub/src/reliability-drift-contract-bridge.ts",
+    "dry24-integration-hub/src/reliability-progress-bridge.ts",
+    "dry24-integration-hub/src/scope-isolation-bridge.ts",
+    "dry24-integration-hub/src/verifier-gate-bridge.ts"
+  ]
+}

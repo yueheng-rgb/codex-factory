@@ -1,0 +1,51 @@
+﻿{
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "provides_to",
+                                       "targetAgentId":  "h15-dep-graph-extractor",
+                                       "targetScope":  "scripts/contracts/"
+                                   }
+                               ],
+    "phase":  "H15",
+    "forkContext":  false,
+    "scope":  {
+                  "forbiddenFiles":  [
+
+                                     ],
+                  "ownedFiles":  [
+                                     "scripts/contracts/*"
+                                 ],
+                  "forbiddenDirectories":  "packages/",
+                  "ownedDirectories":  [
+                                           "scripts/contracts/"
+                                       ]
+              },
+    "exportedApiSurface":  [
+                               "h15-contract-validator: Validates worker contracts against schema"
+                           ],
+    "isReadOnly":  true,
+    "allowedImports":  [
+
+                       ],
+    "evidencePath":  "governance/contracts/h15/",
+    "forbiddenImports":  [
+
+                         ],
+    "role":  "verifier",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-23T23:29:36+08:00",
+    "contractVersion":  "1.0.0",
+    "integrationHandoff":  {
+                               "path":  "governance/dependency-graphs/h15-cross-worker-dependency-graph.json",
+                               "format":  "json",
+                               "expectedConsumer":  "h15-integration-handoff"
+                           },
+    "sourceEvidenceSha256":  {
+
+                             },
+    "generatedBy":  "scripts/generate-handoff.ps1 (H15 phase)",
+    "retroactive":  false,
+    "agentId":  "h15-contract-validator"
+}

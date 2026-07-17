@@ -1,0 +1,176 @@
+﻿{
+    "passed":  33,
+    "verifier_id":  "VERIFIER-RC-SMOKE-1",
+    "generated_at":  "2026-06-28T21:50:59+08:00",
+    "verdict":  "PASS",
+    "total_checks":  33,
+    "phase":  "RC-SMOKE-1",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "RC-USER-ACCEPTANCE-0 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "A: Scope lock"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "B: Fresh extraction"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "C: Live fixture setup"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "D: Live CLI smoke"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "E: Live Security/Deploy Gate"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "F: Live Package QA"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "G: Live Memory Quality"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "H: Live Cleanup"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "I: Live Phase Close"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "J: Live E2E chain"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "K: Coverage gap reassessment"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "L: Blocker recheck"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "M: Strategy decision"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "N: Negative controls"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "Fixtures created (5 dirs)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "Fresh extraction exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "Exact commands recorded"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "Exit codes recorded"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "No deploy/remote/prod DB"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "RC0 SHA unchanged"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "releaseAllowed=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "v05Package=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "finalRelease=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "v0.5 remains BLOCKED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "No real projects/secrets"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "Negative controls: \u003e=35 items, 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "Coverage gap reassessed as RESOLVED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "Verifier script exists"
+                   }
+               ],
+    "failed":  0
+}

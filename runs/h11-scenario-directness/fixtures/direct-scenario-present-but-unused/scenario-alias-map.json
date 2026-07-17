@@ -1,0 +1,33 @@
+﻿{
+    "phase":  "6C-H11",
+    "summary":  {
+                    "requiresRerun":  0,
+                    "partialCount":  1,
+                    "exactCount":  0,
+                    "strongCount":  0,
+                    "blockerCount":  0,
+                    "weakCount":  0,
+                    "totalMappings":  1,
+                    "invalidCount":  0
+                },
+    "runId":  "h11-fixture",
+    "aliasMappings":  [
+                          {
+                              "limitation":  "Direct scenario s10_direct exists in codebase but unused by negative.",
+                              "sourceEvidence":  [
+                                                     "file.js:s10_indirect",
+                                                     "file.js:s10_direct"
+                                                 ],
+                              "rerunRequired":  false,
+                              "actualScenarioId":  "s10_indirect",
+                              "intendedScenarioId":  "s10_direct",
+                              "requiresDirectScenario":  false,
+                              "intendedInvariant":  "ir_10",
+                              "negativeId":  "neg-10",
+                              "equivalenceJustification":  "Direct scenario s10_direct exists but negative targets s10_indirect.",
+                              "acceptedForClosure":  true,
+                              "aliasStrength":  "PARTIAL"
+                          }
+                      ],
+    "createdAt":  "2026-06-22T23:16:40.5062924+08:00"
+}

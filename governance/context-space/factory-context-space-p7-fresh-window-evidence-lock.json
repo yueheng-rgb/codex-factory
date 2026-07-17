@@ -1,0 +1,52 @@
+﻿{
+    "source_files_read":  [
+                              "governance/context-space/current/phase-ledger.jsonl",
+                              "governance/context-space/current/direction-guard.json",
+                              "governance/context-space/current/evidence-index.json",
+                              "governance/context-space/verifier-factory-context-space-p6-result.json",
+                              "governance/context-space/p6-mount-readiness-latest.json",
+                              "governance/context-space/factory-context-space-p6-strategy-decision.json",
+                              "governance/context-space/factory-context-space-p5-claim-correction.json",
+                              "governance/context-space/factory-context-space-p4-r1-coverage-reconciliation-result.json",
+                              "outputs/FACTORY_CONTEXT_SPACE_P6_PHASE_CLOSE_INTEGRATION_REPORT.md",
+                              "scripts/check-mount-readiness.ps1",
+                              "scripts/attach-packet-v3.ps1",
+                              "scripts/query-direction-guard-v3.ps1"
+                          ],
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "evidence_lock_id":  "FACTORY-CONTEXT-SPACE-P7-FRESH-WINDOW-EVIDENCE-LOCK",
+    "is_real_new_window_detail":  "Fresh thread within existing Codex desktop app. No prior conversation context exists in this thread.",
+    "is_real_new_window":  true,
+    "section":  "A",
+    "classification_rationale":  "This is a fresh Codex thread (first turn, no prior conversation history). User selected the Codex Factory project and provided the P7 specification via a pasted-text attachment. No long history summary was pasted — the attached text IS the P7 task definition, not a conversation summary.",
+    "is_not_real_new_window":  false,
+    "scripts_executed":  [
+                             {
+                                 "result":  "READY 10/10",
+                                 "script":  "check-mount-readiness.ps1"
+                             },
+                             {
+                                 "result":  "FRESH; snapshot_fallback=SNAPSHOT_FRESH",
+                                 "script":  "attach-packet-v3.ps1"
+                             },
+                             {
+                                 "result":  "PASS (v0.5 release); BLOCKED (release v0.5 zip publish deploy)",
+                                 "script":  "query-direction-guard-v3.ps1"
+                             }
+                         ],
+    "not_faked":  true,
+    "window_classification":  "TRUE_FRESH_THREAD",
+    "user_provided_only_short_p7_command_detail":  "User attached a pasted-text file containing the full P7 specification (357 lines). This is the task definition, not a long history summary.",
+    "user_provided_only_short_p7_command":  true,
+    "no_long_summary_pasted":  true,
+    "no_long_summary_pasted_detail":  "No conversation summary was pasted. The attachment contains only the P7 task specification with A-J sub-sections.",
+    "generated_at":  "2026-06-28T10:04:20+08:00",
+    "mount_commands_used":  [
+                                "scripts/check-mount-readiness.ps1 -Json",
+                                "scripts/attach-packet-v3.ps1 -UseSnapshot SNAP-FW -Json",
+                                "scripts/query-direction-guard-v3.ps1 -Check \u0027v0.5 release\u0027 -Json",
+                                "scripts/query-direction-guard-v3.ps1 -Check \u0027release v0.5 zip publish deploy\u0027 -Json"
+                            ],
+    "factory_repo_path":  "C:\\\\Codex_App_Factory",
+    "current_time":  "2026-06-28T10:04:20+08:00"
+}

@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  50,
+    "frozenAt":  "2026-06-18T22:42:20.2351327+08:00",
+    "runId":  "t25direct2",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\t25direct2\\trust-root.json",
+    "controlPlaneLockSha256":  "77fdb6a3c58cdefbd35e33089a3ccba36ebb9e9ec633ec597725817cdd8eee6c",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "7af43ddf79bcd468fde084623d79a199dcf16a1b6b642497f6ed3d02b29cc7eb"
+}

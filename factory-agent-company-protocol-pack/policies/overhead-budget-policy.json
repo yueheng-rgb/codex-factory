@@ -1,0 +1,17 @@
+﻿# Overhead Budget Policy (P1)
+
+**Status:** P1-candidate
+
+## Budget
+- Max 4 agents
+- Max 2 spawn rounds
+- Max 12 process artifacts per run
+
+## Enforcement
+- < 2x Vanilla overhead: no action
+- 2-3x Vanilla overhead: WARN in report
+- > 3x Vanilla overhead: BLOCK_CLOSURE
+
+## Tracking
+Required log: logs/process-overhead.jsonl
+Metrics: agentSpawnCount, agentCloseCount, artifactCount, wallClockEstimate, humanInterventionCount

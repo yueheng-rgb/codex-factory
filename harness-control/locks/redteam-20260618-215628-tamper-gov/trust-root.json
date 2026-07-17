@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  9,
+    "frozenAt":  "2026-06-18T21:56:46.0243765+08:00",
+    "runId":  "redteam-20260618-215628-tamper-gov",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\redteam-20260618-215628-tamper-gov\\trust-root.json",
+    "controlPlaneLockSha256":  "d3081468d564b43d0afa16ca8be7766df12696f9513f02fac0019eaa9d656d2c",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "6a31ed4e4216252b0905ecbcee629a73ee44c68c6a2708dac782581d1fe0396f"
+}

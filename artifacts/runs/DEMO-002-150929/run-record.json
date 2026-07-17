@@ -1,0 +1,15 @@
+﻿{
+    "artifact_paths":  [
+                           "artifacts/runs/DEMO-002-150929/stderr.log",
+                           "artifacts/runs/DEMO-002-150929/run-record.json"
+                       ],
+    "runner_type":  "sandbox",
+    "started_at":  "2026-07-17T15:09:29.8960521+08:00",
+    "task_id":  "DEMO-002",
+    "snapshot_verified":  true,
+    "command":  "node -e process.exit(1)",
+    "final_status":  "FAIL",
+    "finished_at":  "2026-07-17T15:09:29.9380433+08:00",
+    "run_id":  "DEMO-002-150929",
+    "exit_code":  1
+}

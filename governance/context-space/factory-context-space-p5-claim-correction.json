@@ -1,0 +1,20 @@
+﻿{
+  "correction_id": "FACTORY-CONTEXT-SPACE-P5-CLAIM-CORRECTION",
+  "generated_at": "2026-06-28T13:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "correction_type": "SCOPE_PRECISION",
+  "original_claim": "Fresh window Snapshot mount PROVEN",
+  "corrected_claim": "SAME_WINDOW_SIMULATED_USABILITY_PROVEN — mechanism confirmed via same-window simulation. TRUE_FRESH_WINDOW_CONFIRMATION_RECOMMENDED for P6/P7.",
+  "impact": "P5 PASS verdict is unaffected. The mechanism (Snapshot Pack structure, Attach Packet v3, DG v3, fallback chain, BALANCED default, ULTRA_COMPACT non-autonomous) is mechanically correct. Only the evidence class is downgraded from 'true fresh-window proof' to 'same-window simulation proof'.",
+  "does_not_affect": [
+    "P5 PASS verdict (48/48)",
+    "BALANCED default confirmation",
+    "ULTRA_COMPACT non-autonomous confirmation",
+    "Direction Guard v3 correctness",
+    "Snapshot-not-evidence boundary",
+    "Fallback chain correctness",
+    "User burden assessment",
+    "Strategy decision (P6 recommended)"
+  ],
+  "p6_implication": "P6 must carry forward this limitation: true fresh-window external validation is not yet done. P6 must NOT claim P5 proved true fresh-window usability. P7 (or a P6 sub-step) should perform the true fresh-window trial if desired."
+}

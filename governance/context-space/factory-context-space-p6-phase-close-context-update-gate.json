@@ -1,0 +1,52 @@
+﻿{
+  "gate_id": "FACTORY-CONTEXT-SPACE-P6-PHASE-CLOSE-CONTEXT-UPDATE-GATE",
+  "generated_at": "2026-06-28T13:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P6",
+  "sub_step": "B",
+  "gate_name": "Phase Close Context Update Gate",
+  "trigger": "Any major phase receives verifier PASS verdict",
+  "mandatory_updates": [
+    {"target": "phase-ledger.jsonl", "action": "APPEND phase entry with PASS verdict", "required": true},
+    {"target": "decision-ledger.jsonl", "action": "APPEND frozen decisions from phase", "required": true},
+    {"target": "claim-ledger.jsonl", "action": "APPEND verified claims from phase", "required": true},
+    {"target": "risk-ledger.jsonl", "action": "UPDATE: archive resolved risks, add new risks", "required": true},
+    {"target": "evidence-index.json", "action": "UPDATE with verifier result path", "required": true},
+    {"target": "SQLite index v2", "action": "REBUILD with new phase entries", "required": true},
+    {"target": "Snapshot Packs (8 types)", "action": "REGENERATE with BALANCED compression", "required": true},
+    {"target": "Attach Packet v3", "action": "REGENERATE from fresh snapshots", "required": true},
+    {"target": "direction-guard.json", "action": "UPDATE currentPhase, lastCompletedPhase, rules", "required": true}
+  ],
+  "gate_order": [
+    "1. Verify verifier PASS JSON exists for the phase",
+    "2. Append to phase-ledger.jsonl",
+    "3. Append to decision-ledger.jsonl",
+    "4. Append to claim-ledger.jsonl",
+    "5. Update risk-ledger.jsonl",
+    "6. Update evidence-index.json",
+    "7. Rebuild SQLite index v2",
+    "8. Regenerate all 8 Snapshot Packs (BALANCED)",
+    "9. Regenerate Attach Packet v3",
+    "10. Update direction-guard.json",
+    "11. Run mount-readiness check",
+    "12. Mark phase close complete"
+  ],
+  "pre_conditions": [
+    "Verifier JSON exists with verdict=PASS",
+    "Phase is not already in phase-ledger (no duplicate)",
+    "All predecessor phases are completed in phase-ledger"
+  ],
+  "post_conditions": [
+    "All 9 context-space artifacts updated",
+    "All snapshots carry freshnessStatus=FRESH",
+    "Attach Packet v3 carries correct currentPhase + lastCompletedPhase",
+    "Mount-readiness check passes",
+    "Direction guard reflects new state"
+  ],
+  "failure_handling": [
+    "If verifier missing: BLOCK phase close, require verifier run",
+    "If duplicate phase detected: SKIP, log warning",
+    "If snapshot regeneration fails: retry once, then fallback to attach-packet-only",
+    "If index rebuild fails: log error, continue with stale index (marked STALE)",
+    "If mount-readiness fails: BLOCK, do not mark phase close complete"
+  ]
+}

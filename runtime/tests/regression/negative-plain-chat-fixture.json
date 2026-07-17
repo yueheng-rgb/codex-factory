@@ -1,0 +1,20 @@
+﻿{
+  "fixtureId": "REGRESSION-NEG-001",
+  "description": "Negative plain-chat test — simulates R2.3-Q LLM knowledge answer that MUST be rejected",
+  "testType": "negative_plain_chat",
+  "expectedResult": "REJECT — Classification D — source_is_not_llm_knowledge_answer FATAL",
+  "intakePacket": {
+    "sourceRefs": [
+      {
+        "title": "ZhipuAI GLM-4 API Response (live)",
+        "url": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+        "sourceType": "official_api",
+        "evidenceExcerpt": "As of my last update, ZhipuAI does not provide a public API documentation URL for their GLM models. ZhipuAI is a Chinese AI company known for its language processing capabilities, and while they may offer APIs for their services, the documentation is typically not publicly available. I am a large language model and cannot browse the internet directly."
+      }
+    ],
+    "provider": "glm_search",
+    "claimedFacts": []
+  },
+  "searchInvoked": false,
+  "actualMode": "live_api"
+}

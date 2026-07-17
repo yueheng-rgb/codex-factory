@@ -1,0 +1,126 @@
+﻿{
+    "stagingRoot":  "factory-resource-pack-v0.9.0-pre-staging",
+    "section":  "C",
+    "note":  "This is a staging directory design. No files are copied. No ZIP is created.",
+    "excludedDirectories":  [
+                                "factory-resource-pack-v0.4-release/",
+                                "factory-resource-pack-v0.4-rc/",
+                                "factory-resource-pack-v0.4-draft/",
+                                "final-package/",
+                                "final-package-dry-run/",
+                                "release-candidate/",
+                                "packages/",
+                                "trials/",
+                                "benchmark/",
+                                "benchmark-results/",
+                                "blind-test-results/",
+                                "targets/",
+                                "fresh-install-*/",
+                                "habit-tracker-*/",
+                                "node_modules/",
+                                "factory-diagnostic-pack/ (separate pack)"
+                            ],
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "title":  "Staging Structure",
+    "directories":  [
+                        {
+                            "dir":  "core/",
+                            "description":  "Build mode essentials",
+                            "requiredFor":  "ALL",
+                            "contents":  [
+                                             "build-mode-mvp/",
+                                             "task-graph/",
+                                             "external-memory/",
+                                             "verifier-base/"
+                                         ]
+                        },
+                        {
+                            "dir":  "memory-quality/",
+                            "description":  "Memory filtering + verification",
+                            "requiredFor":  "Build Pro",
+                            "contents":  [
+                                             "quality-hierarchy/",
+                                             "ingestion-policy/",
+                                             "filtering-decay/",
+                                             "summary-verification/"
+                                         ]
+                        },
+                        {
+                            "dir":  "context-packets/",
+                            "description":  "Context packet infrastructure",
+                            "requiredFor":  "Build Pro",
+                            "contents":  [
+                                             "schema/",
+                                             "generator/",
+                                             "validator/",
+                                             "role-profiles/",
+                                             "templates/"
+                                         ]
+                        },
+                        {
+                            "dir":  "agent-lifecycle/",
+                            "description":  "Native agent lifecycle management",
+                            "requiredFor":  "Build Pro",
+                            "contents":  [
+                                             "registry/",
+                                             "handoff/",
+                                             "close-receipt/",
+                                             "write-scope/",
+                                             "metrics/"
+                                         ]
+                        },
+                        {
+                            "dir":  "quality-gates/",
+                            "description":  "Diagnostic + recovery + negative controls",
+                            "requiredFor":  "Build Pro",
+                            "contents":  [
+                                             "diagnostic-gate/",
+                                             "recovery-drill/",
+                                             "negative-controls/"
+                                         ]
+                        },
+                        {
+                            "dir":  "governance/",
+                            "description":  "Templates and schemas",
+                            "requiredFor":  "ALL",
+                            "contents":  [
+                                             "schemas/",
+                                             "templates/",
+                                             "policies/"
+                                         ]
+                        },
+                        {
+                            "dir":  "scripts/",
+                            "description":  "Runtime scripts",
+                            "requiredFor":  "ALL",
+                            "contents":  [
+                                             "context-os/",
+                                             "session-controller/",
+                                             "harness-readiness/",
+                                             "harness-scenarios/",
+                                             "harness-worker/",
+                                             "automation-os/"
+                                         ]
+                        },
+                        {
+                            "dir":  "user-guide/",
+                            "description":  "User-facing documentation",
+                            "requiredFor":  "ALL",
+                            "contents":  [
+                                             "GETTING_STARTED.md",
+                                             "BUILD_LITE_GUIDE.md",
+                                             "BUILD_PRO_GUIDE.md",
+                                             "MODE_SELECTOR.md",
+                                             "TROUBLESHOOTING.md"
+                                         ]
+                        },
+                        {
+                            "dir":  "optional/",
+                            "description":  "Optional add-on packs",
+                            "requiredFor":  "NONE",
+                            "contents":  [
+                                             "reviewer-verifier-diagnostic-pack/"
+                                         ]
+                        }
+                    ]
+}

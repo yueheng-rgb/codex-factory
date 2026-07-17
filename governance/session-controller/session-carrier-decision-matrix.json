@@ -1,0 +1,179 @@
+﻿{
+    "schemaId":  "session-carrier-decision-matrix",
+    "version":  "1.0.0",
+    "generatedAt":  "2026-06-25T00:34:03+08:00",
+    "generatedDuringPhase":  "LIVE-RUNTIME-6-B",
+    "nativeGenerated":  true,
+    "defaultCarrier":  "manual_new_window_artifact_handoff",
+    "scenarios":  [
+                      {
+                          "recommendedCarrier":  "manual_new_window",
+                          "fallback":  "manual_new_window",
+                          "userActionRequired":  false,
+                          "requiredStartupPacket":  false,
+                          "prohibited":  [
+                                             "start_new_phase_without_verifier"
+                                         ],
+                          "scenario":  "clean_state",
+                          "requiredHandoff":  false
+                      },
+                      {
+                          "recommendedCarrier":  "manual_new_window",
+                          "fallback":  "manual_new_window",
+                          "userActionRequired":  true,
+                          "requiredStartupPacket":  true,
+                          "prohibited":  [
+                                             "continue_without_rotation",
+                                             "ignore_watcher"
+                                         ],
+                          "scenario":  "rotation_recommended",
+                          "requiredHandoff":  true
+                      },
+                      {
+                          "recommendedCarrier":  "manual_new_window",
+                          "fallback":  "manual_new_window",
+                          "userActionRequired":  true,
+                          "requiredStartupPacket":  true,
+                          "prohibited":  [
+                                             "start_new_major_phase",
+                                             "create_new_worker",
+                                             "ignore_watcher"
+                                         ],
+                          "scenario":  "rotation_required",
+                          "requiredHandoff":  true
+                      },
+                      {
+                          "recommendedCarrier":  "manual_new_window",
+                          "fallback":  "manual_new_window",
+                          "userActionRequired":  true,
+                          "requiredStartupPacket":  true,
+                          "prohibited":  [
+                                             "start_new_major_phase",
+                                             "claim_context_preserved"
+                                         ],
+                          "scenario":  "confirmed_compact",
+                          "requiredHandoff":  true
+                      },
+                      {
+                          "recommendedCarrier":  "manual_new_window",
+                          "fallback":  "manual_new_window",
+                          "userActionRequired":  true,
+                          "requiredStartupPacket":  true,
+                          "prohibited":  [
+                                             "continue_in_same_window",
+                                             "claim_context_reliable"
+                                         ],
+                          "scenario":  "multiple_compactions",
+                          "requiredHandoff":  true
+                      },
+                      {
+                          "recommendedCarrier":  "manual_new_window",
+                          "fallback":  "manual_new_window",
+                          "userActionRequired":  true,
+                          "requiredStartupPacket":  true,
+                          "prohibited":  [
+                                             "start_any_phase",
+                                             "spawn_agents"
+                                         ],
+                          "scenario":  "factoryctl_fail",
+                          "requiredHandoff":  true
+                      },
+                      {
+                          "recommendedCarrier":  "spawn_agent_fork_false",
+                          "fallback":  "spawn_agent_fork_false",
+                          "userActionRequired":  false,
+                          "requiredStartupPacket":  false,
+                          "prohibited":  [
+                                             "use_as_session_carrier",
+                                             "claim_user_visible_branch"
+                                         ],
+                          "scenario":  "builder_isolation",
+                          "requiredHandoff":  false
+                      },
+                      {
+                          "recommendedCarrier":  "spawn_agent_fork_true",
+                          "fallback":  "spawn_agent_fork_true",
+                          "userActionRequired":  false,
+                          "requiredStartupPacket":  false,
+                          "prohibited":  [
+                                             "use_as_session_carrier",
+                                             "claim_full_inheritance"
+                                         ],
+                          "scenario":  "explorer_readonly",
+                          "requiredHandoff":  false
+                      }
+                  ],
+    "updatedAt":  "2026-06-25T00:48:43+08:00",
+    "updatedDuringPhase":  "LIVE-RUNTIME-8-D",
+    "carrierClassification":  {
+                                  "NOT_A_NEW_CONTEXT":  [
+                                                            {
+                                                                "status":  "REJECTED",
+                                                                "carrier":  "automation_same_thread_wakeup",
+                                                                "note":  "Not a context carrier"
+                                                            }
+                                                        ],
+                                  "SEMI_AUTOMATIC_IF_AVAILABLE":  [
+                                                                      {
+                                                                          "status":  "HYPOTHESIS",
+                                                                          "carrier":  "app_thread_start",
+                                                                          "note":  "Tool exists, untested for live carrier"
+                                                                      },
+                                                                      {
+                                                                          "status":  "HYPOTHESIS",
+                                                                          "carrier":  "app_thread_fork",
+                                                                          "note":  "Tool exists, untested for live carrier"
+                                                                      },
+                                                                      {
+                                                                          "status":  "HYPOTHESIS",
+                                                                          "carrier":  "app_thread_resume",
+                                                                          "note":  "Tool exists, untested for live carrier"
+                                                                      },
+                                                                      {
+                                                                          "status":  "PARTIALLY_VERIFIED",
+                                                                          "carrier":  "cli_new",
+                                                                          "note":  "Documented, not tested in this env"
+                                                                      },
+                                                                      {
+                                                                          "status":  "PARTIALLY_VERIFIED",
+                                                                          "carrier":  "cli_fork",
+                                                                          "note":  "Documented, not tested in this env"
+                                                                      },
+                                                                      {
+                                                                          "status":  "PARTIALLY_VERIFIED",
+                                                                          "carrier":  "cli_resume",
+                                                                          "note":  "Documented, not tested in this env"
+                                                                      }
+                                                                  ],
+                                  "INTERNAL_ONLY":  [
+                                                        {
+                                                            "status":  "VERIFIED_FACT",
+                                                            "carrier":  "spawn_agent_fork_context_false",
+                                                            "note":  "Builder isolation only"
+                                                        },
+                                                        {
+                                                            "status":  "VERIFIED_FACT",
+                                                            "carrier":  "spawn_agent_fork_context_true",
+                                                            "note":  "Explorer only"
+                                                        }
+                                                    ],
+                                  "PRIMARY_SAFE_FALLBACK":  {
+                                                                "classification":  "VERIFIED_FACT",
+                                                                "startupVerificationEnforced":  true,
+                                                                "carrier":  "manual_new_window_artifact_handoff",
+                                                                "evidenceCount":  "20+ session rotations"
+                                                            },
+                                  "REJECTED":  [
+                                                   {
+                                                       "claim":  "Full context inheritance",
+                                                       "status":  "REJECTED",
+                                                       "note":  "No evidence for any carrier"
+                                                   },
+                                                   {
+                                                       "claim":  "Automatic window creation without proof",
+                                                       "status":  "REJECTED",
+                                                       "note":  "Not proven"
+                                                   }
+                                               ]
+                              }
+}

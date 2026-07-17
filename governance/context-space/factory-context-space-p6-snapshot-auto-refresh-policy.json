@@ -1,0 +1,25 @@
+﻿{
+  "policy_id": "FACTORY-CONTEXT-SPACE-P6-SNAPSHOT-AUTO-REFRESH-POLICY",
+  "generated_at": "2026-06-28T13:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P6",
+  "sub_step": "D",
+  "policy_name": "Snapshot Auto-Refresh Policy",
+  "trigger": "Phase Close Context Update Gate step 8",
+  "snapshot_types_to_refresh": ["SNAP-FW", "SNAP-CD", "SNAP-PS", "SNAP-US", "SNAP-RSK", "SNAP-RD", "SNAP-NBP", "SNAP-QA"],
+  "compression_level": "BALANCED (default for all phase-close refresh)",
+  "refresh_rules": [
+    {"rule_id": "AR-001", "rule": "All 8 snapshot types must be regenerated on phase close", "type": "mandatory"},
+    {"rule_id": "AR-002", "rule": "Existing snapshots are RETIRED (not deleted) before regeneration", "type": "mandatory"},
+    {"rule_id": "AR-003", "rule": "BALANCED is the default compression level for phase-close refresh", "type": "mandatory"},
+    {"rule_id": "AR-004", "rule": "If regeneration fails for a type, mark it STALE and continue with remaining types", "type": "fallback"},
+    {"rule_id": "AR-005", "rule": "After regeneration, validate all snapshots have freshnessStatus=FRESH", "type": "validation"},
+    {"rule_id": "AR-006", "rule": "Snapshots older than 2 completed phases are auto-RETIRED", "type": "cleanup"},
+    {"rule_id": "AR-007", "rule": "ULTRA_COMPACT snapshots are also regenerated but flagged non-autonomous", "type": "mandatory"}
+  ],
+  "stale_snapshot_prevention": {
+    "detection": "freshnessStatus != FRESH OR generated_at < last phase-ledger entry timestamp",
+    "action": "BLOCK mount. Require refresh before use.",
+    "fallback": "If snapshot is stale, fallback to attach-packet-v3, then query-v2"
+  },
+  "lifecycle": "Snapshots are ephemeral derivatives. They are regenerated on every phase close. Old snapshots are retired, not used as historical evidence."
+}

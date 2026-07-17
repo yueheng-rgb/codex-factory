@@ -1,0 +1,28 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-factory/schemas/factory-skill-package.schema.json",
+  "title": "Codex Factory Skill Package",
+  "description": "Internal skill package format for Codex Factory. A skill package contains instructions, triggers, tool permissions, verification methods, and rollback policy that can be loaded by the agent runtime.",
+  "type": "object",
+  "required": ["skillId", "name", "version", "status", "trustLevel", "instructions", "allowedTools", "forbiddenActions"],
+  "properties": {
+    "skillId": { "type": "string", "pattern": "^CAP-SKILL-[0-9]{3}$" },
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "status": { "type": "string", "enum": ["candidate", "adapted", "verified", "runtimeVerified", "deprecated", "quarantine"] },
+    "sourceRefs": { "type": "array", "items": { "type": "string" } },
+    "trustLevel": { "type": "string", "enum": ["AVAILABLE", "CAUTION", "TRUSTED", "VERIFIED"] },
+    "applicableAgents": { "type": "array", "items": { "type": "string" } },
+    "applicableProjectTypes": { "type": "array", "items": { "type": "string" } },
+    "triggerConditions": { "type": "array", "items": { "type": "string" }, "description": "When this skill should be loaded" },
+    "instructions": { "type": "string", "minLength": 50, "description": "Main skill instructions in Markdown" },
+    "requiredInputs": { "type": "array", "items": { "type": "object", "properties": { "name": {"type":"string"}, "description": {"type":"string"}, "example": {"type":"string"} } } },
+    "expectedOutputs": { "type": "array", "items": { "type": "object", "properties": { "name": {"type":"string"}, "format": {"type":"string"}, "description": {"type":"string"} } } },
+    "allowedTools": { "type": "array", "items": { "type": "string" }, "description": "Tools this skill permits (read, shell_command, apply_patch, etc.)" },
+    "forbiddenActions": { "type": "array", "items": { "type": "string" }, "description": "Actions this skill must never perform" },
+    "verificationMethod": { "type": "object", "properties": { "formatCheck": {"type":"string"}, "behaviorCheck": {"type":"string"}, "requiredEvidence": {"type":"array","items":{"type":"string"}} } },
+    "examples": { "type": "array", "items": { "type": "object", "properties": { "scenario": {"type":"string"}, "input": {"type":"string"}, "expectedBehavior": {"type":"string"} } } },
+    "failureModes": { "type": "array", "items": { "type": "object", "properties": { "mode": {"type":"string"}, "symptom": {"type":"string"}, "recovery": {"type":"string"} } } },
+    "rollbackPolicy": { "type": "object", "properties": { "canRollback": {"type":"boolean"}, "rollbackProcedure": {"type":"string"}, "dataLossRisk": {"type":"string","enum":["none","low","medium","high"]} } }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "contractId": "dry24-builder-context-contract",
+  "phase": "DRY24-A",
+  "agentId": "dry24-builder-context",
+  "role": "builder",
+  "forkContext": false,
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:03:07.718055+08:00",
+  "scope": "packages/context-governance-runtime/",
+  "ownedFiles": [
+    "packages/context-governance-runtime/src/"
+  ],
+  "exportedAPI": [
+    "CompressionTracker",
+    "StaleContextDetector",
+    "SessionRotationProtocol",
+    "SummaryArtifactChecker",
+    "CompressionPolicy"
+  ],
+  "allowedImports": [
+    "packages/worker-contract-engine/src/"
+  ],
+  "forbiddenImports": [
+    "packages/dry24-integration-hub/",
+    "packages/architecture-drift-detector/"
+  ],
+  "integrationPoints": [
+    "@dry24/context-governance-runtime"
+  ],
+  "dependencyDeclarations": [
+    {
+      "source": "packages/context-governance-runtime/",
+      "target": "packages/worker-contract-engine/src/"
+    }
+  ],
+  "handoffPath": "governance/contracts/dry24/dry24-builder-context.worker-contract.json"
+}

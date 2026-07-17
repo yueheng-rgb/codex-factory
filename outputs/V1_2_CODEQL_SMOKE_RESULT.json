@@ -1,0 +1,20 @@
+﻿{
+  "engine": "codeql",
+  "version": null,
+  "run_status": "TOOL_UNAVAILABLE",
+  "target_project": "all",
+  "started_at": "2026-07-11T15:30:00",
+  "result_summary": "CodeQL CLI not installed on this machine. Requires manual download from github.com/github/codeql-cli-binaries.",
+  "findings": [],
+  "findings_count": 0,
+  "parser_status": "NO_INPUT",
+  "skip_reason": "INSTALL_REQUIRED — CodeQL CLI bundle must be downloaded and added to PATH",
+  "failure_classification": "TOOL_UNAVAILABLE",
+  "install_instructions": "Download from https://github.com/github/codeql-action/releases, extract, add to PATH",
+  "non_claims": [
+    "CodeQL not available on this machine",
+    "No fake PASS — correctly reported as TOOL_UNAVAILABLE",
+    "Security analysis limited to semgrep for now"
+  ],
+  "secret_present": false
+}

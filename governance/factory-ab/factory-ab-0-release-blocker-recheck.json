@@ -1,0 +1,65 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "J",
+  "title": "Release Blocker Recheck",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "recheck": [
+    {
+      "id": "BLOCK-001",
+      "blocker": "No vanilla Codex A/B comparison evidence",
+      "severity": "CRITICAL",
+      "previous": "ACTIVE",
+      "ab0_impact": "PARTIAL — Designed comparative evidence collected (FACTORY_ADVANTAGE, +37). Not fully resolved.",
+      "new_status": "PARTIAL"
+    },
+    {
+      "id": "BLOCK-002",
+      "blocker": "No production deployment validation",
+      "severity": "HIGH",
+      "previous": "ACTIVE",
+      "ab0_impact": "No impact — AB-0 is a designed comparison, not production deployment.",
+      "new_status": "ACTIVE"
+    },
+    {
+      "id": "BLOCK-003",
+      "blocker": "Local dev ≠ production readiness",
+      "severity": "CRITICAL",
+      "previous": "ACTIVE",
+      "ab0_impact": "No impact — AB-0 does not address production readiness.",
+      "new_status": "ACTIVE"
+    },
+    {
+      "id": "BLOCK-004",
+      "blocker": "User explicit approval required",
+      "severity": "CRITICAL",
+      "previous": "ACTIVE",
+      "ab0_impact": "No impact — user has not yet approved v0.5 release.",
+      "new_status": "ACTIVE"
+    },
+    {
+      "id": "BLOCK-005",
+      "blocker": "Phase-close verifier boundary warn vs block",
+      "severity": "LOW",
+      "previous": "ACCEPTED_WITH_POLICY",
+      "ab0_impact": "No impact.",
+      "new_status": "ACCEPTED_WITH_POLICY"
+    },
+    {
+      "id": "BLOCK-006",
+      "blocker": "Factory-side phase-close-context-update.ps1 dependency",
+      "severity": "LOW",
+      "previous": "DOCUMENTED",
+      "ab0_impact": "No impact.",
+      "new_status": "DOCUMENTED"
+    }
+  ],
+  "summary": {
+    "total": 6,
+    "partial": 1,
+    "active": 3,
+    "accepted": 1,
+    "documented": 1,
+    "v0_5_verdict": "BLOCKED — 3 CRITICAL/HIGH still ACTIVE, 1 PARTIAL. v0.5 not ready."
+  },
+  "status": "BLOCKER_RECHECK_COMPLETE"
+}

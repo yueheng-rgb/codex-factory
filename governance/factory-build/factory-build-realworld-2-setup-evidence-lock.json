@@ -1,0 +1,24 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-A",
+  "title": "Setup and Evidence Lock",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "project": "tcm-project-ledger",
+  "original_path": "C:\\Users\\90961\\Documents\\Codex\\2026-06-10\\files-mentioned-by-the-user-txt",
+  "evidence_lock": {
+    "readonly_intake": true,
+    "no_production_modification": true,
+    "no_deployment": true,
+    "no_secret_disclosure": true,
+    "no_native_build_pro": true,
+    "no_v0_5": true,
+    "no_release_zip": true,
+    "no_remote_connection": true,
+    "no_original_path_modification": true
+  },
+  "files_created": [
+    "harness/realworld/tcm-project-ledger/original-path-record.json",
+    "outputs/FACTORY_BUILD_REALWORLD_2_A_SETUP_EVIDENCE_LOCK_REPORT.md",
+    "governance/factory-build/factory-build-realworld-2-setup-evidence-lock.json"
+  ],
+  "status": "EVIDENCE_LOCK_ACTIVE"
+}

@@ -1,0 +1,59 @@
+﻿[
+    {
+        "simId":  "SIM-A",
+        "description":  "Playwright sandbox trial: 6/6 PASS",
+        "passed":  true
+    },
+    {
+        "simId":  "SIM-B",
+        "description":  "Playwright gate: REJECT (localhost/external nuance)",
+        "passed":  true
+    },
+    {
+        "simId":  "SIM-C",
+        "description":  "Playwright+external net disallowed =\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "simId":  "SIM-D",
+        "description":  "Playwright+fileWrite allowed (tool has fileWriteAccess=false)",
+        "passed":  true
+    },
+    {
+        "simId":  "SIM-E",
+        "description":  "Unknown tool =\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "simId":  "SIM-F",
+        "description":  "Official docs: accepted for review/capsule",
+        "passed":  true
+    },
+    {
+        "simId":  "SIM-G",
+        "description":  "AI no sources: rejected or needs human review",
+        "passed":  [
+                       null,
+                       2
+                   ]
+    },
+    {
+        "simId":  "SIM-H",
+        "description":  "AI flagged NEEDS_HUMAN_REVIEW",
+        "passed":  [
+                       "NEEDS_HUMAN_REVIEW"
+                   ]
+    },
+    {
+        "simId":  "SIM-I",
+        "description":  "Official docs: TRUSTED_REFERENCE",
+        "passed":  [
+                       "TRUSTED_REFERENCE"
+                   ]
+    },
+    {
+        "simId":  "SIM-J",
+        "description":  "Implementer cannot use search adapter =\u003e REJECT",
+        "passed":  true
+    }
+]

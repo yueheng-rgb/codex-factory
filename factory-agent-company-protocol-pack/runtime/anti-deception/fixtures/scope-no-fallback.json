@@ -1,0 +1,25 @@
+﻿{
+    "workers":  [
+                    {
+                        "ownedScope":  [
+                                           "mod1/"
+                                       ],
+                        "handoffRef":  "handoff-b1.json",
+                        "agentId":  "ag4-b1"
+                    },
+                    {
+                        "ownedScope":  [
+                                           "mod2/"
+                                       ],
+                        "handoffRef":  "handoff-b2.json",
+                        "agentId":  "ag4-b2"
+                    }
+                ],
+    "mainAgentScope":  [
+                           "_integrate/"
+                       ],
+    "mainAgentWrites":  [
+                            "_integrate/merged.ts",
+                            "_integrate/report.md"
+                        ]
+}

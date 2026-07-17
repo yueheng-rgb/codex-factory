@@ -1,0 +1,20 @@
+﻿{
+    "baseline_id": "FACTORY-BUILD-REALWORLD-2-P1-LOCAL-DJANGO-BASELINE",
+    "generated_at": "2026-06-28T10:19:11+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P1",
+    "section": "G",
+    "checks": {
+        "manage_py_check": {"result": "PASS", "detail": "System check identified no issues (0 silenced)"},
+        "makemigrations_dry_run": {"result": "PASS", "detail": "No changes detected"},
+        "migrations_pending": {"result": "EXPECTED", "detail": "20+ migrations pending (fresh working copy, no db.sqlite3)"},
+        "test_discovery": {"result": "PARTIAL", "detail": "23 tests discovered, 13 passed, 8 failed, 2 errors"},
+        "test_failures_detail": {
+            "passed": 13,
+            "failed": 8,
+            "errors": 2,
+            "likely_cause": "Django 6.0.6 vs original 5.x incompatibility; missing seed data; test setup assumptions",
+            "note": "Failures are in correction/verification/patient-management tests — not critical for baseline validation"
+        }
+    },
+    "verdict": "BASELINE_PASS_WITH_TEST_FAILURES"
+}

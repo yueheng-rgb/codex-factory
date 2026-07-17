@@ -1,0 +1,26 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-factory/schemas/skill-risk-taxonomy.schema.json",
+  "title": "Skill Risk Taxonomy",
+  "description": "Comprehensive taxonomy of risks that skills can introduce. Used by the Skill Audit Pipeline to classify and score findings.",
+  "type": "object",
+  "properties": {
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["riskId", "category", "severity", "detectionMethod"],
+        "properties": {
+          "riskId": { "type": "string", "pattern": "^SKILL-RISK-[0-9]{3}$" },
+          "category": { "type": "string", "enum": ["injection","authority","execution","exfiltration","supply_chain","scope","integrity","operational"] },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "severity": { "type": "string", "enum": ["critical","high","medium","low","info"] },
+          "detectionMethod": { "type": "string", "enum": ["static_pattern","static_structure","semantic","dynamic","human","external"] },
+          "remediation": { "type": "string" },
+          "examples": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

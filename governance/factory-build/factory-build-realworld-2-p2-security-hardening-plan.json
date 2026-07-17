@@ -1,0 +1,81 @@
+﻿{
+    "hardening_plan_id": "FACTORY-BUILD-REALWORLD-2-P2-SECURITY-HARDENING-PLAN",
+    "generated_at": "2026-06-28T10:27:49+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P2",
+    "section": "E",
+    "items": [
+        {
+            "id": "HARD-001",
+            "item": "Sanitize .env.example — ensure no real defaults",
+            "classification": "CODEX_CAN_DO_IN_WORKING_COPY",
+            "priority": "HIGH"
+        },
+        {
+            "id": "HARD-002",
+            "item": "Enhance .gitignore — add deploy_*.py, remote_*.py, *_audit*.py, work/, outputs/",
+            "classification": "CODEX_CAN_DO_IN_WORKING_COPY",
+            "priority": "HIGH"
+        },
+        {
+            "id": "HARD-003",
+            "item": "Create deploy/ directory with safe templates (no real credentials)",
+            "classification": "CODEX_CAN_DO_IN_WORKING_COPY",
+            "priority": "HIGH"
+        },
+        {
+            "id": "HARD-004",
+            "item": "Add SECURITY.md with production deployment checklist",
+            "classification": "CODEX_CAN_DO_IN_WORKING_COPY",
+            "priority": "MEDIUM"
+        },
+        {
+            "id": "HARD-005",
+            "item": "Add local dev setup section to README.md",
+            "classification": "CODEX_CAN_DO_IN_WORKING_COPY",
+            "priority": "MEDIUM"
+        },
+        {
+            "id": "HARD-006",
+            "item": "Create requirements.txt with pinned dependencies",
+            "classification": "CODEX_CAN_DO_IN_WORKING_COPY",
+            "priority": "MEDIUM"
+        },
+        {
+            "id": "HARD-007",
+            "item": "Settings: document CSRF_COOKIE_SECURE and SESSION_COOKIE_SECURE production recommendations",
+            "classification": "CODEX_CAN_DO_IN_WORKING_COPY",
+            "priority": "MEDIUM"
+        },
+        {
+            "id": "HARD-008",
+            "item": "Rotate production SSH credentials",
+            "classification": "USER_MUST_DO_OUTSIDE_CODEX",
+            "priority": "CRITICAL"
+        },
+        {
+            "id": "HARD-009",
+            "item": "Rotate Django SECRET_KEY in production",
+            "classification": "USER_MUST_DO_OUTSIDE_CODEX",
+            "priority": "CRITICAL"
+        },
+        {
+            "id": "HARD-010",
+            "item": "Rotate SMTP password",
+            "classification": "USER_MUST_DO_OUTSIDE_CODEX",
+            "priority": "CRITICAL"
+        },
+        {
+            "id": "HARD-011",
+            "item": "Create user secret rotation checklist",
+            "classification": "CODEX_CAN_DO_IN_WORKING_COPY",
+            "priority": "CRITICAL"
+        }
+    ],
+    "summary": {
+        "codex_can_do": 8,
+        "user_must_do": 3,
+        "requires_approval": 0,
+        "do_not_do": 0
+    },
+    "verdict": "HARDENING_PLAN_READY"
+}

@@ -1,0 +1,196 @@
+﻿{
+    "phase":  "FACTORY-MEMORY-QUALITY-P2",
+    "verifier_id":  "VERIFIER-FACTORY-MEMORY-QUALITY-P2",
+    "generated_at":  "2026-06-28T19:43:54+08:00",
+    "verdict":  "PASS",
+    "total_checks":  37,
+    "passed":  37,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "Evidence intake exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "Minimal ingestion policy exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "Schema exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "Templates exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "Caveat rule exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "Socratic Gate exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "Validator exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "Phase close integration exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "Snapshot/attach rules exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Simulation exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "User workflow exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "Strategy decision exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "MINIMAL_MEMORY_INGESTION_POLICY.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "USER_MEMORY_QUALITY_WORKFLOW.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "write-minimal-memory-record.prompt.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "run-socratic-clarification.prompt.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "Minimal mode scoped to memory ingestion only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "Socratic Gate scoped to high-risk only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "Evidence path required"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "Caveat required for partial/high-risk"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "Design-only not promoted to executed (VAL-005 blocking)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "Local readiness not promoted to production (VAL-006 blocking)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "Snapshot not treated as evidence (policy)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "Attach Packet not treated as proof (policy)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "v0.5 remains blocked in strategy"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "Negative controls: 40 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "Negative controls: all DEFENCE_HELD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V034",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V035",
+                       "desc":  "Verifier script exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V036",
+                       "desc":  "Simulation: 10 scenarios"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V037",
+                       "desc":  "Simulation: all behaviors match expected"
+                   }
+               ]
+}

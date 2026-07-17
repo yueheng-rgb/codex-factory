@@ -1,0 +1,30 @@
+﻿{
+    "review_id":  "REV-0002",
+    "session_id":  "SESS-20260712-004352",
+    "reviewer_role":  "security",
+    "reviewer_name_or_alias":  "bob-security-lead",
+    "review_scope":  "semgrep XSS finding on products-api marked false positive",
+    "risk_level":  "HIGH",
+    "reviewed_artifacts":  [
+                               "ART-0009"
+                           ],
+    "reviewed_claims":  [
+                            "semgrep-products-api: engine run"
+                        ],
+    "decision":  "APPROVED",
+    "required_changes":  [
+
+                         ],
+    "reviewer_notes":  "Reviewed semgrep findings. 3 XSS warnings are in test fixtures with hardcoded strings — not exploitable. Marked as false positive. Semgrep output reviewed in ART-0009.",
+    "timestamp":  "2026-07-12T00:43:52+08:00",
+    "linked_audit_ledger_entry":  "",
+    "linked_artifact_ids":  [
+                                "ART-0009"
+                            ],
+    "linked_artifact_store_index":  "",
+    "non_claims":  [
+
+                   ],
+    "signature_mode":  "local_receipt",
+    "cannot_be_auto_generated_by_agent":  true
+}

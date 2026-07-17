@@ -1,0 +1,21 @@
+﻿{
+    "subPhases":  {
+                      "K_VERIFIER":  "PASS",
+                      "G_MODE_BOUNDARY_CLARIFICATION":  "PASS",
+                      "H_NEXT_3_MAJOR_PHASES":  "PASS",
+                      "F_EXTERNAL_MEMORY_ROADMAP":  "PASS",
+                      "I_NEXT_PHASE_INSTRUCTION":  "PASS",
+                      "D_BUILD_HARNESS_WORKFLOW":  "PASS",
+                      "C_TARGET_PRODUCT_DEFINITION":  "PASS",
+                      "A_MAINLINE_CORRECTION":  "PASS",
+                      "B_BUILD_CAPABILITY_INVENTORY":  "PASS",
+                      "E_BUILD_AGENT_MODEL":  "PASS",
+                      "J_NEGATIVE_CONTROLS":  "PASS"
+                  },
+    "recommendedNextPhase":  "FACTORY-BUILD-1 / Build Mode MVP",
+    "verdict":  "PASS",
+    "passCount":  29,
+    "phase":  "FACTORY-BUILD-0",
+    "totalChecks":  29,
+    "failCount":  0
+}

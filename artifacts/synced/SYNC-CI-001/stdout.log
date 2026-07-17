@@ -1,0 +1,14 @@
+﻿
+> products-api-testbed@1.0.0 test
+> vitest run
+
+
+ RUN  v3.2.7 C:/Codex_App_Factory/testbeds/products-api
+
+ ✓ tests/products.test.ts (23 tests) 142ms
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  15:24:58
+   Duration  651ms (transform 63ms, setup 0ms, collect 181ms, tests 142ms, environment 0ms, prepare 115ms)
+

@@ -1,0 +1,18 @@
+﻿{
+    "theoryBaselineChecks":  263,
+    "version":  "0.5.1-r1",
+    "releaseAllowed":  true,
+    "userApproved":  true,
+    "v06Package":  false,
+    "notProductionReady":  true,
+    "finalRelease":  true,
+    "notDeploymentTool":  true,
+    "baseVersion":  "0.5.0",
+    "phasesIntegrated":  7,
+    "v05R1Package":  true,
+    "scope":  "LOCAL_WORKFLOW_TOOLING_ONLY",
+    "patchType":  "THEORY_BASELINE_INTEGRATION",
+    "notCloudService":  true,
+    "notUniversalSuperiorityProof":  true,
+    "artifactType":  "LOCAL_TOOLING_PATCH_RELEASE"
+}

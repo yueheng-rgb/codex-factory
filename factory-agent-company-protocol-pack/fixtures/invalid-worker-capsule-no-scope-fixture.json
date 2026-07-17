@@ -1,0 +1,30 @@
+﻿{
+  "capsuleId": "builder-2-capsule",
+  "agentId": "builder-2",
+  "role": "Builder",
+  "taskId": "task-payments-module",
+  "spawnedAt": "2026-06-26T08:00:00+08:00",
+  "forbiddenScope": [
+    "src/modules/auth/",
+    "config/secrets/"
+  ],
+  "forkContext": false,
+  "expectedOutputs": [
+    "src/modules/payments/checkout.ts",
+    "src/modules/payments/invoice.ts"
+  ],
+  "handoffRequirements": {
+    "fileList": [
+      "src/modules/payments/checkout.ts",
+      "src/modules/payments/invoice.ts"
+    ],
+    "sha256": true,
+    "transcriptRef": "harness/transcripts/builder-2-transcript.md",
+    "contractChecklist": [
+      "POST /payments/checkout matches contract"
+    ]
+  },
+  "dependencies": [
+    "shared/types/payments.d.ts"
+  ]
+}

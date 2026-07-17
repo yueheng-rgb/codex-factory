@@ -1,0 +1,11 @@
+﻿{
+  "schemaId": "task-graph.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:10+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-C",
+  "nativeGenerated": true,
+  "requiredFields": ["graphId","phase","nodes","edges","generatedAt"],
+  "nodeSchema": {"agentId":"string","role":"string","contractPath":"string","scopeBoundary":"string","status":"string"},
+  "edgeSchema": {"from":"string","to":"string","type":"enum: depends_on, produces_for, hands_off_to"},
+  "rules": ["no_cycles","no_orphan_integrator","no_self_edge","all_leaves_to_integrator","verifier_after_integrator"]
+}

@@ -1,0 +1,203 @@
+﻿{
+    "verifier":  "factory-agent-runtime-p1-simplified-agent-verify.ps1",
+    "passed":  32,
+    "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+    "warnings":  0,
+    "verdict":  "PASS",
+    "totalChecks":  32,
+    "checks":  [
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "FINAL_ZIP_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "NO_V05_ZIP"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "NO_NEW_BENCHMARK_ZIP"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_9_P1_PASS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "EVIDENCE_INTAKE"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "NO_BENEFIT_KEPT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "SEVEN_AGENT_CUT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "OLD_10ROLE_NOT_RESTORED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "WORKER_ISOLATION_KEPT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "FOUR_AGENT_MODEL"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_COUNT_4"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "NOT_DEFAULT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "ROLE_ORCHESTRATOR-P1"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "ROLE_PRODUCT-BUILDER-P1"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "ROLE_TEST-INTEGRATION-DOCS-BUILDER-P1"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "ROLE_REVIEWER-VERIFIER-P1"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "POLICY_FOUR_AGENT_MODEL_POLICY"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "POLICY_MID_RUN_FLOOR_ENFORCER_POLICY"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "POLICY_REVIEWER_CAVEAT_BLOCKER_POLICY"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "POLICY_OVERHEAD_BUDGET_POLICY"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "SEVEN_AGENT_ARCHIVE"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "FLOOR_ENFORCER"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "CAVEAT_BLOCKER"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "OVERHEAD_BUDGET"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "RUNTIME_SUITE"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "SIMULATION"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "RETEST_PLAN"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "MAIN_REPORT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "NEG_REPORT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "VERIFIER_EXISTS"
+                   },
+                   {
+                       "detail":  "confirmed",
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "NO_PRODUCT_MODIFIED"
+                   },
+                   {
+                       "detail":  "confirmed",
+                       "timestamp":  "2026-06-26T18:48:37.7267793+08:00",
+                       "pass":  true,
+                       "name":  "NO_BENCHMARK_STARTED"
+                   }
+               ],
+    "failed":  0
+}

@@ -1,0 +1,25 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P3",
+  "step": "F_REAL_PROJECT_USAGE_BOUNDARY",
+  "timestamp": "2026-06-26T20:49:10.4368522+08:00",
+  "allowedUse": [
+    {"mechanism":"Vanilla Codex","scope":"All projects","condition":"Always available. Best for pure product speed."},
+    {"mechanism":"v0.4 Factory Lite","scope":"All projects","condition":"Recommended for process hygiene: proof-of-read, contamination logging, evidence hierarchy."},
+    {"mechanism":"4-agent P1 runtime","scope":"Experimental only","condition":"Use only when: (1) project >20 modules, (2) auditability matters, (3) user accepts process overhead. NOT for pure product speed."},
+    {"mechanism":"Reviewer-Verifier diagnostic mode","scope":"Any project","condition":"Can be used standalone: readonly reviewer checks implementation without full multi-agent."},
+    {"mechanism":"Negative controls framework","scope":"All phases","condition":"Always apply to verifier design."}
+  ],
+  "forbiddenUse": [
+    {"mechanism":"Multi-agent as default","reason":"No product superiority proven."},
+    {"mechanism":"7-agent or 10-role mode","reason":"Outperformed by 4-agent P1. Higher overhead, lower composite score."},
+    {"mechanism":"v0.5 release package","reason":"Gates not met."},
+    {"mechanism":"Process artifacts as product quality evidence","reason":"Product/process/evidence/overhead must remain separate."}
+  ],
+  "conditionalUse": [
+    {"mechanism":"4-agent on small projects (<20 modules)","guidance":"Likely no benefit. Vanilla sufficient."},
+    {"mechanism":"4-agent on mid projects (20-50 modules)","guidance":"Use only if evidence/auditability matters. Not for speed."},
+    {"mechanism":"4-agent on large projects (>50 modules)","guidance":"Unproven. Second benchmark needed before recommendation."},
+    {"mechanism":"worker capsules + handoffs","guidance":"Use with 4-agent only. Overhead for single-agent."},
+    {"mechanism":"agent registry + progress tracking","guidance":"Use with 4-agent only."}
+  ]
+}

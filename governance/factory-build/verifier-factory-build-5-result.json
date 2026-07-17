@@ -1,0 +1,312 @@
+﻿{
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V00",
+                        "desc":  "BUILD-4 verifier exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "User approval recorded"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "Trial directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "External memory initialized"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "All 8 memory files exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "Readiness gate exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "Baseline reference exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "Intake exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "Classification exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "Mode selection exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "Blueprint exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "Task graph \u003e=24 nodes"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "Task graph \u003e=20 parallelizable"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "Agent capsules exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "Write-scope map exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "Execution plan exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "Backend server.js exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "DB connection exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "DB schema exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "Auth middleware exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "RBAC middleware exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "Route files exist (7+)"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "Frontend index.html exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "CSS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V24",
+                        "desc":  "JS modules exist (4+)"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V25",
+                        "desc":  "Page modules exist (8+)"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V26",
+                        "desc":  "Tests exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V27",
+                        "desc":  "Test directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V28",
+                        "desc":  "Integration result exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V29",
+                        "desc":  "Diagnostic result exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V30",
+                        "desc":  "Recovery result exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V31",
+                        "desc":  "Final verification exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V32",
+                        "desc":  "Effectiveness analysis exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V33",
+                        "desc":  "Next step recommendation exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V34",
+                        "desc":  "Simulation report exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V35",
+                        "desc":  "Verifier-history.json exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V36",
+                        "desc":  "Verifier-history has entries"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V37",
+                        "desc":  "Decision-log exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V38",
+                        "desc":  "Decision-log has entries"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V39",
+                        "desc":  "Task graph statuses updated"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V40",
+                        "desc":  "No ZIP created in trial"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V41",
+                        "desc":  "No v0.5 directory in trial"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V42",
+                        "desc":  "No v0.5 package anywhere"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V43",
+                        "desc":  "No benchmark score claimed"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V44",
+                        "desc":  "Multi-agent not declared default"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V45",
+                        "desc":  "Simulated roles limitation recorded"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V46",
+                        "desc":  "Product code only in trial"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V47",
+                        "desc":  "No SkillMarket modifications"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V48",
+                        "desc":  "No DevFlow modifications"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V49",
+                        "desc":  "BUILD_TRIAL_MANIFEST exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V50",
+                        "desc":  "No multi-agent default in result"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V51",
+                        "desc":  "Simulation caveat in result"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V52",
+                        "desc":  "No unauthorized new ZIP"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V53",
+                        "desc":  "Old FINAL package exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V54",
+                        "desc":  "FINAL package SHA recorded"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V55",
+                        "desc":  "Skill workflow route exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V56",
+                        "desc":  "Order lifecycle route exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V57",
+                        "desc":  "package.json exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V58",
+                        "desc":  "API endpoints present"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V59",
+                        "desc":  "DB has 8+ tables"
+                    }
+                ],
+    "totalChecks":  60,
+    "overall":  "PASS",
+    "phase":  "FACTORY-BUILD-5",
+    "date":  "2026-06-27T10:46:49.2303170+08:00",
+    "verifier":  "factory-build-5-build-pro-large-project-trial-verify.ps1",
+    "failedChecks":  0,
+    "passedChecks":  60,
+    "simulatedAgentNote":  "Verifier agent is SIMULATED. spawn_agent not available."
+}

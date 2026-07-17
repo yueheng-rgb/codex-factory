@@ -1,0 +1,15 @@
+﻿{
+  "phase": "FACTORY-BUILD-X",
+  "projectId": "project-name",
+  "createdAt": "ISO-8601-timestamp",
+  "agents": [],
+  "summary": {
+    "total": 0,
+    "completed": 0,
+    "active": 0,
+    "stale": 0,
+    "orphan": 0,
+    "totalViolations": 0,
+    "verdict": "PENDING"
+  }
+}

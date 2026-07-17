@@ -1,0 +1,81 @@
+﻿{
+    "auditId":  "SKILL-AUDIT-MAL-PROMPT-INJECTION-20260709211943",
+    "skillId":  "MAL-PROMPT-INJECTION",
+    "skillVersion":  "0.1.0",
+    "sourceRefs":  "malicious-fixture",
+    "auditorAgent":  "SEC-001",
+    "auditedAt":  "2026-07-09T21:19:43+08:00",
+    "verdict":  "quarantine",
+    "riskScore":  70,
+    "requiredControls":  [
+
+                         ],
+    "stages":  {
+                   "metadata":  {
+                                    "passed":  true,
+                                    "findings":  [
+
+                                                 ]
+                                },
+                   "content":  {
+                                   "passed":  false,
+                                   "findings":  [
+                                                    {
+                                                        "description":  "Injection pattern",
+                                                        "pattern":  "ignore all previous",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-001"
+                                                    },
+                                                    {
+                                                        "description":  "Injection pattern",
+                                                        "pattern":  "you are now",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-001"
+                                                    }
+                                                ]
+                               },
+                   "permission":  {
+                                      "passed":  true,
+                                      "findings":  [
+                                                       {
+                                                           "description":  "No forbidden actions",
+                                                           "severity":  "low",
+                                                           "riskId":  "SKILL-RISK-030"
+                                                       }
+                                                   ]
+                                  },
+                   "supplyChain":  {
+                                       "passed":  true,
+                                       "findings":  [
+                                                        {
+                                                            "description":  "No hash/signature",
+                                                            "severity":  "medium",
+                                                            "riskId":  "SKILL-RISK-020"
+                                                        }
+                                                    ]
+                                   },
+                   "runtimeBehavior":  {
+                                           "passed":  false,
+                                           "findings":  [
+                                                            {
+                                                                "description":  "No verifier",
+                                                                "severity":  "medium",
+                                                                "riskId":  "SKILL-RISK-032"
+                                                            },
+                                                            {
+                                                                "description":  "No failure modes",
+                                                                "severity":  "low",
+                                                                "riskId":  "SKILL-RISK-031"
+                                                            },
+                                                            {
+                                                                "description":  "No rollback policy",
+                                                                "severity":  "low",
+                                                                "riskId":  "SKILL-RISK-030"
+                                                            }
+                                                        ]
+                                       }
+               },
+    "evidenceRefs":  [
+
+                     ]
+}

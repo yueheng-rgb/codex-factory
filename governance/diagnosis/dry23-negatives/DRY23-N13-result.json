@@ -1,0 +1,13 @@
+﻿{
+    "timestamp":  "2026-06-24T00:49:29.8089631+08:00",
+    "negativeId":  "DRY23-N13",
+    "verifyOutput":  "{\r\n    \"command\":  \"verify\",\r\n    \"phase\":  \"latest\",\r\n    \"verdict\":  \"PASS\",\r\n    \"totalChecks\":  29,\r\n    \"modules\":  [\r\n                    {\r\n                        \"verdict\":  \"PASS_WITH_CAVEATS\",\r\n                        \"checks\":  10\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  3\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    }\r\n                ],\r\n    \"checkedAt\":  \"2026-06-24T00:49:29+08:00\"\r\n}",
+    "faultManifest":  {
+                          "id":  "DRY23-N13",
+                          "name":  "NativeGenerated False-Positive Claim",
+                          "timestamp":  "2026-06-24T00:49:23.1001618+08:00",
+                          "expectedFailureClass":  "NATIVE_GENERATED_FALSE_POSITIVE",
+                          "targetGate":  "native-generated-integrity-check",
+                          "category":  "evidence_chain_integrity"
+                      }
+}

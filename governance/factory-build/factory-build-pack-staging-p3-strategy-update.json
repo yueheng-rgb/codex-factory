@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P3",
+  "section": "N",
+  "title": "Strategy Update",
+  "timestamp": "2026-06-28T13:46:00+08:00",
+  "strategy_positions": {
+    "build_lite_default": "STRENGTHENED — REALWORLD-1 + REALWORLD-2 validated; Security/Deploy Gate + Context Packet now mandatory for deployed projects",
+    "security_deploy_gate_required": "NEW — Required for any project with deployed traces; 10 checks, 6 blocking",
+    "context_space_required_long_horizon": "NEW — Proven effective by P7 fresh-window validation; required for multi-session projects",
+    "package_qa_final_handoff": "MAINTAINED — Package QA Gate required for final ZIP/package handoff",
+    "test_repair_policy_required": "NEW — CLASSIFICATION_FIRST, HONEST_SKIP_ALLOWED, NO_FAKE_PASS required before modifying tests",
+    "user_secret_rotation_boundary": "NEW — Codex documents rotation, never executes; 8 boundary rules",
+    "v0_5_blocked": "MAINTAINED — Still blocked; insufficient comparative evidence",
+    "native_build_pro_conditional": "MAINTAINED — Conditional only",
+    "cloud_deferred": "MAINTAINED — No cloud without local MVP proof",
+    "factory_superiority_not_proven": "MAINTAINED — REALWORLD-2 does not prove superiority over vanilla",
+    "p3_staging_non_release": "NEW — P3 staging bundle is STAGING_NOT_RELEASE; not a release, not v0.5"
+  },
+  "status": "STRATEGY_UPDATED"
+}

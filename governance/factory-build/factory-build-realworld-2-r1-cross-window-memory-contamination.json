@@ -1,0 +1,22 @@
+﻿{
+  "phase": "FACTORY-BUILD-REALWORLD-2-R1-B",
+  "title": "Cross-Window Memory Contamination Note",
+  "timestamp": "2026-06-27T00:00:00+08:00",
+  "core_statement": "A new Codex window is NOT a guaranteed clean experimental baseline.",
+  "contamination_types": [
+    {"type": 1, "name": "User-level memory contamination", "vector": "Account preferences, custom instructions, global rules"},
+    {"type": 2, "name": "Project-level context contamination", "vector": "Shared file paths, workspace awareness"},
+    {"type": 3, "name": "Prompt leakage", "vector": "Cross-window instruction carryover"},
+    {"type": 4, "name": "File path / project name familiarity", "vector": "Pre-existing directory structure knowledge"},
+    {"type": 5, "name": "Prior risk awareness leakage", "vector": "User inadvertently hints at known findings"},
+    {"type": 6, "name": "Assistant guidance contamination", "vector": "Long-term memory / context retention"}
+  ],
+  "implications": [
+    "REALWORLD-2 intake not proven as independent verification",
+    "No vanilla Codex comparison was performed",
+    "Safety process worked; reasoning advantage unmeasured"
+  ],
+  "self_acknowledgment": "This R1 phase was conducted in the same window as REALWORLD-2 intake — itself not contamination-free",
+  "report_path": "outputs/FACTORY_BUILD_REALWORLD_2_R1_B_CROSS_WINDOW_MEMORY_CONTAMINATION_REPORT.md",
+  "status": "COMPLETE"
+}

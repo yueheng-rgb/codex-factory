@@ -1,0 +1,20 @@
+﻿{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Artifact Sync Result",
+    "description": "Codex Factory V3.1 artifact sync result schema",
+    "type": "object",
+    "required": ["sync_id", "source", "status"],
+    "properties": {
+        "sync_id": { "type": "string" },
+        "source": { "type": "string" },
+        "target": { "type": "string" },
+        "status": { "type": "string", "enum": ["SYNCED", "PARTIAL", "FAILED", "BLOCKED", "SKIPPED"] },
+        "artifact_ids": { "type": "array", "items": { "type": "string" } },
+        "hash_verified": { "type": "boolean" },
+        "stdout_retained": { "type": "boolean" },
+        "stderr_retained": { "type": "boolean" },
+        "command_redacted": { "type": "boolean" },
+        "secrets_detected": { "type": "boolean" },
+        "blocking_reason": { "type": "string" }
+    }
+}

@@ -1,0 +1,104 @@
+﻿{
+    "auditId":  "SKILL-AUDIT-MAL-AUTO-UPDATE-20260709211943",
+    "skillId":  "MAL-AUTO-UPDATE",
+    "skillVersion":  "0.1.0",
+    "sourceRefs":  "malicious-fixture",
+    "auditorAgent":  "SEC-001",
+    "auditedAt":  "2026-07-09T21:19:43+08:00",
+    "verdict":  "quarantine",
+    "riskScore":  100,
+    "requiredControls":  [
+
+                         ],
+    "stages":  {
+                   "metadata":  {
+                                    "passed":  true,
+                                    "findings":  [
+
+                                                 ]
+                                },
+                   "content":  {
+                                   "passed":  false,
+                                   "findings":  [
+                                                    {
+                                                        "description":  "Dangerous command",
+                                                        "pattern":  "wget.*\\|.*bash",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-009"
+                                                    }
+                                                ]
+                               },
+                   "permission":  {
+                                      "passed":  true,
+                                      "findings":  [
+                                                       {
+                                                           "description":  "No forbidden actions",
+                                                           "severity":  "low",
+                                                           "riskId":  "SKILL-RISK-030"
+                                                       }
+                                                   ]
+                                  },
+                   "supplyChain":  {
+                                       "passed":  false,
+                                       "findings":  [
+                                                        {
+                                                            "description":  "Auto-update risk",
+                                                            "pattern":  "auto.?update",
+                                                            "severity":  "high",
+                                                            "riskId":  "SKILL-RISK-017"
+                                                        },
+                                                        {
+                                                            "description":  "Auto-update risk",
+                                                            "pattern":  "update.*automatically",
+                                                            "severity":  "high",
+                                                            "riskId":  "SKILL-RISK-017"
+                                                        },
+                                                        {
+                                                            "description":  "Auto-update risk",
+                                                            "pattern":  "download.*latest",
+                                                            "severity":  "high",
+                                                            "riskId":  "SKILL-RISK-017"
+                                                        },
+                                                        {
+                                                            "description":  "Auto-update risk",
+                                                            "pattern":  "wget.*http",
+                                                            "severity":  "high",
+                                                            "riskId":  "SKILL-RISK-017"
+                                                        },
+                                                        {
+                                                            "description":  "External script download",
+                                                            "severity":  "high",
+                                                            "riskId":  "SKILL-RISK-019"
+                                                        },
+                                                        {
+                                                            "description":  "No hash/signature",
+                                                            "severity":  "medium",
+                                                            "riskId":  "SKILL-RISK-020"
+                                                        }
+                                                    ]
+                                   },
+                   "runtimeBehavior":  {
+                                           "passed":  false,
+                                           "findings":  [
+                                                            {
+                                                                "description":  "No verifier",
+                                                                "severity":  "medium",
+                                                                "riskId":  "SKILL-RISK-032"
+                                                            },
+                                                            {
+                                                                "description":  "No failure modes",
+                                                                "severity":  "low",
+                                                                "riskId":  "SKILL-RISK-031"
+                                                            },
+                                                            {
+                                                                "description":  "No rollback policy",
+                                                                "severity":  "low",
+                                                                "riskId":  "SKILL-RISK-030"
+                                                            }
+                                                        ]
+                                       }
+               },
+    "evidenceRefs":  [
+
+                     ]
+}

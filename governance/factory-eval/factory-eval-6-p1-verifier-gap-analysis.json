@@ -1,0 +1,57 @@
+{
+    "gapClassification":  "VERIFIER_INCOMPLETE — missing FINAL package existence + SHA verification",
+    "section":  "B",
+    "generatedAt":  "2026-06-25T19:13:06+08:00",
+    "checks":  [
+                   {
+                       "detail":  "Verifier script only checked \u0027No new final ZIP\u0027. No SHA check at all.",
+                       "question":  "Did the verifier actually check FINAL package SHA?",
+                       "answer":  "NO"
+                   },
+                   {
+                       "detail":  "Verifier had no code path for FINAL package existence or SHA verification.",
+                       "question":  "Did it skip FINAL package check?",
+                       "answer":  "YES"
+                   },
+                   {
+                       "detail":  "Verifier did not challenge the report\u0027s claim. Negative NC26 was marked N/A.",
+                       "question":  "Did it incorrectly allow \"No FINAL package exists\"?",
+                       "answer":  "YES"
+                   },
+                   {
+                       "detail":  "Checked only root-level *.zip, not outputs/ subdirectory.",
+                       "question":  "Did it use the wrong repo root?",
+                       "answer":  "YES"
+                   },
+                   {
+                       "detail":  "Only \u0027no new final ZIP\u0027 check existed. FINAL package existence was never verified.",
+                       "question":  "Did it check only \u0027no new ZIP\u0027 but not existing FINAL ZIP?",
+                       "answer":  "YES"
+                   },
+                   {
+                       "detail":  "Product implementation is correct. Only the report text was wrong. After repair, EVAL-6 is valid.",
+                       "question":  "Is EVAL-6 PASS invalid or PASS_WITH_REPAIRED_REPORT?",
+                       "answer":  "PASS_WITH_REPAIRED_REPORT"
+                   }
+               ],
+    "phase":  "FACTORY-EVAL-6-P1",
+    "title":  "EVAL-6 Verifier Gap Analysis",
+    "repairedVerifierChecks":  [
+                                   {
+                                       "expected":  true,
+                                       "name":  "FINAL package exists"
+                                   },
+                                   {
+                                       "name":  "FINAL package SHA matches",
+                                       "expectedSHA":  "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED"
+                                   },
+                                   {
+                                       "expected":  true,
+                                       "name":  "No new ZIP created"
+                                   },
+                                   {
+                                       "expected":  true,
+                                       "name":  "FINAL package not modified"
+                                   }
+                               ]
+}

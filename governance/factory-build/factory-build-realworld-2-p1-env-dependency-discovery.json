@@ -1,0 +1,28 @@
+﻿{
+    "environment":  {
+                        "python_available":  true,
+                        "pip_available":  true,
+                        "pip_version":  "26.0.1",
+                        "python_version":  "3.13.13"
+                    },
+    "verdict":  "ENV_READY",
+    "discovery_id":  "FACTORY-BUILD-REALWORLD-2-P1-ENV-DEPENDENCY-DISCOVERY",
+    "section":  "F",
+    "project_dependencies":  {
+                                 "no_requirements_txt":  true,
+                                 "all_available":  true,
+                                 "detected":  [
+                                                  "Django",
+                                                  "python-dotenv",
+                                                  "django-widget-tweaks"
+                                              ],
+                                 "note":  "Django 6.0.6 installed globally; project originally targeted Django 5.x per intake inventory",
+                                 "installed":  [
+                                                   "Django 6.0.6",
+                                                   "python-dotenv (available)",
+                                                   "django-widget-tweaks (available)"
+                                               ]
+                             },
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P1",
+    "generated_at":  "2026-06-28T10:17:38+08:00"
+}

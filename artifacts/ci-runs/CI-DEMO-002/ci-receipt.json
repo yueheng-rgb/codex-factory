@@ -1,0 +1,24 @@
+﻿{
+    "exit_code":  0,
+    "stderr_path":  "C:\\Codex_App_Factory/artifacts/ci-runs/CI-DEMO-002/stderr.log",
+    "started_at":  "2026-07-17T15:25:05.7983652+08:00",
+    "non_claims":  [
+                       "local-ci-simulated is NOT a real CI provider",
+                       "No cloud runner involved"
+                   ],
+    "artifact_paths":  [
+                           "C:\\Codex_App_Factory/artifacts/ci-runs/CI-DEMO-002/stdout.log",
+                           "C:\\Codex_App_Factory/artifacts/ci-runs/CI-DEMO-002/stderr.log"
+                       ],
+    "provider":  "local-ci-simulated",
+    "commit_or_snapshot_ref":  "CODEX-FACTORY-V2-20260717",
+    "job_name":  "intentional-fail",
+    "status":  "PASS",
+    "command":  "node -e process.exit(1)",
+    "stdout_path":  "C:\\Codex_App_Factory/artifacts/ci-runs/CI-DEMO-002/stdout.log",
+    "finished_at":  "2026-07-17T15:25:05.8569566+08:00",
+    "secret_policy_result":  "NOT_CHECKED",
+    "command_redacted":  "node -e process.exit(1)",
+    "ci_run_id":  "CI-DEMO-002",
+    "snapshot_verified":  true
+}

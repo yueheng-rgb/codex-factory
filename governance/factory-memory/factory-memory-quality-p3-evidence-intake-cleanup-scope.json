@@ -1,0 +1,18 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "A",
+  "title": "P3 Evidence Intake and Cleanup Scope Lock",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "inherited": {
+    "context_space": "Mainline compression solved; not full backup",
+    "memory_quality_p2": "PASS 37/37 — minimal ingestion, schema, templates, caveat, Socratic Gate, validator",
+    "remaining_gap": "Lifecycle: no retention policy, no user-visible inventory, no cleanup/archive/freeze/prune/delete modes"
+  },
+  "p3_purpose": {
+    "primary": "User-controlled lifecycle management for External Conversation Space",
+    "is": ["retention policy", "cleanup planning (PLAN first)", "archive/freeze/prune/delete modes", "user-visible inventory", "no destructive delete by default"],
+    "is_not": ["v0.5 release", "RC creation", "cloud deployment", "project repair", "AB continuation", "Native Build Pro"]
+  },
+  "scope_lock": "FROZEN — retention cleanup planning only. Default=PLAN. DELETE requires explicit confirmation.",
+  "status": "EVIDENCE_INTAKE_AND_CLEANUP_SCOPE_LOCKED"
+}

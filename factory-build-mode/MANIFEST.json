@@ -1,0 +1,36 @@
+﻿{
+    "bundle": "factory-build-mode-mvp-v0.1.0",
+    "version": "0.1.0-mvp",
+    "type": "BUILD_MODE_CONTROL_PLANE",
+    "status": "MVP",
+    "createdAt": "2026-06-27",
+    "description": "Build Mode MVP control-plane artifacts for Codex Factory Build Harness",
+    "strategyBoundary": {
+        "vanillaProductLeader": true,
+        "multiAgentStatus": "CONDITIONAL_NOT_DEFAULT",
+        "v05Release": "BLOCKED",
+        "diagnosticPackRole": "SUPPORT_GATE_ONLY",
+        "buildModeIsMainline": true
+    },
+    "forbiddenClaims": [
+        "Product quality guarantee",
+        "Multi-agent default",
+        "v0.5 release preparation",
+        "Diagnostic Pack as main product"
+    ],
+    "contents": {
+        "templates": "Intake, classification, mode-selection, blueprint, task-graph, memory templates",
+        "examples": "Filled-in example files",
+        "policies": "Classifier policy, mode selector policy, agent allocation policy",
+        "prompts": "User command templates for Codex windows",
+        "memory-templates": ".codex-factory/ state file schemas",
+        "scripts": "State management helper scripts"
+    },
+    "excludedItems": [
+        "Product source code",
+        "Release ZIP",
+        "v0.5 package",
+        "Benchmark artifacts",
+        "SkillMarket product source"
+    ]
+}

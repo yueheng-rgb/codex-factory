@@ -1,0 +1,27 @@
+﻿{
+  "mission_id": "V2_0_RC_INVENTORY_SUBSCRIPTION_ADMIN",
+  "mission_name": "Inventory Subscription Admin",
+  "phase": "v2.0-RC",
+  "expert_packs_activated": ["admin-system","ecommerce","saas-tool"],
+  "invariants_enforced": {
+    "admin-system": ["admin_required_for_admin_routes","role_permission_must_be_enforced","ordinary_admin_cannot_escalate_role","destructive_action_requires_confirmation","audit_log_required_for_sensitive_actions","protected_fields_cannot_be_modified_without_permission"],
+    "ecommerce": ["price_non_negative","inventory_non_negative","stock_delta_must_be_audited","archived_product_not_sellable","admin_required_for_price_change","status_transition_allowed"],
+    "saas-tool": ["tenant_data_isolation","subscription_status_controls_access","usage_quota_non_negative","quota_decrement_must_be_atomic"]
+  },
+  "surfaces": {
+    "expected": ["api-service","database","admin-web","docs-release"],
+    "detected": ["api-service","database","docs-release"],
+    "accuracy": "3/4 — admin-web is minimal (API-only with route-based admin)"
+  },
+  "risk_profile": {
+    "level": "CRITICAL",
+    "score": 65,
+    "reasons": ["Multi-domain integration","Price + inventory + subscription logic","Cross-tenant data isolation","Role-based access with escalation protection"]
+  },
+  "tests": {"total":38,"passed":38,"negative_controls":10},
+  "engines": {
+    "semgrep":"PENDING","autocannon":"PENDING","playwright":"NOT_APPLICABLE","codeql":"TOOL_UNAVAILABLE","k6":"TOOL_UNAVAILABLE","firecrawl-reader":"NOT_APPLICABLE"
+  },
+  "production_readiness": {"level":"PARTIAL","score_estimate":55,"top_gaps":["In-memory store","No Docker/container","No migration runner","No real Postgres"]},
+  "non_claims": ["NOT a production system","In-memory store only","NOT a complete admin UI","NOT production-deployable"]
+}

@@ -1,0 +1,82 @@
+﻿{
+    "passed":  18,
+    "nativeGenerated":  true,
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "check":  "staging_exists"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "manifest_exists"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "manifest_sha256_exists"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "manifest_sha256_matches"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "manifest_valid_json"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "all_files_in_manifest"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "version_0.4.0"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "status_RELEASED"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "positioning_PROCESS_INTEGRITY_LAYER"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "quality_CONDITIONAL_NOT_GUARANTEED"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "eval13_inconclusive_preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "no_universal_quality_claim"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "no_10role_default"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "forbidden_claims_list_exists"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "no_old_final_in_staging"
+                   },
+                   {
+                       "pass":  true,
+                       "check":  "no_benchmark_code_in_staging"
+                   },
+                   {
+                       "pass":  false,
+                       "check":  "DAILY_USE_exists"
+                   },
+                   {
+                       "pass":  false,
+                       "check":  "MINIMAL_CONTEXT_PACKET_exists"
+                   }
+               ],
+    "generatedAt":  "2026-06-26T00:36:07.6025467+08:00",
+    "failed":  0,
+    "phase":  "FACTORY-V04-RELEASE-ZIP-D"
+}

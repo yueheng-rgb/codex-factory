@@ -1,0 +1,16 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "I",
+  "title": "Working Copy Isolation",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "isolation_file": "factory-isolation/WORKING_COPY_ISOLATION.md",
+  "rules": [
+    {"id": 1, "rule": "Working copy scoped to project root"},
+    {"id": 2, "rule": "No shared working copies across projects"},
+    {"id": 3, "rule": "Working copy lifecycle follows project status"},
+    {"id": 4, "rule": "Multi-agent working copies are disjoint"},
+    {"id": 5, "rule": "Cleanup scoped to project only"}
+  ],
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_I_WORKING_COPY_ISOLATION_REPORT.md"
+}

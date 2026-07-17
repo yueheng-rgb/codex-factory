@@ -1,0 +1,30 @@
+﻿{
+  "closeReceiptId": "CR-B1-20260626-001",
+  "capsuleId": "builder-1-capsule",
+  "agentId": "builder-1",
+  "role": "Builder",
+  "taskId": "task-auth-module",
+  "closedAt": "2026-06-26T14:30:00+08:00",
+  "closeStatus": "COMPLETED",
+  "artifactsDelivered": [
+    "src/modules/auth/login.ts",
+    "src/modules/auth/register.ts",
+    "src/modules/auth/session.ts",
+    "src/modules/auth/tests/login.test.ts",
+    "src/modules/auth/tests/register.test.ts"
+  ],
+  "handoffAccepted": true,
+  "mergeResult": "MERGED",
+  "reviewStatus": "APPROVED",
+  "verifierGateStatus": "PASS",
+  "integrityCheckStatus": "PASS",
+  "finalArtifactHashes": {
+    "src/modules/auth/login.ts": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/modules/auth/register.ts": "sha256:a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a",
+    "src/modules/auth/session.ts": "sha256:6e23cdb0cfbe4d7e57fe6edfdf27f7f8a0b243ef2a0d6e5c5e8f6b0e9c2b1a3",
+    "src/modules/auth/tests/login.test.ts": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+    "src/modules/auth/tests/register.test.ts": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7"
+  },
+  "unresolvedItems": [],
+  "agentSignature": "builder-1-close-ack"
+}

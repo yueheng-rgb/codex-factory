@@ -1,0 +1,121 @@
+﻿{
+  "capsuleId": "CAP-ecommerce-inventory-deduction",
+  "domain": "ecommerce",
+  "topic": "高并发库存扣减模式",
+  "problem": "在高并发场景下，如何保证库存扣减的原子性和正确性，避免超卖和少卖",
+  "validatedFacts": [
+    {
+      "fact": "条件UPDATE (UPDATE inventory SET stock = stock - :qty WHERE product_id = :pid AND stock >= :qty) 是库存扣减的最安全方式",
+      "confidence": "VERIFIED",
+      "sourceRefIndex": 0
+    },
+    {
+      "fact": "先SELECT再UPDATE的模式在并发下会产生竞态条件，导致超卖",
+      "confidence": "VERIFIED",
+      "sourceRefIndex": 0
+    },
+    {
+      "fact": "Redis预减库存+DB最终一致可以提高性能，但需要补偿机制处理不一致",
+      "confidence": "TRUSTED",
+      "sourceRefIndex": 1
+    },
+    {
+      "fact": "库存扣减必须在事务中执行，与订单创建保持原子性",
+      "confidence": "VERIFIED",
+      "sourceRefIndex": 0
+    }
+  ],
+  "decisionRules": [
+    {
+      "condition": "项目涉及库存扣减且需要绝对数据一致性",
+      "action": "使用数据库条件UPDATE + 行级锁，在事务中与订单创建一起执行",
+      "rationale": "条件UPDATE保证原子性，数据库行级锁保证并发安全"
+    },
+    {
+      "condition": "项目QPS超过数据库承载能力(>5000 QPS)",
+      "action": "引入Redis预减库存作为一层缓存，异步同步到DB",
+      "rationale": "Redis单线程模型天然支持原子操作，QPS远高于关系数据库"
+    },
+    {
+      "condition": "项目规模为S/M",
+      "action": "不要引入Redis库存缓存。条件UPDATE足够。",
+      "rationale": "过度设计。S/M项目直接用数据库条件UPDATE性能足够。"
+    }
+  ],
+  "antiPatterns": [
+    {
+      "pattern": "先SELECT查库存，再UPDATE减库存",
+      "why": "SELECT和UPDATE之间有时间窗口，并发请求可能读到相同库存值",
+      "consequence": "超卖——两个请求都读到库存=1，都成功执行UPDATE"
+    },
+    {
+      "pattern": "应用层锁(如synchronized/ReentrantLock)控制库存",
+      "why": "应用层锁只在单进程有效，多实例部署或重启后失效",
+      "consequence": "分布式环境下完全失效，导致超卖"
+    },
+    {
+      "pattern": "S/M项目引入Redis做库存缓存",
+      "why": "增加运维复杂度、数据一致性问题、故障点",
+      "consequence": "过度工程化，延迟项目交付，引入不必要的bug"
+    }
+  ],
+  "examples": [
+    {
+      "scenario": "标准条件UPDATE扣减库存",
+      "codeOrDescription": "UPDATE inventory SET stock = stock - $1, updated_at = NOW() WHERE product_id = $2 AND stock >= $1 RETURNING stock",
+      "isCodeExample": true,
+      "language": "sql"
+    },
+    {
+      "scenario": "S级项目(日订单<100)的库存方案",
+      "codeOrDescription": "直接用数据库条件UPDATE，不需要Redis。在订单创建事务中包含库存扣减。",
+      "isCodeExample": false
+    }
+  ],
+  "caveats": [
+    "条件UPDATE依赖数据库行级锁，超高并发下可能产生锁等待",
+    "Redis预减库存方案需要定期对账(Redis vs DB)并处理差异",
+    "库存为0时条件UPDATE返回0行，需要应用层判断并返回'库存不足'",
+    "PostgreSQL的RETURNING子句可以同时返回扣减后的库存值，避免额外查询"
+  ],
+  "sourceRefs": [
+    {
+      "refId": "SRC-001",
+      "type": "blog",
+      "url": "https://developer.aliyun.com/article/high-concurrency-inventory",
+      "title": "阿里高并发库存扣减方案",
+      "retrievedAt": "2026-07-05"
+    },
+    {
+      "refId": "SRC-002",
+      "type": "blog",
+      "url": "https://tech.meituan.com/inventory-system-design",
+      "title": "美团库存系统设计",
+      "retrievedAt": "2026-07-05"
+    },
+    {
+      "refId": "RSRC-20260705-001",
+      "type": "research_packet",
+      "url": "internal://research-packets/RSRC-20260705-001",
+      "title": "高并发电商系统架构 Research Packet",
+      "retrievedAt": "2026-07-05"
+    }
+  ],
+  "lastReviewed": "2026-07-05",
+  "expiryPolicy": {
+    "expiresAt": "2027-07-05",
+    "expiryAction": "reverify"
+  },
+  "relatedCapsules": ["CAP-ecommerce-order-state-machine", "CAP-ecommerce-payment-idempotency"],
+  "tags": ["ecommerce", "inventory", "concurrency", "postgresql", "redis", "stock", "transaction"],
+  "status": "draft",
+  "createdAt": "2026-07-05T14:30:00+08:00",
+  "createdBy": "LIB-001",
+  "approvedBy": {
+    "architect": "PENDING",
+    "security": "PENDING",
+    "verifier": "PENDING",
+    "integrator": "PENDING"
+  },
+  "version": "0.1.0"
+}

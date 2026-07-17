@@ -1,0 +1,19 @@
+﻿{
+  "capsuleId": "capsule-ag2-bad1-20260626030000",
+  "phase": "FACTORY-AGENT-2",
+  "agentId": "ag2-bad-1",
+  "role": "Builder",
+  "forkContext": false,
+  "forbiddenScope": ["config/secrets/"],
+  "allowedImports": ["shared/types/"],
+  "forbiddenImports": [],
+  "expectedOutputs": [{"path": "src/x.ts", "description": "Output"}],
+  "requiredEvidence": ["transcript"],
+  "handoffRequirements": {"fileList": true, "sha256": true, "transcriptRef": true, "contractChecklist": true},
+  "closeConditions": [{"reason": "COMPLETED", "condition": "Done"}],
+  "antiDeceptionChecks": [{"checkId": "ADC-001", "description": "No manual", "severity": "P0"}],
+  "escalationTriggers": [{"triggerId": "ESC-001", "condition": "Bad scope", "escalationPath": "ORCHESTRATOR", "severity": "P0"}],
+  "assignedBy": "ag2-orchestrator",
+  "assignedAt": "2026-06-26T03:00:00+08:00",
+  "contractVersion": "1.0.0"
+}

@@ -1,0 +1,83 @@
+﻿{
+    "version":  "1.0.0",
+    "requiredInputs":  [
+                           {
+                               "name":  "projectScope",
+                               "description":  "Number of pages, tables, API endpoints, team size"
+                           }
+                       ],
+    "triggerConditions":  [
+                              "new project starts",
+                              "architecture decision being made",
+                              "agent proposes microservices / message queues / complex infrastructure",
+                              "project has fewer than 10 pages and 10 tables"
+                          ],
+    "expectedOutputs":  [
+                            {
+                                "format":  "string array",
+                                "name":  "overengineeringWarnings",
+                                "description":  "Detected overengineering risks"
+                            },
+                            {
+                                "format":  "string array",
+                                "name":  "simplificationRecommendations",
+                                "description":  "How to simplify the design"
+                            }
+                        ],
+    "applicableAgents":  [
+                             "PM-001",
+                             "ARCH-001",
+                             "IMPL-FE-001",
+                             "IMPL-BE-001"
+                         ],
+    "sourceRefs":  [
+                       "Codex_App_Factory internal skill: anti-overengineering"
+                   ],
+    "forbiddenActions":  [
+                             "write_project_code",
+                             "add_microservices_to_small_project",
+                             "add_message_queue_to_small_project",
+                             "add_graphql_to_small_project",
+                             "add_kubernetes_to_small_project"
+                         ],
+    "skillId":  "CAP-SKILL-013",
+    "name":  "anti-overengineering-guard",
+    "status":  "factoryRuntimeVerified",
+    "failureModes":  [
+                         {
+                             "recovery":  "Ensure trigger conditions include architecture decisions",
+                             "symptom":  "Complex architecture approved without check",
+                             "mode":  "Not triggered when needed"
+                         },
+                         {
+                             "recovery":  "Check project scope thresholds; allow human override",
+                             "symptom":  "Warns even for legitimately complex projects",
+                             "mode":  "Over-triggered"
+                         }
+                     ],
+    "applicableProjectTypes":  [
+                                   "fullstack-admin",
+                                   "saas-tool",
+                                   "content-site",
+                                   "api-service",
+                                   "miniapp",
+                                   "mobile-app"
+                               ],
+    "allowedTools":  [
+                         "read"
+                     ],
+    "rollbackPolicy":  {
+                           "canRollback":  true,
+                           "rollbackProcedure":  "Remove from agent context; re-evaluate architecture without skill",
+                           "dataLossRisk":  "none"
+                       },
+    "trustLevel":  "TRUSTED",
+    "verificationMethod":  {
+                               "behaviorCheck":  "Test with mock project: trigger on 3-page project requesting microservices → must warn",
+                               "requiredEvidence":  [
+                                                        "overengineering_warning_generated",
+                                                        "simplification_recommended"
+                                                    ],
+                               "formatCheck":  "Verify skill.json schema; verify SKILL.md has core principles table"
+                           }
+}

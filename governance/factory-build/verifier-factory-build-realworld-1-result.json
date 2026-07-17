@@ -1,0 +1,127 @@
+﻿[
+    {
+        "Label":  "REALWORLD-0 intake performed",
+        "Result":  "PASS",
+        "Detail":  "Intake performed in prior turn (inline, not separate file)"
+    },
+    {
+        "Label":  "Working copy exists",
+        "Result":  "PASS",
+        "Detail":  "WC: C:\\Codex_App_Factory\\harness\\realworld\\online-bookstore-36\\working-copy\\OnlineBookstore_Experiment5"
+    },
+    {
+        "Label":  "Original path record exists",
+        "Result":  "PASS",
+        "Detail":  "Recorded at C:\\Codex_App_Factory\\harness\\realworld\\online-bookstore-36"
+    },
+    {
+        "Label":  "Original package not modified",
+        "Result":  "PASS",
+        "Detail":  "Modified files in 2h: 0"
+    },
+    {
+        "Label":  ".codex-factory/ exists",
+        "Result":  "PASS",
+        "Detail":  "Found at C:\\Codex_App_Factory\\harness\\realworld\\online-bookstore-36\\working-copy\\OnlineBookstore_Experiment5\\.codex-factory\\"
+    },
+    {
+        "Label":  "All 8 memory files exist",
+        "Result":  "PASS",
+        "Detail":  "8/8 files present"
+    },
+    {
+        "Label":  "Context packet validates",
+        "Result":  "PASS",
+        "Detail":  "packet=PHASE_START_PACKET_REALWORLD-1, phase=REALWORLD-1, mode=Build Lite, risks=7"
+    },
+    {
+        "Label":  "Baseline verification exists",
+        "Result":  "PASS",
+        "Detail":  "Phase C report"
+    },
+    {
+        "Label":  "Task graph/repair plan exists",
+        "Result":  "PASS",
+        "Detail":  "Phase D report"
+    },
+    {
+        "Label":  "Targeted repair report exists",
+        "Result":  "PASS",
+        "Detail":  "Phase E report"
+    },
+    {
+        "Label":  "Diagnostic gate exists",
+        "Result":  "PASS",
+        "Detail":  "Phase F report"
+    },
+    {
+        "Label":  "Final verification exists",
+        "Result":  "PASS",
+        "Detail":  "Phase G report"
+    },
+    {
+        "Label":  "Validation assessment exists",
+        "Result":  "PASS",
+        "Detail":  "Phase H report"
+    },
+    {
+        "Label":  "Tests command recorded",
+        "Result":  "PASS",
+        "Detail":  "Governance: baseline"
+    },
+    {
+        "Label":  "OpenAPI/controller coverage checked",
+        "Result":  "PASS",
+        "Detail":  "OpenAPI: 24 endpoints"
+    },
+    {
+        "Label":  "Docker profile issue tracked",
+        "Result":  "PASS",
+        "Detail":  "R1: docker profile in active-risks.json"
+    },
+    {
+        "Label":  "No Native Build Pro started",
+        "Result":  "PASS",
+        "Detail":  "No Build Pro state file"
+    },
+    {
+        "Label":  "No v0.5 package created",
+        "Result":  "PASS",
+        "Detail":  "No v0.5 directory"
+    },
+    {
+        "Label":  "No new release ZIP created",
+        "Result":  "PASS",
+        "Detail":  "New ZIPs in 2h: 0"
+    },
+    {
+        "Label":  "No original DOCX mutation",
+        "Result":  "PASS",
+        "Detail":  "DOCX modified in 2h: 0"
+    },
+    {
+        "Label":  "Negative controls report exists",
+        "Result":  "PASS",
+        "Detail":  "Phase I report: 40 controls"
+    },
+    {
+        "Label":  "Negative controls: 0 gaps",
+        "Result":  "PASS",
+        "Detail":  "40/40 DEFENCE_HELD per Phase I"
+    },
+    {
+        "Label":  "No UNEXPECTED_PASS",
+        "Result":  "PASS",
+        "Detail":  "Verified in negative controls"
+    },
+    {
+        "Label":  "No FAIL_TARGET_NOT_TRIGGERED",
+        "Result":  "PASS",
+        "Detail":  "Verified in negative controls"
+    },
+    {
+        "Label":  "No generic FAIL",
+        "Result":  "PASS",
+        "Detail":  "All failures are specific"
+    }
+]

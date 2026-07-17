@@ -1,0 +1,236 @@
+﻿{
+    "passed":  45,
+    "verifier_id":  "VERIFIER-FACTORY-RELEASE-CANDIDATE-0",
+    "generated_at":  "2026-06-28T21:01:25+08:00",
+    "verdict":  "PASS",
+    "total_checks":  45,
+    "phase":  "FACTORY-RELEASE-CANDIDATE-0",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "AB-1 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "PACK-STAGING-P8 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "RELEASE-READINESS-0 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "Section A: Evidence intake report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "Section A: Evidence intake JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "Section B: RC criteria/boundary report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "Section B: RC criteria/boundary JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "RC_BOUNDARY.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "RC_CRITERIA.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Section C: Source selection report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "Section C: Source selection JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "Section D: RC metadata report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "RC0_METADATA.json exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "RC package exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "RC SHA256 file exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "RC SHA256 matches"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "Section E: Package creation report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "Section F: Manifest/hash audit report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "RC0_MANIFEST.json exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "Section G: Extraction smoke report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "Section H: Safety gate smoke report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "Section I: User review report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "RC0_USER_REVIEW_GUIDE.md exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "Section J: Blocker recheck report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "Section K: Strategy decision report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "Section L: Negative controls report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "Negative controls JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "artifactType=RELEASE_CANDIDATE"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "finalRelease=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "releaseAllowed=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "v05Package=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "rcCandidate=true"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "No real projects/secrets in RC"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V034",
+                       "desc":  "No release ZIP inside RC"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V035",
+                       "desc":  "BLOCK-002 remains ACTIVE (not resolved by RC)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V036",
+                       "desc":  "BLOCK-003 remains ACTIVE (not resolved by RC)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V037",
+                       "desc":  "BLOCK-004 remains ACTIVE (not resolved by RC)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V038",
+                       "desc":  "v0.5 remains BLOCKED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V039",
+                       "desc":  "Negative controls: \u003e=46 items, 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V040",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V041",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V042",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V043",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V044",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V045",
+                       "desc":  "Verifier script exists"
+                   }
+               ],
+    "failed":  0
+}

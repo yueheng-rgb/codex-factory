@@ -1,0 +1,47 @@
+﻿{
+    "repair_plan_id": "FACTORY-BUILD-REALWORLD-2-P1-TARGETED-REPAIR-PLAN-ONLY",
+    "generated_at": "2026-06-28T10:19:29+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P1",
+    "section": "J",
+    "repair_not_executed": true,
+    "repair_deferred_to": "REALWORLD-2-P2",
+    "identified_issues": [
+        {
+            "issue": "8 test failures + 2 errors (Django 6.x vs 5.x incompatibility)",
+            "severity": "MEDIUM",
+            "repair_approach": "Pin Django version; update deprecated APIs; add seed data fixture",
+            "requires_user_approval": true
+        },
+        {
+            "issue": "No requirements.txt",
+            "severity": "LOW",
+            "repair_approach": "Generate requirements.txt from pip freeze or manual dependency list",
+            "requires_user_approval": false
+        },
+        {
+            "issue": "CSRF_COOKIE_SECURE defaults to False",
+            "severity": "HIGH",
+            "repair_approach": "Set CSRF_COOKIE_SECURE=True; requires HTTPS deployment first",
+            "requires_user_approval": true
+        },
+        {
+            "issue": "SESSION_COOKIE_SECURE defaults to False",
+            "severity": "HIGH",
+            "repair_approach": "Set SESSION_COOKIE_SECURE=True; requires HTTPS",
+            "requires_user_approval": true
+        },
+        {
+            "issue": "No dev/prod settings split",
+            "severity": "MEDIUM",
+            "repair_approach": "Create settings/dev.py and settings/prod.py; use DJANGO_SETTINGS_MODULE",
+            "requires_user_approval": true
+        },
+        {
+            "issue": "Hardcoded credentials in original deploy scripts",
+            "severity": "CRITICAL",
+            "repair_approach": "USER MUST ROTATE ALL SECRETS MANUALLY; move to environment variables or secrets manager",
+            "requires_user_approval": true
+        }
+    ],
+    "verdict": "TARGETED_REPAIR_PLAN_ONLY_NO_EXECUTION"
+}

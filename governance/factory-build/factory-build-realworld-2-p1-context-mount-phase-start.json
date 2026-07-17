@@ -1,0 +1,36 @@
+﻿{
+    "attach_packet_v3":  {
+                             "snapshot_fallback":  "SNAPSHOT_FRESH",
+                             "generated":  true,
+                             "freshness":  "FRESH"
+                         },
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P1",
+    "generated_at":  "2026-06-28T10:16:15+08:00",
+    "section":  "A",
+    "phase_start_id":  "FACTORY-BUILD-REALWORLD-2-P1-CONTEXT-MOUNT-PHASE-START",
+    "phase_state_confirmed":  {
+                                  "p6_completed":  true,
+                                  "native_build_pro_conditional":  true,
+                                  "v0_5_blocked":  true,
+                                  "p7_completed":  true,
+                                  "tcm_secret_risk_active":  true,
+                                  "build_lite_default":  true,
+                                  "p7_verdict":  "TRUE_FRESH_WINDOW_VALIDATED_WITH_WARNINGS",
+                                  "no_secret_disclosure":  true,
+                                  "no_deploy":  true,
+                                  "no_remote":  true,
+                                  "current_phase":  "FACTORY-BUILD-REALWORLD-2-P1",
+                                  "p5_limitation_preserved":  "SAME_WINDOW_SIMULATED_USABILITY_PROVEN"
+                              },
+    "mount_readiness":  {
+                            "checks_total":  10,
+                            "verdict":  "READY",
+                            "timestamp":  "2026-06-28T10:16:15+08:00",
+                            "checks_passed":  10
+                        },
+    "direction_guard":  {
+                            "rules_active":  13,
+                            "version":  "3.0.0",
+                            "rules_frozen":  13
+                        }
+}

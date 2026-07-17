@@ -1,0 +1,18 @@
+{
+  "phase": "DRY24",
+  "snapshotType": "closure",
+  "generatedAt": "2026-06-24T16:17:17.827367+08:00",
+  "positiveVerdict": "PASS",
+  "buildersCompleted": 6,
+  "totalFiles": 309,
+  "totalExports": 369,
+  "negativeControls": 24,
+  "negativeControlsExecuted": 24,
+  "negativeGaps": 0,
+  "dependencyGraphEdges": 5,
+  "crossWorkerDeps": 5,
+  "verifierResult": "PASS",
+  "finalZip": false,
+  "h18Artifacts": 0,
+  "verdict": "PASS"
+}

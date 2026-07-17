@@ -1,0 +1,21 @@
+﻿{
+  "runId": "FACTORY-AGENT-7-RUN-LP-B-V04-FACTORY-LITE",
+  "phase": "FACTORY-AGENT-7",
+  "status": "PASS",
+  "verifierResult": "35/35 PASS",
+  "testsResult": "76/76 PASS (27 files)",
+  "completedAt": "2026-06-26T17:20:00+08:00",
+  "productPath": "harness/benchmarks/factory-agent-large-project/runs/v04-factory-lite/product/",
+  "summary": {
+    "sourceFiles": 80,
+    "apiEndpoints": 40,
+    "dbTables": 15,
+    "testFiles": 27,
+    "testsPassed": 76,
+    "porReceipts": 3,
+    "factoryMechanismsUsed": ["Manual Router","Proof-of-Read","Evidence Hierarchy","Contamination Logging","Quality Gap Triggers"],
+    "factoryMechanismsNotUsed": ["Agent Company","Worker Capsules","Spawned Agents","AGENT-1~4 runtime"]
+  },
+  "verifierPath": "scripts/factory-agent-7-v04-factory-lite-run-verify.ps1",
+  "recommendedNextPhase": "FACTORY-AGENT-8 / v0.5 Agent Company Large Project Run"
+}

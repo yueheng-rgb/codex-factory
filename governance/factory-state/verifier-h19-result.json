@@ -1,0 +1,186 @@
+﻿{
+    "passed":  35,
+    "timestamp":  "2026-06-24T19:23:08.1212189+08:00",
+    "verifierPath":  "C:\\Codex_App_Factory\\scripts\\phase6c-h19-codex-skills-plugin-mcp-packaging-verify.ps1",
+    "verdict":  "PASS",
+    "totalChecks":  35,
+    "phase":  "H19",
+    "checks":  [
+                   {
+                       "Label":  "PARENT_DRY25",
+                       "Pass":  true,
+                       "Detail":  "currentTrustedPhase=DRY25"
+                   },
+                   {
+                       "Label":  "DRY25_P1_PASS",
+                       "Pass":  true,
+                       "Detail":  "dry25P1Status=PASS"
+                   },
+                   {
+                       "Label":  "NO_DRY26",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_FINAL_ZIP",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CAP_VERIFICATION_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "CAP_REPORT_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_SELF_REPORT_DRIVES_ARCH",
+                       "Pass":  true,
+                       "Detail":  "count=0"
+                   },
+                   {
+                       "Label":  "NO_HYPOTHESIS_DRIVES_ARCH",
+                       "Pass":  true,
+                       "Detail":  "count=0"
+                   },
+                   {
+                       "Label":  "SKILL_SCAFFOLD_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SKILL_MD_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SKILL_HAS_REFERENCES",
+                       "Pass":  true,
+                       "Detail":  "count=23"
+                   },
+                   {
+                       "Label":  "SKILL_HAS_SCRIPTS",
+                       "Pass":  true,
+                       "Detail":  "count=6"
+                   },
+                   {
+                       "Label":  "SKILL_HAS_ASSETS",
+                       "Pass":  true,
+                       "Detail":  "count=10"
+                   },
+                   {
+                       "Label":  "SKILL_HAS_P0P1P2",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SKILL_HAS_EVIDENCE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SKILL_HAS_CLAIM_CLASS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SKILL_NO_SCORING_GATE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "SKILL_NO_COMPRESSED_EVIDENCE",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PLUGIN_DIR_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PLUGIN_JSON_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PLUGIN_HAS_NAME",
+                       "Pass":  true,
+                       "Detail":  "name=codex-factory"
+                   },
+                   {
+                       "Label":  "PLUGIN_HAS_SKILLS_PATH",
+                       "Pass":  true,
+                       "Detail":  "skills=./skills/"
+                   },
+                   {
+                       "Label":  "PLUGIN_IS_SCAFFOLD",
+                       "Pass":  true,
+                       "Detail":  "valid JSON"
+                   },
+                   {
+                       "Label":  "PLUGIN_NO_ABS_PATHS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "PLUGIN_NO_FAILURE_ROUTER",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MCP_DESIGN_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MCP_SCHEMA_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MCP_SAMPLE_EXISTS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "MCP_FAIL_NOT_PASS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NEGATIVES_PASS",
+                       "Pass":  true,
+                       "Detail":  "verdict=PASS"
+                   },
+                   {
+                       "Label":  "NEGATIVES_20",
+                       "Pass":  true,
+                       "Detail":  "count=20"
+                   },
+                   {
+                       "Label":  "NEGATIVES_ZERO_GAPS",
+                       "Pass":  true,
+                       "Detail":  "gaps=0"
+                   },
+                   {
+                       "Label":  "NO_MANUAL_PASS",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_GENERIC_FAIL",
+                       "Pass":  true,
+                       "Detail":  ""
+                   },
+                   {
+                       "Label":  "NO_PRECLASSIFIED",
+                       "Pass":  true,
+                       "Detail":  ""
+                   }
+               ],
+    "failed":  0
+}

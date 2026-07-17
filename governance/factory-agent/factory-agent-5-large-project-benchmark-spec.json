@@ -1,0 +1,284 @@
+﻿{
+    "benchmarkName":  "OpsFlow Enterprise Lite",
+    "totalModules":  13,
+    "totalRequirements":  36,
+    "modules":  [
+                    {
+                        "module":  "auth-rbac",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R01",
+                                         "req":  "User registration with email/password"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R02",
+                                         "req":  "Login with JWT session management"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R03",
+                                         "req":  "Role-based access: owner/admin/manager/operator/viewer"
+                                     },
+                                     {
+                                         "category":  "security",
+                                         "id":  "R04",
+                                         "req":  "Permission checks on all sensitive API endpoints"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "workspace",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R05",
+                                         "req":  "Multi-workspace model with data isolation"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R06",
+                                         "req":  "Users belong to workspaces with role assignment"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R07",
+                                         "req":  "Membership management (invite/remove/role-change)"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "operations-request",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R08",
+                                         "req":  "Request CRUD with type/category classification"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R09",
+                                         "req":  "Status workflow: draft/submitted/triaged/in_progress/blocked/resolved/closed/rejected"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R10",
+                                         "req":  "Assignment to operators with due dates and SLA fields"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R11",
+                                         "req":  "Priority/severity with escalation rules"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R12",
+                                         "req":  "Workflow transition validation (invalid transitions blocked)"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "comments-activity",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R13",
+                                         "req":  "Comments on requests with author tracking"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R14",
+                                         "req":  "Activity feed showing timeline of actions"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R15",
+                                         "req":  "System events for status changes and assignments"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "audit-log",
+                        "reqs":  [
+                                     {
+                                         "category":  "compliance",
+                                         "id":  "R16",
+                                         "req":  "Audit entries for all auth events (login/logout/failed)"
+                                     },
+                                     {
+                                         "category":  "compliance",
+                                         "id":  "R17",
+                                         "req":  "Audit entries for all data mutations (CRUD) with actor/timestamp"
+                                     },
+                                     {
+                                         "category":  "compliance",
+                                         "id":  "R18",
+                                         "req":  "Audit log query by actor, action, date range, workspace"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "notifications",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R19",
+                                         "req":  "In-app notification on assignment and status change"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R20",
+                                         "req":  "Notification preferences per user"
+                                     },
+                                     {
+                                         "category":  "architecture",
+                                         "id":  "R21",
+                                         "req":  "Outbox pattern for async notification delivery"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "reporting-dashboard",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R22",
+                                         "req":  "Dashboard with request counts by status and priority"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R23",
+                                         "req":  "SLA compliance report"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R24",
+                                         "req":  "Date-range filter on all reports"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "import-export",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R25",
+                                         "req":  "CSV import for bulk request creation"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R26",
+                                         "req":  "CSV export with configurable columns"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R27",
+                                         "req":  "Import validation with error reporting"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "background-jobs",
+                        "reqs":  [
+                                     {
+                                         "category":  "architecture",
+                                         "id":  "R28",
+                                         "req":  "Background job queue stub for async tasks"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R29",
+                                         "req":  "Job status tracking (pending/running/completed/failed)"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "settings-config",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R30",
+                                         "req":  "Workspace-level settings (name, timezone, defaults)"
+                                     },
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R31",
+                                         "req":  "System configuration with admin-only access"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "api-contract",
+                        "reqs":  [
+                                     {
+                                         "category":  "architecture",
+                                         "id":  "R32",
+                                         "req":  "OpenAPI/Swagger contract for all endpoints"
+                                     },
+                                     {
+                                         "category":  "architecture",
+                                         "id":  "R33",
+                                         "req":  "Consistent error response shape across all endpoints"
+                                     },
+                                     {
+                                         "category":  "architecture",
+                                         "id":  "R34",
+                                         "req":  "Request/response validation middleware"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "frontend-ui",
+                        "reqs":  [
+                                     {
+                                         "category":  "functional",
+                                         "id":  "R35",
+                                         "req":  "Admin dashboard with all module access"
+                                     },
+                                     {
+                                         "category":  "quality",
+                                         "id":  "R36",
+                                         "req":  "Loading/empty/error/success states on all views"
+                                     }
+                                 ]
+                    },
+                    {
+                        "module":  "tests-deployment",
+                        "reqs":  [
+                                     {
+                                         "category":  "quality",
+                                         "id":  "R37",
+                                         "req":  "Unit tests for all business logic modules"
+                                     },
+                                     {
+                                         "category":  "quality",
+                                         "id":  "R38",
+                                         "req":  "Integration tests for critical cross-module flows"
+                                     },
+                                     {
+                                         "category":  "quality",
+                                         "id":  "R39",
+                                         "req":  "README with setup/run/test instructions"
+                                     },
+                                     {
+                                         "category":  "quality",
+                                         "id":  "R40",
+                                         "req":  "Seed data for demo/testing"
+                                     }
+                                 ]
+                    }
+                ],
+    "crossModuleDependencies":  [
+                                    "auth -\u003e all modules (RBAC check)",
+                                    "workspace -\u003e operations-request (data isolation)",
+                                    "operations-request -\u003e comments-activity (request context)",
+                                    "operations-request -\u003e notifications (status change trigger)",
+                                    "operations-request -\u003e audit-log (mutation tracking)",
+                                    "notifications -\u003e background-jobs (async delivery)",
+                                    "reporting-dashboard -\u003e operations-request (aggregation)",
+                                    "import-export -\u003e operations-request (bulk operations)",
+                                    "frontend-ui -\u003e api-contract (type sharing)",
+                                    "api-contract -\u003e all backend modules (consistent shapes)"
+                                ]
+}

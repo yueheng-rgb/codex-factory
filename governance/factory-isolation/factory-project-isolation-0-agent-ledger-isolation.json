@@ -1,0 +1,17 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "H",
+  "title": "Agent Ledger Isolation",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "isolation_file": "factory-isolation/AGENT_LEDGER_ISOLATION.md",
+  "rules": [
+    {"id": 1, "rule": "projectId required in every entry", "action": "REJECT entry if missing"},
+    {"id": 2, "rule": "One ledger per project", "action": "Separate files per project"},
+    {"id": 3, "rule": "Ledger write gate", "action": "Verify agent projectId matches ledger"},
+    {"id": 4, "rule": "Cross-project output marked FOREIGN_REFERENCE", "action": "Mark, do not merge"},
+    {"id": 5, "rule": "Agent attribution traceability", "action": "Verify agent_id -> projectId -> paths chain"}
+  ],
+  "schema_updates": ["Added projectId (required)", "Added foreign_references (array of projectIds)"],
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_H_AGENT_LEDGER_ISOLATION_REPORT.md"
+}

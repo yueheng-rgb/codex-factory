@@ -1,0 +1,18 @@
+﻿{
+    "gate_recheck_id": "FACTORY-BUILD-REALWORLD-2-P1-SECURITY-DEPLOY-GATE-POST-VALIDATION",
+    "generated_at": "2026-06-28T10:19:29+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P1",
+    "section": "I",
+    "post_validation_checks": [
+        {"id": "SDG-POST-001", "desc": "No deploy script executed during validation", "pass": true},
+        {"id": "SDG-POST-002", "desc": "No remote connection during smoke", "pass": true},
+        {"id": "SDG-POST-003", "desc": "No secret values in any output", "pass": true},
+        {"id": "SDG-POST-004", "desc": "Runserver killed after smoke", "pass": true},
+        {"id": "SDG-POST-005", "desc": "Original project still untouched", "pass": true},
+        {"id": "SDG-POST-006", "desc": "Working copy db.sqlite3 is fresh test DB", "pass": true},
+        {"id": "SDG-POST-007", "desc": "No production DB content in working copy", "pass": true},
+        {"id": "SDG-POST-008", "desc": "Safe .env still placeholder-only", "pass": true}
+    ],
+    "verdict": "SECURITY_DEPLOY_GATE_POST_VALIDATION_PASS",
+    "all_checks_pass": true
+}

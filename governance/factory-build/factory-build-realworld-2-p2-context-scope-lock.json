@@ -1,0 +1,20 @@
+﻿{
+    "scope_lock_id": "FACTORY-BUILD-REALWORLD-2-P2-CONTEXT-SCOPE-LOCK",
+    "generated_at": "2026-06-28T10:27:05+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P2",
+    "section": "A",
+    "mount_readiness": {"ready": true, "checks_passed": 10, "checks_total": 10},
+    "p1_confirmed": {"p1_pass_46_46": true, "working_copy_path": "C:\Codex_App_Factory\harness\realworld\tcm-project-ledger\working-copy\tcm-project-ledger", "original_protected": true, "secret_rotation_user_action": true},
+    "p2_scope": "Working-copy security hardening only — targeted fixes, no refactoring, no deploy, no secrets",
+    "bounds": {
+        "no_original_modification": true,
+        "no_deploy": true,
+        "no_remote": true,
+        "no_secret_disclosure": true,
+        "no_v0_5": true,
+        "no_native_build_pro": true,
+        "no_release_zip": true,
+        "no_large_refactor": true,
+        "no_package_qa_mainline": true
+    }
+}

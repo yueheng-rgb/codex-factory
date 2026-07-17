@@ -1,0 +1,38 @@
+﻿{
+    "fixturePath":  "C:\\Codex_App_Factory\\harness\\fixtures\\dry25-resource-pack-portability",
+    "pathDependencyCheck":  {
+                                "absolutePathRefsFound":  1,
+                                "verdict":  "PASS (documentation example, not runtime dependency)",
+                                "isDocumentationOnly":  true,
+                                "affectedFile":  "bootstrap/new-project-checklist.md",
+                                "actualRuntimeDependencies":  0
+                            },
+    "verdict":  "PASS",
+    "coreAssets":  {
+                       "handoffVerify":  "PRESENT",
+                       "registerAgent":  "PRESENT",
+                       "factoryctl":  "PRESENT",
+                       "generateHandoff":  "PRESENT",
+                       "recordProgress":  "PRESENT"
+                   },
+    "installResult":  {
+                          "filesCopied":  55,
+                          "manifestVersion":  "0.1.0",
+                          "manifestSha256Match":  true,
+                          "manifestSha256":  "AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8"
+                      },
+    "phase":  "DRY25-A",
+    "generatedAt":  "2026-06-24T17:47:58+08:00",
+    "nativeGenerated":  true,
+    "bootstrapValidation":  {
+                                "totalChecks":  14,
+                                "verdict":  "PASS",
+                                "warnings":  0,
+                                "failures":  0
+                            },
+    "exclusionChecks":  {
+                            "failureRouterInCore":  0,
+                            "scoringInCore":  0
+                        },
+    "parentPhase":  "H18"
+}

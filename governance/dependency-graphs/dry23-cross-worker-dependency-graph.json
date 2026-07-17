@@ -1,0 +1,383 @@
+﻿{
+    "workers":  [
+                    {
+                        "declaredDeps":  [
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-snapshot-manager",
+                                                 "targetScope":  "packages/snapshot-manager/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-risk-classifier",
+                                                 "targetScope":  "packages/risk-classifier/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-evidence-collector",
+                                                 "targetScope":  "packages/evidence-collector/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                                 "targetScope":  "packages/diagnosis-reporter/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-verify-gate",
+                                                 "targetScope":  "packages/verify-gate/"
+                                             }
+                                         ],
+                        "phase":  "DRY23-A",
+                        "ownedFiles":  [
+                                           "packages/diagnosis-engine-core/src/check-registry.ts",
+                                           "packages/diagnosis-engine-core/src/cross-module-contracts.ts",
+                                           "packages/diagnosis-engine-core/src/diagnosis-cache.ts",
+                                           "packages/diagnosis-engine-core/src/diagnosis-context.ts",
+                                           "packages/diagnosis-engine-core/src/diagnosis-events.ts",
+                                           "packages/diagnosis-engine-core/src/diagnosis-policy.ts",
+                                           "packages/diagnosis-engine-core/src/diagnosis-validator.ts",
+                                           "packages/diagnosis-engine-core/src/serializer.ts",
+                                           "packages/diagnosis-engine-core/src/types.ts"
+                                       ],
+                        "edges":  [
+
+                                  ],
+                        "role":  "builder",
+                        "agentId":  "dry23-builder-diagnosis-engine",
+                        "ownedDirectories":  [
+                                                 "packages/diagnosis-engine-core/"
+                                             ]
+                    },
+                    {
+                        "declaredDeps":  [
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-evidence-collector",
+                                                 "targetScope":  "packages/evidence-collector/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-risk-classifier",
+                                                 "targetScope":  "packages/risk-classifier/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-snapshot-manager",
+                                                 "targetScope":  "packages/snapshot-manager/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                                 "targetScope":  "packages/diagnosis-engine/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-verify-gate",
+                                                 "targetScope":  "packages/verify-gate/"
+                                             }
+                                         ],
+                        "phase":  "DRY23-A",
+                        "ownedFiles":  [
+                                           "packages/diagnosis-reporter/src/cross-module-contracts.ts",
+                                           "packages/diagnosis-reporter/src/index.ts",
+                                           "packages/diagnosis-reporter/src/json-reporter.ts",
+                                           "packages/diagnosis-reporter/src/markdown-reporter.ts",
+                                           "packages/diagnosis-reporter/src/report-events.ts",
+                                           "packages/diagnosis-reporter/src/report-history.ts",
+                                           "packages/diagnosis-reporter/src/report-templates.ts",
+                                           "packages/diagnosis-reporter/src/report-validator.ts",
+                                           "packages/diagnosis-reporter/src/serializer.ts",
+                                           "packages/diagnosis-reporter/src/summary-builder.ts",
+                                           "packages/diagnosis-reporter/src/table-formatter.ts",
+                                           "packages/diagnosis-reporter/src/types.ts"
+                                       ],
+                        "edges":  [
+
+                                  ],
+                        "role":  "builder",
+                        "agentId":  "dry23-builder-diagnosis-reporter",
+                        "ownedDirectories":  [
+                                                 "packages/diagnosis-reporter/"
+                                             ]
+                    },
+                    {
+                        "declaredDeps":  [
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-snapshot-manager",
+                                                 "targetScope":  "packages/snapshot-manager/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                                 "targetScope":  "packages/diagnosis-engine/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-risk-classifier",
+                                                 "targetScope":  "packages/risk-classifier/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                                 "targetScope":  "packages/diagnosis-reporter/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-verify-gate",
+                                                 "targetScope":  "packages/verify-gate/"
+                                             }
+                                         ],
+                        "phase":  "DRY23-A",
+                        "ownedFiles":  [
+                                           "packages/evidence-collector/src/collector.ts",
+                                           "packages/evidence-collector/src/cross-module-contracts.ts",
+                                           "packages/evidence-collector/src/evidence-aggregator.ts",
+                                           "packages/evidence-collector/src/evidence-bundler.ts",
+                                           "packages/evidence-collector/src/evidence-cache.ts",
+                                           "packages/evidence-collector/src/evidence-events.ts",
+                                           "packages/evidence-collector/src/evidence-hasher.ts",
+                                           "packages/evidence-collector/src/evidence-indexer.ts",
+                                           "packages/evidence-collector/src/evidence-validator.ts",
+                                           "packages/evidence-collector/src/index.ts",
+                                           "packages/evidence-collector/src/serializer.ts",
+                                           "packages/evidence-collector/src/source-registry.ts",
+                                           "packages/evidence-collector/src/types.ts"
+                                       ],
+                        "edges":  [
+
+                                  ],
+                        "role":  "builder",
+                        "agentId":  "dry23-builder-evidence-collector",
+                        "ownedDirectories":  [
+                                                 "packages/evidence-collector/"
+                                             ]
+                    },
+                    {
+                        "declaredDeps":  [
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-snapshot-manager",
+                                                 "targetScope":  "packages/snapshot-manager/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                                 "targetScope":  "packages/diagnosis-engine/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-evidence-collector",
+                                                 "targetScope":  "packages/evidence-collector/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                                 "targetScope":  "packages/diagnosis-reporter/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-verify-gate",
+                                                 "targetScope":  "packages/verify-gate/"
+                                             }
+                                         ],
+                        "phase":  "DRY23-A",
+                        "ownedFiles":  [
+                                           "packages/risk-classifier/src/classifier.ts",
+                                           "packages/risk-classifier/src/risk-alerter.ts",
+                                           "packages/risk-classifier/src/risk-evaluator.ts",
+                                           "packages/risk-classifier/src/risk-events.ts",
+                                           "packages/risk-classifier/src/risk-history.ts",
+                                           "packages/risk-classifier/src/risk-policy.ts",
+                                           "packages/risk-classifier/src/risk-reporter.ts",
+                                           "packages/risk-classifier/src/risk-severity.ts",
+                                           "packages/risk-classifier/src/risk-types.ts",
+                                           "packages/risk-classifier/src/types.ts"
+                                       ],
+                        "edges":  [
+
+                                  ],
+                        "role":  "builder",
+                        "agentId":  "dry23-builder-risk-classifier",
+                        "ownedDirectories":  [
+                                                 "packages/risk-classifier/"
+                                             ]
+                    },
+                    {
+                        "declaredDeps":  [
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                                 "targetScope":  "packages/diagnosis-engine/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-evidence-collector",
+                                                 "targetScope":  "packages/evidence-collector/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-risk-classifier",
+                                                 "targetScope":  "packages/risk-classifier/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                                 "targetScope":  "packages/diagnosis-reporter/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-verify-gate",
+                                                 "targetScope":  "packages/verify-gate/"
+                                             }
+                                         ],
+                        "phase":  "DRY23-A",
+                        "ownedFiles":  [
+                                           "packages/snapshot-manager/src/snapshot-archive.ts",
+                                           "packages/snapshot-manager/src/snapshot-comparator.ts",
+                                           "packages/snapshot-manager/src/snapshot-diff.ts",
+                                           "packages/snapshot-manager/src/snapshot-events.ts",
+                                           "packages/snapshot-manager/src/snapshot-lifecycle.ts",
+                                           "packages/snapshot-manager/src/snapshot-reporter.ts",
+                                           "packages/snapshot-manager/src/snapshot-retention.ts",
+                                           "packages/snapshot-manager/src/snapshot-store.ts",
+                                           "packages/snapshot-manager/src/snapshot-validator.ts",
+                                           "packages/snapshot-manager/src/types.ts"
+                                       ],
+                        "edges":  [
+
+                                  ],
+                        "role":  "builder",
+                        "agentId":  "dry23-builder-snapshot-manager",
+                        "ownedDirectories":  [
+                                                 "packages/snapshot-manager/"
+                                             ]
+                    },
+                    {
+                        "declaredDeps":  [
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-snapshot-manager",
+                                                 "targetScope":  "packages/snapshot-manager/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                                 "targetScope":  "packages/diagnosis-engine/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-risk-classifier",
+                                                 "targetScope":  "packages/risk-classifier/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-evidence-collector",
+                                                 "targetScope":  "packages/evidence-collector/"
+                                             },
+                                             {
+                                                 "edgeCount":  5,
+                                                 "dependencyType":  "contracts",
+                                                 "direction":  "depends_on",
+                                                 "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                                 "targetScope":  "packages/diagnosis-reporter/"
+                                             }
+                                         ],
+                        "phase":  "DRY23-A",
+                        "ownedFiles":  [
+                                           "packages/verify-gate/src/closure-gate.ts",
+                                           "packages/verify-gate/src/cross-module-contracts.ts",
+                                           "packages/verify-gate/src/gate-enforcer.ts",
+                                           "packages/verify-gate/src/gate-events.ts",
+                                           "packages/verify-gate/src/gate-history.ts",
+                                           "packages/verify-gate/src/gate-policy.ts",
+                                           "packages/verify-gate/src/gate-reporter.ts",
+                                           "packages/verify-gate/src/gate-validator.ts",
+                                           "packages/verify-gate/src/index.ts",
+                                           "packages/verify-gate/src/midflight-gate.ts",
+                                           "packages/verify-gate/src/preflight-gate.ts",
+                                           "packages/verify-gate/src/serializer.ts",
+                                           "packages/verify-gate/src/types.ts"
+                                       ],
+                        "edges":  [
+
+                                  ],
+                        "role":  "builder",
+                        "agentId":  "dry23-builder-verify-gate",
+                        "ownedDirectories":  [
+                                                 "packages/verify-gate/"
+                                             ]
+                    }
+                ],
+    "stats":  {
+                  "forbiddenEdges":  0,
+                  "totalEdges":  0,
+                  "selfEdges":  0,
+                  "allowedEdges":  0,
+                  "undeclaredEdges":  0
+              },
+    "contractCount":  6,
+    "edges":  [
+
+              ],
+    "generatedAt":  "2026-06-24T01:05:36+08:00"
+}

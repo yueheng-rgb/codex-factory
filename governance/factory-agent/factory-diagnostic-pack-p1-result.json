@@ -1,0 +1,23 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-PACK-P1",
+  "verdict": "PASS",
+  "timestamp": "2026-06-27T02:00:00+08:00",
+  "packVersion": "1.0.0 → 1.1.0",
+  "changes": {
+    "newFiles": 9,
+    "updatedFiles": 3,
+    "newModes": ["Quick Mode (12 items)","Student Project Mode (15 items)","Report-vs-Source Mode (10 items)"],
+    "newScanners": 6,
+    "newRules": ["Stop After Diagnostic","Mode Selection Decision Tree","Evidence Object vs Main Project"]
+  },
+  "strategyBoundaryPreserved": {
+    "multiAgentNotDefault": true,
+    "v05StillBlocked": true,
+    "vanillaProductLeader": true,
+    "noProductSuperiorityClaim": true,
+    "noSkillmarketCodeModified": true,
+    "noZipCreated": true,
+    "noRepairAutoStarted": true
+  },
+  "evidenceBasis": "SkillMarket real-project trial (FACTORY-DIAGNOSTIC-SMOKE-0 PASS 48/48, SKILLMARKET-REPAIR-0 PASS 40/40, FACTORY-DIAGNOSTIC-LESSONS-0 PASS 23/23)"
+}

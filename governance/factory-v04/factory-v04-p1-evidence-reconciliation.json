@@ -1,0 +1,48 @@
+﻿{
+    "reconciliationSummary":  "v0.4 Factory Lite Core is a PROCESS INTEGRITY LAYER that provides audit trail, contamination control, anti-gaming, and evidence discipline. Its effect on PRODUCT QUALITY is CONDITIONAL — it helped in EVAL-8 (+8) but did not help in EVAL-13 (-4). The net evidence across two benchmarks is MIXED and INCONCLUSIVE for product quality claims. The process-integrity benefits are consistent across both benchmarks.",
+    "timestamp":  "2026-06-25T22:16:55+08:00",
+    "benchmarks":  [
+                       {
+                           "interpretation":  "v0.4 Factory Lite showed real quality improvement on first benchmark. Key gains: test coverage, UI, code structure.",
+                           "result":  "Factory Lite 94 \u003e Vanilla 86 (+8). Factory Lite 94 \u003e 10-Role 93 (+1).",
+                           "project":  "TeamFlow Lite",
+                           "id":  "EVAL-8"
+                       },
+                       {
+                           "interpretation":  "v0.4 Factory Lite did NOT show quality improvement on second benchmark. Scores effectively identical when controlling for UI. Verdict: INCONCLUSIVE.",
+                           "result":  "Vanilla 99 \u003e v0.4 Factory Lite 95 (-4). Gap from UI depth. Without UI: 94 vs 93.",
+                           "project":  "LedgerFlow Lite",
+                           "id":  "EVAL-13"
+                       }
+                   ],
+    "phase":  "FACTORY-V04-P1-A",
+    "title":  "v0.4 Evidence Reconciliation — EVAL-8 + EVAL-13",
+    "claimClassification":  {
+                                "unsupported":  [
+                                                    "v0.4 universally improves product quality — DISPROVEN by EVAL-13 (Vanilla 99 \u003e v0.4 95)",
+                                                    "v0.4 always beats Vanilla — DISPROVEN by EVAL-13",
+                                                    "Process evidence equals product quality — ANTI-GAMING rule explicitly forbids this",
+                                                    "3-role model is proven necessary — NOT TESTED; deferred to EVAL-14",
+                                                    "Proof-of-Read proves correctness — POR policy explicitly states NOT proof of correctness",
+                                                    "Factory governance code should be used as product code",
+                                                    "File/exports/test counts are quality proof"
+                                                ],
+                                "inconclusive":  [
+                                                     "v0.4 product-quality benefit across different project types — 2 benchmarks: 1 win, 1 loss",
+                                                     "Whether optional Reviewer/3-role improves UI depth, README, or test quality — not tested",
+                                                     "Whether a third benchmark would provide supporting evidence — unknown",
+                                                     "Whether anti-overengineering rules in Constitution suppress necessary UI investment — plausible but unproven",
+                                                     "Whether v0.4 is ready for release — positioning needs reframe before release"
+                                                 ],
+                                "supported":  [
+                                                  "v0.4 Factory Lite CAN improve product quality in at least one benchmark (EVAL-8: +8 points)",
+                                                  "Manual Router and Proof-of-Read improve process traceability and audit trail",
+                                                  "Contamination logging maintains benchmark integrity across runs",
+                                                  "Evidence hierarchy prevents process artifacts from being counted as product quality",
+                                                  "Anti-gaming controls prevent score inflation from fake tests/placeholders",
+                                                  "Factory Lite Core has lower overhead (~200-375ms) than 10-role model (~1555ms)",
+                                                  "10-role model is not justified as default (EVAL-8 confirmed underperformance)",
+                                                  "Required-Reading Gate ensures spec is read before implementation"
+                                              ]
+                            }
+}

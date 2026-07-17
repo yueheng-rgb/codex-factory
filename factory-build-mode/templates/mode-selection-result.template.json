@@ -1,0 +1,12 @@
+﻿{
+    "template": "mode-selection-result",
+    "version": "0.1.0",
+    "projectName": "",
+    "selectedMode": "",
+    "rationale": "",
+    "requiresUserApproval": false,
+    "userApproved": false,
+    "stopAfterDiagnostic": false,
+    "agentCount": 1,
+    "usesReviewerVerifier": false
+}

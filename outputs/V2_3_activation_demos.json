@@ -1,0 +1,373 @@
+﻿[
+    {
+        "demo_id":  "MINI-D1",
+        "task":  "做一个微信小程序商城",
+        "activated_pack":  "miniapp",
+        "activation_reason":  "Keywords: 小程序+商城 → miniapp domain, may also activate ecommerce",
+        "recommended_surfaces":  [
+                                     "miniapp",
+                                     "api-service",
+                                     "database",
+                                     "admin-web"
+                                 ],
+        "risk_level":  "L_CLASS",
+        "required_invariants":  [
+                                    "MINI-001",
+                                    "MINI-003",
+                                    "MINI-004",
+                                    "MINI-005",
+                                    "MINI-010"
+                                ],
+        "required_tests":  [
+                               "openid validation",
+                               "payment callback idempotency",
+                               "secret exposure scan",
+                               "cross-user isolation"
+                           ],
+        "required_engines":  [
+                                 "semgrep"
+                             ],
+        "required_human_review":  true,
+        "human_review_reasons":  [
+                                     "payment callback risk",
+                                     "production appid review",
+                                     "user data isolation"
+                                 ],
+        "non_claims":  [
+                           "NOT a production miniapp",
+                           "NOT PCI-DSS compliant",
+                           "No real payment gateway"
+                       ]
+    },
+    {
+        "demo_id":  "MINI-D2",
+        "task":  "做一个小程序表单提交系统",
+        "activated_pack":  "miniapp",
+        "activation_reason":  "Keywords: 小程序+表单+提交 → miniapp domain",
+        "recommended_surfaces":  [
+                                     "miniapp",
+                                     "api-service",
+                                     "database"
+                                 ],
+        "risk_level":  "HIGH",
+        "required_invariants":  [
+                                    "MINI-002",
+                                    "MINI-008",
+                                    "MINI-006",
+                                    "MINI-007"
+                                ],
+        "required_tests":  [
+                               "form validation server-side",
+                               "upload type validation",
+                               "session token check"
+                           ],
+        "required_engines":  [
+                                 "semgrep"
+                             ],
+        "required_human_review":  false,
+        "human_review_reasons":  [
+
+                                 ],
+        "non_claims":  [
+                           "NOT production-hardened"
+                       ]
+    },
+    {
+        "demo_id":  "MINI-D3",
+        "task":  "修改小程序支付回调逻辑",
+        "activated_pack":  "miniapp",
+        "activation_reason":  "Keywords: 小程序+支付回调 → miniapp domain, payment callback CRITICAL",
+        "recommended_surfaces":  [
+                                     "api-service"
+                                 ],
+        "risk_level":  "CRITICAL",
+        "required_invariants":  [
+                                    "MINI-005",
+                                    "MINI-004",
+                                    "MINI-001"
+                                ],
+        "required_tests":  [
+                               "payment callback idempotency",
+                               "duplicate callback rejection",
+                               "secret not exposed"
+                           ],
+        "required_engines":  [
+                                 "semgrep",
+                                 "autocannon"
+                             ],
+        "required_human_review":  true,
+        "human_review_reasons":  [
+                                     "payment logic change",
+                                     "idempotency risk",
+                                     "financial impact"
+                                 ],
+        "non_claims":  [
+                           "NOT tested with real WeChat Pay sandbox"
+                       ]
+    },
+    {
+        "demo_id":  "MINI-D4",
+        "task":  "修改README里的小程序介绍文案",
+        "activated_pack":  "miniapp",
+        "activation_reason":  "Keyword exclusion: README+文案 → excluded, minimal activation",
+        "recommended_surfaces":  [
+
+                                 ],
+        "risk_level":  "LOW",
+        "required_invariants":  [
+
+                                ],
+        "required_tests":  [
+
+                           ],
+        "required_engines":  [
+
+                             ],
+        "required_human_review":  false,
+        "human_review_reasons":  [
+
+                                 ],
+        "non_claims":  [
+
+                       ]
+    },
+    {
+        "demo_id":  "G3D-D1",
+        "task":  "做一个ThreeJS 3D展示页面",
+        "activated_pack":  "game-threejs",
+        "activation_reason":  "Keywords: ThreeJS+3D+展示 → game-threejs domain",
+        "recommended_surfaces":  [
+                                     "threejs-interactive"
+                                 ],
+        "risk_level":  "LOW",
+        "required_invariants":  [
+                                    "G3D-001",
+                                    "G3D-002",
+                                    "G3D-005",
+                                    "G3D-006",
+                                    "G3D-010"
+                                ],
+        "required_tests":  [
+                               "canvas smoke test",
+                               "asset load error handling",
+                               "frame budget check"
+                           ],
+        "required_engines":  [
+                                 "playwright"
+                             ],
+        "required_human_review":  false,
+        "non_claims":  [
+
+                       ]
+    },
+    {
+        "demo_id":  "G3D-D2",
+        "task":  "做一个可以保存场景的WebGL小游戏",
+        "activated_pack":  "game-threejs",
+        "activation_reason":  "Keywords: 保存+场景+WebGL+游戏 → game-threejs domain with save/load",
+        "recommended_surfaces":  [
+                                     "threejs-interactive",
+                                     "api-service",
+                                     "database"
+                                 ],
+        "risk_level":  "HIGH",
+        "required_invariants":  [
+                                    "G3D-001",
+                                    "G3D-003",
+                                    "G3D-004",
+                                    "G3D-008",
+                                    "G3D-010"
+                                ],
+        "required_tests":  [
+                               "scene data validation",
+                               "cross-user scene isolation",
+                               "save/load integrity"
+                           ],
+        "required_engines":  [
+                                 "semgrep",
+                                 "playwright"
+                             ],
+        "required_human_review":  false,
+        "non_claims":  [
+                           "NOT a production multiplayer game"
+                       ]
+    },
+    {
+        "demo_id":  "G3D-D3",
+        "task":  "加载外部模型和贴图到ThreeJS场景",
+        "activated_pack":  "game-threejs",
+        "activation_reason":  "Keywords: 外部+模型+贴图+ThreeJS → game-threejs domain, external assets",
+        "recommended_surfaces":  [
+                                     "threejs-interactive"
+                                 ],
+        "risk_level":  "HIGH",
+        "required_invariants":  [
+                                    "G3D-002",
+                                    "G3D-007",
+                                    "G3D-010",
+                                    "G3D-005"
+                                ],
+        "required_tests":  [
+                               "external URL allowlist check",
+                               "asset load error handling",
+                               "missing asset graceful degradation"
+                           ],
+        "required_engines":  [
+                                 "playwright"
+                             ],
+        "required_human_review":  false,
+        "non_claims":  [
+                           "External asset licensing not verified"
+                       ]
+    },
+    {
+        "demo_id":  "G3D-D4",
+        "task":  "修改README里的游戏介绍文案",
+        "activated_pack":  "game-threejs",
+        "activation_reason":  "Keyword exclusion: README+文案 → minimal activation",
+        "recommended_surfaces":  [
+
+                                 ],
+        "risk_level":  "LOW",
+        "required_invariants":  [
+
+                                ],
+        "required_tests":  [
+
+                           ],
+        "required_engines":  [
+
+                             ],
+        "required_human_review":  false,
+        "non_claims":  [
+
+                       ]
+    },
+    {
+        "demo_id":  "CPP-D1",
+        "task":  "写一个C++文件解析器",
+        "activated_pack":  "cpp-memory-safety",
+        "activation_reason":  "Keywords: C+++文件+解析器 → cpp-memory-safety domain, file parsing",
+        "recommended_surfaces":  [
+                                     "CLI-tool"
+                                 ],
+        "risk_level":  "CRITICAL",
+        "required_invariants":  [
+                                    "CPP-001",
+                                    "CPP-007",
+                                    "CPP-003",
+                                    "CPP-005",
+                                    "CPP-008"
+                                ],
+        "required_tests":  [
+                               "buffer overflow test",
+                               "bounded parsing test",
+                               "null pointer check",
+                               "sanitizer-enabled build"
+                           ],
+        "required_engines":  [
+                                 "codeql"
+                             ],
+        "required_human_review":  true,
+        "human_review_reasons":  [
+                                     "file parser is entry point for malicious input",
+                                     "buffer overflow risk",
+                                     "sanitizer toolchain must be verified"
+                                 ],
+        "non_claims":  [
+                           "Sanitizer integration NOT live-validated on this Factory",
+                           "CodeQL C/C++ requires CodeQL CLI installation"
+                       ]
+    },
+    {
+        "demo_id":  "CPP-D2",
+        "task":  "修改C程序里的字符串缓冲区处理逻辑",
+        "activated_pack":  "cpp-memory-safety",
+        "activation_reason":  "Keywords: C程序+字符串+缓冲区 → cpp-memory-safety, buffer bounds",
+        "recommended_surfaces":  [
+                                     "CLI-tool"
+                                 ],
+        "risk_level":  "CRITICAL",
+        "required_invariants":  [
+                                    "CPP-001",
+                                    "CPP-006",
+                                    "CPP-003",
+                                    "CPP-004",
+                                    "CPP-008"
+                                ],
+        "required_tests":  [
+                               "buffer overflow test",
+                               "format string injection test",
+                               "double-free detection"
+                           ],
+        "required_engines":  [
+                                 "codeql"
+                             ],
+        "required_human_review":  true,
+        "human_review_reasons":  [
+                                     "buffer handling change is high-risk",
+                                     "format string vulnerability potential"
+                                 ],
+        "non_claims":  [
+                           "Sanitizer integration NOT live-validated"
+                       ]
+    },
+    {
+        "demo_id":  "CPP-D3",
+        "task":  "做一个多线程C++并发队列",
+        "activated_pack":  "cpp-memory-safety",
+        "activation_reason":  "Keywords: 多线程+C+++队列 → cpp-memory-safety, thread safety",
+        "recommended_surfaces":  [
+                                     "CLI-tool"
+                                 ],
+        "risk_level":  "CRITICAL",
+        "required_invariants":  [
+                                    "CPP-009",
+                                    "CPP-002",
+                                    "CPP-004",
+                                    "CPP-001",
+                                    "CPP-008"
+                                ],
+        "required_tests":  [
+                               "thread sanitizer test",
+                               "data race detection",
+                               "use-after-free test",
+                               "double-free test"
+                           ],
+        "required_engines":  [
+                                 "codeql"
+                             ],
+        "required_human_review":  true,
+        "human_review_reasons":  [
+                                     "multi-threaded code is inherently risky",
+                                     "TSan/ASan verification required",
+                                     "race conditions hard to detect without tooling"
+                                 ],
+        "non_claims":  [
+                           "TSan/ASan NOT live-validated on this Factory"
+                       ]
+    },
+    {
+        "demo_id":  "CPP-D4",
+        "task":  "修改README里的C++项目介绍文案",
+        "activated_pack":  "cpp-memory-safety",
+        "activation_reason":  "Keyword exclusion: README+文案 → minimal activation",
+        "recommended_surfaces":  [
+
+                                 ],
+        "risk_level":  "LOW",
+        "required_invariants":  [
+
+                                ],
+        "required_tests":  [
+
+                           ],
+        "required_engines":  [
+
+                             ],
+        "required_human_review":  false,
+        "non_claims":  [
+
+                       ]
+    }
+]

@@ -1,0 +1,93 @@
+﻿{
+  "phase": "FACTORY-EVAL-9-B",
+  "title": "v0.4 Default Operating Model — Factory Lite Core",
+  "createdAt": "2026-06-25T20:06:00+08:00",
+  "evidenceBase": "EVAL-8: Factory Lite scored 94/100 (highest) with ~200ms overhead. This is the v0.4 default.",
+  "name": "Factory Lite Core",
+  "defaultStages": [
+    {
+      "stage": 1,
+      "name": "Load Always-On Constitution",
+      "action": "Read GLOBAL_CODEX_RULES.md at session start",
+      "overhead": "~50ms",
+      "mandatory": true
+    },
+    {
+      "stage": 2,
+      "name": "Classify Task via Manual Router",
+      "action": "Query APP_TYPE_ROUTER.md and STACK_DECISION_GUIDE.md for project type classification",
+      "overhead": "~100ms",
+      "mandatory": true,
+      "skipCondition": "Trivial single-file tasks (reads, simple edits)"
+    },
+    {
+      "stage": 3,
+      "name": "Generate Proof-of-Read",
+      "action": "Create POR receipt for benchmark spec, architecture docs, or key requirements before building",
+      "overhead": "~50ms",
+      "mandatory": true,
+      "skipCondition": "Conversational/informational tasks"
+    },
+    {
+      "stage": 4,
+      "name": "Build with Normal Codex Flow",
+      "action": "Standard Codex implementation: plan, code, test. No role company model.",
+      "overhead": "0ms (normal Codex)",
+      "mandatory": true
+    },
+    {
+      "stage": 5,
+      "name": "Track Process Integrity",
+      "action": "Log contamination checks and human interventions",
+      "overhead": "~50ms",
+      "mandatory": true,
+      "scope": "Benchmark/multi-run contexts only"
+    },
+    {
+      "stage": 6,
+      "name": "Run Tests/Verification",
+      "action": "Execute test suite, record results, verify requirements coverage",
+      "overhead": "0ms (normal dev flow)",
+      "mandatory": true
+    },
+    {
+      "stage": 7,
+      "name": "Independent Evaluation (Optional)",
+      "action": "Run full rubric evaluation only for benchmark or important projects",
+      "overhead": "~500ms (code inspection + scoring)",
+      "mandatory": false,
+      "triggerCondition": "Benchmark comparison or user explicitly requests evaluation"
+    }
+  ],
+  "defaultRoles": {
+    "active": false,
+    "note": "Factory Lite Core uses NO role model by default. Codex operates as unified agent.",
+    "optionalRoles": [
+      {
+        "role": "Architect",
+        "activation": "Project has >5 pages or >10 API endpoints",
+        "scope": "Architecture design review only — does NOT implement"
+      },
+      {
+        "role": "Builder",
+        "activation": "Always active (Codex default)",
+        "scope": "Full implementation: frontend, backend, database, tests"
+      },
+      {
+        "role": "Reviewer",
+        "activation": "Project has auth/RBAC or user explicitly requests review",
+        "scope": "Merged QA + Verifier + Auditor. Tests, verifies process, audits evidence. Readonly for implementation."
+      }
+    ]
+  },
+  "rules": [
+    "Do NOT spawn full company model by default",
+    "Do NOT use 10 roles unless complexity threshold met (>20 FRs or multi-agent infrastructure)",
+    "Do NOT use cross-role contracts unless multi-agent split occurs",
+    "Do NOT load all Factory manual pages — only constitution + router + POR",
+    "Do NOT let process artifacts count as product quality",
+    "Manual Router and Proof-of-Read are always-on core",
+    "Evidence hierarchy separates process from product",
+    "Contamination logging active in benchmark contexts"
+  ]
+}

@@ -1,0 +1,33 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P1-BUNDLE",
+  "step": "A-evidence-intake",
+  "classifications": {
+    "SUPPORTED": [
+      "PACK-STAGING-P1 PASS (33/33 verifier, 12/12 smoke)",
+      "REALWORLD-1 PASS (30/0/0 tests, 24/24 OpenAPI, working copy isolation)",
+      "REALWORLD-1-P1 evidence freeze complete",
+      "staging = non-release (VERSION.releaseAllowed=false)",
+      "Build Lite = default (auto-triggered)",
+      "Native Build Pro = conditional (user must confirm)",
+      "Context Packet = required for Build Pro / recovery / native agent start"
+    ],
+    "PARTIAL": [
+      "REAL_WORLD_VALIDATION: one real project validated, but v0.5 needs 2+ user feedback iterations + vanilla comparison",
+      "pack usability: single entrypoint missing (P1 fix pending)",
+      "phase chaining: user must manually invoke each phase (P3 fix pending)"
+    ],
+    "INCONCLUSIVE": [
+      "staging bundle ready for REALWORLD-2 (pending extraction smoke)"
+    ],
+    "REJECTED": [
+      "staging bundle = release",
+      "v0.5 ready",
+      "Build Pro default",
+      "multi-agent default",
+      "external memory expands model memory",
+      "compressed summary as evidence"
+    ],
+    "OVERSTATED": []
+  },
+  "timestamp": "2026-06-27"
+}

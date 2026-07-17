@@ -1,0 +1,179 @@
+﻿{
+    "passed":  28,
+    "checkedAt":  "2026-06-25T16:01:56+08:00",
+    "command":  "factory-eval-2-verify",
+    "totalChecks":  28,
+    "phase":  "FACTORY-EVAL-2",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "OK",
+                       "result":  true,
+                       "name":  "NO_NEW_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "EVAL-1",
+                       "result":  true,
+                       "name":  "EVAL1_PASS",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "index",
+                       "result":  true,
+                       "name":  "INDEX",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "20",
+                       "result":  true,
+                       "name":  "IDX_19",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "taxonomy",
+                       "result":  true,
+                       "name":  "TAXONOMY",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "constitution.md",
+                       "result":  true,
+                       "name":  "CONST_MD",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "constitution.json",
+                       "result":  true,
+                       "name":  "CONST_JSON",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "under 2KB",
+                       "result":  true,
+                       "name":  "CONST_SIZE",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "router",
+                       "result":  true,
+                       "name":  "ROUTER",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "router policy",
+                       "result":  true,
+                       "name":  "ROUTER_POLICY",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "20",
+                       "result":  true,
+                       "name":  "ROUTER_19",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "POR schema",
+                       "result":  true,
+                       "name":  "POR_SCHEMA",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "gate policy",
+                       "result":  true,
+                       "name":  "GATE_POLICY",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "receipts=17",
+                       "result":  true,
+                       "name":  "RECEIPTS",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "gen script",
+                       "result":  true,
+                       "name":  "SCRIPT_GEN",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "gate script",
+                       "result":  true,
+                       "name":  "SCRIPT_GATE",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "budget",
+                       "result":  true,
+                       "name":  "BUDGET",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "sim",
+                       "result":  true,
+                       "name":  "SIM",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "8",
+                       "result":  true,
+                       "name":  "SIM_8",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "all match",
+                       "result":  true,
+                       "name":  "SIM_MATCH",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "neg",
+                       "result":  true,
+                       "name":  "NEG",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "28",
+                       "result":  true,
+                       "name":  "NEG_28",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEG_GAPS",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "machine",
+                       "result":  true,
+                       "name":  "NO_MANUAL",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "explicit",
+                       "result":  true,
+                       "name":  "NO_EC",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "specific",
+                       "result":  true,
+                       "name":  "NO_GF",
+                       "id":  27
+                   },
+                   {
+                       "detail":  "computed",
+                       "result":  true,
+                       "name":  "NO_PC",
+                       "id":  28
+                   }
+               ],
+    "failed":  0
+}

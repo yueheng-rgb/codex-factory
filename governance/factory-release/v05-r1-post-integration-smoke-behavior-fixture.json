@@ -1,0 +1,8 @@
+﻿{
+    "passed":  10,
+    "section":  "G",
+    "failed":  0,
+    "evidenceLevel":  "E3_LIVE_INSPECTED",
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE",
+    "rulesChecked":  10
+}

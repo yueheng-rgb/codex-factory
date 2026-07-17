@@ -1,0 +1,50 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P7",
+  "section": "G",
+  "title": "A/B Comparison Evidence Design (BLOCK-001 Prep)",
+  "timestamp": "2026-06-28T17:20:00+08:00",
+  "purpose": "Design the A/B comparison between vanilla Codex and Factory-assisted workflow. This is DESIGN only — not execution, not evidence collection.",
+  "design": {
+    "comparison_type": "MATCHED_PROJECT_PAIR",
+    "project": "Same clean simple project, no deploy traces",
+    "run_a": {
+      "name": "RUN-A (vanilla baseline)",
+      "description": "User + vanilla Codex builds the project with no Factory context",
+      "conditions": {
+        "no_factory_installed": true,
+        "no_build_lite": true,
+        "no_security_gate": true,
+        "no_package_qa": true,
+        "no_context_space": true,
+        "no_test_repair_policy": true,
+        "codex_default_behavior_only": true,
+        "identical_starting_prompt": true
+      },
+      "metrics": ["time_to_first_code", "design_iterations", "safety_violations_caught", "user_interventions_required", "final_output_quality"]
+    },
+    "run_b": {
+      "name": "RUN-B (Factory-assisted)",
+      "description": "User + Codex with Factory installed and Build Lite active",
+      "conditions": {
+        "factory_installed": true,
+        "build_lite_default": true,
+        "security_gate_active_for_deployed": true,
+        "package_qa_active_for_handoff": true,
+        "context_space_available": true,
+        "test_repair_policy_active": true,
+        "identical_starting_prompt": true
+      },
+      "metrics": ["time_to_first_code", "design_iterations", "safety_violations_caught", "user_interventions_required", "final_output_quality"]
+    }
+  },
+  "fairness_controls": [
+    "Identical starting prompt for both runs",
+    "Same project specification",
+    "No hidden Factory context leaked to vanilla run",
+    "No pre-warmed context for Factory run",
+    "Fresh sessions for both",
+    "User does not manually inject Factory knowledge into vanilla run"
+  ],
+  "evidence_scope": "This design DOES NOT prove Factory superiority. It only enables a controlled comparison. Any claim of superiority requires the comparison to be executed and analyzed.",
+  "status": "AB_DESIGN_COMPLETE"
+}

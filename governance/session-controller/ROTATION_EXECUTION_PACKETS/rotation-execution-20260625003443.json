@@ -1,0 +1,90 @@
+﻿{
+    "verifierCommands":  [
+                             "powershell -File scripts/factoryctl.ps1 verify -Json",
+                             "powershell -File scripts/live-runtime/check-cross-session-state-reconciliation.ps1 -Json",
+                             "powershell -File scripts/live-runtime/check-agent-capacity-preflight.ps1 -Json"
+                         ],
+    "trustedFacts":  [
+                         "currentTrustedPhase: FINAL",
+                         "finalPackageStatus: CREATED_AND_VALIDATED",
+                         "Agent OS: established",
+                         "Context OS: established",
+                         "MCP Memory: PROTOTYPE_LOCAL_ONLY",
+                         "Watcher: ROTATION_REQUIRED"
+                     ],
+    "forbiddenAssumptions":  [
+                                 "no full context inheritance",
+                                 "no automatic window creation unless verified",
+                                 "no compressed summary as evidence",
+                                 "no branch as reliable memory expansion",
+                                 "no subagent as user-visible branch",
+                                 "no fork/new thread as trusted memory"
+                             ],
+    "nextForbiddenActions":  [
+                                 "start_new_major_phase",
+                                 "spawn_new_workers",
+                                 "claim_context_preserved"
+                             ],
+    "rejectedClaims":  [
+                           "Full context inheritance",
+                           "Automatic window creation without verification",
+                           "Plugin production-ready",
+                           "Automation production-ready",
+                           "Compressed summary as evidence"
+                       ],
+    "activeRisks":  [
+                        {
+                            "risk":  "Shared memory divergence",
+                            "severity":  "P0",
+                            "status":  "UNRESOLVED"
+                        },
+                        {
+                            "risk":  "Verifier overfitting",
+                            "severity":  "P1",
+                            "status":  "UNRESOLVED"
+                        },
+                        {
+                            "risk":  "Automation rotation watcher not implemented",
+                            "severity":  "P1",
+                            "status":  "UNRESOLVED"
+                        }
+                    ],
+    "userActionRequired":  true,
+    "requiredMcpQueries":  [
+                               "factory.memory.currentState",
+                               "factory.memory.openRisks",
+                               "factory.memory.buildStartupPacket"
+                           ],
+    "doesNotMutateState":  true,
+    "requiredReadFiles":  [
+                              "governance/factory-state/current-factory-state.json",
+                              "governance/factory-state/session-rotation-handoff.json",
+                              "governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json",
+                              "governance/automation-os/latest-rotation-recommendation.json"
+                          ],
+    "reason":  "ROTATION_REQUIRED",
+    "fallbackCarrier":  "manual_new_window",
+    "verdict":  "ROTATION_USER_ACTION_REQUIRED",
+    "generatedAt":  "2026-06-25T00:34:42+08:00",
+    "selectedCarrier":  "manual_new_window",
+    "executionId":  "ROT-EXEC-20260625003443",
+    "triggerWatcherResultPath":  "C:\\Codex_App_Factory\\governance\\automation-os\\latest-rotation-recommendation.json",
+    "startupVerificationContract":  {
+                                        "requiredChecks":  [
+                                                               "read_current_factory_state",
+                                                               "validate_final_zip_sha256",
+                                                               "run_factoryctl_verify",
+                                                               "run_cross_session_reconciliation",
+                                                               "run_capacity_preflight",
+                                                               "confirm_no_new_phase_artifacts",
+                                                               "confirm_compressed_summary_not_evidence",
+                                                               "confirm_rejected_claims_remain_rejected"
+                                                           ],
+                                        "outputCommands":  [
+                                                               "powershell -File scripts/factoryctl.ps1 verify -Json",
+                                                               "powershell -File scripts/live-runtime/check-cross-session-state-reconciliation.ps1 -Json"
+                                                           ],
+                                        "contractId":  "STARTUP-VERIFY-20260625003443"
+                                    },
+    "nextAllowedAction":  "Complete session rotation handoff; new window runs startup verification"
+}

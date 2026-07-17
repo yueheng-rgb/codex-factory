@@ -1,0 +1,153 @@
+﻿{
+  "release": "Codex Factory v2.0.0",
+  "release_date": "2026-07-12",
+  "release_stage": "stable mission-validated release",
+  "total_items": 70,
+  "categories": {
+    "foundation_core": {
+      "label": "Foundation Core",
+      "items": [
+        {"path":"AGENTS.md","capability":"Factory Bootstrap Gate","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.0","evidence":"AGENTS.md §0"},
+        {"path":"GLOBAL_CODEX_RULES.md","capability":"Global Codex Rules","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.0","evidence":"GLOBAL_CODEX_RULES.md"},
+        {"path":"APP_TYPE_ROUTER.md","capability":"Application Type Router (7 types)","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.12","evidence":"APP_TYPE_ROUTER.md"},
+        {"path":"STACK_DECISION_GUIDE.md","capability":"Stack Decision Guide","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.10","evidence":"STACK_DECISION_GUIDE.md"},
+        {"path":"governance/project-surface-model/","capability":"Project Surface Model (10 surfaces)","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.12","evidence":"governance/project-surface-model/"},
+        {"path":"schemas/project-surface-plan.schema.json","capability":"Surface Plan Schema","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.12","evidence":"schemas/project-surface-plan.schema.json"}
+      ]
+    },
+    "search_system": {
+      "label": "Canonical Search System",
+      "items": [
+        {"path":"runtime/pre-build-research-gate.ps1","capability":"Pre-Build Research Gate","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.4","evidence":"runtime/pre-build-research-gate.ps1"},
+        {"path":"governance/search/","capability":"Evidence Pack v2","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.3","evidence":"governance/search/"},
+        {"path":"runtime/search-gate.ps1","capability":"Search Gate (P0/P1/P2)","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.4","evidence":"runtime/search-gate.ps1"},
+        {"path":"governance/search/quality-gate-v5.json","capability":"Quality Gate v5","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.3","evidence":"governance/search/quality-gate-v5.json"}
+      ]
+    },
+    "trusted_memory": {
+      "label": "Trusted Memory & Compression Defense",
+      "items": [
+        {"path":"runtime/trusted-project-state-store.ps1","capability":"Trusted Project State Store","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"runtime/trusted-project-state-store.ps1"},
+        {"path":"runtime/memory-admission-gate.ps1","capability":"Memory Admission Gate","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"runtime/memory-admission-gate.ps1"},
+        {"path":"runtime/compression-summary-verifier.ps1","capability":"Compression Summary Verifier","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"runtime/compression-summary-verifier.ps1"},
+        {"path":"runtime/stale-context-detector.ps1","capability":"Stale Context Detector","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"runtime/stale-context-detector.ps1"},
+        {"path":"runtime/resume-gate.ps1","capability":"Resume Gate","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v2.0-RC","evidence":"runtime/resume-gate.ps1","notes":"3/3 negative controls PASS in v2.0-RC"}
+      ]
+    },
+    "multi_agent": {
+      "label": "Multi-Agent Worker System",
+      "items": [
+        {"path":"governance/contracts/worker-contract.schema.json","capability":"Worker Contract Schema","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.6","evidence":"governance/contracts/worker-contract.schema.json"},
+        {"path":"governance/agent/worker-handoff.schema.json","capability":"Worker Handoff Schema","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.6","evidence":"governance/agent/worker-handoff.schema.json"},
+        {"path":"governance/harness/worker-isolation-policy.json","capability":"Worker Isolation Policy","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.6","evidence":"governance/harness/worker-isolation-policy.json"},
+        {"path":"governance/multi-agent/","capability":"Multi-Agent Governance","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v2.0-RC","evidence":"missions/inventory-subscription-admin/worker-capsules/"},
+        {"path":"outputs/V1_3_MULTI_AGENT_STRESS_RESULTS.json","capability":"Multi-Agent Stress Test Results","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"outputs/V1_3_MULTI_AGENT_STRESS_RESULTS.json"}
+      ]
+    },
+    "expert_pack_system": {
+      "label": "Expert Pack System",
+      "items": [
+        {"path":"runtime/expert-pack-loader.ps1","capability":"Expert Pack Loader","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.1","evidence":"runtime/expert-pack-loader.ps1"},
+        {"path":"runtime/expert-pack-activator.ps1","capability":"Expert Pack Activator","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.1","evidence":"runtime/expert-pack-activator.ps1"},
+        {"path":"schemas/expert-pack.schema.json","capability":"Expert Pack Schema","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.1","evidence":"schemas/expert-pack.schema.json"},
+        {"path":"governance/expert-packs/admin-system-pack.json","capability":"Admin System Pack","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.1.1","evidence":"governance/expert-packs/admin-system-pack.json","regression":"testbeds/admin-system-runtime-validation (58/58)"},
+        {"path":"governance/expert-packs/ecommerce-pack.json","capability":"Ecommerce Pack","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.0","evidence":"governance/expert-packs/ecommerce-pack.json","regression":"testbeds/ecommerce-runtime-validation (29/29)"},
+        {"path":"governance/expert-packs/saas-tool-pack.json","capability":"SaaS Tool Pack","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.0","evidence":"governance/expert-packs/saas-tool-pack.json","regression":"testbeds/saas-runtime-validation (27/27)"}
+      ]
+    },
+    "business_invariant_engine": {
+      "label": "Business Invariant Engine",
+      "items": [
+        {"path":"runtime/business-invariant-engine.ps1","capability":"Business Invariant Engine","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.13","evidence":"runtime/business-invariant-engine.ps1"},
+        {"path":"schemas/business-invariant.schema.json","capability":"Business Invariant Schema","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.13","evidence":"schemas/business-invariant.schema.json"},
+        {"path":"governance/risk/BUSINESS_INVARIANTS.md","capability":"Business Invariants Documentation","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.13","evidence":"governance/risk/BUSINESS_INVARIANTS.md"},
+        {"path":"governance/expert-packs/admin-system-invariants.json","capability":"Admin System Invariants (6)","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.1","evidence":"governance/expert-packs/admin-system-invariants.json"},
+        {"path":"governance/expert-packs/ecommerce-invariants.json","capability":"Ecommerce Invariants (6)","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.0","evidence":"testbeds/products-api/business-invariants.json"},
+        {"path":"testbeds/saas-runtime-validation/business-invariants.json","capability":"SaaS Tool Invariants (4)","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.0","evidence":"testbeds/saas-runtime-validation/business-invariants.json"}
+      ]
+    },
+    "risk_system": {
+      "label": "Risk Classification & Enforcement",
+      "items": [
+        {"path":"runtime/runtime-risk-classifier.ps1","capability":"Runtime Risk Classifier","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.13","evidence":"runtime/runtime-risk-classifier.ps1"},
+        {"path":"runtime/risk-enforcement-gate-v2.ps1","capability":"Risk Enforcement Gate v2","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.14","evidence":"runtime/risk-enforcement-gate-v2.ps1"},
+        {"path":"runtime/automated-gate-detector.ps1","capability":"Automated Gate Detector","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.14","evidence":"runtime/automated-gate-detector.ps1"},
+        {"path":"runtime/gate-evidence-binder.ps1","capability":"Gate Evidence Binder","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.14","evidence":"runtime/gate-evidence-binder.ps1"},
+        {"path":"governance/risk/RUNTIME_RISK_CLASSIFICATION.md","capability":"Risk Classification Guide","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.13","evidence":"governance/risk/RUNTIME_RISK_CLASSIFICATION.md"}
+      ]
+    },
+    "external_engine_broker": {
+      "label": "External Engine Broker",
+      "items": [
+        {"path":"runtime/engine-registry.ps1","capability":"Engine Registry","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R3.0","evidence":"runtime/engine-registry.ps1"},
+        {"path":"runtime/engine-broker.ps1","capability":"Engine Broker Runtime","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R3.1","evidence":"runtime/engine-broker.ps1"},
+        {"path":"runtime/engine-parser-semgrep.ps1","capability":"Semgrep Parser","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R3.1","evidence":"runtime/engine-parser-semgrep.ps1"},
+        {"path":"runtime/engine-parser-autocannon.ps1","capability":"Autocannon Parser","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R3.1","evidence":"runtime/engine-parser-autocannon.ps1"},
+        {"path":"outputs/V1_2_ENGINE_MATRIX.json","capability":"Engine Reliability Matrix","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.2","evidence":"outputs/V1_2_ENGINE_MATRIX.json"},
+        {"path":"outputs/V1_3_ENGINE_RELIABILITY_MATRIX.json","capability":"Engine Reliability Matrix (final)","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"outputs/V1_3_ENGINE_RELIABILITY_MATRIX.json"}
+      ]
+    },
+    "audit_trail": {
+      "label": "Audit Trail & Evidence Hash Chain",
+      "items": [
+        {"path":"runtime/audit-ledger.ps1","capability":"Audit Ledger","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"runtime/audit-ledger.ps1"},
+        {"path":"runtime/evidence-hash-chain.ps1","capability":"Evidence Hash Chain Verifier","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"runtime/evidence-hash-chain.ps1"},
+        {"path":"runtime/report-drift-detector.ps1","capability":"Report Drift Detector","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"runtime/report-drift-detector.ps1"},
+        {"path":"schemas/audit-trail.schema.json","capability":"Audit Trail Schema","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"schemas/audit-trail.schema.json"}
+      ]
+    },
+    "verifier": {
+      "label": "Verifier & Evidence Binding",
+      "items": [
+        {"path":"runtime/verifier.ps1","capability":"Verifier Runtime","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.5","evidence":"runtime/verifier.ps1"},
+        {"path":"governance/verifier/","capability":"Verifier Results Archive","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v2.0-RC","evidence":"governance/verifier/ (multiple results)"},
+        {"path":"governance/factory-verifier/","capability":"Factory Verifier Results","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v2.0-RC","evidence":"governance/factory-verifier/ (multiple results)"}
+      ]
+    },
+    "runnable_projects": {
+      "label": "Runnable Starters & Testbeds",
+      "items": [
+        {"path":"runnable-starters/node-api-postgres","capability":"Node API Starter","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.10","regression":"13/13 PASS","start":"npm start","test":"npm test"},
+        {"path":"runnable-starters/vite-threejs-interactive","capability":"Three.js Interactive Starter","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.10","regression":"typecheck+build PASS","start":"npm run dev","test":"npm run build"},
+        {"path":"testbeds/products-api","capability":"Products API CRUD Testbed","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.10","regression":"23/23 PASS","start":"npm start","test":"npm test"},
+        {"path":"testbeds/ecommerce-runtime-validation","capability":"Ecommerce Runtime Validation","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.0","regression":"29/29 PASS","test":"npm test"},
+        {"path":"testbeds/saas-runtime-validation","capability":"SaaS Runtime Validation","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.0","regression":"27/27 PASS","test":"npm test"},
+        {"path":"testbeds/admin-system-runtime-validation","capability":"Admin System Runtime Validation","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.1.1","regression":"58/58 PASS","test":"npm test"},
+        {"path":"pilots/mini-inventory-admin","capability":"Mini Inventory Admin Pilot","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R3.2","regression":"22/22 PASS","start":"npm start","test":"npm test"},
+        {"path":"missions/inventory-subscription-admin","capability":"Mission Project (v2.0-RC)","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v2.0-RC","regression":"38/38 PASS","start":"npm start","test":"npm test"}
+      ]
+    },
+    "benchmark_suite": {
+      "label": "Benchmark Suite",
+      "items": [
+        {"path":"CODEX_BENCHMARK_SUITE.md","capability":"Benchmark Suite Definition","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.11","evidence":"CODEX_BENCHMARK_SUITE.md"},
+        {"path":"benchmark/","capability":"Benchmark Results","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"R2.11","evidence":"benchmark/"},
+        {"path":"outputs/V1_3_CAPABILITY_CLOSURE_MATRIX.json","capability":"Capability Closure Matrix","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"outputs/V1_3_CAPABILITY_CLOSURE_MATRIX.json"}
+      ]
+    },
+    "production_readiness": {
+      "label": "Production-Like Delivery",
+      "items": [
+        {"path":"testbeds/saas-runtime-validation/Dockerfile","capability":"Dockerfile Example","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"testbeds/saas-runtime-validation/Dockerfile"},
+        {"path":"testbeds/saas-runtime-validation/docker-compose.yml","capability":"Docker Compose Example","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"testbeds/saas-runtime-validation/docker-compose.yml"},
+        {"path":"testbeds/saas-runtime-validation/.env.example","capability":"Environment Config Template","status":"IMPLEMENTED_AND_VERIFIED","last_verified":"v1.3","evidence":"testbeds/saas-runtime-validation/.env.example"}
+      ]
+    },
+    "deprecated_locks": {
+      "label": "Deprecated Direction Locks",
+      "items": [
+        {"path":"AGENTS.md","capability":"Independent Search Agent ban","status":"DEPRECATED_LOCKED","last_verified":"R2.4"},
+        {"path":"AGENTS.md","capability":"Dual Search Channel ban","status":"DEPRECATED_LOCKED","last_verified":"R2.4"},
+        {"path":"AGENTS.md","capability":"Implementer direct search ban","status":"DEPRECATED_LOCKED","last_verified":"R2.4"},
+        {"path":"AGENTS.md","capability":"Chat URL extraction ban","status":"DEPRECATED_LOCKED","last_verified":"R2.4"},
+        {"path":"AGENTS.md","capability":"Mock/dry_run as live ban","status":"DEPRECATED_LOCKED","last_verified":"R2.4"},
+        {"path":"governance/agent/agent-communication-policy.json","capability":"Multi-agent default mode ban","status":"DEPRECATED_LOCKED","last_verified":"R2.6"},
+        {"path":"runtime/engine-broker.ps1","capability":"Firecrawl as canonical search ban","status":"DEPRECATED_LOCKED","last_verified":"R3.0"},
+        {"path":"runtime/risk-enforcement-gate-v2.ps1","capability":"External engine bypassing Evidence Binding ban","status":"DEPRECATED_LOCKED","last_verified":"R2.14"},
+        {"path":"governance/expert-packs/","capability":"Expert Pack bypassing Risk Gate ban","status":"DEPRECATED_LOCKED","last_verified":"v1.1"},
+        {"path":"runtime/memory-admission-gate.ps1","capability":"Compression summary as trusted memory ban","status":"DEPRECATED_LOCKED","last_verified":"v1.3"},
+        {"path":"AGENTS.md","capability":"Local smoke as production capacity proof ban","status":"DEPRECATED_LOCKED","last_verified":"R3.1"}
+      ]
+    }
+  }
+}

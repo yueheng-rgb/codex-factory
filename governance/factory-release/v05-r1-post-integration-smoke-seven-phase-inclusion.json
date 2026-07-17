@@ -1,0 +1,8 @@
+﻿{
+    "checksFailed":  1,
+    "section":  "D",
+    "checksPassed":  21,
+    "all7PhasesIncluded":  false,
+    "phasesChecked":  7,
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE"
+}

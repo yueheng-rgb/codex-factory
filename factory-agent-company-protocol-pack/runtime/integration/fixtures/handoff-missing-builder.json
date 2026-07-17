@@ -1,0 +1,24 @@
+﻿{
+    "expectedBuilders":  [
+                             "ag4-b1",
+                             "ag4-b2",
+                             "ag4-b3"
+                         ],
+    "submittedHandoffs":  [
+                              "ag4-b1"
+                          ],
+    "expectedOutputs":  [
+                            "mod1/login.ts",
+                            "mod2/checkout.ts"
+                        ],
+    "actualOutputs":  [
+                          "mod1/login.ts"
+                      ],
+    "readyForIntegration":  false,
+    "blockers":  [
+                     "missing-handoff"
+                 ],
+    "openAgents":  [
+
+                   ]
+}

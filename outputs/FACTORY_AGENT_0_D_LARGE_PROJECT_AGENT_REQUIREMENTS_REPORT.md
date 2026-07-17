@@ -1,0 +1,6 @@
+﻿# FACTORY-AGENT-0 / D: Large-Project Agent Requirements
+
+**Date**: 2026-06-26 01:03:51 +08:00
+**Verdict**: COMPLETE
+
+12 requirements across 5 categories: ISOLATION (R01-R02), LIFECYCLE (R03), HANDOFF (R04), INTEGRITY (R05-R07), VERIFICATION (R08), EVIDENCE (R09), SCALE (R10-R11), OVERHEAD (R12). 8 P0, 4 P1.

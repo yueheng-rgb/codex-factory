@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  94,
+    "frozenAt":  "2026-06-20T20:15:53.2864966+08:00",
+    "runId":  "u3-b-operator-real-run",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\u3-b-operator-real-run\\trust-root.json",
+    "controlPlaneLockSha256":  "2e89fac8983ccd6476201cb0d4a7554d2a29f645fcf9a005f23fe7bc0d952148",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "9a8a9a6419ff3d970068d15c59fb4ea8ec84285264a2ef3e9d5fbb14501b395f"
+}

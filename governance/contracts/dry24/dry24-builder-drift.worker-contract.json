@@ -1,0 +1,37 @@
+{
+  "contractId": "dry24-builder-drift-contract",
+  "phase": "DRY24-A",
+  "agentId": "dry24-builder-drift",
+  "role": "builder",
+  "forkContext": false,
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:03:07.718055+08:00",
+  "scope": "packages/architecture-drift-detector/",
+  "ownedFiles": [
+    "packages/architecture-drift-detector/src/"
+  ],
+  "exportedAPI": [
+    "DuplicateFunctionDetector",
+    "APISurfaceDiffer",
+    "DependencyDriftDetector",
+    "DeadExportDetector",
+    "IntegrationHubBloatDetector",
+    "DriftReport"
+  ],
+  "allowedImports": [
+    "packages/worker-contract-engine/src/"
+  ],
+  "forbiddenImports": [
+    "packages/dry24-integration-hub/"
+  ],
+  "integrationPoints": [
+    "@dry24/architecture-drift-detector"
+  ],
+  "dependencyDeclarations": [
+    {
+      "source": "packages/architecture-drift-detector/",
+      "target": "packages/worker-contract-engine/src/"
+    }
+  ],
+  "handoffPath": "governance/contracts/dry24/dry24-builder-drift.worker-contract.json"
+}

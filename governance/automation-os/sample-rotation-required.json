@@ -1,0 +1,42 @@
+﻿{
+    "evidencePaths":  [
+                          "CODEX_FACTORY_FINAL_PACKAGE.zip"
+                      ],
+    "doesNotMutateState":  true,
+    "checkedAt":  "2026-06-25T00:22:44+08:00",
+    "verdict":  "ROTATION_REQUIRED",
+    "riskSignals":  [
+                        {
+                            "signalId":  "SIG-ZIP",
+                            "type":  "zip_sha_mismatch",
+                            "severity":  "P0"
+                        }
+                    ],
+    "recommendedAction":  {
+                              "userActionRequired":  true,
+                              "action":  "Session rotation required before new phase",
+                              "startupPacketPath":  "governance/automation-os/latest-rotation-recommendation.json"
+                          },
+    "checks":  [
+                   {
+                       "result":  "FAIL",
+                       "checkId":  "CHK04",
+                       "target":  "Final ZIP SHA",
+                       "riskSeverity":  "P0"
+                   },
+                   {
+                       "result":  "FAIL",
+                       "checkId":  "CHK02",
+                       "target":  "Handoff staleness",
+                       "riskSeverity":  "P0"
+                   }
+               ],
+    "alerts":  [
+                   {
+                       "message":  "ZIP SHA mismatch",
+                       "checkId":  "CHK04",
+                       "alertId":  "ALERT-CHK04",
+                       "severity":  "P0"
+                   }
+               ]
+}

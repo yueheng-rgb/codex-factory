@@ -1,0 +1,1 @@
+﻿{"phase":"RC-USER-ACCEPTANCE-0","section":"A","title":"Scope Lock","timestamp":"2026-06-28T21:20:00+08:00","prerequisites":["RC-USER-REVIEW-0 PASS 26/26","RC-SMOKE-0 PASS 31/31"],"scope":"User acceptance of RC0 smoke results only","constraints":["no release","no package modification","no deploy","no prod DB","no real secrets"],"section_verdict":"SCOPE_LOCKED"}

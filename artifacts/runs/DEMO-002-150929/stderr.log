@@ -1,0 +1,7 @@
+﻿node : simulated failure
+所在位置 行:41 字符: 15
++ ...   $output = node -e "console.error('simulated failure'); process.exit ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (simulated failure:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

@@ -1,0 +1,150 @@
+﻿{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "factory-resource-pack/schemas/progress-event.schema.json",
+  "title": "Progress Event Schema",
+  "description": "Schema for entries in AGENT_PROGRESS.jsonl. Each line is a JSON object recording a progress event: agent lifecycle transitions, phase milestones, verifier results, or context compression events.",
+  "phase": "H18",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T12:00:00.000+08:00",
+  "type": "object",
+  "required": [
+    "agentId",
+    "phase",
+    "eventType",
+    "timestamp"
+  ],
+  "properties": {
+    "agentId": {
+      "type": "string",
+      "description": "Unique identifier of the agent that generated this event."
+    },
+    "phase": {
+      "type": "string",
+      "description": "Factory phase this event belongs to."
+    },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "agent_spawned",
+        "agent_started",
+        "agent_completed",
+        "agent_failed",
+        "agent_rotated",
+        "phase_started",
+        "phase_completed",
+        "phase_blocked",
+        "milestone_reached",
+        "verifier_executed",
+        "verifier_pass",
+        "verifier_fail",
+        "verifier_caveat",
+        "context_compression",
+        "session_rotated",
+        "handoff_generated",
+        "handoff_verified",
+        "evidence_recorded",
+        "negative_control_executed",
+        "repair_started",
+        "repair_completed",
+        "fallback_declared",
+        "contract_generated",
+        "dependency_resolved"
+      ],
+      "description": "Type of progress event."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this event occurred."
+    },
+    "detail": {
+      "type": "string",
+      "description": "Human-readable description of the event."
+    },
+    "nativeGenerated": {
+      "type": "boolean",
+      "description": "Whether this progress event was generated during live execution (true) or reconstructed (false).",
+      "default": true
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to evidence entries (file paths) associated with this event.",
+      "minItems": 0
+    },
+    "verifierName": {
+      "type": "string",
+      "description": "Name of verifier module, if eventType is verifier_*."
+    },
+    "targetGate": {
+      "type": "string",
+      "description": "Target gate checked, if eventType is verifier_*."
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "CAVEAT"],
+      "description": "Outcome of verifier check, if eventType is verifier_*."
+    },
+    "compressionLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3,
+      "description": "Context compression level at time of event.",
+      "default": 0
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "Session identifier for the agent session that generated this event."
+    },
+    "sequenceNumber": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonically increasing sequence number within the agent session."
+    },
+    "parentEventId": {
+      "type": "string",
+      "description": "If this event is a child of another event (e.g., repair_completed after verifier_fail), the parent event's identifier."
+    },
+    "durationMs": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Duration of the operation in milliseconds, if applicable."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional structured metadata specific to the eventType.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "eventTypeSpecificFields": {
+    "agent_spawned": {
+      "required": ["agentId", "phase", "eventType", "timestamp"],
+      "recommended": ["detail", "sessionId"]
+    },
+    "agent_completed": {
+      "required": ["agentId", "phase", "eventType", "timestamp"],
+      "recommended": ["detail", "durationMs", "evidenceRefs"]
+    },
+    "agent_failed": {
+      "required": ["agentId", "phase", "eventType", "timestamp"],
+      "recommended": ["detail", "metadata.failureClass"]
+    },
+    "verifier_executed": {
+      "required": ["agentId", "phase", "eventType", "timestamp", "verifierName", "targetGate"],
+      "recommended": ["outcome", "evidenceRefs"]
+    },
+    "context_compression": {
+      "required": ["agentId", "phase", "eventType", "timestamp", "compressionLevel"],
+      "recommended": ["detail"]
+    },
+    "session_rotated": {
+      "required": ["agentId", "phase", "eventType", "timestamp"],
+      "recommended": ["detail", "evidenceRefs"]
+    },
+    "negative_control_executed": {
+      "required": ["agentId", "phase", "eventType", "timestamp", "targetGate"],
+      "recommended": ["outcome", "detail", "evidenceRefs"]
+    }
+  }
+}

@@ -1,0 +1,87 @@
+﻿{
+  "release": "R5.0",
+  "version": "1.0.0-rc",
+  "classification": "A",
+  "timestamp": "2026-07-11T19:40:00+08:00",
+  "scope": {
+    "included_domains": [
+      "factory_bootstrap", "app_type_router", "stack_decision_guide",
+      "project_surface_model", "surface_router_v2", "risk_classifier_v2",
+      "pre_build_research_gate", "canonical_search", "evidence_pack_v2",
+      "quality_gate_v5", "multi_agent_system", "worker_integrator_handoff",
+      "verifier_system", "evidence_binding", "business_invariant_engine",
+      "risk_enforcement_gate_v3", "automated_gate_detector",
+      "external_engine_broker", "engine_registry",
+      "semgrep_live", "autocannon_live", "playwright_partial",
+      "runnable_starters_5", "starter_consistency",
+      "products_api_testbed", "mini_inventory_admin_pilot",
+      "benchmark_suite_v2", "capability_matrix_v2",
+      "regression_scripts", "blueprints_7", "prompts_6",
+      "skills_9", "schemas_37", "governance_50"
+    ],
+    "excluded_domains": [
+      "expert_packs", "domain_packs", "production_concurrency_proof",
+      "playwright_reliability", "codeql_live", "k6_live",
+      "firecrawl_live", "unity_automation", "production_db_migration",
+      "full_admin_ui", "mobile_runnable_starter", "miniapp_runnable_starter"
+    ]
+  },
+  "metrics": {
+    "runtime_scripts": 60,
+    "schemas": 37,
+    "governance_subdirs": 50,
+    "runnable_starters": 5,
+    "testbeds": 1,
+    "pilots": 1,
+    "blueprints": 7,
+    "phase_reports": 10,
+    "live_engines": 3,
+    "engine_availability": "3_of_6",
+    "benchmarks_total": 8,
+    "benchmarks_pass": 6,
+    "benchmarks_blocked": 2,
+    "risk_classifier_accuracy_pct": 75,
+    "pilot_tests_pass": "22_of_22",
+    "products_api_tests_pass": "23_of_23",
+    "starter_consistency_pass": "6_of_6"
+  },
+  "engine_status": {
+    "semgrep": { "status": "READY", "version": "1.169.0" },
+    "autocannon": { "status": "READY", "version": "8.0.0", "via": "npx" },
+    "playwright": { "status": "TOOL_FAILED", "version": "1.61.1", "reason": "browser_version_mismatch" },
+    "codeql": { "status": "SKIPPED_WITH_REASON", "reason": "not_installed_heavy" },
+    "k6": { "status": "SKIPPED_WITH_REASON", "reason": "not_installed" },
+    "firecrawl_reader": { "status": "SKIPPED_WITH_REASON", "reason": "requires_api_key" }
+  },
+  "frozen_pipelines": [
+    "search_system", "multi_agent_worker", "verifier",
+    "agents_md_bootstrap", "app_type_router", "starter_consistency",
+    "business_invariant_engine", "risk_enforcement_gate_v3",
+    "external_engine_broker", "surface_model"
+  ],
+  "deprecated_directions": [
+    "independent_search_agent", "dual_search_channel",
+    "search_agent_as_future_default", "implementer_direct_search",
+    "chat_url_extraction_as_canonical_evidence",
+    "mock_dry_run_mislabeled_as_live",
+    "multi_agent_as_default_mode"
+  ],
+  "known_risks": [
+    "risk_classifier_75pct_accuracy",
+    "playwright_browser_mismatch",
+    "keyword_based_classification_only",
+    "codeql_k6_not_installed",
+    "in_memory_stores_only",
+    "admin_ui_minimal",
+    "no_production_concurrency_proof",
+    "starter_test_gaps_3_starters"
+  ],
+  "benchmark_capability": {
+    "runnable": ["B1", "B2", "B3", "B4", "B5"],
+    "design_only": ["B6", "B7", "B8"],
+    "pass": ["B1", "B3", "B5", "B6", "B7", "B8"],
+    "blocked": ["B2", "B4"],
+    "fail": []
+  },
+  "recommended_next": "Expert Packs (R5.x) or Production Hardening (R6.0)"
+}

@@ -1,0 +1,7 @@
+﻿{
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE",
+    "section":  "F",
+    "commandsRun":  4,
+    "evidenceLevel":  "E4_LIVE_EXECUTED_FIXTURE",
+    "allPassed":  false
+}

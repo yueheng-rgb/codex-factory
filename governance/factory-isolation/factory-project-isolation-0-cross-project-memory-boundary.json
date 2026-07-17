@@ -1,0 +1,15 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "E",
+  "title": "Cross-Project Memory Boundary",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "boundary_file": "factory-isolation/CROSS_PROJECT_MEMORY_BOUNDARY.md",
+  "memory_categories": {
+    "project_scoped": ["Phase history", "Phase reports", "Agent ledger entries", "Build outputs", "Risk records", "Blocker records", "Cleanup state", "External conversation space", "Working copy diffs", "Snapshot contents", "Attach packet contents", "Project-specific config"],
+    "global_scoped": ["User preferences", "Factory version", "Global policies", "Skill definitions", "CLI name registry", "Project registry"],
+    "conditionally_transferable": ["Risk patterns (anonymized, opt-in)", "Blocker patterns (anonymized, opt-in)", "Build mode preferences", "Multi-agent preferences"]
+  },
+  "enforcement_actions": ["Flush project-scoped memory", "Clear active context", "Load new project memory", "Preserve global memory", "Detect and mark foreign references"],
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_E_CROSS_PROJECT_MEMORY_BOUNDARY_REPORT.md"
+}

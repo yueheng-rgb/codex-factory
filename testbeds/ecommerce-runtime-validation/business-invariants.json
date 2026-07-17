@@ -1,0 +1,29 @@
+﻿{
+  "source": "governance/expert-packs/ecommerce/ecommerce-pack.json",
+  "source_version": "1.0.0",
+  "activated_pack_id": "ecommerce",
+  "invariants": [
+    { "invariant_id": "price_non_negative", "severity": "CRITICAL", "enforced_in": "product.service.ts:createProduct+updateProduct", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "price_not_zero_unless_explicit_free", "severity": "CRITICAL", "enforced_in": "product.service.ts:createProduct+updateProduct", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "inventory_non_negative", "severity": "CRITICAL", "enforced_in": "inventory.service.ts:adjustInventory", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "order_total_matches_items", "severity": "CRITICAL", "enforced_in": "order.service.ts:processPayment", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "payment_idempotency_required", "severity": "CRITICAL", "enforced_in": "order.service.ts:processPayment", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "paid_order_cannot_be_modified_without_refund_flow", "severity": "CRITICAL", "enforced_in": "order.service.ts:cancelOrder", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "cancelled_order_cannot_be_paid", "severity": "CRITICAL", "enforced_in": "order.service.ts:processPayment", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "archived_product_not_sellable", "severity": "HIGH", "enforced_in": "order.service.ts:createOrder + product.service.ts:updateProduct", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "user_cannot_modify_price", "severity": "CRITICAL", "enforced_in": "product.service.ts:updateProduct", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "admin_required_for_price_change", "severity": "CRITICAL", "enforced_in": "product.service.ts:updateProduct + routes/products.ts", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "stock_delta_must_be_audited", "severity": "HIGH", "enforced_in": "inventory.service.ts:adjustInventory", "test_coverage": "tests/ecommerce-validation.test.ts" },
+    { "invariant_id": "refund_amount_cannot_exceed_paid_amount", "severity": "CRITICAL", "enforced_in": "order.service.ts:processRefund", "test_coverage": "tests/ecommerce-validation.test.ts" }
+  ],
+  "risk_rule_source_refs": [
+    { "rule_id": "ECOM-R001", "description": "Price modification -> CRITICAL", "validated_by": "Tests: price change as ADMIN vs USER" },
+    { "rule_id": "ECOM-R002", "description": "Payment/checkout -> CRITICAL", "validated_by": "Tests: payment callback, idempotency, refund" },
+    { "rule_id": "ECOM-R003", "description": "Inventory adjustment -> CRITICAL", "validated_by": "Tests: inventory negative, audit trail" },
+    { "rule_id": "ECOM-R004", "description": "Order processing -> HIGH", "validated_by": "Tests: order create, status flow" },
+    { "rule_id": "ECOM-R005", "description": "Refund/cancellation -> CRITICAL", "validated_by": "Tests: refund exceed, paid order cancel" },
+    { "rule_id": "ECOM-R006", "description": "Discount -> HIGH", "validated_by": "Design-only: discount not in testbed scope" },
+    { "rule_id": "ECOM-R007", "description": "Permission/role -> CRITICAL", "validated_by": "Tests: user vs admin price change" },
+    { "rule_id": "ECOM-R008", "description": "Product CRUD -> MEDIUM", "validated_by": "Tests: product create/read/update" }
+  ]
+}

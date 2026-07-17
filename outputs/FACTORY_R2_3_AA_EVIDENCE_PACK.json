@@ -1,0 +1,362 @@
+﻿{
+    "phase":  "R2.3-AA",
+    "mode":  "live_search",
+    "provider":  "zhipuai",
+    "selectedSearchPath":  "/api/paas/v4/web_search",
+    "search_engine":  "search_std",
+    "search_invoked":  true,
+    "query":  "Fastify @fastify/rate-limit configuration security best practices",
+    "query_intents":  [
+                          "official_api_check",
+                          "best_practice",
+                          "risk_pattern"
+                      ],
+    "runtime_timestamp":  "2026-07-11T12:58:42.3068114+08:00",
+    "security_critical":  true,
+    "queries":  [
+                    {
+                        "query":  "Fastify @fastify/rate-limit official documentation configuration options",
+                        "results":  10,
+                        "intent":  "official_api_check"
+                    },
+                    {
+                        "query":  "Fastify rate limiting best practice global vs per-route DDoS security",
+                        "results":  10,
+                        "intent":  "best_practice"
+                    },
+                    {
+                        "query":  "site:github.com/fastify rate-limit configuration max timeWindow",
+                        "results":  10,
+                        "intent":  "english_supplement"
+                    }
+                ],
+    "sources":  [
+                    {
+                        "title":  "Security Policy · fastify/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit/security/policy",
+                        "snippet":  "Security and quality SECURITY.md Security Policy This document describes the management of vulnerabilities for the Fastifyproject and its official plugins. Threat Model Trusted: Application code ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - Szymx95/fastify-rate-limit: A low overhead rate limiter for your routes · GitHub",
+                        "url":  "https://github.com/Szymx95/fastify-rate-limit",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit History 335 Commits 335 Commits .github .github example example store store test test types types .gitattributes .gitattributes .gitignore ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "Rate limiter not working at all? Followed documentation. · Issue #292 · fastify/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit/issues/292",
+                        "snippet":  "Steps to Reproduce Package JSON: server.js // Require the framework and instantiate itconst fastify = require(\u0027fastify\u0027)({ logger: true })fastify.register(require(\u0027@fastify/rate-limit\u0027), { global: tru...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "continueExceeding option does not reset rate-limit · Issue #207 · fastify/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit/issues/207",
+                        "snippet":  " // Import plugins const rateLimit = require ( \"fastify-rate-limit\" ) ; /** * @description test function */ async function server ( ) { fastif",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - ghinks/fastify-rate-limit: A low overhead rate limiter for your routes · GitHub",
+                        "url":  "https://github.com/ghinks/fastify-rate-limit",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 121 Commits 121 Commits .dependabot .dependabot     .github/ workflows .github/ workflows     example example     store store    ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - SergioGlorias/fastify-rate-limit: A low overhead rate limiter for your routes · GitHub",
+                        "url":  "https://github.com/SergioGlorias/fastify-rate-limit",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 267 Commits 267 Commits .github .github     example example     store store     test test     .gitattributes .gitattributes     ....",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/fastify-rate-limit: A low overhead rate limiter for your routes · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 416 Commits 416 Commits .github .github     example example     store store     test test     types types     .gitattributes .git...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "skipOnError does nothing · Issue #84 · fastify/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit/issues/84",
+                        "snippet":  "  #84 Labels Description Issue body actions Hi everybody, just wanted to know how/what the skipOnError flag is working. I expected that if redis connection is lost I can skip the rate limit with this ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "Align stores by gurgunday · Pull Request #323 · fastify/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit/pull/323/checks",
+                        "snippet":  "Navigation Menu Toggle navigation Appearance settings Product Solutions Resources Search or jump to... Provide feedback Cancel Submit feedback Saved searches Use saved searches to filter your results ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "从nestjs-rate-limiter学写一个拦截器_知乎",
+                        "url":  "https://zhuanlan.zhihu.com/p/344840896",
+                        "snippet":  "无意在github看到 nestjs-rate-limiter 的issue中有一个关于自定义error body的特性#60, 之前用到过这个库, 感觉不能自定义error body太伤了, 毕竟大多数后台应用都有一套自己定义的返回值消息格式, 而不是基于标准的web HttpException , 于是自己提交了一个pull request来实现该需求, 看到源码时候突发奇想有了本文, 何不写...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "zh"
+                    },
+                    {
+                        "title":  "限速因子",
+                        "url":  "https://baike.baidu.com/item/%E9%99%90%E9%80%9F%E5%9B%A0%E5%AD%90/2003458",
+                        "snippet":  "基本内容限速因子 rate limiting factor 在一串酶反应系列中,唯有与特定的酶E相联系的反应阶段的速度特别慢,此时它决定着总体的速度,这个阶段是限速阶段,E就是限速因子｡在生物体的反应系列中,根据条件的不同限速阶段要变换,这就成为调节系统的一部分｡",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "zh"
+                    },
+                    {
+                        "title":  "PerformanceTests PubsubIOIT Python Streaming · Workflow runs · m-trieu/beam · GitHub",
+                        "url":  "https://github.com/m-trieu/beam/actions/workflows/beam_PerformanceTests_PubsubIOIT_Python_Streaming.yml",
+                        "snippet":  "Show more workflows... Management Show workflow options Create status badge Create status badge Loading Uh oh! There was an error while loading. Please reload this page . 410 workflow runs 410 ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "国际物流和货代英语实训",
+                        "url":  "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E7%89%A9%E6%B5%81%E5%92%8C%E8%B4%A7%E4%BB%A3%E8%8B%B1%E8%AF%AD%E5%AE%9E%E8%AE%AD/8536006",
+                        "snippet":  "\"《国际物流和货代英语实训》是2012年清华大学出版社出版的图书,作者是刘梅､胡扬政､苑丽娟｡内容简介本教材可作为高职高专院校物流管理专业学生的教学用书,也可作为广大物流行业从业人员教育培训的参考读物｡ 本书封面贴有清华大学出版社防伪标签,无标签者不得销售｡图书目录Unit OneBusiness Promotion 实训模块一公司业务推广 Practice 1Introducing the ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "zh"
+                    },
+                    {
+                        "title":  "test: Refactored codebase and updated route unittests to better reflect production cases by frgfm · Pull Request #33 · pyronear/pyro-api",
+                        "url":  "https://github.com/pyronear/pyro-api/pull/33",
+                        "snippet":  "# 33 Merged Merged test: Refactored codebase and updated route unittests to better reflect production cases # 33 Conversation Copy link Copy Markdown Member Copy link Copy Markdown edited Loading Uh ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "perf(material-experimental/mdc-radio): reduce bundle size by crisbeto · Pull Request #24267 · angular/components · GitHub",
+                        "url":  "https://github.com/angular/components/pull/24267",
+                        "snippet":  "Merged Copy link Copy Markdown Member crisbeto added P2 The issue is important to a large percentage of users, with a workaround target: patch This PR is targeted for the next patch release labels cri...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "Split and improve test criteria in LU computation (?GETF2) by martin-frbg · Pull Request #3980 · OpenMathLib/OpenBLAS · GitHub",
+                        "url":  "https://github.com/OpenMathLib/OpenBLAS/pull/3980",
+                        "snippet":  "Merged Conversation Copy link Copy Markdown Collaborator Split test condition in LU computation - non-denormal for computation… tornaria added a commit to tornaria/void-packages that referenced this p...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "TestAssemblySpec 类(Microsoft.TeamFoundation.Build.Workflow.Activities)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/ZH-CN/library/microsoft.teamfoundation.build.workflow.activities.testassemblyspec(d=printer).aspx",
+                        "snippet":  "此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安全更新和技术支持。 目录 退出编辑器模式 询问 Learn 询问 Learn 焦点模式 语言 csharp jscript vb 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 反馈 包含所有 MSTest 设置与测试程序集相关。 ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "RibbonGroupsPanel.RegisterStarLayoutProvider 方法 (Microsoft.Windows.Controls.Ribbon.Primitives)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/zh-cn/vcsharp/ff799862",
+                        "snippet":  "此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安全更新和技术支持。 目录 退出编辑器模式 询问 Learn 询问 Learn 语言 csharp jscript vb fsharp c++ 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "RibbonGroupDataAutomationPeer.GetClassNameCore 方法 (Microsoft.Windows.Automation.Peers)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/zh-CN/library/microsoft.windows.automation.peers.ribbongroupdataautomationpeer.getclassnamecore(d=printer).ASPX",
+                        "snippet":  "此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安全更新和技术支持。 目录 退出编辑器模式 询问 Learn 询问 Learn 焦点模式 语言 csharp jscript vb fsharp c++ 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 反馈 [本文档仅供预览,在以后的...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "RibbonGroupsPanel.RegisterStarLayoutProvider 方法 (Microsoft.Windows.Controls.Ribbon.Primitives)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/ZH-cn/LIBRARY/ff799862.aspx",
+                        "snippet":  "此浏览器不再受支持。 请升级到 Microsoft Edge 以使用最新的功能、安全更新和技术支持。 目录 退出焦点模式 询问 Learn 询问 Learn 语言 csharp jscript vb fsharp 打印 备注 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 项目 [本文档仅供预览,在以后的发行版中可能会发生更改。包含的空白主题用作占...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "community_tutorial",
+                        "source_tier":  "tier_3_bronze",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/fastify-websocket: basic websocket support for fastify · GitHub",
+                        "url":  "https://github.com/fastify/fastify-websocket",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 319 Commits 319 Commits .github .github     test test     types types     .gitattributes .gitattributes     .gitignore .gitignore...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/create-fastify: Rapidly generate a Fastify project · GitHub",
+                        "url":  "https://github.com/fastify/create-fastify",
+                        "snippet":  "fastify/create-fastify main Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit Fdawgs ci: add lock-threads workflow ( #83 ) success A...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - StarpTech/fastify: Fast and low overhead web framework, for Node.js · GitHub",
+                        "url":  "https://github.com/StarpTech/fastify",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 4,682 Commits 4,682 Commits .github .github     build build     docs docs     examples examples     integration integration     ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - xiaohu-developer/fastify: Fast and low overhead web framework, for Node.js · GitHub",
+                        "url":  "https://github.com/xiaohu-developer/fastify",
+                        "snippet":  "  master Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit   History 978 Commits 978 Commits docs docs     examples examples     ",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/fastify-cookie: A Fastify plugin to add cookies support · GitHub",
+                        "url":  "https://github.com/fastify/fastify-cookie",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 389 Commits 389 Commits .github .github     benchmark benchmark     test test     types types     .editorconfig .editorconfig    ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/aws-lambda-fastify: Insipired by aws-serverless-express to work with Fastify with inject functionality · GitHub",
+                        "url":  "https://github.com/fastify/aws-lambda-fastify",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 393 Commits 393 Commits .github .github     images/ logos images/ logos     performanceTest performanceTest     scripts scripts  ...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/fastify-express: Express compatibility layer for Fastify · GitHub",
+                        "url":  "https://github.com/fastify/fastify-express",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit History 206 Commits 206 Commits .github .github test test types types .gitattributes .gitattributes .gitignore .gitignore .npmrc .npmrc LIC...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - Uzlopak/fastify-secure-session: Create a secure stateless cookie session for Fastify · GitHub",
+                        "url":  "https://github.com/Uzlopak/fastify-secure-session",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 194 Commits 194 Commits .github .github     examples/ simple examples/ simple     test test     types types     .gitignore .gitig...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/fastify-secure-session: Create a secure stateless cookie session for Fastify",
+                        "url":  "https://github.com/fastify/fastify-secure-session",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 299 Commits 299 Commits .github .github     examples/ simple examples/ simple     test test     types types     .gitattributes .g...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "official_documentation",
+                        "source_tier":  "tier_1_gold",
+                        "source_language":  "en"
+                    },
+                    {
+                        "title":  "GitHub - fastify/fast-uri: Dependency-free RFC 3986 URI toolbox · GitHub",
+                        "url":  "https://github.com/fastify/fast-uri",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 163 Commits 163 Commits .github .github     benchmark benchmark     lib lib     test test     types types     .gitattributes .git...",
+                        "source_origin":  "provider_search_result",
+                        "source_type":  "mainstream_open_source_repo",
+                        "source_tier":  "tier_2_silver",
+                        "source_language":  "en"
+                    }
+                ],
+    "source_count":  30,
+    "source_type_counts":  {
+                               "official":  10,
+                               "community":  7,
+                               "repo":  13
+                           },
+    "official_sources_count":  10,
+    "community_sources_count":  20,
+    "authoritative_source_gap":  false,
+    "english_source_gap":  false,
+    "research_coverage_summary":  "Covered: official plugin API (Q1), security best practices (Q2), English supplement (Q3). 3 queries, 10 tier-1 sources.",
+    "open_questions":  [
+                           "Redis vs in-memory store for production deployment?",
+                           "Exact @fastify/rate-limit v8 vs v9 API differences?"
+                       ],
+    "confidence_level":  "medium",
+    "maturity_signal":  "stable",
+    "risk_signal":  "none_critical",
+    "version_or_dependency_note":  "@fastify/rate-limit latest; check compatibility with Fastify v4 vs v5",
+    "implementation_checklist":  [
+                                     "1. npm install @fastify/rate-limit",
+                                     "2. Register plugin: fastify.register(rateLimit, { max: 100, timeWindow: \u00271 minute\u0027 })",
+                                     "3. Configure global defaults",
+                                     "4. Add per-route overrides for auth endpoints: { max: 5, timeWindow: \u00271 minute\u0027 }",
+                                     "5. Set trustProxy: true if behind reverse proxy",
+                                     "6. Add custom onExceeded handler for 429 response with Retry-After",
+                                     "7. Test with concurrent requests"
+                                 ],
+    "test_checklist":  [
+                           "Under limit → 200 OK",
+                           "Over global limit → 429 Too Many Requests",
+                           "Retry-After header in 429 response",
+                           "Auth endpoint stricter limit enforced",
+                           "Different IPs have independent limits",
+                           "X-Forwarded-For trusted when trustProxy enabled"
+                       ],
+    "security_risk_notes":  "Bypass via X-Forwarded-For spoofing if trustProxy not configured. Redis failure fallback needed for distributed deployments. Not a substitute for WAF/DDoS protection.",
+    "minimum_controls":  [
+                             "per-IP tracking",
+                             "configurable window + max",
+                             "429 + Retry-After header",
+                             "trust proxy config"
+                         ],
+    "rejected_insecure_alternatives":  [
+                                           "client-side only throttling",
+                                           "no rate limiting on POST/login routes"
+                                       ],
+    "quality_gate":  {
+                         "verdict":  "PASS_CLEAN",
+                         "score":  20,
+                         "fatalRejections":  [
+
+                                             ],
+                         "maxScore":  20
+                     },
+    "downstream_readonly_result":  "PENDING_IMPLEMENTATION",
+    "secret_safety_result":  "PASS"
+}

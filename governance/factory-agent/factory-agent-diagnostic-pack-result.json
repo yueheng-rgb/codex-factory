@@ -1,0 +1,84 @@
+﻿{
+  "phase": "FACTORY-AGENT-DIAGNOSTIC-PACK",
+  "verdict": "PASS",
+  "timestamp": "2026-06-26T22:00:00+08:00",
+  "description": "Created Reviewer-Verifier Diagnostic Pack — an optional, non-default, readonly diagnostic and evidence-augmentation layer for high-risk or audit-sensitive Codex projects.",
+  "packLocation": "factory-diagnostic-pack/",
+  "packVersion": "1.0.0",
+  "packStatus": "EXPERIMENTAL",
+  "packActivation": "OPTIONAL_NON_DEFAULT",
+  "strategyBoundaryPreserved": {
+    "multiAgentStatus": "CONDITIONAL_NOT_DEFAULT",
+    "old7AgentMode": "CUT_AS_DEFAULT",
+    "old10RoleMode": "CUT",
+    "p14AgentMode": "KEEP_CONDITIONALLY",
+    "v05Release": "BLOCKED",
+    "noNewZipCreated": true,
+    "noProductCodeModified": true,
+    "vanillaProductLeader": true,
+    "p1ProductSuperiority": "NOT_PROVEN",
+    "processBenefitOnly": true,
+    "secondBenchmarkNotStarted": true
+  },
+  "packContents": {
+    "documentationCount": 11,
+    "manifestExists": true,
+    "verifierScript": "scripts/factory-agent-diagnostic-pack-verify.ps1",
+    "documents": [
+      "README.md",
+      "BOUNDARY.md",
+      "DAILY_USE.md",
+      "when-to-use.md",
+      "when-not-to-use.md",
+      "reviewer-verifier-checklist.md",
+      "evidence-hierarchy.md",
+      "anti-deception-checklist.md",
+      "contamination-checklist.md",
+      "floor-check-policy.md",
+      "MANIFEST.json"
+    ]
+  },
+  "whatThisPackIs": [
+    "A readonly diagnostic layer for high-risk projects",
+    "An evidence integrity check (anti-deception, contamination, floor enforcement)",
+    "A process/product separator (evidence hierarchy enforcement)",
+    "A negative-control system (designed to FAIL when things go wrong)",
+    "Optional and conditional — never default"
+  ],
+  "whatThisPackIsNot": [
+    "NOT a product quality improver",
+    "NOT a multi-agent implementation mode",
+    "NOT v0.5 release",
+    "NOT a replacement for Vanilla Codex",
+    "NOT a quality guarantee",
+    "NOT a compulsory layer"
+  ],
+  "extractedFrom": {
+    "source": "FACTORY-AGENT line Reviewer-Verifier mechanism",
+    "provenValue": "BLOCKED_BY_REVIEWER caught false PASS in FACTORY-AGENT-8-P1",
+    "policyDefects": "Detected and repaired in FACTORY-AGENT-8-P1-R1",
+    "standaloneCapable": "Does not require spawn_agent",
+    "lowestOverhead": "Of all multi-agent-derived options"
+  },
+  "forbiddenClaimsEnforced": [
+    "Product quality improvement claims",
+    "Product superiority claims over Vanilla",
+    "Multi-agent default justification",
+    "v0.5 release preparation claims",
+    "Quality guarantee claims",
+    "Process artifact as product feature"
+  ],
+  "allowedClaims": [
+    "Evidence gap detection",
+    "Anti-deception, contamination, floor checks",
+    "Product/process separation",
+    "Optional, conditional, non-default operation",
+    "Readonly (does not modify product code)"
+  ],
+  "artifacts": {
+    "governanceResult": "governance/factory-agent/factory-agent-diagnostic-pack-result.json",
+    "verifierResult": "governance/factory-agent/verifier-factory-agent-diagnostic-pack-result.json",
+    "outputReport": "outputs/FACTORY_AGENT_DIAGNOSTIC_PACK_REPORT.md",
+    "verifierScript": "scripts/factory-agent-diagnostic-pack-verify.ps1"
+  }
+}

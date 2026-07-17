@@ -1,0 +1,41 @@
+﻿{
+    "policy": "complexity-classifier",
+    "version": "0.1.0",
+    "levels": {
+        "SMALL": {
+            "criteria": "<=10 source files, single app, no auth, no DB, simple logic",
+            "defaultMode": "VANILLA_BUILD",
+            "maxAgents": 1
+        },
+        "MEDIUM": {
+            "criteria": "11-100 source files, 1-2 apps, may have auth/DB, moderate logic",
+            "defaultMode": "BUILD_LITE",
+            "maxAgents": 1
+        },
+        "LARGE": {
+            "criteria": ">100 source files, 2-3 apps, has auth+DB, complex logic",
+            "defaultMode": "BUILD_REVIEWER",
+            "maxAgents": 1
+        },
+        "LONG_HORIZON": {
+            "criteria": "Expected >3 sessions to complete, multi-day/week project",
+            "defaultMode": "BUILD_CONTINUATION",
+            "maxAgents": 1
+        },
+        "HIGH_RISK": {
+            "criteria": "Financial data, compliance (GDPR/HIPAA), auth with sensitive data, payment processing",
+            "defaultMode": "BUILD_PRO_4_AGENT",
+            "maxAgents": 4
+        }
+    },
+    "inputs": ["fileCount", "appCount", "hasAuth", "hasDB", "hasPaymentProcessor", "hasComplianceReq", "estimatedSessions", "hasExistingCode", "hasReportDocs"],
+    "scoringRules": {
+        "fileCount_weight": 0.25,
+        "appCount_weight": 0.20,
+        "hasAuth_weight": 0.15,
+        "hasDB_weight": 0.10,
+        "hasPaymentProcessor_weight": 0.10,
+        "hasComplianceReq_weight": 0.10,
+        "estimatedSessions_weight": 0.10
+    }
+}

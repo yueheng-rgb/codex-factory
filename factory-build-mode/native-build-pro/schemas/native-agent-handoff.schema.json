@@ -1,0 +1,19 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "native-agent-handoff.schema.json",
+  "title": "Native Agent Handoff Record",
+  "description": "Schema for recording agent handoff/output evidence",
+  "type": "object",
+  "required": ["agentId", "timestamp", "status", "outputSummary"],
+  "properties": {
+    "agentId": {"type": "string"},
+    "agentNickname": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "status": {"type": "string", "enum": ["completed", "partial", "error"]},
+    "outputSummary": {"type": "string"},
+    "filesCreated": {"type": "array", "items": {"type": "string"}},
+    "endpointCount": {"type": "integer"},
+    "testCount": {"type": "integer"},
+    "errors": {"type": "array", "items": {"type": "string"}}
+  }
+}

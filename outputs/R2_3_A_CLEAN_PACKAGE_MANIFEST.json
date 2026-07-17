@@ -1,0 +1,47 @@
+﻿{
+    "allCriticalPresent":  true,
+    "whitelistItemCount":  39,
+    "totalSizeMB":  9.76,
+    "version":  "R2.3-A-CLEAN-1",
+    "defectReference":  "PACKAGE-R2-001",
+    "createdAt":  "2026-07-05T23:56:34+08:00",
+    "sha256":  "4B50B3AF415A1D5482499269F103054C69741C33AE5C08248A4C066E07155ECE",
+    "packageName":  "Codex_App_Factory_Core_R2.3-A_CLEAN",
+    "zipSizeBytes":  1237117,
+    "fileCount":  1869,
+    "sourceRoot":  "C:\\\\Codex_App_Factory",
+    "forbiddenContentFound":  false,
+    "totalSizeBytes":  10229372,
+    "jsonValidation":  {
+                           "valid":  1462,
+                           "invalid":  22,
+                           "total":  1484
+                       },
+    "criticalFilesPresent":  {
+                                 "examples\\high-scale-ecommerce-skill-candidate.example.json":  true,
+                                 "examples\\high-scale-ecommerce-research-packet.example.json":  true,
+                                 "outputs\\FACTORY_R2_3_A_RESEARCH_INTAKE_PROTOCOL.md":  true,
+                                 "schemas\\research-intake.schema.json":  true,
+                                 "outputs\\FACTORY_R2_3_STATE_GAP_REPORT.md":  true,
+                                 "AGENTS.md":  true,
+                                 "examples\\high-scale-ecommerce-knowledge-capsule.example.json":  true,
+                                 "schemas\\knowledge-capsule.schema.json":  true,
+                                 "schemas\\skill-candidate.schema.json":  true,
+                                 "outputs\\FACTORY_R2_3_KNOWLEDGE_DISTILLATION_DESIGN.md":  true,
+                                 "examples\\high-scale-ecommerce-research-intake.example.json":  true
+                             },
+    "zipSizeMB":  1.18,
+    "zipFile":  "Codex_App_Factory_Core_R2.3-A_CLEAN_20260705-235634.zip",
+    "stagingRoot":  "C:\\Codex_App_Factory\\_staging_clean",
+    "excludedCategories":  [
+                               "node_modules",
+                               "old homework projects",
+                               "build artifacts",
+                               "harness test data",
+                               "benchmark runs",
+                               "secret-containing files",
+                               ".git",
+                               ".env",
+                               "db.sqlite3"
+                           ]
+}

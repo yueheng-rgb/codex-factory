@@ -1,0 +1,7 @@
+﻿{"phase":"DRY23-P2","status":"REPAIRED","severity":"P0","risk":"Main Agent undeclared fallback","riskId":"R-001"}
+{"phase":"LIVE-RUNTIME-1","status":"GATED","severity":"P0","risk":"Agent thread limit exhaustion","riskId":"R-002"}
+{"phase":"LIVE-RUNTIME-0","status":"UNRESOLVED","severity":"P0","risk":"Shared memory divergence","riskId":"R-003"}
+{"phase":"LIVE-RUNTIME-1","status":"RESOLVED","severity":"P0","risk":"No archive/quarantine mechanism","riskId":"R-004"}
+{"phase":"LIVE-RUNTIME-1","status":"RESOLVED","severity":"P0","risk":"No capacity preflight","riskId":"R-005"}
+{"phase":"H14","status":"GATED","severity":"P1","risk":"Stale handoff not detected","riskId":"R-006"}
+{"phase":"LIVE-RUNTIME-0","status":"UNRESOLVED","severity":"P1","risk":"Verifier overfitting","riskId":"R-007"}

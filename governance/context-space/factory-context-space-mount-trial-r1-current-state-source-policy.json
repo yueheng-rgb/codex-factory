@@ -1,0 +1,15 @@
+﻿{
+  "policy_id": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1-CURRENT-STATE-SOURCE-POLICY",
+  "generated_at": "2026-06-28T00:40:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1",
+  "sub_step": "B",
+  "verdict": "PASS",
+  "deliverables": [
+    "governance/context-space/policies/current-state-source-policy.json",
+    "outputs/FACTORY_CONTEXT_SPACE_MOUNT_TRIAL_R1_B_CURRENT_STATE_SOURCE_POLICY_REPORT.md"
+  ],
+  "priority_hierarchy_levels": 7,
+  "override_rules": 4,
+  "state_field_mapping_defined": true,
+  "key_principle": "Verifier PASS > Phase Ledger > Factory State > Active Thread > Direction Guard > Attach Packet > Legacy/Compressed"
+}

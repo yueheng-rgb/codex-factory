@@ -1,0 +1,52 @@
+﻿{
+    "mailboxRequirements":  {
+                                "mailboxMessageRequired":  false,
+                                "messageType":  "HANDOFF"
+                            },
+    "phase":  "6C-H10",
+    "forbiddenFiles":  [
+                           "src/b.ts"
+                       ],
+    "ownedFiles":  [
+                       "src/a.ts"
+                   ],
+    "requiredEvidenceOutputs":  [
+                                    "test.log"
+                                ],
+    "excludedContext":  [
+                            "full_conversation_history",
+                            "other_worker_capsules",
+                            "phase_lock_internals",
+                            "orchestrator_governance_state",
+                            "canonical_source_tree",
+                            "global_project_implementation_details"
+                        ],
+    "requiredScenarios":  [
+                              "happy"
+                          ],
+    "requiredNegativeControls":  [
+                                     "sad"
+                                 ],
+    "allowedDependencies":  [
+
+                            ],
+    "createdAt":  "2026-06-22T22:53:19.3600927+08:00",
+    "worktreePath":  "C:\\Users\\90961\\AppData\\Local\\Temp\\h10-verify-create\\worktrees\\verify-test",
+    "forkContext":  false,
+    "forbiddenDependencies":  [
+
+                              ],
+    "workerId":  "verify-test",
+    "runId":  "h10-20260622-225319",
+    "requiredExports":  [
+                            "fn"
+                        ],
+    "handoffRequirements":  {
+                                "sourceManifestRequired":  true,
+                                "branchResultRequired":  true,
+                                "evidenceManifestRequired":  true,
+                                "branchDeltaRequired":  true
+                            },
+    "inputContextSummary":  "Test capsule.",
+    "agentId":  ""
+}

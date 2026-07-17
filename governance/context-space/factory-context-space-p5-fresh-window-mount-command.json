@@ -1,0 +1,57 @@
+﻿{
+  "command_id": "FACTORY-CONTEXT-SPACE-P5-FRESH-WINDOW-MOUNT-COMMAND",
+  "generated_at": "2026-06-28T12:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P5",
+  "sub_step": "B",
+  "fresh_window_mount_command": "请加载最新的 Fresh Window Snapshot (BALANCED)，挂载到当前上下文，判断当前阶段和下一步方向。",
+  "command_variants": {
+    "minimal": "加载最新 Snapshot，判断当前方向",
+    "explicit_snapshot": "加载 SNAP-FW-BALANCED 快照，挂载上下文",
+    "with_verification": "加载最新快照，验证 freshness，拒绝 stale，然后判断方向",
+    "ultra_compact_forbidden": "注意：不要使用 ULTRA_COMPACT 作为挂载快照，它仅用于快速状态检查"
+  },
+  "what_codex_must_do": [
+    "1. Read SNAP-FW-BALANCED from factory-context-space/snapshots/",
+    "2. Validate freshnessStatus == FRESH",
+    "3. If stale/missing: fallback to attach-packet-v3-latest.json",
+    "4. If attach-packet also stale: fallback to query-v2 (P2 SQLite index)",
+    "5. Load frozen_conclusions into working context",
+    "6. Load current_strategy flags",
+    "7. Load active_risks",
+    "8. Consult direction-guard.json for blocked/allowed directions",
+    "9. Output: current phase, next recommended phase, frozen conclusions, active blockers",
+    "10. Do NOT treat snapshot content as verifier evidence — always reference back to verifier JSONs"
+  ],
+  "expected_mount_output": {
+    "current_phase": "FACTORY-CONTEXT-SPACE-P5",
+    "last_completed_phase": "FACTORY-CONTEXT-SPACE-P4-R1",
+    "frozen_strategy": {
+      "build_mode": "Build Lite (default)",
+      "native_build_pro": "conditional only",
+      "multi_agent": "rejected",
+      "v05_release": "blocked",
+      "cloud": "deferred"
+    },
+    "next_recommended": ["FACTORY-CONTEXT-SPACE-P6", "REALWORLD-2-P1"],
+    "active_blockers": [],
+    "active_risks": ["P5 in progress — verify fresh-window usability before advancing"]
+  },
+  "anti_patterns": [
+    "Mounting ULTRA_COMPACT for autonomous continuation — BLOCKED",
+    "Treating snapshot as PASS evidence — BLOCKED",
+    "Accepting stale snapshot without fallback — BLOCKED",
+    "Claiming Build Pro as default — BLOCKED",
+    "Suggesting v0.5 release — BLOCKED",
+    "Suggesting cloud deploy — BLOCKED",
+    "Resurrecting old conclusions from pre-P3 phases — BLOCKED"
+  ],
+  "user_burden": "Single short command. User does NOT need to know file paths, select snapshots manually, paste long summaries, or understand compression levels.",
+  "freshness_check_method": "VERIFIER_CROSS_REFERENCE",
+  "source_of_truth_paths": [
+    "factory-context-space/snapshots/SNAP-FW-BALANCED-*.json",
+    "factory-context-space/data/attach-packet-v3-latest.json",
+    "governance/context-space/current/direction-guard.json",
+    "governance/context-space/current/phase-ledger.jsonl",
+    "governance/context-space/verifier-factory-context-space-p4-r1-result.json"
+  ]
+}

@@ -1,0 +1,69 @@
+﻿{
+    "sources":  [
+                    {
+                        "title":  "GitHub - fastify/fastify-swagger: Swagger documentation generator for Fastify",
+                        "url":  "https://github.com/fastify/fastify-swagger/",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit Eomm Bumped v9.6.1 success Nov 13, 2025 5f364d1 · Nov 13, 2025 History 722 Commits Open commit details .github .github ci(ci): add concurrency config ( #898 ) Oct 17, 2025 examples examples test: remove unused params ( #847 ) Jan 6, 2025 l...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "Fastify API特性速查表 - 前端速查表",
+                        "url":  "http://caibaojian.com/scb/fastify.html",
+                        "snippet":  "\u0027 } ) } ) fastify . listen ( 3000 , err =\u003e { if ( err ) throw err const port = fastify . server . address ( ) . port console . log ( `server listening on ${ port } ` ) } ) Plugins app.js fastify . register ( require ( \u0027./route\u0027 ) ) route.js function ( fastify , opts , next ) { fastify . get ( \u0027/\u0027 , ...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "v1 Documentation · Issue #24 · fastify/website · GitHub",
+                        "url":  "https://github.com/fastify/website/issues/24",
+                        "snippet":  "Navigation Menu Toggle navigation Solutions Resources Search or jump to... Provide feedback Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved search Appearance settings Reseting focus You signed in with another tab or window. Reload to r...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "GitHub - remediios/fastify-prisma-rest-api: Fastify API boilerplate with Typescript, Prisma ORM, Zod and Swagger",
+                        "url":  "https://github.com/remediios/fastify-prisma-rest-api",
+                        "snippet":  "  main Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit   History 19 Commits prisma prisma     src src     .gitignore .gitignore     Fastify Prisma API.postman_collection.json Fastify Prisma API.postman_collection.json     LICENSE ...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "Releases · daviisp/api-fastify · GitHub",
+                        "url":  "https://github.com/daviisp/api-fastify/tags",
+                        "snippet":  "Solutions Resources Search or jump to... Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved search You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your s...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "Improve documentation · Issue #24 · fastify/avvio · GitHub",
+                        "url":  "https://github.com/fastify/avvio/issues/24",
+                        "snippet":  "  #24 New issue Copy link New issue Copy link Open Open Copy link Labels Issue body actions At the moment the documentation is almost complex as the actual code, we should fix that. Reactions are currently unavailable Metadata Metadata Assignees No one assigned Labels No fields configured for issues...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "Update documentation for fastify.setDefaultRoute · Issue #4457 · fastify/fastify · GitHub",
+                        "url":  "https://github.com/fastify/fastify/issues/4457",
+                        "snippet":  "Navigation Menu Toggle navigation Solutions Resources Search or jump to... Provide feedback Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved search You signed in with another tab or window. Reload to refresh your session. You signed out...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "GitHub - fastify/demo: A concrete example of a Fastify application using what are considered best practices by the Fastify community ·",
+                        "url":  "https://github.com/fastify/demo",
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit Fdawgs ci: add lock-threads workflow ( #149 ) failure Apr 9, 2026 5fa922d · Apr 9, 2026 History 80 Commits Open commit details 80 Commits .github .github ci: add lock-threads workflow ( #149 ) Apr 9, 2026 @types/ node @types/ node V0 ( #33...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "新近发布轻量级的 Node.js 服务端框架Fastify怎么样?_知乎",
+                        "url":  "https://www.zhihu.com/question/66797506",
+                        "snippet":  "编程等 3 个话题下的优秀答主  关注 536 人 赞同了该回答 泻药。 初步扫了一眼,感觉有点意思。 1年的项目,目前近4000 star,30+ contributor,近900个commit。 对比 koa,4年的项目,17000+ star,130+ contributor,940个commit。 另外已经有了一堆插件,生态看上去不错。 仅就这些数据来说是不错的,估计至少不弱于koa当年的表现。 然后看文档。 Web 服务器端框架已经有很多了,没点特色是不可能再出头的。我扫了一遍之后,大体上该框架的『人设』是快(废话,看名字就知道了 )。看benchmark,其实也就快20%(注意测的...",
+                        "is_external":  true
+                    },
+                    {
+                        "title":  "Releases · fastify/fastify · GitHub",
+                        "url":  "https://github.com/fastify/fastify/releases?page=24",
+                        "snippet":  "Releases: fastify/fastify Compare Choose a tag to compare Could not load tags CVE CVE-2018-3711 Breaking changes Run onSend hooks when sending a stream - #579 Run preHandler hooks for 404 handlers - #616 Update light my request - #632 Features Add reply.notFound() method - #588 Support buffers in .s...",
+                        "is_external":  true
+                    }
+                ],
+    "search_result_count":  10,
+    "searchToolInvoked":  true,
+    "request_id":  "r2-3-w-task1-groupc-20260711010733",
+    "keyLeaked":  false,
+    "endpoint":  "/api/paas/v4/web_search"
+}

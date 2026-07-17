@@ -1,0 +1,52 @@
+﻿{
+    "group":  "A_NO_SEARCH",
+    "sources":  [
+
+                ],
+    "source_count":  0,
+    "hallucination_risk":  "MODERATE — unsure about current Fastify RBAC ecosystem and best practices",
+    "design_plan":  {
+                        "rejected_alternatives":  [
+                                                      "CASL — powerful but overkill for basic RBAC",
+                                                      "accesscontrol npm — unmaintained, last update 2018",
+                                                      "Oso / OPA — policy-as-code, too heavy for admin dashboard",
+                                                      "ABAC (attribute-based) — unnecessary complexity for admin use case"
+                                                  ],
+                        "minimal_test":  [
+                                             "Admin can CRUD all resources",
+                                             "Manager can read/write own department only",
+                                             "Viewer cannot POST/PUT/DELETE",
+                                             "No-role user gets 403",
+                                             "Expired JWT gets 401"
+                                         ],
+                        "adopted_approach":  "Role-based access control with middleware-level enforcement",
+                        "implementation_plan":  [
+                                                    "1. Define roles: admin, manager, editor, viewer",
+                                                    "2. Define permissions as resource:action strings: \u0027users:read\u0027, \u0027users:write\u0027, \u0027reports:read\u0027",
+                                                    "3. roles_permissions junction table",
+                                                    "4. Fastify preHandler hook checks JWT role → permission map",
+                                                    "5. Route decorator: fastify.decorate(\u0027requirePermission\u0027, (perm) =\u003e {...})",
+                                                    "6. Frontend hides buttons by permission but backend is the real gate"
+                                                ],
+                        "UNSURE_items":  [
+                                             "Is there a well-maintained Fastify RBAC plugin (e.g., fastify-acl, fastify-rbac)?",
+                                             "Best practice for JWT role claim format: string array vs comma-separated?",
+                                             "Should permissions be cached in Redis or per-request DB lookup?",
+                                             "How to handle role hierarchy inheritance efficiently?"
+                                         ],
+                        "risk_list":  [
+                                          "Permission check only on frontend — bypass risk",
+                                          "Role hierarchy (admin \u003e manager \u003e viewer) hardcoded → hard to extend",
+                                          "No row-level ownership check (user can edit others\u0027 data)",
+                                          "JWT not invalidated on role change",
+                                          "Missing audit log for permission changes"
+                                      ],
+                        "dependency_choice":  [
+                                                  "Custom RBAC middleware (no heavy npm package needed for MVP)",
+                                                  "Database: roles table + permissions table + user_roles junction",
+                                                  "JWT claims carry role IDs for stateless checks"
+                                              ]
+                    },
+    "source_backed":  false,
+    "task":  "Admin Dashboard RBAC Permissions Design"
+}

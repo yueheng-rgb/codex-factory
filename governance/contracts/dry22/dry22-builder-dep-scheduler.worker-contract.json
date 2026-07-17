@@ -1,0 +1,110 @@
+﻿{
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  3,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry22-builder-contract-engine",
+                                       "targetScope":  "packages/builder/contract/engine"
+                                   },
+                                   {
+                                       "edgeCount":  2,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "provides_to",
+                                       "targetAgentId":  "dry22-builder-drift-detector",
+                                       "targetScope":  "packages/builder/drift/detector"
+                                   },
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "provides_to",
+                                       "targetAgentId":  "dry22-integration-hub",
+                                       "targetScope":  "packages/integration/hub"
+                                   }
+                               ],
+    "phase":  "DRY22-A",
+    "forkContext":  false,
+    "scope":  {
+                  "forbiddenFiles":  [
+
+                                     ],
+                  "ownedFiles":  [
+                                     "packages/dep-scheduler/src/types.ts",
+                                     "packages/dep-scheduler/src/dep-graph-builder.ts",
+                                     "packages/dep-scheduler/src/topo-scheduler.ts",
+                                     "packages/dep-scheduler/src/edge-validator.ts",
+                                     "packages/dep-scheduler/src/contract-alignment-checker.ts",
+                                     "packages/dep-scheduler/src/schedule-optimizer.ts",
+                                     "packages/dep-scheduler/src/dep-resolver.ts",
+                                     "packages/dep-scheduler/src/dep-events.ts",
+                                     "packages/dep-scheduler/src/dep-metrics.ts",
+                                     "packages/dep-scheduler/src/deadlock-detector.ts",
+                                     "packages/dep-scheduler/src/cycle-detector.ts",
+                                     "packages/dep-scheduler/src/serializer.ts",
+                                     "packages/dep-scheduler/src/cross-module-contracts.ts",
+                                     "packages/dep-scheduler/src/index.ts"
+                                 ],
+                  "forbiddenDirectories":  [
+                                               "governance/dependency-graphs/",
+                                               "governance/contracts/dry22/"
+                                           ],
+                  "ownedDirectories":  [
+                                           "packages/dep-scheduler/"
+                                       ]
+              },
+    "exportedApiSurface":  [
+                               "packages/dep-scheduler/src/types.ts",
+                               "packages/dep-scheduler/src/dep-graph-builder.ts",
+                               "packages/dep-scheduler/src/topo-scheduler.ts",
+                               "packages/dep-scheduler/src/edge-validator.ts",
+                               "packages/dep-scheduler/src/contract-alignment-checker.ts",
+                               "packages/dep-scheduler/src/schedule-optimizer.ts",
+                               "packages/dep-scheduler/src/dep-resolver.ts",
+                               "packages/dep-scheduler/src/dep-events.ts",
+                               "packages/dep-scheduler/src/dep-metrics.ts",
+                               "packages/dep-scheduler/src/deadlock-detector.ts",
+                               "packages/dep-scheduler/src/cycle-detector.ts",
+                               "packages/dep-scheduler/src/serializer.ts",
+                               "packages/dep-scheduler/src/cross-module-contracts.ts"
+                           ],
+    "isReadOnly":  false,
+    "allowedImports":  [
+                           {
+                               "target":  "packages/builder/contract/enginesrc/*.ts",
+                               "source":  "packages/dep-scheduler/src/*.ts",
+                               "declared":  true
+                           },
+                           {
+                               "target":  "packages/builder/drift/detectorsrc/*.ts",
+                               "source":  "packages/dep-scheduler/src/*.ts",
+                               "declared":  true
+                           },
+                           {
+                               "target":  "packages/integration/hubsrc/*.ts",
+                               "source":  "packages/dep-scheduler/src/*.ts",
+                               "declared":  true
+                           }
+                       ],
+    "evidencePath":  "harness/runs/dry22-contract-enforced-mission/",
+    "forbiddenImports":  [
+                             {
+                                 "target":  "../../scripts/*.ts",
+                                 "reason":  "Workers must not import scripts directly"
+                             }
+                         ],
+    "role":  "builder",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-23T23:44:11+08:00",
+    "contractVersion":  "1.0.0",
+    "integrationHandoff":  {
+                               "path":  "governance/dependency-graphs/dry22-cross-worker-dependency-graph.json",
+                               "format":  "json",
+                               "expectedConsumer":  "dry22-integration-hub"
+                           },
+    "sourceEvidenceSha256":  {
+
+                             },
+    "generatedBy":  "DRY22-A contract-first flow",
+    "retroactive":  false,
+    "agentId":  "dry22-builder-dep-scheduler"
+}

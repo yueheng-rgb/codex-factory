@@ -1,0 +1,95 @@
+﻿{
+  "handoffType": "SESSION_ROTATION",
+  "generatedAt": "2026-06-26T21:16:06.4180516+08:00",
+  "sourceWindow": "old (multiple compressions)",
+  "targetWindow": "new (zero trusted conversation memory)",
+  "contextWarning": "Current window has experienced multiple context compressions. Compressed summaries are NOT trusted evidence. New window must rely only on repo artifacts, verifier JSON, manifest SHA256, and registry/progress/handoff files.",
+
+  "currentTrustedState": {
+    "currentTrustedPhase": "FACTORY-AGENT-9-P3",
+    "phaseVerdict": "PASS",
+    "verifierResult": "41/41 PASS",
+    "strategyStatus": "FROZEN",
+    "finalZipExists": false
+  },
+
+  "frozenDecisions": {
+    "multiAgentStatus": "CONDITIONAL_NOT_DEFAULT",
+    "old7AgentMode": "CUT_AS_DEFAULT",
+    "old10RoleModel": "CUT",
+    "p14AgentMode": "KEEP_CONDITIONALLY",
+    "v05Release": "BLOCKED",
+    "vanillaProductLeader": true,
+    "vanillaProductScore": 85,
+    "p1ProductScore": 84,
+    "processBenefitOnly": true,
+    "noProductSuperiorityProven": true
+  },
+
+  "recommendedNextPhase": {
+    "primary": "FACTORY-AGENT-DIAGNOSTIC-PACK / Reviewer-Verifier Diagnostic Mode",
+    "secondary": "FACTORY-AGENT-10 / Second Benchmark",
+    "decisionRequired": "USER",
+    "note": "Do NOT start any phase without user confirmation. Do NOT create v0.5 package. Do NOT declare multi-agent default."
+  },
+
+  "acceptedPhaseChain": [
+    {"phase": "FACTORY-AGENT-8-P1", "verdict": "PASS / BLOCKED_BY_REVIEWER"},
+    {"phase": "FACTORY-AGENT-8-P1-R1", "verdict": "PASS_WITH_POLICY_DEFECT_RECORD"},
+    {"phase": "FACTORY-AGENT-5-P1", "verdict": "PASS (repaired policy v2.0)"},
+    {"phase": "FACTORY-AGENT-9-P2", "verdict": "PASS (P1_PROCESS_BENEFIT_BUT_NO_PRODUCT_SUPERIORITY)"},
+    {"phase": "FACTORY-AGENT-9-P3", "verdict": "PASS (Strategy Frozen)"}
+  ],
+
+  "releaseIntegrity": {
+    "v04ReleaseZip": "C:\\Users\\90961\\Desktop\\CODEX_FACTORY_V04_RELEASE_PACKAGE.zip",
+    "v04Sha256": "FF5EE6A652524B1B0F6DB100DDEB48B740E2D4F9A42E428EC43D161D5D1B1FCE",
+    "oldFinalPackage": "outputs\\CODEX_FACTORY_FINAL_PACKAGE.zip",
+    "noV05Package": true,
+    "noNewZip": true
+  },
+
+  "essentialEvidencePaths": [
+    "governance/factory-agent/factory-agent-9-p3-strategy-decision-freeze-result.json",
+    "governance/factory-agent/verifier-factory-agent-9-p3-result.json",
+    "governance/factory-agent/factory-agent-9-p3-evidence-freeze.json",
+    "governance/factory-agent/factory-agent-9-p3-claim-freeze.json",
+    "governance/factory-agent/factory-agent-9-p3-keep-cut-defer-matrix.json",
+    "governance/factory-agent/factory-agent-9-p3-v05-release-gate.json",
+    "governance/factory-agent/factory-agent-9-p3-second-benchmark-gate.json",
+    "governance/factory-agent/factory-agent-9-p3-real-project-usage-boundary.json",
+    "governance/factory-agent/factory-agent-9-p3-next-step-options.json",
+    "governance/factory-agent/factory-agent-9-p2-independent-comparison-conclusion.json",
+    "governance/factory-agent/factory-agent-5-p1-benchmark-floor-policy-repair-result.json",
+    "governance/factory-agent/factory-agent-8-p1-r1-closure-deficit-repair-result.json"
+  ],
+
+  "blockingRisksToWatch": [
+    "parent mismatch",
+    "manual PASS",
+    "expectedClass-only",
+    "missing transcript",
+    "generic FAIL",
+    "runner sabotage",
+    "false closure",
+    "negative gaps",
+    "Main Agent fallback",
+    "failed agent counted as success",
+    "compressed summary used as evidence",
+    "multi-agent default claim",
+    "v0.5 package created",
+    "final ZIP created early",
+    "process benefit misrepresented as product superiority"
+  ],
+
+  "newWindowStartupCommands": [
+    "powershell -File scripts/factoryctl.ps1 verify --json",
+    "Validate governance/factory-state/current-factory-state.json",
+    "Validate governance/factory-state/session-rotation-handoff.json",
+    "Validate SHA256 of C:\\Users\\90961\\Desktop\\CODEX_FACTORY_V04_RELEASE_PACKAGE.zip",
+    "Confirm no DRY artifacts exist (DRY phases are historical, this is FACTORY-AGENT line)",
+    "Confirm no v0.5 artifacts exist",
+    "Confirm no final ZIP exists beyond known packages",
+    "Read outputs/SESSION_ROTATION_HANDOFF_AFTER_AGENT_9_P3.md"
+  ]
+}

@@ -1,0 +1,202 @@
+﻿{
+    "authoritative_source_gap":  false,
+    "queries":  [
+                    {
+                        "query":  "Fastify rate limiting middleware plugin @fastify/rate-limit official documentation 2025",
+                        "result_count":  10,
+                        "intent":  "official_api_check"
+                    },
+                    {
+                        "query":  "Fastify rate limit DDoS brute force protection best practice security middleware 2025",
+                        "result_count":  10,
+                        "intent":  "best_practice"
+                    }
+                ],
+    "sources":  [
+                    {
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit History 335 Commits 335 Commits .github .github example example store store test test types types .gitattributes .gitattributes .gitignore ...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "en",
+                        "source_tier":  "tier_2_silver",
+                        "source_origin":  "provider_search_result",
+                        "title":  "GitHub - Szymx95/fastify-rate-limit: A low overhead rate limiter for your routes · GitHub",
+                        "url":  "https://github.com/Szymx95/fastify-rate-limit"
+                    },
+                    {
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 121 Commits 121 Commits .dependabot .dependabot     .github/ workflows .github/ workflows     example example     store store    ...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "en",
+                        "source_tier":  "tier_2_silver",
+                        "source_origin":  "provider_search_result",
+                        "title":  "GitHub - ghinks/fastify-rate-limit: A low overhead rate limiter for your routes · GitHub",
+                        "url":  "https://github.com/ghinks/fastify-rate-limit"
+                    },
+                    {
+                        "snippet":  "x-077/fastify-rate-limit   master Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit   History 67 Commits 67 Commits store store     ...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "en",
+                        "source_tier":  "tier_2_silver",
+                        "source_origin":  "provider_search_result",
+                        "title":  "GitHub - x-077/fastify-rate-limit: A low overhead rate limiter for your routes · GitHub",
+                        "url":  "https://github.com/matth-c3/fastify-rate-limit"
+                    },
+                    {
+                        "snippet":  "Security and quality SECURITY.md Security Policy This document describes the management of vulnerabilities for the Fastifyproject and its official plugins. Threat Model Trusted: Application code (plug...",
+                        "source_type":  "official_SDK_repo",
+                        "source_language":  "en",
+                        "source_tier":  "tier_1_gold",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Security Policy · fastify/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit/security/policy"
+                    },
+                    {
+                        "snippet":  "Actions Showing runs from all workflows 206 workflow runs 206 workflow runs Event Filter by Event Sorry, something went wrong. Filter Loading Sorry, something went wrong. No matching events. Status Fi...",
+                        "source_type":  "official_SDK_repo",
+                        "source_language":  "en",
+                        "source_tier":  "tier_1_gold",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Workflow runs · fastify/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit/actions?page=8"
+                    },
+                    {
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 135 Commits .github .github     example example     store store     test test     .gitattributes .gitattributes     .gitignore .g...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "en",
+                        "source_tier":  "tier_2_silver",
+                        "source_origin":  "provider_search_result",
+                        "title":  "GitHub - Syndicate555/fastify-rate-limit: A low overhead rate limiter for your routes",
+                        "url":  "https://github.com/Syndicate555/fastify-rate-limit"
+                    },
+                    {
+                        "snippet":  "Issue body actions Prerequisites I have written a descriptive issue title I have searched existing issues to ensure the bug has not already been reported Fastify version Plugin version Node.js version...",
+                        "source_type":  "official_SDK_repo",
+                        "source_language":  "en",
+                        "source_tier":  "tier_1_gold",
+                        "source_origin":  "provider_search_result",
+                        "title":  "continueExceeding option does not reset rate-limit · Issue #207 · fastify/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/fastify/fastify-rate-limit/issues/207"
+                    },
+                    {
+                        "snippet":  "Name Name Last commit message Last commit date Latest commit   History 348 Commits 348 Commits .github .github     example example     store store     test test     types types     .gitattributes .git...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "en",
+                        "source_tier":  "tier_2_silver",
+                        "source_origin":  "provider_search_result",
+                        "title":  "GitHub - gurgunday/fastify-rate-limit · GitHub",
+                        "url":  "https://github.com/gurgunday/fastify-rate-limit"
+                    },
+                    {
+                        "snippet":  "这种问题是fluent多线程问题,一旦出现这种问题整个fluent就死掉了,所有的数据都无法保存,问题很严重。 但是问题一般情况不是多线程本身的问题,而是因为线程里面运行的计算过程出现了问题。 1、MPI_Finalize() with status 2 原因之一:出现负体积 只要出现负体积,线程的计算就无法进行下去了,这时候线程要抛出异常终止 Error at Node 3: Update-Dy...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "错误收集:备忘MPI Application rank 0 exited before MPI_Finalize()\u0026nbsp_update-dynamic-mesh failed. negative cell volume d-CSDN博客",
+                        "url":  "https://blog.csdn.net/mougang/article/details/83087386"
+                    },
+                    {
+                        "snippet":  "RFI 是什么意思?快速的故障隔离 是其含义之一。您可以下载下面的图片以打印或通过 Twitter、Facebook、Google 或Pinterest 与朋友分享。如果您是网站管理员或博主,请随意将图片发布到您的网站上。 RFI可能有其他定义。 请向下滚动以查看其英文定义,以及您所用语言的其他五种含义。 RFI 代表 快速的故障隔离 下图显示了英语中RFI的定义之一。您可以下载PNG格式的图像文...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "RFI 代表 快速的故障隔离 - Rapid Fault Isolation",
+                        "url":  "https://www.abbreviationfinder.org/cn/acronyms/rfi_rapid-fault-isolation.html"
+                    },
+                    {
+                        "snippet":  "\"蛮力攻击(brute-force attack)是2018年公布的计算机科学技术名词｡定义通过尝试口令或密钥的所有可能值,以获取实际口令或密钥,并实施攻击的行为｡出处《计算机科学技术名词 》第三版｡",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "蛮力攻击",
+                        "url":  "https://baike.baidu.com/item/%E8%9B%AE%E5%8A%9B%E6%94%BB%E5%87%BB/56054353"
+                    },
+                    {
+                        "snippet":  "目录 退出编辑器模式 询问 Learn 询问 Learn 语言 csharp vb fsharp cpp 读取模式 目录 使用英语阅读 添加 添加到计划 复制 Markdown 打印 注意 访问此页面需要授权｡ 可以尝试登录或 更改目录 ｡ 访问此页面需要授权｡ 可以尝试 更改目录 ｡ Bitmap Effect. Relief Property 字段 定义 命名空间: 程序集: ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "EmbossBitmapEffect.ReliefProperty 字段 (System.Windows.Media.Effects)  Microsoft Learn",
+                        "url":  "https://msdn.microsoft.com/zh-cn/ms589668"
+                    },
+                    {
+                        "snippet":  "DDoS protection is activated for your IP 112.86.225.82 Please click bellow to pass protection, Or you will be automatically redirected to the requested page after 3 seconds. To continue working with ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "DDoS protection",
+                        "url":  "http://www.vongquaymienphi.com/"
+                    },
+                    {
+                        "snippet":  "语言 Builder. Define Property 方法 定义 命名空间: 程序集: netstandard.dll, System.Reflection.Emit.dll 程序集: System.Reflection.Emit.dll 程序集: mscorlib.dll 程序集: netstandard.dll 重载 名称 说明 DefineProperty(String, ",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "TypeBuilder.DefineProperty 方法 (System.Reflection.Emit)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/Zh-cn/library/2sd82fz7"
+                    },
+                    {
+                        "snippet":  "目录 退出编辑器模式 询问 Learn 询问 Learn 语言 csharp vb fsharp cpp 读取模式 目录 使用英语阅读 添加 添加到计划 编辑 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Type Parameter Builder. Assembly Qualified Name Prope...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "GenericTypeParameterBuilder.AssemblyQualifiedName Property (System.Reflection.Emit)  Microsoft Learn",
+                        "url":  "https://msdn.microsoft.com/Zh-cn/library/system.reflection.emit.generictypeparameterbuilder.assemblyqualifiedname(v=vs.85).aspx"
+                    },
+                    {
+                        "snippet":  "目录 退出焦点模式 备注 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Resource Definition. Cdn Debug Path Property Reference Feedback Definition Namespace: Assembly: System.Web.Extensions.dll Gets or sets the...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "ScriptResourceDefinition.CdnDebugPath Property (System.Web.UI)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/zh-CN/library/system.web.ui.scriptresourcedefinition.cdndebugpath.ASPx"
+                    },
+                    {
+                        "snippet":  "备注 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Reflection Permission Attribute. Type Information Property Reference Feedback Definition Namespace: Assembly: System.Security.Permissions.dll Assemb...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "ReflectionPermissionAttribute.TypeInformation Property (System.Security.Permissions)  Microsoft Learn",
+                        "url":  "http://msdn.microsoft.com/ZH-cn/LIBRARY/system.security.permissions.reflectionpermissionattribute.typeinformation(d=printer,v=vs.85).ASPX"
+                    },
+                    {
+                        "snippet":  "目录 退出编辑器模式 询问 Learn 询问 Learn 语言 csharp vb fsharp cpp 读取模式 目录 使用英语阅读 添加 添加到计划 编辑 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Reflection Permission Attribute. Emit Property Defini...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "ReflectionPermissionAttribute.ReflectionEmit Property (System.Security.Permissions)  Microsoft Learn",
+                        "url":  "http://technet.microsoft.com/zh-cn/library/system.security.permissions.reflectionpermissionattribute.reflectionemit.ASPX"
+                    },
+                    {
+                        "snippet":  "目录 退出编辑器模式 询问 Learn 询问 Learn 焦点模式 语言 csharp vb fsharp cpp 复制 Markdown 打印 注意 访问此页面需要授权。 可以尝试登录或 更改目录 。 访问此页面需要授权。 可以尝试 更改目录 。 Reflection Permission Attribute. Reflection Emit Property Definition Cautio...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "ReflectionPermissionAttribute.ReflectionEmit Property (System.Security.Permissions)  Microsoft Learn",
+                        "url":  "https://msdn.microsoft.com/zh-cn/subscriptions/system.security.permissions.reflectionpermissionattribute.reflectionemit(v=vs.85).aspx"
+                    },
+                    {
+                        "snippet":  "Cisco Secure DDoS Protection Cisco UltraDDoS Protect Vercara + + Learn More Update Features Learn More Update Features Add To Compare Add To Compare Related Products Cloudflare Cloudflare is the found...",
+                        "source_type":  "community_tutorial",
+                        "source_language":  "zh",
+                        "source_tier":  "tier_3_bronze",
+                        "source_origin":  "provider_search_result",
+                        "title":  "Cisco Secure DDoS Protection vs. UltraDDoS Protect Comparison",
+                        "url":  "https://sourceforge.net/software/compare/Cisco-Secure-DDoS-Protection-vs-UltraDDoS-Protect/"
+                    }
+                ],
+    "phase":  "R2.3-Z",
+    "task":  "rate-limiting-p0",
+    "official_sources_count":  3,
+    "source_count":  20,
+    "project_type":  "fastify-backend"
+}

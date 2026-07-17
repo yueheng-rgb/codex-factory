@@ -1,0 +1,29 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P2",
+  "step": "A_P2_EVALUATOR_SETUP",
+  "timestamp": "2026-06-26T20:29:00.1656106+08:00",
+  "evaluatorRole": "readonly-evaluator",
+  "evaluatorConstraint": "No product code modification. No benchmark execution. No package creation.",
+  "runsCompared": [
+    {"id": "RUN-LP-A", "label": "Vanilla Codex", "path": "harness/benchmarks/factory-agent-large-project/runs/vanilla/", "metadata": "RUN_METADATA.json: 78 source files, 27 test files, 66/66 tests PASS"},
+    {"id": "RUN-LP-B", "label": "v0.4 Factory Lite", "path": "harness/benchmarks/factory-agent-large-project/runs/v04-factory-lite/", "metadata": "RUN_METADATA.json: 78 source files, 27 test files, 76/76 tests PASS"},
+    {"id": "RUN-LP-C", "label": "old v0.5 7-agent", "path": "harness/benchmarks/factory-agent-large-project/runs/v05-agent-company/", "metadata": "RUN_METADATA.json: 117 source files, 22 test files, COMPLETED PASS"},
+    {"id": "RUN-LP-C-P1", "label": "P1 4-agent simplified", "path": "harness/benchmarks/factory-agent-large-project/runs/v05-agent-company-p1/", "metadata": "RUN_METADATA.json: 77 source files (post-R1), 23 test files, 247/247 tests PASS, BLOCKED_BY_REVIEWER -> GATE_READY_WITH_POLICY_DEFECT_RECORD"}
+  ],
+  "evaluationPolicy": "AGENT-5-P1 repaired complexity policy v2.0-repaired",
+  "historicalBaseline": {
+    "phase": "FACTORY-AGENT-9",
+    "verdict": "MULTI_AGENT_NO_BENEFIT",
+    "scores": {"vanilla": 85.5, "v04FactoryLite": 66.0, "v05AgentCompany": 80.0},
+    "note": "Original AGENT-9 used old policy. P2 re-evaluates under repaired policy v2.0."
+  },
+  "evidencePreserved": [
+    "AGENT-9 historical conclusion (not deleted)",
+    "AGENT-8-P1 BLOCKED_BY_REVIEWER evidence (not deleted)",
+    "AGENT-8-P1-R1 policy defect evidence (not deleted)",
+    "AGENT-5-P1 repaired policy v2.0"
+  ],
+  "productsNotModified": true,
+  "noBenchmarksStarted": true,
+  "noPackagesCreated": true
+}

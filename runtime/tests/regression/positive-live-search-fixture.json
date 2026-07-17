@@ -1,0 +1,32 @@
+﻿{
+  "fixtureId": "REGRESSION-POS-001",
+  "description": "Positive live-search fixture — valid source-backed Evidence Pack from R2.3-R ZhipuAI GLM-4 web_search",
+  "testType": "positive_live_search",
+  "expectedResult": "PASS — Classification A",
+  "intakePacket": {
+    "sourceRefs": [
+      { "title": "Next.js Documentation — Getting Started", "url": "https://nextjs.org/docs/getting-started", "sourceType": "glm_search_result", "snippet": "Official Next.js documentation covering routing, rendering, data fetching, and deployment." },
+      { "title": "Next.js App Router: Getting Started", "url": "https://nextjs.org/docs/app/getting-started", "sourceType": "glm_search_result", "snippet": "Learn how to create a new Next.js application with the App Router." },
+      { "title": "Vercel Production Guide", "url": "https://vercel.com/guides/nextjs-production", "sourceType": "blog", "snippet": "Best practices for deploying Next.js applications to production on Vercel." }
+    ],
+    "provider": "glm_search",
+    "claimedFacts": []
+  },
+  "searchInvoked": true,
+  "actualMode": "live_api",
+  "evidencePack": {
+    "phase": "R2.3-R",
+    "mode": "live_search",
+    "provider": "zhipuai",
+    "search_invoked": true,
+    "query": "Next.js official documentation getting started",
+    "runtime_timestamp": "2026-07-11T00:26:00+08:00",
+    "sources": [
+      { "title": "Next.js Documentation — Getting Started", "url": "https://nextjs.org/docs/getting-started", "snippet_or_content": "Official Next.js docs.", "provider": "zhipuai_web_search", "is_external_source": true },
+      { "title": "Next.js App Router: Getting Started", "url": "https://nextjs.org/docs/app/getting-started", "snippet_or_content": "App Router guide.", "provider": "zhipuai_web_search", "is_external_source": true }
+    ],
+    "quality_gate": { "passed": true, "verdict": "acceptable" },
+    "secret_safety": { "key_leaked": false },
+    "downstream_readonly": { "evidence_pack_is_only_source": true }
+  }
+}

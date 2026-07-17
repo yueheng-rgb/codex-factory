@@ -1,0 +1,84 @@
+﻿{
+    "version":  "1.0.0",
+    "requiredInputs":  [
+                           {
+                               "name":  "userRequirements",
+                               "description":  "Raw user request/description text"
+                           }
+                       ],
+    "triggerConditions":  [
+                              "new project request received",
+                              "user describes project without specifying type",
+                              "Factory Bootstrap is running"
+                          ],
+    "expectedOutputs":  [
+                            {
+                                "format":  "string",
+                                "name":  "classifiedType",
+                                "description":  "Matched project type from taxonomy"
+                            },
+                            {
+                                "format":  "string array",
+                                "name":  "matchedKeywords",
+                                "description":  "Keywords that triggered the classification"
+                            },
+                            {
+                                "format":  "string",
+                                "name":  "recommendedStarter",
+                                "description":  "Recommended starter template"
+                            },
+                            {
+                                "format":  "string",
+                                "name":  "confidenceLevel",
+                                "description":  "high/medium/low based on keyword match count"
+                            }
+                        ],
+    "applicableAgents":  [
+                             "PM-001",
+                             "ARCH-001",
+                             "RSRC-001"
+                         ],
+    "sourceRefs":  [
+                       "Codex_App_Factory internal skill: app-type-classifier"
+                   ],
+    "forbiddenActions":  [
+                             "classify_without_evidence",
+                             "default_to_most_complex_type",
+                             "override_user_explicit_type_choice"
+                         ],
+    "skillId":  "CAP-SKILL-014",
+    "name":  "app-type-classifier",
+    "status":  "factoryRuntimeVerified",
+    "failureModes":  [
+                         {
+                             "recovery":  "Show keyword matches; allow user correction",
+                             "symptom":  "Simple request classified as complex system",
+                             "mode":  "Misclassification"
+                         },
+                         {
+                             "recovery":  "Present options to user; prefer simpler type",
+                             "symptom":  "Equal keyword hits for multiple types",
+                             "mode":  "Ambiguous match"
+                         }
+                     ],
+    "applicableProjectTypes":  [
+                                   "all"
+                               ],
+    "allowedTools":  [
+                         "read"
+                     ],
+    "rollbackPolicy":  {
+                           "canRollback":  true,
+                           "rollbackProcedure":  "Remove classification; let user specify type directly",
+                           "dataLossRisk":  "none"
+                       },
+    "trustLevel":  "TRUSTED",
+    "verificationMethod":  {
+                               "behaviorCheck":  "Test with 5 sample user requests; verify correct classification",
+                               "requiredEvidence":  [
+                                                        "correct_classification_for_known_inputs",
+                                                        "keyword_match_evidence"
+                                                    ],
+                               "formatCheck":  "Verify keyword-to-type mapping table is complete"
+                           }
+}

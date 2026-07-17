@@ -1,0 +1,103 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "B",
+  "title": "Full History Evidence Intake",
+  "timestamp": "2026-06-28T10:56:00+08:00",
+  "threads": {
+    "1_DRY_HARNESS": {
+      "summary": "Early DRY/Harness phase established foundational principles: live evidence, negative controls, fail-closed gates, verifier anti-overfitting, reject preclassified-only evidence, run state, integration ledger, evidence sanitizer. Core insight: Factory's purpose is to improve Codex workflow through defect evidence, NOT to build test applications.",
+      "key_governance": [
+        "factory-build-0-mainline-reset-result.json (29/29 PASS)",
+        "factory-build-0-negative-controls.json"
+      ],
+      "status": "FOUNDATION_COMPLETE"
+    },
+    "2_AGENT_MULTI_AGENT": {
+      "summary": "AGENT-9/AGENT-9-P3 froze strategies: multi-agent NOT default, v0.5 BLOCKED, Native Build Pro conditional only, single success does not prove Factory superiority. BUILD-7/BUILD-8/PRO-2 demonstrated NBP usable but still conditional.",
+      "key_governance": [
+        "verifier-factory-build-8-p1-result.json (26/26 PASS)",
+        "verifier-factory-build-pro-2-result.json"
+      ],
+      "frozen_outcomes": [
+        "Multi-agent default = REJECTED",
+        "v0.5 release = BLOCKED",
+        "Native Build Pro = CONDITIONAL only"
+      ],
+      "status": "STRATEGY_FROZEN"
+    },
+    "3_DIAGNOSTIC_PACK": {
+      "summary": "Diagnostic Pack can discover real issues but user corrected: diagnosis is NOT the mainline. Positioned as support gate, not Codex Factory mainline. Cannot mistake audit results for build capability.",
+      "key_gate": "Diagnostic Gate = support gate only",
+      "status": "POSITIONED_AS_SUPPORT"
+    },
+    "4_BUILD_MAINLINE": {
+      "summary": "BUILD-0 reset the mainline: Build engine is mainline, Diagnostic is gate. Build Lite = default. Native Build Pro = conditional. Build Mode, External Memory, Context Packet, Package QA Gate gradually formed a coherent system.",
+      "key_governance": [
+        "factory-build-0-mainline-reset-result.json (29/29 PASS)",
+        "factory-package-qa-gate-0-result.json (37/37 PASS)"
+      ],
+      "status": "MAINLINE_ACTIVE"
+    },
+    "5_CONTEXT_SPACE": {
+      "summary": "User proposed 'reservoir' model: cannot expand model memory capacity, but can filter high-quality information into context pool. CONTEXT-SPACE-0 through P7 established: External Conversation Space, SQLite index, Query v2, Snapshot Packs, Attach Packet v3, Direction Guard v3, Phase Close Context Update, True fresh-window validation. P7 proved new windows can mount mainline via external conversation space only.",
+      "key_phases": [
+        "CONTEXT-SPACE-0 (48/48 PASS)",
+        "CONTEXT-SPACE-P3 (40/40 PASS)",
+        "CONTEXT-SPACE-P4 (35/35 PASS)",
+        "CONTEXT-SPACE-P5 (48/48 PASS)",
+        "CONTEXT-SPACE-P6 (38/38 PASS)",
+        "CONTEXT-SPACE-P7 (50/50 PASS)"
+      ],
+      "status": "SYSTEM_ACTIVE"
+    },
+    "6_PACKAGE_QA_GATE": {
+      "summary": "BOOT-001 (no Factory Bootstrap trigger on complex tasks) fixed via Bootstrap Gate. QA-001 (Factory-generated packages need final QA) fixed via Package QA Gate, integrated into staging P2. Package QA Gate is final delivery hygiene check, not product correctness proof.",
+      "key_governance": [
+        "factory-package-qa-gate-0-result.json (37/37 PASS)",
+        "factory-package-qa-gate-0-defect-record.json (12 issues)"
+      ],
+      "status": "GATE_ACTIVE"
+    },
+    "7_REALWORLD_1": {
+      "summary": "Online Bookstore validated Build Lite can safely take over real project working copies. Proved working-copy isolation, Context Packet, Diagnostic Gate, targeted repair all effective. 25/25 verifier PASS.",
+      "key_governance": [
+        "verifier-factory-build-realworld-1-result.json (25/25 PASS)"
+      ],
+      "status": "VALIDATION_COMPLETE"
+    },
+    "8_REALWORLD_2": {
+      "summary": "TCM Django production project with real domain/server/deploy traces/production key risks. Intake discovered sensitive config and deployment risks. R1 correction: finding issues does NOT prove Factory smarter than vanilla Codex. P1-P5: working-copy safe, security hardened, tests 21/2/0, original untouched, v0.5 blocked.",
+      "key_phases": [
+        "REALWORLD-2-P1 (50/50 PASS)",
+        "REALWORLD-2-P2 (10/10 security gates)",
+        "REALWORLD-2-P3 (13→20 tests +54%)",
+        "REALWORLD-2-P4 (21/2/0 final)",
+        "REALWORLD-2-P5 (27/27 PASS)"
+      ],
+      "final_state": {
+        "tests": "21 pass / 2 skip / 0 fail",
+        "skips_reason": "Django 6.x ENVIRONMENT_MISMATCH",
+        "check": "clean",
+        "smoke": "HTTP 200",
+        "files_changed": 10,
+        "app_code_changes": 0,
+        "original_project": "UNTouched",
+        "working_copy": "safe for local development",
+        "production_ready": false,
+        "secret_rotation_required": true
+      },
+      "status": "VALIDATION_COMPLETE"
+    }
+  },
+  "cross_thread_patterns": [
+    "Factory superiority over vanilla Codex: NOT PROVEN across all threads",
+    "Build Lite default: VALIDATED by REALWORLD-1 + REALWORLD-2",
+    "Working-copy isolation: VALIDATED by both realworld phases",
+    "Security/Deploy Gate: NECESSARY for real deployed projects",
+    "Context Space: PROVEN effective for long-horizon continuity",
+    "Negative controls + verifier: PROVEN anti-overfitting mechanism",
+    "User big-phase preference: MAINTAINED throughout",
+    "No cloud without local proof: MAINTAINED throughout"
+  ],
+  "status": "EVIDENCE_INTAKE_COMPLETE"
+}

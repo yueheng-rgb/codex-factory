@@ -1,0 +1,56 @@
+﻿{
+    "mcpQueries":  [
+                       "factory.memory.currentState",
+                       "factory.memory.openRisks"
+                   ],
+    "forbiddenAssumptions":  [
+                                 "no automatic window creation",
+                                 "no full context inheritance",
+                                 "no compressed summary as evidence",
+                                 "no branch/fork as memory expansion",
+                                 "no automation alert as verifier PASS"
+                             ],
+    "newWindowRequired":  true,
+    "severity":  "P0",
+    "cannotCreateFinalZIP":  true,
+    "title":  "ROTATION REQUIRED — OPEN NEW CODEX WINDOW",
+    "userActionRequired":  true,
+    "doesNotMutateState":  true,
+    "requiredReadFiles":  [
+                              "governance/factory-state/current-factory-state.json",
+                              "governance/factory-state/session-rotation-handoff.json",
+                              "governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json"
+                          ],
+    "reason":  "ROTATION_REQUIRED",
+    "startupPacketPath":  "governance/automation-os/latest-rotation-recommendation.json",
+    "generatedAt":  "2026-06-25T00:57:16+08:00",
+    "newWindowRequiredActions":  [
+                                     "read_factory_state",
+                                     "run_factoryctl_verify",
+                                     "run_startup_verification_contract",
+                                     "confirm_no_compressed_evidence",
+                                     "report_verification_result"
+                                 ],
+    "evidencePaths":  [
+                          "C:\\Codex_App_Factory\\governance\\factory-state\\current-factory-state.json",
+                          "C:\\Codex_App_Factory\\governance\\factory-state\\session-rotation-handoff.json",
+                          "C:\\Codex_App_Factory\\outputs\\CODEX_FACTORY_FINAL_PACKAGE.zip",
+                          "C:\\Codex_App_Factory\\scripts\\factoryctl.ps1",
+                          "C:\\Codex_App_Factory\\governance\\factory-state\\agent-active-archive-index.json",
+                          "C:\\Codex_App_Factory\\scripts\\live-runtime\\check-agent-capacity-preflight.ps1",
+                          "C:\\Codex_App_Factory\\scripts\\live-runtime\\check-cross-session-state-reconciliation.ps1",
+                          "C:\\Codex_App_Factory\\scripts\\context-os\\validate-context-memory.ps1",
+                          "C:\\Codex_App_Factory\\codex-factory-plugin\\mcp\\factory-memory\\server.ps1"
+                      ],
+    "copyPastePromptForNewWindow":  "You are a NEW Codex window with ZERO trusted conversation memory.\nDo NOT trust pasted summaries as evidence.\nRead: governance/factory-state/current-factory-state.json\nRead: governance/factory-state/session-rotation-handoff.json\nRead: governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json\nRun: powershell -File scripts/factoryctl.ps1 verify --json\nRun: powershell -File scripts/session-controller/run-startup-verification-contract.ps1 -Json\nConfirm: no new phase artifacts before verification\nConfirm: compressed summary is NOT trusted\nConfirm: rejected claims remain rejected\nOnly after STARTUP_VERIFICATION_PASS: narrow continuation allowed",
+    "oldWindowAllowedActions":  [
+                                    "finish_current_narrow_task"
+                                ],
+    "executionPacketPath":  "governance/session-controller/latest-rotation-execution-packet.json",
+    "cannotMarkPass":  true,
+    "verifierCommands":  [
+                             "powershell -File scripts/factoryctl.ps1 verify --json",
+                             "powershell -File scripts/session-controller/run-startup-verification-contract.ps1 -Json",
+                             "powershell -File scripts/live-runtime/check-agent-capacity-preflight.ps1 -Json"
+                         ]
+}

@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  167,
+    "frozenAt":  "2026-06-19T16:56:27.3077130+08:00",
+    "runId":  "C-RUN-F2-RD1",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\C-RUN-F2-RD1\\trust-root.json",
+    "controlPlaneLockSha256":  "f945b32ef4b3d1afd146147fb2e48d718e360185d6941b32bb09ae1a12280a52",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "e942e00f6869584c3738672ed42da97601fcc18e63b2d70a89b1af0fbb21b4c1"
+}

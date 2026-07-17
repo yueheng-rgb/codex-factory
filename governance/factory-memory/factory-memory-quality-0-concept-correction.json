@@ -1,0 +1,26 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-0",
+  "subPhase": "A_CONCEPT_CORRECTION",
+  "date": "2026-06-27",
+  "concepts": {
+    "CONVERSATION_SPACE": "The active Codex window/conversation. Limited context window. Includes all messages, tool calls, and outputs in the current session.",
+    "MODEL_CONTEXT": "What the model can 'see' at any given moment - a subset of the conversation space, bounded by the model's context window limit.",
+    "COMPRESSED_CONVERSATION_SUMMARY": "Auto-generated summary of previous conversation turns. Navigation aid only, NOT evidence. May contain errors, omissions, or distortions.",
+    "EXTERNAL_MEMORY_SPACE": ".codex-factory/ files on disk. Separate from model context. Acts as a pre-filtered evidence/state layer that Codex reads BEFORE acting.",
+    "EVIDENCE_STORE": "Verifiable artifacts: verifier JSON, test results, file hashes, agent handoff receipts. Highest trust level in external memory.",
+    "STATE_STORE": "Runtime state: project-state.json, task-graph.json, decision-log.jsonl. Tracks what has been done and what is pending.",
+    "CONTEXT_PACKET": "A filtered, minimal, high-quality document generated from external memory for a specific phase/agent/role. What Codex should read before acting.",
+    "WORKING_SET": "The subset of context packet + conversation that the model actively uses for a specific action.",
+    "MEMORY_QUALITY": "The measured trustworthiness, relevance, and verifiability of a piece of information in external memory."
+  },
+  "corePrinciples": [
+    "External memory does NOT enlarge the model's context window.",
+    "External memory does NOT improve the model's inherent memory capacity.",
+    "External memory IMPROVES WHAT Codex reads before acting.",
+    "Compressed summaries are NAVIGATION AIDS, not evidence.",
+    "Summaries are only valid when backed by evidence paths (file hash, verifier result, artifact).",
+    "The goal is NOT more memory, but BETTER SELECTED memory.",
+    "Context packet = the filtered 'water' entering the limited context pool.",
+    "The filter = ingestion policy + quality hierarchy + summary verification + decay."
+  ]
+}

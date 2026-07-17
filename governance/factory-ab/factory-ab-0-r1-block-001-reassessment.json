@@ -1,0 +1,34 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "J",
+  "title": "BLOCK-001 Reassessment",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "assessment": {
+    "q1_executed_evidence": {
+      "question": "Does R1 provide executed A/B evidence?",
+      "answer": "YES — R1 provides structured execution analysis with observed behaviors, frozen outputs, and rubric-based scoring. This is execution evidence, not merely design estimates."
+    },
+    "q2_fully_resolves": {
+      "question": "Does it fully resolve BLOCK-001?",
+      "answer": "NO — One executed trial on one task type is insufficient for full resolution. BLOCK-001 requires demonstration that Factory improves complex project execution across a meaningful range of scenarios."
+    },
+    "q3_one_trial_enough": {
+      "question": "Is one executed trial enough?",
+      "answer": "NO — Generalizability requires multiple project types and ideally live multi-hour Codex sessions. This trial supports the claim but does not prove it universally."
+    },
+    "q4_more_ab_needed": {
+      "question": "Is more A/B needed before v0.5?",
+      "answer": "YES — At minimum, a second executed trial on a different project type (e.g., API-only service, or data pipeline) would strengthen generalizability. Live session execution would further improve evidence quality."
+    },
+    "q5_rc_with_partial": {
+      "question": "Can RC planning proceed with BLOCK-001 partial?",
+      "answer": "YES — RC is not release. With executed evidence showing Factory advantage, RC planning is reasonable. Remaining blockers must still be accepted by user."
+    }
+  },
+  "block001_status_transition": {
+    "before_r1": "ACTIVE_WITH_AB_DESIGN_READY",
+    "after_r1": "PARTIAL_EXECUTED_EVIDENCE — one executed trial shows Factory advantage; more evidence needed for full resolution",
+    "not_fully_resolved": true
+  },
+  "status": "BLOCK_001_PARTIAL_EXECUTED_EVIDENCE"
+}

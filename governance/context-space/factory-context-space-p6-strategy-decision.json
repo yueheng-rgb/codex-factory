@@ -1,0 +1,42 @@
+﻿{
+  "decision_id": "FACTORY-CONTEXT-SPACE-P6-STRATEGY-DECISION",
+  "generated_at": "2026-06-28T13:00:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-P6",
+  "sub_step": "J",
+  "questions_answered": [
+    {
+      "question": "1. Is context-space phase close integration sufficient?",
+      "answer": "YES. All 12 gate steps defined: verify verifier, update 5 ledgers, rebuild index, regenerate 8 snapshots + Attach Packet, update direction guard, run mount-readiness. Mechanism is complete.",
+      "verdict": "SUFFICIENT"
+    },
+    {
+      "question": "2. Is cloud still deferred?",
+      "answer": "YES. No evidence cloud adds value. Local phase close + Snapshot Packs + Attach Packet v3 provide full fresh-window continuation without cloud.",
+      "verdict": "CLOUD DEFERRED"
+    },
+    {
+      "question": "3. Is true fresh-window check still recommended?",
+      "answer": "YES. P5 limitation is carried forward: SAME_WINDOW_SIMULATED_USABILITY_PROVEN, not true fresh-window proof. A separate Codex instance trial is recommended for P7.",
+      "verdict": "TRUE_FRESH_WINDOW_RECOMMENDED"
+    },
+    {
+      "question": "4. Should next phase be P7, CLOUD-0, REALWORLD-2-P1, or user review?",
+      "answer": "P7 (True Fresh Window External Validation) is recommended if user wants to complete the verification chain. REALWORLD-2-P1 is valid if user prioritizes project validation. CLOUD-0 is NOT recommended.",
+      "verdict": "P7 RECOMMENDED, REALWORLD-2-P1 VALID ALTERNATIVE"
+    },
+    {
+      "question": "5. What remains manual?",
+      "answer": "Running phase-close-context-update.ps1 after phase completion (can be automated). Opening a truly fresh Codex window for P7 validation. Typing the mount command. All else is automated.",
+      "verdict": "MINIMAL MANUAL BURDEN"
+    }
+  ],
+  "recommended_next": "CONTEXT-SPACE-P7 / True Fresh Window External Validation",
+  "valid_alternatives": ["REALWORLD-2-P1"],
+  "not_recommended": ["CLOUD-0", "v0.5 release"],
+  "strategy_frozen_unchanged": [
+    "BALANCED = default", "ULTRA_COMPACT ≠ autonomous", "CLOUD = deferred",
+    "Build Lite = default", "Native Build Pro = conditional",
+    "multi-agent = rejected", "v0.5 = blocked",
+    "Snapshot ≠ evidence", "DG v3 active (13 rules)"
+  ]
+}

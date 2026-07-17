@@ -1,0 +1,55 @@
+﻿{
+    "simulation": "build-1-mvp-simulation",
+    "version": "0.1.0",
+    "date": "2026-06-27",
+    "scenarios": [
+        {
+            "id": "S1",
+            "name": "Small New Project → VANILLA_BUILD",
+            "input": {"projectType": "NEW", "projectName": "Todo CLI", "featureList": ["add/remove tasks", "list tasks", "mark done"], "complexityExpectation": "SMALL"},
+            "expectedClassification": "SMALL",
+            "expectedMode": "VANILLA_BUILD",
+            "expectedAgentCount": 1,
+            "expectedDiagnosticMode": "Quick Mode"
+        },
+        {
+            "id": "S2",
+            "name": "Student Existing Project with Report → BUILD_LITE + Student/Report Gate",
+            "input": {"projectType": "EXISTING", "projectPath": "/projects/student-app", "projectGoal": "DIAGNOSE_THEN_BUILD", "reportDocsPath": "/projects/student-app/report.docx"},
+            "expectedClassification": "MEDIUM",
+            "expectedMode": "BUILD_LITE",
+            "expectedExtraGate": "Report-vs-Source Mode first, then Student Project Mode"
+        },
+        {
+            "id": "S3",
+            "name": "Medium Full-Stack Project → BUILD_REVIEWER",
+            "input": {"projectType": "NEW", "projectName": "E-Commerce API", "featureList": ["auth", "products CRUD", "orders", "cart"], "complexityExpectation": "MEDIUM"},
+            "expectedClassification": "MEDIUM",
+            "expectedMode": "BUILD_LITE or BUILD_REVIEWER",
+            "hasReviewer": true
+        },
+        {
+            "id": "S4",
+            "name": "Large Long-Horizon Project → BUILD_PRO_4_AGENT allowed, not automatic",
+            "input": {"projectType": "NEW", "projectName": "Enterprise SaaS", "featureList": ["multi-tenant", "RBAC", "payments", "analytics", "audit log"], "complexityExpectation": "LARGE"},
+            "expectedClassification": "HIGH_RISK or LARGE",
+            "expectedMode": "BUILD_PRO_4_AGENT (requires user approval)",
+            "rule": "4-agent is ALLOWED but requires explicit approval. Not automatic."
+        },
+        {
+            "id": "S5",
+            "name": "User Wants Only Codex Improvement Evidence → DIAGNOSTIC_ONLY",
+            "input": {"projectType": "EXISTING", "projectPath": "/projects/any-app", "projectGoal": "DIAGNOSE_ONLY"},
+            "expectedMode": "DIAGNOSTIC_ONLY",
+            "expectedStopAfter": true,
+            "rule": "Diagnostic runs, reports findings, STOPS. No build. No repair."
+        },
+        {
+            "id": "S6",
+            "name": "Context Rotation → Load .codex-factory/ Handoff and Continue",
+            "input": {"projectPath": "/projects/large-app", "hasStateFiles": true, "currentStage": "BUILD"},
+            "expectedAction": "Read handoff-packet.md → state.json → decisions.md → task-graph.json → resume BUILD",
+            "expectedContinuation": true
+        }
+    ]
+}

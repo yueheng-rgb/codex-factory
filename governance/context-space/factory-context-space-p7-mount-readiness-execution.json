@@ -1,0 +1,36 @@
+﻿{
+    "archivedWarnings":  [
+                             "Shared memory divergence (ARCHIVED_NOT_ACTIVE_BLOCKER)",
+                             "Verifier overfitting (ARCHIVED_NOT_ACTIVE_BLOCKER)",
+                             "Automation rotation watcher not implemented (ARCHIVED_NOT_ACTIVE_BLOCKER)"
+                         ],
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "mount_number":  1,
+    "activeBlockers":  [
+
+                       ],
+    "readiness_checks_passed":  10,
+    "snapshot_quality":  "FRESH",
+    "attach_packet_version":  "3.0.0",
+    "section":  "B",
+    "freshnessStatus":  "ALL_FRESH",
+    "fallbackUsed":  "SNAPSHOT_FRESH",
+    "compression_level":  "BALANCED",
+    "attach_packet_freshness":  "FRESH",
+    "execution_id":  "FACTORY-CONTEXT-SPACE-P7-MOUNT-READINESS-EXECUTION",
+    "sourceOfTruthPaths":  [
+                               "factory-context-space/snapshots/SNAP-FW-20260628-075508.json",
+                               "factory-context-space/data/attach-packet-v3-latest.json",
+                               "factory-context-space/data/context-index-v2.db",
+                               "governance/context-space/current/phase-ledger.jsonl",
+                               "governance/context-space/current/direction-guard.json"
+                           ],
+    "snapshot_used":  "SNAP-FW-20260628-075508",
+    "generated_at":  "2026-06-28T10:04:31+08:00",
+    "readiness_checks_total":  10,
+    "readiness_verdict":  "READY",
+    "issues":  [
+
+               ],
+    "direction_guard_verdict":  "PASS (v0.5 release check); BLOCKED (release v0.5 zip publish deploy check)"
+}

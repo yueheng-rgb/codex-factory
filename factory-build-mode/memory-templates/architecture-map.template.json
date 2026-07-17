@@ -1,0 +1,14 @@
+﻿{
+    "$schema": "codex-factory-architecture-map",
+    "version": "0.1.0",
+    "projectName": "",
+    "pages": [],
+    "apiEndpoints": [],
+    "databaseTables": [],
+    "permissions": {
+        "roles": [],
+        "rules": []
+    },
+    "techStack": {},
+    "designDecisions": []
+}

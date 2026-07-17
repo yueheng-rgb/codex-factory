@@ -1,0 +1,18 @@
+﻿# Assignment Profile Template
+# Copy this file and fill in values for your specific project/assignment.
+# Save as: profiles/<project-name>-profile.json
+
+{
+  "profile_id": "PROJECT_NAME-v1",
+  "student_name": "YOUR_NAME",
+  "student_id": "YOUR_STUDENT_ID",
+  "project_name": "YOUR_PROJECT_NAME",
+  "expected_zip_pattern": "YOUR_NAME_.*\\.zip",
+  "expected_report_file": "report*.md",
+  "expected_source_dir": "src/",
+  "expected_sql_file": "*.sql",
+  "expected_readme": "README.md",
+  "instructor_name": "",
+  "course_name": "",
+  "deadline": ""
+}

@@ -1,0 +1,88 @@
+﻿{
+    "no_secret_leakage":  true,
+    "sections":  [
+                     {
+                         "section":  "A",
+                         "name":  "Context-Space Mount",
+                         "verdict":  "READY 10/10"
+                     },
+                     {
+                         "section":  "B",
+                         "name":  "Intake Evidence Recheck",
+                         "verdict":  "PASS"
+                     },
+                     {
+                         "section":  "C",
+                         "name":  "Working Copy Creation",
+                         "verdict":  "WORKING_COPY_SAFE (117 files, 12/12 exclusions)"
+                     },
+                     {
+                         "section":  "D",
+                         "name":  "Security/Deploy Gate (Pre)",
+                         "verdict":  "PASS 12/12"
+                     },
+                     {
+                         "section":  "E",
+                         "name":  "Secret-Safe Config Plan",
+                         "verdict":  "SECRET_SAFE_CONFIG_VALID"
+                     },
+                     {
+                         "section":  "F",
+                         "name":  "Env + Dependency Discovery",
+                         "verdict":  "ENV_READY"
+                     },
+                     {
+                         "section":  "G",
+                         "name":  "Local Django Baseline",
+                         "verdict":  "PASS (check=OK, tests=13/23)"
+                     },
+                     {
+                         "section":  "H",
+                         "name":  "Bounded Smoke",
+                         "verdict":  "SMOKE_PASS (HTTP 200)"
+                     },
+                     {
+                         "section":  "I",
+                         "name":  "Security/Deploy Gate (Post)",
+                         "verdict":  "PASS 8/8"
+                     },
+                     {
+                         "section":  "J",
+                         "name":  "Targeted Repair Plan Only",
+                         "verdict":  "PLAN_ONLY_NO_EXECUTION"
+                     },
+                     {
+                         "section":  "K",
+                         "name":  "Assessment + Strategy",
+                         "verdict":  "ASSESSMENT_PASS"
+                     },
+                     {
+                         "section":  "L",
+                         "name":  "Phase Close Context Update",
+                         "verdict":  "PHASE_CLOSE_COMPLETE"
+                     },
+                     {
+                         "section":  "M",
+                         "name":  "Negative Controls",
+                         "verdict":  "PASS 46/46, 0 triggered"
+                     },
+                     {
+                         "section":  "N",
+                         "name":  "Verifier",
+                         "verdict":  "PASS 46/46"
+                     }
+                 ],
+    "verifier_checks":  46,
+    "no_cloud":  true,
+    "verifier_result_path":  "governance/factory-build/verifier-factory-build-realworld-2-p1-result.json",
+    "no_deployment":  true,
+    "generated_at":  "2026-06-28T10:21:48+08:00",
+    "next_recommended":  "REALWORLD-2-P2 (targeted security hardening)",
+    "verdict":  "PASS",
+    "user_action_required":  "Rotate production secrets (SSH, SMTP, SECRET_KEY) before any repair",
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P1",
+    "verifier_failed":  0,
+    "result_id":  "FACTORY-BUILD-REALWORLD-2-P1-TCM-WORKING-COPY-VALIDATION-RESULT",
+    "no_release":  true,
+    "verifier_passed":  46
+}

@@ -1,0 +1,253 @@
+﻿{
+    "checks":  [
+                   {
+                       "detail":  "H16 confirmed",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "parent_is_h16"
+                   },
+                   {
+                       "detail":  "No H17 started",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "h17_not_started"
+                   },
+                   {
+                       "detail":  "No final ZIP",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_final_zip"
+                   },
+                   {
+                       "detail":  "Recorded in state",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "false_closure_recorded"
+                   },
+                   {
+                       "detail":  "actual=10",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_agents_10"
+                   },
+                   {
+                       "detail":  "actual=6",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_builders_6"
+                   },
+                   {
+                       "detail":  "actual=102 floor=90",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_sourcefiles_90"
+                   },
+                   {
+                       "detail":  "actual=659 floor=650",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_exports_650"
+                   },
+                   {
+                       "detail":  "actual=150 floor=120",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_dep_edges_120"
+                   },
+                   {
+                       "detail":  "actual=30 floor=30",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_cross_worker_deps_30"
+                   },
+                   {
+                       "detail":  "actual=7 floor=6",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_integration_points_6"
+                   },
+                   {
+                       "detail":  "Report exists",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_positive_scenarios_16"
+                   },
+                   {
+                       "detail":  "actual=4",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "floor_verify_snapshots_4"
+                   },
+                   {
+                       "detail":  "count=0",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_empty_files"
+                   },
+                   {
+                       "detail":  "barrel-excluded",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_duplicate_files"
+                   },
+                   {
+                       "detail":  "actual=6",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "contracts_6"
+                   },
+                   {
+                       "detail":  "Contracts-based",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "dep_graph_exists"
+                   },
+                   {
+                       "detail":  "parent=DRY23",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N01_parent_mismatch"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N02_contract_files_exist"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N03_fake_complexity"
+                   },
+                   {
+                       "detail":  "count=0",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N04_verifier_write"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N05_scope_contamination"
+                   },
+                   {
+                       "detail":  "count=0",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N06_integrator_bypass"
+                   },
+                   {
+                       "detail":  "count=0",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N07_forbidden_import"
+                   },
+                   {
+                       "detail":  "Declared in contracts",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N08_undeclared_dep"
+                   },
+                   {
+                       "detail":  "Verified",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N09_fake_dep_edges"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N10_stale_handoff"
+                   },
+                   {
+                       "detail":  "count=6",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N11_missing_contract"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N12_fork_context"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N13_nativeGenerated"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N14_post_hoc"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N15_diagnosis_consistent"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "N16_runner_sabotage"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_manual_pass"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_expected_class_only"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_preclassified_only"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_generic_fail"
+                   },
+                   {
+                       "detail":  "",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "factoryctl_ok"
+                   },
+                   {
+                       "detail":  "Repo-local script",
+                       "caveat":  "",
+                       "result":  "PASS_WITH_CAVEATS",
+                       "check":  "factoryctl_path"
+                   },
+                   {
+                       "detail":  "0 H17 files",
+                       "caveat":  "",
+                       "result":  "PASS",
+                       "check":  "no_h17_artifacts"
+                   }
+               ],
+    "verdict":  "PASS_WITH_CAVEATS",
+    "passCount":  39,
+    "generatedAt":  "2026-06-24T01:08:02.5665092+08:00",
+    "caveatCount":  1,
+    "phase":  "DRY23-P1",
+    "totalChecks":  40,
+    "failCount":  0,
+    "exitCode":  0,
+    "verifierPath":  "scripts/phase6c-dry23-p1-gap-repair-verify.ps1"
+}

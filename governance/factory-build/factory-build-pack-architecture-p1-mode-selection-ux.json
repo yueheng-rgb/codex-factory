@@ -1,0 +1,38 @@
+﻿{
+    "contextPacketInUX":  {
+                              "buildLite":  "Context packets are NOT shown to user (OPTIONAL, auto if used)",
+                              "buildPro":  "Context packets are generated automatically. User sees: \u0027Context packet generated for [role] — 273/2000 words.\u0027 No user action required."
+                          },
+    "section":  "G",
+    "modeRecommendationHeuristic":  {
+                                        "butBuildLiteStillDefault":  "Even when Build Pro is suggested, Build Lite is the default recommendation. User must explicitly choose Build Pro.",
+                                        "suggestsBuildLite":  [
+                                                                  "Single codebase",
+                                                                  "\u003c 50 estimated files",
+                                                                  "No parallel task dependencies",
+                                                                  "Standard project type (CRUD, dashboard, API)"
+                                                              ],
+                                        "suggestsBuildPro":  [
+                                                                 "Multi-module architecture",
+                                                                 "50+ estimated files",
+                                                                 "Parallel task dependencies",
+                                                                 "Long-horizon (3+ iterations planned)",
+                                                                 "User explicitly requests multi-agent"
+                                                             ]
+                                    },
+    "antiAutoTrigger":  [
+                            "Build Pro NEVER auto-triggered by project complexity alone",
+                            "Build Pro NEVER auto-triggered by benchmark results",
+                            "Build Pro triggers ONLY on explicit user confirmation",
+                            "If user says \u0027use multi-agent\u0027, System replies: \u0027Build Pro is conditional. Build Lite is the default. Would you like to use Build Pro? (+15% overhead)\u0027"
+                        ],
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "title":  "Mode Selection UX",
+    "defaultFlow":  {
+                        "step5":  "User confirms → mode starts",
+                        "step2":  "Codex suggests mode based on project characteristics",
+                        "step4":  "For complex projects: asks \u0027This looks complex. Use Build Lite (recommended) or Build Pro?\u0027",
+                        "step1":  "User describes project intent → Codex detects project complexity",
+                        "step3":  "For standard projects: auto-enters Build Lite"
+                    }
+}

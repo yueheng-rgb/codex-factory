@@ -1,0 +1,72 @@
+﻿{
+    "packetId":  "SCP-CAP-SKILL-015-ARCH-001-20260710003746",
+    "packetType":  "skill-context-packet",
+    "skillId":  "CAP-SKILL-015",
+    "targetAgent":  "ARCH-001",
+    "summary":  {
+                    "skillId":  "CAP-SKILL-015",
+                    "name":  "project-rules-ecosystem",
+                    "version":  "1.0.0",
+                    "status":  "candidate",
+                    "trustLevel":  "AVAILABLE",
+                    "allowedTools":  [
+                                         "read"
+                                     ],
+                    "forbiddenActions":  [
+                                             "modify_rule_files",
+                                             "enforce_rules_automatically",
+                                             "override_agents_md_with_project_rules",
+                                             "write_project_code_based_on_rules"
+                                         ],
+                    "triggerConditions":  [
+                                              "project has .cursorrules or similar rule files",
+                                              "CAP-SKILL-004 is loaded and finds AGENTS.md",
+                                              "new agent enters project for first time"
+                                          ],
+                    "instructionsSummary":  "# Project Rules Ecosystem Skill\n\n## Trigger\nThis skill activates when a project contains rule files beyond AGENTS.md — including `.cursorrules`, `.coderules`, `project-rules.md`, `CONVENTIONS.md`, `.githooks/`, or similar.\n\n## Purpose\nParse and apply project-level rule files that define coding conventions, architecture constraints, and agent behavior boundaries. Extends CAP-SKILL-004 (AGENTS.md) to cover the broader project rules ecosystem.\n\n## Core Rules\n\n### 1. Rule File Discovery\nWalk the project directory tree and identify rule files:\n- `.cursorrules` — Cursor IDE project rules\n- `.coderules` — Generic code rules\n- `project-rules.md` — Explicit project rule documentation\n- `CONVENTIONS.md` — Coding conventions document\n- `.github/workflows/` — CI/CD rules\n- `.githooks/` — Git hook rules\n\n### 2. Rule Extraction\nParse each file and extract:\n| Category | Pattern | Output |\n|----------|---------|--------|\n| File naming | `*.tsx`, `*.module.css` patterns | Naming convention rules |\n| Di...",
+                    "instructionsFullPath":  "C:\\Codex_App_Factory\\skills\\CAP-SKILL-015\\SKILL.md",
+                    "instructionsLength":  2301,
+                    "verificationMethod":  {
+                                               "behaviorCheck":  "Test with project containing .cursorrules; verify all rule categories extracted",
+                                               "requiredEvidence":  [
+                                                                        "rule_file_discovery",
+                                                                        "naming_rule_extraction",
+                                                                        "directory_rule_extraction"
+                                                                    ],
+                                               "formatCheck":  "Verify SKILL.md has complete extraction categories"
+                                           },
+                    "failureModes":  [
+                                         {
+                                             "recovery":  "Return empty extraction, note no project-specific rules",
+                                             "symptom":  "Skill loads but finds nothing",
+                                             "mode":  "No rule files found"
+                                         },
+                                         {
+                                             "recovery":  "Flag conflict; AGENTS.md takes precedence per CAP-SKILL-004",
+                                             "symptom":  "AGENTS.md and .cursorrules disagree",
+                                             "mode":  "Conflicting rules"
+                                         }
+                                     ],
+                    "rollbackPolicy":  {
+                                           "canRollback":  true,
+                                           "rollbackProcedure":  "Remove skill from context; clear extracted rules",
+                                           "dataLossRisk":  "none"
+                                       },
+                    "loadedSections":  [
+                                           "instructions",
+                                           "allowedTools",
+                                           "forbiddenActions",
+                                           "triggerConditions",
+                                           "failureModes"
+                                       ],
+                    "inputRefs":  [
+                                      "C:\\Codex_App_Factory\\skills\\CAP-SKILL-015\\skill.json",
+                                      "C:\\Codex_App_Factory\\skills\\CAP-SKILL-015\\SKILL.md"
+                                  ]
+                },
+    "usageCaveats":  [
+                         "Trust level: AVAILABLE",
+                         "Status: candidate",
+                         "auditPassed != runtimeVerified for non-CAP-SKILL-004 skills"
+                     ]
+}

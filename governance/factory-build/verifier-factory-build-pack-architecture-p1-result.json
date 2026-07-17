@@ -1,0 +1,208 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "date":  "2026-06-27T16:01:55.8481538+08:00",
+    "overall":  "PASS",
+    "passedChecks":  33,
+    "failedChecks":  0,
+    "totalChecks":  33,
+    "checks":  [
+                   {
+                       "path":  "governance\\factory-build\\verifier-factory-build-pro-2-p1-result.json",
+                       "pass":  true,
+                       "id":  "V00",
+                       "desc":  "FACTORY-BUILD-PRO-2-P1 PASS exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-evidence-intake.json",
+                       "pass":  true,
+                       "id":  "V01",
+                       "desc":  "Evidence intake exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-identity-boundary.json",
+                       "pass":  true,
+                       "id":  "V02",
+                       "desc":  "Pack identity and boundary exist"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-staging-structure.json",
+                       "pass":  true,
+                       "id":  "V03",
+                       "desc":  "Staging structure exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-module-boundary-map.json",
+                       "pass":  true,
+                       "id":  "V04",
+                       "desc":  "Module boundary map exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-user-entrypoints.json",
+                       "pass":  true,
+                       "id":  "V05",
+                       "desc":  "User entrypoints exist"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-installation-model.json",
+                       "pass":  true,
+                       "id":  "V06",
+                       "desc":  "Installation model exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-mode-selection-ux.json",
+                       "pass":  true,
+                       "id":  "V07",
+                       "desc":  "Mode selection UX exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-context-packet-integration.json",
+                       "pass":  true,
+                       "id":  "V08",
+                       "desc":  "Context packet integration exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-native-lifecycle-integration.json",
+                       "pass":  true,
+                       "id":  "V09",
+                       "desc":  "Native lifecycle integration exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-simulation.json",
+                       "pass":  true,
+                       "id":  "V10",
+                       "desc":  "Simulation exists"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-real-world-validation-plan.json",
+                       "pass":  true,
+                       "id":  "V11",
+                       "desc":  "Real-world validation plan exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PACK_ARCHITECTURE_P1_A_EVIDENCE_INTAKE_REPORT.md",
+                       "pass":  true,
+                       "id":  "V12",
+                       "desc":  "Section A report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PACK_ARCHITECTURE_P1_B_PACK_IDENTITY_REPORT.md",
+                       "pass":  true,
+                       "id":  "V13",
+                       "desc":  "Section B report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PACK_ARCHITECTURE_P1_D_MODULE_BOUNDARY_REPORT.md",
+                       "pass":  true,
+                       "id":  "V14",
+                       "desc":  "Section D report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PACK_ARCHITECTURE_P1_E_USER_ENTRYPOINTS_REPORT.md",
+                       "pass":  true,
+                       "id":  "V15",
+                       "desc":  "Section E report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PACK_ARCHITECTURE_P1_J_SIMULATION_REPORT.md",
+                       "pass":  true,
+                       "id":  "V16",
+                       "desc":  "Section J report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PACK_ARCHITECTURE_P1_K_REAL_WORLD_VALIDATION_PLAN_REPORT.md",
+                       "pass":  true,
+                       "id":  "V17",
+                       "desc":  "Section K report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_BUILD_PACK_ARCHITECTURE_P1_NEGATIVE_CONTROLS_REPORT.md",
+                       "pass":  true,
+                       "id":  "V18",
+                       "desc":  "Negative controls report exists"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Identity + mode UX confirm",
+                       "id":  "V19",
+                       "desc":  "Build Lite default preserved"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Requires user confirmation",
+                       "id":  "V20",
+                       "desc":  "Native Build Pro conditional preserved"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Integration doc confirms",
+                       "id":  "V21",
+                       "desc":  "Context Packet required for Build Pro"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Integration doc confirms",
+                       "id":  "V22",
+                       "desc":  "Context Packet required for recovery"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Lifecycle doc confirms",
+                       "id":  "V23",
+                       "desc":  "Context Packet required for native agent start"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Listed as SUPPORT_GATE",
+                       "id":  "V24",
+                       "desc":  "Diagnostic Gate not mainline"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Identity boundary confirms",
+                       "id":  "V25",
+                       "desc":  "External memory not model expansion"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No v0.5",
+                       "id":  "V26",
+                       "desc":  "No v0.5 package created"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "No release ZIP",
+                       "id":  "V27",
+                       "desc":  "No release ZIP created"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Only governance/ + outputs/ + scripts/",
+                       "id":  "V28",
+                       "desc":  "No product code modified"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Pack excludes trials/",
+                       "id":  "V29",
+                       "desc":  "No trial products copied into pack"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "Rejected everywhere",
+                       "id":  "V30",
+                       "desc":  "No multi-agent default claim"
+                   },
+                   {
+                       "detail":  "",
+                       "pass":  "0 gaps",
+                       "id":  "V31",
+                       "desc":  "Negative controls 51/51"
+                   },
+                   {
+                       "path":  "governance\\factory-build\\factory-build-pack-architecture-p1-negative-controls.json",
+                       "pass":  true,
+                       "id":  "V32",
+                       "desc":  "Negative controls JSON exists"
+                   }
+               ]
+}

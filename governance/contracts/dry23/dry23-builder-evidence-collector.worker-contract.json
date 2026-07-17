@@ -1,0 +1,105 @@
+﻿{
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-snapshot-manager",
+                                       "targetScope":  "packages/snapshot-manager/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-diagnosis-engine",
+                                       "targetScope":  "packages/diagnosis-engine/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-risk-classifier",
+                                       "targetScope":  "packages/risk-classifier/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-diagnosis-reporter",
+                                       "targetScope":  "packages/diagnosis-reporter/"
+                                   },
+                                   {
+                                       "edgeCount":  5,
+                                       "dependencyType":  "contracts",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry23-builder-verify-gate",
+                                       "targetScope":  "packages/verify-gate/"
+                                   }
+                               ],
+    "phase":  "DRY23-A",
+    "forkContext":  false,
+    "scope":  {
+                  "ownedFiles":  [
+                                     "packages/evidence-collector/src/collector.ts",
+                                     "packages/evidence-collector/src/cross-module-contracts.ts",
+                                     "packages/evidence-collector/src/evidence-aggregator.ts",
+                                     "packages/evidence-collector/src/evidence-bundler.ts",
+                                     "packages/evidence-collector/src/evidence-cache.ts",
+                                     "packages/evidence-collector/src/evidence-events.ts",
+                                     "packages/evidence-collector/src/evidence-hasher.ts",
+                                     "packages/evidence-collector/src/evidence-indexer.ts",
+                                     "packages/evidence-collector/src/evidence-validator.ts",
+                                     "packages/evidence-collector/src/index.ts",
+                                     "packages/evidence-collector/src/serializer.ts",
+                                     "packages/evidence-collector/src/source-registry.ts",
+                                     "packages/evidence-collector/src/types.ts"
+                                 ],
+                  "forbiddenDirectories":  [
+                                               "governance/factory-state/",
+                                               "outputs/"
+                                           ],
+                  "ownedDirectories":  [
+                                           "packages/evidence-collector/"
+                                       ]
+              },
+    "exportedApiSurface":  [
+                               "packages/evidence-collector/src/collector.ts",
+                               "packages/evidence-collector/src/cross-module-contracts.ts",
+                               "packages/evidence-collector/src/evidence-aggregator.ts",
+                               "packages/evidence-collector/src/evidence-bundler.ts",
+                               "packages/evidence-collector/src/evidence-cache.ts",
+                               "packages/evidence-collector/src/evidence-events.ts",
+                               "packages/evidence-collector/src/evidence-hasher.ts",
+                               "packages/evidence-collector/src/evidence-indexer.ts",
+                               "packages/evidence-collector/src/evidence-validator.ts",
+                               "packages/evidence-collector/src/serializer.ts",
+                               "packages/evidence-collector/src/source-registry.ts",
+                               "packages/evidence-collector/src/types.ts"
+                           ],
+    "isReadOnly":  false,
+    "allowedImports":  [
+
+                       ],
+    "evidencePath":  "governance/diagnosis/",
+    "forbiddenImports":  [
+                             {
+                                 "target":  "../../scripts/*",
+                                 "reason":  "Workers must not import scripts"
+                             }
+                         ],
+    "role":  "builder",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-24T00:38:00+08:00",
+    "contractVersion":  "1.0.0",
+    "integrationHandoff":  {
+                               "path":  "governance/diagnosis/dry23-closure-verify.json",
+                               "format":  "json",
+                               "expectedConsumer":  "dry23-integrator-1"
+                           },
+    "sourceEvidenceSha256":  {
+
+                             },
+    "generatedBy":  "DRY23-A contract-first",
+    "retroactive":  false,
+    "agentId":  "dry23-builder-evidence-collector"
+}

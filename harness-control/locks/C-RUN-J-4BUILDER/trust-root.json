@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  190,
+    "frozenAt":  "2026-06-19T21:43:26.2618971+08:00",
+    "runId":  "C-RUN-J-4BUILDER",
+    "trustRootFile":  "C:\\Codex_App_Factory\\habit-tracker-j\\..\\harness-control\\locks\\C-RUN-J-4BUILDER\\trust-root.json",
+    "controlPlaneLockSha256":  "35da41b1c8f59a1f9d4bf20bbb132da8b7effbe0837f49a804511b0fe7b9a84d",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "2f76db7b6d8958b78da573cbdac455cd4e0e228a3453f6e531d014214a26b400"
+}

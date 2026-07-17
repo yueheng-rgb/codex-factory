@@ -1,0 +1,183 @@
+﻿{
+    "checks":  [
+                   {
+                       "detail":  "SHA256=FF5EE6A652524B1B...",
+                       "pass":  true,
+                       "name":  "v0.4 release ZIP SHA256 matches"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "Old FINAL ZIP exists"
+                   },
+                   {
+                       "detail":  "1 ZIPs",
+                       "pass":  true,
+                       "name":  "Only FINAL ZIP in outputs (no new)"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "No v0.5 release ZIP"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "AGENT-6 verifier exists"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "RUN-LP-B directory exists"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "RUN_METADATA exists"
+                   },
+                   {
+                       "detail":  "True",
+                       "pass":  true,
+                       "name":  "v0.4 Factory Lite enabled"
+                   },
+                   {
+                       "detail":  "True",
+                       "pass":  true,
+                       "name":  "Manual Router used"
+                   },
+                   {
+                       "detail":  "True",
+                       "pass":  true,
+                       "name":  "Proof-of-Read used"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "Agent Company NOT used"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "Spawned agents NOT used"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "Product directory exists"
+                   },
+                   {
+                       "detail":  "80 files",
+                       "pass":  true,
+                       "name":  "Source files \u003e= 80"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "POR directory exists"
+                   },
+                   {
+                       "detail":  "3 receipts",
+                       "pass":  true,
+                       "name":  "POR receipts exist"
+                   },
+                   {
+                       "detail":  "6 inputs",
+                       "pass":  true,
+                       "name":  "POR por-001-setup.json has paths"
+                   },
+                   {
+                       "detail":  "Has disclaimer",
+                       "pass":  true,
+                       "name":  "POR por-001-setup.json has disclaimer"
+                   },
+                   {
+                       "detail":  "2 inputs",
+                       "pass":  true,
+                       "name":  "POR por-002-backend.json has paths"
+                   },
+                   {
+                       "detail":  "Has disclaimer",
+                       "pass":  true,
+                       "name":  "POR por-002-backend.json has disclaimer"
+                   },
+                   {
+                       "detail":  "2 inputs",
+                       "pass":  true,
+                       "name":  "POR por-003-completion.json has paths"
+                   },
+                   {
+                       "detail":  "Has disclaimer",
+                       "pass":  true,
+                       "name":  "POR por-003-completion.json has disclaimer"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "Complexity floor check exists"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "Requirements mapping exists"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "Process overhead log exists"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "Intervention log exists"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "Contamination log exists"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "No \u0027AgentCompany\u0027 in product"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "No \u0027WorkerCapsule\u0027 in product"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "No \u0027spawn_agent\u0027 in product"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "No \u0027multi-agent\u0027 in product"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "No \u0027multi_agent\u0027 in product"
+                   },
+                   {
+                       "detail":  "Clean",
+                       "pass":  true,
+                       "name":  "RUN-LP-C not started"
+                   },
+                   {
+                       "detail":  "Exists",
+                       "pass":  true,
+                       "name":  "DB file exists"
+                   },
+                   {
+                       "detail":  "27 files",
+                       "pass":  true,
+                       "name":  "Test files \u003e= 20"
+                   }
+               ],
+    "verdict":  "PASS",
+    "failed":  0,
+    "total":  35,
+    "passed":  35
+}

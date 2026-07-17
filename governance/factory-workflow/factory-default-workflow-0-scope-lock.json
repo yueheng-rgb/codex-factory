@@ -1,0 +1,44 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "A",
+  "title": "Default Workflow Scope Lock",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "inherited_baseline": {
+    "version": "v0.5",
+    "artifact": "outputs/codex-factory-core-v0.5.0.zip",
+    "sha256": "9FD3A5F979FE1FDEA712F69CAC300E2F49F4E84705A0448D98186CA950AC16CB",
+    "scope": "local workflow/tooling release"
+  },
+  "in_scope": [
+    "Default Startup Protocol",
+    "User Requirement Entry Contract",
+    "Multi-Agent Decision Gate",
+    "Multi-Agent Role Profile Draft",
+    "Project Path Handoff Contract",
+    "Natural Language Cleanup Contract",
+    "CLI Name Reconciliation",
+    "State Dashboard Requirements",
+    "Agent Ledger Contract",
+    "Cloud Deferral Record",
+    "Default Workflow Simulation (8 scenarios)",
+    "Strategy Decision",
+    "Negative Controls (30+)",
+    "Verifier Script"
+  ],
+  "excluded": [
+    "New release creation",
+    "v0.5 zip modification",
+    "v0.6 creation",
+    "Cloud deployment",
+    "Server/domain purchase",
+    "Production database access",
+    "Native Build Pro startup",
+    "Project file deletion",
+    "Destructive cleanup execution",
+    "Real project verification",
+    "Micro-phase splitting"
+  ],
+  "goal": "Make Factory usable by selecting a project folder and stating requirements, with automatic entry into the full Factory flow.",
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_A_SCOPE_LOCK_REPORT.md"
+}

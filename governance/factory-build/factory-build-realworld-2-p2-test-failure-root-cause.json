@@ -1,0 +1,55 @@
+﻿{
+    "phase":  "FACTORY-BUILD-REALWORLD-2-P2",
+    "secondary_cause":  "Missing seed data (db.sqlite3 excluded; seed_data management command not run)",
+    "tests_total":  23,
+    "django_installed":  "6.0.6",
+    "recommendation":  "Pin Django to 5.x or adapt code to Django 6.x. Run seed_data before tests.",
+    "generated_at":  "2026-06-28T10:27:05+08:00",
+    "django_project_target":  "5.x (per P1 intake inventory)",
+    "tests_passed":  13,
+    "version_mismatch_confirmed":  true,
+    "primary_cause":  "Django 6.0.6 vs 5.x API incompatibility",
+    "tests_errors":  2,
+    "analysis_id":  "FACTORY-BUILD-REALWORLD-2-P2-TEST-FAILURE-ROOT-CAUSE",
+    "classifications":  {
+                            "real_code_bug_or_seed_data":  4,
+                            "dependency_version_mismatch":  5,
+                            "config_issue":  2,
+                            "unknown":  0
+                        },
+    "verdict":  "ROOT_CAUSE_IDENTIFIED",
+    "failures":  [
+                     {
+                         "classification":  "dependency/version_mismatch",
+                         "status":  "FAIL",
+                         "detail":  "Django 6.x ORM query changes affect duplicate detection logic",
+                         "test":  "test_duplicate_verification_detected"
+                     },
+                     {
+                         "classification":  "dependency/version_mismatch",
+                         "status":  "ERROR",
+                         "detail":  "ERROR — likely Django 6.x API change in admin or model relations",
+                         "test":  "test_admin_can_approve_correction"
+                     },
+                     {
+                         "classification":  "real_code_bug_or_seed_data",
+                         "status":  "FAIL",
+                         "detail":  "FAIL — correction submission may need seed data or Django 6.x form/api change",
+                         "test":  "test_doctor_can_submit_correction"
+                     },
+                     {
+                         "classification":  "config_issue",
+                         "status":  "FAIL",
+                         "detail":  "FAIL — session count logic may fail without seed data or with Django 6.x model changes",
+                         "test":  "test_admin_can_add_sessions"
+                     },
+                     {
+                         "classification":  "real_code_bug_or_seed_data",
+                         "status":  "FAIL",
+                         "detail":  "FAIL — verification with balance needs seeded patient/session data",
+                         "test":  "test_doctor_can_verify_with_balance"
+                     }
+                 ],
+    "tests_failed":  8,
+    "section":  "C"
+}

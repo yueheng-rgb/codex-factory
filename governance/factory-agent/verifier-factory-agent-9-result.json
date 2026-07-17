@@ -1,0 +1,161 @@
+﻿{
+    "verifier":  "factory-agent-9-independent-large-project-comparison-verify.ps1",
+    "passed":  25,
+    "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+    "warnings":  0,
+    "verdict":  "PASS",
+    "totalChecks":  25,
+    "checks":  [
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "FINAL_ZIP_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "NO_V05_ZIP"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "NO_NEW_ZIP_IN_RUNS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_6_PASS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_7_PASS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_8_PASS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "RUN_VANILLA_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "RUN_V04_FACTORY_LITE_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "RUN_V05_AGENT_COMPANY_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "PRODUCT_VANILLA_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "PRODUCT_V04_FACTORY_LITE_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "PRODUCT_V05_AGENT_COMPANY_EXISTS"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "EVALUATION_METADATA"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "REPORT_FACTORY_AGENT_9_INDE"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "REPORT_FACTORY_AGENT_9_L_LA"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "REPORT_FACTORY_AGENT_9_NEGA"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "SCORED_RUBRIC_PRESENT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "CONCLUSION_PRESENT"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "DIMENSIONS_SEPARATED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "AGENT_8_CAVEATS_ADDRESSED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "NO_REPAIR_STARTED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "THRESHOLDS_APPLIED"
+                   },
+                   {
+                       "detail":  null,
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "RECOMMENDATION_PRESENT"
+                   },
+                   {
+                       "detail":  "Evaluator design ensures readonly",
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "EVALUATOR_READONLY"
+                   },
+                   {
+                       "detail":  "55 designed, 55 covered",
+                       "timestamp":  "2026-06-26T18:32:34.8600830+08:00",
+                       "pass":  true,
+                       "name":  "NEGATIVE_CONTROLS"
+                   }
+               ],
+    "failed":  0
+}

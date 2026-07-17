@@ -1,0 +1,32 @@
+﻿{
+    "passCriteria":  [
+                         "Router MANIFEST exists",
+                         "Required-reading gate script exists",
+                         "Proof-of-read verifier exists",
+                         "Router integrates with existing Context OS"
+                     ],
+    "recommendation":  "FACTORY-EVAL-2 / Manual Router + Proof-of-Read",
+    "evidenceBasis":  [
+                          "Proof-of-read is P0 risk (FACTORY-EVAL-0): Codex may skip reading artifacts",
+                          "No manual router exists in current repo — this is a prerequisite for role agents",
+                          "Role agents need to read their role definitions; without proof-of-read, they can\u0027t confirm comprehension",
+                          "Manual router is lightweight (\u003c2KB context overhead) — won\u0027t block project work",
+                          "Web search unavailable for external research; self-check is sufficient to design router"
+                      ],
+    "whyBeforeBenchmark":  "Benchmark without proof-of-read would not establish whether Factory governance actually caused improvement or Codex simply acted on partial information",
+    "option":  "Option A",
+    "riskIfSkipped":  [
+                          "P0: Codex continues to potentially skip reading critical artifacts",
+                          "P0: Role agents later built on unverified read assumptions",
+                          "P1: Benchmark results uninterpretable — can\u0027t tell if Factory helped or Codex guessed"
+                      ],
+    "stopConditions":  [
+                           "Router exceeds 5KB context overhead",
+                           "Router requires reading all pages to route",
+                           "Proof-of-read becomes content-copy rather than hash-based"
+                       ],
+    "generatedAt":  "2026-06-25T15:53:44+08:00",
+    "schemaId":  "factory-eval-1-recommended-next-step",
+    "whyBeforeRoleAgents":  "Role agents without proof-of-read may not read their role definitions, leading to role drift",
+    "expectedInstructionCount":  "~200 lines of spec (lightweight phase)"
+}

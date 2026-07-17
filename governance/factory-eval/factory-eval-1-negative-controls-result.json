@@ -1,0 +1,148 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "External claim accepted without source",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "ext_no_source",
+                          "id":  "N01"
+                      },
+                      {
+                          "fault":  "Codex self-report accepted as repo evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "self_report_repo",
+                          "id":  "N02"
+                      },
+                      {
+                          "fault":  "CrewAI/Coze/AutoGen marked verified without citation",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "crewai_verified",
+                          "id":  "N03"
+                      },
+                      {
+                          "fault":  "Codex runtime feature marked verified without source/test",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "runtime_verified",
+                          "id":  "N04"
+                      },
+                      {
+                          "fault":  "Manual Router marked existing without artifact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "router_fake",
+                          "id":  "N05"
+                      },
+                      {
+                          "fault":  "Role-specialized agents marked proven without test",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "role_fake",
+                          "id":  "N06"
+                      },
+                      {
+                          "fault":  "Real project effectiveness marked proven",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "effectiveness_proven",
+                          "id":  "N07"
+                      },
+                      {
+                          "fault":  "Long-context model treated as permanent memory",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "longctx_memory",
+                          "id":  "N08"
+                      },
+                      {
+                          "fault":  "Long-context treated as verifier replacement",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "longctx_verifier",
+                          "id":  "N09"
+                      },
+                      {
+                          "fault":  "Whole Factory manual recommended as always-on context",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "manual_always_on",
+                          "id":  "N10"
+                      },
+                      {
+                          "fault":  "Every agent given every skill without analysis",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "every_skill",
+                          "id":  "N11"
+                      },
+                      {
+                          "fault":  "Specialist roles recommended without drift controls",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "specialist_no_drift",
+                          "id":  "N12"
+                      },
+                      {
+                          "fault":  "Skill routing recommended without proof-of-read",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "skill_no_router",
+                          "id":  "N13"
+                      },
+                      {
+                          "fault":  "Benchmark before evidence reset/self-check",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "benchmark_before_reset",
+                          "id":  "N14"
+                      },
+                      {
+                          "fault":  "Factory self-referential risk ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "self_ref_ignored",
+                          "id":  "N15"
+                      },
+                      {
+                          "fault":  "Proof-of-read risk ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "proof_read_ignored",
+                          "id":  "N16"
+                      },
+                      {
+                          "fault":  "Codex skipping artifacts risk ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "skip_artifacts_ignored",
+                          "id":  "N17"
+                      },
+                      {
+                          "fault":  "File count/exports as real project quality",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "file_count_quality",
+                          "id":  "N18"
+                      },
+                      {
+                          "fault":  "Markdown-only report as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_evidence",
+                          "id":  "N19"
+                      },
+                      {
+                          "fault":  "Search-needed item marked resolved without source",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "search_resolved",
+                          "id":  "N20"
+                      },
+                      {
+                          "fault":  "Self-check item marked resolved without artifact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "selfcheck_resolved",
+                          "id":  "N21"
+                      },
+                      {
+                          "fault":  "User concern treated as fact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "user_concern_fact",
+                          "id":  "N22"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  22,
+    "schemaId":  "factory-eval-1-negative-controls-result",
+    "totalNegatives":  22,
+    "phase":  "FACTORY-EVAL-1-G",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T15:54:15+08:00"
+}

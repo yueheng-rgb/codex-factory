@@ -1,0 +1,36 @@
+﻿* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; color: #333; line-height: 1.5; }
+#app { max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+.add-form { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.add-form input { flex: 1; min-width: 120px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.95rem; }
+.add-form input:focus { outline: none; border-color: #4a90d9; box-shadow: 0 0 0 2px rgba(74,144,217,0.2); }
+.add-form button { padding: 0.5rem 1rem; background: #4a90d9; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 0.95rem; }
+.add-form button:hover { background: #3a7bc8; }
+.add-form .error { color: #d32f2f; font-size: 0.85rem; width: 100%; }
+
+.toolbar { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
+.toolbar input[type="search"] { flex: 1; min-width: 140px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.95rem; }
+.toolbar button.filter-btn { padding: 0.4rem 0.8rem; border: 1px solid #ccc; border-radius: 4px; background: #fff; cursor: pointer; font-size: 0.9rem; }
+.toolbar button.filter-btn.active { background: #4a90d9; color: #fff; border-color: #4a90d9; }
+.count { font-size: 0.85rem; color: #666; white-space: nowrap; }
+
+.bookmark-list { list-style: none; }
+.bookmark-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem; background: #fff; border-radius: 4px; margin-bottom: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.bookmark-item .fav-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0 0.25rem; }
+.bookmark-item .fav-btn.favorited { color: #f5a623; }
+.bookmark-item .info { flex: 1; min-width: 0; }
+.bookmark-item .title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bookmark-item .title a { color: #333; text-decoration: none; }
+.bookmark-item .title a:hover { color: #4a90d9; }
+.bookmark-item .url-text { font-size: 0.85rem; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bookmark-item .del-btn { background: none; border: none; color: #d32f2f; cursor: pointer; font-size: 1.1rem; padding: 0 0.25rem; }
+
+.empty-state { text-align: center; color: #999; padding: 3rem 1rem; font-size: 0.95rem; }
+.no-results { text-align: center; color: #999; padding: 2rem 1rem; font-size: 0.9rem; }
+
+@media (max-width: 480px) {
+  #app { margin: 1rem auto; }
+  .add-form input { min-width: 100%; }
+}

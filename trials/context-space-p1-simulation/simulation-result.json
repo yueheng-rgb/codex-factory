@@ -1,0 +1,79 @@
+﻿{
+    "fail":  0,
+    "executed_at":  "2026-06-28T00:52:37.8007030+08:00",
+    "pass":  14,
+    "total":  14,
+    "simulation_id":  "FACTORY-CONTEXT-SPACE-P1-SIM-v1",
+    "results":  [
+                    {
+                        "detail":  "Entries: 76",
+                        "status":  "PASS",
+                        "name":  "SIM-001: Build context index"
+                    },
+                    {
+                        "detail":  "Found: STRATEGY-build_lite_default — build_lite_default = True",
+                        "status":  "PASS",
+                        "name":  "SIM-002: Query finds Build Lite is default"
+                    },
+                    {
+                        "detail":  "Found: STRATEGY-v0_5_blocked — v0_5_blocked = True",
+                        "status":  "PASS",
+                        "name":  "SIM-003: Query finds v0.5 is blocked"
+                    },
+                    {
+                        "detail":  "Found 6 risk entries",
+                        "status":  "PASS",
+                        "name":  "SIM-004: Query finds active risks"
+                    },
+                    {
+                        "detail":  "Found: PREF-big_phases_not_micro",
+                        "status":  "PASS",
+                        "name":  "SIM-005: Query user preference big phases"
+                    },
+                    {
+                        "detail":  "Found: STRATEGY-package_qa_gate_final_delivery",
+                        "status":  "PASS",
+                        "name":  "SIM-006: Query Package QA Gate"
+                    },
+                    {
+                        "detail":  "Found: RETIRED-001 — 7-agent v0.5 优于 vanilla",
+                        "status":  "PASS",
+                        "name":  "SIM-007: Query retired conclusions"
+                    },
+                    {
+                        "detail":  "Diagnostic gate status confirmed",
+                        "status":  "PASS",
+                        "name":  "SIM-008: Diagnostic is support gate not mainline"
+                    },
+                    {
+                        "detail":  "Query packet: supported=30, rejected=0",
+                        "status":  "PASS",
+                        "name":  "SIM-009: Generate query packet"
+                    },
+                    {
+                        "detail":  "Direction guard BLOCKED v0.5 drift",
+                        "status":  "PASS",
+                        "name":  "SIM-010: Direction guard blocks v0.5 drift"
+                    },
+                    {
+                        "detail":  "Direction guard PASS for P1",
+                        "status":  "PASS",
+                        "name":  "SIM-011: Direction guard allows P1"
+                    },
+                    {
+                        "detail":  "Attach packet integrated: freshness=FRESH",
+                        "status":  "PASS",
+                        "name":  "SIM-012: Attach packet index integration"
+                    },
+                    {
+                        "detail":  "No active claim that v0.5 is ready",
+                        "status":  "PASS",
+                        "name":  "SIM-013: Query cannot say v0.5 ready"
+                    },
+                    {
+                        "detail":  "No claim that Build Pro is default",
+                        "status":  "PASS",
+                        "name":  "SIM-014: Query cannot say Build Pro default"
+                    }
+                ]
+}

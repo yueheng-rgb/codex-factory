@@ -1,0 +1,130 @@
+﻿{
+    "failCount":  1,
+    "verdict":  "FAIL",
+    "passCount":  19,
+    "checks":  [
+                   {
+                       "detail":  "DRY23",
+                       "gate":  "PARENT_MISMATCH",
+                       "result":  true,
+                       "name":  "PARENT_PHASE"
+                   },
+                   {
+                       "detail":  false,
+                       "gate":  "FINAL_ZIP",
+                       "result":  true,
+                       "name":  "NO_FINAL_ZIP"
+                   },
+                   {
+                       "detail":  "H17",
+                       "gate":  "WRONG_NEXT",
+                       "result":  true,
+                       "name":  "ALLOWED_NEXT_H17"
+                   },
+                   {
+                       "detail":  "h17Status=",
+                       "gate":  "PHASE_READY",
+                       "result":  true,
+                       "name":  "H17_STATUS_EMPTY"
+                   },
+                   {
+                       "detail":  "DRY24=0",
+                       "gate":  "FUTURE_LEAK",
+                       "result":  true,
+                       "name":  "NO_DRY24"
+                   },
+                   {
+                       "detail":  "H18=0",
+                       "gate":  "FUTURE_LEAK",
+                       "result":  false,
+                       "name":  "NO_H18"
+                   },
+                   {
+                       "detail":  "compression-level-policy.json",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "COMPRESSION_POLICY"
+                   },
+                   {
+                       "detail":  "compression-counter.json",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "COMPRESSION_COUNTER"
+                   },
+                   {
+                       "detail":  "session-rotation-protocol.json",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "SESSION_ROTATION_PROTOCOL"
+                   },
+                   {
+                       "detail":  "stale-context-detection-policy.json",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "STALE_CONTEXT_POLICY"
+                   },
+                   {
+                       "detail":  "summary-vs-artifact-mismatch-policy.json",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "SUMMARY_VS_ARTIFACT_POLICY"
+                   },
+                   {
+                       "detail":  "3 compression scripts",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "H17_COMPRESSION_SCRIPTS"
+                   },
+                   {
+                       "detail":  "4 lifecycle scripts",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "H17_LIFECYCLE_SCRIPTS"
+                   },
+                   {
+                       "detail":  "decision-priority-policy.json",
+                       "gate":  "MISSING_FILE",
+                       "result":  true,
+                       "name":  "H17_DECISION_POLICY"
+                   },
+                   {
+                       "detail":  "count=2",
+                       "gate":  "MISSING_REGISTRY",
+                       "result":  true,
+                       "name":  "H17_REGISTRY_ENTRIES"
+                   },
+                   {
+                       "detail":  "H17 events exist",
+                       "gate":  "MISSING_PROGRESS",
+                       "result":  true,
+                       "name":  "H17_PROGRESS_EVENTS"
+                   },
+                   {
+                       "detail":  "check-stale-context returns FRESH",
+                       "gate":  "STALE_CONTEXT",
+                       "result":  true,
+                       "name":  "STALE_CONTEXT_FRESH"
+                   },
+                   {
+                       "detail":  "scripts/factoryctl.ps1",
+                       "gate":  "FACTORYCTL_MISSING",
+                       "result":  true,
+                       "name":  "FACTORYCTL_EXISTS"
+                   },
+                   {
+                       "detail":  "dry23Status=",
+                       "gate":  "GENERIC_FAIL",
+                       "result":  true,
+                       "name":  "NO_GENERIC_FAIL"
+                   },
+                   {
+                       "detail":  "nativeGenerationActive",
+                       "gate":  "NATIVEGENERATED_FALSE",
+                       "result":  true,
+                       "name":  "NATIVEGENERATED_ACTIVE"
+                   }
+               ],
+    "phase":  "H17",
+    "totalChecks":  20,
+    "checkedAt":  "2026-06-24T02:27:02.1259985+08:00"
+}

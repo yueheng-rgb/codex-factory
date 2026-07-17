@@ -1,0 +1,60 @@
+﻿{
+  "phase": "FACTORY-EVAL-8-I",
+  "title": "Effectiveness Conclusion — Factory Evaluation",
+  "createdAt": "2026-06-25T19:58:00+08:00",
+  "evaluatorRunId": "FACTORY-EVAL-8-INDEPENDENT-COMPARISON",
+  "conclusions": {
+    "q1_didFactoryLiteOutperformVanilla": {
+      "answer": "YES",
+      "evidenceBasis": "Scored rubric: RUN-B (94) vs RUN-A (86). Factory Lite added +8 points on 100-point scale. Key gains: better test coverage (30 vs 19, with recorded results), EJS UI with views covering all pages, better structured code (src/ separation), and Manual Router + Proof-of-Read maintained contamination integrity.",
+      "qualityDelta": "+8 points (from 86 to 94)",
+      "overheadDelta": "+200ms",
+      "caveats": "Both RUN-A and RUN-B use sql.js (same WASM-based DB). Quality delta may partly reflect the builder rather than the Factory mechanism. RUN-A is competent — the Factory Lite process produced modest but real improvements."
+    },
+    "q2_didRoleAgentOutperformFactoryLite": {
+      "answer": "NO",
+      "evidenceBasis": "Scored rubric: RUN-C (93) vs RUN-B (94). Role-Agent scored -1 point lower than Factory Lite despite 7.8x more process overhead. RUN-C's better architecture (React SPA, better-sqlite3, schema.sql) was offset by: NO README (-4 points vs RUN-B's perfect docs), tests never run (CANNOT VERIFY, -2 points vs RUN-B's 30/30 PASS).",
+      "qualityDelta": "-1 point (from 94 to 93)",
+      "overheadDelta": "+1355ms (1555ms vs 200ms)",
+      "caveats": "RUN-C's architecture is objectively better than RUN-B's (better-sqlite3 > sql.js, React SPA > EJS, dedicated schema.sql > inline DDL). If tests were run and README existed, RUN-C would likely score highest. This suggests Role-Agent overhead diverted effort from critical deliverables (README, running tests) to process artifacts (profiles, contracts, handoffs)."
+    },
+    "q3_usefulMechanisms": {
+      "keep": [
+        "Manual Router — Low overhead (~100ms), prevents scope leakage. Both RUN-B and RUN-C benefited.",
+        "Proof-of-Read — Ensures agent reads requirements before building. Both Factory runs used it.",
+        "Evidence hierarchy — Separating process evidence from product evidence prevents false confidence.",
+        "Contamination log — Critical for multi-run benchmarks. All runs maintained clean separation."
+      ],
+      "cut": [
+        "Role-Specialized Agent Company Model (10 roles) — For an 11-FR project, 10 roles is excessive. The overhead of role handoffs, cross-role contracts, and por receipts consumed effort that should have gone to product quality (README, running tests). A 3-role model (Architect, Builder, Reviewer) would be more appropriate."
+      ],
+      "defer": [
+        "Cross-role contracts — Useful for larger projects with actual separate agents, but for single-agent simulation they add process artifacts without quality benefit.",
+        "Drift detection — Conceptually valuable but current implementation adds logging without preventing drift.",
+        "Security/QA/Verifier/Auditor as separate review roles — For projects with dedicated QA engineers these are essential. For single-agent benchmarks, fold review into a single Reviewer role."
+      ],
+      "rework": [
+        "Role handoffs — Handoff format should be lighter. Current 8-handoff structure for a single-agent build is process theater.",
+        "Process overhead tracking — Should distinguish between 'process that prevented errors' and 'process that documented itself'."
+      ]
+    },
+    "q4_excessiveMechanisms": [
+      "10-role company model for an 11-FR project — 5 implementation roles for a monolith is over-segmentation",
+      "8 cross-role contracts between roles that never ran independently",
+      "Verifier + Auditor as separate roles when their checks overlap significantly",
+      "Architecture decision records as JSON (useful but shouldn't substitute for README)"
+    ],
+    "q5_didFactoryPreventSimplification": {
+      "answer": "PARTIALLY",
+      "evidenceBasis": "RUN-C included architecture docs and process artifacts that are valuable but the role structure consumed effort that prevented completing a README and running tests. The Factory process didn't prevent simplification — it incentivized process artifact creation over product completeness. A simpler Factory (like Factory Lite) achieved better product quality with less overhead."
+    },
+    "q6_recommendationsForFactoryEval9": {
+      "summary": "FACTORY-EVAL-9 should create Factory v0.4 with: KEEP Manual Router + Proof-of-Read, CUT 10-role model to 3-role, REWORK handoff format to be lighter, DEFER cross-role contracts to multi-agent projects only.",
+      "keep": ["Manual Router", "Proof-of-Read", "Contamination logging", "Evidence hierarchy"],
+      "cut": ["10-role company model (replace with 3-role: Architect, Builder, Reviewer)"],
+      "defer": ["Cross-role contracts (for multi-agent projects)", "Drift detection (needs prevention, not just logging)"],
+      "rework": ["Role handoffs (lighter format)", "Process overhead (distinguish preventive vs documentary)", "Verifier/Auditor (merge into single Reviewer role)"]
+    }
+  },
+  "overallConclusion": "Factory Lite demonstrated real, measurable product quality improvement over Vanilla (+8 points on 100-point rubric) with modest overhead (+200ms). The Role-Agent model did NOT outperform Factory Lite (-1 point despite 7.8x overhead), primarily due to process overhead diverting effort from critical deliverables. The Factory concept is validated — but the Role-Agent company model as currently designed is excessive for single-agent builds of this scope."
+}

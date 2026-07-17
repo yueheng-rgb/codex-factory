@@ -1,0 +1,50 @@
+﻿{
+    "phase": "FACTORY-BUILD-0",
+    "subPhase": "G_MODE_BOUNDARY_CLARIFICATION",
+    "date": "2026-06-27",
+    "modes": {
+        "BUILD_MODE": {
+            "definition": "The primary production mode. Accepts project requirements and produces working code. Uses Diagnostic as gate, not destination.",
+            "boundary": "Build Mode is the MAINLINE. Everything else supports it.",
+            "never": "Build Mode must never be replaced by Diagnostic, Benchmark, or Release packaging.",
+            "triggers": "User wants to create or extend a project",
+            "output": "Working codebase with verified quality gate"
+        },
+        "DIAGNOSTIC_MODE": {
+            "definition": "A readonly safety gate and evidence-augmentation layer. Detects gaps. Does not fill them. Does not build.",
+            "boundary": "Diagnostic is a GATE in the build pipeline, not a standalone product. It gates BUILD→DELIVER.",
+            "never": "Diagnostic must never replace Build. It must never auto-repair. It must never claim product quality.",
+            "triggers": "Post-build quality check, pre-submission verification, audit request",
+            "output": "Gap report with machine-readable verifier results"
+        },
+        "BENCHMARK_MODE": {
+            "definition": "A measurement tool that compares outcomes. Does not produce projects. Does not build.",
+            "boundary": "Benchmark measures Build Mode effectiveness. It is a METHOD of verifying Factory, not a Factory goal.",
+            "never": "Benchmark must never replace real project production. Must never be treated as a build mechanism.",
+            "triggers": "Comparing Vanilla vs Build Harness outcomes, measuring agent allocation efficiency",
+            "output": "Comparative metrics with statistical significance"
+        },
+        "RELEASE_MODE": {
+            "definition": "A packaging tool that wraps proven capabilities into distributable form. Follows proven build capability.",
+            "boundary": "Release is an OUTPUT of proven Build Mode operation. Packaging without capability is premature.",
+            "never": "Release must never precede proven build capability. Release must never become the goal.",
+            "triggers": "Build Harness MVP proven on real projects",
+            "output": "Versioned distribution package with verifiable capability claims"
+        }
+    },
+    "boundaryRules": [
+        "BUILD > DIAGNOSTIC: Diagnostic is a gate inside Build, not above it",
+        "BUILD > BENCHMARK: Benchmark measures Build, Build does not serve Benchmark",
+        "BUILD > RELEASE: Release packages Build, Build does not exist for Release",
+        "DIAGNOSTIC ≠ PRODUCT: Diagnostic Pack is a tool, not the Factory product",
+        "BENCHMARK ≠ PRODUCTION: Running benchmarks does not produce projects",
+        "RELEASE ≠ CAPABILITY: Creating ZIPs does not create build capability"
+    ],
+    "antiPatterns": [
+        "Diagnostic Pack as Factory final form",
+        "Benchmark-first development (measure before you can build)",
+        "Release-driven development (package before capability proven)",
+        "SkillMarket as ongoing main project",
+        "Small repair phases consuming mainline"
+    ]
+}

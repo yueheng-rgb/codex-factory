@@ -1,0 +1,48 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "L",
+  "title": "Default Workflow Integration Points",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "integration_points": [
+    {
+      "target": "Default Startup Protocol (DEFAULT-WORKFLOW-0, Section B)",
+      "updates": [
+        "Step 1: Also check project identity in registry",
+        "Step 4: Bootstrap must resolve projectId before reading state",
+        "Step 6: Preflight must detect cross-project context contamination"
+      ]
+    },
+    {
+      "target": "Natural Language Cleanup Contract (DEFAULT-WORKFLOW-0, Section G)",
+      "updates": [
+        "Step 1: Must resolve projectId first",
+        "Step 2: PLAN scoped to current projectId only",
+        "Step 3: Confirmation shows project name + id"
+      ]
+    },
+    {
+      "target": "Project Path Handoff Contract (DEFAULT-WORKFLOW-0, Section F)",
+      "updates": [
+        "Add projectId to handoff template"
+      ]
+    },
+    {
+      "target": "Agent Ledger Contract (DEFAULT-WORKFLOW-0, Section J)",
+      "updates": [
+        "Add required projectId field to entry schema",
+        "Per-project ledger + global ledger distinction"
+      ]
+    },
+    {
+      "target": "State Dashboard Requirements (DEFAULT-WORKFLOW-0, Section I)",
+      "updates": [
+        "Add active project identity display",
+        "Add foreign-context warnings"
+      ]
+    }
+  ],
+  "implementation_deferred_to": ["FACTORY-V05-R1", "FACTORY-INTEGRATION"],
+  "v0_5_not_modified": true,
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_L_DEFAULT_WORKFLOW_INTEGRATION_POINTS_REPORT.md"
+}

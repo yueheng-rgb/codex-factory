@@ -1,0 +1,29 @@
+﻿{
+    "phase": "FACTORY-BUILD-1",
+    "subPhase": "A_BUILD_MODE_STRUCTURE",
+    "date": "2026-06-27",
+    "buildMode": {
+        "name": "Codex Factory Build Mode MVP",
+        "version": "0.1.0-mvp",
+        "status": "MVP_CONTROL_PLANE",
+        "isReleasePackage": false,
+        "isProductCode": false,
+        "description": "Control-plane artifacts for the Build Harness MVP. This is NOT a release, NOT product code, NOT a finished user product. It is the prompt templates, policies, state structures, and scripts that guide Codex through the build pipeline."
+    },
+    "strategyBoundary": {
+        "vanillaProductLeader": true,
+        "multiAgentStatus": "CONDITIONAL_NOT_DEFAULT",
+        "v05Release": "BLOCKED",
+        "diagnosticPackRole": "SUPPORT_GATE_ONLY",
+        "buildModeIsMainline": true,
+        "sevenAgentDefault": "CUT",
+        "tenRoleModel": "CUT"
+    },
+    "forbiddenClaims": [
+        "Product quality guarantee",
+        "Multi-agent default",
+        "v0.5 release preparation",
+        "Diagnostic Pack as main product",
+        "Build Mode as release package"
+    ]
+}

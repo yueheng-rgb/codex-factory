@@ -1,0 +1,33 @@
+﻿{
+  "stage": "V2_5",
+  "component": "cpp-memory-safety-sanitizer",
+  "date": "2026-07-12",
+  "classification": "SANITIZER_UNAVAILABLE_WITH_CLEAR_INSTALL_PATH",
+  "detection": {
+    "g++": { "available": false, "detection_method": "Get-Command" },
+    "clang": { "available": false, "detection_method": "Get-Command" },
+    "clang++": { "available": false, "detection_method": "Get-Command" },
+    "cmake": { "available": false, "detection_method": "Get-Command" },
+    "MSVC_cl.exe": { "available": false, "detection_method": "PATH lookup" },
+    "ASan": { "available": false, "reason": "requires C++ compiler with -fsanitize=address" },
+    "UBSan": { "available": false, "reason": "requires C++ compiler with -fsanitize=undefined" },
+    "TSan": { "available": false, "reason": "requires C++ compiler with -fsanitize=thread" },
+    "Valgrind": { "available": false, "reason": "not installed; Valgrind is primarily Linux/macOS" }
+  },
+  "install_paths": {
+    "clang": "winget install LLVM.LLVM",
+    "cmake": "winget install Kitware.CMake",
+    "gcc_mingw": "winget install BrechtSanders.WinLibs.POSIX.UCRT",
+    "estimated_disk": "~2-3 GB for LLVM+Clang",
+    "estimated_time": "~5-10 minutes",
+    "post_install": "Add to PATH, restart shell, verify: clang --version && clang++ --version"
+  },
+  "sanitizer_smoke_plan": "Once clang is installed: clang++ -fsanitize=address -g -o test_asan test.cpp && ./test_asan",
+  "non_claims": [
+    "This report does NOT claim live ASan/UBSan/Valgrind execution",
+    "No fake sanitizer PASS",
+    "Concept-level invariant validation (41/41 tests) is separate from live sanitizer validation"
+  ],
+  "cpp_testbed_tests": "41/41 PASS (concept-level invariant validation)",
+  "recommendation": "Install LLVM/clang via winget for next stage; do NOT fake sanitizer results"
+}

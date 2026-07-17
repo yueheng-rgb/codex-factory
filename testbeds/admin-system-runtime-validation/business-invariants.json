@@ -1,0 +1,49 @@
+﻿{
+  "testbed": "admin-system-runtime-validation",
+  "version": "1.0.0",
+  "pack_source": {
+    "expert_pack_id": "admin-system",
+    "pack_file": "governance/expert-packs/admin-system/admin-system-pack.json",
+    "invariants_file": "governance/expert-packs/admin-system/admin-system-invariants.json",
+    "pack_version": "1.0.0"
+  },
+  "activated_pack_id": "admin-system",
+  "invariant_source_refs": [
+    {"invariant_id": "admin_required_for_admin_routes", "source": "admin-system-invariants.json", "category": "authentication", "enforced_in": "src/services/auth.service.ts:checkAdminRoute()"},
+    {"invariant_id": "role_permission_must_be_enforced", "source": "admin-system-invariants.json", "category": "permission", "enforced_in": "src/services/auth.service.ts:checkRolePermission()"},
+    {"invariant_id": "ordinary_admin_cannot_escalate_role", "source": "admin-system-invariants.json", "category": "permission", "enforced_in": "src/services/auth.service.ts:changeUserRole()"},
+    {"invariant_id": "destructive_action_requires_confirmation", "source": "admin-system-invariants.json", "category": "safety", "enforced_in": "src/services/resource.service.ts:deleteResource()"},
+    {"invariant_id": "deleted_record_not_listed_by_default", "source": "admin-system-invariants.json", "category": "data-integrity", "enforced_in": "src/services/resource.service.ts:listResources()"},
+    {"invariant_id": "status_transition_allowed", "source": "admin-system-invariants.json", "category": "business-logic", "enforced_in": "src/services/resource.service.ts:changeResourceStatus()"},
+    {"invariant_id": "protected_fields_cannot_be_modified_without_permission", "source": "admin-system-invariants.json", "category": "permission", "enforced_in": "src/services/resource.service.ts:updateResource()"},
+    {"invariant_id": "batch_operation_must_be_scoped", "source": "admin-system-invariants.json", "category": "safety", "enforced_in": "src/services/batch.service.ts:batchDelete()"},
+    {"invariant_id": "audit_log_required_for_sensitive_actions", "source": "admin-system-invariants.json", "category": "audit", "enforced_in": "src/db/store.ts:addAuditEntry() — called by all services"},
+    {"invariant_id": "export_requires_permission", "source": "admin-system-invariants.json", "category": "permission", "enforced_in": "src/services/export.service.ts:exportResources()"},
+    {"invariant_id": "import_requires_validation", "source": "admin-system-invariants.json", "category": "data-integrity", "enforced_in": "src/services/import.service.ts:importResources()"},
+    {"invariant_id": "pagination_limit_enforced", "source": "admin-system-invariants.json", "category": "performance", "enforced_in": "src/services/resource.service.ts:listResources() + auth.service.ts:listUsers()"},
+    {"invariant_id": "search_filter_must_be_whitelisted", "source": "admin-system-invariants.json", "category": "security", "enforced_in": "src/services/resource.service.ts:listResources()"}
+  ],
+  "risk_rule_source_refs": [
+    {"rule_id": "ADMIN-R001", "trigger": "role/permission escalation", "risk_level": "CRITICAL", "enforced_in": "auth.service.ts:changeUserRole()"},
+    {"rule_id": "ADMIN-R002", "trigger": "destructive operations", "risk_level": "CRITICAL", "enforced_in": "resource.service.ts:deleteResource() + batch.service.ts:batchDelete()"},
+    {"rule_id": "ADMIN-R007", "trigger": "batch operations", "risk_level": "HIGH", "enforced_in": "batch.service.ts"},
+    {"rule_id": "ADMIN-R008", "trigger": "status transitions", "risk_level": "HIGH", "enforced_in": "resource.service.ts:changeResourceStatus()"}
+  ],
+  "required_test_source_refs": [
+    {"test_category": "admin_authentication_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "role_permission_enforcement_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "crud_operation_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "destructive_action_confirmation_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "status_transition_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "batch_operation_scope_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "audit_log_creation_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "export_permission_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "import_validation_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"},
+    {"test_category": "pagination_limit_tests", "pack_reference": "admin-system-pack.json required_tests", "test_file": "tests/admin-validation.test.ts"}
+  ],
+  "engine_plan_source_refs": [
+    {"engine_id": "semgrep", "pack_required": true, "pack_note": "Security static analysis for auth, injection, and permission bypass"},
+    {"engine_id": "autocannon", "pack_required": false, "pack_note": "API load smoke for admin CRUD and list endpoints"},
+    {"engine_id": "playwright", "pack_required": false, "pack_note": "Admin UI smoke if web surface available"}
+  ]
+}

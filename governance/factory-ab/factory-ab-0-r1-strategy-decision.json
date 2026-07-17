@@ -1,0 +1,30 @@
+﻿{
+  "phase": "FACTORY-AB-0-R1",
+  "section": "L",
+  "title": "Strategy Decision",
+  "timestamp": "2026-06-28T17:40:00+08:00",
+  "decisions": {
+    "q1_rc_planning": {
+      "question": "Is executed A/B evidence strong enough for RC planning?",
+      "answer": "YES — Executed evidence (not just design) shows Factory advantage on a matched task. RC planning is reasonable. RC is not release."
+    },
+    "q2_ab1_needed": {
+      "question": "Is AB-1 needed?",
+      "answer": "RECOMMENDED but not blocking RC — A second executed trial on a different project type would strengthen generalizability. But one executed trial + 17/18 READY criteria is sufficient for RC consideration."
+    },
+    "q3_next": {
+      "question": "Recommended next?",
+      "answer": "RELEASE-CANDIDATE-0 (RC package only) if user accepts remaining blockers. Or FACTORY-AB-1 (second executed trial) for stronger evidence. Or USER-REVIEW-0.",
+      "options": [
+        "RELEASE-CANDIDATE-0 — RC package only (user must accept remaining blockers)",
+        "FACTORY-AB-1 — Second executed matched trial on different project type",
+        "USER-REVIEW-0 — User reviews R1 results"
+      ]
+    },
+    "q4_v05": {
+      "question": "Is v0.5 still blocked?",
+      "answer": "YES — v0.5 remains BLOCKED. 3 CRITICAL/HIGH ACTIVE, 1 PARTIAL. releaseAllowed=false. v05Package=false."
+    }
+  },
+  "status": "STRATEGY_DECIDED"
+}

@@ -1,0 +1,2 @@
+﻿# FACTORY-MULTI-AGENT-ORCHESTRATION-1 — N: Strategy Decision Report
+> Q1: Usable for large projects? YES (decision policy + 8 roles + contracts + handoffs + integrator). Q2: Build Lite fallback preserved? YES (option 1 always available). Q3: Avoids always-on bloat? YES (on-demand spawn, profile pre-load). Q4: Accountability? YES (contracts, handoffs, ledger, integrator attribution). Q5: Remaining: real project validation, spawn runtime integration. Q6: Next: FACTORY-EVIDENCE-TAXONOMY-0 or FACTORY-PROJECT-LIFECYCLE-0. Q7: Not now: real validation, cloud, v0.6.

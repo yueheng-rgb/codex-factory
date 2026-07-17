@@ -1,0 +1,28 @@
+﻿{
+  "phase": "FACTORY-PROJECT-ISOLATION-0",
+  "section": "C",
+  "title": "Project Registry",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "registry_doc": "factory-isolation/PROJECT_REGISTRY.md",
+  "schema_file": "factory-isolation/schemas/project-registry.schema.json",
+  "template_file": "factory-isolation/templates/project-registry.template.json",
+  "registry_location": "%USERPROFILE%\\.codex-factory\\project-registry.json",
+  "behaviors": {
+    "list": "All projects with status != DELETED",
+    "default_active": "Only one project active at a time",
+    "archived": "Not default-mounted, no writes",
+    "frozen": "Not default-mounted, query only, no writes",
+    "deleted": "Not mountable, identity retained for audit",
+    "migrated": "Redirect with confirmation to new identity",
+    "unknown": "UNKNOWN_NEEDS_CONFIRMATION, user must confirm"
+  },
+  "integrity_rules": [
+    "One identity per rootPath",
+    "projectId immutable",
+    "No secrets in registry",
+    "Audit trail for status changes",
+    "Atomic writes"
+  ],
+  "report": "outputs/FACTORY_PROJECT_ISOLATION_0_C_PROJECT_REGISTRY_REPORT.md"
+}

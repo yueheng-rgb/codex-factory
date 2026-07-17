@@ -1,0 +1,65 @@
+﻿{
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "timestamp":  "2026-06-26T18:47:55.4441842+08:00",
+    "document":  "simulation",
+    "overallVerdict":  "All simulated gates work correctly. Deficit detection blocks, repair paths defined, clean pass achievable.",
+    "scenarios":  [
+                      {
+                          "expectedResult":  "PASS",
+                          "name":  "SIM-01: Clean 4-agent pass",
+                          "steps":  [
+                                        "Orchestrator spawns Product Builder",
+                                        "Product Builder produces 85 source files, 320 exports, 40 endpoints",
+                                        "Orchestrator spawns Test Builder",
+                                        "Test Builder produces 22 test files, README, verify script",
+                                        "Orchestrator runs mid-run floor check: ALL FLOORS MET",
+                                        "Orchestrator spawns Reviewer-Verifier",
+                                        "Reviewer-Verifier finds 0 blocking caveats, 2 non-blocking caveats",
+                                        "Orchestrator confirms overhead 1.5x \u003c 2x budget",
+                                        "Closure proceeds with PASS"
+                                    ]
+                      },
+                      {
+                          "expectedResult":  "BLOCKED_THEN_REPAIRED",
+                          "name":  "SIM-02: Endpoint floor miss blocked",
+                          "steps":  [
+                                        "Product Builder produces 35 endpoints",
+                                        "Orchestrator mid-run check: ENDPOINTS=35 \u003c FLOOR=40 -\u003e BLOCK",
+                                        "Orchestrator returns deficit to Product Builder: need 5 more endpoints",
+                                        "Product Builder adds 5 endpoints",
+                                        "Re-check: ENDPOINTS=40 -\u003e PASS"
+                                    ]
+                      },
+                      {
+                          "expectedResult":  "BLOCKED_THEN_REPAIRED",
+                          "name":  "SIM-03: Reviewer blocking caveat",
+                          "steps":  [
+                                        "All floors met, Reviewer-Verifier runs",
+                                        "Finds moduleDeficit: 11/13 modules",
+                                        "Reviewer flags as BLOCKING",
+                                        "Orchestrator blocks closure",
+                                        "Product Builder adds 2 missing modules",
+                                        "Re-verify: 13/13 modules -\u003e PASS"
+                                    ]
+                      },
+                      {
+                          "expectedResult":  "BLOCKED_BY_OVERHEAD",
+                          "name":  "SIM-04: Overhead exceeds 3x block",
+                          "steps":  [
+                                        "Implementation complete but overhead multiplier 3.2x \u003e 3.0x budget",
+                                        "Overhead enforcer: BLOCK_CLOSURE",
+                                        "Orchestrator logs and reports"
+                                    ]
+                      },
+                      {
+                          "expectedResult":  "CLEAN_PASS",
+                          "name":  "SIM-05: Valid path without blockages",
+                          "steps":  [
+                                        "All floors met, Reviewer-Verifier clear, overhead 1.8x",
+                                        "Closure gate: PASS",
+                                        "All 4 agents closed with receipts",
+                                        "Registry and lifecycle complete"
+                                    ]
+                      }
+                  ]
+}

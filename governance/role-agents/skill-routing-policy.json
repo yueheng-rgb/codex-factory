@@ -1,0 +1,31 @@
+﻿{
+    "schemaId":  "skill-routing-policy",
+    "generatedAt":  "2026-06-25T16:07:33+08:00",
+    "version":  "1.0.0",
+    "rules":  [
+                  {
+                      "id":  "SKR-01",
+                      "rule":  "Each role loads only required + optional skills per profile. Forbidden skills must not be loaded."
+                  },
+                  {
+                      "id":  "SKR-02",
+                      "rule":  "Role skill loads must route through Manual Router for proof-of-read"
+                  },
+                  {
+                      "id":  "SKR-03",
+                      "rule":  "Frontend roles do not load backend/db/security manuals unless route explicitly requires"
+                  },
+                  {
+                      "id":  "SKR-04",
+                      "rule":  "Backend roles do not load UI manuals unless route explicitly requires"
+                  },
+                  {
+                      "id":  "SKR-05",
+                      "rule":  "Security/QA/Verifier/Auditor are readonly — no implementation skills loaded"
+                  },
+                  {
+                      "id":  "SKR-06",
+                      "rule":  "Skill misuse is a drift risk — Auditor checks skill loads against role profile"
+                  }
+              ]
+}

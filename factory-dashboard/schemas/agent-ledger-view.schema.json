@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agent-ledger-view.schema.json",
+  "title": "Agent Ledger View",
+  "type": "object",
+  "required": ["summary", "entries"],
+  "properties": {
+    "summary": {
+      "type": "object",
+      "required": ["totalEntries", "byRole", "verdictCounts", "lastActivity", "integratorVerdict"],
+      "properties": {
+        "totalEntries": { "type": "integer" },
+        "byRole": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "verdictCounts": {
+          "type": "object",
+          "properties": {
+            "PASS": { "type": "integer" },
+            "FAIL": { "type": "integer" },
+            "PARTIAL": { "type": "integer" }
+          }
+        },
+        "lastActivity": { "type": "string", "format": "date-time" },
+        "integratorVerdict": { "type": "string", "enum": ["ACCEPT", "REJECT", "PENDING"] },
+        "failureAttribution": { "type": "string" }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["agent_id", "agent_role", "projectId", "timestamp", "verdict"],
+        "properties": {
+          "agent_id": { "type": "string" },
+          "agent_role": { "type": "string" },
+          "projectId": { "type": "string", "format": "uuid" },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "phase": { "type": "string" },
+          "input_artifacts": { "type": "array", "items": { "type": "string" } },
+          "output_artifacts": { "type": "array", "items": { "type": "string" } },
+          "verdict": { "type": "string", "enum": ["PASS", "FAIL", "PARTIAL"] },
+          "known_caveats": { "type": "array", "items": { "type": "string" } },
+          "foreign_references": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

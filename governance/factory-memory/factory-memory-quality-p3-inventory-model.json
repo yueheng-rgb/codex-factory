@@ -1,0 +1,28 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "B",
+  "title": "Context Space Data Inventory Model",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "inventory_schema_version": "1.0.0",
+  "inventory_categories": [
+    {"id": "CAT-01", "name": "CORE_EVIDENCE", "description": "Verifier results, final reports, negative controls, SHA256 hashes, governance JSONs", "retention": "PERMANENT", "deletable": false},
+    {"id": "CAT-02", "name": "PHASE_ARTIFACTS", "description": "Phase reports, phase ledgers, decision records, risk ledgers", "retention": "PROJECT_LIFETIME", "deletable": false},
+    {"id": "CAT-03", "name": "CACHE", "description": "Snapshots older than N phases, intermediate outputs, working drafts", "retention": "PRUNABLE", "deletable": true},
+    {"id": "CAT-04", "name": "STALE", "description": "Retired claims, superseded decisions, resolved blockers, outdated recommendations", "retention": "RETIRE_OR_PRUNE", "deletable": true},
+    {"id": "CAT-05", "name": "DUPLICATE", "description": "Records with same evidence_path and lower sourceTier", "retention": "DEDUP_LOWEST", "deletable": true}
+  ],
+  "source_tiers": [
+    {"tier": 0, "name": "RAW_EVIDENCE", "examples": ["verifier output", "SHA256 hash", "manifest.json"], "priority": "HIGHEST"},
+    {"tier": 1, "name": "GOVERNANCE", "examples": ["governance JSONs", "policy MDs"], "priority": "HIGH"},
+    {"tier": 2, "name": "REPORTS", "examples": ["markdown reports", "phase summaries"], "priority": "MEDIUM"},
+    {"tier": 3, "name": "CACHE", "examples": ["snapshots", "intermediate outputs"], "priority": "LOW"}
+  ],
+  "per_project_inventory": {
+    "project_id": "string",
+    "total_size_kb": "number",
+    "categories": {"CORE_EVIDENCE": "number", "PHASE_ARTIFACTS": "number", "CACHE": "number", "STALE": "number", "DUPLICATE": "number"},
+    "last_active": "ISO8601",
+    "status": "ACTIVE | FROZEN | ARCHIVED | DELETED"
+  },
+  "status": "INVENTORY_MODEL_DEFINED"
+}

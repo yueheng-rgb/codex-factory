@@ -1,0 +1,24 @@
+﻿import express from 'express';
+import cors from 'cors';
+import { initializeDatabase } from './database';
+import authRoutes from './routes/auth';
+import clientRoutes from './routes/clients';
+import projectRoutes from './routes/projects';
+import taskRoutes from './routes/tasks';
+import ticketRoutes from './routes/tickets';
+import approvalRoutes from './routes/approvals';
+import notificationRoutes from './routes/notifications';
+import articleRoutes from './routes/articles';
+import reportRoutes from './routes/reports';
+import automationRoutes from './routes/automation';
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+app.use(cors()); app.use(express.json()); initializeDatabase();
+app.use('/api/auth', authRoutes); app.use('/api/clients', clientRoutes); app.use('/api/projects', projectRoutes);
+app.use('/api/tasks', taskRoutes); app.use('/api/tickets', ticketRoutes); app.use('/api/approvals', approvalRoutes);
+app.use('/api/notifications', notificationRoutes); app.use('/api/articles', articleRoutes);
+app.use('/api/reports', reportRoutes); app.use('/api/automation', automationRoutes);
+app.get('/api/health', (_req, res) => { res.json({ success: true, data: { status: 'ok', version: '1.0.0' } }); });
+app.listen(PORT, () => { console.log(`NexusDesk backend running on port ${PORT}`); });
+export default app;

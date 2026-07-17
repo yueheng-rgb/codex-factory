@@ -1,0 +1,148 @@
+{
+  "items": {
+    "SKU-001": {
+      "skuId": "SKU-001",
+      "name": "无线蓝牙耳机",
+      "category": "电子产品"
+    },
+    "SKU-002": {
+      "skuId": "SKU-002",
+      "name": "USB-C 数据线",
+      "category": "配件"
+    },
+    "SKU-003": {
+      "skuId": "SKU-003",
+      "name": "机械键盘",
+      "category": "电子产品"
+    },
+    "SKU-004": {
+      "skuId": "SKU-004",
+      "name": "鼠标垫",
+      "category": "配件"
+    },
+    "SKU-005": {
+      "skuId": "SKU-005",
+      "name": "显示器支架",
+      "category": "办公设备"
+    }
+  },
+  "stock": {
+    "SKU-001": 150,
+    "SKU-002": 490,
+    "SKU-003": 50,
+    "SKU-004": 200,
+    "SKU-005": 30
+  },
+  "reservations": {},
+  "adjustments": [
+    {
+      "id": "adj-1",
+      "type": "OUTBOUND",
+      "skuId": "SKU-002",
+      "quantity": 10,
+      "before": 500,
+      "after": 490,
+      "timestamp": "2026-06-22T06:24:16.717Z"
+    },
+    {
+      "id": "adj-2",
+      "type": "INBOUND",
+      "skuId": "SKU-001",
+      "quantity": 50,
+      "before": 100,
+      "after": 150,
+      "idempotencyKey": null,
+      "timestamp": "2026-06-22T06:24:16.723Z"
+    }
+  ],
+  "audit": [
+    {
+      "id": "audit-1",
+      "event": "ITEM_CREATED",
+      "details": {
+        "skuId": "SKU-001",
+        "name": "无线蓝牙耳机",
+        "category": "电子产品"
+      },
+      "timestamp": "2026-06-22T06:24:12.293Z"
+    },
+    {
+      "id": "audit-2",
+      "event": "ITEM_CREATED",
+      "details": {
+        "skuId": "SKU-002",
+        "name": "USB-C 数据线",
+        "category": "配件"
+      },
+      "timestamp": "2026-06-22T06:24:12.293Z"
+    },
+    {
+      "id": "audit-3",
+      "event": "ITEM_CREATED",
+      "details": {
+        "skuId": "SKU-003",
+        "name": "机械键盘",
+        "category": "电子产品"
+      },
+      "timestamp": "2026-06-22T06:24:12.293Z"
+    },
+    {
+      "id": "audit-4",
+      "event": "ITEM_CREATED",
+      "details": {
+        "skuId": "SKU-004",
+        "name": "鼠标垫",
+        "category": "配件"
+      },
+      "timestamp": "2026-06-22T06:24:12.293Z"
+    },
+    {
+      "id": "audit-5",
+      "event": "ITEM_CREATED",
+      "details": {
+        "skuId": "SKU-005",
+        "name": "显示器支架",
+        "category": "办公设备"
+      },
+      "timestamp": "2026-06-22T06:24:12.293Z"
+    },
+    {
+      "id": "audit-6",
+      "event": "STATE_IMPORTED",
+      "details": {},
+      "timestamp": "2026-06-22T06:24:16.716Z"
+    },
+    {
+      "id": "audit-7",
+      "event": "OUTBOUND",
+      "details": {
+        "skuId": "SKU-002",
+        "quantity": 10,
+        "before": 500,
+        "after": 490
+      },
+      "timestamp": "2026-06-22T06:24:16.717Z"
+    },
+    {
+      "id": "audit-8",
+      "event": "STATE_IMPORTED",
+      "details": {},
+      "timestamp": "2026-06-22T06:24:16.722Z"
+    },
+    {
+      "id": "audit-9",
+      "event": "INBOUND",
+      "details": {
+        "skuId": "SKU-001",
+        "quantity": 50,
+        "idempotencyKey": null,
+        "before": 100,
+        "after": 150
+      },
+      "timestamp": "2026-06-22T06:24:16.723Z"
+    }
+  ],
+  "idempotencyKeys": [],
+  "adjustmentSeq": 2,
+  "auditSeq": 9
+}

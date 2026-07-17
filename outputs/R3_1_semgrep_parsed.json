@@ -1,0 +1,41 @@
+﻿{
+    "engine_id":  "semgrep",
+    "raw_output_summary":  "semgrep: 3 findings (0 ERROR, 3 WARNING, 0 INFO)",
+    "findings_count":  3,
+    "findings":  [
+                     {
+                         "rule_id":  "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+                         "severity":  "WARNING",
+                         "file":  "C:\\Codex_App_Factory\\testbeds\\products-api\\src\\routes\\products.ts",
+                         "line":  21,
+                         "message":  "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use \u0027resp.render()\u0027 to render safely escaped HTML."
+                     },
+                     {
+                         "rule_id":  "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+                         "severity":  "WARNING",
+                         "file":  "C:\\Codex_App_Factory\\testbeds\\products-api\\src\\routes\\products.ts",
+                         "line":  44,
+                         "message":  "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use \u0027resp.render()\u0027 to render safely escaped HTML."
+                     },
+                     {
+                         "rule_id":  "javascript.express.security.audit.xss.direct-response-write.direct-response-write",
+                         "severity":  "WARNING",
+                         "file":  "C:\\Codex_App_Factory\\testbeds\\products-api\\src\\routes\\products.ts",
+                         "line":  54,
+                         "message":  "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use \u0027resp.render()\u0027 to render safely escaped HTML."
+                     }
+                 ],
+    "status":  "FINDINGS_PRESENT",
+    "evidence_binding":  {
+                             "evidence_files":  [
+
+                                                ],
+                             "evidence_type":  "security_findings",
+                             "evidence_summary":  "semgrep: 3 findings (0 ERROR, 3 WARNING, 0 INFO)"
+                         },
+    "findings_by_severity":  {
+                                 "ERROR":  0,
+                                 "WARNING":  3,
+                                 "INFO":  0
+                             }
+}

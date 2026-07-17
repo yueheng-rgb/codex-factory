@@ -1,0 +1,56 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P7",
+  "section": "E",
+  "title": "Gate Trigger Validation Trial",
+  "timestamp": "2026-06-28T17:20:00+08:00",
+  "gates": [
+    {
+      "gate": "Security/Deploy Gate",
+      "trigger_condition": "Deploy traces detected (.env.production, deploy config)",
+      "fixture": "FIXTURE-2 (deployed-trace)",
+      "triggered": true,
+      "blocking_checks_fired": 6,
+      "non_blocking_checks_fired": 4,
+      "result": "CORRECT_TRIGGER"
+    },
+    {
+      "gate": "Security/Deploy Gate",
+      "trigger_condition": "No deploy traces",
+      "fixture": "FIXTURE-1 (simple)",
+      "triggered": false,
+      "result": "CORRECT_NO_TRIGGER"
+    },
+    {
+      "gate": "Package QA Gate",
+      "trigger_condition": "Final ZIP handoff requested",
+      "fixture": "FIXTURE-1 (simple, phase-close with handoff)",
+      "triggered": true,
+      "checks_passed": 37,
+      "result": "CORRECT_TRIGGER_READONLY"
+    },
+    {
+      "gate": "Context Space",
+      "trigger_condition": "Long-horizon multi-session project",
+      "fixture": "FIXTURE-3 (long-horizon)",
+      "triggered": true,
+      "snapshot_created": true,
+      "guard_written": true,
+      "ledger_updated": true,
+      "result": "CORRECT_TRIGGER"
+    },
+    {
+      "gate": "Context Space",
+      "trigger_condition": "Simple single-session project",
+      "fixture": "FIXTURE-1 (simple)",
+      "triggered": false,
+      "result": "CORRECT_NO_TRIGGER"
+    }
+  ],
+  "summary": {
+    "total_checks": 5,
+    "correct_trigger": 3,
+    "correct_no_trigger": 2,
+    "incorrect": 0
+  },
+  "status": "GATE_TRIGGERS_VALIDATED"
+}

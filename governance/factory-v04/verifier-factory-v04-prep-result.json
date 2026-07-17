@@ -1,0 +1,170 @@
+﻿{
+    "passed":  32,
+    "results":  [
+                    {
+                        "result":  "PASS",
+                        "id":  "V01",
+                        "desc":  "FINAL package SHA unchanged"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V02",
+                        "desc":  "No new final ZIP"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V03",
+                        "desc":  "FACTORY-EVAL-9 PASS exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V04",
+                        "desc":  "Draft directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V05",
+                        "desc":  "Core module exists with 11 files"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V06",
+                        "desc":  "Review layer exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V07",
+                        "desc":  "Optional 3-role exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V08",
+                        "desc":  "Deferred directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V09",
+                        "desc":  "Archive directory exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V10",
+                        "desc":  "Benchmark evidence included"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V11",
+                        "desc":  "Usage docs exist"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V12",
+                        "desc":  "Validation script exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V13",
+                        "desc":  "Validation passes (0 errors)"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V14",
+                        "desc":  "Smoke test script exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V15",
+                        "desc":  "Smoke test passes"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V16",
+                        "desc":  "Manifest exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V17",
+                        "desc":  "Manifest SHA exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V18",
+                        "desc":  "Version is 0.4.0-draft"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V19",
+                        "desc":  "Status is DRAFT_NOT_RELEASED"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V20",
+                        "desc":  "finalZipCreated is false"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V21",
+                        "desc":  "Manual Router is default"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V22",
+                        "desc":  "Proof-of-Read is default"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V23",
+                        "desc":  "10-role model NOT default"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V24",
+                        "desc":  "Role-Agent not declared winner"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V25",
+                        "desc":  "One-benchmark caveat present"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V26",
+                        "desc":  "No final ZIP created"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V27",
+                        "desc":  "Old final package not modified"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V28",
+                        "desc":  "Negative controls report exists"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V29",
+                        "desc":  "Negative controls 36/0 gaps"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V30",
+                        "desc":  "No UNEXPECTED_PASS"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V31",
+                        "desc":  "No generic FAIL"
+                    },
+                    {
+                        "result":  "PASS",
+                        "id":  "V32",
+                        "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                    }
+                ],
+    "timestamp":  "2026-06-25T20:32:36+08:00",
+    "failed":  0,
+    "totalChecks":  32,
+    "phase":  "FACTORY-V04-PREP-L",
+    "title":  "Verifier Result - v0.4 Draft Resource Pack"
+}

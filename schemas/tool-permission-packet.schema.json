@@ -1,0 +1,106 @@
+﻿{
+    "$schema":  "http://json-schema.org/draft-07/schema#",
+    "title":  "Tool Permission Packet",
+    "description":  "TPP for real agent tool permission context injection",
+    "type":  "object",
+    "required":  [
+                     "packetId",
+                     "packetType",
+                     "projectId",
+                     "agentId"
+                 ],
+    "properties":  {
+                       "packetId":  {
+                                        "type":  "string"
+                                    },
+                       "packetType":  {
+                                          "type":  "string",
+                                          "const":  "tool-permission-packet"
+                                      },
+                       "generatedAt":  {
+                                           "type":  "string",
+                                           "format":  "date-time"
+                                       },
+                       "projectId":  {
+                                         "type":  "string"
+                                     },
+                       "phaseId":  {
+                                       "type":  "string"
+                                   },
+                       "agentId":  {
+                                       "type":  "string"
+                                   },
+                       "projectType":  {
+                                           "type":  "string"
+                                       },
+                       "allowedTools":  {
+                                            "type":  "array",
+                                            "items":  {
+                                                          "type":  "object",
+                                                          "properties":  {
+                                                                             "toolId":  {
+                                                                                            "type":  "string"
+                                                                                        },
+                                                                             "name":  {
+                                                                                          "type":  "string"
+                                                                                      },
+                                                                             "sandboxRequired":  {
+                                                                                                     "type":  "boolean"
+                                                                                                 },
+                                                                             "dryRunSupported":  {
+                                                                                                     "type":  "boolean"
+                                                                                                 },
+                                                                             "maxRiskLevel":  {
+                                                                                                  "type":  "string"
+                                                                                              }
+                                                                         }
+                                                      }
+                                        },
+                       "blockedTools":  {
+                                            "type":  "array",
+                                            "items":  {
+                                                          "type":  "string"
+                                                      }
+                                        },
+                       "pendingHumanTools":  {
+                                                 "type":  "array",
+                                                 "items":  {
+                                                               "type":  "string"
+                                                           }
+                                             },
+                       "pendingSandboxTools":  {
+                                                   "type":  "array",
+                                                   "items":  {
+                                                                 "type":  "string"
+                                                             }
+                                               },
+                       "dryRunTools":  {
+                                           "type":  "array",
+                                           "items":  {
+                                                         "type":  "string"
+                                                     }
+                                       },
+                       "forbiddenToolActions":  {
+                                                    "type":  "array",
+                                                    "items":  {
+                                                                  "type":  "string"
+                                                              }
+                                                },
+                       "toolRiskSummary":  {
+                                               "type":  "string"
+                                           },
+                       "sandboxInstructions":  {
+                                                   "type":  "string"
+                                               },
+                       "humanApprovalInstructions":  {
+                                                         "type":  "string"
+                                                     },
+                       "networkBoundary":  "{\r\n    "enum":  [\r\n                 \"no_network\",\r\n                 \"loopback_only\",\r\n                 \"local_lan\",\r\n                 \"external_readonly\",\r\n                 \"external_api\",\r\n                 \"external_write\",\r\n                 \"cloud_service\"\r\n             ],\r\n    "description":  \"Network boundary level for this session\",\r\n    \"type\":  \"string\"\r\n}",
+                       "allowedHosts":  "{\r\n    "description":  \"Allowlisted hosts\",\r\n    "items":  {\r\n                  \"type\":  \"string\"\r\n              },\r\n    \"type\":  \"array\"\r\n}",
+                       "blockedHosts":  "{\r\n    "items":  {\r\n                  \"type\":  \"string\"\r\n              },\r\n    \"type\":  \"array\"\r\n}",
+                       "sandboxSessionId":  "{\r\n    \"type\":  \"string\"\r\n}",
+                       "networkApprovalStatus":  "{\r\n    \"type\":  \"string\",\r\n    "enum":  [\r\n                 \"approved\",\r\n                 \"pending\",\r\n                 \"rejected\"\r\n             ]\r\n}",
+                       "hostAllowlist":  "{\r\n    "items":  {\r\n                  \"type\":  \"string\"\r\n              },\r\n    \"type\":  \"array\"\r\n}",
+                       "boundaryViolationPolicy":  "{\r\n    \"type\":  \"string\",\r\n    "description":  \"What happens on boundary violation\"\r\n}"
+                   }
+}

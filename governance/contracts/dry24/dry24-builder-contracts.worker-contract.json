@@ -1,0 +1,35 @@
+{
+  "contractId": "dry24-builder-contracts-contract",
+  "phase": "DRY24-A",
+  "agentId": "dry24-builder-contracts",
+  "role": "builder",
+  "forkContext": false,
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T16:03:07.718055+08:00",
+  "scope": "packages/worker-contract-engine/",
+  "ownedFiles": [
+    "packages/worker-contract-engine/src/"
+  ],
+  "exportedAPI": [
+    "ContractSchema",
+    "ContractValidator",
+    "ContractDriftDetector",
+    "ContractGenerator",
+    "ContractRegistry",
+    "ContractEnforcer"
+  ],
+  "allowedImports": [],
+  "forbiddenImports": [
+    "packages/dry24-integration-hub/",
+    "packages/agent-reliability-runtime/",
+    "packages/context-governance-runtime/",
+    "packages/factory-decision-engine/",
+    "packages/progress-integrity/",
+    "packages/architecture-drift-detector/"
+  ],
+  "integrationPoints": [
+    "@dry24/worker-contract-engine"
+  ],
+  "dependencyDeclarations": [],
+  "handoffPath": "governance/contracts/dry24/dry24-builder-contracts.worker-contract.json"
+}

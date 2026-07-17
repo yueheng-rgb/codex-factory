@@ -1,0 +1,109 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Trusted Project State",
+  "description": "Canonical project state that survives compression, handoff, and context drift",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["project_id", "phase", "last_verified"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "phase": { "type": "string", "description": "Current verified phase" },
+    "last_verified": { "type": "string", "format": "date-time" },
+    "frozen_pipelines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pipeline": { "type": "string" },
+          "status": { "type": "string", "enum": ["FROZEN","ACTIVE","DEPRECATED"] },
+          "last_modified_hash": { "type": "string" }
+        }
+      }
+    },
+    "deprecated_directions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "direction": { "type": "string" },
+          "status": { "type": "string", "enum": ["FORBIDDEN","LOCKED"] },
+          "deprecated_in": { "type": "string" }
+        }
+      }
+    },
+    "expert_packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pack_id": { "type": "string" },
+          "version": { "type": "string" },
+          "status": { "type": "string", "enum": ["ACTIVE","LOADING","INACTIVE"] },
+          "runtime_validated": { "type": "boolean" }
+        }
+      }
+    },
+    "engine_status": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "engine_id": { "type": "string" },
+          "version": { "type": "string" },
+          "status": { "type": "string", "enum": ["AVAILABLE","TOOL_UNAVAILABLE","TOOL_FAILED","SKIPPED"] }
+        }
+      }
+    },
+    "regression_baseline": {
+      "type": "object",
+      "properties": {
+        "total_tests": { "type": "integer" },
+        "passing": { "type": "integer" },
+        "last_run": { "type": "string", "format": "date-time" },
+        "testbeds": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "capability_registry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "capability": { "type": "string" },
+          "status": { "type": "string" },
+          "evidence_files": { "type": "array", "items": { "type": "string" } },
+          "last_verified_phase": { "type": "string" }
+        }
+      }
+    },
+    "trusted_memory_entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source","evidence_path","verification_status"],
+        "properties": {
+          "entry_id": { "type": "string" },
+          "content_summary": { "type": "string" },
+          "source": { "type": "string", "enum": ["runtime_result","report","handoff","benchmark","engine_output","compression_summary"] },
+          "phase": { "type": "string" },
+          "evidence_path": { "type": "string" },
+          "verification_status": { "type": "string", "enum": ["VERIFIED","PENDING","STALE","QUARANTINED","REJECTED"] },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "hash": { "type": "string" }
+        }
+      }
+    },
+    "stale_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reference": { "type": "string" },
+          "claimed_status": { "type": "string" },
+          "current_status": { "type": "string" },
+          "detected_at": { "type": "string" },
+          "resolution": { "type": "string" }
+        }
+      }
+    }
+  }
+}

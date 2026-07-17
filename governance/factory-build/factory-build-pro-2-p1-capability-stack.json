@@ -1,0 +1,198 @@
+﻿{
+    "stack":  [
+                  {
+                      "layer":  "L0: Foundation",
+                      "components":  [
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Single-agent structured build with harness",
+                                             "name":  "Build Mode",
+                                             "requiredFor":  "ALL"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "File-based memory in .codex-factory/",
+                                             "name":  "External Memory",
+                                             "requiredFor":  "ALL"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Structured task decomposition and tracking",
+                                             "name":  "Task Graph",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Automated verification against checklist",
+                                             "name":  "Verifier",
+                                             "requiredFor":  "ALL"
+                                         }
+                                     ]
+                  },
+                  {
+                      "layer":  "L1: Memory Quality",
+                      "components":  [
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "L0-L5 evidence levels",
+                                             "name":  "Memory Quality Hierarchy",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "What enters external memory",
+                                             "name":  "Memory Ingestion Policy",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "POLICY_EXISTS_NO_AUTOMATION",
+                                             "description":  "Redundancy, noise, size filters",
+                                             "name":  "Memory Filtering/Decay",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "No claim without evidence path",
+                                             "name":  "Summary Verification",
+                                             "requiredFor":  "ALL"
+                                         }
+                                     ]
+                  },
+                  {
+                      "layer":  "L2: Context Packets",
+                      "components":  [
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "JSON Schema for validated packets",
+                                             "name":  "Context Packet Schema",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "generate-context-packet.ps1",
+                                             "name":  "Context Packet Generator",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "validate-context-packet.ps1 (21 checks)",
+                                             "name":  "Context Packet Validator",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "6 role-specific packet profiles",
+                                             "name":  "Role Context Filtering",
+                                             "requiredFor":  "Build Pro"
+                                         }
+                                     ]
+                  },
+                  {
+                      "layer":  "L3: Agent Lifecycle",
+                      "components":  [
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Track all agents spawned",
+                                             "name":  "Agent Registry",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Structured context transfer",
+                                             "name":  "Handoff Protocol",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Auditable agent closure",
+                                             "name":  "Close Receipt",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Prevent agent collisions",
+                                             "name":  "Write Scope Map",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "BASIC",
+                                             "description":  "Track process overhead",
+                                             "name":  "Overhead Metrics",
+                                             "requiredFor":  "Build Pro"
+                                         }
+                                     ]
+                  },
+                  {
+                      "layer":  "L4: Quality Gates",
+                      "components":  [
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "12-point pre-iteration check",
+                                             "name":  "Diagnostic Gate",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Agent lifecycle recovery test",
+                                             "name":  "Recovery Drill",
+                                             "requiredFor":  "Build Pro"
+                                         },
+                                         {
+                                             "status":  "STABLE",
+                                             "description":  "Anti-deception test suite",
+                                             "name":  "Negative Controls",
+                                             "requiredFor":  "ALL"
+                                         },
+                                         {
+                                             "status":  "OPTIONAL_PACK",
+                                             "description":  "Optional review layer",
+                                             "name":  "Reviewer-Verifier Diagnostic Pack",
+                                             "requiredFor":  "NONE"
+                                         }
+                                     ]
+                  },
+                  {
+                      "layer":  "L5: Productization",
+                      "components":  [
+                                         {
+                                             "status":  "DRAFT_ONLY",
+                                             "description":  "Usable pack layout",
+                                             "name":  "Pack Architecture",
+                                             "requiredFor":  "FUTURE"
+                                         },
+                                         {
+                                             "status":  "DRAFT_ONLY",
+                                             "description":  "How to use Factory",
+                                             "name":  "User Workflow",
+                                             "requiredFor":  "FUTURE"
+                                         },
+                                         {
+                                             "status":  "EXISTS_AS_GATE",
+                                             "description":  "Release boundary gate",
+                                             "name":  "Release Candidate",
+                                             "requiredFor":  "FUTURE"
+                                         },
+                                         {
+                                             "status":  "NOT_STARTED",
+                                             "description":  "Queryable external memory",
+                                             "name":  "Cloud Memory",
+                                             "requiredFor":  "FUTURE"
+                                         }
+                                     ]
+                  }
+              ],
+    "statusSummary":  {
+                          "optionalPack":  1,
+                          "policyExists":  1,
+                          "stable":  18,
+                          "notStarted":  1,
+                          "draft":  2,
+                          "total":  25,
+                          "basic":  1,
+                          "existsAsGate":  1
+                      },
+    "section":  "D",
+    "date":  "2026-06-27",
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "title":  "Current Capability Stack"
+}

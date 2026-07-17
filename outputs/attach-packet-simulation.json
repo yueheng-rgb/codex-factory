@@ -1,0 +1,178 @@
+﻿{
+    "mount_count":  1,
+    "evidence_index_summary":  "See C:\\Codex_App_Factory\\external-conversation-space/data/evidence-index.json for full evidence map",
+    "current_goal":  {
+                         "primary":  "发挥 Codex 上限，让 Codex 能做更复杂项目",
+                         "secondary":  [
+                                           "通过 Harness / Build Lite / Native Build Pro / External Memory / Context Packet / Package QA 改造 Codex 行为",
+                                           "防止 Codex 默认简化、忘主线、阶段漂移、压缩污染"
+                                       ],
+                         "anti_goals":  [
+                                            "不要把重心放在诊断/审查上",
+                                            "不要做小任务偏离大方向",
+                                            "不要默认 micro-phase",
+                                            "不要默认 multi-agent",
+                                            "不要把发现问题当作 Factory 更聪明的证明"
+                                        ]
+                     },
+    "current_strategy":  {
+                             "build_lite_default":  true,
+                             "native_build_pro_conditional":  true,
+                             "context_packet_required_for_pro":  true,
+                             "package_qa_gate_final_delivery":  true,
+                             "diagnostic_gate_support_only":  true,
+                             "v0_5_blocked":  true,
+                             "multi_agent_not_default":  true,
+                             "release_allowed":  false,
+                             "staging_bundle":  "STAGING_NOT_RELEASE"
+                         },
+    "active_risks":  [
+                         {
+                             "id":  "RISK-001",
+                             "description":  "Codex 在长对话中边做边忘、信任压缩摘要、遗忘主线",
+                             "tier":  2,
+                             "type":  "active_risk",
+                             "mitigation":  "External Conversation Space (本阶段)",
+                             "severity":  "HIGH"
+                         },
+                         {
+                             "id":  "RISK-002",
+                             "description":  "TCM 项目存在真实生产密钥（7 个部署脚本中的 SSH 密码 + .env 中的 SECRET_KEY 和 SMTP 密码）",
+                             "tier":  2,
+                             "type":  "active_risk",
+                             "mitigation":  "已遮罩；建议轮换；REALWORLD-2-P1 前需用户批准",
+                             "severity":  "CRITICAL"
+                         }
+                     ],
+    "trust_tier_composition":  {
+                                   "tier1_items":  10,
+                                   "tier4_rejected":  0,
+                                   "tier2_items":  10,
+                                   "tier3_items":  0
+                               },
+    "next_actions":  [
+                         "Review attach packet",
+                         "Verify against evidence",
+                         "Continue current phase: FACTORY-CONTEXT-SPACE-0"
+                     ],
+    "generated_at":  "2026-06-28T00:25:47+08:00",
+    "user_preferences":  [
+                             {
+                                 "tier":  1,
+                                 "content":  {
+                                                 "stated":  true,
+                                                 "source":  "用户多次强调：\u0027大阶段，不要小任务，不要偏离方向\u0027",
+                                                 "priority":  "HIGH"
+                                             },
+                                 "id":  "big_phases_not_micro",
+                                 "type":  "user_preference"
+                             },
+                             {
+                                 "tier":  1,
+                                 "content":  {
+                                                 "stated":  true,
+                                                 "source":  "FACTORY-CONTEXT-SPACE-0: 先做本地 MVP，不上云",
+                                                 "priority":  "HIGH"
+                                             },
+                                 "id":  "no_cloud_without_local_proof",
+                                 "type":  "user_preference"
+                             },
+                             {
+                                 "tier":  1,
+                                 "content":  {
+                                                 "stated":  true,
+                                                 "source":  "REALWORLD-2 Evidence Lock",
+                                                 "priority":  "CRITICAL"
+                                             },
+                                 "id":  "no_secret_disclosure",
+                                 "type":  "user_preference"
+                             },
+                             {
+                                 "tier":  1,
+                                 "content":  {
+                                                 "stated":  true,
+                                                 "source":  "REALWORLD-2 Evidence Lock",
+                                                 "priority":  "CRITICAL"
+                                             },
+                                 "id":  "readonly_original_projects",
+                                 "type":  "user_preference"
+                             },
+                             {
+                                 "tier":  1,
+                                 "content":  {
+                                                 "stated":  true,
+                                                 "source":  "多次强调",
+                                                 "priority":  "HIGH"
+                                             },
+                                 "id":  "no_micro_phase_split",
+                                 "type":  "user_preference"
+                             },
+                             {
+                                 "tier":  1,
+                                 "content":  {
+                                                 "stated":  true,
+                                                 "source":  "用户纠正：主线是 \u0027如何发挥 Codex 上限\u0027，诊断是辅助",
+                                                 "priority":  "HIGH"
+                                             },
+                                 "id":  "mainline_is_build_not_diagnose",
+                                 "type":  "user_preference"
+                             }
+                         ],
+    "direction_guard":  {
+                            "warnings":  [
+
+                                         ],
+                            "status":  "PASS"
+                        },
+    "packet_version":  "0.1.0",
+    "completed_phases":  [
+                             "FACTORY-AGENT-3 through AGENT-9-P3",
+                             "FACTORY-DIAGNOSTIC-PACK",
+                             "FACTORY-BUILD-0 through BUILD-8-P1",
+                             "FACTORY-BUILD-PRO-P1 / PRO-2 / PRO-2-P1",
+                             "FACTORY-MEMORY-QUALITY-0 / MEMORY-QUALITY-0-P1",
+                             "FACTORY-BUILD-REALWORLD-2 / REALWORLD-2-R1",
+                             "FACTORY-PACKAGE-QA-GATE-0",
+                             "FACTORY-BUILD-PACK-STAGING-P1 / P2"
+                         ],
+    "frozen_conclusions":  [
+                               {
+                                   "tier":  1,
+                                   "content":  "Build Lite 是当前单人复杂项目最佳性价比模式",
+                                   "evidence":  [
+                                                    "outputs/FACTORY_BUILD_6_*.md"
+                                                ],
+                                   "id":  "FROZEN-001",
+                                   "type":  "frozen_conclusion"
+                               },
+                               {
+                                   "tier":  1,
+                                   "content":  "Native Build Pro 有用但不应该是默认",
+                                   "evidence":  [
+                                                    "outputs/FACTORY_BUILD_8_*.md"
+                                                ],
+                                   "id":  "FROZEN-002",
+                                   "type":  "frozen_conclusion"
+                               },
+                               {
+                                   "tier":  1,
+                                   "content":  "发现安全问题 ≠ Factory 比普通 Codex 更聪明",
+                                   "evidence":  [
+                                                    "outputs/FACTORY_BUILD_REALWORLD_2_R1_*.md"
+                                                ],
+                                   "id":  "FROZEN-003",
+                                   "type":  "frozen_conclusion"
+                               },
+                               {
+                                   "tier":  1,
+                                   "content":  "Package QA Gate 是交付卫生检查，不是产品正确性证明",
+                                   "evidence":  [
+                                                    "outputs/FACTORY_PACKAGE_QA_GATE_0_*.md"
+                                                ],
+                                   "id":  "FROZEN-004",
+                                   "type":  "frozen_conclusion"
+                               }
+                           ],
+    "mounted_from":  "C:\\Codex_App_Factory\\external-conversation-space\\data\\conversation-space.json",
+    "current_phase":  "FACTORY-CONTEXT-SPACE-0"
+}

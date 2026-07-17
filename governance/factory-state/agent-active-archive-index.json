@@ -1,0 +1,546 @@
+﻿{
+    "activeCount":  0,
+    "totalAgents":  67,
+    "unsafeStaleCount":  0,
+    "closedNoReceiptCount":  36,
+    "generatedAt":  "2026-06-24T23:54:00+08:00",
+    "agents":  [
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "orchestrator",
+                       "classification":  "closed",
+                       "phase":  "H16",
+                       "agentId":  "h16-orchestrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "orchestrator",
+                       "classification":  "closed",
+                       "phase":  "H16",
+                       "agentId":  "h16-negative-orchestrator"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H16",
+                       "agentId":  "h16-handoff-checker"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "verifier",
+                       "classification":  "closed",
+                       "phase":  "H16",
+                       "agentId":  "h16-verifier-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-builder-risk-classifier"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-builder-evidence-collector"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-builder-diagnosis-engine"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-builder-snapshot-manager"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "orchestrator",
+                       "classification":  "closed",
+                       "phase":  "DRY22-B",
+                       "agentId":  "dry22-negative-orchestrator"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H16",
+                       "agentId":  "h16-diagnosis-engine"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "verifier",
+                       "classification":  "closed",
+                       "phase":  "DRY22-A",
+                       "agentId":  "dry22-verifier-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "orchestrator",
+                       "classification":  "closed",
+                       "phase":  "DRY22-A",
+                       "agentId":  "dry22-orchestrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H16",
+                       "agentId":  "h16-boundary-checker"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H16",
+                       "agentId":  "h16-negative-checker"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H16",
+                       "agentId":  "h16-complexity-checker"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H16",
+                       "agentId":  "h16-contract-checker"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-builder-diagnosis-reporter"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "in_progress",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY24-A",
+                       "agentId":  "dry24-builder-reliability"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "in_progress",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY24-A",
+                       "agentId":  "dry24-builder-contracts"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "orchestrator",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H17",
+                       "agentId":  "h17-orchestrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "verifier",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H17",
+                       "agentId":  "h17-verifier-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "in_progress",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY24-A",
+                       "agentId":  "dry24-builder-progress"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "in_progress",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY24-A",
+                       "agentId":  "dry24-builder-drift"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "in_progress",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY24-A",
+                       "agentId":  "dry24-builder-context"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "in_progress",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY24-A",
+                       "agentId":  "dry24-builder-decision"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "verifier",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-verifier-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "orchestrator",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-orchestrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-builder-verify-gate"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "integrator",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-integrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-P2",
+                       "agentId":  "dry23-p2-builder-snapshot-repair"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-P2",
+                       "agentId":  "dry23-p2-builder-gate-repair"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "orchestrator",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-A",
+                       "agentId":  "dry23-negative-orchestrator"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "completed",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY23-P2",
+                       "agentId":  "dry23-p2-builder-diagnosis-repair"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "integrator",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY22-A",
+                       "agentId":  "dry22-integration-hub"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "integrator",
+                       "classification":  "closed",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-integrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "orchestrator",
+                       "classification":  "closed",
+                       "phase":  "H14",
+                       "agentId":  "h14-orchestrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "verifier",
+                       "classification":  "closed",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-verifier-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "skeptic",
+                       "classification":  "closed",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-skeptic-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "verifier",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "H14",
+                       "agentId":  "h14-verifier-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "orchestrator",
+                       "classification":  "closed",
+                       "phase":  "DRY21-A",
+                       "agentId":  "dry21-orchestrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "H14",
+                       "agentId":  "h14-builder-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "H14",
+                       "agentId":  "h14-builder-2"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-builder-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-builder-2"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "H13-C",
+                       "agentId":  "h13-c-builder-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "verifier",
+                       "classification":  "closed",
+                       "phase":  "H13-C",
+                       "agentId":  "h13-c-verifier-1"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-builder-5"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-builder-6"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-builder-3"
+                   },
+                   {
+                       "hasCloseEvent":  false,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY20-A",
+                       "agentId":  "dry20-builder-4"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY21-A",
+                       "agentId":  "dry21-builder-taskqueue"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "orchestrator",
+                       "classification":  "closed",
+                       "phase":  "H15",
+                       "agentId":  "h15-orchestrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY22-A",
+                       "agentId":  "dry22-builder-contract-engine"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "H15",
+                       "agentId":  "h15-scope-enforcer"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "integrator",
+                       "classification":  "closed",
+                       "phase":  "H15",
+                       "agentId":  "h15-integration-handoff"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY22-A",
+                       "agentId":  "dry22-builder-drift-detector"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY22-A",
+                       "agentId":  "dry22-builder-failure-router"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY22-A",
+                       "agentId":  "dry22-builder-dep-scheduler"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY22-A",
+                       "agentId":  "dry22-builder-scope-guard"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY21-A",
+                       "agentId":  "dry21-builder-phasegate"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "integrator",
+                       "classification":  "closed",
+                       "phase":  "DRY21-A",
+                       "agentId":  "dry21-integrator-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY21-A",
+                       "agentId":  "dry21-builder-agentlifecycle"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "DRY21-A",
+                       "agentId":  "dry21-builder-evidencechain"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "verifier",
+                       "classification":  "closed",
+                       "phase":  "H15",
+                       "agentId":  "h15-contract-validator"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "builder",
+                       "classification":  "closed",
+                       "phase":  "H15",
+                       "agentId":  "h15-dep-graph-extractor"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "PASS",
+                       "role":  "verifier",
+                       "classification":  "closed",
+                       "phase":  "DRY21-A",
+                       "agentId":  "dry21-verifier-1"
+                   },
+                   {
+                       "hasCloseEvent":  true,
+                       "verdict":  "pending",
+                       "role":  "orchestrator",
+                       "classification":  "closed-no-receipt",
+                       "phase":  "DRY21-B",
+                       "agentId":  "dry21-negative-orchestrator"
+                   }
+               ],
+    "archivedCount":  67
+}

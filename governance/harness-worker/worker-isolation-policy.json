@@ -1,0 +1,198 @@
+﻿{
+  "policyId": "H10-WORKER-ISOLATION-V1",
+  "phase": "6C-H10",
+  "title": "Worker Capsule and Worktree Isolation Protocol",
+  "createdAt": "2026-06-22T23:00:00+08:00",
+  "codexFactoryVersion": "Phase 6C",
+
+  "corePrinciples": {
+    "spawnMechanism": {
+      "required": "spawn_agent",
+      "description": "Workers must be created via Codex spawn_agent, not via new conversation windows or separate threads.",
+      "forkContext": false,
+      "forkContextRule": "MUST be false. Workers receive clean context with no parent conversation history.",
+      "agentType": "worker"
+    },
+    "isolationLayers": {
+      "contextIsolation": "fork_context:false provides clean context boundary",
+      "filesystemIsolation": "Per-worker worktree directory is the exclusive write scope",
+      "contractIsolation": "Interface contract frozen before spawn; workers import only from contract",
+      "capsuleIsolation": "Input capsule contains only task-relevant context"
+    },
+    "mainAgentRole": {
+      "description": "Main Agent is the sole integrator and orchestrator.",
+      "responsibilities": [
+        "Freeze interface contract before spawning any Worker",
+        "Generate per-worker input capsules",
+        "Spawn Workers with fork_context:false",
+        "Collect handoff artifacts (BRANCH_RESULT.md, BRANCH_DELTA.json)",
+        "Verify Worker isolation (verify-worker-isolation.ps1)",
+        "Verify Worker handoff (verify-worker-handoff.ps1)",
+        "Merge worktree outputs into canonical",
+        "Run integration validation"
+      ],
+      "forbidden": [
+        "Delegating integration to a Worker",
+        "Passing full conversation history to Workers",
+        "Passing other Workers' capsules to a Worker",
+        "Modifying Worker worktrees directly"
+      ]
+    }
+  },
+
+  "workerRequirements": {
+    "capsuleRequired": true,
+    "capsuleSchema": "schemas/harness-worker/worker-capsule.schema.json",
+    "capsuleCreator": "scripts/harness-worker/create-worker-capsule.ps1",
+    "capsulePath": "branches/{workerId}/WORKER_CAPSULE.json",
+
+    "worktreeRequired": true,
+    "worktreeRule": "Each Worker writes exclusively to worktrees/{workerId}/. No Worker may write outside its worktree.",
+    "worktreeVerification": "scripts/harness-worker/verify-worker-isolation.ps1",
+
+    "forbiddenFilesRequired": true,
+    "forbiddenFilesRule": "Each Worker must have an explicit list of files it MUST NOT access. Empty forbidden list = FAIL.",
+
+    "handoffRequired": true,
+    "handoffSchema": "schemas/harness-worker/worker-handoff.schema.json",
+    "handoffVerifier": "scripts/harness-worker/verify-worker-handoff.ps1",
+    "handoffArtifacts": [
+      "branches/{workerId}/BRANCH_RESULT.md",
+      "branches/{workerId}/BRANCH_DELTA.json",
+      "branches/{workerId}/SOURCE_MANIFEST.json",
+      "branches/{workerId}/EVIDENCE_MANIFEST.json"
+    ],
+
+    "mailboxRule": "If agent-mailbox/ directory exists, Worker must send a HANDOFF completion message to messages.jsonl before closing.",
+
+    "contextRules": {
+      "mustInclude": [
+        "Task mission and description",
+        "Owned files list",
+        "Forbidden files list",
+        "Required exports with exact signatures",
+        "Interface contract (shared types, import paths)",
+        "Acceptance criteria",
+        "Handoff format specification"
+      ],
+      "mustExclude": [
+        "Full conversation/chat history",
+        "Other Workers' capsules or task briefs",
+        "Other Workers' worktree paths",
+        "Other Workers' private sentinel files",
+        "Phase lock internals",
+        "Global project implementation details beyond contract",
+        "Orchestrator-only governance state"
+      ]
+    }
+  },
+
+  "verifierFailureConditions": {
+    "conditions": [
+      {
+        "condition": "FORK_CONTEXT_NOT_FALSE",
+        "description": "Worker capsule has forkContext != false.",
+        "classification": "FAIL_PROFILE_BOUNDARY_VIOLATION"
+      },
+      {
+        "condition": "WORKER_CAPSULE_MISSING",
+        "description": "No WORKER_CAPSULE.json found for worker.",
+        "classification": "FAIL_MISSING_EVIDENCE"
+      },
+      {
+        "condition": "WORKTREE_PATH_MISSING",
+        "description": "Worker capsule has no worktreePath.",
+        "classification": "FAIL_MISSING_EVIDENCE"
+      },
+      {
+        "condition": "WORKER_WRITES_OUTSIDE_WORKTREE",
+        "description": "Worker output files found outside assigned worktree.",
+        "classification": "FAIL_PROFILE_BOUNDARY_VIOLATION"
+      },
+      {
+        "condition": "WORKER_TOUCHES_FORBIDDEN",
+        "description": "Worker accessed or modified a forbidden file.",
+        "classification": "FAIL_PROFILE_BOUNDARY_VIOLATION"
+      },
+      {
+        "condition": "WORKER_RECEIVES_OTHER_CAPSULE",
+        "description": "Worker prompt or capsule references another worker's capsule content.",
+        "classification": "FAIL_PROFILE_BOUNDARY_VIOLATION"
+      },
+      {
+        "condition": "FULL_HISTORY_IN_WORKER_PROMPT",
+        "description": "Worker prompt includes full conversation history or non-task context.",
+        "classification": "FAIL_PROFILE_BOUNDARY_VIOLATION"
+      },
+      {
+        "condition": "NO_HANDOFF_REQUIREMENTS_IN_PROMPT",
+        "description": "Worker prompt lacks handoff format requirements.",
+        "classification": "FAIL_CONTRACT_DRIFT"
+      },
+      {
+        "condition": "BRANCH_RESULT_MISSING",
+        "description": "Worker has no BRANCH_RESULT.md.",
+        "classification": "FAIL_MISSING_EVIDENCE"
+      },
+      {
+        "condition": "BRANCH_DELTA_MISSING",
+        "description": "Worker has no BRANCH_DELTA.json.",
+        "classification": "FAIL_MISSING_EVIDENCE"
+      },
+      {
+        "condition": "SOURCE_MANIFEST_MISSING",
+        "description": "Worker has no SOURCE_MANIFEST.json.",
+        "classification": "FAIL_MISSING_EVIDENCE"
+      },
+      {
+        "condition": "EVIDENCE_MANIFEST_MISSING",
+        "description": "Worker has no EVIDENCE_MANIFEST.json.",
+        "classification": "FAIL_MISSING_EVIDENCE"
+      },
+      {
+        "condition": "HANDOFF_CLAIMS_UNMATCHED",
+        "description": "Worker handoff claims files that do not exist in worktree.",
+        "classification": "FAIL_CONTRACT_DRIFT"
+      },
+      {
+        "condition": "NO_CLASSIFICATION",
+        "description": "FAIL verdict must use one of: FAIL_MISSING_EVIDENCE, FAIL_PROFILE_BOUNDARY_VIOLATION, FAIL_CONTRACT_DRIFT, FAIL_HARNESS_NOISE.",
+        "classification": "FAIL_HARNESS_NOISE"
+      }
+    ]
+  },
+
+  "integrationRules": {
+    "mainAgentSoleIntegrator": true,
+    "preIntegrationGate": [
+      "All Workers have BRANCH_RESULT.md",
+      "All Workers have BRANCH_DELTA.json",
+      "verify-worker-isolation.ps1 PASS for all Workers",
+      "verify-worker-handoff.ps1 PASS for all Workers"
+    ],
+    "mergeOrder": "Serial by dependency order defined in interface contract",
+    "postMergeValidation": [
+      "TypeScript typecheck",
+      "Unit tests",
+      "Build verification"
+    ]
+  },
+
+  "forbiddenActions": [
+    "Worker self-verification",
+    "Worker reading another worker's worktree",
+    "Worker writing outside assigned worktree",
+    "Worker receiving full conversation history",
+    "Worker receiving another worker's capsule",
+    "Main Agent modifying worker worktrees directly",
+    "Main Agent delegating integration",
+    "Generic FAIL classification (must use specific types)"
+  ],
+
+  "integrations": {
+    "rotationPolicy": "governance/harness-readiness/conversation-rotation-policy.json",
+    "phaseLock": "harness/governance/harness-readiness/current-phase-lock.json",
+    "workerSpawnValidator": "harness/scripts/harness-spawn/validate-pre-spawn-run-plan.ps1",
+    "workerContractSchema": "harness/schemas/harness-spawn/pre-spawn-worker-contract.schema.json"
+  }
+}

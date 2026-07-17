@@ -1,0 +1,13 @@
+﻿{
+  "name": "inventory-subscription-admin",
+  "version": "1.0.0",
+  "description": "v2.0-RC Mission Project",
+  "scripts": {
+    "start": "npx tsx src/server.ts",
+    "test": "npx vitest run --reporter=verbose"
+  },
+  "dependencies": { "fastify": "^5.0.0" },
+  "devDependencies": {
+    "@types/node": "^22.0.0", "tsx": "^4.0.0", "typescript": "^5.7.0", "vitest": "^3.0.0"
+  }
+}

@@ -1,0 +1,63 @@
+﻿{
+    "fixturePath":  "C:\\Codex_App_Factory\\harness\\fixtures\\dry27-runtime-packaging-stress",
+    "checks":  [
+                   {
+                       "detail":  "version=0.1.0 status=EXPERIMENTAL",
+                       "status":  "PASS",
+                       "check":  "PLUGIN_MANIFEST_PARSE"
+                   },
+                   {
+                       "detail":  "scaffoldStatus=EXPERIMENTAL",
+                       "status":  "PASS",
+                       "check":  "PLUGIN_EXPERIMENTAL"
+                   },
+                   {
+                       "detail":  "forbiddenClaims=11",
+                       "status":  "PASS",
+                       "check":  "PACKAGING_MANIFEST_PARSE"
+                   },
+                   {
+                       "detail":  "",
+                       "status":  "PASS",
+                       "check":  "RESOURCE_MANIFEST_PARSE"
+                   },
+                   {
+                       "detail":  "SHA256 match",
+                       "status":  "PASS",
+                       "check":  "RESOURCE_SHA256"
+                   },
+                   {
+                       "detail":  "0 absolute refs (2 repaired: monitoring script -\u003e env-var, checklist -\u003e placeholder)",
+                       "status":  "PASS",
+                       "check":  "NO_ABSOLUTE_REPO_PATHS"
+                   },
+                   {
+                       "detail":  "production-ready forbidden: True",
+                       "status":  "PASS",
+                       "check":  "NO_PRODUCTION_CLAIM"
+                   },
+                   {
+                       "detail":  "",
+                       "status":  "PASS",
+                       "check":  "NO_FINAL_ZIP"
+                   },
+                   {
+                       "detail":  "H23 count=0",
+                       "status":  "PASS",
+                       "check":  "NO_H23_ARTIFACTS"
+                   },
+                   {
+                       "detail":  "",
+                       "status":  "PASS",
+                       "check":  "MONITORING_SCRIPT_EXISTS"
+                   }
+               ],
+    "verdict":  "PASS",
+    "fileCount":  72,
+    "passed":  10,
+    "phase":  "DRY27-A",
+    "totalChecks":  10,
+    "nativeGenerated":  true,
+    "checkedAt":  "2026-06-24T20:23:14+08:00",
+    "failed":  0
+}

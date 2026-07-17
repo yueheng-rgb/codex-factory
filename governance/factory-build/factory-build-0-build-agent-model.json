@@ -1,0 +1,66 @@
+﻿{
+    "phase": "FACTORY-BUILD-0",
+    "subPhase": "E_BUILD_AGENT_MODEL",
+    "date": "2026-06-27",
+    "agentModel": {
+        "principle": "Multi-agent is CONDITIONAL, not default. Agent count scales with project complexity.",
+        "tiers": [
+            {
+                "tier": "Vanilla (Single Agent)",
+                "complexity": "SIMPLE",
+                "agentCount": 1,
+                "trigger": "Default for all projects unless complexity demands more",
+                "rules": [
+                    "Single Codex agent does everything",
+                    "Harness provides intake/classify/blueprint/task-graph guidance",
+                    "Diagnostic Gate runs after build",
+                    "No spawn_agent calls"
+                ],
+                "status": "DEFAULT"
+            },
+            {
+                "tier": "Build Lite (Single Agent + Harness)",
+                "complexity": "MODERATE",
+                "agentCount": 1,
+                "trigger": "10-100 files, auth, DB, 2+ apps",
+                "rules": [
+                    "Single Codex agent with harness-guided phased execution",
+                    "Harness enforces stage gates between phases",
+                    "State file persists across session boundaries",
+                    "Diagnostic Gate after each major phase"
+                ],
+                "status": "CONDITIONAL"
+            },
+            {
+                "tier": "Build Pro (4-Agent P1)",
+                "complexity": "COMPLEX",
+                "agentCount": 4,
+                "trigger": ">100 files, auth, DB, 3+ apps, financial/compliance risk",
+                "rules": [
+                    "Agent 1 (Architect): Blueprint + task graph generation",
+                    "Agent 2 (Backend): Server, API, DB implementation",
+                    "Agent 3 (Frontend): UI, routing, state management",
+                    "Agent 4 (Verifier): Diagnostic Gate, integration check, negative controls",
+                    "Disjoint write scopes per agent",
+                    "Cross-agent integration verified by Agent 4",
+                    "State file is single source of truth"
+                ],
+                "status": "EXPERIMENTAL_CONDITIONAL"
+            }
+        ],
+        "forbiddenPatterns": [
+            "Multi-agent as default for simple projects",
+            "7-agent legacy mode",
+            "10-role model",
+            "Agent count exceeding project complexity need",
+            "Agents with overlapping write scopes",
+            "Multi-agent without state file governance"
+        ],
+        "allocationRules": {
+            "writeScopeDisjoint": "No two agents may write to the same file",
+            "stateFileGoverned": "All agents read/write state through .codex-factory/state.json",
+            "integrationGate": "Agent 4 (Verifier) validates cross-agent API contracts and file integrity",
+            "handoffProtocol": "Each agent produces a completion receipt before handoff"
+        }
+    }
+}

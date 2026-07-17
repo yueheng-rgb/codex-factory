@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-RECOVERY-0","section":"A","title":"Recovery Scope Lock","timestamp":"2026-06-29T00:00:00+08:00","status":"ACTIVE","inherited":["USER-HANDOFF-0","DEFAULT-WORKFLOW-0","PROJECT-ISOLATION-0","STATE-DASHBOARD-0"],"goal":"Safe recovery from missing/stale/corrupt/foreign Factory state preserving evidence hierarchy and isolation"}

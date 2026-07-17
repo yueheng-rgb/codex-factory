@@ -1,0 +1,22 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "H",
+  "title": "Cleanup Report Format",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "report_format": {
+    "required_sections": [
+      {"section": "GENERATED_AT", "content": "ISO8601 timestamp"},
+      {"section": "PROJECT_ID", "content": "Which project was cleaned up"},
+      {"section": "MODE", "content": "PLAN | ARCHIVE | FREEZE | PRUNE | DELETE"},
+      {"section": "KEEP_LIST", "content": "What was preserved and why (category, reason)"},
+      {"section": "DELETE_LIST", "content": "What was removed and why (category, reason)"},
+      {"section": "CONFIRM_LIST", "content": "What required user confirmation (if any)"},
+      {"section": "SIZE_DELTA_KB", "content": "Estimated size change"},
+      {"section": "WARNINGS", "content": "Any warnings or caveats"},
+      {"section": "EVIDENCE_HASH", "content": "SHA256 of preserved CORE_EVIDENCE (if applicable)"},
+      {"section": "REVERSIBILITY", "content": "Whether this operation is reversible and how"}
+    ],
+    "output_path": "governance/context-space/cleanup-reports/{project_id}-{mode}-{timestamp}.json"
+  },
+  "status": "CLEANUP_REPORT_FORMAT_DEFINED"
+}

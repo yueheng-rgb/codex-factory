@@ -1,0 +1,59 @@
+﻿{
+    "buildLite":  "Context packets are OPTIONAL for Build Lite. User may request REVIEWER_PACKET or USER_SUMMARY_PACKET.",
+    "section":  "H",
+    "integrationPoints":  [
+                              {
+                                  "point":  "PHASE_START",
+                                  "targetRole":  "orchestrator",
+                                  "packetType":  "PHASE_START_PACKET",
+                                  "requiredFor":  "Build Pro",
+                                  "trigger":  "Phase begins"
+                              },
+                              {
+                                  "point":  "AGENT_SPAWN",
+                                  "targetRole":  "matched to agent role",
+                                  "packetType":  "AGENT_START_PACKET",
+                                  "requiredFor":  "Build Pro",
+                                  "trigger":  "Before each spawn_agent call"
+                              },
+                              {
+                                  "point":  "REVIEW",
+                                  "targetRole":  "reviewer",
+                                  "packetType":  "REVIEWER_PACKET",
+                                  "requiredFor":  "Build Pro",
+                                  "trigger":  "Before reviewer-verifier work"
+                              },
+                              {
+                                  "point":  "RECOVERY",
+                                  "targetRole":  "orchestrator",
+                                  "packetType":  "RECOVERY_PACKET",
+                                  "requiredFor":  "Build Pro",
+                                  "trigger":  "When recovery drill activates"
+                              },
+                              {
+                                  "point":  "REPAIR",
+                                  "targetRole":  "builder",
+                                  "packetType":  "REPAIR_PACKET",
+                                  "requiredFor":  "Build Pro",
+                                  "trigger":  "When repair phase needed"
+                              },
+                              {
+                                  "point":  "USER_SUMMARY",
+                                  "targetRole":  "user-facing",
+                                  "packetType":  "USER_SUMMARY_PACKET",
+                                  "requiredFor":  "ALL (if requested)",
+                                  "trigger":  "When user requests summary"
+                              }
+                          ],
+    "flow":  [
+                 "1. Trigger event detected (phase start / spawn / recovery)",
+                 "2. generate-context-packet.ps1 runs with role + phase parameters",
+                 "3. validate-context-packet.ps1 runs 21 checks on output",
+                 "4. If validation FAILS → packet rejected, no agent spawn allowed",
+                 "5. If validation PASSES → packet stored, agent receives packet context",
+                 "6. Packet expires after maxAgeMinutes (default 60)"
+             ],
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "title":  "Context Packet Integration",
+    "buildPro":  "Context packets are REQUIRED at phase start, each agent spawn, recovery, and repair. No spawn_agent without validated context packet."
+}

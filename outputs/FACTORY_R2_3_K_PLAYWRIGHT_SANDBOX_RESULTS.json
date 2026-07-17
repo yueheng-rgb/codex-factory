@@ -1,0 +1,16 @@
+﻿{
+    "trialId":  "PLAYWRIGHT-TRIAL-001",
+    "serverUp":  true,
+    "playwrightOk":  true,
+    "gateDecision":  "REJECT",
+    "sandboxMode":  "disposable",
+    "ledgerId":  "TOOL-INV-TOOL-PLAYWRIGHT-VER-001-VER-001-20260710005716",
+    "tppGenerated":  true,
+    "playwrightStatus":  "available",
+    "caveats":  [
+                    "localhost only",
+                    "no external network",
+                    "disposable workspace",
+                    "human approved"
+                ]
+}

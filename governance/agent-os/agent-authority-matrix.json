@@ -1,0 +1,23 @@
+﻿{
+  "schemaId": "agent-authority-matrix",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T23:59:40+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-A",
+  "nativeGenerated": true,
+  "matrix": {
+    "spawn_agent": {"orchestrator":"ALLOWED","builder":"FORBIDDEN","integrator":"FORBIDDEN","verifier":"FORBIDDEN","auditor":"FORBIDDEN","explorer":"FORBIDDEN","recorder":"FORBIDDEN","platform":"FORBIDDEN"},
+    "write_worker_scope": {"orchestrator":"FORBIDDEN","builder":"CONTRACT_SCOPE_ONLY","integrator":"FORBIDDEN","verifier":"FORBIDDEN","auditor":"FORBIDDEN","explorer":"FORBIDDEN","recorder":"FORBIDDEN","platform":"FORBIDDEN"},
+    "merge_results": {"orchestrator":"FORBIDDEN","builder":"FORBIDDEN","integrator":"ALLOWED","verifier":"FORBIDDEN","auditor":"FORBIDDEN","explorer":"FORBIDDEN","recorder":"FORBIDDEN","platform":"FORBIDDEN"},
+    "issue_PASS_or_FAIL": {"orchestrator":"FORBIDDEN","builder":"FORBIDDEN","integrator":"FORBIDDEN","verifier":"ALLOWED","auditor":"FORBIDDEN","explorer":"FORBIDDEN","recorder":"FORBIDDEN","platform":"ALLOWED"},
+    "mutate_governance_state": {"orchestrator":"FORBIDDEN","builder":"FORBIDDEN","integrator":"FORBIDDEN","verifier":"FORBIDDEN","auditor":"FORBIDDEN","explorer":"FORBIDDEN","recorder":"FORBIDDEN","platform":"FORBIDDEN"},
+    "close_archive_agent": {"orchestrator":"ALLOWED","builder":"FORBIDDEN","integrator":"FORBIDDEN","verifier":"ALLOWED","auditor":"FORBIDDEN","explorer":"FORBIDDEN","recorder":"ALLOWED","platform":"FORBIDDEN"},
+    "declare_phase_complete": {"orchestrator":"ALLOWED","builder":"FORBIDDEN","integrator":"FORBIDDEN","verifier":"FORBIDDEN","auditor":"FORBIDDEN","explorer":"FORBIDDEN","recorder":"FORBIDDEN","platform":"FORBIDDEN"},
+    "read_all_artifacts": {"orchestrator":"ALLOWED","builder":"CONTRACT_SCOPE_ONLY","integrator":"ALLOWED","verifier":"ALLOWED","auditor":"ALLOWED","explorer":"ALLOWED","recorder":"ALLOWED","platform":"ALLOWED"},
+    "append_events": {"orchestrator":"FORBIDDEN","builder":"FORBIDDEN","integrator":"FORBIDDEN","verifier":"FORBIDDEN","auditor":"FORBIDDEN","explorer":"FORBIDDEN","recorder":"ALLOWED","platform":"FORBIDDEN"}
+  },
+  "rules": [
+    "Violation detection creates auditor risk signal",
+    "FORBIDDEN actions gate closure",
+    "CONTRACT_SCOPE_ONLY violations are scope contamination"
+  ]
+}

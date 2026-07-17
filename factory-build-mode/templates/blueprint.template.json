@@ -1,0 +1,20 @@
+﻿{
+    "template": "blueprint",
+    "version": "0.1.0",
+    "projectName": "",
+    "pages": [],
+    "apiEndpoints": [],
+    "databaseTables": [],
+    "permissions": {
+        "roles": [],
+        "accessMatrix": {}
+    },
+    "techStack": {
+        "frontend": "",
+        "backend": "",
+        "database": "",
+        "auth": ""
+    },
+    "firstVersionScope": [],
+    "deferredFeatures": []
+}

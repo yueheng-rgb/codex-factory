@@ -1,0 +1,42 @@
+﻿[
+    {
+        "ncId":  "NC-A",
+        "description":  "loopback_only+external host =\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "ncId":  "NC-B",
+        "description":  "no_network+localhost =\u003e PASS (hosts ignored for no_network)",
+        "passed":  true
+    },
+    {
+        "ncId":  "NC-C",
+        "description":  "external_api+no secrets in local-first =\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "ncId":  "NC-D",
+        "description":  "external_write in local-first =\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "ncId":  "NC-E",
+        "description":  "loopback_only+public IP =\u003e REJECT (boundary_violation)",
+        "passed":  true
+    },
+    {
+        "ncId":  "NC-F",
+        "description":  "Stitch MCP external_api local-first =\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "ncId":  "NC-G",
+        "description":  "Search adapter no_network =\u003e ALLOW in local-first (with human approval)",
+        "passed":  true
+    },
+    {
+        "ncId":  "NC-H",
+        "description":  "DB MCP external_api local-first =\u003e REJECT",
+        "passed":  true
+    }
+]

@@ -1,0 +1,48 @@
+﻿{
+  "packetId": "startup-packet",
+  "purpose": "New window startup — recover project state from artifacts only",
+  "generatedAt": "2026-06-25T00:10:02+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-3-B",
+  "requiredReadFiles": [
+    "governance/factory-state/current-factory-state.json",
+    "governance/factory-state/session-rotation-handoff.json",
+    "governance/context-os/FACTORY_MEMORY_INDEX.json",
+    "governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json",
+    "outputs/CODEX_FACTORY_FINAL_PACKAGE.sha256"
+  ],
+  "trustedFacts": [
+    "currentTrustedPhase: FINAL",
+    "finalZipExists: true",
+    "finalPackageStatus: CREATED_AND_VALIDATED",
+    "pluginStatus: EXPERIMENTAL (not production-ready)",
+    "Agent OS: established (LIVE-RUNTIME-2)",
+    "Context OS: established (LIVE-RUNTIME-3)"
+  ],
+  "activeRisks": [
+    "Shared memory divergence (P0, unresolved)",
+    "Verifier overfitting (P1, unresolved)",
+    "Automation rotation watcher not implemented"
+  ],
+  "rejectedClaims": [
+    "Full context inheritance",
+    "Automatic window creation",
+    "Plugin production-ready",
+    "Automation production-ready",
+    "Compressed summary as evidence"
+  ],
+  "nextActions": [
+    "Run factoryctl verify -Json",
+    "Validate FINAL ZIP SHA256",
+    "Check cross-session reconciliation",
+    "Consult FACTORY_MEMORY_INDEX for current state"
+  ],
+  "verifierCommands": [
+    "powershell -File scripts/factoryctl.ps1 verify -Json",
+    "powershell -File scripts/live-runtime/check-cross-session-state-reconciliation.ps1 -Json",
+    "powershell -File scripts/live-runtime/check-agent-capacity-preflight.ps1 -Json"
+  ],
+  "sourceMemoryIds": ["MEM-0001","MEM-0002","MEM-0003","MEM-0012","MEM-0013","MEM-0019"],
+  "maxRecommendedTokens": 3000,
+  "nativeGenerated": true,
+  "compressedSummaryNotUsed": true
+}

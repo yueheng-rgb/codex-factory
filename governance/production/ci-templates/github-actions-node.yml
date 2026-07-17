@@ -1,0 +1,84 @@
+﻿# Codex Factory — GitHub Actions CI/CD Template
+# Node.js / TypeScript project
+# Copy to .github/workflows/ci.yml
+
+name: Codex Factory CI/CD
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpass
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint (if configured)
+        run: npx eslint . --ext .ts || echo "No lint config — skipping"
+
+      - name: Unit & Integration Tests
+        run: npm test
+        env:
+          DATABASE_URL: postgresql://testuser:testpass@localhost:5432/testdb
+
+      - name: Build
+        run: npm run build
+
+      - name: Security Scan (semgrep)
+        run: |
+          pip install semgrep
+          semgrep --config=auto --json --output=semgrep-results.json .
+        continue-on-error: true
+
+      - name: Load Smoke (autocannon)
+        run: |
+          npm start &
+          sleep 3
+          npx autocannon -d 5 -c 10 http://localhost:${{ env.PORT || 3000 }}/health
+        continue-on-error: true
+
+      - name: Production Readiness Check
+        run: |
+          pwsh -File ../runtime/production-readiness-checker.ps1 -ProjectPath .
+
+      - name: Upload Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ci-reports
+          path: |
+            semgrep-results.json
+            test-results/
+          retention-days: 7

@@ -1,0 +1,30 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P8",
+  "section": "B",
+  "title": "Staging Version and Boundary Update",
+  "timestamp": "2026-06-28T18:10:00+08:00",
+  "version_updates": {
+    "basedOn": "FACTORY-BUILD-PACK-STAGING-P8 (was P6)",
+    "p7Integrated": true,
+    "p8Integrated": true,
+    "new_flags": {
+      "minimalMemoryIngestionIncluded": true,
+      "socraticClarificationGateIncluded": true,
+      "retentionCleanupIncluded": true,
+      "userControlledForgetIncluded": true,
+      "cleanupDefaultMode": "PLAN",
+      "deleteRequiresTwoStepConfirmation": true,
+      "coreEvidenceProtectedByDefault": true
+    },
+    "preserved": {
+      "releaseAllowed": false,
+      "v05Package": false,
+      "status": "STAGING_NOT_RELEASE",
+      "buildLiteDefault": true,
+      "nativeBuildProConditional": true,
+      "all_security_gates": true
+    }
+  },
+  "p8_changes_summary": "VERSION updated with 7 new flags for memory-quality P2+P3 integration. All non-release boundaries preserved.",
+  "status": "VERSION_BOUNDARY_UPDATED"
+}

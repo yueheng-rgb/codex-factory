@@ -1,0 +1,37 @@
+﻿{
+  "phase": "FACTORY-EVAL-7",
+  "title": "Factory Role-Agent Run Result — RUN-C",
+  "runId": "FACTORY-EVAL-7-RUN-C-ROLE-AGENT",
+  "runType": "FACTORY_ROLE_AGENT",
+  "status": "COMPLETED",
+  "verifierResult": "30/30 PASS",
+  "negativeControls": "48/48 PASS, 0 gaps",
+  "createdAt": "2026-06-25T19:48:00+08:00",
+  "summary": {
+    "productImplemented": true,
+    "functionalRequirements": "11/11 FRs implemented",
+    "testCoverage": "29 tests covering all FRs",
+    "roleProfiles": "10 role profiles with owned/forbidden scopes",
+    "proofOfRead": "9 Proof-of-Read receipts for all active roles",
+    "crossRoleContracts": "8 contracts covering all role boundaries",
+    "roleHandoffs": "8 handoffs with evidence paths",
+    "integratorReport": "7 consistency checks, 0 issues",
+    "securityReview": "15/15 security checks PASS",
+    "qaReport": "29 tests designed",
+    "verifierAuditorReadonly": true,
+    "processOverhead": "~1555ms estimated",
+    "roleDriftChecks": "7 checks, all NO_DRIFT",
+    "humanInterventions": 0,
+    "contaminationDetected": "NONE",
+    "finalPackageUnchanged": true,
+    "noEffectivenessClaims": true
+  },
+  "preflightRecheck": {
+    "finalPackageSHA": "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+    "finalPackageUnchanged": true,
+    "noNewFinalZip": true,
+    "runARunBProductNotRead": true
+  },
+  "closure": "FACTORY-EVAL-7 PASS. RUN-C Role-Agent independently implemented TeamFlow Lite using 10-role company model with Manual Router, Proof-of-Read, cross-role contracts, role handoffs, security review, QA testing, verifier/auditor readonly checks, and 48 negative controls with 0 gaps.",
+  "recommendedNextPhase": "FACTORY-EVAL-8 / Independent Effectiveness Comparison (compare RUN-A Vanilla vs RUN-B Factory Lite vs RUN-C Role-Agent)"
+}

@@ -1,0 +1,105 @@
+﻿{
+  "phase": "V1.3",
+  "title": "Unified v1.3 Capability Closure Matrix",
+  "generated": "2026-07-11",
+  "capabilities": [
+    {
+      "capability": "Trusted Project Memory",
+      "before": "MISSING — no defense against compression drift",
+      "after": "IMPLEMENTED — state store, admission gate, stale context detector, resume gate",
+      "evidence": "runtime/trusted-project-state-store.ps1, runtime/memory-admission-gate.ps1, runtime/stale-context-detector.ps1, runtime/resume-gate.ps1",
+      "remaining_gap": "Manual state initialization required; no automatic state sync from reports",
+      "next_recommendation": "Auto-sync from audit ledger and benchmark runs",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "Compression Defense",
+      "before": "MISSING — compression summaries could silently corrupt context",
+      "after": "IMPLEMENTED — compression summary verifier detects conflicts with trusted state",
+      "evidence": "runtime/compression-summary-verifier.ps1 — NC1, NC4 demos pass",
+      "remaining_gap": "Keyword-based detection; deeper semantic comparison needed for nuance",
+      "next_recommendation": "Add semantic similarity check for summary vs state drift",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "Audit Trail",
+      "before": "PARTIAL — evidence scattered across reports",
+      "after": "IMPLEMENTED — audit ledger with structured entries, command binding, exit codes",
+      "evidence": "runtime/audit-ledger.ps1, schemas/audit-trail.schema.json",
+      "remaining_gap": "Auto-population from test runs not yet automated",
+      "next_recommendation": "Integrate audit ledger with npm test hooks",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "Evidence Hash Chain",
+      "before": "MISSING — no tamper-evident chain",
+      "after": "IMPLEMENTED — SHA256 hash chain linking sequential entries",
+      "evidence": "runtime/evidence-hash-chain.ps1 — chain_valid: true",
+      "remaining_gap": "Local file-based; not distributed/blockchain-grade",
+      "next_recommendation": "Export hash chain for external verification",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "Multi-Agent Stress Test",
+      "before": "DOCUMENTED_ONLY — protocol exists but untested under stress",
+      "after": "VALIDATED — 5 stress scenarios, 3 PASS, 2 correctly BLOCKED/QUARANTINED",
+      "evidence": "outputs/V1_3_MULTI_AGENT_STRESS_RESULTS.json",
+      "remaining_gap": "Real multi-worker execution with Codex spawn_agent not simulated",
+      "next_recommendation": "Real multi-worker pilot with actual Codex sub-agents",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "External Engine Reliability",
+      "before": "PARTIAL — 3/6 available, some reliability issues",
+      "after": "ASSESSED — reliability matrix complete; 1 HIGH, 1 MEDIUM, 1 LOW reliability",
+      "evidence": "outputs/V1_3_ENGINE_RELIABILITY_MATRIX.json, engine registry v2",
+      "remaining_gap": "Playwright browser mismatch; CodeQL/k6 require install",
+      "next_recommendation": "Playwright browser fix; CodeQL/k6 user install guide",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "Production-Like Delivery",
+      "before": "PARTIAL — readiness checker exists, Docker missing",
+      "after": "IMPLEMENTED — Dockerfile, docker-compose.yml, .env.example, healthz pattern",
+      "evidence": "testbeds/saas-runtime-validation/Dockerfile, docker-compose.yml, .env.example",
+      "remaining_gap": "In-memory store still production gap; Postgres mode only uncommented",
+      "next_recommendation": "Real Postgres migration + seed for one testbed",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "Expert Pack Runtime Validation",
+      "before": "3 packs, all validated",
+      "after": "MAINTAINED — 3 packs, 114 invariant tests, all PASS",
+      "evidence": "testbeds/ecommerce-runtime-validation (29), saas-runtime-validation (27), admin-system-runtime-validation (58)",
+      "remaining_gap": "No miniapp/game/C++ packs",
+      "next_recommendation": "v2.0 Expert Pack expansion",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "Regression System",
+      "before": "172/172 PASS",
+      "after": "MAINTAINED — 172/172 PASS across 6 testbeds",
+      "evidence": "All 6 testbeds: product-api 23, mini-inventory 22, ecommerce 29, saas 27, admin 58, node-starter 13",
+      "remaining_gap": "No cross-testbed integration tests",
+      "next_recommendation": "Cross-testbed scenario tests",
+      "production_claim_allowed": false
+    },
+    {
+      "capability": "Benchmark System",
+      "before": "10/10 PASS, capability matrix v3",
+      "after": "MAINTAINED — benchmark suite v3 unchanged, all metrics 100%",
+      "evidence": "outputs/R6_1_benchmark_suite_v3.json, outputs/R6_1_capability_matrix_v3.json",
+      "remaining_gap": "No miniapp/mobile-app runnable benchmarks",
+      "next_recommendation": "Add runnable benchmarks for new project types in v2.0",
+      "production_claim_allowed": false
+    }
+  ],
+  "summary": {
+    "capabilities_assessed": 10,
+    "newly_implemented": 5,
+    "maintained": 3,
+    "upgraded": 2,
+    "production_claims": 0,
+    "overall_status": "V1.3 TRUST CLOSURE COMPLETE — all capabilities assessed, no production claims"
+  }
+}

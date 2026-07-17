@@ -1,0 +1,30 @@
+﻿{
+    "phase_close_id": "FACTORY-BUILD-REALWORLD-2-P1-PHASE-CLOSE-CONTEXT-UPDATE",
+    "generated_at": "2026-06-28T10:20:39+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P1",
+    "section": "L",
+    "phase_close_script": "scripts/phase-close-context-update.ps1",
+    "updates_succeeded": 17,
+    "updates_failed": 0,
+    "phase_close_steps": [
+        {"step": 1, "name": "Verifier validated", "result": "OK"},
+        {"step": 2, "name": "Duplicate phase check", "result": "OK"},
+        {"step": 3, "name": "Phase-ledger updated", "result": "OK"},
+        {"step": 4, "name": "Decision-ledger updated", "result": "OK"},
+        {"step": 5, "name": "Claim-ledger updated", "result": "OK"},
+        {"step": 6, "name": "Risk-ledger updated", "result": "OK"},
+        {"step": 7, "name": "Evidence-index updated", "result": "OK"},
+        {"step": 8, "name": "SQLite index rebuilt", "result": "OK"},
+        {"step": 9, "name": "8 Snapshot Packs regenerated", "result": "OK"},
+        {"step": 10, "name": "Attach Packet v3 regenerated", "result": "OK"},
+        {"step": 11, "name": "Direction-guard updated", "result": "OK"},
+        {"step": 12, "name": "Mount readiness check", "result": "READY 10/10"}
+    ],
+    "mount_readiness_post_close": {
+        "ready": true,
+        "checks_passed": 10,
+        "checks_total": 10
+    },
+    "warnings": ["P5/P6 timestamps adjusted for chronological consistency"],
+    "verdict": "PHASE_CLOSE_COMPLETE"
+}

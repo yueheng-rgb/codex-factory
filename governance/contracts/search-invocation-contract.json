@@ -1,0 +1,71 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "search-invocation-contract.json",
+  "title": "Search Invocation Contract — Single WebSearch Tool Pipeline",
+  "description": "Defines the hard rules for what constitutes a valid live_search invocation in Codex Factory. Any search result that does not meet these rules MUST be classified as D (invalid) or C (failed).",
+  "phase": "R2.3-S",
+  "version": "1.0.0",
+  "pipeline": "need_search → Provider Selector → WebSearch Tool/API/MCP → Quality Gate → Research Intake → Evidence Pack → Agents",
+
+  "rules": {
+    "selectedSearchPath": {
+      "active": "ZhipuAI GLM-4 Chat Completions + tools=[{type:\"web_search\"}]",
+      "description": "Server-side web_search invocation via ZhipuAI GLM-4. Model receives search results in context and returns URLs in response content.",
+      "forbidden": [
+        "Plain chat completion without tools",
+        "LLM knowledge answer as search result",
+        "Mock/dry_run/manual labeled as live_search"
+      ]
+    },
+
+    "fatalQualityGates": [
+      "response_not_mock",
+      "response_not_dry_run",
+      "external_source_url_present",
+      "source_title_present",
+      "source_snippet_or_content_present",
+      "source_is_not_provider_api_endpoint",
+      "source_is_not_llm_knowledge_answer",
+      "search_invocation_present",
+      "no_secret_leak",
+      "evidence_pack_schema_valid"
+    ],
+
+    "sourceRequirements": {
+      "minExternalUrls": 1,
+      "requiredFields": ["title", "url", "snippet_or_content"],
+      "forbiddenAsSource": [
+        "open.bigmodel.cn/api/paas (API endpoint)",
+        "api.openai.com/v1",
+        "api.anthropic.com/v1",
+        "Any provider API endpoint URL"
+      ]
+    },
+
+    "evidencePackRequirements": {
+      "requiredTopLevel": ["phase", "mode", "provider", "search_invoked", "query", "runtime_timestamp", "sources", "quality_gate", "secret_safety", "downstream_readonly"],
+      "requiredPerSource": ["title", "url", "snippet_or_content", "provider", "is_external_source"],
+      "forbiddenInEP": ["api_key", "secret", "raw_request_headers", "bearer_token"]
+    },
+
+    "classificationRules": {
+      "A": "LIVE_SEARCH_TOOL_OR_API_INVOKED_AND_EP_VERIFIED: all fatal gates pass, external sources present",
+      "B": "LIVE_PROVIDER_API_CONNECTED_BUT_SEARCH_NOT_INVOKED: provider API call succeeded but web_search tool was not triggered",
+      "C": "LIVE_SEARCH_ATTEMPT_FAILED_WITH_EVIDENCE: invocation attempted but quality gate rejected",
+      "D": "INVALID / MOCKED / DRY_RUN / KNOWLEDGE_ANSWER_MISLABELED: plain chat, mock, or regression"
+    },
+
+    "agentAccessControl": {
+      "canTriggerSearch": ["RSRC-001", "LIB-001"],
+      "canReadEvidencePack": ["RSRC-001", "LIB-001", "ARCH-001", "VER-001", "IMPL-FE-001", "IMPL-BE-001"],
+      "canCallProviderDirectly": [],
+      "forbiddenFromProvider": ["IMPL-*"]
+    }
+  },
+
+  "phaseHistory": {
+    "R2.3-Q": "Provider API connected, search NOT verified (corrected from A to A_PROVIDER)",
+    "R2.3-R": "Search tool/API invoked and EP verified (Classification A)",
+    "R2.3-S": "Pipeline consolidated with regression guardrails (this contract)"
+  }
+}

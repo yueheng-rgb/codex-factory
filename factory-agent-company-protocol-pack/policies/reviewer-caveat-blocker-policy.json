@@ -1,0 +1,17 @@
+﻿# Reviewer Caveat Blocker Policy (P1)
+
+**Status:** P1-candidate
+
+## Policy
+Reviewer-Verifier closure-critical caveats are BLOCKING. Phase cannot close with unmet floors, missing modules, endpoint gaps, or contamination.
+
+## Blocking Categories
+- endpointDeficit, moduleDeficit, testDeficit, floorMiss
+- qualityGap, contaminationDetected, hiddenFallbackDetected, scopeViolationDetected
+
+## Non-Blocking
+- codeStyleVariance, documentationFormatting, minorRedundancy, nonCriticalOptimization
+
+## Escape
+Only via: User explicit waiver OR builder repair + Reviewer-Verifier re-check.
+No silent pass. No caveat-to-warning downgrade.

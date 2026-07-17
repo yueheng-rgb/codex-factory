@@ -1,0 +1,110 @@
+{
+    "verifier":  "factory-eval-6-p1-state-reconciliation",
+    "passed":  20,
+    "timestamp":  "2026-06-25T19:16:38+08:00",
+    "failed":  0,
+    "result":  "ALL_CHECKS_PASS",
+    "checks":  [
+                   {
+                       "detail":  "Root: C:\\Codex_App_Factory",
+                       "result":  "PASS",
+                       "name":  "Correct repo root"
+                   },
+                   {
+                       "detail":  "Found",
+                       "result":  "PASS",
+                       "name":  "FINAL package exists"
+                   },
+                   {
+                       "detail":  "SHA: 01640C0A9257E613...",
+                       "result":  "PASS",
+                       "name":  "FINAL package SHA matches expected"
+                   },
+                   {
+                       "detail":  "Only FINAL package exists",
+                       "result":  "PASS",
+                       "name":  "No new ZIP created"
+                   },
+                   {
+                       "detail":  "Modified: 2026-06-24T22:33:38",
+                       "result":  "PASS",
+                       "name":  "FINAL package not modified"
+                   },
+                   {
+                       "detail":  "P1 banner present, corrected statement present",
+                       "result":  "PASS",
+                       "name":  "EVAL-6 report repaired"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Verifier gap analysis exists"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Product integrity recheck exists"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Reconciliation JSON exists"
+                   },
+                   {
+                       "detail":  "exists=true, match=true",
+                       "result":  "PASS",
+                       "name":  "Result JSON has correct FINAL status"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Product implementation intact"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "Test results valid (30 passed)"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "P1 output reports (4/4)"
+                   },
+                   {
+                       "detail":  "14/14",
+                       "result":  "PASS",
+                       "name":  "P1 negatives: 0 gaps"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "No generic FAIL"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "No expectedClass-only"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "No manual PASS-only"
+                   },
+                   {
+                       "detail":  "",
+                       "result":  "PASS",
+                       "name":  "No preclassified-only"
+                   }
+               ],
+    "totalChecks":  20
+}

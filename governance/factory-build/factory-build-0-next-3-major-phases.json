@@ -1,0 +1,72 @@
+﻿{
+    "phase": "FACTORY-BUILD-0",
+    "subPhase": "H_NEXT_3_MAJOR_PHASES",
+    "date": "2026-06-27",
+    "nextPhases": [
+        {
+            "id": "FACTORY-BUILD-1",
+            "name": "Build Mode MVP",
+            "goal": "Produce a Build Harness MVP that can accept project requirements, auto-select execution mode, generate blueprint and task graph, execute a build, and pass through Diagnostic Gate.",
+            "mustInclude": [
+                "Project intake (path/requirements → manifest)",
+                "Complexity classifier (SIMPLE/MODERATE/COMPLEX)",
+                "Mode selector (Vanilla/Build Lite/Build Pro routing)",
+                "Blueprint generator (pages, APIs, DB, permissions)",
+                "Task graph generator (dependency-ordered, file ownership)",
+                "Build execution engine (single-agent default)",
+                "Diagnostic gate integration (Quick Mode wired in)",
+                "State file update (state.json created and maintained)",
+                "One-command instruction template for Codex",
+                "Verifier + negative controls"
+            ],
+            "deliverable": "A documented, runnable Build Harness that can take any project and produce a working build plan + execute it",
+            "estimatedScope": "One large phase covering all Build Harness MVP components",
+            "dependsOn": "FACTORY-BUILD-0 (this phase)"
+        },
+        {
+            "id": "FACTORY-BUILD-2",
+            "name": "External Memory MVP",
+            "goal": "Implement file-based external memory so Codex can continue complex projects across sessions without relying on window conversation memory.",
+            "mustInclude": [
+                "project-state (state.json schema + writer/reader)",
+                "architecture-map (persist blueprint decisions)",
+                "requirement-map (traceability)",
+                "decision log (decisions.md with rationale)",
+                "task graph (persist + resume)",
+                "active risks (risks.json)",
+                "handoff packet (handoff-packet.md generator)",
+                "retrieval script (factory-state-retrieve.ps1)",
+                "startup check (verify state files exist and are consistent)",
+                "Verifier + negative controls"
+            ],
+            "deliverable": "A file-based external memory system that enables multi-session complex project development",
+            "estimatedScope": "One large phase covering all state file components + retrieval mechanism",
+            "dependsOn": "FACTORY-BUILD-1 (needs Build Harness to populate state)"
+        },
+        {
+            "id": "FACTORY-BUILD-3",
+            "name": "Real Complex Project Build Trial",
+            "goal": "Use the full Build Harness + External Memory to build a real complex project from requirements to delivery, comparing Vanilla vs Build Mode outcomes.",
+            "mustInclude": [
+                "Select a real complex project (not SkillMarket, not a toy)",
+                "Baseline: single Codex or Vanilla build attempt",
+                "Build Mode run: intake → classify → blueprint → task graph → build → diagnostic → deliver",
+                "Diagnostic gate results (Quick/Full mode)",
+                "Targeted repair cycle (if needed)",
+                "Continuation/handoff test (new window resumes from state)",
+                "Outcome comparison: Vanilla vs Build Mode (metrics TBD)",
+                "Verifier + negative controls"
+            ],
+            "deliverable": "Evidence that Build Harness + External Memory can complete a real complex project",
+            "estimatedScope": "One large phase — the real trial",
+            "dependsOn": "FACTORY-BUILD-2 (needs External Memory for multi-session)"
+        }
+    ],
+    "phaseDesignPrinciples": [
+        "Each phase is ONE large-block objective, not a collection of small tasks",
+        "No splitting into BUILD-1a, BUILD-1b, etc.",
+        "Each phase produces a concrete, verifiable deliverable",
+        "Phases build on each other: Harness → Memory → Real Trial",
+        "Diagnostic Pack is a gate in each phase, not a separate phase"
+    ]
+}

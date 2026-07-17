@@ -1,0 +1,209 @@
+﻿{
+    "passed":  33,
+    "checkedAt":  "2026-06-24T23:55:25+08:00",
+    "command":  "live-runtime-1-verify",
+    "totalChecks":  33,
+    "phase":  "LIVE-RUNTIME-1",
+    "verdict":  "PASS",
+    "checks":  [
+                   {
+                       "detail":  "CREATED_AND_VALIDATED",
+                       "result":  true,
+                       "name":  "FINAL_PACKAGE_UNCHANGED",
+                       "id":  1
+                   },
+                   {
+                       "detail":  "ZIP count OK",
+                       "result":  true,
+                       "name":  "NO_NEW_FINAL_ZIP",
+                       "id":  2
+                   },
+                   {
+                       "detail":  "LIVE-RUNTIME-0 exists",
+                       "result":  true,
+                       "name":  "LIVE_RUNTIME_0_ARTIFACTS_EXIST",
+                       "id":  3
+                   },
+                   {
+                       "detail":  "Priority JSON",
+                       "result":  true,
+                       "name":  "PRIORITY_RECONCILIATION_EXISTS",
+                       "id":  4
+                   },
+                   {
+                       "detail":  "Priority report",
+                       "result":  true,
+                       "name":  "PRIORITY_RECONCILIATION_REPORT_EXISTS",
+                       "id":  5
+                   },
+                   {
+                       "detail":  "Repair JSON",
+                       "result":  true,
+                       "name":  "LIFECYCLE_REPAIR_EXISTS",
+                       "id":  6
+                   },
+                   {
+                       "detail":  "Archive index",
+                       "result":  true,
+                       "name":  "ARCHIVE_INDEX_EXISTS",
+                       "id":  7
+                   },
+                   {
+                       "detail":  "Quarantine index",
+                       "result":  true,
+                       "name":  "QUARANTINE_INDEX_EXISTS",
+                       "id":  8
+                   },
+                   {
+                       "detail":  "Close receipts",
+                       "result":  true,
+                       "name":  "CLOSE_RECEIPTS_EXIST",
+                       "id":  9
+                   },
+                   {
+                       "detail":  "Total: 67",
+                       "result":  true,
+                       "name":  "ALL_AGENTS_CLASSIFIED",
+                       "id":  10
+                   },
+                   {
+                       "detail":  "unsafeStale=0",
+                       "result":  true,
+                       "name":  "UNSAFE_STALE_ZERO",
+                       "id":  11
+                   },
+                   {
+                       "detail":  "active=0",
+                       "result":  true,
+                       "name":  "ARCHIVED_EXCLUDED_FROM_ACTIVE",
+                       "id":  12
+                   },
+                   {
+                       "detail":  "quarantined=0",
+                       "result":  true,
+                       "name":  "QUARANTINE_TOTAL",
+                       "id":  13
+                   },
+                   {
+                       "detail":  "Preflight script",
+                       "result":  true,
+                       "name":  "PREFLIGHT_SCRIPT_EXISTS",
+                       "id":  14
+                   },
+                   {
+                       "detail":  "Preflight result",
+                       "result":  true,
+                       "name":  "PREFLIGHT_RESULT_EXISTS",
+                       "id":  15
+                   },
+                   {
+                       "detail":  "allowedToSpawn=True",
+                       "result":  true,
+                       "name":  "PREFLIGHT_ALLOWED",
+                       "id":  16
+                   },
+                   {
+                       "detail":  "unsafeStale=0",
+                       "result":  true,
+                       "name":  "PREFLIGHT_NO_UNSAFE_STALE",
+                       "id":  17
+                   },
+                   {
+                       "detail":  "Reconciliation script",
+                       "result":  true,
+                       "name":  "RECON_SCRIPT_EXISTS",
+                       "id":  18
+                   },
+                   {
+                       "detail":  "Reconciliation result",
+                       "result":  true,
+                       "name":  "RECON_RESULT_EXISTS",
+                       "id":  19
+                   },
+                   {
+                       "detail":  "Verdict: CONSISTENT",
+                       "result":  true,
+                       "name":  "RECON_CONSISTENT",
+                       "id":  20
+                   },
+                   {
+                       "detail":  "Watcher plan",
+                       "result":  true,
+                       "name":  "WATCHER_PLAN_EXISTS",
+                       "id":  21
+                   },
+                   {
+                       "detail":  "nonMutating=True",
+                       "result":  true,
+                       "name":  "WATCHER_NON_MUTATING",
+                       "id":  22
+                   },
+                   {
+                       "detail":  "productionReady=False",
+                       "result":  true,
+                       "name":  "WATCHER_NOT_PRODUCTION",
+                       "id":  23
+                   },
+                   {
+                       "detail":  "Negatives result",
+                       "result":  true,
+                       "name":  "NEGATIVES_EXIST",
+                       "id":  24
+                   },
+                   {
+                       "detail":  "Count: 18",
+                       "result":  true,
+                       "name":  "NEGATIVES_18",
+                       "id":  25
+                   },
+                   {
+                       "detail":  "gaps=0",
+                       "result":  true,
+                       "name":  "NEGATIVES_ZERO_GAPS",
+                       "id":  26
+                   },
+                   {
+                       "detail":  "unexpected=0",
+                       "result":  true,
+                       "name":  "NEGATIVES_NO_UNEXPECTED",
+                       "id":  27
+                   },
+                   {
+                       "detail":  "Machine-generated",
+                       "result":  true,
+                       "name":  "NO_MANUAL_PASS",
+                       "id":  28
+                   },
+                   {
+                       "detail":  "Explicit checks",
+                       "result":  true,
+                       "name":  "NO_EXPECTEDCLASS_ONLY",
+                       "id":  29
+                   },
+                   {
+                       "detail":  "Specific checks",
+                       "result":  true,
+                       "name":  "NO_GENERIC_FAIL",
+                       "id":  30
+                   },
+                   {
+                       "detail":  "Computed verdicts",
+                       "result":  true,
+                       "name":  "NO_PRECLASSIFIED_ONLY",
+                       "id":  31
+                   },
+                   {
+                       "detail":  "No Agent OS",
+                       "result":  true,
+                       "name":  "NO_AGENT_OS",
+                       "id":  32
+                   },
+                   {
+                       "detail":  "No Context OS",
+                       "result":  true,
+                       "name":  "NO_CONTEXT_OS",
+                       "id":  33
+                   }
+               ],
+    "failed":  0
+}

@@ -1,0 +1,59 @@
+﻿{
+    "created":  1783703348,
+    "id":  "2026071101090733c8ec42182d421d",
+    "request_id":  "r2-3-w-task2b-010858",
+    "search_intent":  [
+                          {
+                              "intent":  "SEARCH_ALWAYS",
+                              "keywords":  "rbac permissions 加快 authorizatio",
+                              "query":  "Fastify CASL rbac permissions guard decorator preHandler authorizatio"
+                          }
+                      ],
+    "search_result":  [
+                          {
+                              "content":  "RBAC（Role-Based Access Control）是最通用的权限访问控制系统。其思想是，不直接授予具体用户各种权限，而是在用户集合和权限集合之间建立角色集合。每种角色对应一组相应的权限，一旦用户被分配适当的角色，他就拥有此角色的所有权限。这样做的好处是，不必在每次创建用户时都分配权限，只要给用户分配相应的角色即可，并且角色的权限变更比用户的权限变更要少得多，这将简化用户的权限管理，减少系统开销。RBAC 有三种模型。它是其它 RBAC 模型的基础。在该模型中，用户和角色之间是多对多的关系，每个角色至少有一个权限。在 RBAC0 的基础上，引入角色间的继承关系，即角色有上下级的区别。角色间的继承关系可分为一般继承关系和受限继承关系。一般继承关系要求角色继承关系是绝对偏序关系，允许角色间的多继承。而受限继承关系则进一步要求角色继承关系是树状结构，实现角色间的单继承。在 RBAC0 的基础上，引入角色的访问控制。该模型有以下两种约束：Ory Permissions（基于开源的 Ory Keto Permission Server）是第一个、唯一的Zanzibar：Google 的一致的、全球的授权系统”的开源实现。如果你需要知道是否允许一个用户做某些事情 - Ory Permissions 非常适合你。Ory Permission 实现基本的 API 契约，用于使用 HTTP 和 gRPC API 管理和检查关系（权限”）。未来的版本将包含用户集重写（比如 RBAC 风格的角色-权限模型）、Zookies 等特性。Ory 软件可以运",
+                              "icon":  "https://sfile.chatglm.cn/searchImage/zhuanlan_zhihu_com_icon_new.jpg",
+                              "link":  "https://zhuanlan.zhihu.com/p/637283518",
+                              "media":  "知乎专栏",
+                              "publish_date":  "2023-06-15",
+                              "refer":  "ref_1",
+                              "title":  "RBAC 和 Keto（Go RBAC 框架）（发布时间：2023-06-15 22:11:34）"
+                          },
+                          {
+                              "content":  "RBAC是一种基于角色实现访问控制的权限管理机制，通过定义角色和权限、用户和角色、角色和角色之间的关系，实现多层次、细粒度、可复用的权限管理系统。原文: Role-based Access Control (RBAC) ModelAvery Pennarun写的\u0026#34;RBAC like it was meant to be非常值得一读。在web或移动应用中，访问权限控制机制是保证系统安全的重要手段，其中最常见的就是基于角色的访问控制(RBAC, Role-based Access Control)。基于角色的访问控制是传统访问控制(自主访问、强制访问)的一种有前途的替代方案。在RBAC模式下，权限与角色相关联，从而大大简化了对权限的管理。组织为了完成各种任务，从而创建了角色，用户根据职责和技能被分配到相应的角色，也可以从一个角色分配到另一个角色。新角色可以根据新需求和系统集成赋予新的权限，也可以从角色中撤回权限。可以建立角色-角色关系来包含更广泛的客观情况。User -\u0026gt; Role -\u0026gt; Permissions -\u0026gt; resourcesNIST RBAC96模型是由美国国家标准与技术研究院开发的标准化RBAC定义。4个基本概念模型:RBAC授权的过程可以抽象为:StackOverflow的Q/A帖子\u0026#34;如何设计基于角色的分层访问控制系统\u0026#34;是一个很好的例子，值得一读。History-based access controlPattern-Oriented Software Architecture - A",
+                              "icon":  "https://sfile.chatglm.cn/searchImage/zhuanlan_zhihu_com_icon_new.jpg",
+                              "link":  "https://zhuanlan.zhihu.com/p/660475724",
+                              "media":  "知乎专栏",
+                              "publish_date":  "2023-10-15",
+                              "refer":  "ref_2",
+                              "title":  "深入理解RBAC（发布时间：2023-10-15 11:20:36）"
+                          },
+                          {
+                              "content":  "RBAC（Role-Based Access Control）基于角色的权限访问控制是权限访问系统中业界公认的标准，与传统的权限分配方式（用户直接与权限绑定）相比，RBAC增强了扩展性，提高了效率，尤其在用户量多的场景。有了角色以后，我们只需为角色定制相应的权限，将相同权限的用户指定为同一个角色即可。\nRBAC需要对系统的所有资源进行权限控制，系统资源可以简单总结为静态资源（页面，数据列）和动态资源（数据），也分别称为对象资源和数据资源。RBAC就是对系统的所有资源进行权限控制。\n相关概念\n用户\n用户既是系统的使用者，也是系统的操作者。用户可以只有一个角色，也可以拥有多个角色，可以属于一个组也可以属于多个组，用户的权限集合包括其角色拥有的权限以及所属组拥有的权限的集合。\n角色\n角色表示一定数量的权限的集合，权限分配的单位与载体，目的是隔离用户与资源之间的逻辑关系。\n角色是为许多拥有相似权限的用户进行的分类管理，角色具有上下级关系，可形成树状结构，父级角色的权限是自身以及子角色权限的总和。角色作为用于与权限的代理层，解耦了权限与用户的关系，所有的授权应该给与角色而不是直接分配给用户或组。\n权限\n权限及用户对资源可以进行的操作，比如CURD。角色与权限是一个多对多的关系。\nRBAC模型的分类\n目前得到普遍公认的是没过George Mason大学信息安全实验室提出的RBAC96模型，分为RBAC0、RBAC1、RBAC2、RBAC3，RBAC0是基础，相当于底层逻辑，RBAC1、RBAC2、RBAC3都是以RBAC0为基础进行的升级，在常规权限系统中，RBAC0模型",
+                              "icon":  "https://sfile.chatglm.cn/searchImage/blog_csdn_net_icon_new.jpg",
+                              "link":  "https://blog.csdn.net/honor_zhang/article/details/118488984",
+                              "media":  "CSDN博客",
+                              "publish_date":  "2021-07-05",
+                              "refer":  "ref_3",
+                              "title":  "RBAC基于角色的权限访问控制介绍（发布时间：2021-07-05 16:17:09）"
+                          },
+                          {
+                              "content":  "专利名称：一种基于rbac模型扩展的面向业务的授权访问控制方法\n技术领域：本发明涉及应用系统授权访问控制领域，特别是涉及一种基于角色的访问控 制(RBAC， Role-Based Access Control)与面向业务相结合的方法。\n背景技术：应用系统的安全一般包括五个范畴，分别是身份验证、授权访问控制、安全 审计、数据私密性和完整性。其中的授权访问控制是指一旦特定用户的身份通过 认证后，确定哪些资源该用户可以访问、可以进行何种方式的访问操作。在授权 访问控制方面，基于角色的访问控制(RBAC， Role-Based Access Control)模型 是目前应用系统中被广泛接受的一种授权访问控制模型(附图l及说明)。\n在RBAC模型中，操作(OPS， operations)和受控对象(OBS， objects)是 相互独立的两个元素，操作施加于受控对象从而产生授权许可(PRMS， permissions)。然而在应用系统中，应用是以业务为核心的，业务处理过程往往 以高内聚、松耦合特征划分为多个业务处理单元，每个业务处理单元包含其业务 操作和业务数据，业务操作脱离开相应的业务单元及业务数据也就没有实质的意 义，业务操作和业务数据之间形成一个有机的整体。\n基于以上的分析，针对应用系统的这种特征，如果在RBAC模型中的授权许可 部分加入面向业务的特征，将相关的操作和数据按照业务内聚度进行分化、整理， 以业务处理单元为边界进行划分，使包含操作和数据的业务单元成为授权许可的 基本单位，将会使应用系统的授权分配体现出清晰的业务内聚度特征，符合业务 关系的",
+                              "icon":  "https://sfile.chatglm.cn/searchImage/www_xjishu_com_icon_new.jpg",
+                              "link":  "https://www.xjishu.com/zhuanli/55/200910018620.html",
+                              "media":  "X技术网",
+                              "publish_date":  "",
+                              "refer":  "ref_4",
+                              "title":  "一种基于rbac模型扩展的面向业务的授权访问控制方法"
+                          },
+                          {
+                              "content":  "RBAC）。其中，自主式太弱，强制式太强，二者工作量大，不便于管理。基于角色的访问控制方法是目前公认的解决大型企业的统一资源访问控制的有效方法。其显著的两大特征是：1.减小授权管理的复杂性，降低管理开销；2.灵活地支持企业的安全策略，并对企业的变化有很大的伸缩性。对角色授权即基于角色的访问控制(RBAC)。\n(The National Institute of Standards and Technology，美国国家标准与技术研究院)标准RBAC模型由4个部件模型组成，这4个部件模型分别是基本模型RBAC0(Core RBAC）、角色分级模型RBAC1(Hierarchal RBAC)、角色限制模型RBAC2(Constraint RBAC)和统一模型RBAC3(Combines RBAC)。\nRBAC0\n定义了能构成一个RBAC控制系统的最小的元素集合。在RBAC之中,包含用户users(USERS)、角色roles(ROLES)、目标objects(OBS)、操作operations(OPS)、许可权permissions(PRMS)五个基本数据元素，权限被赋予角色,而不是用户，当一个角色被指定给一个用户时，此用户就拥有了该角色所包含的权限。会话sessions是用户与激活的角色集合之间的映射。RBAC0与传统访问控制的差别在于增加一层间接性带来了灵活性，RBAC1、RBAC2、RBAC3都是先后在RBAC0上的扩展。RBAC0的模型如下图:\nRBAC1\nRBAC1引入角色间的继承关系，角色间的继承关系可分为一般继承关系和受限继承关系。一般继",
+                              "icon":  "https://sfile.chatglm.cn/searchImage/blog_csdn_net_icon_new.jpg",
+                              "link":  "https://blog.csdn.net/chjttony/article/details/6229078",
+                              "media":  "CSDN博客",
+                              "publish_date":  "2011-03-07",
+                              "refer":  "ref_5",
+                              "title":  "基于角色的访问控制(RBAC）介绍（发布时间：2011-03-07 15:05:00）"
+                          }
+                      ]
+}

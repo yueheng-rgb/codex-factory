@@ -1,0 +1,62 @@
+﻿{
+    "nativeGenerated":  true,
+    "enforcementResults":  [
+                               {
+                                   "carrier":  "manual_new_window_artifact_handoff",
+                                   "cannotStartMajorPhaseBeforeVerification":  true,
+                                   "enforced":  true,
+                                   "verifierCommandsExist":  true,
+                                   "startupVerificationRequired":  true,
+                                   "requiredReadFilesPresent":  true,
+                                   "rejectedClaimsRemainRejected":  true,
+                                   "compressedSummaryIsNotEvidence":  true,
+                                   "mcpMemoryWorksOrFallsBackToContextOS":  true,
+                                   "startupVerificationCanRun":  true,
+                                   "evidencePath":  "20+ session rotations in this repo; startup verification contract at governance/session-controller/"
+                               },
+                               {
+                                   "reason":  "Subagent is builder isolation only — NOT a session carrier. Startup verification applies to session carriers, not internal workers.",
+                                   "cannotStartMajorPhase":  "N/A — not a session carrier",
+                                   "carrier":  "spawn_agent_fork_context_false",
+                                   "startupVerificationRequired":  false,
+                                   "enforced":  true
+                               },
+                               {
+                                   "reason":  "Subagent is explorer only — NOT a session carrier",
+                                   "cannotStartMajorPhase":  "N/A — not a session carrier",
+                                   "carrier":  "spawn_agent_fork_context_true",
+                                   "startupVerificationRequired":  false,
+                                   "enforced":  true
+                               },
+                               {
+                                   "reason":  "Thread tool exists but untested. If used as carrier, startup verification is mandatory.",
+                                   "startupVerificationCanRun":  "unknown",
+                                   "carrier":  "app_thread_start",
+                                   "startupVerificationRequired":  true,
+                                   "enforced":  "HYPOTHESIS — cannot enforce without live test"
+                               },
+                               {
+                                   "reason":  "Fork tool exists but untested. If used as carrier, startup verification is mandatory.",
+                                   "startupVerificationCanRun":  "unknown",
+                                   "carrier":  "app_thread_fork",
+                                   "startupVerificationRequired":  true,
+                                   "enforced":  "HYPOTHESIS — cannot enforce without live test"
+                               },
+                               {
+                                   "reason":  "REJECTED as session carrier. Automation wakeup is NOT a new context.",
+                                   "startupVerificationCanRun":  false,
+                                   "carrier":  "automation_same_thread_wakeup",
+                                   "startupVerificationRequired":  true,
+                                   "enforced":  "REJECTED — not a carrier"
+                               }
+                           ],
+    "universalEnforcement":  {
+                                 "manualFallbackAlwaysEnforced":  true,
+                                 "startupContractCoversAllRequiredChecks":  true,
+                                 "allSessionCarriersRequireStartupVerification":  true,
+                                 "noCarrierCanStartMajorPhaseBeforeVerification":  true
+                             },
+    "generatedAt":  "2026-06-25T00:48:23+08:00",
+    "phase":  "LIVE-RUNTIME-8-C",
+    "schemaId":  "live-runtime-8-carrier-startup-verification-result"
+}

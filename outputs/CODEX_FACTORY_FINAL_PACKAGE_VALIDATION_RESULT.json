@@ -1,0 +1,107 @@
+﻿{
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "check":  "ZIP_EXISTS"
+                   },
+                   {
+                       "detail":  "317.6 KB",
+                       "status":  "PASS",
+                       "check":  "ZIP_SIZE"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "ZIP_SHA_MATCH"
+                   },
+                   {
+                       "detail":  "207 entries",
+                       "status":  "PASS",
+                       "check":  "ZIP_READABLE"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "MANIFEST_IN_ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "KEY_README.md"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "KEY_INSTALL.md"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "KEY_VALIDATION_CHECKLIST.md"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "KEY_ROLLBACK_AND_REMOVAL.md"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "KEY_BOUNDARY.md"
+                   },
+                   {
+                       "detail":  "scoring docs exist as reference (documenting exclusion)",
+                       "status":  "PASS",
+                       "check":  "SCORING_GATE_AS_REFERENCE"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "NO_FAILURE_ROUTER_RUNNABLE"
+                   },
+                   {
+                       "detail":  "scaffoldStatus=EXPERIMENTAL",
+                       "status":  "PASS",
+                       "check":  "PLUGIN_EXPERIMENTAL"
+                   },
+                   {
+                       "detail":  "forbiddenClaims=9",
+                       "status":  "PASS",
+                       "check":  "FORBIDDEN_CLAIMS_PRESENT"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "NOT_PRODUCTION_RELEASE"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "INSTALL_DOC"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "ROLLBACK_DOC"
+                   },
+                   {
+                       "detail":  "abs refs: 0",
+                       "status":  "PASS",
+                       "check":  "NO_ABSOLUTE_PATHS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "NO_FULL_CONTEXT_CLAIM"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "NO_AUTO_WINDOW_CLAIM"
+                   },
+                   {
+                       "status":  "PASS",
+                       "check":  "NO_ZIP_IN_ZIP"
+                   },
+                   {
+                       "detail":  "plugin EXPERIMENTAL confirmed",
+                       "status":  "PASS",
+                       "check":  "NO_PLUGIN_PRODUCTION"
+                   }
+               ],
+    "zipSizeBytes":  325233,
+    "verdict":  "PASS",
+    "passed":  22,
+    "phase":  "FINAL-PREP",
+    "totalChecks":  22,
+    "checkedAt":  "2026-06-24T22:33:57+08:00",
+    "zipSha256":  "01640C0A9257E6132B47D48404B865728834020A9AE017EAFF9982879452D3ED",
+    "zipPath":  "C:\\Codex_App_Factory\\outputs\\CODEX_FACTORY_FINAL_PACKAGE.zip"
+}

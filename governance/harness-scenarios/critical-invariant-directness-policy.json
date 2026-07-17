@@ -1,0 +1,122 @@
+﻿{
+  "policyId": "H11-CRITICAL-INVARIANT-DIRECTNESS-V1",
+  "phase": "6C-H11",
+  "title": "Critical Invariant Directness Policy",
+  "createdAt": "2026-06-23T00:00:00+08:00",
+  "codexFactoryVersion": "Phase 6C",
+
+  "criticalInvariantCategories": {
+    "authorization": {
+      "description": "Controls who can perform what action. Includes role-based access, permission gates, authentication checks.",
+      "examples": ["unauthorized_role_cannot_close_incident", "viewer_cannot_modify_incident"],
+      "directScenarioRequired": true
+    },
+    "tenant_isolation": {
+      "description": "Ensures data from one tenant/organization is not accessible to another.",
+      "examples": ["tenant_a_cannot_read_tenant_b_data", "cross_tenant_query_blocked"],
+      "directScenarioRequired": true
+    },
+    "evidence_integrity": {
+      "description": "Ensures evidence records are complete, tamper-proof, and verifiable.",
+      "examples": ["evidence_chain_unbroken", "sha256_verification_after_mutation"],
+      "directScenarioRequired": true
+    },
+    "audit_integrity": {
+      "description": "Ensures all mutations are tracked in an immutable audit log.",
+      "examples": ["audit_all_mutations", "audit_log_immutable"],
+      "directScenarioRequired": true
+    },
+    "redaction_sensitive_data": {
+      "description": "Ensures sensitive values (PII, secrets, tokens) are redacted in outputs.",
+      "examples": ["sensitive_redacted", "api_key_not_in_logs"],
+      "directScenarioRequired": true
+    },
+    "payment_quota_enforcement": {
+      "description": "Ensures payment, billing, and quota limits are enforced.",
+      "examples": ["quota_exceeded_blocked", "payment_required_for_premium_feature"],
+      "directScenarioRequired": true
+    },
+    "destructive_operations": {
+      "description": "Ensures destructive actions (delete, purge, reset) are gated and auditable.",
+      "examples": ["delete_requires_confirmation", "purge_gated_on_admin_role"],
+      "directScenarioRequired": true
+    },
+    "irreversible_lifecycle_transitions": {
+      "description": "Ensures one-way state transitions cannot be reversed without proper authorization.",
+      "examples": ["closed_cannot_reopen", "remediated_cannot_goto_new"],
+      "directScenarioRequired": true
+    },
+    "incident_closure_escalation": {
+      "description": "Ensures incident closure and escalation follow proper workflow gates.",
+      "examples": ["postmortem_requires_closed_incident", "escalation_preserves_owner_context"],
+      "directScenarioRequired": true
+    },
+    "security_workflow_state_changes": {
+      "description": "Ensures security-sensitive state transitions are validated and audited.",
+      "examples": ["invalid_status_transition_rejected", "containment_required_before_closure"],
+      "directScenarioRequired": true
+    }
+  },
+
+  "aliasStrengthRules": {
+    "EXACT": {
+      "description": "intendedScenarioId equals actualScenarioId.",
+      "cleanPassAllowed": true,
+      "criticalInvariantAllowed": true
+    },
+    "STRONG": {
+      "description": "Different ID but same invariant and same assertion path.",
+      "cleanPassAllowed": true,
+      "criticalInvariantAllowed": true,
+      "requiresSourceEvidence": true
+    },
+    "PARTIAL": {
+      "description": "Same workflow chain but indirect coverage.",
+      "cleanPassAllowed": false,
+      "criticalInvariantAllowed": false,
+      "criticalInvariantVerdicts": ["PASS_WITH_CAVEAT", "PASS_PENDING_RECONCILIATION"],
+      "nonCriticalVerdicts": ["PASS_WITH_CAVEAT"],
+      "requiresLimitationDocumentation": true
+    },
+    "WEAK": {
+      "description": "Related behavior but insufficient coverage.",
+      "cleanPassAllowed": false,
+      "criticalInvariantAllowed": false,
+      "requiresRerun": true
+    },
+    "INVALID": {
+      "description": "Not equivalent.",
+      "cleanPassAllowed": false,
+      "criticalInvariantAllowed": false,
+      "requiresRerun": true
+    }
+  },
+
+  "verifierPackCoverageRules": {
+    "description": "The domain verifier pack must contain scenario IDs covering every critical invariant.",
+    "detectionScript": "scripts/harness-scenarios/detect-direct-scenario-coverage-gaps.ps1",
+    "gaps": {
+      "criticalInvariantNoDirectScenario": "FAIL_CONTRACT_DRIFT",
+      "negativeTargetsIndirectScenario": "FAIL_CONTRACT_DRIFT",
+      "verifierPackLacksScenarioForInvariant": "FAIL_CONTRACT_DRIFT",
+      "targetScenarioIdMismatch": "FAIL_CONTRACT_DRIFT",
+      "aliasWithoutJustification": "FAIL_CONTRACT_DRIFT",
+      "directScenarioExistsButUnused": "PASS_PENDING_RECONCILIATION"
+    }
+  },
+
+  "historicalAcceptanceRule": {
+    "description": "Phases closed before H11 are accepted historically at their closure strength. H11 does not reopen closed phases. Future phases must comply with this policy.",
+    "dry18BP1Status": "ACCEPTED_HISTORICALLY",
+    "unauthorizedCloseAliasStrength": "PARTIAL",
+    "unauthorizedCloseAccepted": true,
+    "unauthorizedCloseRecommendedDirectScenario": "unauthorized_role_cannot_close_incident"
+  },
+
+  "integrations": {
+    "aliasMapSchema": "schemas/harness-scenarios/scenario-alias-map.schema.json",
+    "aliasMapVerifier": "scripts/harness-scenarios/verify-scenario-alias-map.ps1",
+    "coverageGapDetector": "scripts/harness-scenarios/detect-direct-scenario-coverage-gaps.ps1",
+    "h11Verifier": "scripts/phase6c-h11-scenario-directness-alias-governance-verify.ps1"
+  }
+}

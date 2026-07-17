@@ -1,0 +1,80 @@
+﻿{
+    "phase": "FACTORY-BUILD-0",
+    "subPhase": "F_EXTERNAL_MEMORY_ROADMAP",
+    "date": "2026-06-27",
+    "roadmap": {
+        "principle": "Codex windows have no persistent memory. Complex projects require external memory to survive session boundaries. File-based state is the MVP approach.",
+        "phases": [
+            {
+                "phase": "MVP — File-Based State (BUILD-2 target)",
+                "components": [
+                    {
+                        "file": ".codex-factory/state.json",
+                        "content": "Current stage, completed stages, active agent, last action timestamp, mode in use",
+                        "purpose": "Single source of truth for build progress"
+                    },
+                    {
+                        "file": ".codex-factory/architecture-map.json",
+                        "content": "Page tree, API endpoints, DB tables, permission model, tech stack",
+                        "purpose": "Architecture decisions persist across sessions"
+                    },
+                    {
+                        "file": ".codex-factory/requirement-map.json",
+                        "content": "Original requirements, derived requirements, traceability to implementation",
+                        "purpose": "Requirements don't get lost"
+                    },
+                    {
+                        "file": ".codex-factory/task-graph.json",
+                        "content": "Task nodes with status (pending/in_progress/complete), dependencies, file ownership",
+                        "purpose": "Work remaining is always visible"
+                    },
+                    {
+                        "file": ".codex-factory/decisions.md",
+                        "content": "Key decisions with rationale, date, and context",
+                        "purpose": "Why was this choice made? Avoid re-deciding."
+                    },
+                    {
+                        "file": ".codex-factory/risks.json",
+                        "content": "Active risks, mitigations, status",
+                        "purpose": "Don't forget about known risks"
+                    },
+                    {
+                        "file": ".codex-factory/handoff-packet.md",
+                        "content": "Condensed state for new Codex window: what was done, what remains, how to continue",
+                        "purpose": "One file to resume the project"
+                    },
+                    {
+                        "file": ".codex-factory/diagnostic-results/",
+                        "content": "Diagnostic Gate outputs per run",
+                        "purpose": "Audit trail of quality gates"
+                    }
+                ],
+                "retrievalScript": "scripts/factory-state-retrieve.ps1 — reads all state files and outputs a summary for the new Codex window",
+                "startupCheck": "New Codex window reads handoff-packet.md first, then state.json, then continues from last active stage"
+            },
+            {
+                "phase": "v1 — Structured External DB (future)",
+                "components": [
+                    "SQLite or Supabase-backed state store",
+                    "Queryable decision log with embeddings",
+                    "Cross-project pattern library",
+                    "Agent performance metrics per project type"
+                ]
+            },
+            {
+                "phase": "v2 — Cloud Knowledge Recovery (future)",
+                "components": [
+                    "Cloud-synced state for multi-machine development",
+                    "Shared knowledge base across Codex Factory users",
+                    "Learned patterns from past complex projects"
+                ]
+            }
+        ],
+        "continuationProtocol": {
+            "startup": "1. Read .codex-factory/handoff-packet.md 2. Read .codex-factory/state.json 3. Resume at current stage",
+            "midSession": "After each stage completion, update state.json and append to decisions.md",
+            "handoff": "Before session end, generate fresh handoff-packet.md with current state summary",
+            "verification": "Startup verification confirms state files exist and are consistent"
+        }
+    }
+}

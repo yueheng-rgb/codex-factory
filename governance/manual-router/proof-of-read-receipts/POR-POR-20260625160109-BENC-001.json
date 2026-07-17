@@ -1,0 +1,18 @@
+﻿{
+    "pagePath":  "governance/factory-eval/factory-eval-0-recommended-roadmap.json",
+    "extractedRules":  [
+                           "Evidence rules per constitution",
+                           "Page-specific rules"
+                       ],
+    "isProofOfUnderstanding":  false,
+    "doesNotMutateState":  true,
+    "agentId":  "SYSTEM_EVENT",
+    "isProofOfCorrectness":  false,
+    "readAt":  "2026-06-25T16:01:09+08:00",
+    "pageExists":  true,
+    "isProofOfAccess":  true,
+    "pageId":  "BENC-001",
+    "receiptId":  "POR-20260625160109-BENC-001",
+    "actionType":  "simulation_prep",
+    "cannotMarkPass":  true
+}

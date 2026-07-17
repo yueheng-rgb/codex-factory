@@ -1,0 +1,13 @@
+﻿{
+    "timestamp":  "2026-06-24T00:48:34.5626694+08:00",
+    "negativeId":  "DRY23-N05",
+    "verifyOutput":  "{\r\n    \"command\":  \"verify\",\r\n    \"phase\":  \"latest\",\r\n    \"verdict\":  \"PASS\",\r\n    \"totalChecks\":  29,\r\n    \"modules\":  [\r\n                    {\r\n                        \"verdict\":  \"PASS_WITH_CAVEATS\",\r\n                        \"checks\":  10\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  3\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    }\r\n                ],\r\n    \"checkedAt\":  \"2026-06-24T00:48:34+08:00\"\r\n}",
+    "faultManifest":  {
+                          "id":  "DRY23-N05",
+                          "name":  "Worker Scope Contamination",
+                          "timestamp":  "2026-06-24T00:48:27.8327724+08:00",
+                          "expectedFailureClass":  "WORKER_SCOPE_CONTAMINATION",
+                          "targetGate":  "worker-scope-isolation-check",
+                          "category":  "agent_lifecycle_isolation"
+                      }
+}

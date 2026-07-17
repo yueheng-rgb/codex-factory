@@ -1,0 +1,92 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex-factory/schemas/skill-import-pipeline.schema.json",
+  "title": "Skill Import Pipeline Record",
+  "description": "Tracks a skill/capability through the Librarian → Security → Architect → Human → Verifier → Integrator import pipeline.",
+  "type": "object",
+  "required": ["pipelineId", "capabilityId", "startedAt", "currentStage", "stages"],
+  "properties": {
+    "pipelineId": { "type": "string", "pattern": "^SKILL-IMPORT-[A-Z0-9-]+$", "description": "Unique pipeline run ID" },
+    "capabilityId": { "type": "string", "pattern": "^CAP-[A-Z]+-[0-9]{3}$" },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "completedAt": { "type": "string", "format": "date-time" },
+    "currentStage": { "type": "string", "enum": ["candidate","intake_reviewed","security_reviewed","architecture_reviewed","human_approved","verifier_attached","adapted","verified","rejected"] },
+    "finalStatus": { "type": "string", "enum": ["adapted","verified","rejected"] },
+    "stages": {
+      "type": "object",
+      "properties": {
+        "intake": {
+          "type": "object",
+          "properties": {
+            "agentId": { "type": "string" },
+            "reviewedAt": { "type": "string", "format": "date-time" },
+            "decision": { "type": "string", "enum": ["approved","rejected","needs_more_info"] },
+            "sourceCheck": { "type": "string" },
+            "dedupCheck": { "type": "string" },
+            "classificationTags": { "type": "array", "items": { "type": "string" } },
+            "version": { "type": "string" },
+            "notes": { "type": "string" }
+          }
+        },
+        "security": {
+          "type": "object",
+          "properties": {
+            "agentId": { "type": "string" },
+            "reviewedAt": { "type": "string", "format": "date-time" },
+            "decision": { "type": "string", "enum": ["approved","rejected","needs_remediation"] },
+            "dangerousCommandsFound": { "type": "array", "items": { "type": "string" } },
+            "overreachFound": { "type": "boolean" },
+            "secretsExposed": { "type": "boolean" },
+            "externalLinks": { "type": "array", "items": { "type": "string" } },
+            "supplyChainConcern": { "type": "boolean" },
+            "notes": { "type": "string" }
+          }
+        },
+        "architecture": {
+          "type": "object",
+          "properties": {
+            "agentId": { "type": "string" },
+            "reviewedAt": { "type": "string", "format": "date-time" },
+            "decision": { "type": "string", "enum": ["approved","rejected","limited_scope"] },
+            "applicableProjectTypes": { "type": "array", "items": { "type": "string" } },
+            "applicableAgents": { "type": "array", "items": { "type": "string" } },
+            "engineeringValue": { "type": "string", "enum": ["high","medium","low"] },
+            "notes": { "type": "string" }
+          }
+        },
+        "human": {
+          "type": "object",
+          "properties": {
+            "reviewedAt": { "type": "string", "format": "date-time" },
+            "decision": { "type": "string", "enum": ["approved","rejected"] },
+            "reviewer": { "type": "string" },
+            "notes": { "type": "string" }
+          }
+        },
+        "verifier": {
+          "type": "object",
+          "properties": {
+            "agentId": { "type": "string" },
+            "reviewedAt": { "type": "string", "format": "date-time" },
+            "decision": { "type": "string", "enum": ["approved","rejected","caveat_accepted"] },
+            "verificationMethod": { "type": "string" },
+            "testResults": { "type": "string" },
+            "caveats": { "type": "array", "items": { "type": "string" } },
+            "notes": { "type": "string" }
+          }
+        },
+        "integration": {
+          "type": "object",
+          "properties": {
+            "agentId": { "type": "string" },
+            "reviewedAt": { "type": "string", "format": "date-time" },
+            "decision": { "type": "string", "enum": ["integrated","rejected"] },
+            "registryUpdated": { "type": "boolean" },
+            "newStatus": { "type": "string", "enum": ["adapted","verified"] },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

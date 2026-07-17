@@ -1,0 +1,18 @@
+﻿{
+  "packetId": "risk-packet",
+  "purpose": "Current risk posture — what's open, what's gated, what's resolved",
+  "generatedAt": "2026-06-25T00:10:02+08:00",
+  "requiredReadFiles": [
+    "governance/factory-state/live-runtime-0-risk-taxonomy.json",
+    "governance/context-os/FACTORY_RISK_LEDGER.jsonl"
+  ],
+  "trustedFacts": [
+    "16 deception types classified — all REPAIRED or NEVER_OCCURRED",
+    "16 unknown risks — 2 P0, 7 P1, 6 P2, 1 P3",
+    "P0 repaired: agent lifecycle, capacity preflight",
+    "P0 unresolved: shared memory divergence"
+  ],
+  "activeRisks": ["Shared memory divergence (P0)","Verifier overfitting (P1)","Automation watcher not built (P1)"],
+  "rejectedClaims": [],
+  "nextActions": ["Address P0 shared memory divergence","Build automation rotation watcher"]
+}

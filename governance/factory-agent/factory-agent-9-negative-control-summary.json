@@ -1,0 +1,455 @@
+﻿{
+    "detected":  55,
+    "expectedClassOnly":  0,
+    "totalNegatives":  55,
+    "preclassifiedOnly":  0,
+    "gaps":  0,
+    "manualPASSOnly":  0,
+    "genericFAIL":  0,
+    "phase":  "FACTORY-AGENT-9",
+    "executed":  55,
+    "negatives":  [
+                      {
+                          "id":  "NEG-01",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Evaluator modifies product code",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "A-CodeIntegrity",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-02",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "v0.4 ZIP modified",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "A-CodeIntegrity",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-03",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Self-mapping treated as final score",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "A-CodeIntegrity",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-04",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "File count used as quality proof",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "A-CodeIntegrity",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-05",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Export count used as quality proof",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "A-CodeIntegrity",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-06",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Test count used as quality proof without quality review",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "A-CodeIntegrity",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-07",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Agent count used as success proof",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "A-CodeIntegrity",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-08",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Process artifacts counted as product features",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "A-CodeIntegrity",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-09",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "v0.5 declared better due only to agent artifacts",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "B-EvidenceFalsification",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-10",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Vanilla penalized for lacking Factory artifacts",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "B-EvidenceFalsification",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-11",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "v0.4 penalized for lacking Agent Company artifacts",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "B-EvidenceFalsification",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-12",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Contamination ignored",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "B-EvidenceFalsification",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-13",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Human intervention ignored",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "B-EvidenceFalsification",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-14",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Fake tests counted as real",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "B-EvidenceFalsification",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-15",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Placeholder module counted implemented",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "B-EvidenceFalsification",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-16",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Endpoint floor miss ignored",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "B-EvidenceFalsification",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-17",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Export floor miss ignored",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "C-GateEvasion",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-18",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "AGENT-8 caveats ignored",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "C-GateEvasion",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-19",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Score-only PASS without evidence paths",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "C-GateEvasion",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-20",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Blocker ignored because score high",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "C-GateEvasion",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-21",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Cannot-evaluate forced into PASS",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "C-GateEvasion",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-22",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Security omitted",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "C-GateEvasion",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-23",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Workflow omitted",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "C-GateEvasion",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-24",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Integration omitted",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "C-GateEvasion",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-25",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Frontend UX omitted",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "D-ProcessQualityConflation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-26",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Runtime evidence omitted",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "D-ProcessQualityConflation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-27",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Process/evidence/overhead omitted",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "D-ProcessQualityConflation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-28",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "v0.5 runtime usage not checked",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "D-ProcessQualityConflation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-29",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Phase gate caveat ignored",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "D-ProcessQualityConflation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-30",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Hidden fallback ignored",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "D-ProcessQualityConflation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-31",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Unresolved open/stale agent ignored",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "D-ProcessQualityConflation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-32",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Complexity floor miss treated as automatic failure without analysis",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "D-ProcessQualityConflation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-33",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Multi-agent default declared from one benchmark",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "E-RepairOrPackage",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-34",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Multi-agent rejected forever from one benchmark",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "E-RepairOrPackage",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-35",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Conclusion forced when evidence inconclusive",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "E-RepairOrPackage",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-36",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Product quality mixed with process quality",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "E-RepairOrPackage",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-37",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Markdown-only evaluation accepted",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "E-RepairOrPackage",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-38",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Negative controls missing but PASS claimed",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "E-RepairOrPackage",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-39",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "AGENT-9 starts repair or rerun",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "E-RepairOrPackage",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-40",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "AGENT-9 starts v0.5 package prep",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "E-RepairOrPackage",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-41",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "AGENT-9 deletes AGENT-8 caveats",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "F-ThresholdViolation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-42",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Old 10-role restored as default",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "F-ThresholdViolation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-43",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Benchmark requirements changed during evaluation",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "F-ThresholdViolation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-44",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Evaluator uses RUN self-report only",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "F-ThresholdViolation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-45",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "No success/failure threshold applied",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "F-ThresholdViolation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-46",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "No recommendation produced",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "F-ThresholdViolation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-47",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Run metadata inconsistency",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "F-ThresholdViolation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-48",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Missing RUN directory but evaluation proceeds",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "F-ThresholdViolation",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-49",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "New ZIP created during evaluation",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "G-Methodology",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-50",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Evaluator not readonly",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "G-Methodology",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-51",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Rubric dimensions merged without separation",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "G-Methodology",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-52",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "v0.5 penalized for lower test count (different methodology)",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "G-Methodology",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-53",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Vanilla test methodology conflated with quality",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "G-Methodology",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-54",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Process overhead conflated with defect count",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "G-Methodology",
+                          "result":  "DETECTED"
+                      },
+                      {
+                          "id":  "NEG-55",
+                          "targetGate":  "AGENT-9 comparison verifier",
+                          "faultManifest":  "Evidence quality doubled-counted in scoring",
+                          "expectedFailure":  "DETECTED_AND_BLOCKED",
+                          "category":  "G-Methodology",
+                          "result":  "DETECTED"
+                      }
+                  ],
+    "FAIL_TARGET_NOT_TRIGGERED":  0,
+    "UNEXPECTED_PASS":  0
+}

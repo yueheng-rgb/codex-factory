@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  2,
+    "frozenAt":  "2026-06-20T17:00:22.0997006+08:00",
+    "runId":  "phase6ca-R1",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\phase6ca-R1\\trust-root.json",
+    "controlPlaneLockSha256":  "37f6d3018d8531cccd98e45409c0f80954090e97c6129b2074f9e0ff8ddcdaa7",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "033d867a6588d41d359551d4faf748169d1e189158bd4f9861575f24e63b2414"
+}

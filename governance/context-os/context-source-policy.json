@@ -1,0 +1,55 @@
+﻿{
+  "schemaId": "context-source-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:09:03+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-3-A",
+  "nativeGenerated": true,
+  "sourcePriority": {
+    "HIGHEST": {
+      "sources": [
+        "verifier JSON result (verifier-*.json)",
+        "factoryctl verify JSON output",
+        "Agent OS AGENT_EVENTS.jsonl with valid hash chain",
+        "worker handoff with transcript + artifact + SHA evidence",
+        "close/archive/quarantine receipts",
+        "MANIFEST.sha256",
+        "session-rotation-handoff.json",
+        "current-factory-state.json"
+      ],
+      "mayOverrideMemory": true,
+      "conflictRule": "HIGHEST always wins over MEDIUM/LOW/FORBIDDEN"
+    },
+    "MEDIUM": {
+      "sources": [
+        "markdown reports with verifier JSON backing",
+        "diagnosis summaries with verifier artifact backing",
+        "release boundary docs with manifest backing",
+        "prototype results with event chain validation"
+      ],
+      "mayOverrideMemory": false,
+      "conflictRule": "Cannot override HIGHEST; requires reconciliation if conflicts"
+    },
+    "LOW": {
+      "sources": [
+        "natural-language summaries",
+        "Codex self-report",
+        "user memory",
+        "assistant inference"
+      ],
+      "mayOverrideMemory": false,
+      "conflictRule": "Cannot be sole evidence for any claim"
+    },
+    "FORBIDDEN": {
+      "sources": [
+        "compressed summary",
+        "markdown-only PASS",
+        "worker selfAssessment",
+        "expectedClass-only",
+        "manual PASS",
+        "self-report without artifact path"
+      ],
+      "mayOverrideMemory": false,
+      "conflictRule": "Must never be indexed as authoritative memory"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+﻿{
+    "repair_plan_id": "FACTORY-BUILD-REALWORLD-2-P3-MINIMAL-TEST-REPAIR-PLAN",
+    "generated_at": "2026-06-28T10:35:23+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P3",
+    "section": "D",
+    "repairs": [
+        {"id": "FIX-001", "test": "test_admin_can_add_sessions", "type": "TEST_EXPECTATION_FIX", "change": "'project': p1.id -> 'projects': [p1.id]", "impact": "Test only", "risk": "None"},
+        {"id": "FIX-002", "test": "test_transaction_log_generated_on_add", "type": "CASCADES", "change": "Fixed by FIX-001", "impact": "Test only", "risk": "None"},
+        {"id": "FIX-003", "test": "test_doctor_can_verify_with_balance", "type": "TEST_EXPECTATION_FIX", "change": "'project'+'sessions_count' -> 'verify_project' list + 'verify_count_{id}'", "impact": "Test only", "risk": "None"},
+        {"id": "FIX-004", "test": "test_doctor_cannot_delete_verification_record", "type": "TEST_EXPECTATION_FIX", "change": "Same as FIX-003", "impact": "Test only", "risk": "None"},
+        {"id": "FIX-005", "test": "test_verification_creates_record_and_transaction", "type": "TEST_EXPECTATION_FIX", "change": "Same as FIX-003", "impact": "Test only", "risk": "None"},
+        {"id": "FIX-006", "test": "test_doctor_can_submit_correction", "type": "TEST_EXPECTATION_FIX", "change": "'corrected_count' -> 'correction_count'; add 'correction_type'", "impact": "Test only", "risk": "None"},
+        {"id": "FIX-007", "test": "test_admin_can_approve_correction", "type": "CASCADES", "change": "Fixed by FIX-006", "impact": "Test only", "risk": "None"},
+        {"id": "FIX-008", "test": "test_correction_creates_reverse_transaction", "type": "CASCADES", "change": "Fixed by FIX-006", "impact": "Test only", "risk": "None"},
+        {"id": "FIX-009", "test": "test_duplicate_verification_detected", "type": "TEST_EXPECTATION_FIX", "change": "Same as FIX-003 (applied twice)", "impact": "Test only", "risk": "None"}
+    ],
+    "summary": {"test_expectation_fix": 6, "cascades": 3, "code_fix": 0, "skip": 0},
+    "verdict": "REPAIR_PLAN_READY"
+}

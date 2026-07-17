@@ -1,0 +1,36 @@
+﻿{
+    "phase":  "FACTORY-V04-RELEASE-PREP",
+    "rcVersion":  "0.4.0-rc",
+    "rcStatus":  "RELEASE_CANDIDATE_NOT_FINAL",
+    "timestamp":  "2026-06-25T22:29:33+08:00",
+    "status":  "COMPLETE",
+    "finalPackageUnchanged":  true,
+    "positioning":  "PROCESS_INTEGRITY_LAYER",
+    "rcDirectory":  "factory-resource-pack-v0.4-rc/",
+    "userConfirmationRequiredForZip":  true,
+    "releaseZipCreated":  false,
+    "smokeTests":  {
+                       "passed":  5,
+                       "failed":  0
+                   },
+    "nextPhase":  "USER_REVIEW — then FACTORY-V04-RELEASE-ZIP (with explicit confirmation), FACTORY-V04-P2 (repair), or FACTORY-EVAL-14/15 (more evidence)",
+    "fileValidation":  {
+                           "passed":  42,
+                           "failed":  0
+                       },
+    "verifier":  {
+                     "failed":  0,
+                     "total":  28,
+                     "passed":  28
+                 },
+    "negativeControls":  {
+                             "gaps":  0,
+                             "total":  33,
+                             "passed":  33
+                         },
+    "title":  "v0.4 Release Candidate Assembly + Validation",
+    "claimAudit":  {
+                       "total":  8,
+                       "passed":  8
+                   }
+}

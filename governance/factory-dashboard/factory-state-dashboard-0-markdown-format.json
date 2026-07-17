@@ -1,0 +1,12 @@
+﻿{
+  "phase": "FACTORY-STATE-DASHBOARD-0",
+  "section": "D",
+  "title": "Markdown Dashboard Format",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "format_file": "factory-dashboard/STATE_DASHBOARD_MARKDOWN_FORMAT.md",
+  "template_file": "factory-dashboard/templates/state-dashboard.template.md",
+  "sections": ["Project Identity", "Current Phase", "Mode & Multi-Agent", "Blockers & Risks", "Paths", "Gates", "Memory & Context", "Agent Ledger", "Warnings", "Next Action"],
+  "unknown_handling": "UNKNOWN_WITH_REASON — never omit silently",
+  "report": "outputs/FACTORY_STATE_DASHBOARD_0_D_MARKDOWN_FORMAT_REPORT.md"
+}

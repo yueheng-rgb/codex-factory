@@ -1,0 +1,20 @@
+﻿{
+    "phase": "RC-USER-REVIEW-0",
+    "section": "A",
+    "title": "Scope Lock",
+    "timestamp": "2026-06-28T21:00:00+08:00",
+    "rc0_status": {
+        "package": "outputs/codex-factory-core-v0.9.0-pre-RC0.zip",
+        "sha256": "A058FD67A02B13AAB010040905FA1D471050F9CB7A4A07EB3C5B9C5DB9240EF6",
+        "size": "3.2 MB, 2755 entries",
+        "artifactType": "RELEASE_CANDIDATE",
+        "rc0_verifier": "45/45 PASS",
+        "v05": "BLOCKED"
+    },
+    "scope": {
+        "is": ["User inspection", "Acceptance decision", "Blocker awareness", "Option selection"],
+        "is_not": ["Release", "v0.5", "Package modification", "Production deployment", "Blocker resolution"]
+    },
+    "forbidden": ["Modify RC0", "Set releaseAllowed=true", "Set v05Package=true", "Claim production readiness", "Deploy"],
+    "section_verdict": "SCOPE_LOCKED"
+}

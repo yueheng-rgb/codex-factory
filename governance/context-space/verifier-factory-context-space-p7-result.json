@@ -1,0 +1,261 @@
+﻿{
+    "passed":  50,
+    "verifier_id":  "VERIFIER-FACTORY-CONTEXT-SPACE-P7",
+    "generated_at":  "2026-06-28T10:07:02+08:00",
+    "verdict":  "PASS",
+    "total_checks":  50,
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-001",
+                       "desc":  "P6 PASS exists (verifier JSON)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-002",
+                       "desc":  "P6 verifier shows 38/38 PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-003",
+                       "desc":  "Fresh-window evidence lock JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-004",
+                       "desc":  "Evidence lock classifies as TRUE_FRESH_THREAD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-005",
+                       "desc":  "Evidence lock report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-006",
+                       "desc":  "Mount readiness execution JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-007",
+                       "desc":  "Mount readiness execution report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-008",
+                       "desc":  "Mount readiness shows READY 10/10"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-009",
+                       "desc":  "Current state verification JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-010",
+                       "desc":  "Current state verification report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-011",
+                       "desc":  "Current state verification all checks pass"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-012",
+                       "desc":  "Mainline answer test JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-013",
+                       "desc":  "Mainline answer test report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-014",
+                       "desc":  "Mainline answer test 8/8 correct"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-015",
+                       "desc":  "Direction Guard JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-016",
+                       "desc":  "Direction Guard report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-017",
+                       "desc":  "Direction Guard correctly blocks wrong directions"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-018",
+                       "desc":  "P6 artifact count reconciliation JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-019",
+                       "desc":  "P6 artifact count reconciliation report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-020",
+                       "desc":  "True fresh-window usability verdict JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-021",
+                       "desc":  "True fresh-window usability verdict report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-022",
+                       "desc":  "Usability verdict is VALIDATED_WITH_WARNINGS (not blocked)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-023",
+                       "desc":  "Strategy decision JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-024",
+                       "desc":  "Strategy decision report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-025",
+                       "desc":  "Evidence lock does not fake fresh-window"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-026",
+                       "desc":  "P6 completed recognized in current state verification"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-027",
+                       "desc":  "P5 limitation preserved (SAME_WINDOW, not true fresh-window)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-028",
+                       "desc":  "P4-R1 24/24 coverage repair recognized"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-029",
+                       "desc":  "v0.5 blocked (DG-004 frozen)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-030",
+                       "desc":  "Build Lite default preserved (DG-002 frozen)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-031",
+                       "desc":  "Native Build Pro conditional preserved (DG-003 frozen)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-032",
+                       "desc":  "Package QA final gate preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-033",
+                       "desc":  "Context Packet required status preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-034",
+                       "desc":  "Snapshot not treated as evidence (DG-012)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-035",
+                       "desc":  "No cloud implementation"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-036",
+                       "desc":  "No release ZIP created"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-037",
+                       "desc":  "No v0.5 package created"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-038",
+                       "desc":  "No real project modified (only P7 governance/reports)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-039",
+                       "desc":  "No old package modified"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-040",
+                       "desc":  "No Native Build Pro started"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-041",
+                       "desc":  "No REALWORLD-2-P1 started"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-042",
+                       "desc":  "Negative controls JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-043",
+                       "desc":  "Negative controls report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-044",
+                       "desc":  "Negative controls: 0 gaps, 0 triggered"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-045",
+                       "desc":  "No UNEXPECTED_PASS in negative controls"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-046",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-047",
+                       "desc":  "No generic FAIL — all checks use specific IDs"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-048",
+                       "desc":  "No expectedClass-only pass"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-049",
+                       "desc":  "No manual PASS-only (verifier script exists)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "P7-V-050",
+                       "desc":  "Verifier script exists"
+                   }
+               ],
+    "failed":  0
+}

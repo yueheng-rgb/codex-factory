@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  107,
+    "frozenAt":  "2026-06-20T20:55:24.0238754+08:00",
+    "runId":  "dry1-mini-config-kit",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\dry1-mini-config-kit\\trust-root.json",
+    "controlPlaneLockSha256":  "2ee19ba7facf76c45e1facf18ddcb3c98aa8005d5736720beedfda38d607f9a3",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "68f3d670b7f8f4a3a51acd9d9a65e232b474a9cd75683b83720aa449039b9cb4"
+}

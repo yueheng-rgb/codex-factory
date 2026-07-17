@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  84,
+    "frozenAt":  "2026-06-20T19:58:50.6111251+08:00",
+    "runId":  "u2-b-factory-real-run",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\u2-b-factory-real-run\\trust-root.json",
+    "controlPlaneLockSha256":  "53741c9fd991f3e2ba99ef366aaa451299b8e683963cc958fbe10b087520c744",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "713fa5960e1fcef78d2bd100e6275828c28eb9cec945709e731c094a23d21b1a"
+}

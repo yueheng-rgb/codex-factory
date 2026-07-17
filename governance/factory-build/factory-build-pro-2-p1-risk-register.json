@@ -1,0 +1,75 @@
+﻿{
+    "totalRisks":  8,
+    "title":  "Risk Register",
+    "highRisks":  2,
+    "section":  "I",
+    "risks":  [
+                  {
+                      "description":  "Context Packet overhead makes Build Pro impractical",
+                      "likelihood":  "LOW",
+                      "riskId":  "R01",
+                      "mitigation":  "Optional for Build Lite, transparent for simple projects",
+                      "severity":  "MEDIUM",
+                      "status":  "MONITORED"
+                  },
+                  {
+                      "description":  "Overfitting to harness trials — factory works in harness but fails in wild",
+                      "likelihood":  "MEDIUM",
+                      "riskId":  "R02",
+                      "mitigation":  "Real-world validation required before v0.5",
+                      "severity":  "HIGH",
+                      "status":  "ACTIVE"
+                  },
+                  {
+                      "description":  "User manual burden too high for Build Pro adoption",
+                      "likelihood":  "MEDIUM",
+                      "riskId":  "R03",
+                      "mitigation":  "Build Lite remains default; Build Pro only for confirmed users",
+                      "severity":  "MEDIUM",
+                      "status":  "MONITORED"
+                  },
+                  {
+                      "description":  "v0.5 released without real-world evidence due to internal pressure",
+                      "likelihood":  "LOW",
+                      "riskId":  "R04",
+                      "mitigation":  "Explicit v0.5 gate: REAL_WORLD_VALIDATION",
+                      "severity":  "CRITICAL",
+                      "status":  "GUARDED"
+                  },
+                  {
+                      "description":  "Multi-agent default creeps back through \u0027convenience\u0027",
+                      "likelihood":  "LOW",
+                      "riskId":  "R05",
+                      "mitigation":  "Mode selector policy with explicit user confirmation",
+                      "severity":  "HIGH",
+                      "status":  "GUARDED"
+                  },
+                  {
+                      "description":  "Context Packet infrastructure breaks on non-Windows or non-PowerShell",
+                      "likelihood":  "MEDIUM",
+                      "riskId":  "R06",
+                      "mitigation":  "Current .ps1 scripts; need cross-platform path later",
+                      "severity":  "MEDIUM",
+                      "status":  "ACCEPTED"
+                  },
+                  {
+                      "description":  "External memory files grow unbounded without automated decay",
+                      "likelihood":  "HIGH",
+                      "riskId":  "R07",
+                      "mitigation":  "MEMORY_FILTERING_DECAY policy exists but needs automation",
+                      "severity":  "LOW",
+                      "status":  "ACCEPTED"
+                  },
+                  {
+                      "description":  "Agent lifecycle registry grows without automated cleanup",
+                      "likelihood":  "LOW",
+                      "riskId":  "R08",
+                      "mitigation":  "Close receipts + orphan checks mitigate leaks",
+                      "severity":  "LOW",
+                      "status":  "MONITORED"
+                  }
+              ],
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "date":  "2026-06-27",
+    "criticalRisks":  1
+}

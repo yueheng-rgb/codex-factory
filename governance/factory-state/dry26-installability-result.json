@@ -1,0 +1,11 @@
+﻿{
+    "negativesPass":  20,
+    "verdict":  "POSITIVE_NEGATIVE_CLOSED",
+    "pluginMcpValidationPass":  true,
+    "phase":  "DRY26",
+    "verifierResult":  "23/23 PASS",
+    "negativesGaps":  0,
+    "installFixturePass":  true,
+    "skillSimulationPass":  true,
+    "parentPhase":  "H19"
+}

@@ -1,0 +1,3 @@
+Products API testbed running at http://localhost:3001
+  Health: http://localhost:3001/health
+  Products: http://localhost:3001/api/products

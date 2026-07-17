@@ -1,0 +1,72 @@
+﻿{
+    "nativeGenerated":  true,
+    "capabilities":  [
+                         {
+                             "id":  "AUTO-01",
+                             "mayDriveArchitecture":  false,
+                             "requiresFutureTest":  true,
+                             "evidence":  "App context lists automation_update tool; not yet invoked in this phase",
+                             "claim":  "Automation tool exists in current environment",
+                             "classification":  "PARTIALLY_VERIFIED"
+                         },
+                         {
+                             "id":  "AUTO-02",
+                             "mayDriveArchitecture":  false,
+                             "requiresFutureTest":  true,
+                             "evidence":  "App context describes recurring automations, reminders, monitors",
+                             "claim":  "Scheduled monitoring can be represented",
+                             "classification":  "PARTIALLY_VERIFIED"
+                         },
+                         {
+                             "id":  "AUTO-03",
+                             "mayDriveArchitecture":  false,
+                             "requiresFutureTest":  true,
+                             "evidence":  "Theoretical: automation could invoke PowerShell; not tested",
+                             "claim":  "Automation can run factoryctl verify",
+                             "classification":  "HYPOTHESIS_REQUIRES_VALIDATION"
+                         },
+                         {
+                             "id":  "AUTO-04",
+                             "mayDriveArchitecture":  false,
+                             "requiresFutureTest":  true,
+                             "evidence":  "App context mentions follow-ups, thread wakeups; mutation guard not tested",
+                             "claim":  "Automation can notify without mutating state",
+                             "classification":  "PARTIALLY_VERIFIED"
+                         },
+                         {
+                             "id":  "AUTO-05",
+                             "mayDriveArchitecture":  false,
+                             "requiresFutureTest":  true,
+                             "evidence":  "Design constraint; enforcement mechanism not verified",
+                             "claim":  "Automation can be prevented from writing governance state",
+                             "classification":  "HYPOTHESIS_REQUIRES_VALIDATION"
+                         },
+                         {
+                             "id":  "AUTO-06",
+                             "mayDriveArchitecture":  true,
+                             "requiresFutureTest":  false,
+                             "evidence":  "All Factory tools already output JSON; monitoring can follow same pattern",
+                             "claim":  "Automation output can be machine-readable",
+                             "classification":  "VERIFIED_FACT"
+                         },
+                         {
+                             "id":  "AUTO-07",
+                             "mayDriveArchitecture":  false,
+                             "requiresFutureTest":  true,
+                             "evidence":  "App context mentions thread wakeups; no test performed",
+                             "claim":  "Automation can safely wake/continue a thread",
+                             "classification":  "CODEX_SELF_REPORT_ONLY"
+                         }
+                     ],
+    "verdict":  "DESIGN_FEASIBLE_IMPLEMENTATION_HYPOTHETICAL",
+    "generatedAt":  "2026-06-24T19:54:41+08:00",
+    "summary":  "Monitoring design can proceed as prototype. Runtime automation scheduling remains untested. All claims bounded: none marked VERIFIED_FACT without evidence.",
+    "phase":  "H21-A",
+    "rules":  [
+                  "No automation claim marked production-ready",
+                  "Monitoring design is prototype only",
+                  "Automation alert != verifier PASS",
+                  "Automation cannot mutate governance state",
+                  "All runtime automation claims require DRY27/H22 testing"
+              ]
+}

@@ -1,0 +1,1 @@
+﻿{"phase":"FACTORY-PROJECT-LIFECYCLE-0","section":"A","title":"Lifecycle Scope Lock","timestamp":"2026-06-29T00:00:00+08:00","status":"ACTIVE","inherited":["USER-HANDOFF-0","DEFAULT-WORKFLOW-0","PROJECT-ISOLATION-0","STATE-DASHBOARD-0","RECOVERY-0","MULTI-AGENT-ORCHESTRATION-1","EVIDENCE-TAXONOMY-0"],"goal":"Define project lifecycle state machine tying all prior phases"}

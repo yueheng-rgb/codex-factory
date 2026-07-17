@@ -1,0 +1,30 @@
+﻿{
+  "release": "Codex Factory v1.0",
+  "check_date": "2026-07-11",
+  "total_checks": 20,
+  "passed": 20,
+  "failed": 0,
+  "verdict": "READY_FOR_RELEASE",
+  "checks": [
+    {"id": "REG-001", "item": "Products API tests", "required": "23/23 PASS", "result": "PASS", "evidence": "23/23 vitest 1.22s"},
+    {"id": "REG-002", "item": "Mini Inventory Admin tests", "required": "22/22 PASS", "result": "PASS", "evidence": "22/22 vitest 0.97s"},
+    {"id": "REG-003", "item": "Ecommerce runtime tests", "required": "29/29 PASS", "result": "PASS", "evidence": "29/29 vitest 0.64s"},
+    {"id": "REG-004", "item": "SaaS runtime tests", "required": "27/27 PASS", "result": "PASS", "evidence": "27/27 vitest 0.65s"},
+    {"id": "REG-005", "item": "Node API starter tests", "required": "13/13 PASS", "result": "PASS", "evidence": "13/13 vitest 1.38s"},
+    {"id": "BENCH-001", "item": "Benchmark Suite v3", "required": "10/10 PASS", "result": "PASS", "evidence": "outputs/R6_1_COMPLETION_REPORT.md"},
+    {"id": "PACK-001", "item": "Ecommerce pack loadable", "required": "PASS", "result": "PASS", "evidence": "4 files in governance/expert-packs/ecommerce"},
+    {"id": "PACK-002", "item": "SaaS pack loadable", "required": "PASS", "result": "PASS", "evidence": "4 files in governance/expert-packs/saas-tool"},
+    {"id": "TOOL-001", "item": "Production readiness checker", "required": "PASS", "result": "PASS", "evidence": "runtime/production-readiness-checker.ps1"},
+    {"id": "ENG-001", "item": "semgrep available", "required": "PASS", "result": "PASS", "evidence": "1.169.0"},
+    {"id": "ENG-002", "item": "autocannon available", "required": "PASS", "result": "PASS", "evidence": "8.0.0 npx"},
+    {"id": "ENG-003", "item": "playwright available", "required": "PASS", "result": "PASS", "evidence": "1.61.1 npx"},
+    {"id": "FREEZE-001", "item": "Frozen pipelines unmodified", "required": "PASS", "result": "PASS", "evidence": "search/multi-agent/verifier/harness/AGENTS.md unchanged"},
+    {"id": "DEPR-001", "item": "Deprecated locks intact", "required": "PASS", "result": "PASS", "evidence": "10/10 deprecated directions LOCKED"},
+    {"id": "BASE-001", "item": "Foundation RC baseline intact", "required": "PASS", "result": "PASS", "evidence": "R5_0_FOUNDATION_RC_BASELINE.md 375 lines"},
+    {"id": "SCOPE-001", "item": "No new feature creep", "required": "PASS", "result": "PASS", "evidence": "Only release documentation generated"},
+    {"id": "CLAIM-001", "item": "No fake production claims", "required": "PASS", "result": "PASS", "evidence": "Known risks and non-claims documented"},
+    {"id": "METRIC-001", "item": "Surface accuracy 100%", "required": "PASS", "result": "PASS", "evidence": "9/9 runnable benchmarks MATCH"},
+    {"id": "METRIC-002", "item": "Expert pack accuracy 100%", "required": "PASS", "result": "PASS", "evidence": "4/4 domain tasks correctly activated"},
+    {"id": "METRIC-003", "item": "Risk classifier accuracy 100%", "required": "PASS", "result": "PASS", "evidence": "9/9 runnable benchmarks MATCH"}
+  ]
+}

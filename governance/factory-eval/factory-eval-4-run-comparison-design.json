@@ -1,0 +1,173 @@
+﻿{
+  "phase": "FACTORY-EVAL-4",
+  "section": "C",
+  "title": "Run Comparison Design",
+  "createdAt": "2026-06-25T17:10:00+08:00",
+  "designPrinciple": "Three independent, isolated runs of the same benchmark project using different Factory configurations. Same specification, same acceptance criteria, same evaluation rubric.",
+  "runs": {
+    "runA": {
+      "id": "RUN-A",
+      "name": "Vanilla Codex",
+      "description": "Codex without any Factory assistance. No Manual Router, no Proof-of-Read, no Role-Agent Company Model, no Factory governance, no Factory verifier.",
+      "factoryComponents": "NONE",
+      "preRunSetup": [
+        "Confirm FINAL package unchanged",
+        "Ensure no Factory skills loaded",
+        "Ensure no Factory MCP servers active",
+        "Provide only the benchmark spec and this comparison design document",
+        "Start a fresh Codex window/session",
+        "Record start time and session ID"
+      ],
+      "runConstraints": [
+        "No Factory governance/blueprints/manuals/role-agents referenced",
+        "No Codex_App_Factory directory in workspace",
+        "No factoryctl or Factory verifier scripts",
+        "No Proof-of-Read receipts",
+        "Codex operates with its default capabilities only"
+      ],
+      "metrics": [
+        "message_turns_total",
+        "human_intervention_count",
+        "time_elapsed",
+        "files_created",
+        "test_pass_count",
+        "requirements_covered",
+        "quality_score (from evaluation rubric)"
+      ]
+    },
+    "runB": {
+      "id": "RUN-B",
+      "name": "Factory Lite",
+      "description": "Codex with Factory Manual Router and Proof-of-Read only. The Manual Router provides the structured page index and always-on constitution. Proof-of-Read ensures artifacts are read before acting.",
+      "factoryComponents": ["Manual Router", "Proof-of-Read"],
+      "preRunSetup": [
+        "Confirm FINAL package unchanged",
+        "Load Manual Router artifacts: factory-manual-index.json, factory-page-router.json, factory-always-on-constitution.md",
+        "Load Proof-of-Read gate policy and scripts",
+        "Do NOT load Role-Agent Company Model",
+        "Do NOT load role-agent-taxonomy.json or role profiles",
+        "Start a fresh Codex window/session",
+        "Record start time and session ID"
+      ],
+      "runConstraints": [
+        "Factory Manual Router available for page lookup and constitution reference",
+        "Proof-of-Read gate active: must read artifacts before acting",
+        "No role-specialized agents — single agent operates as generalist",
+        "No cross-role contracts",
+        "No drift detection between roles",
+        "No agent company model routing"
+      ],
+      "metrics": [
+        "message_turns_total",
+        "human_intervention_count",
+        "time_elapsed",
+        "files_created",
+        "proof_of_read_receipts_generated",
+        "manual_router_page_references",
+        "test_pass_count",
+        "requirements_covered",
+        "quality_score (from evaluation rubric)"
+      ]
+    },
+    "runC": {
+      "id": "RUN-C",
+      "name": "Factory Role-Agent",
+      "description": "Codex with full Factory Role-Agent Company Model: Manual Router + Proof-of-Read + 12-role taxonomy + role profiles + cross-role contracts + drift detection.",
+      "factoryComponents": ["Manual Router", "Proof-of-Read", "Role-Agent Company Model"],
+      "preRunSetup": [
+        "Confirm FINAL package unchanged",
+        "Load all Factory artifacts: Manual Router, Proof-of-Read, Role-Agent Model",
+        "Load: role-agent-taxonomy.json, role-agent-company-model.json, role-skill-profiles.json",
+        "Load: cross-role-contract-policy.json, drift-detection-policy.json",
+        "Start a fresh Codex window/session",
+        "Record start time and session ID"
+      ],
+      "runConstraints": [
+        "Role-Agent Company Model active: 12 roles available",
+        "Manual Router active for page lookup",
+        "Proof-of-Read gate active",
+        "Cross-role contracts enforced: owned scopes, forbidden scopes",
+        "Drift detection active between role agents",
+        "Skill routing per role profile"
+      ],
+      "relevantRoles": ["architect", "backend-dev", "frontend-dev", "db-engineer", "security-reviewer", "qa-engineer", "tech-writer"],
+      "metrics": [
+        "message_turns_total",
+        "human_intervention_count",
+        "time_elapsed",
+        "files_created",
+        "proof_of_read_receipts_generated",
+        "manual_router_page_references",
+        "role_agents_spawned",
+        "cross_role_contracts_triggered",
+        "drift_detections_flagged",
+        "test_pass_count",
+        "requirements_covered",
+        "quality_score (from evaluation rubric)"
+      ]
+    }
+  },
+  "comparisonDimensions": {
+    "primaryMetrics": [
+      {
+        "name": "quality_score",
+        "description": "Composite score from evaluation rubric (0-100). Weighted by requirement coverage, correctness, completeness.",
+        "comparisonLogic": "Higher is better. Compare C vs B vs A.",
+        "weight": 0.50
+      },
+      {
+        "name": "requirements_covered",
+        "description": "Count of FR01-FR11 acceptance criteria fully met (out of ~55 criteria total).",
+        "comparisonLogic": "Higher is better. Must not sacrifice quality for coverage.",
+        "weight": 0.20
+      },
+      {
+        "name": "human_intervention_count",
+        "description": "Number of times a human had to step in to unblock, correct, or guide the run.",
+        "comparisonLogic": "Lower is better. Measures autonomy improvement.",
+        "weight": 0.15
+      },
+      {
+        "name": "message_turns_total",
+        "description": "Total Codex message turns to complete the benchmark (excluding evaluation).",
+        "comparisonLogic": "Lower is better. Measures efficiency improvement.",
+        "weight": 0.10
+      },
+      {
+        "name": "test_pass_count",
+        "description": "Number of tests passing with meaningful assertions.",
+        "comparisonLogic": "Higher is better. Must be real tests, not placeholder.",
+        "weight": 0.05
+      }
+    ],
+    "secondaryMetrics": [
+      {
+        "name": "process_overhead",
+        "description": "Extra turns spent on process artifacts (receipts, contracts, drift reports) rather than product code.",
+        "comparisonLogic": "Tracked for B and C only. Must not dominate run."
+      },
+      {
+        "name": "code_quality_indicators",
+        "description": "Presence of proper error handling, validation, security patterns, documentation."
+      }
+    ]
+  },
+  "isolationRules": {
+    "separateWorkspaces": "Each run uses a fresh, empty workspace directory",
+    "separateSessions": "Each run starts in a new Codex window/session",
+    "noCrossContamination": "Run results must not be visible to subsequent runs",
+    "sameSpec": "All three runs receive the identical benchmark spec (Section B)",
+    "sameAcceptanceCriteria": "All three runs target the identical acceptance criteria",
+    "sameEvaluationRubric": "All three runs are evaluated with the same rubric (Section D)"
+  },
+  "runOrderRecommendation": {
+    "order": ["RUN-A (Vanilla)", "RUN-B (Factory Lite)", "RUN-C (Factory Role-Agent)"],
+    "justification": "Vanilla first to establish baseline without Factory knowledge. Factory Lite second to test manual router value. Role-Agent last to test full model after prior runs inform expectations. Each run in fresh session to prevent contamination."
+  },
+  "notStarted": true,
+  "cannotStartBefore": [
+    "FACTORY-EVAL-4 design phase complete (all sections PASS)",
+    "FACTORY-EVAL-5 explicitly authorized by user",
+    "FINAL package SHA256 verified unchanged"
+  ]
+}

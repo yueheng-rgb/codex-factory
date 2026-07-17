@@ -1,0 +1,34 @@
+﻿{
+    "phase": "FACTORY-RELEASE-CANDIDATE-0",
+    "section": "F",
+    "title": "Manifest and Hash Audit",
+    "timestamp": "2026-06-28T20:35:00+08:00",
+    "package": {
+        "name": "codex-factory-core-v0.9.0-pre-RC0.zip",
+        "sha256": "A058FD67A02B13AAB010040905FA1D471050F9CB7A4A07EB3C5B9C5DB9240EF6",
+        "totalEntries": 2755,
+        "sizeKB": 3278,
+        "sizeMB": 3.2
+    },
+    "sha_verification": {
+        "shaFileExists": true,
+        "computedMatchesStored": true,
+        "algorithm": "SHA256"
+    },
+    "key_file_audit": {
+        "all_core_files_found": true,
+        "missing": []
+    },
+    "forbidden_content_audit": {
+        "real_projects": "CLEAN",
+        "working_copies": "CLEAN",
+        "old_packages": "CLEAN",
+        "trial_harness": "CLEAN",
+        "node_modules": "CLEAN",
+        "release_zips_inside_rc": "CLEAN",
+        "real_env_secrets": "CLEAN",
+        "native_build_pro": "CLEAN"
+    },
+    "manifest_file": "outputs/RC0_MANIFEST.json",
+    "section_verdict": "COMPLETE"
+}

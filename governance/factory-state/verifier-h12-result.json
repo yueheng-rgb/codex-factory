@@ -1,0 +1,116 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-h12-factory-local-v01-task-queue-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  21,
+    "passed":  21,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "factoryctl status returns JSON"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "factoryctl handoff creates resume capsule"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "factoryctl resume validates capsule"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "factoryctl rotate enforces policy"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "task queue validates (no forbidden phases)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "task queue schema exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "FACTORY_TASK_QUEUE.json exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "DRY19-B not started (negative command blocked)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "negative task requires parent positive clean PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "builder task requires H10 isolation"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "verifier role forbids source modification (modify-source-files)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "skeptic role forbids source modification (modify-any-source)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "All 6 agent role templates exist in governance"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "skeptic role includes required mustCheck fields"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "Failure corpus has \u003e= 12 seed records"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  16,
+                       "desc":  "No generic FAIL classifications"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  17,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  18,
+                       "desc":  "Closed reports unchanged (H10+H11+DRY18-B exist)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  19,
+                       "desc":  "DRY2-C through DRY13-C remain paused"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  20,
+                       "desc":  "Baseline-vs-factory experiment plan exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  21,
+                       "desc":  "Factory state records v0.1 + DRY19-A PASS"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T11:57:09.233+08:00"
+}

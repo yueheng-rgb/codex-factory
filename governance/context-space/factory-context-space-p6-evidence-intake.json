@@ -1,0 +1,93 @@
+﻿{
+    "intake_id":  "FACTORY-CONTEXT-SPACE-P6-EVIDENCE-INTAKE",
+    "generated_at":  "2026-06-28T13:00:00+08:00",
+    "phase":  "FACTORY-CONTEXT-SPACE-P6",
+    "phase_title":  "Snapshot Auto-Refresh + Phase Close Integration",
+    "predecessor_phases":  [
+                               {
+                                   "phase":  "CONTEXT-SPACE-0",
+                                   "verdict":  "PASS",
+                                   "checks":  48
+                               },
+                               {
+                                   "phase":  "MOUNT-TRIAL-R1",
+                                   "verdict":  "PASS"
+                               },
+                               {
+                                   "phase":  "P1",
+                                   "verdict":  "PASS"
+                               },
+                               {
+                                   "phase":  "P2",
+                                   "verdict":  "PASS"
+                               },
+                               {
+                                   "phase":  "P3",
+                                   "verdict":  "PASS",
+                                   "checks":  40
+                               },
+                               {
+                                   "phase":  "P4",
+                                   "verdict":  "PASS",
+                                   "checks":  35
+                               },
+                               {
+                                   "phase":  "P4-R1",
+                                   "verdict":  "PASS",
+                                   "checks":  20
+                               },
+                               {
+                                   "phase":  "P5",
+                                   "verdict":  "PASS",
+                                   "checks":  48,
+                                   "limitation":  "SAME_WINDOW_SIMULATED_USABILITY_PROVEN; TRUE_FRESH_WINDOW_CONFIRMATION_RECOMMENDED"
+                               }
+                           ],
+    "p5_claim_correction":  {
+                                "original":  "Fresh window Snapshot mount PROVEN",
+                                "corrected":  true,
+                                "p6_must_carry":  "TRUE_FRESH_WINDOW_CONFIRMATION_RECOMMENDED",
+                                "file":  "governance/context-space/factory-context-space-p5-claim-correction.json",
+                                "corrected_to":  "SAME_WINDOW_SIMULATED_USABILITY_PROVEN"
+                            },
+    "frozen_conclusions_carried_forward":  [
+                                               "BALANCED = default compression for fresh-window",
+                                               "ULTRA_COMPACT = quick-status only, NOT autonomous",
+                                               "CLOUD = deferred",
+                                               "Build Lite = default",
+                                               "Native Build Pro = conditional",
+                                               "multi-agent default = rejected",
+                                               "v0.5 = blocked",
+                                               "Snapshot ≠ evidence",
+                                               "Direction Guard v3 active (13 rules, DG-001–DG-013)",
+                                               "P5 fresh-window evidence = same-window simulation only"
+                                           ],
+    "p6_core_objectives":  [
+                               "1. Integrate Snapshot refresh into Phase Close workflow",
+                               "2. Every PASS phase close must update: phase-ledger, decision-ledger, claim-ledger, risk-ledger, evidence-index, SQLite index v2, Snapshot Packs, Attach Packet v3, Direction Guard state",
+                               "3. Establish Phase Close Context Update Gate",
+                               "4. Establish Snapshot Auto-Refresh Policy",
+                               "5. Establish stale snapshot prevention",
+                               "6. Establish post-phase-close mount-readiness check",
+                               "7. Establish true fresh-window confirmation follow-up gate (without faking evidence)",
+                               "8. Keep local priority, no cloud",
+                               "9. Do NOT start REALWORLD-2-P1",
+                               "10. Do NOT release v0.5"
+                           ],
+    "p6_explicitly_forbidden":  [
+                                    "Cloud deployment",
+                                    "Server purchase",
+                                    "Domain purchase",
+                                    "Network usage",
+                                    "v0.5 release",
+                                    "Release ZIP creation",
+                                    "REALWORLD-2-P1 start",
+                                    "Native Build Pro start",
+                                    "Real project modification",
+                                    "Old package modification",
+                                    "Claiming P5 proved true fresh-window",
+                                    "Snapshot as verifier evidence",
+                                    "External conversation space called model memory expansion",
+                                    "Micro-phase splitting"
+                                ]
+}

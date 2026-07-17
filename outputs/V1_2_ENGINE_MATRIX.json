@@ -1,0 +1,73 @@
+﻿{
+  "matrix_version": "1.0.0",
+  "phase": "V1.2",
+  "generated": "2026-07-11",
+  "targets": 5,
+  "engines": 6,
+  "matrix": [
+    {
+      "target": "products-api",
+      "semgrep": {"status": "RUN","findings":0,"version":"1.169.0"},
+      "autocannon": {"status": "NOT_APPLICABLE","reason": "API-only testbed with vitest; server start available via npm start"},
+      "playwright": {"status": "NOT_APPLICABLE","reason": "No UI surface"},
+      "codeql": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "k6": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "firecrawl-reader": {"status": "TOOL_UNAVAILABLE","reason": "API_KEY_MISSING"}
+    },
+    {
+      "target": "ecommerce-runtime-validation",
+      "semgrep": {"status": "RUN","findings":0,"version":"1.169.0"},
+      "autocannon": {"status": "NOT_APPLICABLE","reason": "API-only testbed"},
+      "playwright": {"status": "NOT_APPLICABLE","reason": "No UI surface"},
+      "codeql": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "k6": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "firecrawl-reader": {"status": "TOOL_UNAVAILABLE","reason": "API_KEY_MISSING"}
+    },
+    {
+      "target": "saas-runtime-validation",
+      "semgrep": {"status": "RUN","findings":0,"version":"1.169.0"},
+      "autocannon": {"status": "NOT_APPLICABLE","reason": "API-only testbed"},
+      "playwright": {"status": "NOT_APPLICABLE","reason": "No UI surface"},
+      "codeql": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "k6": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "firecrawl-reader": {"status": "TOOL_UNAVAILABLE","reason": "API_KEY_MISSING"}
+    },
+    {
+      "target": "admin-system-runtime-validation",
+      "semgrep": {"status": "RUN","findings":0,"version":"1.169.0"},
+      "autocannon": {"status": "SKIPPED","reason": "MODULE_RESOLUTION_FAILED — tsx/Node v24; project validated via vitest (58/58 PASS)"},
+      "playwright": {"status": "NOT_APPLICABLE","reason": "No UI surface"},
+      "codeql": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "k6": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "firecrawl-reader": {"status": "TOOL_UNAVAILABLE","reason": "API_KEY_MISSING"}
+    },
+    {
+      "target": "mini-inventory-admin",
+      "semgrep": {"status": "RUN","findings":0,"version":"1.169.0"},
+      "autocannon": {"status": "NOT_APPLICABLE","reason": "Pilot project, vitest only"},
+      "playwright": {"status": "TOOL_FAILED","reason": "BROWSER_VERSION_MISMATCH — chromium binary not installed for playwright 1.61.1"},
+      "codeql": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "k6": {"status": "TOOL_UNAVAILABLE","reason": "INSTALL_REQUIRED"},
+      "firecrawl-reader": {"status": "TOOL_UNAVAILABLE","reason": "API_KEY_MISSING"}
+    }
+  ],
+  "summary": {
+    "semgrep": {"runs":5,"available":5,"clean":5,"findings_total":0},
+    "autocannon": {"runs":0,"available":1,"skipped":1,"not_applicable":3},
+    "playwright": {"runs":0,"available":1,"failed":1,"not_applicable":3},
+    "codeql": {"runs":0,"available":0,"unavailable":5},
+    "k6": {"runs":0,"available":0,"unavailable":5},
+    "firecrawl-reader": {"runs":0,"available":0,"unavailable":5}
+  },
+  "availability": {
+    "available": 3,
+    "unavailable": 3,
+    "details": "semgrep (RUN), autocannon (AVAILABLE, 1 target skipped), playwright (AVAILABLE, 1 target failed), codeql/k6/firecrawl (TOOL_UNAVAILABLE)"
+  },
+  "non_claims": [
+    "semgrep CLEAN across all 5 targets does not mean bug-free",
+    "All TOOL_UNAVAILABLE entries are honest — no fake PASS",
+    "Playwright TOOL_FAILED is correctly classified — not masked as PASS",
+    "autocannon skip for admin-system is environmental (tsx/Node), not project logic"
+  ]
+}

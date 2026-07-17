@@ -1,0 +1,206 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P5",
+    "verifier_id":  "VERIFIER-FACTORY-BUILD-PACK-STAGING-P5",
+    "generated_at":  "2026-06-28T16:52:54+08:00",
+    "verdict":  "PASS",
+    "total_checks":  39,
+    "passed":  39,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V001",
+                       "desc":  "PACK-STAGING-P4 PASS exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V002",
+                       "desc":  "Evidence intake exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V003",
+                       "desc":  "Trial fixture dir exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V004",
+                       "desc":  "3 fixture projects exist"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V005",
+                       "desc":  "Deployed fixture has .env (placeholder)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V006",
+                       "desc":  "Deployed fixture has deploy.sh (simulation)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V007",
+                       "desc":  "P4 bundle extracted"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V008",
+                       "desc":  "Extracted VERSION: releaseAllowed=false"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V009",
+                       "desc":  "Install trial governance exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V010",
+                       "desc":  "Bootstrap trial governance exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V011",
+                       "desc":  "Preflight trial governance exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V012",
+                       "desc":  "Phase-close trial governance exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V013",
+                       "desc":  "E2E trial governance exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V014",
+                       "desc":  "User burden/friction analysis exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V015",
+                       "desc":  "Safety boundary verification exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V016",
+                       "desc":  "Strategy decision exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V017",
+                       "desc":  "No deploy/remote executed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V018",
+                       "desc":  "No secret values printed"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V019",
+                       "desc":  "Fixtures use placeholders only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V020",
+                       "desc":  "Security/Deploy Gate preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V021",
+                       "desc":  "Package QA Gate preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V022",
+                       "desc":  "Context Space preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V023",
+                       "desc":  "Test Repair Policy preserved"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V024",
+                       "desc":  "No release ZIP"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V025",
+                       "desc":  "No v0.5 package"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V026",
+                       "desc":  "No real projects included"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V027",
+                       "desc":  "No secrets included"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V028",
+                       "desc":  "No Native Build Pro"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V029",
+                       "desc":  "No cloud recommendation"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V030",
+                       "desc":  "v0.5 remains blocked per strategy"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V031",
+                       "desc":  "Negative controls: 48 items"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V032",
+                       "desc":  "Negative controls: 0 gaps"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V033",
+                       "desc":  "Negative controls: all DEFENCE_HELD"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V034",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V035",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V036",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V037",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V038",
+                       "desc":  "No manual PASS-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V039",
+                       "desc":  "Verifier script exists"
+                   }
+               ]
+}

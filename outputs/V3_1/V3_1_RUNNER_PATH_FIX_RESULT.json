@@ -1,0 +1,22 @@
+﻿{
+    "check_id": "V3_1-RUNNER-PATH-FIX-001",
+    "before": {
+        "bug": "Relative stdout/stderr paths caused double nesting when Push-Location changed CWD inside sandbox workspace",
+        "symptom": "Out-File failed with DirectoryNotFoundException for nested paths like workspaces/runs/RUN-xxx/workspaces/runs/RUN-xxx/stderr.log",
+        "impact": "V3.0 demos required retry runs to capture artifacts correctly"
+    },
+    "after": {
+        "fix": "All paths resolved to absolute using $RepoRoot before Push-Location",
+        "stderr_path_pattern": "$RepoRoot\\workspaces\\runs\\$RunId\\stderr.log",
+        "stdout_path_pattern": "$RepoRoot\\workspaces\\runs\\$RunId\\stdout.log",
+        "run_record_path_pattern": "$RepoRoot\\artifacts\\runs\\$RunId\\run-record.json"
+    },
+    "verification": {
+        "test_run_id": "FIXFINAL-20260717-152346-0001",
+        "exit_code": 0,
+        "final_status": "PASS",
+        "paths_stable": true,
+        "no_double_nesting": true
+    },
+    "status": "FIXED_AND_VERIFIED"
+}

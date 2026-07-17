@@ -1,0 +1,32 @@
+﻿{
+    "phase": "RC-USER-REVIEW-0",
+    "section": "B",
+    "title": "Package Inventory",
+    "timestamp": "2026-06-28T21:00:00+08:00",
+    "package": {
+        "name": "codex-factory-core-v0.9.0-pre-RC0.zip",
+        "entries": 2755,
+        "uncompressedKB": 13693,
+        "compressedKB": 3278,
+        "compressionRatio": 4.2
+    },
+    "modules": [
+        {"name": "governance/", "files": 1074, "sizeKB": 7875, "pct": 57.5, "type": "CORE"},
+        {"name": "outputs/", "files": 729, "sizeKB": 1930, "pct": 14.1, "type": "CORE"},
+        {"name": "scripts/", "files": 276, "sizeKB": 1719, "pct": 12.5, "type": "CORE"},
+        {"name": "factory-context-space/", "files": 173, "sizeKB": 877, "pct": 6.4, "type": "CORE"},
+        {"name": "codex-factory-plugin/", "files": 75, "sizeKB": 307, "pct": 2.2, "type": "EXPERIMENTAL"},
+        {"name": "factory-resource-pack/", "files": 61, "sizeKB": 303, "pct": 2.2, "type": "CORE"},
+        {"name": "runnable-starters/", "files": 167, "sizeKB": 248, "pct": 1.8, "type": "CORE"},
+        {"name": "factory-build-mode/", "files": 115, "sizeKB": 189, "pct": 1.4, "type": "CORE"},
+        {"name": "other (8 modules)", "files": 85, "sizeKB": 245, "pct": 1.8, "type": "CORE"}
+    ],
+    "growth_analysis": {
+        "expected": true,
+        "explanation": "Factory is documentation-heavy. 57.5% is governance artifacts. Compressed 3.2 MB is modest.",
+        "largest_contributor": "governance/ (57.5%)",
+        "root_junk": "ABSENT",
+        "root_files": 7
+    },
+    "section_verdict": "COMPLETE"
+}

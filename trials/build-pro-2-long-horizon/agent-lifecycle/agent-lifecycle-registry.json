@@ -1,0 +1,60 @@
+﻿{
+    "totalAgentsClosed":  3,
+    "forkContextFalse":  [
+                             "product-builder-1",
+                             "test-docs-builder-1",
+                             "reviewer-verifier-1"
+                         ],
+    "registry":  [
+                     {
+                         "spawnedAt":  "2026-06-27T15:38:00+08:00",
+                         "tasksCompleted":  [
+                                                "T001",
+                                                "T002",
+                                                "T005",
+                                                "T006",
+                                                "T007",
+                                                "T009",
+                                                "T010",
+                                                "T011"
+                                            ],
+                         "closeReceiptId":  "CR-PB-001",
+                         "handoffId":  "HO-PB-001",
+                         "role":  "builder",
+                         "agentId":  "product-builder-1",
+                         "status":  "closed"
+                     },
+                     {
+                         "spawnedAt":  "2026-06-27T15:39:00+08:00",
+                         "tasksCompleted":  [
+                                                "T003",
+                                                "T004",
+                                                "T008",
+                                                "T012"
+                                            ],
+                         "closeReceiptId":  "CR-TD-001",
+                         "handoffId":  "HO-TD-001",
+                         "role":  "builder",
+                         "agentId":  "test-docs-builder-1",
+                         "status":  "closed"
+                     },
+                     {
+                         "spawnedAt":  "2026-06-27T15:40:00+08:00",
+                         "tasksCompleted":  [
+                                                "T013",
+                                                "T014",
+                                                "T015",
+                                                "T016"
+                                            ],
+                         "closeReceiptId":  "CR-RV-001",
+                         "handoffId":  "HO-RV-001",
+                         "role":  "verifier",
+                         "agentId":  "reviewer-verifier-1",
+                         "status":  "closed"
+                     }
+                 ],
+    "orphanAgents":  0,
+    "lastUpdated":  "2026-06-27T15:44:30.5180861+08:00",
+    "trialId":  "BUILD-PRO-2",
+    "totalAgentsSpawned":  3
+}

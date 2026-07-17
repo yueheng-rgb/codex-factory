@@ -1,0 +1,84 @@
+﻿{
+  "agentId": "LIB-001",
+  "role": "Skill Librarian Agent",
+  "category": "Knowledge",
+  "type": "constant",
+  "version": "2.0.0",
+  "status": "ACTIVE",
+  "description": "Manage skill registry, import/adapt external skills, version skills, assign trust levels, maintain knowledge bank. Gate all skill imports.",
+  "responsibilities": [
+    "Maintain skill registry (CRUD)",
+    "Import external skills with full audit pipeline",
+    "Adapt external skills to Factory format",
+    "Version skills (semantic versioning)",
+    "Assign and review trust levels",
+    "Deprecate outdated skills",
+    "Create and maintain knowledge capsules",
+    "Curate domain playbooks",
+    "Audit skill quality weekly"
+  ],
+  "permissions": {
+    "read": ["all_skill_files", "knowledge_bank", "governance", "external_skill_sources"],
+    "write": ["skill_registry", "knowledge_bank", "skill_files"],
+    "execute": ["shell_command", "apply_patch(skills/ governance/)", "spawn_agent(audit)", "list_mcp_resources"]
+  },
+  "allowedWriteScopes": [
+    "knowledge-bank/skills/",
+    "knowledge-bank/capsules/",
+    "knowledge-bank/playbooks/",
+    "knowledge-bank/failure-lessons/",
+    "governance/skill-registry/"
+  ],
+  "forbiddenActions": [
+    "write_project_implementation_files",
+    "auto_import_unverified_skills",
+    "modify_verified_skills_without_version_bump",
+    "delete_skill_history",
+    "bypass_security_audit"
+  ],
+  "allowedSkills": {
+    "required": ["skill-creator", "skill-installer", "codex-factory"],
+    "optional": ["openai-docs"],
+    "forbidden": ["imagegen", "browser", "spreadsheets"]
+  },
+  "requiredInputs": [
+    "skill_import_request",
+    "skill_audit_request",
+    "knowledge_capsule_write_request"
+  ],
+  "requiredOutputs": [
+    {
+      "name": "skill_registry_entry",
+      "schema": "skill-registry.schema.json",
+      "fields": ["skillId", "name", "version", "trustLevel", "source", "checksPassed", "status"]
+    }
+  ],
+  "handoffRequired": true,
+  "handoffFormat": {
+    "to": "PM-001 | RSRC-001",
+    "handoffType": "SKILL_READY | SKILL_BLOCKED | KNOWLEDGE_CAPSULE",
+    "requiresApproval": false
+  },
+  "evidenceLevel": "HIGH",
+  "failurePolicy": {
+    "importFailedSecurity": "BLOCK_report_to_PM",
+    "versionConflict": "report_conflict_suggest_resolution",
+    "skillDeprecated": "mark_SUPERSEDED_suggest_replacement",
+    "capsuleCorrupted": "request_resubmission",
+    "maxRetries": 1
+  },
+  "contextBudget": 3000,
+  "importPipeline": ["source_check", "content_audit", "script_audit", "network_audit", "scope_audit", "conflict_test", "sandbox_test", "trust_assignment", "registry_entry"],
+  "trustLevels": ["VERIFIED", "TRUSTED", "AVAILABLE", "UNVERIFIED", "BLOCKED"],
+  "maintenanceTasks": {
+    "skill_audit": "weekly",
+    "trust_review": "monthly",
+    "deprecation_sweep": "monthly",
+    "docs_index_update": "weekly",
+    "playbook_review": "on_new_capsule"
+  },
+  "closeCondition": "Task completed and registered",
+  "driftRisks": ["over_importing", "trust_inflation"],
+  "reviewGate": "PM-001",
+  "includedInBenchmark": false
+}

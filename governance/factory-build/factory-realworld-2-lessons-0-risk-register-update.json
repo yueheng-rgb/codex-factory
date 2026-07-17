@@ -1,0 +1,74 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "J",
+  "title": "Risk Register Update",
+  "timestamp": "2026-06-28T11:00:00+08:00",
+  "risks": [
+    {
+      "id": "RISK-TCM-SECRETS",
+      "description": "TCM production secrets (SSH, SECRET_KEY, SMTP) still require user rotation",
+      "severity": "CRITICAL",
+      "status": "ACTIVE",
+      "action": "USER_ACTION_REQUIRED — user must rotate offline before production deployment",
+      "mitigation": "User rotation checklist generated in P5; documented in Section F boundary"
+    },
+    {
+      "id": "RISK-TCM-DEPLOY",
+      "description": "TCM project is NOT production-deployment ready",
+      "severity": "HIGH",
+      "status": "NOT_READY",
+      "action": "Do not deploy; local development only",
+      "mitigation": "Security/Deploy Gate blocking rules prevent deploy claims"
+    },
+    {
+      "id": "RISK-TCM-SKIPS",
+      "description": "2 skipped tests (Django 6.x ENVIRONMENT_MISMATCH)",
+      "severity": "LOW",
+      "status": "ACCEPTED_WITH_REASON",
+      "action": "Documented; honest skips; no fake pass",
+      "mitigation": "Test repair policy formalized in Section G"
+    },
+    {
+      "id": "RISK-V05-RELEASE",
+      "description": "Pressure to release v0.5 despite insufficient comparative evidence",
+      "severity": "HIGH",
+      "status": "BLOCKED",
+      "action": "v0.5 remains blocked per DG-004; requires controlled comparison evidence",
+      "mitigation": "DG-004 frozen; R1 established 3 evidence options (A/B/C)"
+    },
+    {
+      "id": "RISK-OVERCLAIM",
+      "description": "Risk of overclaiming Factory superiority from REALWORLD-2 success",
+      "severity": "HIGH",
+      "status": "ACTIVE",
+      "action": "Every phase must re-confirm: REALWORLD-2 success does NOT prove Factory superiority",
+      "mitigation": "R1 correction, negative controls, verifier checks"
+    },
+    {
+      "id": "RISK-CONTEXT-STALE",
+      "description": "Context may go stale across long-horizon phases",
+      "severity": "MEDIUM",
+      "status": "REDUCED_BY_P6_P7",
+      "action": "Continue monitoring; P6 auto-refresh + P7 fresh-window validation mitigate",
+      "mitigation": "Phase close pipeline, mount readiness checks, DG-013"
+    },
+    {
+      "id": "RISK-CLOUD-PREMATURE",
+      "description": "Premature cloud adoption without local MVP proof",
+      "severity": "MEDIUM",
+      "status": "DEFERRED",
+      "action": "No cloud until local MVP proven; DG-006 blocks",
+      "mitigation": "DG-006 frozen"
+    }
+  ],
+  "new_risks_added": [
+    "RISK-TCM-SECRETS (CRITICAL)",
+    "RISK-TCM-DEPLOY (HIGH)"
+  ],
+  "existing_risks_updated": [
+    "RISK-V05-RELEASE: confirmed BLOCKED",
+    "RISK-OVERCLAIM: confirmed ACTIVE",
+    "RISK-CONTEXT-STALE: reduced by P6/P7"
+  ],
+  "status": "RISK_REGISTER_UPDATED"
+}

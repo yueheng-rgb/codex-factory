@@ -1,0 +1,13 @@
+﻿
+> vite-threejs-interactive@1.0.0 build
+> tsc && vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 20 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                 [39m[1m[2m  0.54 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[2mdist/[22m[35massets/index-CfpQgS2I.css  [39m[1m[2m  2.98 kB[22m[1m[22m[2m │ gzip:   1.10 kB[22m
+[2mdist/[22m[36massets/index-CuZuAh-Z.js   [39m[1m[2m478.35 kB[22m[1m[22m[2m │ gzip: 122.18 kB[22m
+[32m✓ built in 720ms[39m

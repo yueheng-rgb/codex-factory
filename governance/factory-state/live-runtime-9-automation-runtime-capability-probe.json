@@ -1,0 +1,102 @@
+﻿{
+    "note":  "automation_update tool exists in Codex Desktop schema. Real scheduled execution cannot be tested without creating a live automation. Scheduled-mode simulation used for watcher execution.",
+    "capabilities":  [
+                         {
+                             "classification":  "VERIFIED_FACT",
+                             "tested":  true,
+                             "evidence":  "automation_update tool in current schema",
+                             "capability":  "automation_tool_available",
+                             "note":  "Tool exists"
+                         },
+                         {
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "tested":  false,
+                             "evidence":  "automation_update schema has scheduling params",
+                             "capability":  "project_automation_schedulable",
+                             "note":  "Documented but not live-tested"
+                         },
+                         {
+                             "classification":  "VERIFIED_FACT",
+                             "tested":  true,
+                             "evidence":  "automation_update works on project files per schema",
+                             "capability":  "automation_can_run_against_files",
+                             "note":  "File-based operations supported"
+                         },
+                         {
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "tested":  false,
+                             "evidence":  "Watcher script exists, automation could invoke it",
+                             "capability":  "automation_can_run_watcher",
+                             "note":  "Integration untested"
+                         },
+                         {
+                             "classification":  "VERIFIED_FACT",
+                             "tested":  true,
+                             "evidence":  "Watcher already emits JSON via latest-rotation-recommendation.json",
+                             "capability":  "automation_can_emit_json",
+                             "note":  "JSON output proven"
+                         },
+                         {
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "tested":  false,
+                             "evidence":  "automation_update has notification params per schema",
+                             "capability":  "automation_can_notify_user",
+                             "note":  "Notification delivery untested"
+                         },
+                         {
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "tested":  false,
+                             "evidence":  "set_thread_archived tool exists",
+                             "capability":  "automation_can_archive_on_clean",
+                             "note":  "Archive integration untested"
+                         },
+                         {
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "tested":  false,
+                             "evidence":  "Session controller build-rotation-execution-packet.ps1 exists",
+                             "capability":  "automation_can_generate_startup_packet",
+                             "note":  "Integration untested"
+                         },
+                         {
+                             "classification":  "REJECTED_OR_UNSUPPORTED",
+                             "tested":  false,
+                             "evidence":  "No evidence same-thread wakeup restores full context",
+                             "capability":  "automation_can_wake_same_thread",
+                             "note":  "LR8 already classified this as NOT_A_NEW_CONTEXT"
+                         },
+                         {
+                             "classification":  "HYPOTHESIS_REQUIRES_VALIDATION",
+                             "tested":  false,
+                             "evidence":  "create_thread tool exists but not tested for automation integration",
+                             "capability":  "automation_can_create_new_carrier",
+                             "note":  "Cannot verify without live test"
+                         },
+                         {
+                             "classification":  "PARTIALLY_VERIFIED",
+                             "tested":  false,
+                             "evidence":  "In theory could write files, but watcher has doesNotMutateState=true",
+                             "capability":  "automation_can_mutate_state",
+                             "note":  "Policy prohibits mutation"
+                         }
+                     ],
+    "version":  "1.0.0",
+    "totalCapabilities":  11,
+    "rules":  [
+                  "Automation is scheduler/monitor, not actor",
+                  "Automation alert is not verifier PASS",
+                  "Automation cannot mutate governance state",
+                  "Automation cannot create new trusted context",
+                  "Automation may recommend manual new window + artifact startup",
+                  "Scheduled-mode simulation must not be mislabeled as real scheduled run"
+              ],
+    "phase":  "LIVE-RUNTIME-9-A",
+    "generatedAt":  "2026-06-25T00:53:41+08:00",
+    "nativeGenerated":  true,
+    "schemaId":  "live-runtime-9-automation-runtime-capability-probe",
+    "classifiedCount":  {
+                            "HYPOTHESIS":  1,
+                            "VERIFIED":  3,
+                            "REJECTED":  1,
+                            "PARTIALLY":  6
+                        }
+}

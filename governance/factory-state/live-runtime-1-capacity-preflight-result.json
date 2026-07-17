@@ -1,0 +1,18 @@
+﻿[
+    "{\r\n    \"riskSignals\":  [\r\n\r\n                    ],\r\n    \"checkedAt\":  \"2026-06-24T23:54:43+08:00\",\r\n    \"allowedToSpawn\":  true,\r\n    \"verdict\":  \"ALLOWED\",\r\n    \"activeCount\":  0,\r\n    \"command\":  \"capacity-preflight\",\r\n    \"unsafeStaleCount\":  0,\r\n    \"capacityRisk\":  \"LOW\",\r\n    \"archivedCount\":  67,\r\n    \"quarantinedCount\":  0,\r\n    \"knownSpawnLimit\":  10\r\n}",
+    {
+        "riskSignals":  [
+
+                        ],
+        "checkedAt":  "2026-06-24T23:54:43+08:00",
+        "allowedToSpawn":  true,
+        "verdict":  "ALLOWED",
+        "activeCount":  0,
+        "command":  "capacity-preflight",
+        "unsafeStaleCount":  0,
+        "capacityRisk":  "LOW",
+        "archivedCount":  67,
+        "quarantinedCount":  0,
+        "knownSpawnLimit":  10
+    }
+]

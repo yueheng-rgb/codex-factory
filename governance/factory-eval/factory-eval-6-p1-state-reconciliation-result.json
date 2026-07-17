@@ -1,0 +1,17 @@
+{
+    "repairApplied":  [
+                          "outputs/FACTORY_EVAL_6_FACTORY_LITE_RUN_REPORT.md — corrected from \u0027No FINAL package\u0027 to \u0027FINAL package exists, SHA verified\u0027",
+                          "outputs/FACTORY_EVAL_6_NEGATIVE_CONTROLS_REPORT.md — NC26 corrected from N/A to PASS (SHA verified)",
+                          "scripts/factory-eval-6-factory-lite-run-verify.ps1 — added FINAL package existence + SHA verification",
+                          "governance/factory-eval/verifier-factory-eval-6-result.json — updated with FINAL package checks",
+                          "governance/factory-eval/factory-eval-6-factory-lite-result.json — added finalPackageStatus and p1Repair fields"
+                      ],
+    "reconciliationComplete":  true,
+    "rootCause":  "REPORT_STATE_ERROR — EVAL-6 preflight checked wrong path (FINAL/ directory) instead of outputs/CODEX_FACTORY_FINAL_PACKAGE.zip",
+    "productImplementationUnchanged":  true,
+    "phase":  "FACTORY-EVAL-6-P1",
+    "generatedAt":  "2026-06-25T19:16:38+08:00",
+    "status":  "COMPLETED",
+    "title":  "RUN-B State Reconciliation Repair",
+    "verifierP1Result":  "20/20 PASS"
+}

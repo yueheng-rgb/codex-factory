@@ -1,0 +1,36 @@
+﻿{
+  "phase": "FACTORY-DEFAULT-WORKFLOW-0",
+  "section": "J",
+  "title": "Agent Ledger Contract",
+  "timestamp": "2026-06-28T00:00:00+08:00",
+  "status": "ACTIVE",
+  "contract_file": "factory-workflow/AGENT_LEDGER_CONTRACT.md",
+  "ledger_location": "governance/factory-workflow/agent-ledger.jsonl",
+  "ledger_format": "JSONL (one JSON object per line, append-only)",
+  "entry_schema": {
+    "agent_id": {"required": true, "type": "string", "description": "Unique identifier from spawn or self-assigned"},
+    "agent_role": {"required": true, "type": "string", "description": "Role from Multi-Agent Role Profile"},
+    "timestamp": {"required": true, "type": "ISO 8601", "description": "When the action completed"},
+    "phase": {"required": true, "type": "string", "description": "Current Factory phase"},
+    "input_artifacts": {"required": true, "type": "array", "description": "Paths of artifacts consumed"},
+    "output_artifacts": {"required": true, "type": "array", "description": "Paths of artifacts produced"},
+    "verdict": {"required": true, "type": "PASS | FAIL | PARTIAL"},
+    "known_caveats": {"required": true, "type": "array", "description": "Known limitations (empty array if none)"},
+    "parent_agent": {"required": false, "type": "string or null"},
+    "handoff_to": {"required": false, "type": "string or null"}
+  },
+  "integrity_rules": [
+    "Append-only: new entries append, never modify existing",
+    "Immutable: once written, entry cannot be changed",
+    "Every agent writes its own entries",
+    "Timestamps must be monotonic",
+    "Output artifacts must exist (verifier checks)"
+  ],
+  "integrator_acceptance": {
+    "verdict": "ACCEPT | REJECT",
+    "reviewed_entries": "array of agent_ids",
+    "rejection_reasons": "array of reasons",
+    "failure_attribution": "agent_id or NONE"
+  },
+  "report": "outputs/FACTORY_DEFAULT_WORKFLOW_0_J_AGENT_LEDGER_CONTRACT_REPORT.md"
+}

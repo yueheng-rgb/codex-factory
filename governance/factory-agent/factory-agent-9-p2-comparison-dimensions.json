@@ -1,0 +1,71 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P2",
+  "step": "C_G_COMPARISON_DIMENSIONS",
+  "timestamp": "2026-06-26T20:29:29.9885117+08:00",
+  "dimensions": {
+    "C_productRuntime": {
+      "label": "Product Implementation & Runtime Quality",
+      "comparison": [
+        {"metric":"sourceFiles","vanilla":78,"v04":78,"v05old":117,"p1":77,"note":"Under repaired policy: diagnostic only"},
+        {"metric":"testFiles","vanilla":27,"v04":27,"v05old":22,"p1":23},
+        {"metric":"testPassRate","vanilla":"66/66","v04":"76/76","v05old":"PASS","p1":"247/247","note":"P1 has significantly more tests"},
+        {"metric":"endpoints","vanilla":55,"v04":48,"v05old":52,"p1":50},
+        {"metric":"dbTables","vanilla":15,"v04":15,"v05old":15,"p1":15},
+        {"metric":"modules","vanilla":13,"v04":13,"v05old":13,"p1":13},
+        {"metric":"errorStates","vanilla":35,"v04":32,"v05old":38,"p1":34},
+        {"metric":"verifierResult","vanilla":"38/38","v04":"35/35","v05old":"PASS","p1":"67/67 R1"},
+        {"metric":"runtimeTestsExist","vanilla":true,"v04":true,"v05old":true,"p1":true}
+      ],
+      "analysis": "All four runs produce working products with comparable structural metrics. P1 has the most comprehensive test suite (247 tests vs 66-76 in other runs). Vanilla and v0.4 are comparable in source/test structure. Old v0.5 has highest source count but some may be process artifacts."
+    },
+    "D_requirementsCoverage": {
+      "label": "Requirements Coverage",
+      "comparison": [
+        {"requirement":"R1-R5: Auth & Roles","vanilla":"PASS","v04":"PASS","v05old":"PASS","p1":"PASS"},
+        {"requirement":"R6-R10: Request CRUD","vanilla":"PASS","v04":"PASS","v05old":"PASS","p1":"PASS"},
+        {"requirement":"R11-R15: Workflow","vanilla":"PASS","v04":"PASS","v05old":"PASS","p1":"PASS"},
+        {"requirement":"R16-R20: Notifications","vanilla":"PASS","v04":"PASS","v05old":"PASS","p1":"PASS"},
+        {"requirement":"R21-R25: Audit Log","vanilla":"PASS","v04":"PASS","v05old":"PASS","p1":"PASS"},
+        {"requirement":"R26-R30: Import/Export","vanilla":"PASS","v04":"PASS","v05old":"PASS","p1":"PASS"},
+        {"requirement":"R31-R35: Settings","vanilla":"PASS","v04":"PASS","v05old":"PASS","p1":"PASS"},
+        {"requirement":"R36-R40: Reporting","vanilla":"PASS","v04":"PASS","v05old":"PASS","p1":"PASS"}
+      ],
+      "analysis": "All four runs satisfy the same 40 requirements. No differences in coverage."
+    },
+    "E_architectureIntegration": {
+      "label": "Architecture & Integration",
+      "comparison": [
+        {"aspect":"client/server separation","vanilla":"Clear","v04":"Clear","v05old":"Clear","p1":"Clear"},
+        {"aspect":"shared types module","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present (65 exports)"},
+        {"aspect":"middleware layer","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"},
+        {"aspect":"service layer","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"},
+        {"aspect":"route organization","vanilla":"Per-feature","v04":"Per-feature","v05old":"Per-feature","p1":"Per-feature"},
+        {"aspect":"API contract","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"}
+      ],
+      "analysis": "All four runs share the same 13-module architecture. Architectural quality is comparable across runs."
+    },
+    "F_securityWorkflow": {
+      "label": "Security & Workflow Quality",
+      "comparison": [
+        {"aspect":"auth middleware","vanilla":"JWT-based","v04":"JWT-based","v05old":"JWT-based","p1":"JWT-based"},
+        {"aspect":"role-based access","vanilla":"3 roles","v04":"3 roles","v05old":"3 roles","p1":"3 roles"},
+        {"aspect":"request validation","vanilla":"Zod","v04":"Zod","v05old":"Zod","p1":"Zod"},
+        {"aspect":"workflow state machine","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"},
+        {"aspect":"SLA tracking","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"},
+        {"aspect":"audit trail","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"}
+      ],
+      "analysis": "Security and workflow implementations are comparable across runs."
+    },
+    "G_uxDocsApi": {
+      "label": "UX / Documentation / API Quality",
+      "comparison": [
+        {"aspect":"API documentation","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"},
+        {"aspect":"client UI framework","vanilla":"React","v04":"React","v05old":"React","p1":"React"},
+        {"aspect":"error handling UX","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"},
+        {"aspect":"loading/empty/error states","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"},
+        {"aspect":"README","vanilla":"Present","v04":"Present","v05old":"Present","p1":"Present"}
+      ],
+      "analysis": "UX and documentation quality are comparable across runs."
+    }
+  }
+}

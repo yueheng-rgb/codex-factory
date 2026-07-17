@@ -1,0 +1,27 @@
+﻿{
+    "threshold_results":  {
+                              "error_rate":  0,
+                              "requests":  302736,
+                              "threshold_passed":  true,
+                              "p95_ms":  0
+                          },
+    "engine_id":  "autocannon",
+    "raw_output_summary":  "autocannon load test: 302736 requests, 0% errors, p95=0ms",
+    "findings_count":  0,
+    "findings":  [
+
+                 ],
+    "status":  "CLEAN",
+    "evidence_binding":  {
+                             "evidence_files":  [
+
+                                                ],
+                             "evidence_type":  "performance_metrics",
+                             "evidence_summary":  "autocannon load test: 302736 requests, 0% errors, p95=0ms"
+                         },
+    "findings_by_severity":  {
+                                 "ERROR":  0,
+                                 "WARNING":  0,
+                                 "INFO":  0
+                             }
+}

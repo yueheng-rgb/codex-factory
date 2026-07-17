@@ -1,0 +1,13 @@
+﻿{
+    "$schema": "existing-project-intake.template.json",
+    "description": "Template for existing project intake. User provides path and goal.",
+    "projectPath": "",
+    "projectGoal": "CONTINUE|REPAIR|EXTEND|REFACTOR|DIAGNOSE_THEN_BUILD",
+    "knownIssues": [],
+    "userPriority": "",
+    "allowedModificationScope": [],
+    "forbiddenPaths": [],
+    "reportDocsPath": "",
+    "continueFromStage": "",
+    "existingStatePath": ""
+}

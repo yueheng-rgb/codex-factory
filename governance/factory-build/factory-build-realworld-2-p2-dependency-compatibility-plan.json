@@ -1,0 +1,39 @@
+﻿{
+    "compatibility_plan_id": "FACTORY-BUILD-REALWORLD-2-P2-DEPENDENCY-COMPATIBILITY-PLAN",
+    "generated_at": "2026-06-28T10:27:49+08:00",
+    "phase": "FACTORY-BUILD-REALWORLD-2-P2",
+    "section": "D",
+    "current_state": {
+        "python": "3.13.13",
+        "django_installed": "6.0.6",
+        "django_project_target": "5.x",
+        "version_mismatch": true,
+        "no_requirements_txt": true,
+        "other_deps_installed": ["python-dotenv", "django-widget-tweaks"]
+    },
+    "plan": {
+        "option_a": {
+            "name": "Pin Django 5.x (RECOMMENDED)",
+            "action": "Create requirements.txt pinning Django>=5.0,<5.3; install Django 5.x",
+            "risk": "Django 5.x may not be available for Python 3.13; network install needed",
+            "network_required": true,
+            "status": "REQUIRES_APPROVAL"
+        },
+        "option_b": {
+            "name": "Adapt code to Django 6.0.x",
+            "action": "Update deprecated APIs in working copy code for Django 6.0.6 compatibility",
+            "risk": "May require code changes in views/models; more invasive",
+            "network_required": false,
+            "status": "CODEX_CAN_DO_IN_WORKING_COPY"
+        },
+        "option_c": {
+            "name": "Accept existing pass rate",
+            "action": "Document 13/23 as baseline; note Django version mismatch for future fix",
+            "risk": "Test coverage gap remains",
+            "network_required": false,
+            "status": "CODEX_CAN_DO_IN_WORKING_COPY"
+        }
+    },
+    "recommendation": "option_b (adapt to Django 6.x) — no network needed, minimal code changes, safer for local dev on Python 3.13",
+    "verdict": "COMPATIBILITY_PLAN_READY"
+}

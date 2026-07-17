@@ -1,0 +1,103 @@
+﻿{
+  "indexVersion": "1.0",
+  "generatedAt": "2026-06-24T17:00:00+08:00",
+  "nativeGenerated": true,
+  "description": "Machine-readable index of deprecated Factory modules with replacement paths and deprecation reasons.",
+  "scoringSystemGate": {
+    "reference": "factory-resource-pack/SCORING_SYSTEM_GATE.md",
+    "note": "Several modules were deprecated for using scoring as gates, violating SCORING_SYSTEM_GATE.md."
+  },
+  "deprecatedModules": [
+    {
+      "moduleId": "drift-severity-scoring",
+      "deprecatedInPhase": "H18",
+      "deprecationDate": "2026-06-24",
+      "deprecationReason": "Scoring-based severity assessment replaced by binary drift detection in architecture-drift-detector. Scoring approach violated SCORING_SYSTEM_GATE.md.",
+      "replacement": {
+        "moduleId": "architecture-drift-detector",
+        "location": "verifier-modules/",
+        "migrationNotes": "Replace score calculations with binary drift detection. Drift is either detected (yes) or not (no). No severity weighting."
+      },
+      "affectedPhases": ["DRY19", "DRY20", "DRY23", "H17"],
+      "riskIfUsed": "P0 — using scoring as gate violates SCORING_SYSTEM_GATE.md and will cause verifier failure."
+    },
+    {
+      "moduleId": "evidence-classification",
+      "deprecatedInPhase": "H18",
+      "deprecationDate": "2026-06-24",
+      "deprecationReason": "Classification system assigning trust scores to evidence replaced by simple boolean nativeGenerated flag. Scoring trust levels proved unreliable and prone to false elevation of summary evidence.",
+      "replacement": {
+        "moduleId": "nativeGenerated",
+        "location": "Boolean flag in all machine-generated artifacts",
+        "migrationNotes": "Replace all evidence trust scores with nativeGenerated boolean. Evidence is either machine-generated (trusted) or not (requires corroboration from verifier)."
+      },
+      "affectedPhases": ["DRY19", "DRY20", "DRY23", "H13", "H14", "H17"],
+      "riskIfUsed": "P0 — evidence trust scoring can mask summary-as-evidence violations."
+    },
+    {
+      "moduleId": "agent-lifecycle",
+      "deprecatedInPhase": "H18",
+      "deprecationDate": "2026-06-24",
+      "deprecationReason": "Original lifecycle tracker used scoring to assess agent health. Replaced by binary state machine in agent-lifecycle-protocol.md and registry-based tracking. Agent health scores were not independently verifiable.",
+      "replacement": {
+        "moduleId": "agent-reliability-runtime",
+        "location": "agent-lifecycle/agent-lifecycle-protocol.md + core/agent-tracking/",
+        "migrationNotes": "Replace agent health scores with binary state machine. Agents are in exactly one state: spawned, in_progress, completed, failed, stale, closed, archived. Use AGENT_REGISTRY.json and AGENT_PROGRESS.jsonl for tracking."
+      },
+      "affectedPhases": ["DRY19", "DRY20", "H13", "H14"],
+      "riskIfUsed": "P1 — agent health scores may not reflect actual agent state."
+    },
+    {
+      "moduleId": "contract-engine",
+      "deprecatedInPhase": "H18",
+      "deprecationDate": "2026-06-24",
+      "deprecationReason": "Original contract engine had hardcoded schema assumptions incompatible with current configurable verifier architecture. Replaced by worker-contract-engine with schema-driven validation.",
+      "replacement": {
+        "moduleId": "worker-contract-engine",
+        "location": "verifier-modules/ (contract verifier)",
+        "migrationNotes": "Migrate contract definitions to current JSON schema format. Update contract references in phase specifications. Re-validate all existing contracts."
+      },
+      "affectedPhases": ["DRY19", "DRY20", "DRY23", "H13", "H14", "H17"],
+      "riskIfUsed": "P0 — hardcoded schema assumptions may cause false PASS on invalid artifacts."
+    },
+    {
+      "moduleId": "dry23-integration-hub",
+      "deprecatedInPhase": "H18",
+      "deprecationDate": "2026-06-24",
+      "deprecationReason": "DRY23-era integration patterns incompatible with DRY24+ governance requirements. API contracts changed, handoff format changed, verifier expectations changed.",
+      "replacement": {
+        "moduleId": "dry24-integration-hub",
+        "location": "verifier-modules/ (integration verifier)",
+        "migrationNotes": "Update all integration configurations to DRY24 API contracts. Regenerate integration handoff artifacts. Re-validate all integration points."
+      },
+      "affectedPhases": ["DRY23"],
+      "riskIfUsed": "P0 — DRY23 integration contracts will fail DRY24+ verifiers."
+    },
+    {
+      "moduleId": "integration-hub-old",
+      "deprecatedInPhase": "H18",
+      "deprecationDate": "2026-06-24",
+      "deprecationReason": "Pre-DRY24 integration hub with deprecated routing logic and incompatible handoff formats. Superseded by the DRY24-compliant hub.",
+      "replacement": {
+        "moduleId": "dry24-integration-hub",
+        "location": "verifier-modules/ (integration verifier)",
+        "migrationNotes": "Remove all old routing configurations. Replace with DRY24-compliant routing. Re-run integration verifiers."
+      },
+      "affectedPhases": ["DRY19", "DRY20"],
+      "riskIfUsed": "P0 — old routing logic incompatible with current architecture."
+    }
+  ],
+  "deprecationCounts": {
+    "totalDeprecated": 6,
+    "deprecatedForScoringViolation": 3,
+    "deprecatedForContractChange": 2,
+    "deprecatedForArchitectureChange": 1
+  },
+  "migrationPriorities": {
+    "p0Immediate": ["drift-severity-scoring", "evidence-classification", "contract-engine", "dry23-integration-hub", "integration-hub-old"],
+    "p1Soon": ["agent-lifecycle"]
+  },
+  "verifierChecks": {
+    "deprecatedModuleUsage": "Verifier checks that active phases do not reference deprecated modules. Any reference to a deprecated module in active work is a P0 verifier failure."
+  }
+}

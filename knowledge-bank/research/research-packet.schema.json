@@ -1,0 +1,103 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research-packet.schema.json",
+  "title": "Research Packet",
+  "description": "Structured research output from RSRC-001 Research Agent",
+  "type": "object",
+  "required": ["packetId", "query", "findings", "meta"],
+  "properties": {
+    "packetId": {
+      "type": "string",
+      "pattern": "^RSRC-\\d{8}-\\d{3,}$",
+      "description": "e.g. RSRC-20260705-001"
+    },
+    "query": {
+      "type": "object",
+      "required": ["question", "type", "requestedBy"],
+      "properties": {
+        "question": { "type": "string", "description": "The research question" },
+        "type": {
+          "type": "string",
+          "enum": ["DOCS_SEARCH", "SKILL_SEARCH", "TEMPLATE_SEARCH", "ARCHITECTURE_SEARCH", "VERSION_CHECK", "BEST_PRACTICE"]
+        },
+        "requestedBy": { "type": "string", "description": "Agent ID" },
+        "context": { "type": "string", "description": "Why this is needed" },
+        "versionConstraints": { "type": "string" }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "summary"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^FIND-\\d{3}$" },
+          "source": {
+            "type": "object",
+            "required": ["type", "trustLevel"],
+            "properties": {
+              "url": { "type": "string" },
+              "type": {
+                "type": "string",
+                "enum": ["official_docs", "official_example", "known_community", "github_repo", "stackoverflow", "blog", "mcp_server", "skill_registry", "ai_generated"]
+              },
+              "trustLevel": { "type": "string", "enum": ["VERIFIED", "TRUSTED", "AVAILABLE", "UNVERIFIED", "BLOCKED"] },
+              "author": { "type": "string" },
+              "publicationDate": { "type": "string" }
+            }
+          },
+          "summary": { "type": "string" },
+          "keyPoints": { "type": "array", "items": { "type": "string" } },
+          "versionApplicable": { "type": "string" },
+          "retrievedAt": { "type": "string", "format": "date-time" },
+          "relevanceScore": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "synthesis": {
+      "type": "object",
+      "properties": {
+        "recommendation": { "type": "string" },
+        "confidence": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+        "alternatives": { "type": "array", "items": { "type": "string" } },
+        "caveats": { "type": "array", "items": { "type": "string" } },
+        "recommendedSkills": { "type": "array", "items": { "type": "string" }, "description": "Skill IDs that could help" },
+        "recommendedVerifiers": { "type": "array", "items": { "type": "string" }, "description": "How to verify these claims" }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "severity": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+          "mitigation": { "type": "string" }
+        }
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string" },
+          "url": { "type": "string" },
+          "findingId": { "type": "string" }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "required": ["totalSourcesChecked", "relevantSources", "expiresAt"],
+      "properties": {
+        "totalSourcesChecked": { "type": "integer" },
+        "relevantSources": { "type": "integer" },
+        "expiresAt": { "type": "string", "format": "date-time", "description": "When this research should be refreshed" },
+        "confidence": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+        "reviewStatus": { "type": "string", "enum": ["PENDING", "APPROVED", "REJECTED"], "default": "PENDING" },
+        "reviewedBy": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+﻿{
+  "phase": "FACTORY-EVAL-9-E",
+  "title": "v0.4 Resource Pack Restructure Plan",
+  "createdAt": "2026-06-25T20:07:00+08:00",
+  "evidenceBase": "EVAL-8: Factory Lite core is the winner. Resource pack should reflect default Factory Lite structure.",
+  "note": "This is a PLAN only. No files are being moved or created. Implementation requires user confirmation in FACTORY-V04-PREP.",
+  "directories": {
+    "core": {
+      "path": "core/",
+      "default": true,
+      "purpose": "Always-active Factory Lite Core. Loaded every session.",
+      "contents": [
+        "GLOBAL_CODEX_RULES.md — Always-On Constitution",
+        "APP_TYPE_ROUTER.md — Project type classification",
+        "STACK_DECISION_GUIDE.md — Technology stack selection",
+        "core/manual-router.md — Manual Router rules (simplified)",
+        "core/proof-of-read.md — Proof-of-Read mechanism",
+        "core/evidence-hierarchy.md — Process vs product evidence separation"
+      ],
+      "expectedUserPath": "Loaded at session start for all Factory-assisted projects",
+      "risk": "Core must stay small. If it grows >10 pages, it becomes noise."
+    },
+    "starters": {
+      "path": "starters/",
+      "default": true,
+      "purpose": "Project starter templates for common project types",
+      "contents": [
+        "fullstack-admin-starter.md",
+        "saas-tool-starter.md",
+        "api-service-starter.md",
+        "content-site-starter.md",
+        "mobile-app-starter.md",
+        "miniapp-starter.md",
+        "threejs-interactive-starter.md"
+      ],
+      "expectedUserPath": "Matched by APP_TYPE_ROUTER.md after project classification",
+      "risk": "Templates may become outdated. Review quarterly."
+    },
+    "blueprints": {
+      "path": "blueprints/",
+      "default": true,
+      "purpose": "Design blueprints for architecture patterns",
+      "contents": ["Existing 7 blueprints"],
+      "expectedUserPath": "Referenced during Architect phase of 3-role model",
+      "risk": "Low — blueprints are reference only"
+    },
+    "skills": {
+      "path": "skills/",
+      "default": true,
+      "purpose": "Reusable skill modules for common concerns",
+      "contents": [
+        "app-type-classifier",
+        "product-architecture",
+        "backend-api-design",
+        "frontend-ui-system",
+        "database-schema-design",
+        "auth-permission-security",
+        "webapp-preview-testing",
+        "anti-overengineering",
+        "mobile-miniapp-patterns"
+      ],
+      "expectedUserPath": "Selected by Manual Router based on project needs",
+      "risk": "Skill granularity is good. Do not fragment further."
+    },
+    "roles": {
+      "path": "roles/",
+      "default": false,
+      "purpose": "Optional 3-role model definitions. Only loaded when user opts in.",
+      "contents": [
+        "architect-role.json — Architect profile",
+        "builder-role.json — Builder profile",
+        "reviewer-role.json — Reviewer profile (merged QA+Verifier+Auditor)"
+      ],
+      "expectedUserPath": "Loaded only when 3-role model is activated (Tier 1 escalation)",
+      "risk": "If roles/ is always loaded, it defeats the purpose of conditional activation."
+    },
+    "benchmarks": {
+      "path": "benchmarks/",
+      "default": false,
+      "purpose": "Benchmark specs, evaluation harness, and historical results",
+      "contents": [
+        "teamflow-lite-spec.json — TeamFlow Lite benchmark specification",
+        "evaluation-rubric.json — 100-point evaluation rubric",
+        "results/ — RUN-A, RUN-B, RUN-C results",
+        "comparison/ — EVAL-8 independent comparison"
+      ],
+      "expectedUserPath": "Used for benchmark evaluation contexts only",
+      "risk": "Low — benchmarks are reference only"
+    },
+    "archive": {
+      "path": "archive/",
+      "default": false,
+      "purpose": "Deprecated or deferred mechanisms preserved for reference",
+      "contents": [
+        "10-role-company-model/ — Full 10-role profiles, contracts, handoff formats",
+        "cross-role-contracts/ — Contract templates",
+        "drift-detection/ — Drift detection policy",
+        "context-os/ — Full Agent OS event bus design",
+        "failure-router/ — Deprecated failure routing"
+      ],
+      "expectedUserPath": "Reference only. Not loaded by default.",
+      "risk": "Archive must not be accidentally loaded. Clearly marked as deprecated/deferred."
+    }
+  },
+  "migrationActions": [
+    {"action": "Identify core files for core/ directory", "status": "PLANNED"},
+    {"action": "Simplify Manual Router to remove role-company references", "status": "PLANNED"},
+    {"action": "Create 3-role profiles (Architect, Builder, Reviewer)", "status": "PLANNED"},
+    {"action": "Move 10-role artifacts to archive/", "status": "PLANNED"},
+    {"action": "Update GLOBAL_CODEX_RULES.md to reference v0.4 defaults", "status": "PLANNED"},
+    {"action": "Remove auto-activation of role model from constitution", "status": "PLANNED"}
+  ],
+  "doNotCreate": "No files are being created or moved during EVAL-9. This is a PLAN only. Implementation awaits user confirmation in FACTORY-V04-PREP."
+}

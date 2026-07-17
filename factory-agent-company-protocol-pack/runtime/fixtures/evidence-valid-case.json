@@ -1,0 +1,6 @@
+﻿{
+  "files": [
+    {"path": "C:/Codex_App_Factory/factory-agent-company-protocol-pack/runtime/fixtures/evidence-valid/file1.txt", "sha256": "70B84E2AEA2AEF5B90A1AAC025F55D25987D378A9C742276FEBD64B4C14362F4", "size": 36},
+    {"path": "C:/Codex_App_Factory/factory-agent-company-protocol-pack/runtime/fixtures/evidence-valid/file2.txt", "sha256": "6A1313D37998ABA520722852F00E2910221F5E3F0077D0E10CC389CDE0428EB9", "size": 36}
+  ]
+}

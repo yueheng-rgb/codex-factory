@@ -1,0 +1,246 @@
+﻿{
+    "capabilities":  [
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "scoring_system",
+                             "riskIfPackaged":  "HIGH: Score-based gating; could mask hard floors",
+                             "capabilityName":  "risk-classifier"
+                         },
+                         {
+                             "replacedBy":  "architecture-drift-detector (DRY24)",
+                             "recommendedDisposition":  "DEPRECATED_NOT_PACKAGED",
+                             "category":  "scoring_system",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "drift-severity-scoring"
+                         },
+                         {
+                             "replacedBy":  "nativeGenerated boolean (DRY24)",
+                             "recommendedDisposition":  "DEPRECATED_NOT_PACKAGED",
+                             "category":  "scoring_system",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "evidence-classification-scoring"
+                         },
+                         {
+                             "recommendedDisposition":  "CORE_PACKAGED",
+                             "category":  "factoryctl",
+                             "riskIfExcluded":  "HIGH: Loss of control plane",
+                             "capabilityName":  "factoryctl.ps1"
+                         },
+                         {
+                             "recommendedDisposition":  "CORE_PACKAGED",
+                             "category":  "agent_management",
+                             "riskIfExcluded":  "HIGH: Loss of native agent tracking",
+                             "capabilityName":  "agent-registry-progress-scripts"
+                         },
+                         {
+                             "recommendedDisposition":  "CORE_PACKAGED",
+                             "category":  "session_rotation",
+                             "riskIfExcluded":  "MEDIUM: Loss of handoff",
+                             "capabilityName":  "handoff-generation-scripts"
+                         },
+                         {
+                             "recommendedDisposition":  "OPTIONAL_PACKAGED",
+                             "category":  "evidence_management",
+                             "riskIfExcluded":  "MEDIUM: Loss of evidence bundling",
+                             "capabilityName":  "evidence-collector"
+                         },
+                         {
+                             "recommendedDisposition":  "OPTIONAL_PACKAGED",
+                             "category":  "evidence_management",
+                             "riskIfExcluded":  "MEDIUM: Loss of state snapshots",
+                             "capabilityName":  "snapshot-manager"
+                         },
+                         {
+                             "recommendedDisposition":  "OPTIONAL_PACKAGED",
+                             "category":  "bootstrap",
+                             "riskIfExcluded":  "MEDIUM: Loss of bootstrap",
+                             "capabilityName":  "project-scaffolding"
+                         },
+                         {
+                             "recommendedDisposition":  "OPTIONAL_PACKAGED",
+                             "category":  "negative_control",
+                             "capabilityName":  "legacy-negative-controls"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "verifier_module",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "verify-gate"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "diagnosis",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "diagnosis-engine-core"
+                         },
+                         {
+                             "recommendedDisposition":  "DEPRECATED_NOT_PACKAGED",
+                             "category":  "diagnosis",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "diagnosis-reporter"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "governance_tool",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "phase-gate"
+                         },
+                         {
+                             "recommendedDisposition":  "EXCLUDED_RISKY",
+                             "category":  "governance_tool",
+                             "riskIfPackaged":  "HIGH: Auto retry/quarantine without verifier",
+                             "capabilityName":  "failure-router"
+                         },
+                         {
+                             "replacedBy":  "agent-reliability-runtime (DRY24)",
+                             "recommendedDisposition":  "DEPRECATED_NOT_PACKAGED",
+                             "category":  "agent_management",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "agent-lifecycle"
+                         },
+                         {
+                             "replacedBy":  "worker-contract-engine (DRY24)",
+                             "recommendedDisposition":  "DEPRECATED_NOT_PACKAGED",
+                             "category":  "governance_tool",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "contract-engine"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "governance_tool",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "scope-guard"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "orchestration",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "task-queue"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "orchestration",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "dep-scheduler"
+                         },
+                         {
+                             "recommendedDisposition":  "DEPRECATED_NOT_PACKAGED",
+                             "category":  "integration",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "dry23-integration-hub"
+                         },
+                         {
+                             "recommendedDisposition":  "DEPRECATED_NOT_PACKAGED",
+                             "category":  "integration",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "integration-hub-old"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "verifier_module",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "legacy-verifier-scripts"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "governance_tool",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "state-management-scripts"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "diagnosis",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "governance-diagnosis-jsons"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "build_tool",
+                             "replacedByNewerMechanism":  true,
+                             "capabilityName":  "legacy-build-scripts"
+                         },
+                         {
+                             "recommendedDisposition":  "REFERENCE_ARCHIVED",
+                             "category":  "testing_framework",
+                             "riskIfPackaged":  "HIGH: Outdated schemas, massive volume",
+                             "capabilityName":  "harness-infrastructure"
+                         }
+                     ],
+    "recommendedExclusions":  [
+                                  "failure-router"
+                              ],
+    "totalCapabilitiesFound":  26,
+    "h18ResourcePackImpact":  {
+                                  "optionalCount":  4,
+                                  "recommendedH18DesignChange":  "Add SCORING_SYSTEM_GATE to manifest: no core module may emit PASS/FAIL based on computed score.",
+                                  "archiveCount":  12,
+                                  "scoringSystemRiskSummary":  "3 scoring systems found. ALL excluded from CORE. H18 must NOT include score-based gating.",
+                                  "coreCount":  3,
+                                  "deprecatedCount":  7,
+                                  "excludedCount":  1
+                              },
+    "nativeGenerated":  true,
+    "recommendedOptionalModules":  [
+                                       "evidence-collector",
+                                       "snapshot-manager",
+                                       "project-scaffolding",
+                                       "legacy-negative-controls"
+                                   ],
+    "unknownRequiresReview":  [
+
+                              ],
+    "recommendedArchives":  [
+                                "risk-classifier",
+                                "verify-gate",
+                                "diagnosis-engine-core",
+                                "phase-gate",
+                                "scope-guard",
+                                "task-queue",
+                                "dep-scheduler",
+                                "legacy-verifier-scripts",
+                                "state-management-scripts",
+                                "governance-diagnosis-jsons",
+                                "legacy-build-scripts",
+                                "harness-infrastructure"
+                            ],
+    "recommendedPackInclusions":  [
+                                      "factoryctl.ps1",
+                                      "agent-registry-progress-scripts",
+                                      "handoff-generation-scripts"
+                                  ],
+    "scoringSystemFindings":  [
+                                  {
+                                      "verdict":  "NOT_CORE: archived as reference taxonomy only",
+                                      "riskOfHighScoreMaskingP0":  true,
+                                      "riskOfScoreDowngradingHardFloor":  true,
+                                      "riskOfScoreReplacingEvidence":  true,
+                                      "hasNegativeControls":  false,
+                                      "system":  "risk-classifier"
+                                  },
+                                  {
+                                      "riskOfHighScoreMaskingP0":  true,
+                                      "verdict":  "DEPRECATED: replaced by DRY24 DriftPreventionPolicy",
+                                      "riskOfScoreReplacingEvidence":  false,
+                                      "system":  "drift-severity-scoring",
+                                      "hasNegativeControls":  false
+                                  },
+                                  {
+                                      "riskOfHighScoreMaskingP0":  false,
+                                      "verdict":  "DEPRECATED: replaced by nativeGenerated boolean",
+                                      "riskOfScoreReplacingEvidence":  true,
+                                      "system":  "evidence-classification-scoring",
+                                      "hasNegativeControls":  false
+                                  }
+                              ],
+    "phase":  "H18-A0",
+    "recommendedDeprecated":  [
+                                  "drift-severity-scoring",
+                                  "evidence-classification-scoring",
+                                  "diagnosis-reporter",
+                                  "agent-lifecycle",
+                                  "contract-engine",
+                                  "dry23-integration-hub",
+                                  "integration-hub-old"
+                              ],
+    "generatedAt":  "2026-06-24T16:53:09.7984711+08:00"
+}

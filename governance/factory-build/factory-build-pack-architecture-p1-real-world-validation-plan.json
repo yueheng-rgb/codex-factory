@@ -1,0 +1,46 @@
+﻿{
+    "releaseGate":  {
+                        "gate":  "REAL_WORLD_VALIDATION",
+                        "blocksV05":  true,
+                        "status":  "REQUIRED",
+                        "passesIf":  "At least 1 project (Build Lite) with evidence collected AND final user assessment is positive"
+                    },
+    "title":  "Real-World Validation Plan",
+    "project2":  {
+                     "criteria":  [
+                                      "Real user-chosen complex project",
+                                      "External requirements",
+                                      "Project complexity warrants multi-agent"
+                                  ],
+                     "type":  "Native Build Pro (if warranted)",
+                     "additionalEvidence":  [
+                                                "context packets generated",
+                                                "agent lifecycle registry",
+                                                "handoffs + close receipts",
+                                                "overhead metrics"
+                                            ]
+                 },
+    "section":  "K",
+    "project1":  {
+                     "criteria":  [
+                                      "Real user-chosen project",
+                                      "External requirements",
+                                      "Not factory-generated",
+                                      "At least 2 iterations"
+                                  ],
+                     "evidenceToCollect":  [
+                                               "project-goal.json",
+                                               "mode-selected.json",
+                                               "codex-factory snapshot",
+                                               "verifier results",
+                                               "diagnostic gate results",
+                                               "user-intervention-log.json",
+                                               "failure-log.json",
+                                               "final-user-assessment.json"
+                                           ],
+                     "type":  "Build Lite"
+                 },
+    "requirement":  "At least 1 real-world project before v0.5 consideration. Preferred: 2 projects (1 Build Lite, 1 Build Pro if warranted).",
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "note":  "Plan only. Actual execution in FACTORY-BUILD-REALWORLD-0."
+}

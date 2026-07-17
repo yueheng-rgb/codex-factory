@@ -1,0 +1,36 @@
+﻿{
+    "checkedAt":  "2026-06-24T20:28:12+08:00",
+    "negativesUnexpected":  0,
+    "verdict":  "PASS",
+    "classification":  "POSITIVE_NEGATIVE_CLOSED",
+    "negativesPassed":  24,
+    "phase":  "DRY27",
+    "totalChecks":  18,
+    "subPhases":  {
+                      "DRY27-D":  {
+                                      "status":  "PASS",
+                                      "desc":  "Automation+Monitoring: 8/8 (PARTIALLY_VERIFIED)"
+                                  },
+                      "DRY27-F":  {
+                                      "status":  "PASS",
+                                      "desc":  "24 negatives + 18 checks: PASS"
+                                  },
+                      "DRY27-A":  {
+                                      "status":  "PASS",
+                                      "desc":  "Runtime fixture: 72 files, 10/10 validation"
+                                  },
+                      "DRY27-E":  {
+                                      "status":  "PASS",
+                                      "desc":  "Thread+Handoff: 8/8 (PARTIALLY_VERIFIED)"
+                                  },
+                      "DRY27-C":  {
+                                      "status":  "PASS",
+                                      "desc":  "MCP stress: 8/8 structural (PARTIALLY_VERIFIED)"
+                                  },
+                      "DRY27-B":  {
+                                      "status":  "PASS",
+                                      "desc":  "Plugin install + sync: 9/9 install, 9/9 sync (PARTIALLY_VERIFIED)"
+                                  }
+                  },
+    "parentPhase":  "H22"
+}

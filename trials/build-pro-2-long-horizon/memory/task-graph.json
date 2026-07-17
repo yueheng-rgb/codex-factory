@@ -1,0 +1,199 @@
+﻿{
+    "lastUpdated":  "2026-06-27T15:44:10.5970607+08:00",
+    "tasks":  [
+                  {
+                      "description":  "Scaffold project + auth module + core entity models",
+                      "agent":  "product-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+
+                                       ],
+                      "phase":  "ITERATION-1",
+                      "taskId":  "T001",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Create frontend layout + routing + auth UI",
+                      "agent":  "product-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T001"
+                                       ],
+                      "phase":  "ITERATION-1",
+                      "taskId":  "T002",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Write backend tests for auth + entity models",
+                      "agent":  "test-docs-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T001"
+                                       ],
+                      "phase":  "ITERATION-1",
+                      "taskId":  "T003",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Write frontend tests for auth + layout",
+                      "agent":  "test-docs-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T002"
+                                       ],
+                      "phase":  "ITERATION-1",
+                      "taskId":  "T004",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Ticket workflow + approval workflow backend",
+                      "agent":  "product-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T001"
+                                       ],
+                      "phase":  "ITERATION-2",
+                      "taskId":  "T005",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Ticket + approval frontend UI",
+                      "agent":  "product-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T002"
+                                       ],
+                      "phase":  "ITERATION-2",
+                      "taskId":  "T006",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Notifications backend + frontend",
+                      "agent":  "product-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T005",
+                                           "T006"
+                                       ],
+                      "phase":  "ITERATION-2",
+                      "taskId":  "T007",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Tests for workflows + notifications",
+                      "agent":  "test-docs-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T005",
+                                           "T006",
+                                           "T007"
+                                       ],
+                      "phase":  "ITERATION-2",
+                      "taskId":  "T008",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Knowledge base backend + frontend",
+                      "agent":  "product-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T001",
+                                           "T002"
+                                       ],
+                      "phase":  "ITERATION-3",
+                      "taskId":  "T009",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Reports dashboard + audit log",
+                      "agent":  "product-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T001",
+                                           "T002"
+                                       ],
+                      "phase":  "ITERATION-3",
+                      "taskId":  "T010",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Automation rules engine",
+                      "agent":  "product-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T005"
+                                       ],
+                      "phase":  "ITERATION-3",
+                      "taskId":  "T011",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Tests for KB + reports + automation",
+                      "agent":  "test-docs-builder",
+                      "parallelizable":  true,
+                      "dependencies":  [
+                                           "T009",
+                                           "T010",
+                                           "T011"
+                                       ],
+                      "phase":  "ITERATION-3",
+                      "taskId":  "T012",
+                      "status":  "completed"
+                  },
+                  {
+                      "description":  "Integration testing across all modules",
+                      "agent":  "reviewer-verifier",
+                      "parallelizable":  false,
+                      "dependencies":  [
+                                           "T001",
+                                           "T002",
+                                           "T003",
+                                           "T004",
+                                           "T005",
+                                           "T006",
+                                           "T007",
+                                           "T008",
+                                           "T009",
+                                           "T010",
+                                           "T011",
+                                           "T012"
+                                       ],
+                      "phase":  "INTEGRATION",
+                      "taskId":  "T013",
+                      "status":  "pending"
+                  },
+                  {
+                      "description":  "Diagnostic gate check",
+                      "agent":  "reviewer-verifier",
+                      "parallelizable":  false,
+                      "dependencies":  [
+                                           "T013"
+                                       ],
+                      "phase":  "DIAGNOSTICS",
+                      "taskId":  "T014",
+                      "status":  "pending"
+                  },
+                  {
+                      "description":  "Recovery drill",
+                      "agent":  "reviewer-verifier",
+                      "parallelizable":  false,
+                      "dependencies":  [
+                                           "T014"
+                                       ],
+                      "phase":  "RECOVERY",
+                      "taskId":  "T015",
+                      "status":  "pending"
+                  },
+                  {
+                      "description":  "Final verification + analysis",
+                      "agent":  "reviewer-verifier",
+                      "parallelizable":  false,
+                      "dependencies":  [
+                                           "T015"
+                                       ],
+                      "phase":  "FINAL",
+                      "taskId":  "T016",
+                      "status":  "pending"
+                  }
+              ]
+}

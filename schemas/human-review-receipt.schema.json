@@ -1,0 +1,27 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Review Receipt",
+  "description": "A human review receipt binding reviewer decisions to artifacts and claims.",
+  "type": "object",
+  "required": ["review_id","reviewer_role","review_scope","risk_level","decision","timestamp","cannot_be_auto_generated_by_agent"],
+  "properties": {
+    "review_id": {"type":"string","description":"Unique review ID, e.g. REV-20260712-001"},
+    "session_id": {"type":"string","description":"Session grouping multiple reviews"},
+    "reviewer_role": {"type":"string","enum":["security","database","business","performance","architecture","release","operator","external_auditor"],"description":"Role of the human reviewer"},
+    "reviewer_name_or_alias": {"type":"string","description":"Human reviewer identifier"},
+    "review_scope": {"type":"string","description":"What is being reviewed (project, release, finding, conflict)"},
+    "risk_level": {"type":"string","enum":["LOW","MEDIUM","HIGH","CRITICAL","L_CLASS"]},
+    "reviewed_artifacts": {"type":"array","items":{"type":"string"},"description":"Artifact IDs from CI artifact store (e.g. ART-0001)"},
+    "reviewed_claims": {"type":"array","items":{"type":"string"},"description":"Claims being reviewed (e.g. 'products-api: 23/23 PASS')"},
+    "decision": {"type":"string","enum":["APPROVED","REJECTED","NEEDS_CHANGES","PARTIAL","APPROVED_WITH_RISK"],"description":"Reviewer decision"},
+    "required_changes": {"type":"array","items":{"type":"string"},"description":"Changes required if NEEDS_CHANGES"},
+    "reviewer_notes": {"type":"string","description":"Free-form reviewer notes"},
+    "timestamp": {"type":"string","format":"date-time"},
+    "linked_audit_ledger_entry": {"type":"string","description":"Cross-reference to audit ledger"},
+    "linked_artifact_ids": {"type":"array","items":{"type":"string"}},
+    "linked_artifact_store_index": {"type":"string","description":"Path to artifact-store-index.json"},
+    "non_claims": {"type":"array","items":{"type":"string"},"description":"What this review does NOT approve"},
+    "signature_mode": {"type":"string","enum":["local_receipt","manual","simulated"],"description":"How the signature was produced"},
+    "cannot_be_auto_generated_by_agent": {"type":"boolean","const":true,"description":"This receipt MUST be produced by a human, not an agent"}
+  }
+}

@@ -1,0 +1,26 @@
+﻿{
+  "phase": "FACTORY-V04-PREP",
+  "title": "v0.4 Draft Resource Pack Assembly Result",
+  "status": "COMPLETED",
+  "verifierResult": "32/32 PASS",
+  "negativeControls": "36/36 PASS, 0 gaps",
+  "validationResult": "PASS — 0 errors",
+  "smokeTestResult": "PASS — all 5 checks passed",
+  "createdAt": "2026-06-25T20:22:00+08:00",
+  "draftLocation": "factory-resource-pack-v0.4-draft/",
+  "draftContents": {
+    "totalFiles": 31,
+    "defaultModules": 11,
+    "optionalModules": 6,
+    "deferredModules": 2,
+    "archivedModules": 2,
+    "topLevelDocs": 6,
+    "directories": 9
+  },
+  "manifestVersion": "0.4.0-draft",
+  "manifestStatus": "DRAFT_NOT_RELEASED",
+  "finalZipCreated": false,
+  "oneBenchmarkLimitation": true,
+  "defaultOperatingModel": "Factory Lite Core (Tier 0, 0 roles, ~200ms overhead)",
+  "closure": "FACTORY-V04-PREP PASS. v0.4 draft resource pack assembled, validated, and smoke-tested. Awaiting user review."
+}

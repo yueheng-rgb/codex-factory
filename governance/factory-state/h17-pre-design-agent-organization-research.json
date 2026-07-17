@@ -1,0 +1,437 @@
+﻿{
+    "resourcePack":  {
+                         "codexPrompt":  [
+                                             "Phase specification (user-provided)",
+                                             "Active task assignment",
+                                             "Capacity preflight result"
+                                         ],
+                         "handoffCapsule":  [
+                                                "Current factory state",
+                                                "Agent registry snapshot",
+                                                "Recent progress events (tail)",
+                                                "Verifier result",
+                                                "Allowed next phase",
+                                                "Open caveats"
+                                            ],
+                         "cloudSyncFuture":  [
+                                                 "Phase history archive",
+                                                 "Benchmark results",
+                                                 "Cross-project resource pack sharing",
+                                                 "Agent registry backup"
+                                             ],
+                         "reuseMechanism":  "Copy governance/ templates, contracts/ schema, scripts/ verifiers to new project; adapt phase definitions",
+                         "repoLocal":  [
+                                           "contract schema",
+                                           "phase templates",
+                                           "verifier scripts",
+                                           "negative fixture templates",
+                                           "session rotation protocol",
+                                           "risk signal taxonomy",
+                                           "role definitions"
+                                       ]
+                     },
+    "multiAgentEfficiency":  {
+                                 "proposedBenchmark":  {
+                                                           "singleAgentBaseline":  "Run a complexity-matched phase (e.g., 90 files/650 exports) with single Main Agent writing all code",
+                                                           "metrics":  [
+                                                                           "wallClockTime",
+                                                                           "implementationSize",
+                                                                           "bugCount (verifier failures)",
+                                                                           "integrationConflicts",
+                                                                           "humanInterventionCount",
+                                                                           "architectureQuality (cohesion/coupling)",
+                                                                           "contextCompressionIncidents"
+                                                                       ],
+                                                           "multiAgentRun":  "Same phase with 6+ spawned builders, fork_context:false, contracts"
+                                                       },
+                                 "hasBenchmark":  false,
+                                 "assessment":  "No controlled single-agent vs multi-agent benchmark exists. Evidence of multi-agent work (DRY21: 7 agents, DRY22: 8 agents, DRY23: 10 agents) but no baseline comparison."
+                             },
+    "mainAgentScheduling":  {
+                                "proposedProtocol":  [
+                                                         {
+                                                             "description":  "Decompose phase into independent work packages with scope boundaries",
+                                                             "step":  "task_graph_creation"
+                                                         },
+                                                         {
+                                                             "description":  "Generate worker contracts before spawn; validate against schema",
+                                                             "step":  "contract_generation"
+                                                         },
+                                                         {
+                                                             "description":  "Check open agent count; close stale agents; verify slots available",
+                                                             "step":  "capacity_preflight"
+                                                         },
+                                                         {
+                                                             "description":  "Call spawn_agent with fork_context:false; record spawn_requested event",
+                                                             "step":  "spawn_attempt"
+                                                         },
+                                                         {
+                                                             "description":  "Classify spawn result: success/thread_limit_reached/timeout/other_failure",
+                                                             "step":  "spawn_classification"
+                                                         },
+                                                         {
+                                                             "description":  "If spawn fails: close stale agent, retry spawn, or spawn replacement with narrower scope",
+                                                             "step":  "retry_replacement"
+                                                         },
+                                                         {
+                                                             "description":  "Integrator runs after all builders complete; merge to integration hub",
+                                                             "step":  "integration_scheduling"
+                                                         },
+                                                         {
+                                                             "description":  "Pass all artifacts to verifier; verifier runs machine-readable checks",
+                                                             "step":  "verifier_handoff"
+                                                         },
+                                                         {
+                                                             "description":  "Based on verifier JSON result (not manual assessment): PASS/FAIL/BLOCKED",
+                                                             "step":  "closure_decision"
+                                                         }
+                                                     ],
+                                "mainAgentMustNot":  [
+                                                         "Write implementation code in builder scopes",
+                                                         "Modify worker owned scope files",
+                                                         "Count failed spawn work as successful",
+                                                         "Treat compressed conversation summary as evidence",
+                                                         "Override verifier FAIL with manual PASS",
+                                                         "Modify integration hub without integrator-declared repair event"
+                                                     ]
+                            },
+    "type":  "RESEARCH_AND_SELF_ASSESSMENT",
+    "h17Recommendation":  {
+                              "rankedCandidates":  [
+                                                       {
+                                                           "rationale":  "Closes the 14+ negative control gaps from DRY23. Essential but insufficient alone — hardening verify without agent reliability just creates better detection of already-broken patterns.",
+                                                           "direction":  "A: Factoryctl Verify Hardening"
+                                                       },
+                                                       {
+                                                           "rationale":  "Addresses the root causes exposed by DRY23-P1/P2: spawn failure, Main Agent fallback, stale agents, context compression. Combined with verify hardening, this creates a robust foundation for DRY24+.",
+                                                           "direction":  "B: Agent Reliability + Session Compression Hardening"
+                                                       },
+                                                       {
+                                                           "rationale":  "Valuable for long-term reuse but premature before agent reliability is proven. Should follow H17.",
+                                                           "direction":  "C: Agent Organization Model + Resource Pack"
+                                                       }
+                                                   ],
+                              "recommendedDirection":  "B: Agent Reliability + Session Compression Hardening",
+                              "h17Scope":  {
+                                               "mustImplement":  [
+                                                                     {
+                                                                         "description":  "Before any spawn, check open agent count; close completed agents; verify slot available",
+                                                                         "gate":  "AGENT_CAPACITY_PREFLIGHT"
+                                                                     },
+                                                                     {
+                                                                         "description":  "factoryctl verify checks for spawn_requested without spawn_confirmed or artifact event → FAIL",
+                                                                         "gate":  "SPAWN_FAILURE_DETECTION"
+                                                                     },
+                                                                     {
+                                                                         "description":  "Detect orchestrator writes to builder scopes without integrator_repair event → FAIL",
+                                                                         "gate":  "MAIN_AGENT_FALLBACK_DETECTION"
+                                                                     },
+                                                                     {
+                                                                         "description":  "Cross-reference registry with progress; FAIL if agent in registry lacks completion evidence",
+                                                                         "gate":  "FAILED_AGENT_NOT_COUNTED"
+                                                                     },
+                                                                     {
+                                                                         "description":  "Close agents after completion; detect stale agents open \u003e N minutes",
+                                                                         "gate":  "AGENT_LIFECYCLE_CLEANUP"
+                                                                     },
+                                                                     {
+                                                                         "description":  "Track compression events; after 2+ compressions, force session rotation",
+                                                                         "gate":  "CONTEXT_COMPRESSION_COUNTER"
+                                                                     },
+                                                                     {
+                                                                         "description":  "On new session, compare handoff timestamp with factory state timestamp; flag if stale",
+                                                                         "gate":  "STALE_CONTEXT_DETECTION"
+                                                                     },
+                                                                     {
+                                                                         "description":  "factoryctl verify ignores compressed summaries; only accepts machine-readable JSON evidence",
+                                                                         "gate":  "SUMMARY_NOT_EVIDENCE"
+                                                                     },
+                                                                     {
+                                                                         "description":  "Each worker must produce a transcript/result file; FAIL if artifact without transcript",
+                                                                         "gate":  "TRANSCRIPT_REQUIRED"
+                                                                     },
+                                                                     {
+                                                                         "description":  "After source changes, re-validate contracts; FAIL if contract references missing files",
+                                                                         "gate":  "CONTRACT_DRIFT_CHECK"
+                                                                     }
+                                                                 ],
+                                               "name":  "H17 / Agent Reliability + Session Compression Hardening"
+                                           }
+                          },
+    "agentCommunication":  {
+                               "existingChannels":  [
+                                                        "AGENT_PROGRESS.jsonl — 154 events, 15 types (create, close, spawn_requested, artifact, progress, etc.)",
+                                                        "Session rotation handoff — nativeGenerated:true for DRY23-P2",
+                                                        "Worker contracts — define expected outputs",
+                                                        "File changes in packages/*/src/",
+                                                        "factoryctl agents/progress/watch"
+                                                    ],
+                               "issues":  {
+                                              "staleProgress":  "No staleness check; progress events have timestamps but no TTL/expiry",
+                                              "unverifiedCompletionClaim":  "\u0027close\u0027 events set verdict=\u0027PASS\u0027 before verifier runs in some cases",
+                                              "vagueReport":  "Some progress events have empty detail/result fields",
+                                              "artifactWithoutTranscript":  "Builder subagents produce files but transcripts are in subagent session, not in repo",
+                                              "reportWithoutArtifact":  "Not systematically checked",
+                                              "missingProgressEvent":  "DRY23-P1: 34 Main Agent files created with 0 progress events (repaired in P2)",
+                                              "reportDeception":  "Possible: progress event can claim \u0027completed\u0027 without verifier confirmation"
+                                          }
+                           },
+    "agentOrganizationMap":  {
+                                 "contractGovernance":  {
+                                                            "output":  "Contract validation results, dependency graphs, scope violation reports",
+                                                            "shouldHave":  [
+                                                                               "Define contract schema",
+                                                                               "Validate worker contracts",
+                                                                               "Enforce scope boundaries",
+                                                                               "Detect contract drift"
+                                                                           ],
+                                                            "companyRole":  "Legal / Architecture Governance",
+                                                            "repoMechanism":  "worker-contract.schema.json (broken JSON?); 25 contracts across 4 phases; validate-contracts.ps1; extract-dependency-graph.ps1",
+                                                            "input":  "Worker contracts, dependency declarations, scope definitions",
+                                                            "shouldNotHave":  [
+                                                                                  "Write implementation",
+                                                                                  "Override verifier"
+                                                                              ]
+                                                        },
+                                 "orchestrator":  {
+                                                      "output":  "Task assignments, spawn_agent calls, progress monitoring",
+                                                      "shouldHave":  [
+                                                                         "Create task graphs",
+                                                                         "Generate worker contracts",
+                                                                         "Assign scopes",
+                                                                         "Monitor progress via factoryctl",
+                                                                         "Coordinate integration"
+                                                                     ],
+                                                      "companyRole":  "Engineering Manager / Delivery Lead",
+                                                      "repoMechanism":  "Dry23-orchestrator-1 agent in registry; collapsed with Main Agent in practice",
+                                                      "input":  "Phase specification, agent registry, capacity preflight",
+                                                      "shouldNotHave":  [
+                                                                            "Same as Main Agent (collapsed role in current architecture)"
+                                                                        ]
+                                                  },
+                                 "auditor":  {
+                                                 "output":  "Investigation reports, classification JSON, contamination inventories",
+                                                 "shouldHave":  [
+                                                                    "Read all evidence",
+                                                                    "Request investigations",
+                                                                    "Classify failures",
+                                                                    "Recommend remediation"
+                                                                ],
+                                                 "companyRole":  "External Auditor / Compliance",
+                                                 "repoMechanism":  "DRY23-P1 investigation report; dry23-p1-agent-creation-failure-investigation.json; contamination inventory",
+                                                 "input":  "Investigation requests, anomaly reports, suspicion triggers",
+                                                 "shouldNotHave":  [
+                                                                       "Modify any factory state",
+                                                                       "Write implementation",
+                                                                       "Change agent registry"
+                                                                   ]
+                                             },
+                                 "memoryHandoff":  {
+                                                       "output":  "session-rotation-handoff.json, current-factory-state.json, AGENT_PROGRESS.jsonl",
+                                                       "shouldHave":  [
+                                                                          "Store session handoff",
+                                                                          "Preserve agent progress",
+                                                                          "Track phase history",
+                                                                          "Enable session rotation"
+                                                                      ],
+                                                       "companyRole":  "Knowledge Management / Documentation",
+                                                       "repoMechanism":  "governance/factory-state/session-rotation-handoff.json; current-factory-state.json (83 closed phases tracked)",
+                                                       "input":  "Phase closure events, agent progress, factory state",
+                                                       "shouldNotHave":  [
+                                                                             "Modify evidence",
+                                                                             "Change verdicts",
+                                                                             "Claim reconstructed as native"
+                                                                         ]
+                                                   },
+                                 "userFounder":  {
+                                                     "output":  "Phase acceptance/rejection, repair directives, H-version go/no-go",
+                                                     "shouldHave":  [
+                                                                        "Define phase objectives",
+                                                                        "Accept/reject phase verdicts",
+                                                                        "Set complexity floors",
+                                                                        "Authorize H/DRY phase transitions",
+                                                                        "Initiate repair phases"
+                                                                    ],
+                                                     "trustedEvidence":  "Verifier JSON results, factoryctl verify --json, session-rotation-handoff.json",
+                                                     "companyRole":  "Founder/Product Owner",
+                                                     "repoMechanism":  "current-factory-state.json (allowedNextPhase), phase specification attachments, user confirmation gates",
+                                                     "input":  "Phase specifications, business requirements, quality gates",
+                                                     "shouldNotHave":  [
+                                                                           "Write implementation code",
+                                                                           "Modify worker contracts without audit",
+                                                                           "Override verifier failures with manual PASS",
+                                                                           "Reclassify negative controls post-hoc"
+                                                                       ]
+                                                 },
+                                 "verifier":  {
+                                                  "output":  "verifier-*-result.json, PASS/FAIL/CAVEAT verdict, check results",
+                                                  "shouldHave":  [
+                                                                     "Run factoryctl verify",
+                                                                     "Execute verifier scripts",
+                                                                     "Check all gates",
+                                                                     "Readonly access to all evidence",
+                                                                     "Produce machine-readable results"
+                                                                 ],
+                                                  "companyRole":  "QA Lead / CI Gate Owner",
+                                                  "repoMechanism":  "8 verifier agents registered; scripts/phase6c-*-verify.ps1; governance/factory-state/verifier-*.json",
+                                                  "input":  "All phase artifacts, verify snapshots, negative fixtures",
+                                                  "shouldNotHave":  [
+                                                                        "Modify implementation files",
+                                                                        "Modify integration hub",
+                                                                        "Change agent registry",
+                                                                        "Write progress events (except verify results)"
+                                                                    ]
+                                              },
+                                 "mainAgent":  {
+                                                   "output":  "Phase execution, handoff capsules, state updates, closure reports",
+                                                   "shouldHave":  [
+                                                                      "Orchestrate phase execution",
+                                                                      "Spawn workers via spawn_agent",
+                                                                      "Register agents in registry",
+                                                                      "Record progress events",
+                                                                      "Generate handoff capsules",
+                                                                      "Run factoryctl verify",
+                                                                      "Make closure decisions based on verifier evidence"
+                                                                  ],
+                                                   "trustedEvidence":  "AGENT_PROGRESS.jsonl (orchestrator events), spawn_agent tool call records, verifier result JSON",
+                                                   "companyRole":  "CTO / Engineering Lead",
+                                                   "repoMechanism":  "Main Agent = this Codex session; scripts/record-progress.ps1; scripts/factoryctl.ps1",
+                                                   "input":  "Phase specification, factory state, agent registry, progress log, verifier results",
+                                                   "shouldNotHave":  [
+                                                                         "Write worker implementation scope (DRY23-P1 violation)",
+                                                                         "Modify integrator-owned files without declaration",
+                                                                         "Count failed spawns as success",
+                                                                         "Override verifier FAIL with manual PASS",
+                                                                         "Use compressed summaries as evidence"
+                                                                     ]
+                                               },
+                                 "builder":  {
+                                                 "output":  "Source files, exports, progress events, completion transcripts",
+                                                 "shouldHave":  [
+                                                                    "Write implementation within owned scope",
+                                                                    "Create real exports",
+                                                                    "Follow contract constraints",
+                                                                    "Report progress via events",
+                                                                    "Produce artifacts with transcripts"
+                                                                ],
+                                                 "trustedEvidence":  "Registry entry (nativeGenerated:true), progress events, file timestamps, contract validation",
+                                                 "companyRole":  "Senior Engineer / IC",
+                                                 "repoMechanism":  "packages/*/src/ files, AGENT_REGISTRY.json, AGENT_PROGRESS.jsonl, worker contracts",
+                                                 "input":  "Worker contract, owned scope, fork_context:false, task specification",
+                                                 "shouldNotHave":  [
+                                                                       "Write to other builder scopes",
+                                                                       "Modify integration hub",
+                                                                       "Modify contracts",
+                                                                       "Write to governance/factory-state/"
+                                                                   ]
+                                             },
+                                 "platform":  {
+                                                  "output":  "factoryctl status/agents/progress/watch/verify output",
+                                                  "shouldHave":  [
+                                                                     "Provide factoryctl",
+                                                                     "Manage PATH/scripts",
+                                                                     "Run verifier modules",
+                                                                     "Manage agent lifecycle"
+                                                                 ],
+                                                  "companyRole":  "DevOps / Platform Team",
+                                                  "repoMechanism":  "scripts/factoryctl.ps1 (repo-local, not on PATH); scripts/record-progress.ps1",
+                                                  "input":  "Repo state, verifier requests, agent spawn requests",
+                                                  "shouldNotHave":  [
+                                                                        "Override verifier results",
+                                                                        "Modify evidence chains",
+                                                                        "Create agents without registry"
+                                                                    ]
+                                              },
+                                 "integrator":  {
+                                                    "output":  "Integration hub files, merged state, integration evidence",
+                                                    "shouldHave":  [
+                                                                       "Own integration hub scope",
+                                                                       "Merge worker outputs",
+                                                                       "Add integration points",
+                                                                       "Declare repair work if needed"
+                                                                   ],
+                                                    "companyRole":  "Tech Lead / Merge Owner",
+                                                    "repoMechanism":  "packages/dry23-integration-hub/src/ (integrator-owned); 5 integrator agents registered",
+                                                    "input":  "Worker outputs, dependency graph, contract declarations",
+                                                    "shouldNotHave":  [
+                                                                          "Write to builder owned scopes",
+                                                                          "Modify worker contracts unilaterally",
+                                                                          "Claim builder work as integrator work"
+                                                                      ]
+                                                }
+                             },
+    "phase":  "H17-PRE-DESIGN",
+    "generatedAt":  "2026-06-24T01:51:29.6071270+08:00",
+    "architectureDrift":  {
+                              "existing":  [
+                                               "extract-dependency-graph.ps1 (detects cross-package imports)",
+                                               "validate-contracts.ps1 (validates contracts against schema)"
+                                           ],
+                              "missing":  {
+                                              "duplicateFunctionDetector":  "H17/H18 candidate",
+                                              "contractDriftAfterSourceChange":  "H17/H18 candidate",
+                                              "deadExportDetector":  "H17/H18 candidate",
+                                              "packageResponsibilityMap":  "H17/H18 candidate",
+                                              "unwiredFileDetector":  "H17/H18 candidate",
+                                              "integrationHubBloatDetector":  "H17/H18 candidate",
+                                              "dependencyDrift":  "H17/H18 candidate",
+                                              "apiSurfaceDiff":  "H17/H18 candidate"
+                                          }
+                          },
+    "contextCompression":  {
+                               "existing":  [
+                                                "session-rotation-handoff.json (stores critical state for session rotation)",
+                                                "current-factory-state.json (83 closed phases tracked)",
+                                                "factoryctl verify --json (machine-readable state integrity check)",
+                                                "AGENT_PROGRESS.jsonl (154 progress events, tail-readable)"
+                                            ],
+                               "answers":  {
+                                               "isCompressedSummaryUntrusted":  "Currently: no explicit policy. Should be: YES, compressed summary is untrusted; only machine-readable verifier evidence is trusted.",
+                                               "mustRunFactoryctlVerifyOnNewWindow":  "Currently: not enforced. Should be: YES, new session must run factoryctl verify --json before any phase work.",
+                                               "workerWindowRequirement":  "Not required. spawn_agent + fork_context:false + contracts + scope isolation is sufficient. Worker does not need exclusive user window.",
+                                               "compressionLevelPolicy":  "None defined. Proposed: after 2 compressions, force session rotation handoff."
+                                           },
+                               "missing":  {
+                                               "staleContextDetection":  "MISSING — no mechanism to detect if factory state is newer than session context",
+                                               "forcedRotationAfterCompression":  "MISSING — no automatic trigger after N compressions",
+                                               "compressionCountTracking":  "MISSING — no counter for how many times context was compressed",
+                                               "summaryVsArtifactMismatch":  "MISSING — no check that compressed summary matches actual artifacts",
+                                               "compressionLevelPolicy":  "MISSING — no policy defining when rotation is forced"
+                                           }
+                           },
+    "multiAgentIndependence":  {
+                                   "dry23P1P2Exposed":  [
+                                                            "Agent thread limit blocks spawn when stale agents remain open (6 DRY23-A agents still open during P1)",
+                                                            "No agent lifecycle cleanup protocol (agents linger after completion)",
+                                                            "Main Agent can silently fall back to writing implementation when spawn fails",
+                                                            "No spawn failure detection in factoryctl verify",
+                                                            "No progress event for undeclared fallback work",
+                                                            "Integrator boundary can be bypassed by Main Agent writing to integration hub"
+                                                        ],
+                                   "solved":  [
+                                                  "fork_context:false enforced in all DRY23 contracts (9 contracts, all false)",
+                                                  "Worker contracts exist for all builders (25 total across DRY22, DRY23, H15)",
+                                                  "Owned scopes defined in contracts",
+                                                  "Agent registry exists with 59 agents",
+                                                  "Progress events tracked (154 events, 15 event types)",
+                                                  "Integrator role defined (5 integrator agents)",
+                                                  "Verifier readonly demonstrated (0 verifier write events)",
+                                                  "Dependency graphs exist for DRY22 (2246 edges) and H15 (2178 edges)"
+                                              ],
+                                   "failedAgentCovered":  {
+                                                              "spawnFailureDetected":  false,
+                                                              "failedAgentCountedCheck":  false,
+                                                              "mainAgentFallbackDetected":  false,
+                                                              "systemLevelGateCoverage":  "NONE — all 3 H17 hardening items from DRY23-P1 investigation are unimplemented"
+                                                          },
+                                   "unsolved":  [
+                                                    "DRY23 dependency graph has 0 edges (extractor does not detect contract-declared deps as edges)",
+                                                    "No automated scope isolation enforcement at CI/gate level",
+                                                    "No forbidden import detection at verifier level",
+                                                    "No undeclared dependency auto-detection",
+                                                    "Orchestrator and Main Agent are collapsed (same entity)",
+                                                    "Builder transcripts are implicit (no separate transcript files per worker)",
+                                                    "No worker-to-worker communication protocol (all via Main Agent / integration hub)"
+                                                ]
+                               }
+}

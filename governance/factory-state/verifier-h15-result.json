@@ -1,0 +1,166 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-h15-cross-worker-contract-ci-enforcement-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  31,
+    "passed":  31,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "id":  1,
+                       "desc":  "parent phase DRY21 POSITIVE_NEGATIVE_CLOSED",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  2,
+                       "desc":  "factoryctl operational",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  3,
+                       "desc":  "No DRY22 artifacts",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  4,
+                       "desc":  "worker-contract.schema.json exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  5,
+                       "desc":  "Schema has required fields",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  6,
+                       "desc":  "\u003e= 8 worker contracts exist",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  7,
+                       "desc":  "DRY21 retroactive contracts exist",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  8,
+                       "desc":  "H15 native contracts exist",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  9,
+                       "desc":  "Contract validation result exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  10,
+                       "desc":  "All contracts validate",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  11,
+                       "desc":  "H15 contracts nativeGenerated:true",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  12,
+                       "desc":  "DRY21 contracts marked retroactive:true",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  13,
+                       "desc":  "Dependency graph JSON exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  14,
+                       "desc":  "Graph has workers",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  15,
+                       "desc":  "Graph has edges",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  16,
+                       "desc":  "0 forbidden edges",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  17,
+                       "desc":  "Graph stats valid",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  18,
+                       "desc":  "All-negative-evidence exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  19,
+                       "desc":  "12 negatives",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  20,
+                       "desc":  "0 generic FAIL",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  21,
+                       "desc":  "0 preclassified-only",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  22,
+                       "desc":  "0 expectedClass-only",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  23,
+                       "desc":  "All have transcripts",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  24,
+                       "desc":  "H15 native agents \u003e= 4",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  25,
+                       "desc":  "All H15 agents nativeGenerated",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  26,
+                       "desc":  "Historical reconstructed preserved",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  27,
+                       "desc":  "Scope isolation script exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  28,
+                       "desc":  "Contract validation script exists",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  29,
+                       "desc":  "No final ZIP",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  30,
+                       "desc":  "No runner sabotage indicators",
+                       "status":  "PASS"
+                   },
+                   {
+                       "id":  31,
+                       "desc":  "No manual PASS-only",
+                       "status":  "PASS"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T23:31:17+08:00"
+}

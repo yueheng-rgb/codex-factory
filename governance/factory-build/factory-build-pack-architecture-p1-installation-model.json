@@ -1,0 +1,33 @@
+﻿{
+    "copyCommand":  "Copy-Item -Path \u0027\u003cpack\u003e/factory-resource-pack-v0.9.0-pre-staging/*\u0027 -Destination \u0027\u003cproject-root\u003e/codex-factory/\u0027 -Recurse",
+    "description":  "Pack is copied into user\u0027s project workspace. No system-wide installation. No package manager.",
+    "section":  "F",
+    "targetLocation":  "\u003cproject-root\u003e/codex-factory/",
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "whatUserGets":  [
+                         "codex-factory/core/ — Build mode essentials",
+                         "codex-factory/memory-quality/ — Memory quality policies",
+                         "codex-factory/context-packets/ — Context packet scripts",
+                         "codex-factory/agent-lifecycle/ — Agent lifecycle tools",
+                         "codex-factory/quality-gates/ — Diagnostic + recovery",
+                         "codex-factory/governance/ — Templates and schemas",
+                         "codex-factory/scripts/ — Runtime scripts",
+                         "codex-factory/user-guide/ — Documentation",
+                         "codex-factory/optional/ — Optional add-ons"
+                     ],
+    "minimumStartCommands":  {
+                                 "windows":  "Copy-Item -Path \u0027C:\\Codex_App_Factory\\factory-resource-pack-v0.9.0-pre-staging\\*\u0027 -Destination \u0027\u003cproject\u003e\\codex-factory\\\u0027 -Recurse",
+                                 "verification":  "Test-Path \u0027\u003cproject\u003e\\codex-factory\\core\\build-mode-mvp\u0027"
+                             },
+    "model":  "COPY-TO-WORKSPACE",
+    "note":  "This is a design. Actual copy/installation will be implemented in FACTORY-BUILD-PACK-STAGING-P1.",
+    "title":  "Installation and Copy Model",
+    "whatUserDoesNOTGet":  [
+                               "Product source code",
+                               "NexusDesk or any trial product",
+                               "Release ZIPs",
+                               "v0.5 package",
+                               "Benchmark results",
+                               "SkillMarket / DevFlow / SkillForge / AtlasOps"
+                           ]
+}

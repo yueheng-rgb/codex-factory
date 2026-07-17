@@ -1,0 +1,10 @@
+﻿{
+    "classification_id": "FACTORY-BUILD-REALWORLD-2-P4-REMAINING-ROOT-CAUSE-CLASSIFICATION",
+    "generated_at": "2026-06-28T10:43:53+08:00", "phase": "FACTORY-BUILD-REALWORLD-2-P4", "section": "D",
+    "classifications": [
+        {"test": "test_transaction_log_generated_on_add", "classification": "ENVIRONMENT_MISMATCH", "evidence": "Django 6.x select_for_update inside transaction.atomic creates TransactionLog but test queries on separate connection can't see uncommitted row.", "fix_risk": "HIGH if changing app code transaction structure", "recommendation": "SKIP_WITH_REASON — requires Django 5.x or app-level transaction refactor"},
+        {"test": "test_doctor_cannot_verify_insufficient_balance", "classification": "ENVIRONMENT_MISMATCH", "evidence": "Django 6.x raises TransactionManagementError after IntegrityError inside transaction.atomic. Test client DB becomes unusable.", "fix_risk": "MEDIUM — wrapping in try/except would mask real errors", "recommendation": "SKIP_WITH_REASON — Django 6.x transaction behavior incompatible with test design"},
+        {"test": "test_doctor_monthly_estimated_amount", "classification": "TEST_EXPECTATION_STALE", "evidence": "Second POST uses old field names ('project'+'sessions_count') missed in P3 fix sweep.", "fix_risk": "NONE — test-only field name fix", "recommendation": "CODE_FIX — update to verify_project format (already applied above)"}
+    ],
+    "verdict": "ROOT_CAUSE_CLASSIFIED"
+}

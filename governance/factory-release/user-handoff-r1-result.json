@@ -1,0 +1,15 @@
+﻿{
+    "readyForUser":  true,
+    "cumulativeChecks":  369,
+    "timestamp":  "2026-06-29T01:11:27+08:00",
+    "r1SHA":  "D563C5E462314E9EEC858E3E0E9D4E2B4131B0546B3FA289B4BD8EB1BE5E6A6B",
+    "recommendedNext":  "FACTORY-REAL-VALIDATION-READINESS-0",
+    "package":  "codex-factory-core-v0.5.1-r1.zip",
+    "deliverables":  12,
+    "v05Preserved":  true,
+    "verdict":  "PASS",
+    "verifierChecks":  20,
+    "verifierPassed":  20,
+    "phase":  "USER-HANDOFF-R1",
+    "verifierFailed":  0
+}

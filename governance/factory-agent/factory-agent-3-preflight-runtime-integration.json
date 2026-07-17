@@ -1,0 +1,32 @@
+﻿{
+  "phase": "FACTORY-AGENT-3",
+  "step": "A_PREFLIGHT",
+  "parentPhase": "FACTORY-AGENT-2",
+  "parentVerdict": "PASS",
+  "parentVerifier": "74/74",
+  "parentNegatives": "40/40",
+  "ag2RuntimeScriptsAvailable": [
+    "validate-worker-capsule.ps1",
+    "validate-progress-report.ps1",
+    "validate-worker-status-report.ps1",
+    "validate-worker-handoff.ps1",
+    "validate-agent-close-receipt.ps1",
+    "check-scope-isolation.ps1",
+    "check-evidence-integrity.ps1",
+    "check-agent-protocol-integrity.ps1",
+    "run-agent-runtime-suite.ps1"
+  ],
+  "ag2ScriptsCalledByAg3": [
+    "validate-worker-capsule.ps1 (spawn validation)",
+    "validate-progress-report.ps1 (progress event validation)",
+    "validate-worker-handoff.ps1 (handoff validation)",
+    "validate-agent-close-receipt.ps1 (close validation)",
+    "check-scope-isolation.ps1 (scope enforcement)",
+    "check-evidence-integrity.ps1 (evidence integrity)",
+    "check-agent-protocol-integrity.ps1 (suite integration)"
+  ],
+  "v04ZipUnchanged": true,
+  "noBenchmark": true,
+  "noV05Package": true,
+  "result": "PASS"
+}

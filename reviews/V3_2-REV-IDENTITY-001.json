@@ -1,0 +1,26 @@
+﻿{
+    "review_id": "V3_2-REV-IDENTITY-001",
+    "timestamp": "2026-07-17T16:29:00+08:00",
+    "identity_mode": "signed_local_receipt",
+    "reviewer_alias": "Factory-V3_2-Reviewer",
+    "receipt_hash": "SIMULATED-HASH-V3_2-IDENTITY-001",
+    "gpg_available": false,
+    "gpg_signature": "",
+    "linked_receipt": "reviews/V3_1-REV-CRITICAL-001.json",
+    "decision": "APPROVED_WITH_RISK",
+    "max_allowed_decision": "ALLOWED_FOR_REVIEW",
+    "evidence": {
+        "bridge_run_id": "ID-BRIDGE-20260717-162827-2804",
+        "artifact_ids": [
+            "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stdout.log",
+            "C:\\Codex_App_Factory\\workspaces\\runs\\CRITREV-20260717-161843-0001\\stderr.log"
+        ]
+    },
+    "non_claims": [
+        "signed_local_receipt uses SIMULATED hash, NOT cryptographic signing",
+        "NOT a real external identity verification",
+        "GPG_UNAVAILABLE — no cryptographic signature attached",
+        "ALLOWED_FOR_REVIEW is the max gate decision for this identity mode",
+        "PRODUCTION_APPROVED requires external_identity_required (NOT implemented)"
+    ]
+}

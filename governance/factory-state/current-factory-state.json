@@ -1,0 +1,30 @@
+﻿{
+  "factoryStateVersion": "post-AGENT-9-P3",
+  "updatedAt": "2026-06-26T21:16:06.4180516+08:00",
+  "currentTrustedPhase": "FACTORY-AGENT-9-P3",
+  "phaseVerdict": "PASS",
+  "verifierChecksPassed": 41,
+  "verifierChecksTotal": 41,
+  "strategyFrozen": true,
+  "multiAgentStatus": "CONDITIONAL_NOT_DEFAULT",
+  "v05ReleaseBlocked": true,
+  "vanillaProductLeader": true,
+  "finalZipExists": false,
+  "allowedNextPhases": ["FACTORY-AGENT-DIAGNOSTIC-PACK", "FACTORY-AGENT-10"],
+  "recommendedNextPhase": "FACTORY-AGENT-DIAGNOSTIC-PACK or user decision",
+  "acceptedPhases": [
+    "FACTORY-AGENT-0", "FACTORY-AGENT-1", "FACTORY-AGENT-2", "FACTORY-AGENT-3", "FACTORY-AGENT-4",
+    "FACTORY-AGENT-5", "FACTORY-AGENT-5-P1",
+    "FACTORY-AGENT-6", "FACTORY-AGENT-7", "FACTORY-AGENT-8",
+    "FACTORY-AGENT-8-P1", "FACTORY-AGENT-8-P1-R1",
+    "FACTORY-AGENT-9", "FACTORY-AGENT-9-P1", "FACTORY-AGENT-9-P2", "FACTORY-AGENT-9-P3"
+  ],
+  "activeAgentLine": "FACTORY-AGENT",
+  "pausedLines": ["DRY"],
+  "evidenceIntegrity": {
+    "noProductCodeModified": true,
+    "noHistoricalEvidenceDeleted": true,
+    "noMultiAgentDefaultClaim": true,
+    "processBenefitOnly": true
+  }
+}

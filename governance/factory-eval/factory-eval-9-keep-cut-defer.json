@@ -1,0 +1,43 @@
+﻿{
+  "phase": "FACTORY-EVAL-9-F",
+  "title": "Keep/Cut/Defer Report — Factory v0.4",
+  "createdAt": "2026-06-25T20:07:00+08:00",
+  "evidenceBase": "FACTORY-EVAL-8 independent comparison",
+  "summary": {
+    "KEEP_DEFAULT": ["Always-On Constitution", "Manual Router", "Proof-of-Read", "Required-Reading Gate", "Evidence Hierarchy", "Contamination Logging", "Anti-Gaming Controls", "Context Budget Policy"],
+    "KEEP_OPTIONAL": ["Independent Evaluator Rubric", "Session Controller", "3-Role Core Model", "Reviewer merged role", "Plugin/Skill Scaffold"],
+    "CUT_DEFAULT": ["10-role Company Model", "Specialist Roles (Frontend/Backend/DB/QA/Security separate)"],
+    "REWORK": ["Verifier (merge into Reviewer)", "Auditor (merge into Reviewer)", "Handoff Format (simplify)"],
+    "DEFER": ["Context OS / Agent OS Event Bus", "MCP Memory", "Automation Watcher", "Cross-role Contracts", "Drift Detection", "Role Skill Profiles", "Final Packaging Machinery"],
+    "totalCategorized": 26
+  },
+  "details": [
+    {
+      "item": "10-role Company Model",
+      "decision": "CUT_DEFAULT",
+      "why": "EVAL-8: Role-Agent (93) scored lower than Factory Lite (94) with 7.8x overhead. 10 roles for 11-FR project is excessive.",
+      "evidence": "RUN-C: 93/100, ~1555ms overhead, missing README, untested tests",
+      "riskIfKept": "Continues to incentivize process artifacts over product quality. User confusion about when to use.",
+      "riskIfCut": "Lose role separation structure for genuinely complex projects.",
+      "v04Action": "Move to archive/. Replace with 3-role optional model. Keep as reference for multi-agent research."
+    },
+    {
+      "item": "Manual Router",
+      "decision": "KEEP_DEFAULT",
+      "why": "Low overhead, prevents scope leakage. Both Factory runs used it successfully.",
+      "evidence": "RUN-B and RUN-C both maintained clean contamination via Router",
+      "riskIfKept": "Minimal. Edge case: over-routing trivial tasks.",
+      "riskIfCut": "Lose structured task classification. Scope creep risk increases.",
+      "v04Action": "Keep as core. Simplify to remove role-company references."
+    },
+    {
+      "item": "Proof-of-Read",
+      "decision": "KEEP_DEFAULT",
+      "why": "Ensures agent reads requirements before building. Both Factory runs used it.",
+      "evidence": "All 7 POR receipts in RUN-C confirmed reading before building",
+      "riskIfKept": "May become ritual without actual reading.",
+      "riskIfCut": "Agent may build without understanding requirements.",
+      "v04Action": "Keep as core. Add spot-check mechanism."
+    }
+  ]
+}

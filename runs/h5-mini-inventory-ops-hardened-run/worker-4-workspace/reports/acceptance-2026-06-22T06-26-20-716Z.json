@@ -1,0 +1,86 @@
+{
+  "title": "H5 Mini Inventory Ops — Acceptance Report",
+  "generatedAt": "2026-06-22T06:26:20.715Z",
+  "summary": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0,
+    "elapsedTotalMs": 1
+  },
+  "scenarios": [
+    {
+      "name": "create_item_returns_item",
+      "passed": true,
+      "details": "SKU-001 created, stock=0",
+      "elapsedMs": 0
+    },
+    {
+      "name": "seed_creates_5_sample_items",
+      "passed": true,
+      "details": "5 items seeded",
+      "elapsedMs": 0
+    },
+    {
+      "name": "inbound_increases_stock",
+      "passed": true,
+      "details": "Stock 0->10",
+      "elapsedMs": 1
+    },
+    {
+      "name": "outbound_decreases_stock",
+      "passed": true,
+      "details": "Stock 20->12",
+      "elapsedMs": 0
+    },
+    {
+      "name": "outbound_rejects_negative_available",
+      "passed": true,
+      "details": "Rejected outbound=4 when available=2",
+      "elapsedMs": 0
+    },
+    {
+      "name": "reserve_stock_succeeds",
+      "passed": true,
+      "details": "Reserved 30, available=70",
+      "elapsedMs": 0
+    },
+    {
+      "name": "release_reservation_restores_available",
+      "passed": true,
+      "details": "Released 10, available=40",
+      "elapsedMs": 0
+    },
+    {
+      "name": "transfer_moves_stock_between_skus",
+      "passed": true,
+      "details": "SRC 30->20, DST 0->10",
+      "elapsedMs": 0
+    },
+    {
+      "name": "duplicate_idempotency_key_does_not_double_apply",
+      "passed": true,
+      "details": "Stock=10, dup key rejected",
+      "elapsedMs": 0
+    },
+    {
+      "name": "stale_version_update_rejected",
+      "passed": true,
+      "details": "Stale v0 rejected, v1 accepted",
+      "elapsedMs": 0
+    },
+    {
+      "name": "export_import_roundtrip",
+      "passed": true,
+      "details": "Roundtrip faithful",
+      "elapsedMs": 0
+    },
+    {
+      "name": "audit_events_recorded_for_adjustments",
+      "passed": true,
+      "details": "5 audit events",
+      "elapsedMs": 0
+    }
+  ],
+  "worker": "worker-4",
+  "evidence": "worker-4-evidence.json"
+}

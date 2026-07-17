@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  32,
+    "frozenAt":  "2026-06-18T22:36:57.4769360+08:00",
+    "runId":  "t25debug2",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\t25debug2\\trust-root.json",
+    "controlPlaneLockSha256":  "c3b79eee6766c26afcf1deaac8a2510e0327d15bb64537c31ebbc08b1f286d4d",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "6a31ed4e4216252b0905ecbcee629a73ee44c68c6a2708dac782581d1fe0396f"
+}

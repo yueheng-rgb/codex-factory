@@ -1,0 +1,9 @@
+﻿{
+  "currentPhase": "FACTORY-STATE-DASHBOARD-0",
+  "lastPhaseClose": "2026-06-28T18:00:00+08:00",
+  "phases": [
+    {"name": "FACTORY-DEFAULT-WORKFLOW-0", "status": "COMPLETED", "verifierVerdict": "PASS"},
+    {"name": "FACTORY-PROJECT-ISOLATION-0", "status": "COMPLETED", "verifierVerdict": "PASS"},
+    {"name": "FACTORY-STATE-DASHBOARD-0", "status": "ACTIVE"}
+  ]
+}

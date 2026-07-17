@@ -1,0 +1,101 @@
+﻿{
+  "policy_id": "CURRENT-STATE-SOURCE-OF-TRUTH-POLICY",
+  "version": "1.0.0",
+  "generated_at": "2026-06-28T00:40:00+08:00",
+  "generated_during_phase": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1",
+  "sub_step": "B",
+  "purpose": "Define the priority hierarchy for determining current Factory state during mount/bootstrap. Prevents stale Attach Packets from directing work based on outdated phase information.",
+  "source_priority_hierarchy": {
+    "level_1_highest": {
+      "description": "Verifier-passed machine-readable results — the canonical truth for completed phases",
+      "sources": [
+        "governance/context-space/verifier-*.json with status PASS",
+        "governance/factory-state/verifier-*.json with status PASS",
+        "phase-specific verifier JSON (verifier-factory-context-space-*.json)"
+      ],
+      "trust_tier": "TIER-1",
+      "rule": "If verifier JSON says phase is PASS/COMPLETED, no lower-level source can override this"
+    },
+    "level_2": {
+      "description": "Phase ledger — the structured record of completed phases",
+      "sources": [
+        "external-conversation-space/data/phase-ledger.json",
+        "governance/context-space/current/phase-ledger.jsonl"
+      ],
+      "trust_tier": "TIER-1",
+      "rule": "Phase ledger latest completed entry determines lastCompletedPhase"
+    },
+    "level_3": {
+      "description": "Conversation state / current trusted phase",
+      "sources": [
+        "governance/factory-state/current-factory-state.json (currentTrustedPhase field)",
+        "governance/context-space/current/conversation-state.json"
+      ],
+      "trust_tier": "TIER-1",
+      "rule": "currentTrustedPhase must be consistent with verifier results; if mismatch, verifier wins"
+    },
+    "level_4": {
+      "description": "Active thread / current working phase",
+      "sources": [
+        "governance/context-space/current/active-thread.json"
+      ],
+      "trust_tier": "TIER-2",
+      "rule": "Active thread records what is currently being worked on; must be consistent with phase ledger"
+    },
+    "level_5": {
+      "description": "Direction guard — next recommended phase",
+      "sources": [
+        "governance/context-space/current/direction-guard.json",
+        "external-conversation-space/data/direction-guard.json"
+      ],
+      "trust_tier": "TIER-2",
+      "rule": "Direction guard recommends next phase but does not override verifier on what is already complete"
+    },
+    "level_6": {
+      "description": "Attach Packet — generated working context",
+      "sources": [
+        "external-conversation-space/data/attach-packet-latest.json"
+      ],
+      "trust_tier": "TIER-3",
+      "rule": "Attach Packet is DERIVED from higher-priority sources; it is NOT itself a source of truth. Stale packet must be regenerated."
+    },
+    "level_7_lowest": {
+      "description": "Compressed summaries, legacy notes, stale rotation packets",
+      "sources": [
+        "governance/session-controller/latest-rotation-execution-packet.json",
+        "compressed context summaries"
+      ],
+      "trust_tier": "TIER-4",
+      "rule": "NEVER used as source of truth for current phase. Archived warnings only."
+    }
+  },
+  "override_rules": [
+    {
+      "rule_id": "OVERRIDE-001",
+      "rule": "A phase marked PASS by verifier (level 1) cannot be shown as pending or in-progress by any lower-level source",
+      "action": "REJECT lower-level claim; use verifier status"
+    },
+    {
+      "rule_id": "OVERRIDE-002",
+      "rule": "Legacy rotation risks (level 7) cannot override current next-phase recommendation unless confirmed as active blocker (activeRisk=true AND blocker=true)",
+      "action": "Archive legacy warnings; surface only confirmed active blockers"
+    },
+    {
+      "rule_id": "OVERRIDE-003",
+      "rule": "Attach Packet must include freshnessStatus and sourceOfTruthPaths so consumer can audit staleness",
+      "action": "REJECT packet without freshness metadata"
+    },
+    {
+      "rule_id": "OVERRIDE-004",
+      "rule": "If current_phase in Attach Packet matches lastCompletedPhase from phase-ledger, flag as STALE — phase is complete, not current",
+      "action": "WARN; currentPhase should be current working activity, not last completed phase"
+    }
+  ],
+  "state_field_mapping": {
+    "lastCompletedPhase": "phase-ledger.json latest entry with status=completed",
+    "currentActivePhase": "active-thread.json currentPhase OR direction-guard activeValidationPhase",
+    "nextRecommendedPhase": "direction-guard.json nextRecommendedPhase",
+    "archivedLegacyWarnings": "rotation-execution-packet activeRisks where status != ACTIVE_BLOCKER",
+    "activeBlockers": "risk-ledger.jsonl entries where activeRisk=true AND blocker=true"
+  }
+}

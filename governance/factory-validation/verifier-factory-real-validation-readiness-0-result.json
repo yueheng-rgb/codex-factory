@@ -1,0 +1,190 @@
+﻿{
+    "timestamp":  "2026-06-29T14:18:42+08:00",
+    "passed":  36,
+    "verdict":  "PASS",
+    "failed":  0,
+    "total_checks":  36,
+    "checks":  [
+                   {
+                       "pass":  true,
+                       "id":  "V01",
+                       "desc":  "USER-HANDOFF-R1 verifier exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V02",
+                       "desc":  "USER-HANDOFF-R1 PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V03",
+                       "desc":  "LEDGER-RECONCILIATION-0 verifier exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V04",
+                       "desc":  "LEDGER-RECONCILIATION-0 PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V05",
+                       "desc":  "Phase-ledger has 72+ entries"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V06",
+                       "desc":  "Phase-ledger last entry is USER-HANDOFF-R1"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V10",
+                       "desc":  "A: Scope lock report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V11",
+                       "desc":  "A: Scope lock JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V12",
+                       "desc":  "B: Project selection criteria report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V13",
+                       "desc":  "B: Project selection criteria JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V14",
+                       "desc":  "C: First trial scope report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V15",
+                       "desc":  "C: First trial scope JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V16",
+                       "desc":  "D: Safety boundary checklist report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V17",
+                       "desc":  "D: Safety boundary checklist JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V18",
+                       "desc":  "E: Evidence/logging standard report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V19",
+                       "desc":  "E: Evidence/logging standard JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V20",
+                       "desc":  "F: Failure/repair plan report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V21",
+                       "desc":  "F: Failure/repair plan JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V22",
+                       "desc":  "G: Readiness decision report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V23",
+                       "desc":  "G: Readiness decision JSON exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V24",
+                       "desc":  "H: Negative controls report exists"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V30",
+                       "desc":  "No real validation started (B-I are readiness, not validation)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V31",
+                       "desc":  "No real project modified"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V32",
+                       "desc":  "No working copy created"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V33",
+                       "desc":  "No v0.6"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V34",
+                       "desc":  "No cloud/deploy recommendation"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V40",
+                       "desc":  "RISK-CS-002 in risk ledger"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V41",
+                       "desc":  "RISK-CS-002 acknowledged in readiness"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V50",
+                       "desc":  "Direction guard fresh (no stale phases recommended)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V51",
+                       "desc":  "Direction guard rules intact (13)"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V52",
+                       "desc":  "Attach Packet FRESH"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V60",
+                       "desc":  "No UNEXPECTED_PASS"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V61",
+                       "desc":  "No FAIL_TARGET_NOT_TRIGGERED"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V62",
+                       "desc":  "No generic FAIL"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V63",
+                       "desc":  "No expectedClass-only"
+                   },
+                   {
+                       "pass":  true,
+                       "id":  "V64",
+                       "desc":  "No manual PASS-only"
+                   }
+               ],
+    "phase":  "FACTORY-REAL-VALIDATION-READINESS-0"
+}

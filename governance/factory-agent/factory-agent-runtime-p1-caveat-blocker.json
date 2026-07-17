@@ -1,0 +1,28 @@
+﻿{
+    "nonBlockingCaveatCategories":  [
+                                        "codeStyleVariance",
+                                        "documentationFormatting",
+                                        "minorRedundancy",
+                                        "nonCriticalOptimization"
+                                    ],
+    "timestamp":  "2026-06-26T18:47:55.4441842+08:00",
+    "blockingCaveatCategories":  [
+                                     "endpointDeficit",
+                                     "moduleDeficit",
+                                     "testDeficit",
+                                     "floorMiss",
+                                     "qualityGap",
+                                     "contaminationDetected",
+                                     "hiddenFallbackDetected",
+                                     "scopeViolationDetected"
+                                 ],
+    "previousDefect":  "AGENT-8 Reviewer found 11/13 modules, 36/40 endpoints, 16/30 error codes but phase still closed with PASS_WITH_CAVEAT. This must not recur.",
+    "phase":  "FACTORY-AGENT-RUNTIME-P1",
+    "document":  "reviewer-caveat-blocker",
+    "enforcement":  {
+                        "noCaveatDowngrade":  true,
+                        "noSilentPass":  true,
+                        "blockingAction":  "BLOCK_CLOSURE",
+                        "escapeRequirement":  "User explicit waiver OR builder repair with re-verification"
+                    }
+}

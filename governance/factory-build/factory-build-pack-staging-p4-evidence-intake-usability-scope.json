@@ -1,0 +1,18 @@
+﻿{
+  "phase": "FACTORY-BUILD-PACK-STAGING-P4",
+  "section": "A",
+  "title": "Evidence Intake and Usability Scope Lock",
+  "timestamp": "2026-06-28T13:50:00+08:00",
+  "mount_readiness": { "ready": true, "checks_passed": 10 },
+  "input_phases": {
+    "PACK_STAGING_P3": { "verdict": "PASS", "verifier": "50/50", "bundle": "49 files, 52KB" }
+  },
+  "scope_lock": {
+    "purpose": "One-command install/boot/preflight/phase-close usability hardening for staging pack",
+    "is_release": false,
+    "is_v05": false,
+    "modifies_projects": false
+  },
+  "rejected": ["P4=release", "usability=product correctness", "one-command=auto deploy", "Security Gate=deploy permission"],
+  "status": "SCOPE_LOCKED"
+}

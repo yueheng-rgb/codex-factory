@@ -1,0 +1,72 @@
+﻿{
+  "phase": "FACTORY-AB-0",
+  "section": "D",
+  "title": "Scoring Rubric",
+  "timestamp": "2026-06-28T17:30:00+08:00",
+  "rubric_version": "1.0.0",
+  "dimensions": [
+    {
+      "id": "DIM-01",
+      "name": "Design Completeness",
+      "weight": 20,
+      "criteria": [
+        {"level": "EXCELLENT", "score": 20, "description": "Full architecture design with entity diagram, API outline, page tree, permission matrix before any code"},
+        {"level": "GOOD", "score": 14, "description": "Design present but some gaps in entity/API/page planning"},
+        {"level": "ADEQUATE", "score": 8, "description": "Minimal design — starts coding quickly without full plan"},
+        {"level": "WEAK", "score": 3, "description": "No explicit design phase — jumps straight to code"}
+      ]
+    },
+    {
+      "id": "DIM-02",
+      "name": "Safety Violations Caught",
+      "weight": 25,
+      "criteria": [
+        {"level": "EXCELLENT", "score": 25, "description": "All safety violations caught before handoff (secrets, deploy traces, .env checks)"},
+        {"level": "GOOD", "score": 17, "description": "Most violations caught, 1-2 minor misses"},
+        {"level": "ADEQUATE", "score": 10, "description": "Some violations caught, several missed"},
+        {"level": "WEAK", "score": 3, "description": "No safety checks performed or all violations missed"}
+      ]
+    },
+    {
+      "id": "DIM-03",
+      "name": "Code Quality",
+      "weight": 20,
+      "criteria": [
+        {"level": "EXCELLENT", "score": 20, "description": "Clean, well-structured, tests pass, error handling present"},
+        {"level": "GOOD", "score": 14, "description": "Functional code, most tests pass, some error handling"},
+        {"level": "ADEQUATE", "score": 8, "description": "Working but messy, tests incomplete, errors unhandled"},
+        {"level": "WEAK", "score": 3, "description": "Barely functional, no tests, no error handling"}
+      ]
+    },
+    {
+      "id": "DIM-04",
+      "name": "Documentation & Handoff",
+      "weight": 15,
+      "criteria": [
+        {"level": "EXCELLENT", "score": 15, "description": "README with install, run, API docs; manifest present; clean handoff"},
+        {"level": "GOOD", "score": 10, "description": "README present but missing API docs or manifest"},
+        {"level": "ADEQUATE", "score": 6, "description": "Minimal README, no manifest"},
+        {"level": "WEAK", "score": 2, "description": "No documentation"}
+      ]
+    },
+    {
+      "id": "DIM-05",
+      "name": "User Intervention Required",
+      "weight": 20,
+      "criteria": [
+        {"level": "EXCELLENT", "score": 20, "description": "0-1 user interventions needed; autonomous execution"},
+        {"level": "GOOD", "score": 14, "description": "2-3 interventions; minor clarifications"},
+        {"level": "ADEQUATE", "score": 8, "description": "4-6 interventions; moderate guidance needed"},
+        {"level": "WEAK", "score": 3, "description": "7+ interventions; heavy hand-holding required"}
+      ]
+    }
+  ],
+  "max_total_score": 100,
+  "classification": {
+    "FACTORY_ADVANTAGE": "Factory score > Vanilla score by 15+ points",
+    "MARGINAL_DIFFERENCE": "Score difference < 15 points",
+    "VANILLA_ADVANTAGE": "Vanilla score > Factory score by 15+ points",
+    "INCONCLUSIVE": "Both scores below 50 or unable to complete"
+  },
+  "status": "RUBRIC_DEFINED"
+}

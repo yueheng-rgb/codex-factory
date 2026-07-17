@@ -1,0 +1,66 @@
+﻿{
+    "skillPluginStructure":  {
+                                 "qaSkillExists":  false,
+                                 "skillsAreRoleSpecific":  false,
+                                 "backendSkillExists":  false,
+                                 "pluginScaffoldExists":  true,
+                                 "securitySkillExists":  false,
+                                 "frontendSkillExists":  false,
+                                 "skillLoadingVerified":  "PARTIAL — plugin exists but not production-tested",
+                                 "skillsAreGeneric":  true,
+                                 "pluginStatus":  "EXPERIMENTAL",
+                                 "skillsExist":  "codex-factory-plugin/skills/ directory exists"
+                             },
+    "agentStructure":  {
+                           "handoffProtocolExists":  true,
+                           "existingRoles":  [
+                                                 "main",
+                                                 "builder",
+                                                 "explorer",
+                                                 "verifier",
+                                                 "auditor",
+                                                 "integrator",
+                                                 "worker",
+                                                 "scheduler"
+                                             ],
+                           "rolePolicyExists":  true,
+                           "authorityMatrixExists":  true,
+                           "forkContextTrueEvidence":  "VERIFIED: explorers use fork_context:true",
+                           "note":  "Roles are defined but not specialized by domain (no PM, architect, frontend, backend, security, QA role definitions)",
+                           "spawnAgentEvidence":  "H13-C; 20+ spawns; 6 active subagents",
+                           "eventBusExists":  true,
+                           "specializedRolesExist":  false,
+                           "agentLifecycleExists":  true,
+                           "capacityPreflightExists":  true,
+                           "forkContextFalseEvidence":  "VERIFIED: builders use fork_context:false"
+                       },
+    "contextSystem":  {
+                          "canSupportManualRouter":  "PARTIAL — context OS provides lookups but no page-level routing",
+                          "contextPacketsExist":  true,
+                          "queryProtocolExists":  true,
+                          "memoryIndexEntries":  20,
+                          "contextOSEstablished":  true,
+                          "startupRecoverySimulated":  true,
+                          "ledgersCount":  5,
+                          "mcpMemoryPrototypeExists":  true
+                      },
+    "schemaId":  "factory-eval-1-codex-structure-self-check",
+    "manualRouterProofOfRead":  {
+                                    "pageRouterExists":  false,
+                                    "factoryManualIndexExists":  false,
+                                    "gap":  "No mechanism ensures Codex actually read the content of required files",
+                                    "artifactReadingEvidenceRecorded":  false,
+                                    "requiredReadingGatesExist":  false,
+                                    "nearestAnalog":  "Verifier scripts check file existence; startup verification contract requires reading specific files",
+                                    "checkRequiredReadingScriptExists":  false,
+                                    "proofOfReadExists":  false
+                                },
+    "phase":  "FACTORY-EVAL-1-B",
+    "routerHintArchitecture":  {
+                                   "ruleBasedRouterExists":  false,
+                                   "nearestAnalog":  "startup-verification-contract.schema.json defines required read files but not page-level routing",
+                                   "pageGuardExists":  false,
+                                   "manifestRouterExists":  false
+                               },
+    "generatedAt":  "2026-06-25T15:53:44+08:00"
+}

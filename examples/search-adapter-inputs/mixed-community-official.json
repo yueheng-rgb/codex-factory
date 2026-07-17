@@ -1,0 +1,16 @@
+﻿{
+  "query": "React 19 server components patterns",
+  "provider": "community_sources_manual",
+  "providerConfidence": "medium",
+  "rawResult": "React 19 introduces Server Components as a first-class feature...",
+  "sourceRefs": [
+    {"title": "React 19 Release Blog", "url": "https://react.dev/blog/2024/12/05/react-19", "publishDate": "2024-12-05", "sourceType": "official_docs", "trustLevel": "VERIFIED"},
+    {"title": "Server Components Deep Dive by Kent C. Dodds", "url": "https://example.com/rsc-deep-dive", "publishDate": "2025-03-15", "sourceType": "blog", "trustLevel": "TRUSTED"}
+  ],
+  "claimedFacts": [
+    {"claim": "React 19 supports Server Components", "certainty": "confirmed", "sourceIndex": 0},
+    {"claim": "Server Components run only on the server", "certainty": "confirmed", "sourceIndex": 0}
+  ],
+  "uncertainty": "Patterns still evolving as of 2025",
+  "userNotes": "Mix of official and community sources"
+}

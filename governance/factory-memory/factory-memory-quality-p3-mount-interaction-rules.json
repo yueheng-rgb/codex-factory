@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P3",
+  "section": "J",
+  "title": "Mount Interaction Rules",
+  "timestamp": "2026-06-28T18:00:00+08:00",
+  "mount_rules": [
+    {"project_status":"ACTIVE","auto_mount":"YES — default on fresh window","explicit_mount":"factory.ps1 mount --project {id}","notes":"Normal behavior"},
+    {"project_status":"FROZEN","auto_mount":"NO — must explicitly unfreeze first","explicit_mount":"factory.ps1 mount --frozen --project {id}","notes":"Warns: project is frozen. Unfreeze to resume."},
+    {"project_status":"ARCHIVED","auto_mount":"NO — must explicitly restore first","explicit_mount":"factory.ps1 mount --archived --project {id}","notes":"Warns: CACHE was pruned. Only evidence + artifacts available."},
+    {"project_status":"DELETED","auto_mount":"NO — cannot mount","explicit_mount":"N/A","notes":"Project Context Space deleted. CORE_EVIDENCE may have been preserved if --force-evidence not used."}
+  ],
+  "interaction_with_cleanup": [
+    "PLAN mode: no effect on mount behavior",
+    "ARCHIVE mode: sets status=ARCHIVED, disables auto-mount",
+    "FREEZE mode: sets status=FROZEN, disables auto-mount",
+    "PRUNE mode: removes CACHE/STALE/DUPLICATE, mount still works",
+    "DELETE mode: removes project, mount impossible"
+  ],
+  "status": "MOUNT_RULES_DEFINED"
+}

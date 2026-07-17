@@ -1,0 +1,207 @@
+﻿{
+    "noManualPassOnly":  true,
+    "totalNegatives":  32,
+    "noPreclassifiedOnly":  true,
+    "gaps":  0,
+    "negativesPassed":  32,
+    "noGenericFail":  true,
+    "phase":  "FACTORY-EVAL-3-G",
+    "generatedAt":  "2026-06-25T16:08:05+08:00",
+    "nativeGenerated":  true,
+    "schemaId":  "factory-eval-3-negative-controls-result",
+    "negatives":  [
+                      {
+                          "fault":  "Role name used without role profile",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "role_name_no_profile",
+                          "id":  "N01"
+                      },
+                      {
+                          "fault":  "Role agent skips Manual Router",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "skip_router",
+                          "id":  "N02"
+                      },
+                      {
+                          "fault":  "Role agent lacks proof-of-read",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "no_por",
+                          "id":  "N03"
+                      },
+                      {
+                          "fault":  "All roles load all skills without routing",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "all_skills_all_roles",
+                          "id":  "N04"
+                      },
+                      {
+                          "fault":  "Frontend modifies backend/db scope",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "fe_modifies_be",
+                          "id":  "N05"
+                      },
+                      {
+                          "fault":  "Backend modifies frontend UI scope",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "be_modifies_fe",
+                          "id":  "N06"
+                      },
+                      {
+                          "fault":  "Security writes broad implementation code",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "sec_writes_code",
+                          "id":  "N07"
+                      },
+                      {
+                          "fault":  "Verifier writes implementation code",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "verifier_writes_code",
+                          "id":  "N08"
+                      },
+                      {
+                          "fault":  "QA accepts worker self-report as test evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "qa_self_report",
+                          "id":  "N09"
+                      },
+                      {
+                          "fault":  "Architect changes implementation without handoff",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "architect_implements",
+                          "id":  "N10"
+                      },
+                      {
+                          "fault":  "Main Agent writes specialist scope",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "pm_writes_specialist",
+                          "id":  "N11"
+                      },
+                      {
+                          "fault":  "Cross-role contract missing",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "missing_contract",
+                          "id":  "N12"
+                      },
+                      {
+                          "fault":  "Frontend/backend API mismatch ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "api_mismatch",
+                          "id":  "N13"
+                      },
+                      {
+                          "fault":  "DB schema change not handed to backend/QA",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "db_no_handoff",
+                          "id":  "N14"
+                      },
+                      {
+                          "fault":  "Style guide missing but integration accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "style_missing",
+                          "id":  "N15"
+                      },
+                      {
+                          "fault":  "Duplicate type definitions accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "duplicate_types",
+                          "id":  "N16"
+                      },
+                      {
+                          "fault":  "Inconsistent error response accepted",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "error_mismatch",
+                          "id":  "N17"
+                      },
+                      {
+                          "fault":  "Security review omitted from auth feature",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "sec_omitted",
+                          "id":  "N18"
+                      },
+                      {
+                          "fault":  "QA omitted from benchmark candidate",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "qa_omitted",
+                          "id":  "N19"
+                      },
+                      {
+                          "fault":  "Role drift risk ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "drift_ignored",
+                          "id":  "N20"
+                      },
+                      {
+                          "fault":  "Role skill misuse ignored",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "skill_misuse",
+                          "id":  "N21"
+                      },
+                      {
+                          "fault":  "Role handoff missing evidence path",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "handoff_no_evidence",
+                          "id":  "N22"
+                      },
+                      {
+                          "fault":  "Role handoff lacks proof-of-read receipt",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "handoff_no_por",
+                          "id":  "N23"
+                      },
+                      {
+                          "fault":  "Specialist role marked proven without benchmark",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "specialist_proven",
+                          "id":  "N24"
+                      },
+                      {
+                          "fault":  "Future role marked implemented without artifact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "future_role_implemented",
+                          "id":  "N25"
+                      },
+                      {
+                          "fault":  "Too many roles for small task without warning",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "too_many_roles",
+                          "id":  "N26"
+                      },
+                      {
+                          "fault":  "Integrator bypassed",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "integrator_bypassed",
+                          "id":  "N27"
+                      },
+                      {
+                          "fault":  "Auditor omitted in high-risk flow",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "auditor_omitted",
+                          "id":  "N28"
+                      },
+                      {
+                          "fault":  "Capacity preflight skipped before role spawn",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "capacity_skipped",
+                          "id":  "N29"
+                      },
+                      {
+                          "fault":  "Proof-of-read as proof of correctness",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "por_correctness",
+                          "id":  "N30"
+                      },
+                      {
+                          "fault":  "Role-agent output markdown-only",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "markdown_output",
+                          "id":  "N31"
+                      },
+                      {
+                          "fault":  "FINAL package modified",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "final_modified",
+                          "id":  "N32"
+                      }
+                  ],
+    "noExpectedClassOnly":  true
+}

@@ -1,0 +1,52 @@
+﻿{
+    "checks":  [
+                   {
+                       "detail":  "multi_agent_v1__spawn_agent is in available tools",
+                       "result":  "PASS",
+                       "check":  "spawn_agent_tool_available"
+                   },
+                   {
+                       "detail":  "spawn_agent supports agent_type parameter (worker, explorer, default)",
+                       "result":  "PASS",
+                       "check":  "can_create_worker"
+                   },
+                   {
+                       "detail":  "spawn_agent supports fork_context parameter (true/false)",
+                       "result":  "PASS",
+                       "check":  "fork_context_supported"
+                   },
+                   {
+                       "detail":  "Agents receive scoped message with task, scope, and rules",
+                       "result":  "PASS",
+                       "check":  "can_set_worker_capsule"
+                   },
+                   {
+                       "detail":  "wait_agent and close_agent tools available for output collection",
+                       "result":  "PASS",
+                       "check":  "can_receive_worker_output"
+                   },
+                   {
+                       "detail":  "Worker outputs can be captured and saved as evidence",
+                       "result":  "PASS",
+                       "check":  "can_record_worker_evidence"
+                   },
+                   {
+                       "detail":  "spawn_agent creates native agents; simulated roles must be explicitly tagged",
+                       "result":  "PASS",
+                       "check":  "can_identify_native_vs_simulated"
+                   },
+                   {
+                       "detail":  "multi_agent_v1__close_agent tool available",
+                       "result":  "PASS",
+                       "check":  "can_close_worker"
+                   }
+               ],
+    "outcomeDetail":  "All 8 capability checks PASS. Native spawn_agent is available in this Codex environment. Worker agents can be spawned, scoped, and their outputs collected.",
+    "subPhase":  "A_NATIVE_SPAWN_CAPABILITY_GATE",
+    "previousPhasePass":  "FACTORY-BUILD-6 (39/39 PASS)",
+    "phase":  "FACTORY-BUILD-7",
+    "date":  "2026-06-27T11:08:14.9922129+08:00",
+    "environmentNote":  "Codex desktop app with multi_agent_v1 toolset. Supports spawn_agent, send_input, wait_agent, close_agent, resume_agent.",
+    "userApproved":  true,
+    "outcome":  "NATIVE_SPAWN_AVAILABLE"
+}

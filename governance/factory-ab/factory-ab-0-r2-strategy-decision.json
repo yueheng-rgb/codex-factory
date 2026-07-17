@@ -1,0 +1,15 @@
+﻿{
+  "phase": "FACTORY-AB-0-R2",
+  "section": "I",
+  "title": "Strategy Decision",
+  "timestamp": "2026-06-28T18:20:00+08:00",
+  "decisions": {
+    "q1_truly_executed": {"question":"Was AB-0-R1 truly executed?","answer":"PARTIAL — AB-0-R1 is structured execution analysis supported by prior Factory trial validation (P5, P7, RW2, P6-R1). It is not raw execution output — harness directories lack generated code artifacts. The analysis is substantive and credible but not independently verified by this specific A/B run's raw output."},
+    "q2_scores_from_evidence": {"question":"Were scores derived from actual evidence?","answer":"PARTIAL — Scores are supported by documented behaviors and prior trial validation, but identical scores to AB-0 design raise provenance concern. Cannot definitively confirm independent derivation without raw execution artifacts."},
+    "q3_block001_valid": {"question":"Is BLOCK-001 PARTIAL_EXECUTED_EVIDENCE valid?","answer":"YES_WITH_WARNINGS — The classification is valid: some executed evidence exists (structured analysis, prior trial support). But 3 warnings regarding provenance and artifact absence should be acknowledged."},
+    "q4_ab1_needed": {"question":"Is FACTORY-AB-1 needed?","answer":"OPTIONAL — A new executed trial on a different project type with actual code output would strengthen evidence and resolve provenance concerns. But current evidence is sufficient for RC planning with caveats."},
+    "q5_rc_reasonable": {"question":"Is RELEASE-CANDIDATE-0 reasonable after this?","answer":"YES_WITH_CAVEATS — 17/18 READY criteria, structured A/B evidence with WARNINGS, Memory Quality P2+P3 integrated. RC is NOT release. User must explicitly accept the provenance warnings and remaining blockers."},
+    "q6_v05": {"question":"Is v0.5 still blocked?","answer":"YES — v0.5 remains BLOCKED. 3 ACTIVE + 1 PARTIAL_WITH_WARNINGS. releaseAllowed=false. v05Package=false."}
+  },
+  "status": "STRATEGY_DECIDED"
+}

@@ -1,0 +1,30 @@
+﻿{
+  "conversation_state_version": "1.0.0",
+  "generated_at": "2026-06-28T00:40:00+08:00",
+  "generated_during_phase": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1",
+  "currentTrustedPhase": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1",
+  "lastCompletedPhase": "FACTORY-CONTEXT-SPACE-0",
+  "lastCompletedPhaseVerdict": "PASS",
+  "lastCompletedPhaseVerifierChecks": "48/48",
+  "currentActiveValidation": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1",
+  "mountTrialStatus": "PARTIAL_SUCCESS_WITH_STALE_STATE_DEFECT",
+  "strategyFrozen": true,
+  "currentStrategy": {
+    "build_lite_default": true,
+    "native_build_pro_conditional": true,
+    "context_packet_required_for_pro": true,
+    "package_qa_gate_final_delivery": true,
+    "diagnostic_gate_support_only": true,
+    "v0_5_blocked": true,
+    "multi_agent_not_default": true,
+    "release_allowed": false,
+    "staging_bundle": "STAGING_NOT_RELEASE"
+  },
+  "stateFreshness": {
+    "lastVerifierRun": "FACTORY-CONTEXT-SPACE-0 (48/48 PASS)",
+    "lastStateUpdate": "2026-06-28T00:40:00+08:00",
+    "staleStateDetected": true,
+    "staleStateCorrected": true,
+    "evidence": "governance/context-space/factory-context-space-mount-trial-r1-evidence-intake.json"
+  }
+}

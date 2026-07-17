@@ -1,0 +1,17 @@
+﻿{
+    "snapshot_auto_refresh":  "POLICY DEFINED (7 rules)",
+    "p5_limitation_carried":  "TRUE_FRESH_WINDOW_RECOMMENDED",
+    "verifier_checks":  38,
+    "mount_readiness":  "10/10 PASS",
+    "negative_controls":  45,
+    "phase_close_gate":  "DEFINED (12 steps)",
+    "recommended_next":  "CONTEXT-SPACE-P7",
+    "generated_at":  "2026-06-28T09:59:58+08:00",
+    "cloud":  "DEFERRED",
+    "verdict":  "PASS",
+    "v05":  "BLOCKED",
+    "phase":  "FACTORY-CONTEXT-SPACE-P6",
+    "result_id":  "FACTORY-CONTEXT-SPACE-P6-PHASE-CLOSE-INTEGRATION-RESULT",
+    "negative_controls_gaps":  0,
+    "verifier_passed":  38
+}

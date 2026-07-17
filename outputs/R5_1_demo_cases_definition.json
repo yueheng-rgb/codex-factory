@@ -1,0 +1,8 @@
+﻿[
+  { "demo": "DEMO-1", "task": "做个普通商品展示页", "expected": "ecommerce activated, LOW/MEDIUM" },
+  { "demo": "DEMO-2", "task": "做一个商品库存管理后台", "expected": "ecommerce activated, HIGH/CRITICAL" },
+  { "demo": "DEMO-3", "task": "做一个带支付回调的订单系统", "expected": "ecommerce activated, CRITICAL, human_audit" },
+  { "demo": "DEMO-4", "task": "做一个小程序商城带后台", "expected": "ecommerce activated, L_CLASS/CRITICAL" },
+  { "demo": "DEMO-5", "task": "修改商品价格字段", "expected": "ecommerce activated, CRITICAL, price invariants" },
+  { "demo": "DEMO-6", "task": "修改 README 里的商城介绍文案", "expected": "NO activation, LOW" }
+]

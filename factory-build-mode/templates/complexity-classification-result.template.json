@@ -1,0 +1,27 @@
+﻿{
+    "classificationId": "",
+    "timestamp": "",
+    "projectName": "",
+    "inputs": {
+        "fileCount": 0,
+        "appCount": 0,
+        "hasAuth": false,
+        "hasDB": false,
+        "hasPaymentProcessor": false,
+        "hasComplianceReq": false,
+        "estimatedSessions": 1,
+        "hasExistingCode": false,
+        "hasReportDocs": false
+    },
+    "result": {
+        "level": "SMALL",
+        "confidence": 0.0,
+        "rationale": ""
+    },
+    "flags": {
+        "highRisk_triggered": false,
+        "longHorizon_triggered": false,
+        "needsDiagnosticFirst": false,
+        "reportVsSourceNeeded": false
+    }
+}

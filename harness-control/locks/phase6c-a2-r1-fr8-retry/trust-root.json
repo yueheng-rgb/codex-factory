@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  140,
+    "frozenAt":  "2026-06-19T14:23:05.4182655+08:00",
+    "runId":  "phase6c-a2-r1-fr8-retry",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\phase6c-a2-r1-fr8-retry\\trust-root.json",
+    "controlPlaneLockSha256":  "89b6b4a6a4afb334491bf78f3851d53c6f16315ba9de934ecfe81218adce62f9",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "ef480b6a190ada17359387967fc6e1b9df3d23502f6b079bf4e91f070ed42f36"
+}

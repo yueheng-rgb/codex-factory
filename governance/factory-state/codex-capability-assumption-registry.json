@@ -1,0 +1,109 @@
+{
+  "policyId": "H17-CODEX-CAPABILITY-ASSUMPTION-REGISTRY",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T15:05:59.982826+08:00",
+  "generatedDuringPhase": "H17-A",
+  "nativeGenerated": true,
+  "assumptions": [
+    {
+      "id": "CC-001",
+      "claim": "Codex can auto-compact context",
+      "status": "VERIFIED",
+      "evidenceSource": "Observed during DRY23-P1 (context was compressed during session)",
+      "officialDocsExist": true,
+      "repoLocalTestRequired": false,
+      "h17MayRelyOn": true
+    },
+    {
+      "id": "CC-002",
+      "claim": "Codex can detect compression events",
+      "status": "PARTIALLY_VERIFIED",
+      "evidenceSource": "Codex receives notification when context is compressed, but programmatic detection not confirmed",
+      "officialDocsExist": false,
+      "repoLocalTestRequired": true,
+      "h17MayRelyOn": false,
+      "note": "Must implement repo-local compression counter before relying on this"
+    },
+    {
+      "id": "CC-003",
+      "claim": "Codex can automatically start a new user-visible conversation",
+      "status": "PARTIALLY_VERIFIED",
+      "evidenceSource": "create_thread tool exists but requires explicit user invocation; auto-creation unconfirmed",
+      "officialDocsExist": false,
+      "repoLocalTestRequired": true,
+      "h17MayRelyOn": false,
+      "note": "H17 must NOT assume auto-conversation-creation. Must design handoff protocol that works with manual rotation."
+    },
+    {
+      "id": "CC-004",
+      "claim": "New conversation can inherit full prior context",
+      "status": "UNVERIFIED",
+      "evidenceSource": "fork_context parameter exists on spawn_agent but conversation inheritance semantics differ",
+      "officialDocsExist": false,
+      "repoLocalTestRequired": true,
+      "h17MayRelyOn": false,
+      "note": "H17 must design session rotation to work WITHOUT assuming context inheritance. Artifact-based handoff is the safe path."
+    },
+    {
+      "id": "CC-005",
+      "claim": "New conversation increases usable context safely",
+      "status": "UNVERIFIED",
+      "evidenceSource": "No test data available",
+      "officialDocsExist": false,
+      "repoLocalTestRequired": true,
+      "h17MayRelyOn": false
+    },
+    {
+      "id": "CC-006",
+      "claim": "Codex subagents can run independently",
+      "status": "VERIFIED",
+      "evidenceSource": "DRY21 (7 agents), DRY22 (8 agents), DRY23 (10 agents) all used spawn_agent successfully",
+      "officialDocsExist": true,
+      "repoLocalTestRequired": false,
+      "h17MayRelyOn": true
+    },
+    {
+      "id": "CC-007",
+      "claim": "Codex cloud tasks can run in parallel",
+      "status": "UNVERIFIED",
+      "evidenceSource": "No cloud task parallelism test conducted",
+      "officialDocsExist": false,
+      "repoLocalTestRequired": true,
+      "h17MayRelyOn": false
+    },
+    {
+      "id": "CC-008",
+      "claim": "Codex CLI resume can reopen local transcripts",
+      "status": "UNVERIFIED",
+      "evidenceSource": "No CLI resume test conducted",
+      "officialDocsExist": false,
+      "repoLocalTestRequired": true,
+      "h17MayRelyOn": false
+    },
+    {
+      "id": "CC-009",
+      "claim": "Codex can enforce worker isolation without repo-local contracts",
+      "status": "FALSE",
+      "evidenceSource": "DRY23-P1: Main Agent wrote to builder scopes when spawn failed. No system-level isolation.",
+      "officialDocsExist": false,
+      "repoLocalTestRequired": false,
+      "h17MayRelyOn": false,
+      "note": "Worker isolation REQUIRES repo-local contracts + factoryctl verify enforcement. Codex alone cannot guarantee it."
+    },
+    {
+      "id": "CC-010",
+      "claim": "Codex can use local resource packs/skills reliably",
+      "status": "PARTIALLY_VERIFIED",
+      "evidenceSource": "Skills mechanism works (browser, pdf, spreadsheets skills used). Resource pack concept not tested.",
+      "officialDocsExist": true,
+      "repoLocalTestRequired": true,
+      "h17MayRelyOn": true
+    }
+  ],
+  "rules": {
+    "unverifiedBlockedFromArchitecture": true,
+    "falseClaimsMustNotDriveDesign": true,
+    "repoLocalTestsRequiredForUnverifiedClaims": true
+  },
+  "generatedAtRepairedDuringPhase": "H17-P1"
+}

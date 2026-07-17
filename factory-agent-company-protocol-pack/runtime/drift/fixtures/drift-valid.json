@@ -1,0 +1,9 @@
+﻿{
+    "boundaries":  [
+                       {
+                           "module":  "auth",
+                           "actualImports":  "shared/",
+                           "forbiddenImports":  "payments/ admin/"
+                       }
+                   ]
+}

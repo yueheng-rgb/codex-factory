@@ -1,0 +1,123 @@
+﻿{
+    "version":  "0.2.0-rc",
+    "notProductionReady":  true,
+    "name":  "codex-factory-release-candidate",
+    "assets":  [
+                   {
+                       "forbiddenClaims":  [
+                                               "production-release"
+                                           ],
+                       "packageEligible":  true,
+                       "status":  "CORE",
+                       "sourcePath":  "factory-resource-pack/",
+                       "path":  "factory-resource-pack/",
+                       "allowedUse":  "Portable resource distribution",
+                       "requiresFutureTest":  false,
+                       "sha256":  "AB8E54DA46887735ACF789DD79EBDAE17071ACD2BAFB3BEDA304382E4BB8ADE8"
+                   },
+                   {
+                       "forbiddenClaims":  [
+
+                                           ],
+                       "packageEligible":  true,
+                       "status":  "CORE",
+                       "sourcePath":  "scripts/factoryctl.ps1",
+                       "path":  "scripts/factoryctl.ps1",
+                       "allowedUse":  "Factory CLI",
+                       "requiresFutureTest":  false,
+                       "sha256":  "30BD920F250DF43A656F7CEA773D3F67E51C97D665FBCB092387BDEF4BB49897"
+                   },
+                   {
+                       "forbiddenClaims":  [
+
+                                           ],
+                       "packageEligible":  true,
+                       "status":  "CORE",
+                       "sourcePath":  "governance/factory-state/",
+                       "path":  "governance/factory-state/",
+                       "allowedUse":  "State tracking",
+                       "requiresFutureTest":  false,
+                       "sha256":  "directory"
+                   },
+                   {
+                       "forbiddenClaims":  [
+                                               "production-ready"
+                                           ],
+                       "packageEligible":  false,
+                       "status":  "EXPERIMENTAL",
+                       "sourcePath":  "codex-factory-plugin/",
+                       "path":  "codex-factory-plugin/",
+                       "allowedUse":  "Development preview",
+                       "requiresFutureTest":  true,
+                       "sha256":  "directory"
+                   },
+                   {
+                       "forbiddenClaims":  [
+                                               "verifier-replacement"
+                                           ],
+                       "packageEligible":  false,
+                       "status":  "EXPERIMENTAL",
+                       "sourcePath":  "codex-factory-plugin/mcp/",
+                       "path":  "codex-factory-plugin/mcp/",
+                       "allowedUse":  "Prototype reference",
+                       "requiresFutureTest":  true,
+                       "sha256":  "directory"
+                   },
+                   {
+                       "forbiddenClaims":  [
+                                               "phase-closure-evidence"
+                                           ],
+                       "packageEligible":  false,
+                       "status":  "EXPERIMENTAL",
+                       "sourcePath":  "scripts/monitoring/",
+                       "path":  "scripts/monitoring/",
+                       "allowedUse":  "Prototype reference",
+                       "requiresFutureTest":  true,
+                       "sha256":  "directory"
+                   },
+                   {
+                       "forbiddenClaims":  [
+                                               "runtime-automation-verified"
+                                           ],
+                       "packageEligible":  false,
+                       "status":  "EXPERIMENTAL",
+                       "sourcePath":  "codex-factory-plugin/automation/",
+                       "path":  "codex-factory-plugin/automation/",
+                       "allowedUse":  "Design reference",
+                       "requiresFutureTest":  true,
+                       "sha256":  "directory"
+                   },
+                   {
+                       "forbiddenClaims":  [
+                                               "PASS-gate"
+                                           ],
+                       "packageEligible":  false,
+                       "status":  "EXCLUDED",
+                       "sourcePath":  "historical/",
+                       "path":  "historical/scoring/",
+                       "allowedUse":  "Historical reference",
+                       "requiresFutureTest":  false,
+                       "sha256":  "excluded"
+                   },
+                   {
+                       "forbiddenClaims":  [
+                                               "runnable-core"
+                                           ],
+                       "packageEligible":  false,
+                       "status":  "EXCLUDED",
+                       "sourcePath":  "historical/",
+                       "path":  "historical/failure-router/",
+                       "allowedUse":  "Historical reference",
+                       "requiresFutureTest":  false,
+                       "sha256":  "excluded"
+                   }
+               ],
+    "status":  "RELEASE_CANDIDATE",
+    "categories":  {
+                       "experimental":  4,
+                       "core":  4,
+                       "excluded":  2
+                   },
+    "finalZipNotCreated":  true,
+    "generatedAt":  "2026-06-24T20:35:04+08:00"
+}

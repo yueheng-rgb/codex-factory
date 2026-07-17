@@ -1,0 +1,48 @@
+﻿{
+  "expert_pack_id": "miniapp",
+  "domain": "Miniapp / WeChat Mini-Program",
+  "version": "1.0.0",
+  "description": "Miniapp Expert Pack — WeChat/Alipay mini-program development: identity, session, payment, upload, form validation, admin integration, production release. Does NOT constitute a complete production miniapp.",
+  "supported_project_types": ["fullstack-admin","backend-api","frontend-app"],
+  "supported_surfaces": [
+    {"surface_id":"mini-frontend","surface_type":"miniapp","purpose":"WeChat/Alipay mini-program client: pages, components, WXML/WXSS","required":true,"recommended_starter":null,"risk_level_default":"MEDIUM"},
+    {"surface_id":"mini-api","surface_type":"api-service","purpose":"Backend API for miniapp: auth, data, upload, payment callbacks","required":true,"recommended_starter":"node-api-postgres","risk_level_default":"HIGH"},
+    {"surface_id":"mini-database","surface_type":"database","purpose":"User data, orders, uploads, sessions","required":true,"recommended_starter":null,"risk_level_default":"HIGH"},
+    {"surface_id":"mini-admin","surface_type":"admin-web","purpose":"Admin dashboard for miniapp content and order management","required":false,"recommended_starter":"next-fullstack-admin","risk_level_default":"HIGH"},
+    {"surface_id":"mini-docs","surface_type":"docs-release","purpose":"Miniapp release documentation, platform review notes, config checklist","required":false,"recommended_starter":null,"risk_level_default":"LOW"}
+  ],
+  "risk_rules": [
+    {"rule_id":"MINI-R01","condition":"openid/session-based identity","risk":"CRITICAL","required":"server-side validation + human review"},
+    {"rule_id":"MINI-R02","condition":"payment callback handling","risk":"CRITICAL","required":"idempotency + human review"},
+    {"rule_id":"MINI-R03","condition":"user data access (orders, profile, uploads)","risk":"CRITICAL","required":"cross-user isolation + human review"},
+    {"rule_id":"MINI-R04","condition":"file upload (image, media)","risk":"HIGH","required":"type + size validation, server-side"},
+    {"rule_id":"MINI-R05","condition":"miniapp config (AppID, AppSecret)","risk":"CRITICAL","required":"secret never in client code"},
+    {"rule_id":"MINI-R06","condition":"admin backend for miniapp","risk":"HIGH","required":"RBAC + permission enforcement"},
+    {"rule_id":"MINI-R07","condition":"production release / AppID switch","risk":"CRITICAL","required":"human review + config audit"},
+    {"rule_id":"MINI-R08","condition":"form submission","risk":"HIGH","required":"server-side validation"}
+  ],
+  "activation_conditions": {
+    "keywords": ["小程序","miniapp","mini-program","微信小程序","支付宝小程序","wechat mini","alipay mini","miniapp商城","小程序商城","小程序表单","小程序支付"],
+    "min_surfaces": 1,
+    "exclude_keywords": ["文档修改","README","文案","样式调整"]
+  },
+  "integration_points": {
+    "surface_plan": true,
+    "risk_classifier": true,
+    "invariant_engine": true,
+    "engine_broker": true,
+    "gate_detection": true,
+    "risk_gate": true,
+    "human_review_gate": true
+  },
+  "non_claims": [
+    "This pack does NOT constitute a complete production miniapp",
+    "This pack does NOT handle WeChat/Alipay platform review/approval process",
+    "This pack does NOT include real payment gateway integration",
+    "This pack is a DESIGN AID — domain rules, invariants, and test patterns",
+    "Actual implementation requires WeChat/Alipay developer account and platform review"
+  ],
+  "status": "ACTIVE",
+  "created_at": "2026-07-12",
+  "runtime_validated": false
+}

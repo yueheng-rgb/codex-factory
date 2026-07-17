@@ -1,0 +1,8 @@
+﻿{
+    "canonicalTarget":  "factory.ps1",
+    "scriptsChecked":  4,
+    "section":  "O",
+    "cliEntry":  "factoryctl.ps1",
+    "phase":  "FACTORY-V05-R1-INTEGRATION-0",
+    "syntaxAllOk":  true
+}

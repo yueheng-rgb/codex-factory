@@ -1,0 +1,127 @@
+﻿{
+    "dependencyDeclarations":  [
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry22-builder-contract-engine",
+                                       "targetScope":  "packages/builder/contract/engine"
+                                   },
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry22-builder-dep-scheduler",
+                                       "targetScope":  "packages/builder/dep/scheduler"
+                                   },
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry22-builder-scope-guard",
+                                       "targetScope":  "packages/builder/scope/guard"
+                                   },
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry22-builder-drift-detector",
+                                       "targetScope":  "packages/builder/drift/detector"
+                                   },
+                                   {
+                                       "edgeCount":  1,
+                                       "dependencyType":  "integration",
+                                       "direction":  "depends_on",
+                                       "targetAgentId":  "dry22-builder-failure-router",
+                                       "targetScope":  "packages/builder/failure/router"
+                                   }
+                               ],
+    "phase":  "DRY22-A",
+    "forkContext":  false,
+    "scope":  {
+                  "forbiddenFiles":  [
+
+                                     ],
+                  "ownedFiles":  [
+                                     "packages/integration-hub/src/types.ts",
+                                     "packages/integration-hub/src/handoff-coordinator.ts",
+                                     "packages/integration-hub/src/merge-owner.ts",
+                                     "packages/integration-hub/src/shared-points-manager.ts",
+                                     "packages/integration-hub/src/integration-validator.ts",
+                                     "packages/integration-hub/src/integration-events.ts",
+                                     "packages/integration-hub/src/integration-reporter.ts",
+                                     "packages/integration-hub/src/integration-auditor.ts",
+                                     "packages/integration-hub/src/integration-serializer.ts",
+                                     "packages/integration-hub/src/cross-module-contracts.ts",
+                                     "packages/integration-hub/src/index.ts"
+                                 ],
+                  "forbiddenDirectories":  {
+
+                                           },
+                  "ownedDirectories":  [
+                                           "packages/integration-hub/"
+                                       ]
+              },
+    "exportedApiSurface":  [
+                               "packages/integration-hub/src/types.ts",
+                               "packages/integration-hub/src/handoff-coordinator.ts",
+                               "packages/integration-hub/src/merge-owner.ts",
+                               "packages/integration-hub/src/shared-points-manager.ts",
+                               "packages/integration-hub/src/integration-validator.ts",
+                               "packages/integration-hub/src/integration-events.ts",
+                               "packages/integration-hub/src/integration-reporter.ts",
+                               "packages/integration-hub/src/integration-auditor.ts",
+                               "packages/integration-hub/src/integration-serializer.ts",
+                               "packages/integration-hub/src/cross-module-contracts.ts"
+                           ],
+    "isReadOnly":  false,
+    "allowedImports":  [
+                           {
+                               "target":  "packages/builder/contract/enginesrc/*.ts",
+                               "source":  "packages/integration-hub/src/*.ts",
+                               "declared":  true
+                           },
+                           {
+                               "target":  "packages/builder/dep/schedulersrc/*.ts",
+                               "source":  "packages/integration-hub/src/*.ts",
+                               "declared":  true
+                           },
+                           {
+                               "target":  "packages/builder/scope/guardsrc/*.ts",
+                               "source":  "packages/integration-hub/src/*.ts",
+                               "declared":  true
+                           },
+                           {
+                               "target":  "packages/builder/drift/detectorsrc/*.ts",
+                               "source":  "packages/integration-hub/src/*.ts",
+                               "declared":  true
+                           },
+                           {
+                               "target":  "packages/builder/failure/routersrc/*.ts",
+                               "source":  "packages/integration-hub/src/*.ts",
+                               "declared":  true
+                           }
+                       ],
+    "evidencePath":  "harness/runs/dry22-contract-enforced-mission/",
+    "forbiddenImports":  [
+                             {
+                                 "target":  "../../scripts/*.ts",
+                                 "reason":  "Workers must not import scripts directly"
+                             }
+                         ],
+    "role":  "integrator",
+    "nativeGenerated":  true,
+    "generatedAt":  "2026-06-23T23:44:11+08:00",
+    "contractVersion":  "1.0.0",
+    "integrationHandoff":  {
+                               "path":  "governance/dependency-graphs/dry22-cross-worker-dependency-graph.json",
+                               "format":  "json",
+                               "expectedConsumer":  "dry22-integration-hub"
+                           },
+    "sourceEvidenceSha256":  {
+
+                             },
+    "generatedBy":  "DRY22-A contract-first flow",
+    "retroactive":  false,
+    "agentId":  "dry22-integration-hub"
+}

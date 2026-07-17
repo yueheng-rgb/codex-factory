@@ -1,0 +1,20 @@
+﻿# Four-Agent Model Policy (P1 Candidate)
+
+**Status:** NOT_DEFAULT_NOT_PROVEN
+**Version:** P1-candidate
+
+## Agent Count
+Maximum 4 agents per implementation phase:
+1. Orchestrator
+2. Product Builder
+3. Test/Integration/Docs Builder
+4. Reviewer-Verifier (READONLY)
+
+## Trigger for >4
+Additional agents require:
+1. Project >20 modules AND
+2. AGENT-9-P1 re-test PASS OR new benchmark evidence AND
+3. User explicit approval
+
+## Default
+4-agent model is the P1 candidate default. Multi-agent implementation is NOT proven.

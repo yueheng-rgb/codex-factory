@@ -1,0 +1,32 @@
+﻿{
+  "phase": "FACTORY-MEMORY-QUALITY-P2",
+  "section": "G",
+  "title": "Memory Quality Validator",
+  "timestamp": "2026-06-28T17:50:00+08:00",
+  "validator": {
+    "name": "MEMORY_QUALITY_VALIDATOR v1.0.0",
+    "checks": [
+      {"id": "VAL-001", "check": "evidence_path exists and points to real file", "severity": "BLOCKING"},
+      {"id": "VAL-002", "check": "summary ≤ 500 chars", "severity": "BLOCKING"},
+      {"id": "VAL-003", "check": "caveat present if status is PARTIAL or claim involves DESIGN_ONLY/LOCAL_ONLY", "severity": "BLOCKING"},
+      {"id": "VAL-004", "check": "caveat ≤ 200 chars", "severity": "WARN"},
+      {"id": "VAL-005", "check": "No DESIGN_ONLY claim without DESIGN_ONLY tag in caveat", "severity": "BLOCKING"},
+      {"id": "VAL-006", "check": "No LOCAL_ONLY claim without LOCAL_ONLY tag in caveat", "severity": "BLOCKING"},
+      {"id": "VAL-007", "check": "No score > max in rubric", "severity": "BLOCKING"},
+      {"id": "VAL-008", "check": "No secret-like patterns in summary or caveat", "severity": "BLOCKING"},
+      {"id": "VAL-009", "check": "No production endpoint patterns", "severity": "BLOCKING"},
+      {"id": "VAL-010", "check": "Status is valid enum value", "severity": "BLOCKING"},
+      {"id": "VAL-011", "check": "Category is valid enum value", "severity": "BLOCKING"},
+      {"id": "VAL-012", "check": "RETIRED status has retired_reason", "severity": "BLOCKING"},
+      {"id": "VAL-013", "check": "No overclaim: 'proves'/'guarantees'/'always' without strong evidence", "severity": "WARN"},
+      {"id": "VAL-014", "check": "Socratic triggered records have socratic_triggered=true", "severity": "WARN"},
+      {"id": "VAL-015", "check": "Timestamp is valid ISO8601", "severity": "WARN"}
+    ],
+    "verdict_logic": {
+      "PASS": "0 BLOCKING failures",
+      "PASS_WITH_WARNINGS": "0 BLOCKING, >0 WARN",
+      "BLOCKED": "≥1 BLOCKING failure"
+    }
+  },
+  "status": "VALIDATOR_DEFINED"
+}

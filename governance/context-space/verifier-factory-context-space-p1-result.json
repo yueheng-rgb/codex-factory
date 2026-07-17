@@ -1,0 +1,196 @@
+﻿{
+    "pass":  37,
+    "verifier_id":  "FACTORY-CONTEXT-SPACE-P1-VERIFIER",
+    "fail":  0,
+    "verifier_version":  "1.2.0",
+    "overall":  "PASS",
+    "total_checks":  37,
+    "checks":  [
+                   {
+                       "label":  "Fresh mount recheck report",
+                       "verdict":  "PASS",
+                       "id":  "A-01"
+                   },
+                   {
+                       "label":  "Mount freshness governance JSON",
+                       "verdict":  "PASS",
+                       "id":  "A-02"
+                   },
+                   {
+                       "label":  "Mount freshness FRESH",
+                       "verdict":  "PASS",
+                       "id":  "A-03"
+                   },
+                   {
+                       "label":  "Scope definition",
+                       "verdict":  "PASS",
+                       "id":  "B-01"
+                   },
+                   {
+                       "label":  "Data model",
+                       "verdict":  "PASS",
+                       "id":  "B-02"
+                   },
+                   {
+                       "label":  "context-index.jsonl exists",
+                       "verdict":  "PASS",
+                       "id":  "C-01"
+                   },
+                   {
+                       "label":  "context-index-manifest.json exists",
+                       "verdict":  "PASS",
+                       "id":  "C-02"
+                   },
+                   {
+                       "label":  "\u003e50 entries",
+                       "verdict":  "PASS",
+                       "id":  "C-03"
+                   },
+                   {
+                       "label":  "All FRESH",
+                       "verdict":  "PASS",
+                       "id":  "C-04"
+                   },
+                   {
+                       "label":  "build-context-index.ps1",
+                       "verdict":  "PASS",
+                       "id":  "D-01"
+                   },
+                   {
+                       "label":  "query-context-space.ps1",
+                       "verdict":  "PASS",
+                       "id":  "D-02"
+                   },
+                   {
+                       "label":  "generate-query-packet.ps1",
+                       "verdict":  "PASS",
+                       "id":  "D-03"
+                   },
+                   {
+                       "label":  "attach-packet-index-integration.ps1",
+                       "verdict":  "PASS",
+                       "id":  "D-04"
+                   },
+                   {
+                       "label":  "query-direction-guard.ps1",
+                       "verdict":  "PASS",
+                       "id":  "D-05"
+                   },
+                   {
+                       "label":  "simulation-context-space-p1.ps1",
+                       "verdict":  "PASS",
+                       "id":  "D-06"
+                   },
+                   {
+                       "label":  "negative-controls-context-space-p1.ps1",
+                       "verdict":  "PASS",
+                       "id":  "D-07"
+                   },
+                   {
+                       "label":  "Simulation results exist",
+                       "verdict":  "PASS",
+                       "id":  "E-01"
+                   },
+                   {
+                       "label":  "Simulations all PASS",
+                       "verdict":  "PASS",
+                       "id":  "E-02"
+                   },
+                   {
+                       "label":  "User workflow doc",
+                       "verdict":  "PASS",
+                       "id":  "F-01"
+                   },
+                   {
+                       "label":  "SQLite roadmap",
+                       "verdict":  "PASS",
+                       "id":  "G-01"
+                   },
+                   {
+                       "label":  "No SQLite DB",
+                       "verdict":  "PASS",
+                       "id":  "G-02"
+                   },
+                   {
+                       "label":  "NC results exist",
+                       "verdict":  "PASS",
+                       "id":  "H-01"
+                   },
+                   {
+                       "label":  "All 47 NC PASS",
+                       "verdict":  "PASS",
+                       "id":  "H-02"
+                   },
+                   {
+                       "label":  "No cloud",
+                       "verdict":  "PASS",
+                       "id":  "I-01"
+                   },
+                   {
+                       "label":  "No network",
+                       "verdict":  "PASS",
+                       "id":  "I-02"
+                   },
+                   {
+                       "label":  "No release ZIP",
+                       "verdict":  "PASS",
+                       "id":  "I-03"
+                   },
+                   {
+                       "label":  "No v0.5 package",
+                       "verdict":  "PASS",
+                       "id":  "I-04"
+                   },
+                   {
+                       "label":  "No project modified",
+                       "verdict":  "PASS",
+                       "id":  "I-05"
+                   },
+                   {
+                       "label":  "STRATEGY-build_lite_default",
+                       "verdict":  "PASS",
+                       "id":  "J-01"
+                   },
+                   {
+                       "label":  "FROZEN-001 Build Lite",
+                       "verdict":  "PASS",
+                       "id":  "J-02"
+                   },
+                   {
+                       "label":  "v0.5 blocked (RETIRED-001+STRATEGY)",
+                       "verdict":  "PASS",
+                       "id":  "J-03"
+                   },
+                   {
+                       "label":  "Build Pro conditional (FROZEN-002+STRATEGY)",
+                       "verdict":  "PASS",
+                       "id":  "J-04"
+                   },
+                   {
+                       "label":  "FROZEN-003 Factory superiority",
+                       "verdict":  "PASS",
+                       "id":  "J-05"
+                   },
+                   {
+                       "label":  "Package QA gate (FROZEN-004+STRATEGY)",
+                       "verdict":  "PASS",
+                       "id":  "J-06"
+                   },
+                   {
+                       "label":  "No secrets in index",
+                       "verdict":  "PASS",
+                       "id":  "J-07"
+                   },
+                   {
+                       "label":  "Attach packet index integration",
+                       "verdict":  "PASS",
+                       "id":  "J-08"
+                   },
+                   {
+                       "label":  "Direction guard exists",
+                       "verdict":  "PASS",
+                       "id":  "J-09"
+                   }
+               ],
+    "executed_at":  "2026-06-28T00:56:30.0807416+08:00"
+}

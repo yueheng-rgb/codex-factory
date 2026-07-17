@@ -1,0 +1,22 @@
+﻿{
+  "phase": "FACTORY-EVAL-10-E",
+  "title": "Harness Design — LedgerFlow Lite Second Benchmark",
+  "createdAt": "2026-06-25T20:27:00+08:00",
+  "harnessRoot": "harness/benchmarks/factory-eval-second-project/",
+  "structure": {
+    "spec/": {"purpose": "Benchmark specification, rubric, anti-gaming policy", "status": "CREATED"},
+    "runs/vanilla/": {"purpose": "RUN-A: Vanilla Codex product implementation", "status": "DIRECTORY_CREATED", "implementationStarted": false},
+    "runs/v04-factory-lite/": {"purpose": "RUN-B: v0.4 Factory Lite Core product implementation", "status": "DIRECTORY_CREATED", "implementationStarted": false},
+    "runs/v04-3role-optional/": {"purpose": "RUN-C: v0.4 3-Role optional product implementation", "status": "DIRECTORY_CREATED", "implementationStarted": false},
+    "evaluation/": {"purpose": "Independent evaluation artifacts (post-implementation)", "status": "DIRECTORY_CREATED"}
+  },
+  "implementationStatus": "NOT_STARTED — directories created, no product code written",
+  "nextPhaseForImplementation": "FACTORY-EVAL-11 (Vanilla Run) or user confirmation",
+  "rules": [
+    "Do not start implementation without explicit user confirmation",
+    "Each run directory must have: RUN_METADATA.json, product/, logs/",
+    "Contamination between runs must be tracked",
+    "Same spec applies to all three runs",
+    "No Factory mechanisms in RUN-A (Vanilla)"
+  ]
+}

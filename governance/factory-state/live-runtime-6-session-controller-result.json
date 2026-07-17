@@ -1,0 +1,70 @@
+﻿{
+  "phase": "LIVE-RUNTIME-6",
+  "status": "PASS",
+  "verifierResult": "32/32 PASS",
+  "completedAt": "2026-06-25T00:38:35+08:00",
+  "nativeGenerated": true,
+  "subPhases": {
+    "A": { "status": "PASS", "description": "Session Carrier Capability Verification" },
+    "B": { "status": "PASS", "description": "Session Controller Policy + Decision Matrix" },
+    "C": { "status": "PASS", "description": "Rotation Execution Packet Builder" },
+    "D": { "status": "PASS", "description": "Startup Verification Contract" },
+    "E": { "status": "PASS", "description": "Semi-Automatic Rotation Simulation" },
+    "F": { "status": "PASS", "description": "Negative Controls (28/28)" }
+  },
+  "carrierCapability": {
+    "totalCarriers": 9,
+    "verifiedCount": 3,
+    "partiallyVerified": 3,
+    "hypothesisCount": 2,
+    "rejectedCount": 10,
+    "safeFallback": "manual_new_window_artifact_handoff"
+  },
+  "controllerPolicy": {
+    "isRouterNotCloser": true,
+    "doesNotMutateState": true,
+    "doesNotMarkPass": true,
+    "doesNotCreateZip": true,
+    "doesNotStartPhase": true,
+    "decisionMatrixScenarios": 8
+  },
+  "executionPacket": {
+    "builderExists": true,
+    "validatorExists": true,
+    "packetsGenerated": 2,
+    "verdict": "ROTATION_USER_ACTION_REQUIRED"
+  },
+  "startupVerificationContract": {
+    "contractExists": true,
+    "scriptExists": true,
+    "requiredChecks": 8
+  },
+  "simulation": {
+    "totalScenarios": 8,
+    "allMatch": true
+  },
+  "negativeControls": {
+    "totalNegatives": 28,
+    "detectedAndBlocked": 28,
+    "gaps": 0
+  },
+  "verifierSyntaxRepaired": true,
+  "verifierRepairNote": "Fixed 4 spacing bugs: Get-ChildItem -Filter, -Raw, and NO_* concatenation",
+  "sessionControllerEstablished": true,
+  "recommendedNextPhase": "LIVE-RUNTIME-7",
+  "evidencePaths": [
+    "governance/factory-state/live-runtime-6-session-carrier-capability.json",
+    "governance/session-controller/session-controller-policy.json",
+    "governance/session-controller/session-carrier-decision-matrix.json",
+    "governance/session-controller/latest-rotation-execution-packet.json",
+    "governance/session-controller/rotation-execution.schema.json",
+    "governance/session-controller/startup-verification-contract.schema.json",
+    "governance/factory-state/live-runtime-6-session-controller-simulation-result.json",
+    "governance/factory-state/live-runtime-6-negative-controls-result.json",
+    "governance/factory-state/verifier-live-runtime-6-result.json",
+    "scripts/live-runtime-6-session-controller-verify.ps1",
+    "scripts/session-controller/build-rotation-execution-packet.ps1",
+    "scripts/session-controller/validate-rotation-execution-packet.ps1",
+    "scripts/session-controller/run-startup-verification-contract.ps1"
+  ]
+}

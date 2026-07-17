@@ -1,0 +1,27 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tool Invocation Record",
+  "description": "Record of every tool permission check or invocation in Factory",
+  "type": "object",
+  "required": ["invocationId", "toolId", "agentId", "projectId", "decision", "timestamp"],
+  "properties": {
+    "invocationId": { "type": "string" },
+    "projectId": { "type": "string" },
+    "phaseId": { "type": "string" },
+    "agentId": { "type": "string" },
+    "toolId": { "type": "string" },
+    "requestedAction": { "type": "string" },
+    "decision": { "type": "string", "enum": ["allow", "allowWithControls", "dryRun", "monitorOnly", "pendingHuman", "pendingSandbox", "reject", "error"] },
+    "reason": { "type": "string" },
+    "sandboxMode": { "type": "string", "enum": ["none", "dryRun", "readOnly", "disposable", "networkDisabled", "networkLimited", "secretless", "humanApproved", ""] },
+    "humanApproval": { "type": "boolean" },
+    "filesRead": { "type": "array", "items": { "type": "string" } },
+    "filesWritten": { "type": "array", "items": { "type": "string" } },
+    "networkUsed": { "type": "boolean" },
+    "secretsUsed": { "type": "boolean" },
+    "artifactsProduced": { "type": "array", "items": { "type": "string" } },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "caveats": { "type": "array", "items": { "type": "string" } },
+    "gateChecks": { "type": "array", "items": { "type": "string" } }
+  }
+}

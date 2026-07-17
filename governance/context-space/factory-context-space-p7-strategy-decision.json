@@ -1,0 +1,53 @@
+﻿{
+    "recommended_next":  "REALWORLD-2-P1 (TCM working-copy validation using context space)",
+    "not_recommended":  [
+                            "CLOUD-0",
+                            "v0.5 release",
+                            "Native Build Pro as default"
+                        ],
+    "decision_id":  "FACTORY-CONTEXT-SPACE-P7-STRATEGY-DECISION",
+    "section":  "H",
+    "phase":  "FACTORY-CONTEXT-SPACE-P7",
+    "questions_answered":  [
+                               {
+                                   "verdict":  "LOCAL_MVP_STRONG",
+                                   "question":  "1. Is context-space local MVP strong enough?",
+                                   "answer":  "YES. P7 fresh-window validation confirms mount readiness, snapshot usability, DG correctness, and phase-close integration. Local MVP is production-ready for day-to-day use."
+                               },
+                               {
+                                   "verdict":  "REALWORLD-2-P1 RECOMMENDED",
+                                   "question":  "2. Should next be CONTEXT-SPACE-P8, REALWORLD-2-P1, or CLOUD-0?",
+                                   "answer":  "REALWORLD-2-P1 is recommended as primary next step. Context space now supports long work — TCM working-copy validation using context space is the logical next test. CONTEXT-SPACE-P8 (usability hardening + one-command mount) is a valid parallel/secondary task. CLOUD-0 remains deferred."
+                               },
+                               {
+                                   "verdict":  "CLOUD DEFERRED",
+                                   "question":  "3. Is cloud still deferred?",
+                                   "answer":  "YES. Local MVP proven sufficient. No cross-device sync requirement demonstrated."
+                               },
+                               {
+                                   "verdict":  "v0.5 BLOCKED",
+                                   "question":  "4. Is v0.5 release now recommended?",
+                                   "answer":  "NO. v0.5 remains blocked. P7 validates context-space mechanism, not product release readiness."
+                               },
+                               {
+                                   "verdict":  "SUPPORT_GATES_UNCHANGED",
+                                   "question":  "5. Should diagnostic/packaging become mainline?",
+                                   "answer":  "NO. Diagnostic Gate remains support gate. Package QA Gate remains final handoff gate. Neither becomes mainline."
+                               }
+                           ],
+    "generated_at":  "2026-06-28T10:06:06+08:00",
+    "valid_alternatives":  [
+                               "CONTEXT-SPACE-P8 (Usability Hardening + One-Command Mount)"
+                           ],
+    "strategy_frozen_unchanged":  [
+                                      "Build Lite = default",
+                                      "Native Build Pro = conditional",
+                                      "multi-agent = rejected",
+                                      "v0.5 = blocked",
+                                      "Diagnostic Gate = support gate",
+                                      "Package QA Gate = final handoff gate",
+                                      "Context Packet required for NBP/long-horizon",
+                                      "Snapshot != evidence",
+                                      "DG v3 active (13 rules)"
+                                  ]
+}

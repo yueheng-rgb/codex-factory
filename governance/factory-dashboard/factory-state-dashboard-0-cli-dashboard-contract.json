@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-STATE-DASHBOARD-0",
+  "section": "C",
+  "title": "CLI Dashboard Contract",
+  "timestamp": "2026-06-29T00:00:00+08:00",
+  "status": "ACTIVE",
+  "contract_file": "factory-dashboard/CLI_DASHBOARD_CONTRACT.md",
+  "commands": [
+    {"command": "factory state", "output": "Markdown dashboard"},
+    {"command": "factory state --json", "output": "JSON dashboard"},
+    {"command": "factory state --paths", "output": "All project paths"},
+    {"command": "factory state --agents", "output": "Agent ledger view"},
+    {"command": "factory state --risks", "output": "Active risks/blockers"},
+    {"command": "factory state --cleanup", "output": "Cleanup status"},
+    {"command": "factory state --mount", "output": "Mount status, foreign context"},
+    {"command": "factory state --brief", "output": "One-line summary"}
+  ],
+  "safety_rules": ["Never print secrets", "Never modify project files", "Never trigger cleanup", "Never start deploy", "Never connect servers"],
+  "report": "outputs/FACTORY_STATE_DASHBOARD_0_C_CLI_DASHBOARD_CONTRACT_REPORT.md"
+}

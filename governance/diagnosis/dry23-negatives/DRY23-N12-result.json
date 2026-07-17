@@ -1,0 +1,13 @@
+﻿{
+    "timestamp":  "2026-06-24T00:49:23.0941294+08:00",
+    "negativeId":  "DRY23-N12",
+    "verifyOutput":  "{\r\n    \"command\":  \"verify\",\r\n    \"phase\":  \"latest\",\r\n    \"verdict\":  \"PASS\",\r\n    \"totalChecks\":  29,\r\n    \"modules\":  [\r\n                    {\r\n                        \"verdict\":  \"PASS_WITH_CAVEATS\",\r\n                        \"checks\":  10\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  3\r\n                    },\r\n                    {\r\n                        \"verdict\":  \"PASS\",\r\n                        \"checks\":  4\r\n                    }\r\n                ],\r\n    \"checkedAt\":  \"2026-06-24T00:49:23+08:00\"\r\n}",
+    "faultManifest":  {
+                          "id":  "DRY23-N12",
+                          "name":  "Fork Context Violation",
+                          "timestamp":  "2026-06-24T00:49:16.3573013+08:00",
+                          "expectedFailureClass":  "FORK_CONTEXT_VIOLATION",
+                          "targetGate":  "fork-context-check",
+                          "category":  "agent_lifecycle_isolation"
+                      }
+}

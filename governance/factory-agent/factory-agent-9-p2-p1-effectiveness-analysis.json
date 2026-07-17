@@ -1,0 +1,52 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P2",
+  "step": "J_P1_EFFECTIVENESS_ANALYSIS",
+  "timestamp": "2026-06-26T20:30:04.1472391+08:00",
+  "questions": [
+    {
+      "q": "Does P1 beat old v0.5?",
+      "answer": "YES",
+      "evidence": "P1 scores 79.30 vs old v0.5 73.10 under repaired policy. P1 has stronger evidence quality, lower overhead, and comparable product quality. P1 is the better candidate.",
+      "confidence": "MODERATE"
+    },
+    {
+      "q": "Does P1 beat v0.4?",
+      "answer": "YES",
+      "evidence": "P1 scores 79.30 vs v0.4 67.75. P1 has better process, evidence, and comparable product. v0.4 lacks agent coordination.",
+      "confidence": "HIGH"
+    },
+    {
+      "q": "Does P1 beat Vanilla?",
+      "answer": "MIXED",
+      "evidence": "P1 composite score 79.30 beats Vanilla 65.75 due to process/evidence/overhead dimensions. But Vanilla has higher pure product quality (85 vs 84). P1's composite win comes from process infrastructure, not product superiority.",
+      "confidence": "HIGH",
+      "nuance": "Vanilla wins on product-only comparison (85 vs 84). P1 wins on composite. The 1-point product gap is negligible."
+    },
+    {
+      "q": "Does P1 show product benefit, process benefit, both, or neither?",
+      "answer": "PRIMARILY_PROCESS_BENEFIT",
+      "evidence": "Product quality is comparable across runs (Vanilla 85, P1 84, old v0.5 82). P1's advantage is process quality (80 vs 78/55/40) and evidence quality (82 vs 70/55/45). P1 adds verifiability without degrading product.",
+      "productGapToVanilla": -1,
+      "processGapToBestAlt": 2
+    },
+    {
+      "q": "Should multi-agent remain not-default, become conditional, or proceed?",
+      "answer": "CONDITIONAL",
+      "evidence": "P1 shows process benefit but not product benefit on this benchmark. Multi-agent should be CONDITIONAL: used when process/evidence quality matters more than minimal overhead, NOT when pure product speed is the goal.",
+      "conditions": [
+        "Use when evidence quality is important (auditable systems)",
+        "Use when team coordination benefit outweighs agent overhead",
+        "Not recommended for small projects (<500 LOC) where single agent is sufficient",
+        "Requires P1 runtime gates (reviewer, floor checks, overhead budget)"
+      ]
+    },
+    {
+      "q": "Did policy repair change interpretation of AGENT-8-P1/R1?",
+      "answer": "YES_SIGNIFICANTLY",
+      "evidence": "Under old policy, P1 was BLOCKED_BY_REVIEWER with 2 unmet floors. Under repaired policy, P1 meets all 11 hard floors. The BLOCKED_BY_REVIEWER was a policy artifact, not a product deficit. AGENT-5-P1 repair correctly identified and fixed the policy defect."
+    }
+  ],
+  "p1SupersedesOldV05": true,
+  "p1SupersedesEvidence": "P1 has better process, evidence quality, and lower overhead with comparable product quality. Old v0.5 7-agent mode should be retired in favor of P1 4-agent mode.",
+  "multiAgentEffectivenessClaim": "CONDITIONAL_BENEFIT_FOR_PROCESS_NOT_PRODUCT"
+}

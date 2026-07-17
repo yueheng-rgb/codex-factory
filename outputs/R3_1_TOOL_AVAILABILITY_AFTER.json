@@ -1,0 +1,62 @@
+﻿[
+    {
+        "version":  "1.169.0",
+        "engine_id":  "semgrep",
+        "install_hint":  "pip install semgrep",
+        "category":  "security_static_analysis",
+        "executable_path":  "C:\\Users\\90961\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\semgrep.exe",
+        "skip_reason":  "",
+        "available":  true,
+        "checked_at":  "2026-07-11T19:04:25+08:00"
+    },
+    {
+        "version":  "",
+        "engine_id":  "codeql",
+        "install_hint":  "choco install codeql or download from GitHub releases",
+        "category":  "deep_static_analysis",
+        "executable_path":  "",
+        "skip_reason":  "codeql not found in PATH or common install locations",
+        "available":  false,
+        "checked_at":  "2026-07-11T19:04:26+08:00"
+    },
+    {
+        "version":  "",
+        "engine_id":  "k6",
+        "install_hint":  "choco install k6 or winget install k6",
+        "category":  "performance_load_testing",
+        "executable_path":  "",
+        "skip_reason":  "k6 not found in PATH or common install locations",
+        "available":  false,
+        "checked_at":  "2026-07-11T19:04:26+08:00"
+    },
+    {
+        "version":  "",
+        "engine_id":  "autocannon",
+        "install_hint":  "npm install -g autocannon",
+        "category":  "performance_load_testing",
+        "executable_path":  "",
+        "skip_reason":  "autocannon not found in PATH or common install locations",
+        "available":  false,
+        "checked_at":  "2026-07-11T19:04:27+08:00"
+    },
+    {
+        "version":  "",
+        "engine_id":  "playwright",
+        "install_hint":  "npm install -D @playwright/test \u0026\u0026 npx playwright install",
+        "category":  "e2e_browser_testing",
+        "executable_path":  "C:\\Program Files\\nodejs\\npx.ps1",
+        "skip_reason":  "Package @playwright/test not installed (npx available)",
+        "available":  false,
+        "checked_at":  "2026-07-11T19:04:27+08:00"
+    },
+    {
+        "version":  "",
+        "engine_id":  "firecrawl_reader",
+        "install_hint":  "npm install -g @anthropic-ai/firecrawl",
+        "category":  "reader_extractor",
+        "executable_path":  "C:\\Program Files\\nodejs\\npx.ps1",
+        "skip_reason":  "Package @anthropic-ai/firecrawl not installed (npx available)",
+        "available":  false,
+        "checked_at":  "2026-07-11T19:04:28+08:00"
+    }
+]

@@ -1,0 +1,30 @@
+﻿{
+    "claims":  [
+                   {
+                       "claimId":  "RC001",
+                       "claim":  "Multi-agent is default mode",
+                       "rejectionReason":  "AGENT-9-P3 strategy freeze: CONDITIONAL only"
+                   },
+                   {
+                       "claimId":  "RC002",
+                       "claim":  "Build Pro is default",
+                       "rejectionReason":  "Build Lite remains practical default"
+                   },
+                   {
+                       "claimId":  "RC003",
+                       "claim":  "v0.5 release ready",
+                       "rejectionReason":  "v0.5 BLOCKED per AGENT-9-P3"
+                   },
+                   {
+                       "claimId":  "RC004",
+                       "claim":  "External memory = model expansion",
+                       "rejectionReason":  "Memory concept correction enforced"
+                   },
+                   {
+                       "claimId":  "RC005",
+                       "claim":  "Process artifacts = product quality",
+                       "rejectionReason":  "Product/process separation enforced"
+                   }
+               ],
+    "lastUpdated":  "2026-06-27T00:00:00+08:00"
+}

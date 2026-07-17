@@ -1,0 +1,10 @@
+﻿{
+  "agentId": "ag2-bad-1",
+  "ownedScope": ["packages/auth-module/src/"],
+  "forbiddenScope": ["packages/payments/"],
+  "actualWrites": [
+    "packages/auth-module/src/login.ts",
+    "packages/payments/checkout.ts",
+    "_integrate/merge.ts"
+  ]
+}

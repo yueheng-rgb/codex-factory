@@ -1,0 +1,202 @@
+﻿{
+    "phase":  "FACTORY-MEMORY-QUALITY-0-P1",
+    "date":  "2026-06-27T15:15:23.7989277+08:00",
+    "overall":  "PASS",
+    "passedChecks":  32,
+    "failedChecks":  0,
+    "totalChecks":  32,
+    "checks":  [
+                   {
+                       "path":  "governance\\factory-memory\\verifier-factory-memory-quality-0-result.json",
+                       "pass":  true,
+                       "id":  "V00",
+                       "desc":  "Original MEMORY-QUALITY-0 verifier PASS exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\MEMORY_QUALITY_HIERARCHY.md",
+                       "pass":  true,
+                       "id":  "V01",
+                       "desc":  "MEMORY_QUALITY_HIERARCHY.md exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\policies\\MEMORY_INGESTION_POLICY.md",
+                       "pass":  true,
+                       "id":  "V02",
+                       "desc":  "MEMORY_INGESTION_POLICY.md exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\policies\\MEMORY_FILTERING_DECAY.md",
+                       "pass":  true,
+                       "id":  "V03",
+                       "desc":  "MEMORY_FILTERING_DECAY.md exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\policies\\SUMMARY_VERIFICATION.md",
+                       "pass":  true,
+                       "id":  "V04",
+                       "desc":  "SUMMARY_VERIFICATION.md exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\schemas\\ROLE_CONTEXT_FILTERING.md",
+                       "pass":  true,
+                       "id":  "V05",
+                       "desc":  "ROLE_CONTEXT_FILTERING.md exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\SIMULATION.md",
+                       "pass":  true,
+                       "id":  "V06",
+                       "desc":  "SIMULATION.md exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\BUILD_INTEGRATION.md",
+                       "pass":  true,
+                       "id":  "V07",
+                       "desc":  "BUILD_INTEGRATION.md exists"
+                   },
+                   {
+                       "path":  "governance\\factory-memory\\factory-memory-quality-0-p1-gap-intake.json",
+                       "pass":  true,
+                       "id":  "V08",
+                       "desc":  "Gap intake JSON exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_P1_A_GAP_INTAKE_REPORT.md",
+                       "pass":  true,
+                       "id":  "V09",
+                       "desc":  "Gap intake report exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\schemas\\context-packet.schema.json",
+                       "pass":  true,
+                       "id":  "V10",
+                       "desc":  "context-packet.schema.json exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\memory-quality\\schemas\\context-packet.template.json",
+                       "pass":  true,
+                       "id":  "V11",
+                       "desc":  "context-packet.template.json exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\runtime\\memory\\generate-context-packet.ps1",
+                       "pass":  true,
+                       "id":  "V12",
+                       "desc":  "generate-context-packet.ps1 exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\runtime\\memory\\validate-context-packet.ps1",
+                       "pass":  true,
+                       "id":  "V13",
+                       "desc":  "validate-context-packet.ps1 exists"
+                   },
+                   {
+                       "path":  "governance\\factory-memory\\factory-memory-quality-0-context-packet-mvp-result.json",
+                       "pass":  true,
+                       "id":  "V14",
+                       "desc":  "MVP result JSON backfilled"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_CONTEXT_PACKET_MVP_REPORT.md",
+                       "pass":  true,
+                       "id":  "V15",
+                       "desc":  "MVP report backfilled"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_NEGATIVE_CONTROLS_REPORT.md",
+                       "pass":  true,
+                       "id":  "V16",
+                       "desc":  "Negative controls report backfilled"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_P1_B_CONTEXT_PACKET_SCHEMA_REPORT.md",
+                       "pass":  true,
+                       "id":  "V17",
+                       "desc":  "Section B schema report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_P1_C_CONTEXT_PACKET_GENERATOR_REPORT.md",
+                       "pass":  true,
+                       "id":  "V18",
+                       "desc":  "Section C generator report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_P1_D_CONTEXT_PACKET_VALIDATOR_REPORT.md",
+                       "pass":  true,
+                       "id":  "V19",
+                       "desc":  "Section D validator report exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_P1_F_SMOKE_TEST_REPORT.md",
+                       "pass":  true,
+                       "id":  "V20",
+                       "desc":  "Section F smoke test report exists"
+                   },
+                   {
+                       "path":  "outputs\\smoke-memory-quality-0-p1\\smoke-packet.json",
+                       "pass":  true,
+                       "id":  "V21",
+                       "desc":  "Smoke packet exists"
+                   },
+                   {
+                       "path":  "outputs\\smoke-memory-quality-0-p1\\validation-result.json",
+                       "pass":  true,
+                       "id":  "V22",
+                       "desc":  "Smoke validation result exists"
+                   },
+                   {
+                       "path":  "factory-build-mode\\runtime\\memory\\fixtures\\valid-packet.json",
+                       "pass":  true,
+                       "id":  "V23",
+                       "desc":  "Valid packet fixture exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_P1_AUDIT_BUNDLE.zip",
+                       "pass":  true,
+                       "id":  "V24",
+                       "desc":  "Audit bundle ZIP exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_P1_AUDIT_BUNDLE_MANIFEST.json",
+                       "pass":  true,
+                       "id":  "V25",
+                       "desc":  "Bundle MANIFEST.json exists"
+                   },
+                   {
+                       "path":  "outputs\\FACTORY_MEMORY_QUALITY_0_P1_NEGATIVE_CONTROLS_REPORT.md",
+                       "pass":  true,
+                       "id":  "V26",
+                       "desc":  "Negative controls report exists"
+                   },
+                   {
+                       "path":  "governance\\factory-memory\\factory-memory-quality-0-p1-negative-controls.json",
+                       "pass":  true,
+                       "id":  "V27",
+                       "desc":  "Negative controls JSON exists"
+                   },
+                   {
+                       "path":  "outputs/FACTORY_BUILD_PRO_2_*",
+                       "pass":  true,
+                       "id":  "V28",
+                       "desc":  "PRO-2 not started"
+                   },
+                   {
+                       "path":  "packages/v0.5*",
+                       "pass":  true,
+                       "id":  "V29",
+                       "desc":  "No v0.5 package created"
+                   },
+                   {
+                       "path":  "outputs/*release*.zip",
+                       "pass":  true,
+                       "id":  "V30",
+                       "desc":  "No release ZIP created"
+                   },
+                   {
+                       "path":  ".codex-factory",
+                       "pass":  true,
+                       "id":  "V31",
+                       "desc":  ".codex-factory/ exists"
+                   }
+               ]
+}

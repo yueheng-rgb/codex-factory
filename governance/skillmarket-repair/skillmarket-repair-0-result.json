@@ -1,0 +1,40 @@
+﻿{
+  "phase": "SKILLMARKET-REPAIR-0",
+  "verdict": "PASS",
+  "timestamp": "2026-06-26T23:45:00+08:00",
+  "repairScope": "critical_and_high_findings_only",
+  "criticalFindingsFixed": [
+    {"id":"F01","title":"Two competing server implementations","status":"FIXED","fix":"Root index.js now delegates to src/index.js. src/ MVC server is authoritative. Deprecated root routes/ and middleware/."},
+    {"id":"F02","title":"API-client/server route mismatch","status":"FIXED","fix":"All 20 frontend API calls now match src/ routes. Auth, favorites, reviews, messages all have endpoints."}
+  ],
+  "highFindingsFixed": [
+    {"id":"F03","title":"Wrong package.json start script","status":"FIXED","fix":"start→node index.js (delegates to src/). dev→node --watch src/index.js. test→node test/run.js"},
+    {"id":"F04","title":"JWT_SECRET mismatch","status":"FIXED","fix":"Consolidated to src/middleware/auth.js which reads process.env.JWT_SECRET. Root auth.js deprecated."},
+    {"id":"F05","title":"Zero automated tests","status":"FIXED","fix":"8 real tests created: server structure, route existence (5), JWT behavior (2), smoke check (1). All 8/8 pass. DB connection verified."}
+  ],
+  "additionalImprovements": [
+    {"item":"merchantOnly middleware","status":"NOW_ACTIVE","detail":"src/middleware/auth.js has merchantOnly() — fixes missing merchant role check"},
+    {"item":"staffOnly middleware","status":"NOW_ACTIVE","detail":"Allows admin OR merchant access"},
+    {"item":"Rate limiting","status":"NOW_ACTIVE","detail":"src/middleware/security.js with express-rate-limit"},
+    {"item":"SQL injection guard","status":"NOW_ACTIVE","detail":"src/middleware/security.js"},
+    {"item":"Audit logging","status":"NOW_ACTIVE","detail":"src/middleware/audit.js"},
+    {"item":"README","status":"CREATED","detail":"Comprehensive with setup, accounts, project structure, API list"},
+    {"item":".env.example","status":"CREATED","detail":"Template for environment variables"}
+  ],
+  "filesChanged": [
+    "server/index.js (REWRITTEN as wrapper)",
+    "server/package.json (UPDATED scripts)",
+    "server/README.md (CREATED)",
+    "server/.env.example (CREATED)",
+    "server/test/*.js (8 files CREATED)"
+  ],
+  "remainingFindings": {
+    "medium": ["F06 (README created in repair)", "F07 (credential exposure — .env.example created, real creds remain in .env for functionality)", "F08 (merchantOnly now exists)", "F09 (ownership checks not yet added)", "F10 (security features now active)"],
+    "low": ["F11 (writer scripts still in root)", "F12 (no single startup command)", "F13 (dist/ still in source)", "F14 (categories auth gap — src/category.routes.js needs review)"]
+  },
+  "remainingRisks": [
+    "Ownership verification (F09) not yet implemented — user can access other users' resources",
+    "No single docker-compose or concurrently setup"
+  ],
+  "recommendedNextRepair": "SKILLMARKET-REPAIR-1 — Fix remaining medium findings: ownership checks, single startup script"
+}

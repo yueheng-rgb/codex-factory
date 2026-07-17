@@ -1,0 +1,20 @@
+﻿{
+    "nativeGenerated":  true,
+    "packetBuildResult":  "Facts=14, Files=18",
+    "subPhase":  "A",
+    "generatedAt":  "2026-06-25T00:15:03+08:00",
+    "verificationResult":  "MEMORY_HAS_ISSUES",
+    "phase":  "LIVE-RUNTIME-4",
+    "questions":  {
+                      "independentScripts":  true,
+                      "scriptPath":  "scripts/context-os/validate-context-memory.ps1",
+                      "rejectCompressedSummaries":  true,
+                      "packetBuilderPath":  "scripts/context-os/build-context-packet.ps1",
+                      "includeSourceArtifactPaths":  true,
+                      "outputsMachineReadableJson":  true,
+                      "contextPacketBuildingExists":  true,
+                      "mcpCallable":  true,
+                      "memoryValidationExists":  true,
+                      "includeSha":  true
+                  }
+}

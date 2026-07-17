@@ -1,0 +1,53 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "G",
+  "title": "Test Repair Policy",
+  "timestamp": "2026-06-28T10:58:00+08:00",
+  "policy_name": "TEST_REPAIR_POLICY_v1",
+  "core_principles": {
+    "CLASSIFICATION_FIRST": "Classify each test failure BEFORE attempting repair: ENVIRONMENT_MISMATCH, CODE_BUG, DATA_ISSUE, CONFIG_ISSUE, TEST_BUG",
+    "HONEST_SKIP_ALLOWED": "Tests that cannot pass due to environment mismatch (wrong Django version, missing services) may be skipped with documented reason",
+    "NO_FAKE_PASS": "Never modify test assertions to force-pass; never hide skipped tests in counts; never claim skip==pass"
+  },
+  "classification_categories": [
+    {
+      "category": "ENVIRONMENT_MISMATCH",
+      "action": "SKIP with documented reason",
+      "example": "Django 6.x removed features used in test (REALWORLD-2: 2 skips)"
+    },
+    {
+      "category": "CODE_BUG",
+      "action": "FIX in app code OR REPORT (do not fix test to hide bug)",
+      "example": "View returns wrong status code"
+    },
+    {
+      "category": "DATA_ISSUE",
+      "action": "FIX test data or database state",
+      "example": "Missing fixture data, stale test DB"
+    },
+    {
+      "category": "CONFIG_ISSUE",
+      "action": "FIX configuration (settings, URLs, middleware)",
+      "example": "Missing app in INSTALLED_APPS"
+    },
+    {
+      "category": "TEST_BUG",
+      "action": "FIX the test (wrong field name, wrong assertion)",
+      "example": "Form field name mismatch with model (REALWORLD-2: most fixes)"
+    }
+  ],
+  "reporting_rules": [
+    "Always report as 'X pass / Y skip / Z fail' — never collapse skips into pass",
+    "Verifier must check: skip_count > 0 AND (pass + skip + fail) == total_tests",
+    "Skip-hiding is a verifier FAIL condition"
+  ],
+  "realworld2_evidence": {
+    "initial": "13 pass / 0 skip / 10 fail",
+    "after_p3": "20 pass / 0 skip / 3 fail",
+    "final": "21 pass / 2 skip / 0 fail",
+    "skip_reason": "Django 6.x ENVIRONMENT_MISMATCH (2 tests)",
+    "app_code_changes": 0,
+    "test_file_changes": "1 test file (test_forms.py) — field name alignment only"
+  },
+  "status": "POLICY_FORMALIZED"
+}

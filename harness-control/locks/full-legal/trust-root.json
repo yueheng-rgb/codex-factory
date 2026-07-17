@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  59,
+    "frozenAt":  "2026-06-18T22:48:58.2835122+08:00",
+    "runId":  "full-legal",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\full-legal\\trust-root.json",
+    "controlPlaneLockSha256":  "c41e19edc004751bc0e5df9488e4a9c535600e2ff2636da035c265300fe9a63a",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "7af43ddf79bcd468fde084623d79a199dcf16a1b6b642497f6ed3d02b29cc7eb"
+}

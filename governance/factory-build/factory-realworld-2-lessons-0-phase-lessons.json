@@ -1,0 +1,144 @@
+﻿{
+  "phase": "FACTORY-REALWORLD-2-LESSONS-0",
+  "section": "C",
+  "title": "Phase-by-Phase Lessons Extraction from REALWORLD-2",
+  "timestamp": "2026-06-28T10:57:00+08:00",
+  "lessons": {
+    "INTAKE_R1": {
+      "phase": "REALWORLD-2 Intake + R1 Correction",
+      "lessons": [
+        {
+          "id": "L-RW2-001",
+          "lesson": "Real deployed projects carry production secrets — intake MUST audit before any code touch",
+          "severity": "CRITICAL",
+          "action": "Security/Deploy Gate must check for .env, SSH keys, tokens, server IPs BEFORE creating working copy"
+        },
+        {
+          "id": "L-RW2-002",
+          "lesson": "Finding security issues does NOT prove Factory is smarter than vanilla Codex",
+          "severity": "HIGH",
+          "action": "Never claim Factory superiority from issue discovery alone — requires controlled comparison"
+        },
+        {
+          "id": "L-RW2-003",
+          "lesson": "Complexity classification (multi-role, 15 models, 75+ URLs) should trigger Diagnostic Gate",
+          "severity": "MEDIUM",
+          "action": "Auto-suggest Diagnostic Gate for projects above complexity threshold"
+        }
+      ]
+    },
+    "P1_WORKING_COPY": {
+      "phase": "REALWORLD-2-P1: Working-Copy Local Validation",
+      "lessons": [
+        {
+          "id": "L-RW2-004",
+          "lesson": "Working-copy isolation works: original project remained untouched through all phases",
+          "severity": "HIGH",
+          "action": "Working-copy creation is mandatory for all realworld phases"
+        },
+        {
+          "id": "L-RW2-005",
+          "lesson": "Local validation (manage.py check, smoke test) catches basic issues before any changes",
+          "severity": "MEDIUM",
+          "action": "Baseline validation should be step 1 after working-copy creation"
+        },
+        {
+          "id": "L-RW2-006",
+          "lesson": "Django 6.x compatibility issues are environment problems, not app bugs",
+          "severity": "MEDIUM",
+          "action": "Test repair policy: CLASSIFY before FIX"
+        }
+      ]
+    },
+    "P2_SECURITY": {
+      "phase": "REALWORLD-2-P2: Targeted Security Hardening",
+      "lessons": [
+        {
+          "id": "L-RW2-007",
+          "lesson": "9 files changed for security, 0 app code changes — security hardening is surgical",
+          "severity": "HIGH",
+          "action": "Security hardening must NOT touch app logic; config/docs only"
+        },
+        {
+          "id": "L-RW2-008",
+          "lesson": "Secret rotation boundary: Codex can DOCUMENT what to rotate but CANNOT rotate for user",
+          "severity": "CRITICAL",
+          "action": "User secret rotation is always user's responsibility; never automated by Factory"
+        },
+        {
+          "id": "L-RW2-009",
+          "lesson": "Security/Deploy Gate checks (10/10) provide structured confidence in hardening",
+          "severity": "MEDIUM",
+          "action": "Formalize Security/Deploy Gate with specific checklist items"
+        }
+      ]
+    },
+    "P3_P4_TESTS": {
+      "phase": "REALWORLD-2-P3/P4: Test Repair + Classification",
+      "lessons": [
+        {
+          "id": "L-RW2-010",
+          "lesson": "Tests improved 13→21 (+54%) without touching app code — targeted repair works",
+          "severity": "HIGH",
+          "action": "Test repair must be CLASSIFICATION_FIRST: environment vs code vs data"
+        },
+        {
+          "id": "L-RW2-011",
+          "lesson": "2 skipped tests (Django 6.x ENVIRONMENT_MISMATCH) are honest skips, not failures",
+          "severity": "MEDIUM",
+          "action": "HONEST_SKIP_ALLOWED policy: document reason, do not fake-pass"
+        },
+        {
+          "id": "L-RW2-012",
+          "lesson": "Never claim 21/2/0 as 23/23 full pass — skipped is not passed",
+          "severity": "HIGH",
+          "action": "Verifier must check for skip-hiding (count skip != 0 when tests < total)"
+        }
+      ]
+    },
+    "P5_DELIVERY": {
+      "phase": "REALWORLD-2-P5: Delivery Summary + User Review",
+      "lessons": [
+        {
+          "id": "L-RW2-013",
+          "lesson": "Final delivery must include user-facing security checklist (rotation items, not secrets)",
+          "severity": "CRITICAL",
+          "action": "Security/Deploy Gate must produce user rotation checklist in final output"
+        },
+        {
+          "id": "L-RW2-014",
+          "lesson": "Production deployment readiness is a SEPARATE claim from local validation success",
+          "severity": "HIGH",
+          "action": "Never conflate 'working copy safe for local dev' with 'production ready'"
+        },
+        {
+          "id": "L-RW2-015",
+          "lesson": "v0.5 remains blocked — REALWORLD-2 success does not unblock it",
+          "severity": "HIGH",
+          "action": "Each phase must re-confirm v0.5 BLOCKED status"
+        }
+      ]
+    }
+  },
+  "factory_rule_implications": {
+    "new_rules_needed": [
+      "Security/Deploy Gate: mandatory for any project with deployed traces",
+      "Test repair policy: CLASSIFICATION_FIRST, HONEST_SKIP_ALLOWED, no fake pass",
+      "User secret rotation boundary: document-only, never automated",
+      "Production readiness gate: separate from local validation gate"
+    ],
+    "existing_rules_confirmed": [
+      "Build Lite default (DG-002)",
+      "Working-copy isolation",
+      "Original project protection",
+      "v0.5 blocked (DG-004)",
+      "No Factory superiority overclaim"
+    ],
+    "existing_rules_strengthened": [
+      "Context Packet required for realworld phases",
+      "Diagnostic Gate auto-suggest for complex projects",
+      "Phase close context update for long-horizon continuity"
+    ]
+  },
+  "status": "LESSONS_EXTRACTED"
+}

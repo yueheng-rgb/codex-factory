@@ -1,0 +1,72 @@
+﻿{
+    "keyDecisions":  [
+                         {
+                             "priorStatus":  "OPTIONAL for all",
+                             "newStatus":  "REQUIRED for Build Pro, OPTIONAL for Build Lite",
+                             "decision":  "Context Packet: REQUIRED for Native Build Pro / long-horizon"
+                         },
+                         {
+                             "decision":  "Build Lite: DEFAULT maintained",
+                             "rationale":  "Sufficient for most projects"
+                         },
+                         {
+                             "decision":  "Native Build Pro: CONDITIONAL maintained",
+                             "rationale":  "Explicit user confirmation required"
+                         },
+                         {
+                             "decision":  "v0.5: BLOCKED maintained",
+                             "rationale":  "Real-world validation + pack architecture required"
+                         },
+                         {
+                             "decision":  "Multi-agent default: REJECTED maintained"
+                         },
+                         {
+                             "decision":  "Capability stack: 25 components across 5 layers defined"
+                         },
+                         {
+                             "decision":  "Pack architecture: 6-directory draft for codex-factory-core v0.9.0-pre"
+                         },
+                         {
+                             "decision":  "Next phase: PACK-ARCHITECTURE-P1 (immediate) or REALWORLD-0 (when ready)"
+                         }
+                     ],
+    "sectionsCompleted":  [
+                              "A",
+                              "B",
+                              "C",
+                              "D",
+                              "E",
+                              "F",
+                              "G",
+                              "H",
+                              "I",
+                              "J",
+                              "K",
+                              "L"
+                          ],
+    "negativeControls":  {
+                             "gaps":  0,
+                             "detected":  50,
+                             "total":  50
+                         },
+    "boundariesPreserved":  [
+                                "No v0.5 package",
+                                "No release ZIP",
+                                "No multi-agent default",
+                                "No Build Pro default",
+                                "No product code modified",
+                                "No prior products modified",
+                                "Build Lite = DEFAULT",
+                                "Vanilla = PRODUCT LEADER"
+                            ],
+    "phase":  "FACTORY-BUILD-PRO-2-P1",
+    "date":  "2026-06-27",
+    "status":  "PASS",
+    "title":  "Long-Horizon Evidence Freeze + Pack Architecture Decision",
+    "verifier":  {
+                     "failed":  0,
+                     "result":  "PASS",
+                     "total":  33,
+                     "passed":  33
+                 }
+}

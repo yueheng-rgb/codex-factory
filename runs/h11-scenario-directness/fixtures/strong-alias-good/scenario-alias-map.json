@@ -1,0 +1,31 @@
+﻿{
+    "phase":  "6C-H11",
+    "summary":  {
+                    "requiresRerun":  0,
+                    "partialCount":  0,
+                    "exactCount":  0,
+                    "strongCount":  1,
+                    "blockerCount":  0,
+                    "weakCount":  0,
+                    "totalMappings":  1,
+                    "invalidCount":  0
+                },
+    "runId":  "h11-fixture",
+    "aliasMappings":  [
+                          {
+                              "sourceEvidence":  [
+                                                     "file.js:s2_alt"
+                                                 ],
+                              "rerunRequired":  false,
+                              "actualScenarioId":  "s2_alt",
+                              "intendedScenarioId":  "s2",
+                              "requiresDirectScenario":  false,
+                              "intendedInvariant":  "ir_2",
+                              "negativeId":  "neg-2",
+                              "equivalenceJustification":  "Same invariant, same assertion path. Different ID due to naming.",
+                              "acceptedForClosure":  true,
+                              "aliasStrength":  "STRONG"
+                          }
+                      ],
+    "createdAt":  "2026-06-22T23:16:40.5062924+08:00"
+}

@@ -1,0 +1,173 @@
+﻿{
+    "phase":  "FACTORY-AGENT-9-P1",
+    "timestamp":  "2026-06-26T18:38:57.6205878+08:00",
+    "document":  "root-cause-analysis",
+    "hypotheses":  [
+                       {
+                           "id":  "H1",
+                           "repairability":  "MODERATE",
+                           "impact":  "HIGH",
+                           "description":  "OpsFlow Enterprise Lite (13 modules, 40 requirements) too small for multi-agent benefit",
+                           "name":  "Benchmark Size",
+                           "nextTestNeeded":  "Run same benchmark at 2x scale (26 modules, 80 requirements) to see if Vanilla degrades",
+                           "evidenceAgainst":  [
+                                                   "7 agents still completed the project to 80% of Vanilla quality",
+                                                   "Worker isolation did prevent scope contamination"
+                                               ],
+                           "evidenceFor":  [
+                                               "Vanilla handled 40 endpoints, 15 tables, 5 services cleanly in one pass",
+                                               "No context pressure symptoms in Vanilla run (no truncation, no simplification)",
+                                               "13 modules is below typical multi-agent threshold (20+ modules)",
+                                               "AGENT-5 complexity floors (80 files, 300 exports) were low enough for single agent"
+                                           ],
+                           "probability":  "HIGH"
+                       },
+                       {
+                           "id":  "H2",
+                           "repairability":  "EASY",
+                           "impact":  "HIGH",
+                           "description":  "7-agent orchestration overhead consumed any potential quality gain",
+                           "name":  "Agent Overhead",
+                           "nextTestNeeded":  "Test with 3 agents (1 builder + reviewer + verifier) instead of 7",
+                           "evidenceAgainst":  [
+                                                   "Gatekeepers caught real issues (endpoint gaps, module coverage)",
+                                                   "Evidence quality gains were real and measurable"
+                                               ],
+                           "evidenceFor":  [
+                                               "3-4x process overhead vs Vanilla baseline",
+                                               "3 gatekeeper agents added review/verification time without implementation contribution",
+                                               "Handoff/receipt/capsule generation added artifact burden",
+                                               "Spawn coordination added serialization overhead"
+                                           ],
+                           "probability":  "HIGH"
+                       },
+                       {
+                           "id":  "H3",
+                           "repairability":  "EASY",
+                           "impact":  "HIGH",
+                           "description":  "Orchestrator did not enforce AGENT-5 complexity floors during implementation",
+                           "name":  "Orchestrator Failure",
+                           "nextTestNeeded":  "Add hard floor enforcement to orchestrator: block closure if floors unmet",
+                           "evidenceAgainst":  [
+                                                   "Orchestrator did spawn 4 builders with correct fork_context:false",
+                                                   "Orchestrator did not write worker scope"
+                                               ],
+                           "evidenceFor":  [
+                                               "v0.5 missed export floor (185/300) and endpoint floor (35/40)",
+                                               "Orchestrator allowed AGENT-8 to close with PASS_WITH_CAVEAT despite 11/13 modules",
+                                               "No mid-run floor enforcement mechanism existed"
+                                           ],
+                           "probability":  "MEDIUM"
+                       },
+                       {
+                           "id":  "H4",
+                           "repairability":  "EASY",
+                           "impact":  "MEDIUM",
+                           "description":  "Reviewer gate was too permissive; closure gate did not block on caveats",
+                           "name":  "Integration/Reviewer Failure",
+                           "nextTestNeeded":  "Make reviewer caveats blocking (P0) for phase closure",
+                           "evidenceAgainst":  [
+                                                   "Reviewer was READONLY, correctly identified issues",
+                                                   "Anti-deception gate caught hidden fallback (PASS)"
+                                               ],
+                           "evidenceFor":  [
+                                               "Reviewer flagged 11/13 modules, 36/40 endpoints, 16/30 error codes as caveats",
+                                               "Phase still closed with PASS despite these gaps",
+                                               "No mechanism to force repair before closure"
+                                           ],
+                           "probability":  "MEDIUM"
+                       },
+                       {
+                           "id":  "H5",
+                           "repairability":  "MODERATE",
+                           "impact":  "MEDIUM",
+                           "description":  "Worker scope division (DB/Backend/Frontend/Tests) created integration gaps",
+                           "name":  "Worker Split",
+                           "nextTestNeeded":  "Test with module-aligned workers (one per module cluster) instead of layer-aligned",
+                           "evidenceAgainst":  [
+                                                   "4 builders stayed in their lanes (integrity checker PASS)",
+                                                   "Cross-scope imports were correct",
+                                                   "No worker modified another\u0027s scope"
+                                               ],
+                           "evidenceFor":  [
+                                               "Backend built 11 routes but missed 4 endpoints vs Vanilla",
+                                               "Test builder produced 207 tests but methodology differed (behavior-focused vs DB-focused)",
+                                               "Frontend got 21 files but no shared/types imports detected in client code"
+                                           ],
+                           "probability":  "LOW"
+                       },
+                       {
+                           "id":  "H6",
+                           "repairability":  "EASY",
+                           "impact":  "MEDIUM",
+                           "description":  "Agents produced process artifacts (capsules/handoffs/receipts) without product benefit",
+                           "name":  "Process Theater",
+                           "nextTestNeeded":  "Add diagnostic value dimension to rubric",
+                           "evidenceAgainst":  [
+                                                   "Process artifacts provided audit trail (registry, lifecycle)",
+                                                   "Anti-deception gate provided verifiable isolation proof",
+                                                   "Diagnostic value is real but not captured in AGENT-5 rubric"
+                                               ],
+                           "evidenceFor":  [
+                                               "4 handoff JSONs + 4 close receipts + 4 capsules = 12 process files",
+                                               "Gatekeeper results were also 3 additional process files",
+                                               "Process overhead consumed time that could have been implementation time",
+                                               "Evidence quality score (9/10) did not translate to product quality (80 vs 85.5)"
+                                           ],
+                           "probability":  "MEDIUM"
+                       },
+                       {
+                           "id":  "H7",
+                           "repairability":  "UNKNOWN",
+                           "impact":  "HIGH",
+                           "description":  "Vanilla Codex was unexpectedly strong; benchmark underestimated current capability",
+                           "name":  "Vanilla Strength",
+                           "nextTestNeeded":  "Test at scale where Vanilla context window becomes limiting factor",
+                           "evidenceAgainst":  [
+                                                   "Vanilla missed source file floor (78/80) and export floor (168/300)",
+                                                   "Vanilla had 27 test files but only 66 tests (v0.5 had 207)"
+                                               ],
+                           "evidenceFor":  [
+                                               "Vanilla achieved 85.5 with zero overhead, 40/40 endpoints, 168 exports",
+                                               "Vanilla produced 5 services vs v0.4\u0027s 3 (more complete)",
+                                               "Vanilla code was readable (v0.4 was compressed/minified)",
+                                               "Vanilla did not simplify the benchmark—implemented all core features"
+                                           ],
+                           "probability":  "HIGH"
+                       },
+                       {
+                           "id":  "H8",
+                           "repairability":  "EASY",
+                           "impact":  "HIGH",
+                           "description":  "7-agent company shape (orchestrator + 4 builders + 3 gatekeepers) is wrong for this scale",
+                           "name":  "Multi-Agent Form",
+                           "nextTestNeeded":  "Test 3-agent model: Orchestrator + Builder + Reviewer/Verifier",
+                           "evidenceAgainst":  [
+                                                   "7-agent model proved worker isolation is possible with fork_context:false",
+                                                   "Agent Company runtime infrastructure (registry, lifecycle, spawn) worked correctly"
+                                               ],
+                           "evidenceFor":  [
+                                               "7 agents for a 13-module project is architecturally heavy",
+                                               "Builder split by layer (DB/Backend/Frontend/Tests) doesn\u0027t match how Codex thinks",
+                                               "Gatekeepers added verification value but builders needed more integration",
+                                               "Single builder + reviewer + verifier might achieve same quality with less overhead"
+                                           ],
+                           "probability":  "HIGH"
+                       }
+                   ],
+    "rootCauseVerdict":  {
+                             "summary":  "v0.5 failed to beat Vanilla primarily because: (1) OpsFlow Lite is below the complexity threshold where multi-agent adds value, (2) current Codex handles this scale efficiently in a single pass, (3) 7-agent form adds 3-4x overhead without compensating quality improvement. Orchestrator\u0027s failure to enforce floors and Reviewer\u0027s permissive closure compounded the gap.",
+                             "unlikelyCauses":  [
+                                                    "H5-WorkerSplit"
+                                                ],
+                             "primaryCauses":  [
+                                                   "H1-BenchmarkSize",
+                                                   "H7-VanillaStrength",
+                                                   "H8-MultiAgentForm"
+                                               ],
+                             "secondaryCauses":  [
+                                                     "H2-AgentOverhead",
+                                                     "H3-OrchestratorFailure"
+                                                 ]
+                         }
+}

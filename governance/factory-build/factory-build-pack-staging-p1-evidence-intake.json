@@ -1,0 +1,49 @@
+﻿{
+    "sourcePhase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "sourcePhaseStatus":  "PASS 33/33",
+    "noProductTrialIncluded":  true,
+    "rejected":  [
+                     {
+                         "classification":  "REJECTED",
+                         "claim":  "staging = release"
+                     },
+                     {
+                         "classification":  "REJECTED",
+                         "claim":  "v0.5 available"
+                     },
+                     {
+                         "classification":  "REJECTED",
+                         "claim":  "Build Pro default"
+                     },
+                     {
+                         "classification":  "REJECTED",
+                         "claim":  "multi-agent default"
+                     },
+                     {
+                         "classification":  "REJECTED",
+                         "claim":  "external memory = model expansion"
+                     },
+                     {
+                         "classification":  "REJECTED",
+                         "claim":  "compressed summary = evidence"
+                     }
+                 ],
+    "section":  "A",
+    "supported":  [
+                      "PACK-ARCHITECTURE-P1 PASS exists",
+                      "pack identity: codex-factory-core v0.9.0-pre",
+                      "staging build only — not release",
+                      "Build Lite default",
+                      "Native Build Pro conditional",
+                      "Context Packet required for Build Pro/recovery/native-agent-start",
+                      "real-world validation required before v0.5"
+                  ],
+    "phase":  "FACTORY-BUILD-PACK-STAGING-P1",
+    "date":  "2026-06-27",
+    "title":  "Staging Evidence Intake",
+    "packIdentity":  {
+                         "status":  "STAGING_NOT_RELEASE",
+                         "name":  "codex-factory-core",
+                         "version":  "0.9.0-pre"
+                     }
+}

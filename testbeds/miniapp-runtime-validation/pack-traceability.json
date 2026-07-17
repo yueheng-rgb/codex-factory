@@ -1,0 +1,27 @@
+﻿{
+  "pack_id": "miniapp",
+  "pack_version": "1.0.0",
+  "testbed_path": "testbeds/miniapp-runtime-validation",
+  "validator_stage": "v2.4-runtime-validation",
+  "validation_date": "2026-07-12",
+  "invariant_coverage": {
+    "total_invariants_in_pack": 10,
+    "invariants_with_runtime_validation": 10,
+    "invariants_validated_live": ["MINI-001","MINI-002","MINI-003","MINI-004","MINI-005","MINI-006","MINI-007","MINI-008","MINI-009","MINI-010"],
+    "missing_runtime_coverage": []
+  },
+  "test_results": {
+    "total": 27,
+    "passed": 27,
+    "failed": 0,
+    "negative_controls": 8,
+    "negative_controls_active": 8
+  },
+  "external_engines": {
+    "semgrep": { "status": "RUN", "result": "CLEAN", "findings": 0 },
+    "autocannon": { "status": "BLOCKED", "reason": "tsx server compilation issue; vitest framework works but npx tsx standalone failed" },
+    "playwright": { "status": "NOT_APPLICABLE", "reason": "no real UI surface" }
+  },
+  "pack_traceable": true,
+  "runtime_validated": true
+}

@@ -1,0 +1,47 @@
+﻿{
+    "version":  "1.0.0",
+    "outputContract":  {
+                           "evidenceFormat":  "JSON only",
+                           "mustInclude":  [
+                                               "gateId",
+                                               "actionType",
+                                               "checkedAt",
+                                               "requiredPages",
+                                               "missingPages",
+                                               "result"
+                                           ],
+                           "mustNotClaim":  [
+                                                "phase PASS",
+                                                "implementation correctness"
+                                            ]
+                       },
+    "rules":  [
+                  {
+                      "id":  "GATE-01",
+                      "rule":  "Before major action, run required-reading gate"
+                  },
+                  {
+                      "id":  "GATE-02",
+                      "rule":  "GATE_BLOCKED: action must not proceed"
+                  },
+                  {
+                      "id":  "GATE-03",
+                      "rule":  "GATE_PASS: all required pages have receipts"
+                  },
+                  {
+                      "id":  "GATE-04",
+                      "rule":  "Gate result is NOT phase PASS"
+                  },
+                  {
+                      "id":  "GATE-05",
+                      "rule":  "Missing page generates P1 risk signal"
+                  },
+                  {
+                      "id":  "GATE-06",
+                      "rule":  "Gate cannot be bypassed by markdown claim"
+                  }
+              ],
+    "generatedAt":  "2026-06-25T16:01:53+08:00",
+    "phase":  "FACTORY-EVAL-2-D",
+    "schemaId":  "required-reading-gate-policy"
+}

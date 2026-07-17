@@ -1,0 +1,146 @@
+﻿[
+    {
+        "simId":  "NC-001",
+        "description":  "Stitch MCP =\u003e PENDING_SANDBOX (sandbox needed)",
+        "toolId":  "TOOL-STITCH-MCP-001",
+        "expected":  "PENDING_SANDBOX",
+        "actual":  "PENDING_SANDBOX",
+        "passed":  true,
+        "reason":  "PENDING_SANDBOX: Tool \u0027TOOL-STITCH-MCP-001\u0027 requires sandbox but none available"
+    },
+    {
+        "simId":  "NC-002",
+        "description":  "GLM Search =\u003e REJECT (secrets+network disallowed)",
+        "toolId":  "TOOL-GLM-SEARCH-001",
+        "expected":  "REJECT",
+        "actual":  "PENDING_HUMAN",
+        "passed":  false,
+        "reason":  "PENDING_HUMAN: Tool \u0027TOOL-GLM-SEARCH-001\u0027 requires human approval"
+    },
+    {
+        "simId":  "NC-003",
+        "description":  "DB MCP =\u003e PENDING_SANDBOX (sandbox needed)",
+        "toolId":  "TOOL-DB-MCP-001",
+        "expected":  "PENDING_SANDBOX",
+        "actual":  "PENDING_SANDBOX",
+        "passed":  true,
+        "reason":  "PENDING_SANDBOX: Tool \u0027TOOL-DB-MCP-001\u0027 requires sandbox but none available"
+    },
+    {
+        "simId":  "NC-004",
+        "description":  "Quarantine =\u003e REJECT",
+        "toolId":  "TOOL-MAL-AUTOUPDATE-001",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "passed":  true,
+        "reason":  "REJECT: Tool \u0027TOOL-MAL-AUTOUPDATE-001\u0027 is QUARANTINED"
+    },
+    {
+        "simId":  "NC-005",
+        "description":  "Rejected =\u003e REJECT",
+        "toolId":  "TOOL-MAL-EXFIL-001",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "passed":  true,
+        "reason":  "REJECT: Tool \u0027TOOL-MAL-EXFIL-001\u0027 has been REJECTED"
+    },
+    {
+        "simId":  "NC-006",
+        "description":  "Deprecated =\u003e REJECT",
+        "toolId":  "TOOL-OLD-LINT-001",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "passed":  true,
+        "reason":  "REJECT: Tool \u0027TOOL-OLD-LINT-001\u0027 is DEPRECATED"
+    },
+    {
+        "simId":  "NC-007",
+        "description":  "Unknown tool =\u003e REJECT",
+        "toolId":  "TOOL-UNKNOWN-999",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "passed":  true,
+        "reason":  "REJECT: Tool \u0027TOOL-UNKNOWN-999\u0027 not found in registry"
+    },
+    {
+        "simId":  "NC-008",
+        "description":  "CodeGen no sandbox =\u003e PENDING_SANDBOX",
+        "toolId":  "TOOL-CODEGEN-001",
+        "expected":  "PENDING_SANDBOX",
+        "actual":  "PENDING_SANDBOX",
+        "passed":  true,
+        "reason":  "PENDING_SANDBOX: Tool \u0027TOOL-CODEGEN-001\u0027 requires sandbox but none available"
+    },
+    {
+        "simId":  "SIM-A",
+        "description":  "CLI verifier =\u003e ALLOW_WITH_CONTROLS",
+        "toolId":  "TOOL-CLI-VER-001",
+        "expected":  "ALLOW_WITH_CONTROLS",
+        "actual":  "ALLOW_WITH_CONTROLS",
+        "passed":  true,
+        "reason":  "ALLOW: Tool \u0027TOOL-CLI-VER-001\u0027 permitted for agent \u0027VER-001\u0027 with controls"
+    },
+    {
+        "simId":  "SIM-B2",
+        "description":  "Playwright =\u003e REJECT (needs network)",
+        "toolId":  "TOOL-PLAYWRIGHT-VER-001",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "passed":  true,
+        "reason":  "REJECT: Tool \u0027TOOL-PLAYWRIGHT-VER-001\u0027 requires network but network disallowed"
+    },
+    {
+        "simId":  "SIM-C",
+        "description":  "Node SDK =\u003e ALLOW_WITH_CONTROLS",
+        "toolId":  "TOOL-NODE-SDK-001",
+        "expected":  "ALLOW_WITH_CONTROLS",
+        "actual":  "ALLOW_WITH_CONTROLS",
+        "passed":  true,
+        "reason":  "ALLOW: Tool \u0027TOOL-NODE-SDK-001\u0027 permitted for agent \u0027VER-001\u0027 with controls"
+    },
+    {
+        "simId":  "SIM-B",
+        "description":  "Playwright =\u003e ALLOW_WITH_CONTROLS",
+        "toolId":  "TOOL-PLAYWRIGHT-VER-001",
+        "expected":  "ALLOW",
+        "actual":  "ALLOW_WITH_CONTROLS",
+        "passed":  true,
+        "reason":  "ALLOW: Tool \u0027TOOL-PLAYWRIGHT-VER-001\u0027 permitted for agent \u0027VER-001\u0027 with controls"
+    },
+    {
+        "simId":  "SIM-D",
+        "description":  "Stitch MCP =\u003e ALLOW",
+        "toolId":  "TOOL-STITCH-MCP-001",
+        "expected":  "ALLOW",
+        "actual":  "ALLOW_WITH_CONTROLS",
+        "passed":  true,
+        "reason":  "ALLOW: Tool \u0027TOOL-STITCH-MCP-001\u0027 permitted for agent \u0027IMPL-FE-001\u0027 with controls"
+    },
+    {
+        "simId":  "SIM-E",
+        "description":  "DB MCP =\u003e ALLOW_WITH_SANDBOX",
+        "toolId":  "TOOL-DB-MCP-001",
+        "expected":  "ALLOW",
+        "actual":  "ALLOW_WITH_CONTROLS",
+        "passed":  true,
+        "reason":  "ALLOW: Tool \u0027TOOL-DB-MCP-001\u0027 permitted for agent \u0027IMPL-DB-001\u0027 with controls"
+    },
+    {
+        "simId":  "SIM-F",
+        "description":  "CodeGen =\u003e ALLOW_WITH_SANDBOX",
+        "toolId":  "TOOL-CODEGEN-001",
+        "expected":  "ALLOW",
+        "actual":  "ALLOW_WITH_SANDBOX",
+        "passed":  true,
+        "reason":  "ALLOW: Tool \u0027TOOL-CODEGEN-001\u0027 permitted for agent \u0027PM-001\u0027 with controls"
+    },
+    {
+        "simId":  "SIM-G",
+        "description":  "DB agent x Stitch =\u003e REJECT",
+        "toolId":  "TOOL-STITCH-MCP-001",
+        "expected":  "REJECT",
+        "actual":  "REJECT",
+        "passed":  true,
+        "reason":  "REJECT: Agent \u0027IMPL-DB-001\u0027 not authorized for tool \u0027TOOL-STITCH-MCP-001\u0027"
+    }
+]

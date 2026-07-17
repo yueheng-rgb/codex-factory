@@ -1,0 +1,33 @@
+﻿{
+    "requiredReadFiles":  [
+                              "governance/factory-state/current-factory-state.json",
+                              "governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json",
+                              "governance/context-os/FACTORY_MEMORY_INDEX.json"
+                          ],
+    "tool":  "factory.memory.buildStartupPacket",
+    "trustedFacts":  [
+                         "currentTrustedPhase: FINAL",
+                         "finalPackageStatus: CREATED_AND_VALIDATED",
+                         "Agent OS: established",
+                         "Context OS: established"
+                     ],
+    "activeRisks":  [
+                        "Shared memory divergence (P0)",
+                        "Verifier overfitting (P1)"
+                    ],
+    "rejectedClaims":  [
+                           "Full context inheritance",
+                           "Automatic window creation",
+                           "Compressed summary as evidence"
+                       ],
+    "startupVerificationRequired":  true,
+    "sourceMemoryIds":  [
+                            "MEM-0001",
+                            "MEM-0002",
+                            "MEM-0012",
+                            "MEM-0019"
+                        ],
+    "verifierCommands":  [
+                             "powershell -File scripts/factoryctl.ps1 verify -Json"
+                         ]
+}

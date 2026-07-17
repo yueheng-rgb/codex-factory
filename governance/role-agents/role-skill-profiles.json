@@ -1,0 +1,234 @@
+﻿[
+    {
+        "roleId":  "PM-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "AGNT-001",
+                                      "AGNT-002",
+                                      "AGNT-003",
+                                      "EVID-001",
+                                      "CTRC-001",
+                                      "BENC-001"
+                                  ],
+        "contextBudget":  3000,
+        "optionalSkills":  [
+                               "browser"
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "project-expertise-flow",
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "imagegen",
+                                "spreadsheets",
+                                "documents"
+                            ]
+    },
+    {
+        "roleId":  "ARCH-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "EVID-001",
+                                      "CTRC-001",
+                                      "SKIL-001"
+                                  ],
+        "contextBudget":  3000,
+        "optionalSkills":  [
+                               "openai-docs"
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "imagegen",
+                                "spreadsheets"
+                            ]
+    },
+    {
+        "roleId":  "INTG-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "CTRC-001",
+                                      "EVID-001",
+                                      "WRKR-001",
+                                      "WRKR-002"
+                                  ],
+        "contextBudget":  3000,
+        "optionalSkills":  [
+
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "imagegen"
+                            ]
+    },
+    {
+        "roleId":  "FE-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "CTRC-001",
+                                      "SKIL-001"
+                                  ],
+        "contextBudget":  4000,
+        "optionalSkills":  [
+                               "imagegen"
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "browser",
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "supabase-postgres-best-practices",
+                                "pdf",
+                                "spreadsheets"
+                            ]
+    },
+    {
+        "roleId":  "BE-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "CTRC-001",
+                                      "SKIL-001"
+                                  ],
+        "contextBudget":  4000,
+        "optionalSkills":  [
+                               "supabase-postgres-best-practices"
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "browser",
+                                "imagegen",
+                                "presentations"
+                            ]
+    },
+    {
+        "roleId":  "DB-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "CTRC-001",
+                                      "EVID-001"
+                                  ],
+        "contextBudget":  3000,
+        "optionalSkills":  [
+
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "supabase-postgres-best-practices",
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "browser",
+                                "imagegen",
+                                "presentations",
+                                "documents"
+                            ]
+    },
+    {
+        "roleId":  "QA-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "VERF-001",
+                                      "NEGC-001",
+                                      "EVID-001",
+                                      "CTRC-001"
+                                  ],
+        "contextBudget":  4000,
+        "optionalSkills":  [
+                               "browser"
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "imagegen",
+                                "documents",
+                                "spreadsheets"
+                            ]
+    },
+    {
+        "roleId":  "SEC-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "EVID-001",
+                                      "RISK-001",
+                                      "FINA-001"
+                                  ],
+        "contextBudget":  3000,
+        "optionalSkills":  [
+                               "openai-docs"
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "browser",
+                                "imagegen",
+                                "documents",
+                                "spreadsheets"
+                            ]
+    },
+    {
+        "roleId":  "VER-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "EVID-001",
+                                      "VERF-001",
+                                      "NEGC-001",
+                                      "CTRC-001",
+                                      "RISK-001"
+                                  ],
+        "contextBudget":  3000,
+        "optionalSkills":  [
+
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "imagegen",
+                                "browser",
+                                "documents",
+                                "spreadsheets",
+                                "pdf",
+                                "presentations"
+                            ]
+    },
+    {
+        "roleId":  "AUD-001",
+        "requiredManualPageIds":  [
+                                      "CONST-001",
+                                      "EVID-001",
+                                      "AGNT-002",
+                                      "AGNT-003",
+                                      "RISK-001"
+                                  ],
+        "contextBudget":  3000,
+        "optionalSkills":  [
+
+                           ],
+        "proofOfReadRequired":  true,
+        "requiredSkills":  [
+                               "codex-factory"
+                           ],
+        "forbiddenSkills":  [
+                                "imagegen",
+                                "browser",
+                                "documents",
+                                "spreadsheets",
+                                "pdf"
+                            ]
+    }
+]

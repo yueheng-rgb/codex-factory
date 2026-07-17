@@ -1,0 +1,8 @@
+﻿{
+    "verifier":  "factory-build-pack-staging-p2-verify.ps1",
+    "passed":  36,
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-27T23:33:23+08:00",
+    "failed":  0,
+    "total_checks":  36
+}

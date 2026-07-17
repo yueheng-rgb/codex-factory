@@ -1,0 +1,70 @@
+﻿{
+    "simulationId":  "R2.3-N-SIM-001",
+    "phase":  "FACTORY-R2.3-N",
+    "totalScenarios":  10,
+    "passCount":  10,
+    "failCount":  0,
+    "timestamp":  "2026-07-10T01:32:11+08:00",
+    "scenarios":  [
+                      {
+                          "scenario":  "S01",
+                          "name":  "manual_mode+official_docs",
+                          "result":  "PASS",
+                          "detail":  "accepted=True results=2 mode=manual"
+                      },
+                      {
+                          "scenario":  "S02",
+                          "name":  "manual_mode+AI_no_source",
+                          "result":  "PASS",
+                          "detail":  "accepted=True trust=needs_human_review"
+                      },
+                      {
+                          "scenario":  "S03",
+                          "name":  "dry_run_mode+mock",
+                          "result":  "PASS",
+                          "detail":  "accepted=True results=5 mode=dry_run"
+                      },
+                      {
+                          "scenario":  "S04",
+                          "name":  "live_api+no_key→downgrade",
+                          "result":  "PASS",
+                          "detail":  "accepted=True mode=dry_run downgradedFrom=live_api"
+                      },
+                      {
+                          "scenario":  "S05",
+                          "name":  "live_api+no_human→pending",
+                          "result":  "PASS",
+                          "detail":  "accepted=False gate=PENDING_HUMAN"
+                      },
+                      {
+                          "scenario":  "S06",
+                          "name":  "live_api+key+approval→with_caveat",
+                          "result":  "PASS",
+                          "detail":  "accepted=True mode=dry_run hasCaveat=True"
+                      },
+                      {
+                          "scenario":  "S07",
+                          "name":  "implementer_agent→reject",
+                          "result":  "PASS",
+                          "detail":  "accepted=False gate=REJECT"
+                      },
+                      {
+                          "scenario":  "S08",
+                          "name":  "ad_source→flagged",
+                          "result":  "PASS",
+                          "detail":  "adFlagged=True trust=reference_only"
+                      },
+                      {
+                          "scenario":  "S09",
+                          "name":  "freshness_caveat",
+                          "result":  "PASS",
+                          "detail":  "accepted=True freshnessCaveat=True"
+                      },
+                      {
+                          "scenario":  "S10",
+                          "name":  "duplicate_dedup",
+                          "result":  "PASS",
+                          "detail":  "results=3 dupDetected=True"
+                      }
+                  ]
+}

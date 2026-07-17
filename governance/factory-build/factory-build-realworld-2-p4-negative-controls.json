@@ -1,0 +1,195 @@
+﻿{
+    "gaps":  0,
+    "generated_at":  "2026-06-28T10:45:36+08:00",
+    "verdict":  "NEGATIVE_CONTROLS_PASS",
+    "total":  37,
+    "controls_id":  "P4-NEG",
+    "controls":  [
+                     {
+                         "triggered":  false,
+                         "id":  "NC-1",
+                         "desc":  "original modified"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-2",
+                         "desc":  "production connected"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-3",
+                         "desc":  "deploy executed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-4",
+                         "desc":  "remote executed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-5",
+                         "desc":  "production DB"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-6",
+                         "desc":  "secret printed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-7",
+                         "desc":  "new secret requested"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-8",
+                         "desc":  "NBP started"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-9",
+                         "desc":  "v0.5 created"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-10",
+                         "desc":  "release ZIP"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-11",
+                         "desc":  "failures ignored"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-12",
+                         "desc":  "pass fabricated"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-13",
+                         "desc":  "tests deleted"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-14",
+                         "desc":  "skipped without reason"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-15",
+                         "desc":  "broad refactor"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-16",
+                         "desc":  "app code changed without bug"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-17",
+                         "desc":  "Django 6 assumed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-18",
+                         "desc":  "Django 5 ignored"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-19",
+                         "desc":  "network install"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-20",
+                         "desc":  "check skipped"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-21",
+                         "desc":  "smoke hangs"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-22",
+                         "desc":  "smoke not killed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-23",
+                         "desc":  "security checklist removed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-24",
+                         "desc":  "rotation checklist removed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-25",
+                         "desc":  ".gitignore weakened"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-26",
+                         "desc":  "deploy re-enabled"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-27",
+                         "desc":  "Factory superiority"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-28",
+                         "desc":  "Snapshot as evidence"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-29",
+                         "desc":  "memory model expansion"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-30",
+                         "desc":  "phase close omitted"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-31",
+                         "desc":  "stale snapshot"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-32",
+                         "desc":  "no assessment"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-33",
+                         "desc":  "no verifier"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-34",
+                         "desc":  "no neg controls"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-35",
+                         "desc":  "manual PASS-only"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-36",
+                         "desc":  "expectedClass-only"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-37",
+                         "desc":  "generic FAIL"
+                     }
+                 ],
+    "triggered":  0
+}

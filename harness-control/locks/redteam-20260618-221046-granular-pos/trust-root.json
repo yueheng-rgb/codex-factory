@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  17,
+    "frozenAt":  "2026-06-18T22:11:40.4790851+08:00",
+    "runId":  "redteam-20260618-221046-granular-pos",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\redteam-20260618-221046-granular-pos\\trust-root.json",
+    "controlPlaneLockSha256":  "cf3c1d9583f84bce8af8ec00963bb77d126b115df1ac553bfadce0a3ed1afe7e",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "6a31ed4e4216252b0905ecbcee629a73ee44c68c6a2708dac782581d1fe0396f"
+}

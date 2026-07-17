@@ -1,0 +1,198 @@
+﻿{
+    "unexpectedPasses":  0,
+    "negatives":  [
+                      {
+                          "fault":  "MCP returns memory without evidence path",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_no_evidence_path",
+                          "id":  "N01",
+                          "target":  "tool-schema.json evidencePathsRequired"
+                      },
+                      {
+                          "fault":  "MCP returns compressed summary as trusted fact",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_compressed_summary",
+                          "id":  "N02",
+                          "target":  "tool-schema.json compressedSummaryNeverReturned"
+                      },
+                      {
+                          "fault":  "MCP returns worker selfAssessment as evidence",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_worker_selfAssessment",
+                          "id":  "N03",
+                          "target":  "context-source-policy.json FORBIDDEN"
+                      },
+                      {
+                          "fault":  "MCP converts verifier FAIL to PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_FAIL_to_PASS",
+                          "id":  "N04",
+                          "target":  "tool-schema.json failRemainsFail"
+                      },
+                      {
+                          "fault":  "MCP output markdown-only",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_markdown_only",
+                          "id":  "N05",
+                          "target":  "tool-schema.json outputMustBeJson"
+                      },
+                      {
+                          "fault":  "MCP omits confidence/source type",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_no_confidence",
+                          "id":  "N06",
+                          "target":  "tool-schema.json confidenceRequired"
+                      },
+                      {
+                          "fault":  "MCP omits SHA",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_no_sha",
+                          "id":  "N07",
+                          "target":  "context-memory.schema.json shaRequired"
+                      },
+                      {
+                          "fault":  "MCP uses hardcoded absolute repo path",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_hardcoded_path",
+                          "id":  "N08",
+                          "target":  "tool-schema.json configurableRepoPath"
+                      },
+                      {
+                          "fault":  "MCP mutates currentTrustedPhase",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_mutates_phase",
+                          "id":  "N09",
+                          "target":  "tool-schema.json noStateMutation"
+                      },
+                      {
+                          "fault":  "MCP marks phase PASS",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_marks_PASS",
+                          "id":  "N10",
+                          "target":  "tool-schema.json noPhasePASSbyMCP"
+                      },
+                      {
+                          "fault":  "Stale memory overrides verifier JSON via MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "stale_overrides_verifier",
+                          "id":  "N11",
+                          "target":  "context-query-protocol.json verifierJsonOverrides"
+                      },
+                      {
+                          "fault":  "Stale memory overrides factory state via MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "stale_overrides_state",
+                          "id":  "N12",
+                          "target":  "context-query-protocol.json stateOverridesMemory"
+                      },
+                      {
+                          "fault":  "Rejected claim returned as verified via MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "rejected_as_verified",
+                          "id":  "N13",
+                          "target":  "context-memory.schema.json validityStatus"
+                      },
+                      {
+                          "fault":  "Hypothesis claim returned as fact via MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "hypothesis_as_fact",
+                          "id":  "N14",
+                          "target":  "context-source-policy.json LOW sources"
+                      },
+                      {
+                          "fault":  "Plugin marked production-ready by MCP query",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "plugin_production_mcp",
+                          "id":  "N15",
+                          "target":  "FACTORY_CURRENT_CONTEXT_PACKET.json experimentalComponents"
+                      },
+                      {
+                          "fault":  "Full context inheritance claim accepted via MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "inheritance_accepted_mcp",
+                          "id":  "N16",
+                          "target":  "tool-schema.json rejectedClaims"
+                      },
+                      {
+                          "fault":  "Automatic window creation claim accepted via MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "auto_window_accepted_mcp",
+                          "id":  "N17",
+                          "target":  "tool-schema.json rejectedClaims"
+                      },
+                      {
+                          "fault":  "Startup packet omits required read files",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "startup_no_read_files",
+                          "id":  "N18",
+                          "target":  "buildStartupPacket requiredReadFiles"
+                      },
+                      {
+                          "fault":  "Startup packet omits verifier commands",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "startup_no_verifier_cmds",
+                          "id":  "N19",
+                          "target":  "buildStartupPacket verifierCommands"
+                      },
+                      {
+                          "fault":  "Query uses conversation memory as source",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "query_uses_conversation",
+                          "id":  "N20",
+                          "target":  "context-source-policy.json LOW sources"
+                      },
+                      {
+                          "fault":  "Missing source artifact ignored in MCP output",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "missing_artifact_ignored",
+                          "id":  "N21",
+                          "target":  "validate-context-memory.ps1 MISSING_ARTIFACT"
+                      },
+                      {
+                          "fault":  "Memory index SHA mismatch ignored by MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "sha_mismatch_ignored_mcp",
+                          "id":  "N22",
+                          "target":  "validate-context-memory.ps1 shaValidity"
+                      },
+                      {
+                          "fault":  "Agent OS event hash break ignored by MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "event_hash_ignored_mcp",
+                          "id":  "N23",
+                          "target":  "Agent OS event chain"
+                      },
+                      {
+                          "fault":  "Final ZIP SHA mismatch ignored by MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "zip_sha_ignored_mcp",
+                          "id":  "N24",
+                          "target":  "currentState finalZipSha256"
+                      },
+                      {
+                          "fault":  "MCP server claims production-ready without runtime registration",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "mcp_claims_production",
+                          "id":  "N25",
+                          "target":  "tool-schema.json notProductionReady"
+                      },
+                      {
+                          "fault":  "factory.verify unavailable but marked PASS by MCP",
+                          "result":  "DETECTED_AND_BLOCKED",
+                          "name":  "verify_unavailable_PASS",
+                          "id":  "N26",
+                          "target":  "server.ps1 verify tool UNAVAILABLE"
+                      }
+                  ],
+    "noGenericFail":  true,
+    "subPhase":  "E",
+    "nativeGenerated":  true,
+    "gaps":  0,
+    "negativesPassed":  26,
+    "totalNegatives":  26,
+    "phase":  "LIVE-RUNTIME-4",
+    "noManualPassOnly":  true,
+    "noPreclassifiedOnly":  true,
+    "noExpectedClassOnly":  true,
+    "generatedAt":  "2026-06-25T00:16:43+08:00"
+}

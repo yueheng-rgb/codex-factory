@@ -1,0 +1,38 @@
+﻿{
+  "phase": "FACTORY-DIAGNOSTIC-PACK-P1-K",
+  "timestamp": "2026-06-27T01:45:00+08:00",
+  "noZipCreated": true,
+  "zipCreationOnlyOnExplicitRequest": true,
+  "existingBundle": {
+    "path": "outputs/FACTORY_DIAGNOSTIC_AUDIT_BUNDLE.zip",
+    "files": 59,
+    "size": "91 KB",
+    "covers": ["diagnostic-pack-v1.0","smoke-0","repair-0","lessons-0"],
+    "remainsValid": true,
+    "note": "This bundle covers pre-P1 evidence. Not invalidated by P1."
+  },
+  "p1FilesToIncludeInFutureBundle": [
+    "factory-diagnostic-pack/QUICK_MODE.md",
+    "factory-diagnostic-pack/CHECKLIST_QUICK.md",
+    "factory-diagnostic-pack/STUDENT_PROJECT_MODE.md",
+    "factory-diagnostic-pack/CHECKLIST_STUDENT_PROJECT.md",
+    "factory-diagnostic-pack/REPORT_VS_SOURCE_MODE.md",
+    "factory-diagnostic-pack/DIAGNOSTIC_MODES.md",
+    "factory-diagnostic-pack/STOP_AFTER_DIAGNOSTIC.md",
+    "factory-diagnostic-pack/SCANNERS.md",
+    "factory-diagnostic-pack/P1_CHANGELOG.md",
+    "factory-diagnostic-pack/README.md (updated)",
+    "factory-diagnostic-pack/DAILY_USE.md (updated)",
+    "factory-diagnostic-pack/MANIFEST.json (updated v1.1.0)",
+    "governance/factory-agent/factory-diagnostic-pack-p1-evidence-intake.json",
+    "governance/factory-agent/factory-diagnostic-pack-p1-result.json",
+    "governance/factory-agent/verifier-factory-diagnostic-pack-p1-result.json",
+    "harness/diagnostic-runs/diagnostic-pack-p1-smoke-simulation/smoke-simulation.json",
+    "scripts/factory-diagnostic-pack-p1-verify.ps1"
+  ],
+  "futureBundleRecommendation": {
+    "createWhen": "User explicitly requests OR when P1 verifier result is confirmed",
+    "name": "outputs/FACTORY_DIAGNOSTIC_PACK_P1_AUDIT_BUNDLE.zip",
+    "note": "Do NOT create automatically. Only on user request."
+  }
+}

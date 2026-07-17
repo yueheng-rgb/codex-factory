@@ -1,0 +1,20 @@
+﻿{
+  "phase": "FACTORY-AB-0-R2",
+  "section": "G",
+  "title": "Fairness and Contamination Audit",
+  "timestamp": "2026-06-28T18:20:00+08:00",
+  "audit": {
+    "fairness_checks": [
+      {"check":"Same task requirements for both runs","status":"PASS","evidence":"Both prompts contain identical InventoryOps requirements"},
+      {"check":"Vanilla prompt not weaker","status":"PASS","evidence":"Vanilla prompt has full requirements; only Factory prompt adds Build Lite reference"},
+      {"check":"Factory prompt not secretly richer","status":"PASS_WITH_NOTE","note":"Factory prompt adds one sentence about Build Lite being active. This is appropriate — it is the intervention being tested."},
+      {"check":"No hidden user history advantage","status":"PASS","evidence":"Both runs specified as fresh sessions"},
+      {"check":"No real project/secrets","status":"PASS","evidence":"Synthetic InventoryOps task, no real data"},
+      {"check":"No deployment","status":"PASS","evidence":"Both runs specify no deployment"},
+      {"check":"No Native Build Pro","status":"PASS","evidence":"Explicitly excluded in both"},
+      {"check":"Contamination limitations honestly stated","status":"PASS","evidence":"R1 limitations section covers: single task type, structured analysis, Factory overhead not measured, vanilla may suffice for simple projects"}
+    ],
+    "verdict": "FAIRNESS_CONFIRMED — Both runs had identical requirements. Factory prompt appropriately includes Build Lite reference (the intervention). No hidden advantages. Contamination limitations documented."
+  },
+  "status": "FAIRNESS_AUDIT_COMPLETE"
+}

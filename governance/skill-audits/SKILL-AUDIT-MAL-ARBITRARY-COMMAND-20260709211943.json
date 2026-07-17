@@ -1,0 +1,105 @@
+﻿{
+    "auditId":  "SKILL-AUDIT-MAL-ARBITRARY-COMMAND-20260709211943",
+    "skillId":  "MAL-ARBITRARY-COMMAND",
+    "skillVersion":  "0.1.0",
+    "sourceRefs":  "malicious-fixture",
+    "auditorAgent":  "SEC-001",
+    "auditedAt":  "2026-07-09T21:19:43+08:00",
+    "verdict":  "quarantine",
+    "riskScore":  100,
+    "requiredControls":  [
+
+                         ],
+    "stages":  {
+                   "metadata":  {
+                                    "passed":  true,
+                                    "findings":  [
+
+                                                 ]
+                                },
+                   "content":  {
+                                   "passed":  false,
+                                   "findings":  [
+                                                    {
+                                                        "description":  "Injection pattern",
+                                                        "pattern":  "system:",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-001"
+                                                    },
+                                                    {
+                                                        "description":  "Dangerous command",
+                                                        "pattern":  "rm -rf",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-009"
+                                                    },
+                                                    {
+                                                        "description":  "Dangerous command",
+                                                        "pattern":  "del /f",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-009"
+                                                    },
+                                                    {
+                                                        "description":  "Dangerous command",
+                                                        "pattern":  "DROP TABLE",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-009"
+                                                    },
+                                                    {
+                                                        "description":  "Dangerous command",
+                                                        "pattern":  "eval",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-009"
+                                                    },
+                                                    {
+                                                        "description":  "Dangerous command",
+                                                        "pattern":  "Invoke-Expression",
+                                                        "severity":  "critical",
+                                                        "riskId":  "SKILL-RISK-009"
+                                                    }
+                                                ]
+                               },
+                   "permission":  {
+                                      "passed":  true,
+                                      "findings":  [
+                                                       {
+                                                           "description":  "No forbidden actions",
+                                                           "severity":  "low",
+                                                           "riskId":  "SKILL-RISK-030"
+                                                       }
+                                                   ]
+                                  },
+                   "supplyChain":  {
+                                       "passed":  true,
+                                       "findings":  [
+                                                        {
+                                                            "description":  "No hash/signature",
+                                                            "severity":  "medium",
+                                                            "riskId":  "SKILL-RISK-020"
+                                                        }
+                                                    ]
+                                   },
+                   "runtimeBehavior":  {
+                                           "passed":  false,
+                                           "findings":  [
+                                                            {
+                                                                "description":  "No verifier",
+                                                                "severity":  "medium",
+                                                                "riskId":  "SKILL-RISK-032"
+                                                            },
+                                                            {
+                                                                "description":  "No failure modes",
+                                                                "severity":  "low",
+                                                                "riskId":  "SKILL-RISK-031"
+                                                            },
+                                                            {
+                                                                "description":  "No rollback policy",
+                                                                "severity":  "low",
+                                                                "riskId":  "SKILL-RISK-030"
+                                                            }
+                                                        ]
+                                       }
+               },
+    "evidenceRefs":  [
+
+                     ]
+}

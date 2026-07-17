@@ -1,0 +1,75 @@
+﻿{
+    "auditId":  "SKILL-AUDIT-MAL-MISLEADING-TRIGGER-20260709211943",
+    "skillId":  "MAL-MISLEADING-TRIGGER",
+    "skillVersion":  "0.1.0",
+    "sourceRefs":  "malicious-fixture",
+    "auditorAgent":  "SEC-001",
+    "auditedAt":  "2026-07-09T21:19:43+08:00",
+    "verdict":  "pass_with_controls",
+    "riskScore":  15,
+    "requiredControls":  [
+
+                         ],
+    "stages":  {
+                   "metadata":  {
+                                    "passed":  true,
+                                    "findings":  [
+
+                                                 ]
+                                },
+                   "content":  {
+                                   "passed":  true,
+                                   "findings":  [
+
+                                                ]
+                               },
+                   "permission":  {
+                                      "passed":  false,
+                                      "findings":  [
+                                                       {
+                                                           "description":  "11 agents is overbroad",
+                                                           "severity":  "medium",
+                                                           "riskId":  "SKILL-RISK-024"
+                                                       },
+                                                       {
+                                                           "description":  "No forbidden actions",
+                                                           "severity":  "low",
+                                                           "riskId":  "SKILL-RISK-030"
+                                                       }
+                                                   ]
+                                  },
+                   "supplyChain":  {
+                                       "passed":  true,
+                                       "findings":  [
+                                                        {
+                                                            "description":  "No hash/signature",
+                                                            "severity":  "medium",
+                                                            "riskId":  "SKILL-RISK-020"
+                                                        }
+                                                    ]
+                                   },
+                   "runtimeBehavior":  {
+                                           "passed":  false,
+                                           "findings":  [
+                                                            {
+                                                                "description":  "No verifier",
+                                                                "severity":  "medium",
+                                                                "riskId":  "SKILL-RISK-032"
+                                                            },
+                                                            {
+                                                                "description":  "No failure modes",
+                                                                "severity":  "low",
+                                                                "riskId":  "SKILL-RISK-031"
+                                                            },
+                                                            {
+                                                                "description":  "No rollback policy",
+                                                                "severity":  "low",
+                                                                "riskId":  "SKILL-RISK-030"
+                                                            }
+                                                        ]
+                                       }
+               },
+    "evidenceRefs":  [
+
+                     ]
+}

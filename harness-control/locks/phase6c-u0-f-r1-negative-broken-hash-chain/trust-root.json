@@ -1,0 +1,9 @@
+{
+    "freezeSequence":  53,
+    "frozenAt":  "2026-06-20T18:31:42.3889031+08:00",
+    "runId":  "phase6c-u0-f-r1-negative-broken-hash-chain",
+    "trustRootFile":  "C:\\Codex_App_Factory\\harness\\..\\harness-control\\locks\\phase6c-u0-f-r1-negative-broken-hash-chain\\trust-root.json",
+    "controlPlaneLockSha256":  "3eb39fc9955f0b6755686c02d797ab3596229a5b1b53f365df36674f4fe5347d",
+    "schemaVersion":  "6B-R3",
+    "harnessBaselineSha256":  "639d03538219af01ec95a6633dfaae3004930e99a2bdc10def89b909d0d5692b"
+}

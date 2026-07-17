@@ -1,0 +1,161 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-h12-p3-multi-worker-task-queue-pilot-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  30,
+    "passed":  30,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "H12-P2 report exists and PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "FACTORY_TASK_QUEUE exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "factoryctl exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "H12-P3 pilot root exists with artifacts"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "Required pilot task queue entries exist (7 tasks)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "Task dependencies are explicit (blockedBy populated)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "All pilot tasks completed (status=done)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "Claim/complete transitions recorded (ownerAgentRole populated)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "Research Agent handoff exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "Contract Agent handoff exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "Negative Planner Agent handoff exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "Verifier Agent handoff exists and is read-only"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "Skeptic Agent handoff exists and is read-only"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "Integrator Agent handoff exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "DRY19-B negative-control plan exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  16,
+                       "desc":  "DRY19-B verifier plan exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  17,
+                       "desc":  "DRY19-B risk matrix exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  18,
+                       "desc":  "Skeptic audit exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  19,
+                       "desc":  "Negative-control plan includes targetScenarioIds and exact classifications"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  20,
+                       "desc":  "Negative-control plan rejects preclassified-only (count=0)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  21,
+                       "desc":  "Verifier plan includes non-target gate checks"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  22,
+                       "desc":  "Verifier plan includes transcript/command/exitCode checks"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  23,
+                       "desc":  "Skeptic audit identifies at least 5 risk classes"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  24,
+                       "desc":  "DRY19-B executionStarted=false in pilot plan"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  25,
+                       "desc":  "DRY19-B not started (factory queue confirms)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  26,
+                       "desc":  "No generic FAIL classifications"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  27,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  28,
+                       "desc":  "Closed reports unchanged"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  29,
+                       "desc":  "DRY2-C through DRY13-C remain paused"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  30,
+                       "desc":  "Task queue status consistent after pilot"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T13:07:47.227+08:00"
+}

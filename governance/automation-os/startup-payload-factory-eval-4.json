@@ -1,0 +1,84 @@
+﻿{
+    "doesNotMutateState":  true,
+    "generatedBy":  "Session rotation — multiple compactions in current window",
+    "currentPhase":  "FACTORY-EVAL-3: PASS",
+    "verifierCommands":  [
+                             "powershell -File scripts/factoryctl.ps1 verify --json",
+                             "powershell -File scripts/session-controller/run-startup-verification-contract.ps1 -Json",
+                             "powershell -File scripts/manual-router/run-required-reading-gate.ps1 -ActionType benchmark_run -Json"
+                         ],
+    "payloadId":  "STARTUP-FACTORY-EVAL-4-20260625161415",
+    "nextPhase":  "FACTORY-EVAL-4 / Real Project Benchmark Design",
+    "requiredReadFiles":  [
+                              "governance/factory-state/current-factory-state.json",
+                              "governance/factory-state/session-rotation-handoff.json",
+                              "governance/factory-eval/verifier-factory-eval-0-result.json",
+                              "governance/factory-eval/verifier-factory-eval-1-result.json",
+                              "governance/factory-eval/verifier-factory-eval-2-result.json",
+                              "governance/factory-eval/verifier-factory-eval-3-result.json",
+                              "governance/factory-eval/factory-eval-0-current-state-inventory.json",
+                              "governance/factory-eval/factory-eval-0-capability-matrix.json",
+                              "governance/factory-eval/factory-eval-0-recommended-roadmap.json",
+                              "governance/manual-router/factory-manual-index.json",
+                              "governance/manual-router/factory-page-router.json",
+                              "governance/manual-router/factory-always-on-constitution.md",
+                              "governance/role-agents/role-agent-taxonomy.json",
+                              "governance/role-agents/role-agent-company-model.json",
+                              "governance/role-agents/role-skill-profiles.json",
+                              "governance/role-agents/cross-role-contract-policy.json",
+                              "governance/role-agents/drift-detection-policy.json",
+                              "governance/context-os/FACTORY_CURRENT_CONTEXT_PACKET.json"
+                          ],
+    "rejectedClaims":  [
+                           "Full context inheritance",
+                           "Automatic window creation without verification",
+                           "Plugin production-ready",
+                           "Automation production-ready",
+                           "Compressed summary as evidence",
+                           "Role agents proven effective on real projects",
+                           "Real project effectiveness proven"
+                       ],
+    "cannotMarkPass":  true,
+    "mcpQueries":  [
+                       "factory.memory.currentState",
+                       "factory.memory.openRisks",
+                       "factory.memory.buildStartupPacket"
+                   ],
+    "forbiddenAssumptions":  [
+                                 "No automatic window creation",
+                                 "No full context inheritance",
+                                 "No compressed summary as evidence",
+                                 "No branch/fork as memory expansion",
+                                 "No markdown-only report as verifier PASS",
+                                 "No Codex self-report as evidence"
+                             ],
+    "keyFacts":  [
+                     "FINAL package: CREATED_AND_VALIDATED, SHA256 verified",
+                     "FACTORY-EVAL-0: PASS (evidence reset complete)",
+                     "FACTORY-EVAL-1: PASS (research + self-check, web search unavailable)",
+                     "FACTORY-EVAL-2: PASS (Manual Router + Proof-of-Read, 20 pages, 20 routes, 17 receipts)",
+                     "FACTORY-EVAL-3: PASS (12 roles, 10 skill profiles, 6 contracts, 9-role simulation)",
+                     "Manual Router: established (governance/manual-router/)",
+                     "Proof-of-Read: established (receipts with SHA + extracted rules)",
+                     "Role Agent Model: established (governance/role-agents/)",
+                     "Critical finding: Real non-Factory project effectiveness = NOT_SOLVED"
+                 ],
+    "activeRisks":  [
+                        "Factory self-referential (P0/HIGH)",
+                        "Codex skips reading artifacts (P0/MEDIUM)",
+                        "Real project quality not improved (P0/UNKNOWN)",
+                        "Proof-of-read proves access not understanding"
+                    ],
+    "whatNewWindowShouldDo":  [
+                                  "1. Read current-factory-state.json to confirm state",
+                                  "2. Read session-rotation-handoff.json to get handoff capsule",
+                                  "3. Verify FINAL ZIP SHA256 matches recorded hash",
+                                  "4. Read FACTORY-EVAL-0/1/2/3 verifier results",
+                                  "5. Run factoryctl verify --json",
+                                  "6. Run startup verification contract",
+                                  "7. Confirm Manual Router and Role Agent Model artifacts exist",
+                                  "8. Report startup verification result",
+                                  "9. Only after PASS: begin FACTORY-EVAL-4"
+                              ],
+    "generatedAt":  "2026-06-25T16:14:15+08:00"
+}

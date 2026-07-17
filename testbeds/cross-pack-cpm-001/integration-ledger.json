@@ -1,0 +1,124 @@
+﻿{
+  "mission_id": "CPM-001",
+  "mission_title": "Miniapp Ecommerce Admin — Cross-Pack Integration",
+  "packs_involved": ["miniapp", "ecommerce", "admin-system"],
+  "workers": ["CPM-001-WORKER-A", "CPM-001-WORKER-B", "CPM-001-WORKER-C"],
+  "integrator": "CPM-001-INTEGRATOR",
+  "integration_ledger_version": "1.1.0",
+  "created_at": "2026-07-12T23:05:00+08:00",
+  "updated_at": "2026-07-12T23:10:00+08:00",
+  "created_by": "CPM-001-WORKER-C",
+
+  "handoffs_received": [
+    {
+      "from": "CPM-001-WORKER-A",
+      "expected_artifacts": [
+        "test-harness code in src/",
+        "test suite in tests/",
+        "worker-handoff-A.json"
+      ],
+      "received_artifacts": [],
+      "missing_artifacts": [
+        "src/ (empty directory, no source files)",
+        "tests/ (empty directory, no test files)",
+        "worker-handoff-A.json (not found)"
+      ],
+      "status": "NOT_RECEIVED",
+      "note": "Worker A has not delivered any artifacts. src/ and tests/ directories exist but are empty."
+    },
+    {
+      "from": "CPM-001-WORKER-B",
+      "expected_artifacts": [
+        "README.md",
+        "worker-handoff-B.json",
+        "mission-manifest.json",
+        "docs/integration-notes.md"
+      ],
+      "received_artifacts": [
+        "testbeds/cross-pack-cpm-001/README.md (5968 bytes)",
+        "testbeds/cross-pack-cpm-001/worker-handoff-B.json (1863 bytes)"
+      ],
+      "missing_artifacts": [
+        "mission-manifest.json (claimed in handoff but file not found on disk)",
+        "docs/integration-notes.md (claimed in handoff but file not found on disk)"
+      ],
+      "status": "PARTIAL",
+      "note": "Worker B delivered README.md (comprehensive: 28 invariants, architecture, pack activation) and worker-handoff-B.json. However, mission-manifest.json and docs/integration-notes.md are referenced in the handoff as delivered but are not present on disk. This is a discrepancy that needs resolution."
+    }
+  ],
+
+  "conflicts_detected": [
+    {
+      "conflict_id": "CONF-001",
+      "type": "MISSING_CLAIMED_ARTIFACT",
+      "description": "Worker B handoff claims delivery of mission-manifest.json and docs/integration-notes.md, but these files do not exist on disk at testbeds/cross-pack-cpm-001/.",
+      "affected_workers": ["CPM-001-WORKER-B"],
+      "severity": "MEDIUM",
+      "resolution": "CPM-001-WORKER-B must either deliver the missing files or update worker-handoff-B.json to reflect actual delivery."
+    },
+    {
+      "conflict_id": "CONF-002",
+      "type": "WORKER_A_NOT_STARTED",
+      "description": "Worker A has not delivered any artifacts. Integration cannot proceed without test harness and test suite.",
+      "affected_workers": ["CPM-001-WORKER-A"],
+      "severity": "HIGH",
+      "resolution": "Wait for CPM-001-WORKER-A to deliver src/, tests/, and worker-handoff-A.json."
+    }
+  ],
+
+  "stale_references_found": [
+    {
+      "reference_id": "STALE-001",
+      "description": "worker-handoff-B.json references files_created including mission-manifest.json and docs/integration-notes.md which do not exist on disk.",
+      "source_file": "testbeds/cross-pack-cpm-001/worker-handoff-B.json",
+      "stale_paths": [
+        "testbeds/cross-pack-cpm-001/mission-manifest.json",
+        "testbeds/cross-pack-cpm-001/docs/integration-notes.md"
+      ]
+    }
+  ],
+
+  "fake_pass_checks": [],
+  "fake_pass_note": "Worker C explicitly records all gaps and discrepancies. No fabricated results. integration-ledger.json v1.1.0 reflects honest on-disk state as verified by Get-ChildItem.",
+
+  "semgrep_status": {
+    "tool": "semgrep",
+    "availability": "TOOL_UNAVAILABLE",
+    "reason": "npx semgrep --version failed: npm could not determine executable to run.",
+    "scan_target": "src/ tests/ (empty — no source to scan)",
+    "scan_result": "NOT_RUN",
+    "recommendation": "Install semgrep via pip install semgrep or Docker, then re-scan after Worker A delivers source."
+  },
+
+  "final_integration_status": "PENDING_INTEGRATOR_REVIEW",
+
+  "blockers": [
+    {
+      "blocker": "CPM-001-WORKER-A has not delivered test harness and test suite",
+      "severity": "HIGH"
+    },
+    {
+      "blocker": "CPM-001-WORKER-B has 2 missing claimed artifacts (mission-manifest.json, docs/integration-notes.md)",
+      "severity": "MEDIUM"
+    },
+    {
+      "blocker": "semgrep is not available in this environment",
+      "severity": "MEDIUM"
+    }
+  ],
+
+  "worker_c_delivery": {
+    "integration-ledger.json": "v1.1.0 — COMPLETE, updated with real on-disk state",
+    "review-notes.md": "COMPLETE — 28-invariant coverage, risk summary, REVIEW_REQUIRED_NOT_RUN",
+    "semgrep-result.txt": "COMPLETE — TOOL_UNAVAILABLE with install instructions",
+    "worker-handoff-C.json": "COMPLETE — PARTIAL_DELIVERY status, blockers documented"
+  },
+
+  "next_steps": [
+    "1. CPM-001-WORKER-A: deliver worker-handoff-A.json, src/ test harness, tests/ test suite",
+    "2. CPM-001-WORKER-B: deliver missing mission-manifest.json and docs/integration-notes.md, or update handoff",
+    "3. ENVIRONMENT: install semgrep (pip install semgrep or Docker)",
+    "4. CPM-001-WORKER-C: re-run ledger validation + semgrep scan after A and B resolve gaps",
+    "5. CPM-001-INTEGRATOR: perform full review after all blockers resolved"
+  ]
+}

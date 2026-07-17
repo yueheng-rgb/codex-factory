@@ -1,0 +1,116 @@
+﻿{
+    "verdict":  "PASS",
+    "verifierPath":  "scripts/phase6c-h12-p2-baseline-vs-factory-verify.ps1",
+    "exitCode":  0,
+    "totalChecks":  21,
+    "passed":  21,
+    "failed":  0,
+    "checks":  [
+                   {
+                       "status":  "PASS",
+                       "id":  1,
+                       "desc":  "H12-P1 report exists and PASS"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  2,
+                       "desc":  "DRY19-B not started"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  3,
+                       "desc":  "Baseline run directory exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  4,
+                       "desc":  "Factory run directory exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  5,
+                       "desc":  "Baseline prompt recorded"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  6,
+                       "desc":  "Factory task queue snapshot recorded"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  7,
+                       "desc":  "Baseline evaluation exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  8,
+                       "desc":  "Factory evaluation exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  9,
+                       "desc":  "Comparison JSON exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  10,
+                       "desc":  "At least 8 comparison metrics present"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  11,
+                       "desc":  "Evidence paths exist for comparison metrics"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  12,
+                       "desc":  "Failure patterns observed file exists"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  13,
+                       "desc":  "Factory run has more complete evidence than baseline"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  14,
+                       "desc":  "Factory run has live scenario evidence"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  15,
+                       "desc":  "Factory run has negative-control evidence or justified plan"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  16,
+                       "desc":  "Factory run has lower false PASS risk than baseline"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  17,
+                       "desc":  "No generic FAIL classifications"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  18,
+                       "desc":  "No final ZIP"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  19,
+                       "desc":  "Closed reports unchanged (H10+H11+DRY18-B+H12+H12-P1 exist)"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  20,
+                       "desc":  "DRY2-C through DRY13-C remain paused"
+                   },
+                   {
+                       "status":  "PASS",
+                       "id":  21,
+                       "desc":  "DRY19-B not started (confirmed)"
+                   }
+               ],
+    "verifiedAt":  "2026-06-23T12:09:43.116+08:00"
+}

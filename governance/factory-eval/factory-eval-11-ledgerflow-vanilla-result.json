@@ -1,0 +1,48 @@
+﻿{
+    "tests":  {
+                  "grandTotal":  {
+                                     "total":  72,
+                                     "failed":  0,
+                                     "passed":  72
+                                 },
+                  "integration":  {
+                                      "total":  28,
+                                      "failed":  0,
+                                      "passed":  28
+                                  },
+                  "unit":  {
+                               "total":  26,
+                               "failed":  0,
+                               "passed":  26
+                           },
+                  "verification":  {
+                                       "total":  18,
+                                       "failed":  0,
+                                       "passed":  18
+                                   }
+              },
+    "timestamp":  "2026-06-25T21:07:28+08:00",
+    "negativeControls":  {
+                             "gaps":  0,
+                             "total":  32,
+                             "passed":  32
+                         },
+    "humanInterventions":  2,
+    "contaminationVerdict":  "CLEAN",
+    "functionalRequirements":  {
+                                   "verified":  16,
+                                   "total":  16,
+                                   "implemented":  16
+                               },
+    "benchmark":  "LedgerFlow Lite",
+    "status":  "COMPLETE",
+    "factoryAssistanceUsed":  false,
+    "runId":  "FACTORY-EVAL-11-RUN-D-VANILLA",
+    "artifacts":  {
+                      "sourceFiles":  23,
+                      "totalSizeKB":  21611.2,
+                      "totalFiles":  836
+                  },
+    "phase":  "FACTORY-EVAL-11",
+    "runType":  "VANILLA_CODEX"
+}

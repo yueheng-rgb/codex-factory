@@ -1,0 +1,30 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codex-factory/schemas/external-engine.schema.json",
+  "title": "External Engine Definition",
+  "description": "Defines an external tool/engine that can be plugged into Factory as an optional verifier.",
+  "type": "object",
+  "required": ["engine_id", "category", "purpose", "required_executable"],
+  "properties": {
+    "engine_id": { "type": "string", "description": "Unique engine identifier" },
+    "category": {
+      "type": "string",
+      "enum": ["security_static_analysis", "deep_static_analysis", "performance_load_testing", "e2e_browser_testing", "reader_extractor"]
+    },
+    "purpose": { "type": "string" },
+    "supported_project_types": { "type": "array", "items": { "type": "string" } },
+    "supported_surfaces": { "type": "array", "items": { "type": "string" } },
+    "trigger_risk_levels": { "type": "array", "items": { "type": "string", "enum": ["LOW","MEDIUM","HIGH","CRITICAL","L_CLASS"] } },
+    "required_executable": { "type": "string" },
+    "command_template": { "type": "string" },
+    "timeout": { "type": "integer", "description": "Timeout in seconds" },
+    "output_parser": { "type": "string", "description": "Parser function name" },
+    "evidence_type": { "type": "string", "enum": ["security_findings", "performance_metrics", "e2e_results", "extracted_content"] },
+    "fail_policy": { "type": "string", "enum": ["BLOCK_IF_CRITICAL_FINDINGS", "WARN_ONLY", "EVIDENCE_ONLY"] },
+    "cost_level": { "type": "string", "enum": ["FREE", "LOW", "MEDIUM", "HIGH"] },
+    "network_required": { "type": "boolean" },
+    "enabled_by_default": { "type": "boolean" },
+    "install_hint": { "type": "string" },
+    "install_hint_windows": { "type": "string" }
+  }
+}

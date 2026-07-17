@@ -1,0 +1,77 @@
+﻿{
+    "schemaId":  "factory-page-taxonomy",
+    "version":  "1.0.0",
+    "generatedAt":  "2026-06-25T15:59:17+08:00",
+    "categories":  [
+                       {
+                           "priority":  "0-always-on",
+                           "description":  "Non-negotiable always-on rules",
+                           "id":  "constitution"
+                       },
+                       {
+                           "priority":  "0-always-on",
+                           "description":  "What counts as evidence",
+                           "id":  "evidence_hierarchy"
+                       },
+                       {
+                           "priority":  "1-high",
+                           "description":  "Agent spawn/close/archive/authority",
+                           "id":  "agent_lifecycle"
+                       },
+                       {
+                           "priority":  "1-high",
+                           "description":  "Worker handoff/receipts/integration",
+                           "id":  "worker_reporting"
+                       },
+                       {
+                           "priority":  "1-high",
+                           "description":  "Contract-first design",
+                           "id":  "contract_enforcement"
+                       },
+                       {
+                           "priority":  "1-high",
+                           "description":  "Verifier behavior and checks",
+                           "id":  "verifier_policy"
+                       },
+                       {
+                           "priority":  "1-high",
+                           "description":  "Negative control design",
+                           "id":  "negative_controls"
+                       },
+                       {
+                           "priority":  "1-high",
+                           "description":  "Risk register classification",
+                           "id":  "risk_handling"
+                       },
+                       {
+                           "priority":  "2-medium",
+                           "description":  "Context OS, MCP Memory, startup",
+                           "id":  "context_recovery"
+                       },
+                       {
+                           "priority":  "2-medium",
+                           "description":  "Session rotation/handoff/carrier",
+                           "id":  "manual_rotation"
+                       },
+                       {
+                           "priority":  "2-medium",
+                           "description":  "Final package contents",
+                           "id":  "final_package_boundary"
+                       },
+                       {
+                           "priority":  "3-low",
+                           "description":  "Agent roles/authority/specialization",
+                           "id":  "role_policy"
+                       },
+                       {
+                           "priority":  "3-low",
+                           "description":  "Skills/plugins/MCP usage",
+                           "id":  "skill_plugin_usage"
+                       },
+                       {
+                           "priority":  "3-low",
+                           "description":  "Evaluation/benchmark/keep-cut-defer",
+                           "id":  "benchmark_evaluation"
+                       }
+                   ]
+}

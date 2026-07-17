@@ -1,0 +1,100 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "search-necessity-policy.schema.json",
+  "title": "Search Necessity Policy — Pre-Build Research Gate",
+  "description": "Defines P0_MUST_SEARCH / P1_SHOULD_SEARCH / P2_NO_SEARCH_REQUIRED levels, trigger conditions, budget, stop conditions, and implementer block rules.",
+  "phase": "R2.3-T",
+  "version": "1.0.0",
+
+  "levels": {
+    "P0_MUST_SEARCH": {
+      "description": "Must search before design or implementation. Evidence Pack required. Cannot be skipped.",
+      "searchRequired": true,
+      "evidencePackRequired": true,
+      "budget": { "minQueries": 3, "maxQueries": 6, "minSources": 5, "maxSources": 10 },
+      "triggers": [
+        "new_project_start",
+        "new_module_start",
+        "architecture_selection",
+        "tech_stack_selection",
+        "third_party_api_sdk_cloud_integration",
+        "security_auth_permission_payment_upload_deploy_search_ai",
+        "database_design_cache_concurrency_performance_scalability",
+        "user_asks_mainstream_approach_mature_solution_outdated_similar_project",
+        "dependency_version_official_docs_config_may_change",
+        "codex_has_clear_uncertainty",
+        "wrong_direction_causes_major_rework"
+      ],
+      "mandatoryResearchQuestions": [
+        "Is there a mature solution or similar project?",
+        "What is the official recommended approach?",
+        "What is the current mainstream tech stack or implementation?",
+        "What are common pitfalls or anti-patterns?",
+        "Is there a simpler, more stable, more constraint-fitting alternative?",
+        "What approach should this project take and why?"
+      ]
+    },
+    "P1_SHOULD_SEARCH": {
+      "description": "Recommended to search but can be skipped with project-internal evidence.",
+      "searchRequired": false,
+      "evidencePackRequired": false,
+      "budget": { "minQueries": 1, "maxQueries": 3, "minSources": 2, "maxSources": 5 },
+      "triggers": [
+        "common_feature_with_external_best_practice",
+        "multiple_viable_implementation_routes",
+        "ui_ux_pattern_may_have_mature_reference",
+        "need_confirm_community_common_practice",
+        "need_similar_project_reference"
+      ]
+    },
+    "P2_NO_SEARCH_REQUIRED": {
+      "description": "No search needed. Local context is sufficient.",
+      "searchRequired": false,
+      "evidencePackRequired": false,
+      "budget": { "minQueries": 0, "maxQueries": 0, "minSources": 0, "maxSources": 0 },
+      "triggers": [
+        "local_bug_fix_already_located",
+        "small_style_text_format_change",
+        "add_tests",
+        "copy_implementation_from_existing_pattern",
+        "refactor_without_architecture_change",
+        "user_gave_explicit_implementation_details",
+        "pure_organize_migrate_rename_report_task"
+      ]
+    }
+  },
+
+  "implementerBlock": {
+    "canTriggerSearch": false,
+    "canCallProviderDirectly": false,
+    "canConsumeEvidencePack": true,
+    "allowedAgents": ["RSRC-001", "LIB-001"],
+    "forbiddenAgents": ["IMPL-FE-001", "IMPL-BE-001", "IMPL-DB-001", "IMPL-*"]
+  },
+
+  "stopConditions": [
+    "official_docs_confirmed_core_approach",
+    "at_least_2_independent_sources_support_approach",
+    "major_risks_identified",
+    "clear_recommendation_exists",
+    "evidence_pack_sufficient_for_implementation_plan"
+  ],
+
+  "sourcePriority": [
+    "official_docs",
+    "official_examples_sdk",
+    "mainstream_open_source_project",
+    "high_quality_technical_article",
+    "issue_discussion_changelog",
+    "low_quality_blog_auxiliary_only"
+  ],
+
+  "hardBans": [
+    "implementer_direct_search",
+    "search_result_bypass_evidence_pack",
+    "plain_llm_knowledge_answer_as_search_evidence",
+    "api_endpoint_url_as_external_source",
+    "mock_dry_run_as_live_search",
+    "skip_p0_search_due_to_user_urgency"
+  ]
+}

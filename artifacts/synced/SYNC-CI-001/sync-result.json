@@ -1,0 +1,17 @@
+﻿{
+    "source":  "C:\\Codex_App_Factory\\artifacts\\ci-runs\\CI-DEMO-001",
+    "secrets_detected":  false,
+    "artifact_ids":  [
+                         "C:\\Codex_App_Factory\\artifacts\\synced\\SYNC-CI-001\\ci-receipt.json",
+                         "C:\\Codex_App_Factory\\artifacts\\synced\\SYNC-CI-001\\stderr.log",
+                         "C:\\Codex_App_Factory\\artifacts\\synced\\SYNC-CI-001\\stdout.log"
+                     ],
+    "stdout_retained":  true,
+    "hash_verified":  true,
+    "stderr_retained":  true,
+    "target":  "C:\\Codex_App_Factory/artifacts/synced/SYNC-CI-001",
+    "sync_id":  "SYNC-CI-001",
+    "status":  "SYNCED",
+    "command_redacted":  true,
+    "blocking_reason":  ""
+}

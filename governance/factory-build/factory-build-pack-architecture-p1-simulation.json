@@ -1,0 +1,65 @@
+﻿{
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "section":  "J",
+    "simulationResult":  "All 4 scenarios flow correctly. Build Lite auto, Build Pro confirmed, Vanilla always available.",
+    "title":  "Pack Architecture Simulation",
+    "scenarios":  [
+                      {
+                          "contextPacketsUsed":  0,
+                          "agentsSpawned":  0,
+                          "scenario":  "S1: Solo developer starts a new project",
+                          "steps":  [
+                                        "User: \u0027build a project management app\u0027",
+                                        "Codex: Runs Expertise Flow → detects standard project",
+                                        "Codex: \u0027Entering Build Lite. Creating task graph...\u0027",
+                                        "Build Lite executes tasks sequentially, updates .codex-factory/",
+                                        "Verifier runs at completion → PASS",
+                                        "User reviews output, requests iteration"
+                                    ],
+                          "mode":  "Build Lite (auto)",
+                          "overhead":  "Minimal"
+                      },
+                      {
+                          "contextPacketsUsed":  10,
+                          "agentsSpawned":  7,
+                          "scenario":  "S2: Team lead builds complex multi-module platform",
+                          "steps":  [
+                                        "User: \u0027build a full-stack SaaS with 5 modules\u0027",
+                                        "Codex: \u0027This is complex. Build Lite (recommended) or Build Pro?\u0027",
+                                        "User: \u0027Build Pro\u0027",
+                                        "Codex: \u0027Build Pro confirmed. Generating PHASE_START_PACKET...\u0027",
+                                        "Context packet validated (21/21). Readiness gate PASS.",
+                                        "Task graph: 16 tasks, 10 parallelizable. 3 iterations.",
+                                        "Iteration 1: spawn product-builder + test-builder (2 AGENT_START_PACKETs)",
+                                        "Iteration 2: spawn product-builder + test-builder (2 AGENT_START_PACKETs)",
+                                        "Iteration 3: spawn product-builder + test-builder (2 AGENT_START_PACKETs)",
+                                        "Integration: spawn reviewer-verifier (1 REVIEWER_PACKET)",
+                                        "Diagnostic gate: 12/12 PASS. Recovery drill: PASS.",
+                                        "Final verifier: 48/48 PASS."
+                                    ],
+                          "mode":  "Native Build Pro (confirmed)",
+                          "overhead":  "~15%"
+                      },
+                      {
+                          "scenario":  "S3: Recovery after agent lifecycle anomaly",
+                          "steps":  [
+                                        "Orphan agent detected in lifecycle registry",
+                                        "Recovery drill auto-triggered",
+                                        "RECOVERY_PACKET generated + validated",
+                                        "Orphan agent closed with close receipt",
+                                        "Diagnostic gate re-run → PASS",
+                                        "Resume normal iteration flow"
+                                    ],
+                          "mode":  "Native Build Pro (recovery)"
+                      },
+                      {
+                          "scenario":  "S4: User skips factory entirely",
+                          "steps":  [
+                                        "User: \u0027just use vanilla Codex, no factory\u0027",
+                                        "Codex: Standard behavior without harness",
+                                        "No context packets, no lifecycle, no gates"
+                                    ],
+                          "mode":  "Vanilla"
+                      }
+                  ]
+}

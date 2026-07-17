@@ -1,0 +1,104 @@
+﻿{
+    "created":  1783703336,
+    "id":  "20260711010855157916597a1d4f40",
+    "request_id":  "r2-3-w-task2-groupc-010845",
+    "search_intent":  [
+                          {
+                              "intent":  "SEARCH_ALWAYS",
+                              "keywords":  "node.js fastify admin dashboard rbac role-based access control middle",
+                              "query":  "Node.js Fastify admin dashboard RBAC role-based access control middle"
+                          }
+                      ],
+    "search_result":  [
+                          {
+                              "content":  "Repository files navigation RBAC Hierarchical Role Based Access Control for Node.js Install npm install rbac Usage import { RBAC } from \u0027rbac\u0027 ; const rbac = new RBAC ( { roles : [ \u0027superadmin\u0027 , \u0027admin\u0027 , \u0027user\u0027 , \u0027guest\u0027 ] , permissions : { user : [ \u0027create\u0027 , \u0027delete\u0027 ] , password : [ \u0027change\u0027 , \u0027forgot\u0027 ] , article : [ \u0027create\u0027 ] , rbac : [ \u0027update\u0027 ] , } , grants : { guest : [ \u0027create_user\u0027 , \u0027forgot_password\u0027 ] , user : [ \u0027change_password\u0027 ] , admin : [ \u0027user\u0027 , \u0027delete_user\u0027 , \u0027update_rbac\u0027 ] , superadmin : [ \u0027admin\u0027 ] , } , } ) ; await rbac . init ( ) ; Check permissions const can = await rb",
+                              "icon":  "",
+                              "link":  "https://github.com/seeden/rbac",
+                              "media":  "",
+                              "publish_date":  "2026-03-28",
+                              "refer":  "ref_1",
+                              "title":  "GitHub - seeden/rbac: Hierarchical Role Based Access Control for NodeJS · GitHub"
+                          },
+                          {
+                              "content":  "PDF With the Valkey and Redis OSS AUTH command as described in Authenticating with the Valkey and Redis OSS AUTH command you can use Role-Based Access Control (RBAC). RBAC is also the only way to control access to serverless caches. This is available for Valkey 7.2 and onward, and Redis OSS 6.0 to 7.2. RBAC enables you to: Control cache access through user groups. These user groups are designed as a way to organize access to caches. With authN , have per user passwords as opposed to per cluster auth tokens. With authZ , have fine-grained user permissions. Base your cluster access on ACLs. Unlike Valkey and Redis OSS AUTH, where all authenticated clients have full cache access if their token is authenticated, RBAC enables you to assign users to sets depending on the users\u0027 desired roles. These sets are designed as a way to organize access to caches. With RBAC, you create users and assign them specific permissions by using an access string, as described following. You assign the users to",
+                              "icon":  "",
+                              "link":  "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html",
+                              "media":  "",
+                              "publish_date":  "2026-06-01",
+                              "refer":  "ref_2",
+                              "title":  "Role-Based Access Control (RBAC) - Amazon ElastiCache"
+                          },
+                          {
+                              "content":  "Navigation Menu Toggle navigation Appearance settings Search or jump to... Cancel Submit feedback Saved searches Use saved searches to filter your results more quickly Cancel Create saved search Appearance settings Resetting focus You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert marcellefter/react-rbac   main Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit   History 9 Commits 9 Commits src src     .gitignore .gitignore     README.md README.md     package-lock.json package-lock.json     package.json package.json     tsconfig.json tsconfig.json     webpack.config.js webpack.config.js     View all files Repository files navigation More items react-rbac Role-based access control for React applications WARNING: This package is under ",
+                              "icon":  "",
+                              "link":  "https://github.com/marcellefter/react-rbac",
+                              "media":  "",
+                              "publish_date":  "2026-07-02",
+                              "refer":  "ref_3",
+                              "title":  "GitHub - marcellefter/react-rbac: Role-based access control for React applications · GitHub"
+                          },
+                          {
+                              "content":  "说明 Fabric Nodejs SDK 的示例程序是来自社区的marbles,其中包含了一个链码和一个 Web 小游戏。 安装 Nodejs 和NPM marbles 依赖 Nodejs v8 版本和 npm ,通过以下命令确认 Nodejs 和npm 已经安装成功。 $ node --versionv8.11.2$ npm --version5.6.0 下载示例程序 下载node-sdk-demo-1.4.5到任意目录并解压缩,得到目录node-sdk-demo。复制SDK配置文件 connection-profile-standard.json 配置文件到目录 node-sdk-demo/config 下,最终目录结构如下: 打开并修改配置文件 config/connection-profile-standard.json :将用户名和密码构造成如下JSON内容,并新增到对应的 certificateAuthorities 段落中。 \"registrar\": [ { \"enrollId\": \"user\", \"enrollSecret\": \"user-secret\" } ], 例如:区块链组织页面中创建的用户名和密码为:user/user-secret,且该用户来自 test10 组织,那么就将用户信息增加到CA: ca1.test10.aliyunbaas.top 下,修改完成后的配置文件如下图所示: 说明 将JSON文件内容格式化后更便于编辑,可以使用在线服务: https://jsonlint.com/ 进行格式化。编辑完成后建议使用格式化工具监测JSON格式是否合法。 上传链码 将文件 node-sdk-demo/chaincode/marbles_v4.cc 上传至BaaS并实例化,上传方法可以参考部署链码章节。 运行示例程序 执行如下命令安装 marbles 依赖和启动 marbles 应用: npm install --registry http://registry.npmmirror.comgulp marbles_baas 看到有如下输出时,即表明 marbles 应用已经启动: debug: Open your browser to http://localhost:3001 and login to tweak settings for ",
+                              "icon":  "",
+                              "link":  "https://www.alibabacloud.com/help/doc-detail/88775.htm",
+                              "media":  "",
+                              "publish_date":  "2023-09-19",
+                              "refer":  "ref_4",
+                              "title":  "Nodejs SDK使用示例 - 区块链服务 BaaS - 阿里云"
+                          },
+                          {
+                              "content":  "Name Name Last commit message Last commit date Latest commit History 21 Commits 21 Commits docs docs examples examples src src .gitignore .gitignore README.md README.md graphql.ts graphql.ts nestjs.d.ts nestjs.d.ts nestjs.js nestjs.js package-lock.json package-lock.json package.json package.json tsconfig.json tsconfig.json View all files 🔐 RBAC System A revolutionary, fully dynamic Role-Based Access Control (RBAC) package for Node.js applications with intelligent middleware, modern admin dashboard, and zero configuration constraints. 📦 How do I install this? npm install @mamoorali295/rbac Framework Support: ✅ Express - Built-in middleware and admin dashboard ✅ NestJS - Decorators, guards, modules, and services ✅ GraphQL - Directives, resolvers, and schema transformers ✅ Framework-agnostic - Use with any Node.js framework 🤔 Why should I choose this? 🎯 Truly Dynamic \u0026 Flexible Unlike other RBAC libraries that force you into predefined roles like \"admin\", \"manager\", \"user\" with hardco",
+                              "icon":  "",
+                              "link":  "https://github.com/sheikh295/rbac",
+                              "media":  "",
+                              "publish_date":  "2026-06-05",
+                              "refer":  "ref_5",
+                              "title":  "GitHub - sheikh295/rbac: A powerful, plug-and-play Role-Based Access Control (RBAC) package for Node.js applications with Express middleware"
+                          },
+                          {
+                              "content":  "此文章由人工翻译。 将光标移到文章的句子上,以查看原文。 .NET Framework 4 程序集:   System.Web (在System.Web.dll 中) C# protected BaseDataBoundControl() .NET Framework 受以下版本支持:4、3.5、3.0、2.0 Windows 7, Windows Vista SP1 或更高版本, Windows XP SP3, Windows XP SP2 x64 Edition, Windows Server 2008(不支持服务器核心), Windows Server 2008 R2(支持 SP1 或更高版本的服务器核心), Windows Server 2003 SP2 .NET Framework 并不是对每个平台的所有版本都提供支持。有关支持的版本的列表,请参见.NET Framework 系统要求3 。 连接资料表 1 http://msdn.microsoft.com/zh-Cn/library/system.web.ui.webcontrols.basedataboundcontrol.aspx 2 http://msdn.microsoft.com/zh-Cn/library/system.web.ui.webcontrols.aspx 3 http://msdn.microsoft.com/zh-Cn/library/8z6watww.aspx 4 http://msdn.microsoft.com/zh-Cn/library/system.web.ui.webcontrols.compositedataboundcontrol.aspx 5 http://msdn.microsoft.com/zh-Cn/library/system.web.ui.webcontrols.databoundcontrol.aspx 6 http://msdn.microsoft.com/zh-Cn/library/system.web.ui.webcontrols.hierarchicaldataboundcontrol.aspx 7 http://msdn.microsoft.com/zh-Cn/library/system.web.ui.webcontrols.listc",
+                              "icon":  "",
+                              "link":  "http://msdn.microsoft.com/zh-Cn/library/system.web.ui.webcontrols.basedataboundcontrol.basedataboundcontrol(d=printer).aspx",
+                              "media":  "",
+                              "publish_date":  "2012-04-02",
+                              "refer":  "ref_6",
+                              "title":  "BaseDataBoundControl 构造函数 (System.Web.UI.WebControls)"
+                          },
+                          {
+                              "content":  "  main Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit   History 27 Commits 27 Commits .github/ workflows .github/ workflows     __test__ __test__     config config     src src     .DS_Store .DS_Store     .gitignore .gitignore     LICENSE LICENSE     README.md README.md     package-lock.json package-lock.json     package.json package.json     swagger.js swagger.js     View all files Repository files navigation Role Based Access Control (RBAC) Healthcare System The \"rbac-healthcare-system\" repository is a Node.js project that implements Role-Based Access Control (RBAC) for healthcare system, defining roles like admin, doctor, and patient with specific permissions. It features JWT authentication, MongoDB integration, and a modular architecture with controllers, routes, and models. Unit tests are included to ensure reliability. Features To view the Swagger UI schema, navigate to http://localhost:3000/api-docs in your br",
+                              "icon":  "",
+                              "link":  "https://github.com/carpodok/rbac-healthcare-system",
+                              "media":  "",
+                              "publish_date":  "2026-03-14",
+                              "refer":  "ref_7",
+                              "title":  "GitHub - carpodok/node-rbac-healthcare-system-app: Node.js project that implements Role Based Access Control (RBAC) for healthcare system"
+                          },
+                          {
+                              "content":  "Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198. Existing Python UDFs will continue to function until June 30, 2026. For more information, see the blog post . Role-based access control (RBAC) By using role-based access control (RBAC) to manage database permissions in Amazon Redshift, you can simplify the management of security permissions in Amazon Redshift. You can secure the access to sensitive data by controlling what users can do both at a broad or fine level. You can also control user access to tasks that are normally restricted to superusers. By assigning different permissions to different roles and assigning them to different users, you can have more granular control of user access. Users with an assigned role can perform only the tasks that are specified by the assigned role that they are authorized with. For example, a user with the assigned role that has the CREATE TABLE and DROP TABLE permissions is only authorized to perform those t",
+                              "icon":  "",
+                              "link":  "https://docs.aws.amazon.com/redshift/latest/dg/t_Roles.html",
+                              "media":  "",
+                              "publish_date":  "2026-05-30",
+                              "refer":  "ref_8",
+                              "title":  "Role-based access control (RBAC) - Amazon Redshift"
+                          },
+                          {
+                              "content":  "Learning Objectives After reading this article you will be able to: Learn how role-based access control (RBAC) works Compare RBAC with other types of access control, such as attribute-based and rule-based access control Related Content Want to keep learning? Subscribe to theNET, Cloudflare\u0027s monthly recap of the Internet\u0027s most popular insights! Copy article link Role-based access control (RBAC) is a method for controlling what users are able to do within a company\u0027s IT systems. RBAC accomplishes this by assigning one or more \"roles\" to each user, and giving each role different permissions. RBAC can be applied for a single software application or across multiple applications. Think of a house where several people live. Each resident gets a copy of the key that opens the front door: they do not receive differently deding or removing a user relatively simple — instead of editing permissions for individual users, an administrator can simply change their role. What is a user permission? In",
+                              "icon":  "",
+                              "link":  "https://www.cloudflare.com/learning/access-management/role-based-access-control-rbac/",
+                              "media":  "",
+                              "publish_date":  "2026-06-03",
+                              "refer":  "ref_9",
+                              "title":  "What is role-based access control (RBAC)?  Cloudflare"
+                          },
+                          {
+                              "content":  "Closed Closed nodejs \u003e=0.6.0 \"FATAL ERROR: v8::HandleScope::Close() Local scope has already been closed\" #66 Copy link Description Issue body actions Presence of hiredis breaks nodejs module node_redis. Metadata Metadata Assignees No one assigned Labels No labels Type No type Projects No projects Milestone No milestone Relationships None yet Development No branches or pull requests Issue actions Footer © 2025 GitHub, Inc. Footer navigation Manage cookies Do not share my personal information You can’t perform that action at this time.",
+                              "icon":  "",
+                              "link":  "https://github.com/redis/hiredis/issues/66",
+                              "media":  "",
+                              "publish_date":  "2011-11-14",
+                              "refer":  "ref_10",
+                              "title":  "nodejs 0.6.0 \"FATAL ERROR: v8::HandleScope::Close() Local scope has already been closed\" · Issue #66 · redis/hiredis · GitHub"
+                          }
+                      ]
+}

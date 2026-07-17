@@ -1,0 +1,53 @@
+﻿{
+    "recommendedNextPhase":  "H19",
+    "reason":  "DRY25 proves portability clean. H19 cloud/sync/plugin/skills packaging is the next risk.",
+    "parentPhase":  "H18",
+    "dry25C":  {
+                   "verdict":  "PASS",
+                   "failed":  0,
+                   "gaps":  0,
+                   "totalNegatives":  20,
+                   "passed":  20
+               },
+    "nativeGenerated":  true,
+    "finalVerifier":  {
+                          "verdict":  "26/26 PASS",
+                          "path":  "governance/factory-state/verifier-dry25-result.json"
+                      },
+    "dry25A":  {
+                   "fixturePath":  "harness/fixtures/dry25-resource-pack-portability/",
+                   "verdict":  "PASS",
+                   "manifestSha256Match":  true,
+                   "absolutePathDeps":  0,
+                   "bootstrapValidation":  "14/14 PASS",
+                   "filesInstalled":  55
+               },
+    "dry25B":  {
+                   "integrators":  1,
+                   "verifiers":  1,
+                   "verdict":  "PASS",
+                   "builders":  2,
+                   "sourceFiles":  8,
+                   "progressEvents":  16,
+                   "positiveScenarios":  4,
+                   "exports":  18,
+                   "dependencyEdges":  12,
+                   "contracts":  2,
+                   "agents":  4
+               },
+    "verdict":  "POSITIVE_NEGATIVE_CLOSED",
+    "closure":  {
+                    "noFinalZip":  true,
+                    "negativesPassWithZeroGaps":  true,
+                    "freshFixtureBootstrapSucceeds":  true,
+                    "noHiddenRepoDependency":  true,
+                    "miniMissionSucceeds":  true
+                },
+    "phase":  "DRY25",
+    "dry25D":  {
+                   "verdict":  "PASS",
+                   "diagnosisComplete":  true,
+                   "verifierResult":  "26/26 PASS"
+               },
+    "generatedAt":  "2026-06-24T17:53:54+08:00"
+}

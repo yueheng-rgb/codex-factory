@@ -1,0 +1,56 @@
+﻿[
+    {
+        "skillId":  "CAP-SKILL-013",
+        "agentId":  "PM-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-013\u0027 not found in registry"
+    },
+    {
+        "skillId":  "CAP-SKILL-013",
+        "agentId":  "ARCH-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-013\u0027 not found in registry"
+    },
+    {
+        "skillId":  "CAP-SKILL-013",
+        "agentId":  "IMPL-BE-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-013\u0027 not found in registry"
+    },
+    {
+        "skillId":  "CAP-SKILL-014",
+        "agentId":  "PM-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-014\u0027 not found in registry"
+    },
+    {
+        "skillId":  "CAP-SKILL-014",
+        "agentId":  "ARCH-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-014\u0027 not found in registry"
+    },
+    {
+        "skillId":  "CAP-SKILL-014",
+        "agentId":  "IMPL-BE-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-014\u0027 not found in registry"
+    },
+    {
+        "skillId":  "CAP-SKILL-015",
+        "agentId":  "PM-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-015\u0027 not found in registry"
+    },
+    {
+        "skillId":  "CAP-SKILL-015",
+        "agentId":  "ARCH-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-015\u0027 not found in registry"
+    },
+    {
+        "skillId":  "CAP-SKILL-015",
+        "agentId":  "IMPL-BE-001",
+        "loaded":  false,
+        "reason":  "REJECT: Gate denied: REJECT: Capability \u0027CAP-SKILL-015\u0027 not found in registry"
+    }
+]

@@ -1,0 +1,57 @@
+﻿{
+    "fail":  0,
+    "trial_id":  "CONTEXT-SPACE-P2-USABILITY",
+    "pass":  10,
+    "results":  [
+                    {
+                        "detail":  "mounted",
+                        "status":  "PASS",
+                        "name":  "T-01: Mount context space"
+                    },
+                    {
+                        "detail":  "rebuilt",
+                        "status":  "PASS",
+                        "name":  "T-02: Rebuild index v2"
+                    },
+                    {
+                        "detail":  "found",
+                        "status":  "PASS",
+                        "name":  "T-03: Query Build Lite default"
+                    },
+                    {
+                        "detail":  "found",
+                        "status":  "PASS",
+                        "name":  "T-04: Query v0.5 blocked"
+                    },
+                    {
+                        "detail":  "found",
+                        "status":  "PASS",
+                        "name":  "T-05: Query relation chain"
+                    },
+                    {
+                        "detail":  "found 38",
+                        "status":  "PASS",
+                        "name":  "T-06: Query timeline"
+                    },
+                    {
+                        "detail":  "blocked",
+                        "status":  "PASS",
+                        "name":  "T-07: Direction guard blocks v0.5"
+                    },
+                    {
+                        "detail":  "pass",
+                        "status":  "PASS",
+                        "name":  "T-08: Direction guard allows P2"
+                    },
+                    {
+                        "detail":  "done",
+                        "status":  "PASS",
+                        "name":  "T-09: Attach packet v2 integration"
+                    },
+                    {
+                        "detail":  "done",
+                        "status":  "PASS",
+                        "name":  "T-10: End-to-end query v2"
+                    }
+                ]
+}

@@ -1,0 +1,152 @@
+{
+  "resolutionId": "H17-P1-AGENT-LIFECYCLE",
+  "generatedAt": "2026-06-24T15:07:44.999121+08:00",
+  "totalOpen": 28,
+  "unsafeStale": 0,
+  "activeAgents": 0,
+  "archivedAgents": 28,
+  "blockingCount": 0,
+  "verdict": "PASS",
+  "agents": [
+    {
+      "agentId": "dry23-orchestrator-1",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-verifier-1",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-integrator-1",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-negative-orchestrator",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-builder-risk-classifier",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-builder-diagnosis-engine",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-builder-diagnosis-reporter",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-builder-verify-gate",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-builder-snapshot-manager",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-builder-evidence-collector",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-p2-builder-diagnosis-repair",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-p2-builder-snapshot-repair",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry23-p2-builder-gate-repair",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry20-builder-1",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry20-builder-2",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry20-builder-3",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry20-builder-4",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry20-builder-5",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "dry20-builder-6",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h14-verifier-1",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h16-handoff-checker",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h16-boundary-checker",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h16-contract-checker",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h16-complexity-checker",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h16-negative-checker",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h16-diagnosis-engine",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h17-orchestrator-1",
+      "status": "archived",
+      "blocking": false
+    },
+    {
+      "agentId": "h17-verifier-1",
+      "status": "archived",
+      "blocking": false
+    }
+  ]
+}

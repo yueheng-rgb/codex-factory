@@ -1,0 +1,37 @@
+﻿{
+  "phase": "FACTORY-AGENT-9-P3",
+  "step": "E_SECOND_BENCHMARK_GATE",
+  "timestamp": "2026-06-26T20:49:10.4368522+08:00",
+  "status": "CONDITIONAL",
+  "justification": "A second benchmark is justified only if it tests a specific hypothesis that the first benchmark could not.",
+  "hypothesis": "If multi-agent has any product quality benefit, it should appear on a project with >50 modules where coordination complexity exceeds single-agent capability.",
+  "criteria": {
+    "minimumSize": ">50 modules OR >5000 LOC OR >200 requirements",
+    "minimumAgents": "4-agent P1 minimum",
+    "mustPass": [
+      "P1 composite > Vanilla composite",
+      "P1 product-only >= Vanilla product-only OR product gap <= 2",
+      "Process/evidence benefit preserved",
+      "Overhead < 2x Vanilla wall-clock",
+      "No gaming detected",
+      "Negative controls 0 gaps"
+    ],
+    "mustNotHappen": [
+      "P1 product-only loses by >5 points",
+      "Overhead > 3x Vanilla",
+      "Gaming detected",
+      "BLOCKED_BY_REVIEWER from policy defect"
+    ]
+  },
+  "benchmarkCandidates": [
+    "Enterprise SaaS: 80+ modules, multi-tenant, complex RBAC",
+    "E-commerce platform: 100+ modules, payments, inventory, orders",
+    "Healthcare system: 60+ modules, HIPAA compliance, audit trails"
+  ],
+  "falsificationThresholds": [
+    "If P1 product < Vanilla by >3: REJECT multi-agent for product quality",
+    "If P1 composite < Vanilla: REJECT multi-agent entirely",
+    "If P1 overhead > 3x: REJECT 4-agent form, require simpler"
+  ],
+  "verdict": "SECOND_BENCHMARK_JUSTIFIED_IF_USER_APPROVES"
+}

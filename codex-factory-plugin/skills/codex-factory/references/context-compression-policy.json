@@ -1,0 +1,117 @@
+﻿{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "factory-resource-pack/policies/context-compression-policy.json",
+  "title": "Context Compression Policy",
+  "description": "Defines when context compression renders evidence untrusted, tracking of compression levels, session rotation triggers, and the prohibition on using compressed summaries as primary evidence.",
+  "phase": "H18",
+  "policyVersion": "1.0.0",
+  "nativeGenerated": true,
+  "generatedAt": "2026-06-24T12:00:00.000+08:00",
+  "generatedBy": "H18 Builder: POLICIES-SCHEMAS",
+  "compressionDefinition": {
+    "description": "Context compression is any operation that reduces the active context window of an agent session by summarizing, truncating, or eliding prior conversation or evidence. This includes both automatic (system-triggered) and manual (user-triggered) compression.",
+    "types": [
+      {
+        "type": "systemCompression",
+        "description": "Automatic context compression triggered by the runtime when token budget is exceeded.",
+        "detection": "Check for context-compression events in AGENT_PROGRESS.jsonl or transcript markers."
+      },
+      {
+        "type": "manualCompression",
+        "description": "User or agent requested summarization of prior context.",
+        "detection": "Check for /summarize or equivalent commands in transcript."
+      },
+      {
+        "type": "sessionTruncation",
+        "description": "Prior session content truncated when starting a new session.",
+        "detection": "Check for discontinuity in transcript timestamps or agent session IDs."
+      }
+    ]
+  },
+  "compressionLevelTracking": {
+    "description": "Each agent session must track how many compressions have occurred.",
+    "levels": {
+      "0": {
+        "label": "No Compression",
+        "evidenceTrust": "full",
+        "description": "No compression events detected. All evidence from this session is fully trusted."
+      },
+      "1": {
+        "label": "Single Compression",
+        "evidenceTrust": "reduced",
+        "description": "One compression event. Evidence created after compression is trusted; evidence summarized during compression is untrusted.",
+        "rule": "Evidence entries whose timestamp precedes the first compression event are flagged as potentially summarized."
+      },
+      "2": {
+        "label": "Double Compression",
+        "evidenceTrust": "low",
+        "description": "Two compression events. All pre-compression evidence is untrusted. Session should prepare for rotation.",
+        "rule": "Only evidence created after the second compression event retains trust. Session rotation recommended."
+      },
+      "3": {
+        "label": "Triple Compression",
+        "evidenceTrust": "none",
+        "description": "Three or more compression events. All evidence from this session is untrusted. Session rotation is mandatory.",
+        "rule": "Entire session evidence is distrusted. Worker must be re-spawned with fresh context."
+      }
+    }
+  },
+  "sessionRotationTrigger": {
+    "description": "After 2-3 compressions, the session must rotate: the worker's context is considered exhausted and a fresh session must be spawned.",
+    "triggers": [
+      {
+        "condition": "compressionCount >= 3",
+        "action": "mandatoryRotation",
+        "description": "Immediately stop work. Generate handoff. Re-spawn worker with fresh context.",
+        "priority": "P0"
+      },
+      {
+        "condition": "compressionCount == 2",
+        "action": "recommendedRotation",
+        "description": "Worker should complete current atomic unit of work, then generate handoff and rotate.",
+        "priority": "P1"
+      },
+      {
+        "condition": "compressionCount == 1",
+        "action": "monitorOnly",
+        "description": "No rotation required but compression level must be recorded in progress events.",
+        "priority": "P2"
+      }
+    ],
+    "handoffRequirement": "Every rotation must produce a handoff JSON artifact with SHA256 hash of current state, per session-rotation protocol."
+  },
+  "summaryAsEvidenceProhibition": {
+    "description": "Summaries produced during or after context compression are explicitly prohibited as primary evidence.",
+    "rules": [
+      {
+        "rule": "noCompressedSummaryAsEvidence",
+        "description": "Any evidence entry whose content was summarized during compression cannot be used as primary evidence for a PASS verdict.",
+        "priority": "P0"
+      },
+      {
+        "rule": "noSummaryOverrideVerifier",
+        "description": "A summary cannot override or contradict a verifier result.",
+        "priority": "P0"
+      },
+      {
+        "rule": "summaryCorroborationRequired",
+        "description": "If a summary must be referenced, it must be corroborated by at least one tier 1-4 evidence item that was created after the last compression event.",
+        "priority": "P1"
+      },
+      {
+        "rule": "compressionLevelMustBeDeclared",
+        "description": "Any evidence entry created in a session with compression > 0 must declare its compressionLevel in metadata.",
+        "priority": "P1"
+      }
+    ]
+  },
+  "crossSessionEvidence": {
+    "description": "Evidence spanning multiple sessions due to rotation.",
+    "rules": [
+      "Each session's evidence is independently evaluated for compression trust.",
+      "Evidence from a session with compression level 3 is excluded from all verdicts.",
+      "Handoff artifacts must carry the compression level of the session they close.",
+      "The replacement session starts at compression level 0."
+    ]
+  }
+}

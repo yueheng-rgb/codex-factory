@@ -1,0 +1,8 @@
+﻿{
+    "scope":  "final smoke verification",
+    "noPackageModification":  true,
+    "section":  "A",
+    "notCloud":  true,
+    "phase":  "V05-R1-POST-INTEGRATION-SMOKE",
+    "notV06":  true
+}

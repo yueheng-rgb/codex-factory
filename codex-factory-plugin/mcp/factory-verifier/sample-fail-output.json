@@ -1,0 +1,15 @@
+﻿{
+    "tool": "factory.verify",
+    "phase": "latest",
+    "verdict": "FAIL",
+    "totalChecks": 1,
+    "modules": [
+        {
+            "verdict": "FAIL",
+            "checks": 1,
+            "detail": "MANIFEST.sha256 mismatch: stored DEADBEEF, computed AB8E54DA"
+        }
+    ],
+    "checkedAt": "2025-01-01T00:00:00Z",
+    "_note": "Sample FAIL output — machine-readable JSON, verdict field preserved as FAIL"
+}

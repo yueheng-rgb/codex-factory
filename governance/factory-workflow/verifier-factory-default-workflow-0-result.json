@@ -1,0 +1,308 @@
+﻿{
+    "checks":  {
+                   "V08":  {
+                               "detail":  "",
+                               "description":  "G: Natural language cleanup contract report exists",
+                               "pass":  true
+                           },
+                   "V18":  {
+                               "detail":  "",
+                               "description":  "Multi-agent role profile JSON exists",
+                               "pass":  true
+                           },
+                   "V22":  {
+                               "detail":  "",
+                               "description":  "State dashboard JSON exists",
+                               "pass":  true
+                           },
+                   "V13":  {
+                               "detail":  "",
+                               "description":  "L: Simulation report exists",
+                               "pass":  true
+                           },
+                   "V27":  {
+                               "detail":  "",
+                               "description":  "User requirement entry doc exists",
+                               "pass":  true
+                           },
+                   "V38":  {
+                               "detail":  "",
+                               "description":  "Sim scenario 3 exists",
+                               "pass":  true
+                           },
+                   "V06":  {
+                               "detail":  "",
+                               "description":  "E: Multi-agent role profile report exists",
+                               "pass":  true
+                           },
+                   "V14":  {
+                               "detail":  "",
+                               "description":  "Scope lock JSON exists",
+                               "pass":  true
+                           },
+                   "V35":  {
+                               "detail":  "",
+                               "description":  "Cloud deferral record doc exists",
+                               "pass":  true
+                           },
+                   "V07":  {
+                               "detail":  "",
+                               "description":  "F: Project path handoff contract report exists",
+                               "pass":  true
+                           },
+                   "V56":  {
+                               "detail":  "Cloud deferred per Section K",
+                               "description":  "No deployment/cloud/server action",
+                               "pass":  true
+                           },
+                   "V50":  {
+                               "detail":  "",
+                               "description":  "Cleanup defaults to PLAN",
+                               "pass":  true
+                           },
+                   "V01":  {
+                               "detail":  "Handoff accepted by user",
+                               "description":  "USER-HANDOFF-0 PASS exists",
+                               "pass":  true
+                           },
+                   "V46":  {
+                               "detail":  "",
+                               "description":  "Strategy decision JSON exists",
+                               "pass":  true
+                           },
+                   "V52":  {
+                               "detail":  "",
+                               "description":  "Cloud deferred",
+                               "pass":  true
+                           },
+                   "V15":  {
+                               "detail":  "",
+                               "description":  "Startup protocol JSON exists",
+                               "pass":  true
+                           },
+                   "V11":  {
+                               "detail":  "",
+                               "description":  "J: Agent ledger contract report exists",
+                               "pass":  true
+                           },
+                   "V32":  {
+                               "detail":  "",
+                               "description":  "CLI name reconciliation doc exists",
+                               "pass":  true
+                           },
+                   "V57":  {
+                               "detail":  "35 controls, 0 gaps",
+                               "description":  "Negative controls executed with 0 gaps",
+                               "pass":  true
+                           },
+                   "V23":  {
+                               "detail":  "",
+                               "description":  "Agent ledger JSON exists",
+                               "pass":  true
+                           },
+                   "V40":  {
+                               "detail":  "",
+                               "description":  "Sim scenario 5 exists",
+                               "pass":  true
+                           },
+                   "V24":  {
+                               "detail":  "",
+                               "description":  "Cloud deferral JSON exists",
+                               "pass":  true
+                           },
+                   "V10":  {
+                               "detail":  "",
+                               "description":  "I: State dashboard requirements report exists",
+                               "pass":  true
+                           },
+                   "V41":  {
+                               "detail":  "",
+                               "description":  "Sim scenario 6 exists",
+                               "pass":  true
+                           },
+                   "V17":  {
+                               "detail":  "",
+                               "description":  "Multi-agent decision gate JSON exists",
+                               "pass":  true
+                           },
+                   "V34":  {
+                               "detail":  "",
+                               "description":  "Agent ledger contract doc exists",
+                               "pass":  true
+                           },
+                   "V48":  {
+                               "detail":  "",
+                               "description":  "Verifier script exists",
+                               "pass":  true
+                           },
+                   "V25":  {
+                               "detail":  "",
+                               "description":  "Simulation JSON exists",
+                               "pass":  true
+                           },
+                   "V30":  {
+                               "detail":  "",
+                               "description":  "Project path handoff doc exists",
+                               "pass":  true
+                           },
+                   "V05":  {
+                               "detail":  "",
+                               "description":  "D: Multi-agent decision gate report exists",
+                               "pass":  true
+                           },
+                   "V16":  {
+                               "detail":  "",
+                               "description":  "User requirement entry JSON exists",
+                               "pass":  true
+                           },
+                   "V21":  {
+                               "detail":  "",
+                               "description":  "CLI name reconciliation JSON exists",
+                               "pass":  true
+                           },
+                   "V31":  {
+                               "detail":  "",
+                               "description":  "Natural language cleanup doc exists",
+                               "pass":  true
+                           },
+                   "V42":  {
+                               "detail":  "",
+                               "description":  "Sim scenario 7 exists",
+                               "pass":  true
+                           },
+                   "V43":  {
+                               "detail":  "",
+                               "description":  "Sim scenario 8 exists",
+                               "pass":  true
+                           },
+                   "V04":  {
+                               "detail":  "",
+                               "description":  "C: User requirement entry contract report exists",
+                               "pass":  true
+                           },
+                   "V19":  {
+                               "detail":  "",
+                               "description":  "Project path handoff JSON exists",
+                               "pass":  true
+                           },
+                   "V28":  {
+                               "detail":  "",
+                               "description":  "Multi-agent decision gate doc exists",
+                               "pass":  true
+                           },
+                   "V03":  {
+                               "detail":  "",
+                               "description":  "B: Startup protocol report exists",
+                               "pass":  true
+                           },
+                   "V39":  {
+                               "detail":  "",
+                               "description":  "Sim scenario 4 exists",
+                               "pass":  true
+                           },
+                   "V47":  {
+                               "detail":  "",
+                               "description":  "Negative controls JSON exists",
+                               "pass":  true
+                           },
+                   "V60":  {
+                               "detail":  "All FAILs have specific reasons",
+                               "description":  "No generic FAIL accepted",
+                               "pass":  true
+                           },
+                   "V29":  {
+                               "detail":  "",
+                               "description":  "Multi-agent role profile doc exists",
+                               "pass":  true
+                           },
+                   "V55":  {
+                               "detail":  "",
+                               "description":  "No new release created",
+                               "pass":  true
+                           },
+                   "V02":  {
+                               "detail":  "",
+                               "description":  "A: Scope lock report exists",
+                               "pass":  true
+                           },
+                   "V51":  {
+                               "detail":  "",
+                               "description":  "Final handoff requires full paths",
+                               "pass":  true
+                           },
+                   "V44":  {
+                               "detail":  "",
+                               "description":  "Strategy decision report exists",
+                               "pass":  true
+                           },
+                   "V37":  {
+                               "detail":  "",
+                               "description":  "Sim scenario 2 exists",
+                               "pass":  true
+                           },
+                   "V49":  {
+                               "detail":  "",
+                               "description":  "Large project requires multi-agent question",
+                               "pass":  true
+                           },
+                   "V12":  {
+                               "detail":  "",
+                               "description":  "K: Cloud deferral record report exists",
+                               "pass":  true
+                           },
+                   "V54":  {
+                               "detail":  "",
+                               "description":  "No v0.6 created",
+                               "pass":  true
+                           },
+                   "V53":  {
+                               "detail":  "SHA256: 9FD3A5F979FE1FDEA712F69CAC300E2F49F4E84705A0448D98186CA950AC16CB",
+                               "description":  "v0.5 zip NOT modified",
+                               "pass":  true
+                           },
+                   "V09":  {
+                               "detail":  "",
+                               "description":  "H: CLI name reconciliation report exists",
+                               "pass":  true
+                           },
+                   "V45":  {
+                               "detail":  "",
+                               "description":  "Negative controls report exists",
+                               "pass":  true
+                           },
+                   "V36":  {
+                               "detail":  "",
+                               "description":  "Sim scenario 1 exists",
+                               "pass":  true
+                           },
+                   "V20":  {
+                               "detail":  "",
+                               "description":  "Cleanup contract JSON exists",
+                               "pass":  true
+                           },
+                   "V58":  {
+                               "detail":  "All verifier checks are file-existence or content-based",
+                               "description":  "No manual PASS-only accepted",
+                               "pass":  true
+                           },
+                   "V26":  {
+                               "detail":  "",
+                               "description":  "Startup protocol doc exists",
+                               "pass":  true
+                           },
+                   "V33":  {
+                               "detail":  "",
+                               "description":  "State dashboard requirements doc exists",
+                               "pass":  true
+                           },
+                   "V59":  {
+                               "detail":  "All checks have concrete pass/fail criteria",
+                               "description":  "No expectedClass-only accepted",
+                               "pass":  true
+                           }
+               },
+    "verdict":  "PASS",
+    "phase":  "FACTORY-DEFAULT-WORKFLOW-0",
+    "timestamp":  "2026-06-28T23:38:17+08:00",
+    "verifier":  "factory-default-workflow-0-verify.ps1"
+}

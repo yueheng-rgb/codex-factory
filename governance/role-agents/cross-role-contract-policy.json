@@ -1,0 +1,121 @@
+﻿{
+    "version":  "1.0.0",
+    "rules":  [
+                  "Every cross-role pair has a contract",
+                  "Contract mismatch blocks integration",
+                  "Architect resolves unresolved mismatches",
+                  "Verifier confirms contracts are satisfied before phase close"
+              ],
+    "generatedAt":  "2026-06-25T16:07:33+08:00",
+    "handoffSchema":  {
+                          "requiredFields":  [
+                                                 "handoffId",
+                                                 "fromRole",
+                                                 "toRole",
+                                                 "artifactPath",
+                                                 "artifactSha256",
+                                                 "proofOfReadReceiptId",
+                                                 "timestamp"
+                                             ],
+                          "rules":  [
+                                        "Handoff must include proof-of-read receipt",
+                                        "Handoff without artifact path is rejected",
+                                        "Handoff receipt is evidence, not proof of correctness"
+                                    ]
+                      },
+    "contracts":  [
+                      {
+                          "id":  "FE-BE-API",
+                          "owned":  [
+                                        "api_contract",
+                                        "request_response_schema",
+                                        "error_format",
+                                        "auth_header"
+                                    ],
+                          "between":  [
+                                          "Frontend",
+                                          "Backend"
+                                      ],
+                          "checkBy":  "Integrator",
+                          "mismatchFlaggedBy":  "Integrator",
+                          "resolveBy":  "Architect"
+                      },
+                      {
+                          "owned":  [
+                                        "schema_ddl",
+                                        "migration_order",
+                                        "index_strategy"
+                                    ],
+                          "resolveBy":  "Architect",
+                          "id":  "BE-DB-SCHEMA",
+                          "checkBy":  "Integrator",
+                          "between":  [
+                                          "Backend",
+                                          "Database"
+                                      ]
+                      },
+                      {
+                          "owned":  [
+                                        "naming_convention",
+                                        "type_definitions",
+                                        "error_response_format",
+                                        "file_structure"
+                                    ],
+                          "resolveBy":  "Architect",
+                          "id":  "ALL-STYLE",
+                          "checkBy":  "Integrator",
+                          "between":  [
+                                          "Frontend",
+                                          "Backend",
+                                          "Database"
+                                      ]
+                      },
+                      {
+                          "owned":  [
+                                        "test_requirements",
+                                        "coverage_threshold",
+                                        "edge_case_list"
+                                    ],
+                          "resolveBy":  "PM",
+                          "id":  "IMPL-QA",
+                          "checkBy":  "Verifier",
+                          "between":  [
+                                          "Frontend",
+                                          "Backend",
+                                          "QA"
+                                      ]
+                      },
+                      {
+                          "owned":  [
+                                        "auth_schema",
+                                        "threat_model",
+                                        "secret_handling",
+                                        "input_validation"
+                                    ],
+                          "resolveBy":  "Architect",
+                          "id":  "IMPL-SEC",
+                          "checkBy":  "Verifier",
+                          "between":  [
+                                          "Backend",
+                                          "Database",
+                                          "Security"
+                                      ]
+                      },
+                      {
+                          "owned":  [
+                                        "verifier_scripts",
+                                        "evidence_paths",
+                                        "negative_controls"
+                                    ],
+                          "resolveBy":  "PM",
+                          "id":  "ALL-VERIFY",
+                          "checkBy":  "Auditor",
+                          "between":  [
+                                          "all_roles",
+                                          "Verifier"
+                                      ]
+                      }
+                  ],
+    "phase":  "FACTORY-EVAL-3-C",
+    "schemaId":  "cross-role-contract-policy"
+}

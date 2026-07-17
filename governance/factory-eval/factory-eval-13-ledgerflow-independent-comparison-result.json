@@ -1,0 +1,32 @@
+﻿{
+    "releaseArtifactsCreated":  false,
+    "recommendation":  "USER REVIEW",
+    "negativeControls":  {
+                             "gaps":  0,
+                             "total":  35,
+                             "passed":  35
+                         },
+    "verdict":  "INCONCLUSIVE — v0.4 Core does not add measurable product quality",
+    "productCodeModified":  false,
+    "phase":  "FACTORY-EVAL-13",
+    "timestamp":  "2026-06-25T22:13:25+08:00",
+    "scores":  {
+                   "RUN-D":  {
+                                 "label":  "Vanilla Codex",
+                                 "score":  99,
+                                 "max":  100
+                             },
+                   "RUN-E":  {
+                                 "label":  "v0.4 Factory Lite Core",
+                                 "score":  95,
+                                 "max":  100
+                             }
+               },
+    "status":  "COMPLETE",
+    "verifier":  {
+                     "failed":  0,
+                     "total":  28,
+                     "passed":  28
+                 },
+    "evaluatorRunId":  "FACTORY-EVAL-13-LEDGERFLOW-INDEPENDENT-COMPARISON"
+}

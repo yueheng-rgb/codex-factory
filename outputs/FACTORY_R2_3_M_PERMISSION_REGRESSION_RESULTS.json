@@ -1,0 +1,52 @@
+﻿[
+    {
+        "testId":  "R01",
+        "description":  "Stitch local-first -\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "testId":  "R02",
+        "description":  "GLM no-secrets -\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "testId":  "R03",
+        "description":  "DB MCP local-first -\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "testId":  "R04",
+        "description":  "Playwright loopback -\u003e ALLOW",
+        "passed":  true
+    },
+    {
+        "testId":  "R05",
+        "description":  "Playwright external -\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "testId":  "R06",
+        "description":  "CLI verifier -\u003e ALLOW",
+        "passed":  true
+    },
+    {
+        "testId":  "R07",
+        "description":  "Search adapter -\u003e ALLOW",
+        "passed":  true
+    },
+    {
+        "testId":  "R08",
+        "description":  "Implementer x Search -\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "testId":  "R09",
+        "description":  "DB agent x Stitch -\u003e REJECT",
+        "passed":  true
+    },
+    {
+        "testId":  "R10",
+        "description":  "Quarantine tool -\u003e REJECT",
+        "passed":  true
+    }
+]

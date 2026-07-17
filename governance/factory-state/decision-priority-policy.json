@@ -1,0 +1,43 @@
+{
+  "policyId": "H17-DECISION-PRIORITY-POLICY",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-24T15:05:53.308178+08:00",
+  "generatedDuringPhase": "H17-A",
+  "nativeGenerated": true,
+  "priorityLevels": {
+    "P0_TRUST_CLOSURE_CONTAMINATION": {
+      "description": "Issues that contaminate trust, closure, or evidence integrity",
+      "rule": "P0 issues MUST be resolved before any feature expansion or new DRY mission",
+      "issues": [
+        "false_closure",
+        "parent_mismatch",
+        "manual_PASS",
+        "expectedClass_only",
+        "missing_transcript",
+        "generic_FAIL",
+        "runner_sabotage",
+        "negative_gaps",
+        "failed_agent_counted_as_success",
+        "main_agent_undeclared_fallback",
+        "compressed_summary_used_as_evidence",
+        "verifier_PASS_despite_underlying_FAIL",
+        "state_handoff_mismatch"
+      ]
+    },
+    "P1_RECURRENCE_PREVENTION": {
+      "description": "Harden verifier/factoryctl/contract/negative control gates against known issues",
+      "rule": "Each P0 issue must have a corresponding P1 gate implemented before the next DRY phase"
+    },
+    "P2_FEATURE_EXPANSION": {
+      "description": "Feature expansion or complex DRY mission",
+      "rule": "Only allowed when P0 is clean AND P1 is adequate"
+    }
+  },
+  "enforcement": {
+    "checkBeforePhaseTransition": true,
+    "blockOnUnresolvedP0": true,
+    "requireP1GatePerP0Issue": true,
+    "factoryctlVerifyMustCheckP0": true
+  },
+  "generatedAtRepairedDuringPhase": "H17-P1"
+}

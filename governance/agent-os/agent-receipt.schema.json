@@ -1,0 +1,15 @@
+﻿{
+  "schemaId": "agent-receipt.schema",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:00:10+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-2-B",
+  "nativeGenerated": true,
+  "requiredFields": ["receiptId","agentId","receiptType","timestamp","referencedEventId","receiptHash"],
+  "receiptTypes": ["close","archive","quarantine","replacement","audit"],
+  "rules": {
+    "closeReceiptRequiresVerifierPass": true,
+    "archiveReceiptRequiresCloseReceipt": true,
+    "quarantineReceiptRequiresFailureEvidence": true,
+    "replacementReceiptRequiresLinkToReplacementAgent": true
+  }
+}

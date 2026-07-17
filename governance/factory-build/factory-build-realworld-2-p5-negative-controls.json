@@ -1,0 +1,185 @@
+﻿{
+    "gaps":  0,
+    "generated_at":  "2026-06-28T10:49:51+08:00",
+    "verdict":  "NEGATIVE_CONTROLS_PASS",
+    "total":  35,
+    "controls_id":  "P5-NEG",
+    "controls":  [
+                     {
+                         "triggered":  false,
+                         "id":  "NC-1",
+                         "desc":  "original modified"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-2",
+                         "desc":  "production connected"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-3",
+                         "desc":  "deploy executed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-4",
+                         "desc":  "remote executed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-5",
+                         "desc":  "production DB"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-6",
+                         "desc":  "secret printed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-7",
+                         "desc":  "new secret requested"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-8",
+                         "desc":  "NBP started"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-9",
+                         "desc":  "v0.5 created"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-10",
+                         "desc":  "release ZIP"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-11",
+                         "desc":  "21/2 claimed as 23/23"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-12",
+                         "desc":  "skips hidden"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-13",
+                         "desc":  "production readiness claimed"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-14",
+                         "desc":  "evidence has secrets"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-15",
+                         "desc":  "evidence has .env"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-16",
+                         "desc":  "evidence has deploy creds"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-17",
+                         "desc":  "Factory superiority"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-18",
+                         "desc":  "Snapshot as evidence"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-19",
+                         "desc":  "memory model expansion"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-20",
+                         "desc":  "Package QA mainline"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-21",
+                         "desc":  "diagnostics mainline"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-22",
+                         "desc":  "cloud recommended"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-23",
+                         "desc":  "rotation checklist omitted"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-24",
+                         "desc":  "validation summary omitted"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-25",
+                         "desc":  "change inventory omitted"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-26",
+                         "desc":  "final assessment omitted"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-27",
+                         "desc":  "phase close omitted"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-28",
+                         "desc":  "stale snapshot"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-29",
+                         "desc":  "no verifier"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-30",
+                         "desc":  "no neg controls"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-31",
+                         "desc":  "manual PASS-only"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-32",
+                         "desc":  "expectedClass-only"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-33",
+                         "desc":  "generic FAIL"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-34",
+                         "desc":  "ZIP as release"
+                     },
+                     {
+                         "triggered":  false,
+                         "id":  "NC-35",
+                         "desc":  "deploy instructions tell user to run prod directly"
+                     }
+                 ],
+    "triggered":  0
+}

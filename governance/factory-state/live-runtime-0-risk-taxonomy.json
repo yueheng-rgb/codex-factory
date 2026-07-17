@@ -1,0 +1,249 @@
+﻿{
+    "phase":  "LIVE-RUNTIME-0",
+    "nativeGenerated":  true,
+    "unknownRisks":  [
+                         {
+                             "controlsExist":  false,
+                             "description":  "Verifier checks evolve to match implementation rather than specification",
+                             "id":  "UR-01",
+                             "risk":  "Semantic drift",
+                             "severity":  "P1"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "Optimizing for verifier PASS count rather than real quality",
+                             "id":  "UR-02",
+                             "risk":  "Metric gaming",
+                             "severity":  "P1"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "Verifiers become too specific to current state",
+                             "id":  "UR-03",
+                             "risk":  "Verifier overfitting",
+                             "severity":  "P1"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "Multiple windows/forks develop divergent state",
+                             "id":  "UR-04",
+                             "risk":  "Shared memory divergence",
+                             "severity":  "P0"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "Parallel agent spawning creates conflicting state",
+                             "id":  "UR-05",
+                             "risk":  "Race conditions",
+                             "severity":  "P1"
+                         },
+                         {
+                             "controlsExist":  true,
+                             "description":  "Builder acts as verifier, integrator spawns workers",
+                             "id":  "UR-06",
+                             "risk":  "Role confusion",
+                             "severity":  "P2"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "Old verifier results cited after state change",
+                             "id":  "UR-07",
+                             "risk":  "Stale evidence reuse",
+                             "severity":  "P1"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "Malicious markdown influences agent behavior",
+                             "id":  "UR-08",
+                             "risk":  "Prompt injection through reports",
+                             "severity":  "P1"
+                         },
+                         {
+                             "controlsExist":  true,
+                             "description":  "Absolute paths survive portability tests",
+                             "id":  "UR-09",
+                             "risk":  "Hidden absolute paths",
+                             "severity":  "P3"
+                         },
+                         {
+                             "controlsExist":  true,
+                             "description":  "Phantom edges in contract dependency graph",
+                             "id":  "UR-10",
+                             "risk":  "Dependency graph false edges",
+                             "severity":  "P2"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "Same evidence counted multiple times",
+                             "id":  "UR-11",
+                             "risk":  "Evidence duplication",
+                             "severity":  "P2"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "Exports claimed but never consumed",
+                             "id":  "UR-12",
+                             "risk":  "Dead exports",
+                             "severity":  "P2"
+                         },
+                         {
+                             "controlsExist":  true,
+                             "description":  "Contracts too generic for isolation",
+                             "id":  "UR-13",
+                             "risk":  "Over-broad contracts",
+                             "severity":  "P2"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "New features without negative controls",
+                             "id":  "UR-14",
+                             "risk":  "Missing negative controls",
+                             "severity":  "P1"
+                         },
+                         {
+                             "controlsExist":  false,
+                             "description":  "30+ phases dilute quality",
+                             "id":  "UR-15",
+                             "risk":  "Excessive phase churn",
+                             "severity":  "P1"
+                         },
+                         {
+                             "controlsExist":  true,
+                             "description":  "Assuming FINAL package = done",
+                             "id":  "UR-16",
+                             "risk":  "False sense of completion",
+                             "severity":  "P1"
+                         }
+                     ],
+    "generatedAt":  "2026-06-24T23:46:16+08:00",
+    "deceptionTaxonomy":  [
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P2",
+                                  "type":  "unsupported_completion_claim",
+                                  "evidence":  "DRY23-P1 agent-creation-failure-investigation.json",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P2",
+                                  "type":  "vague_report",
+                                  "evidence":  "DRY23-P2 contaminated-evidence-inventory.json",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P2",
+                                  "type":  "omitted_caveat",
+                                  "evidence":  "DRY20 closure readiness gap report (N16,N02)",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  false,
+                                  "currentSeverity":  "P2",
+                                  "type":  "fabricated_file_path",
+                                  "evidence":  "P1_NO_FAKE_EXPORTS in DRY25-P1 verifier",
+                                  "repaired":  "N/A"
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  false,
+                                  "currentSeverity":  "P2",
+                                  "type":  "claimed_export_not_present",
+                                  "evidence":  "DRY25-P1: all 20 exports verified real",
+                                  "repaired":  "N/A"
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  false,
+                                  "currentSeverity":  "P2",
+                                  "type":  "claimed_test_not_run",
+                                  "evidence":  "All verifiers have checkedAt timestamps",
+                                  "repaired":  "N/A"
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P2",
+                                  "type":  "markdown_PASS_without_verifier",
+                                  "evidence":  "Phased out after H14 factoryctl enforcement",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P3",
+                                  "type":  "expectedClass_only",
+                                  "evidence":  "7 verifier files H13-D→DRY22; phased out",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P2",
+                                  "type":  "manual_PASS",
+                                  "evidence":  "10 verifier files reference detection; blocked not passed",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P3",
+                                  "type":  "post_hoc_contract",
+                                  "evidence":  "DRY21 retroactive contracts marked in H15",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P2",
+                                  "type":  "stale_handoff",
+                                  "evidence":  "H13-D repair; nativeGenerated enforced since H14",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  false,
+                                  "currentSeverity":  "P2",
+                                  "type":  "duplicated_handoff",
+                                  "evidence":  "Single handoff maintained; integrity checks",
+                                  "repaired":  "N/A"
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P2",
+                                  "type":  "main_agent_fallback_hidden",
+                                  "evidence":  "DRY23-P2: 34 files quarantined; 3 replacement agents",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  false,
+                                  "currentSeverity":  "P2",
+                                  "type":  "failed_agent_counted_as_success",
+                                  "evidence":  "All verifier runs report separate PASS/FAIL",
+                                  "repaired":  "N/A"
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  true,
+                                  "currentSeverity":  "P2",
+                                  "type":  "scope_contamination_hidden",
+                                  "evidence":  "DRY24-P1 cross-scope-contamination.json",
+                                  "repaired":  true
+                              },
+                              {
+                                  "verifierGate":  true,
+                                  "occurred":  false,
+                                  "currentSeverity":  "P2",
+                                  "type":  "verifier_PASS_over_FAIL",
+                                  "evidence":  "H17 FAIL preserved; FAIL modules never suppressed",
+                                  "repaired":  "N/A"
+                              }
+                          ]
+}

@@ -1,0 +1,21 @@
+﻿{
+  "schemaId": "context-retention-policy",
+  "version": "1.0.0",
+  "generatedAt": "2026-06-25T00:09:03+08:00",
+  "generatedDuringPhase": "LIVE-RUNTIME-3-A",
+  "nativeGenerated": true,
+  "retentionRules": {
+    "HIGH confidence entries": "Retain indefinitely; revalidate every 7 days",
+    "MEDIUM confidence entries": "Retain 30 days; revalidate every 3 days",
+    "LOW confidence entries": "Retain 14 days; never used for gates",
+    "SUPERSEDED entries": "Retain as historical record; marked superseded",
+    "REJECTED entries": "Retain with REJECTED flag; excluded from query defaults",
+    "STALE entries": "Flagged; excluded from query unless explicitly requested"
+  },
+  "cleanupRules": [
+    "Never delete HIGH entries without explicit user confirmation",
+    "SUPERSEDED entries retained for audit trail",
+    "REJECTED entries retained so rejection is not lost across sessions",
+    "No automatic deletion of any entry during live phase"
+  ]
+}

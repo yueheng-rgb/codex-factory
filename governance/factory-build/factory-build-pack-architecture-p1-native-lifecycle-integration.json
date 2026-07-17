@@ -1,0 +1,61 @@
+﻿{
+    "lifecycleFlow":  [
+                          {
+                              "gate":  "Context packet must PASS validation",
+                              "actions":  [
+                                              "Context packet generated + validated",
+                                              "Write scope defined",
+                                              "Handoff packet prepared"
+                                          ],
+                              "stage":  "PRE_SPAWN"
+                          },
+                          {
+                              "gate":  "Registry entry created",
+                              "actions":  [
+                                              "spawn_agent called with fork_context:false",
+                                              "Agent receives AGENT_START_PACKET",
+                                              "Agent registered in lifecycle registry"
+                                          ],
+                              "stage":  "SPAWN"
+                          },
+                          {
+                              "gate":  "Write scope enforced",
+                              "actions":  [
+                                              "Agent executes within write scope",
+                                              "Agent reports via handoff protocol",
+                                              "Overhead metrics tracked"
+                                          ],
+                              "stage":  "ACTIVE"
+                          },
+                          {
+                              "gate":  "Close receipt archived",
+                              "actions":  [
+                                              "Close receipt generated",
+                                              "Orphan check performed",
+                                              "Registry updated to \u0027closed\u0027"
+                                          ],
+                              "stage":  "CLOSE"
+                          },
+                          {
+                              "gate":  "No orphan agents",
+                              "actions":  [
+                                              "Agent result reviewed",
+                                              "Diagnostic gate may trigger",
+                                              "Memory updated with agent outcomes"
+                                          ],
+                              "stage":  "POST_CLOSE"
+                          }
+                      ],
+    "rules":  [
+                  "No spawn_agent without validated AGENT_START_PACKET",
+                  "No spawn_agent without write scope definition",
+                  "All spawns use fork_context:false",
+                  "All agents must have close receipt within iteration boundary",
+                  "UI agent count is cumulative created records, not active agent truth",
+                  "Agent count is NEVER used as product quality proof"
+              ],
+    "section":  "I",
+    "integrationWithContextPacket":  "AGENT_START_PACKET is generated before each spawn_agent call. The packet provides role-specific context, forbidden assumptions, and evidence paths — preventing agents from operating without knowing current state and boundaries.",
+    "phase":  "FACTORY-BUILD-PACK-ARCHITECTURE-P1",
+    "title":  "Native Agent Lifecycle Integration"
+}

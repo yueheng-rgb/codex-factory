@@ -1,0 +1,29 @@
+﻿{
+    "title":  "Automation Rotation Watcher — Design Plan (No Implementation)",
+    "subPhase":  "E",
+    "designPlan":  {
+                       "remainingForImplementation":  [
+                                                          "Runtime scheduling (cron/task scheduler integration)",
+                                                          "Automated alert routing (notification channel)",
+                                                          "Compressed-context signal from Codex environment API",
+                                                          "Rotation watcher integration into factoryctl watch command"
+                                                      ],
+                       "whyAlertNotPass":  "Alerts detect signals; only verifiers gate phase transitions. Alert != PASS prevents false automation-driven advancement.",
+                       "noMutation":  "Watcher reads state only. Never writes governance state, never advances phase, never creates handoff.",
+                       "reportingMechanism":  "Read-only alert via monitoring output. Alert is NOT a verifier PASS.",
+                       "whatToMonitor":  [
+                                             "currentTrustedPhase staleness",
+                                             "session-rotation-handoff.json age",
+                                             "compressed context signal detection",
+                                             "agent registry active/stale counts",
+                                             "verifier result staleness vs state",
+                                             "factory-state write timestamps"
+                                         ],
+                       "rotationRecommendation":  "If handoff is \u003e 24h stale or phase is stale without recent verification, recommend manual session rotation + startup verification."
+                   },
+    "nativeGenerated":  true,
+    "productionReady":  false,
+    "nonMutating":  true,
+    "phase":  "LIVE-RUNTIME-1",
+    "generatedAt":  "2026-06-24T23:54:43+08:00"
+}

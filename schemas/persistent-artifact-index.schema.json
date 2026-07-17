@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Persistent Artifact Index",
+  "description": "Codex Factory V3.0 — Persistent Artifact Store Index",
+  "type": "object",
+  "required": ["index_id","created_at","artifacts"],
+  "properties": {
+    "index_id": {"type":"string"},
+    "created_at": {"type":"string","format":"date-time"},
+    "artifacts": {"type":"array","items":{
+      "type":"object",
+      "required":["artifact_id","run_id","path","sha256","created_at"],
+      "properties": {
+        "artifact_id":{"type":"string"},"run_id":{"type":"string"},"path":{"type":"string"},
+        "sha256":{"type":"string"},"size":{"type":"integer"},"created_at":{"type":"string","format":"date-time"},
+        "retention_policy":{"type":"string","enum":["permanent","phase_duration","run_duration"]},
+        "linked_review_id":{"type":"string"},"linked_ledger_entry":{"type":"string"},
+        "snapshot_ref":{"type":"string"}
+      }
+    }}
+  }
+}

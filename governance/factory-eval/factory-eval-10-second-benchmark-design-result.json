@@ -1,0 +1,16 @@
+﻿{
+  "phase": "FACTORY-EVAL-10",
+  "title": "Second Benchmark Design Result — LedgerFlow Lite",
+  "status": "COMPLETED",
+  "verifierResult": "28/28 PASS",
+  "negativeControls": "30/30 PASS, 0 gaps",
+  "createdAt": "2026-06-25T20:30:00+08:00",
+  "project": "LedgerFlow Lite — invoicing/expense system with approval workflow",
+  "differentFromTeamFlowLite": true,
+  "functionalRequirements": 16,
+  "runs": ["RUN-A Vanilla", "RUN-B v0.4 Factory Lite Core", "RUN-C v0.4 3-Role Optional"],
+  "implementationStarted": false,
+  "oneBenchmarkCaveatPreserved": true,
+  "noReleaseZipCreated": true,
+  "closure": "FACTORY-EVAL-10 PASS. LedgerFlow Lite second benchmark designed. Ready for user review before FACTORY-EVAL-11 (Vanilla Run)."
+}
