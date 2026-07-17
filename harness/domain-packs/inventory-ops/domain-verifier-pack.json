@@ -1,0 +1,228 @@
+{
+  "verifierPackId": "inventory-ops-verifier",
+  "domainId": "inventory-ops",
+  "acceptanceScenarios": [
+    {
+      "scenarioId": "S-001",
+      "description": "Inbound adjustment correctly updates stock level",
+      "requiredInputs": [
+        "valid SKU",
+        "positive quantity",
+        "idempotency key"
+      ],
+      "expectedOutputs": [
+        "stock level increased by quantity",
+        "audit event created"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "available stock >= 0",
+        "audit event created"
+      ]
+    },
+    {
+      "scenarioId": "S-002",
+      "description": "Outbound adjustment rejected when insufficient stock",
+      "requiredInputs": [
+        "valid SKU",
+        "quantity > available stock"
+      ],
+      "expectedOutputs": [
+        "adjustment rejected",
+        "REJECT error message",
+        "stock unchanged"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "available stock >= 0"
+      ]
+    },
+    {
+      "scenarioId": "S-003",
+      "description": "Duplicate idempotency key rejected",
+      "requiredInputs": [
+        "previously used idempotency key"
+      ],
+      "expectedOutputs": [
+        "adjustment rejected",
+        "DUPLICATE_KEY error"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "duplicate idempotency key cannot double-apply"
+      ]
+    },
+    {
+      "scenarioId": "S-004",
+      "description": "Reservation exceeds on-hand rejected",
+      "requiredInputs": [
+        "reserve quantity > onHand"
+      ],
+      "expectedOutputs": [
+        "reservation rejected"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "reserved <= onHand"
+      ]
+    },
+    {
+      "scenarioId": "S-005",
+      "description": "Audit event created on every adjustment",
+      "requiredInputs": [
+        "any valid adjustment"
+      ],
+      "expectedOutputs": [
+        "paired audit event with matching eventId"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "audit event created"
+      ]
+    },
+    {
+      "scenarioId": "S-006",
+      "description": "Stale version update rejected",
+      "requiredInputs": [
+        "stock record version=3",
+        "update with version=2"
+      ],
+      "expectedOutputs": [
+        "update rejected",
+        "STALE_VERSION error"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "stale version rejected"
+      ]
+    },
+    {
+      "scenarioId": "S-007",
+      "description": "Transfer decrements source and increments destination",
+      "requiredInputs": [
+        "valid from/to locations",
+        "sufficient source stock"
+      ],
+      "expectedOutputs": [
+        "source decremented",
+        "destination incremented",
+        "audit events created"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "audit event created"
+      ]
+    },
+    {
+      "scenarioId": "S-008",
+      "description": "Adjustment with quantity zero handled gracefully",
+      "requiredInputs": [
+        "quantity=0 adjustment"
+      ],
+      "expectedOutputs": [
+        "handled without error or rejected with clear message"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE"
+    }
+  ],
+  "negativeControls": [
+    {
+      "negativeId": "N-001",
+      "targetsScenario": "S-001",
+      "injectedFault": "skip stock update after inbound adjustment",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-002",
+      "targetsScenario": "S-002",
+      "injectedFault": "allow outbound when insufficient stock",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-003",
+      "targetsScenario": "S-003",
+      "injectedFault": "ignore idempotency key check",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-004",
+      "targetsScenario": "S-004",
+      "injectedFault": "skip reservation limit check",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-005",
+      "targetsScenario": "S-005",
+      "injectedFault": "omit audit event after adjustment",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-006",
+      "targetsScenario": "S-006",
+      "injectedFault": "accept stale version update",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    }
+  ],
+  "requiredEvidence": [
+    "RUN_STATE.jsonl",
+    "reports/functional-acceptance-report.json",
+    "reports/gatecheck-report.json",
+    "worker-freeze-manifests/",
+    "reports/audit-event-log.json"
+  ],
+  "domainSpecificFailureModes": [
+    "duplicate_idempotency_key",
+    "insufficient_stock",
+    "stale_version",
+    "missing_audit_event",
+    "negative_available_stock",
+    "reservation_exceeds_on_hand"
+  ],
+  "invariantChecks": [
+    {
+      "invariant": "available stock >= 0",
+      "scenarioId": "S-001",
+      "negativeId": "N-001"
+    },
+    {
+      "invariant": "duplicate idempotency key cannot double-apply",
+      "scenarioId": "S-003",
+      "negativeId": "N-003"
+    },
+    {
+      "invariant": "reserved <= onHand",
+      "scenarioId": "S-004",
+      "negativeId": "N-004"
+    },
+    {
+      "invariant": "audit event created on adjustment",
+      "scenarioId": "S-005",
+      "negativeId": "N-005"
+    },
+    {
+      "invariant": "stale version rejected",
+      "scenarioId": "S-006",
+      "negativeId": "N-006"
+    }
+  ],
+  "reportRequirements": [
+    "Must list invariant->scenario mapping",
+    "Must list scenario->negative mapping",
+    "Must show gap count for uncovered invariants",
+    "Must confirm all business rules have scenarios"
+  ]
+}

@@ -1,0 +1,75 @@
+﻿{
+    "version":  "1.0.0",
+    "acceptanceEvidenceStandard":  {
+                                       "requiresEvidenceRefs":  true,
+                                       "requiresNodeExecution":  true,
+                                       "minAssertionsPerPass":  1,
+                                       "requiresCommand":  true,
+                                       "requiresExitCode":  true,
+                                       "forbidsPreclassifiedOnly":  true,
+                                       "requiresAssertionCount":  true,
+                                       "requiresActualSummary":  true,
+                                       "forbidsHardcodedPass":  true,
+                                       "requiresExpectedSummary":  true,
+                                       "requiresTranscript":  true,
+                                       "requiresInputSummary":  true
+                                   },
+    "negativeControls":  [
+                             {
+                                 "expected":  "FAIL_TARGET_GATE",
+                                 "targetScenario":  "incident_lifecycle_transition_valid",
+                                 "negativeId":  "invalid-status-transition"
+                             },
+                             {
+                                 "expected":  "FAIL_TARGET_GATE",
+                                 "targetScenario":  "role_based_action_authorization",
+                                 "negativeId":  "unauthorized-close"
+                             },
+                             {
+                                 "expected":  "FAIL_TARGET_GATE",
+                                 "targetScenario":  "containment_required_before_closure",
+                                 "negativeId":  "missing-containment"
+                             },
+                             {
+                                 "expected":  "FAIL_TARGET_GATE",
+                                 "targetScenario":  "remediation_required_before_closure",
+                                 "negativeId":  "missing-remediation"
+                             },
+                             {
+                                 "expected":  "FAIL_TARGET_GATE",
+                                 "targetScenario":  "incident_close_with_all_evidence",
+                                 "negativeId":  "missing-evidence-close"
+                             },
+                             {
+                                 "expected":  "FAIL_TARGET_GATE",
+                                 "targetScenario":  "postmortem_requires_closed_incident",
+                                 "negativeId":  "postmortem-on-open"
+                             },
+                             {
+                                 "expected":  "FAIL_TARGET_GATE",
+                                 "targetScenario":  "timeline_immutable_after_closure",
+                                 "negativeId":  "timeline-mutation-after-close"
+                             },
+                             {
+                                 "expected":  "FAIL_TARGET_GATE",
+                                 "targetScenario":  "export_import_preserves_full_state",
+                                 "negativeId":  "export-import-corruption"
+                             }
+                         ],
+    "packId":  "incident-response-ops-verifier-v1",
+    "requiredChecks":  [
+                           "incident_lifecycle_valid",
+                           "containment_before_closure",
+                           "remediation_before_closure",
+                           "severity_escalation_audited",
+                           "invalid_transition_rejected",
+                           "unauthorized_role_rejected",
+                           "close_requires_evidence",
+                           "escalation_preserves_context",
+                           "postmortem_requires_closed",
+                           "export_import_roundtrip"
+                       ],
+    "phase":  "DRY18-A-clean-start",
+    "domain":  "incident-response-ops",
+    "generatedAt":  "2026-06-22T21:40:21.6559160+08:00"
+}

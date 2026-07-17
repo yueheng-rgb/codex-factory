@@ -1,0 +1,34 @@
+﻿{
+  "schemaVersion": "6C-T0-R1",
+  "name": "AUDIT_BUNDLE_SCHEMA",
+  "description": "Defines required directories and files for a valid Phase 6C audit bundle ZIP. Updated for T0-R1.",
+  "requiredDirectories": [
+    "docs",
+    "scripts",
+    "tests",
+    "run",
+    "reports",
+    "command-logs",
+    "evidence"
+  ],
+  "requiredReportsInZip": [
+    "reports/harness-inventory-report.json",
+    "reports/audit-bundle-schema-validation-report.json",
+    "reports/bundle-layout-report.json",
+    "reports/sha256sums-validation-report.json",
+    "reports/future-project-risk-report.json"
+  ],
+  "requiredReportsExternal": [
+    "reports/final-zip-self-consistency-report.json"
+  ],
+  "requiredBundleFiles": [
+    "PHASE_*_FINAL_REPORT.md",
+    "SHA256SUMS.txt"
+  ],
+  "forbiddenAtRoot": [
+    "*.ps1",
+    "*.json"
+  ],
+  "selfReferenceRule": "ZIP internal report must NOT contain the ZIP's own final SHA256. Digest goes in external sidecar metadata.",
+  "note": "final-zip-self-consistency-report.json is external (post-ZIP) because the ZIP must be closed before self-consistency can be verified."
+}

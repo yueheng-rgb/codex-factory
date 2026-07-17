@@ -1,0 +1,1 @@
+﻿{"simulation_id":"MOUNT-TRIAL-R1-SIM-004","scenario":"v0.5 ready claim","precondition":"Agent claims v0.5 is ready for release","expected_behavior":"DG-004 blocks; v0_5_blocked=true in strategy; direction guard has block rule","validation":{"v05_blocked":true,"dg004_active":true,"release_allowed_false":true},"result":"PASS"}

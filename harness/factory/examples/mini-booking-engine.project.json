@@ -1,0 +1,620 @@
+﻿{
+    "workers":  [
+                    {
+                        "workerId":  "worker-1",
+                        "acceptanceDescription":  "Worker 1 creates 4 files: serviceTypes.js, createService.js, updateService.js, filterServices.js.",
+                        "description":  "Service catalog: defines service objects, createService, updateService, filterServices, normalizeServiceInput, isServiceActive.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.service.ServiceStatus",
+                                            "signature":  {
+                                                              "returns":  "ServiceStatus",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "ServiceStatus",
+                                            "file":  "src/serviceTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.createService",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "createService",
+                                            "file":  "src/createService.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.updateService",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "updateService",
+                                            "file":  "src/updateService.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.filterServices",
+                                            "signature":  {
+                                                              "returns":  "object[]",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "filterServices",
+                                            "file":  "src/filterServices.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.normalizeServiceInput",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "normalizeServiceInput",
+                                            "file":  "src/serviceTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.isServiceActive",
+                                            "signature":  {
+                                                              "returns":  "boolean",
+                                                              "params":  [
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "isServiceActive",
+                                            "file":  "src/serviceTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.searchServices",
+                                            "signature":  {
+                                                              "returns":  "object[]",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "string"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "searchServices",
+                                            "file":  "src/serviceSearch.js"
+                                        }
+                                    ],
+                        "imports":  [
+
+                                    ],
+                        "ownedPaths":  [
+                                           "src/serviceTypes.js",
+                                           "src/createService.js",
+                                           "src/updateService.js",
+                                           "src/filterServices.js",
+                                           "src/serviceSearch.js"
+                                       ],
+                        "taskDescription":  "Create 4 JavaScript files using module.exports pattern. File1 serviceTypes.js: export ServiceStatus=\u0027active\u0027|\u0027paused\u0027|\u0027archived\u0027, normalizeServiceInput(input) function that returns {name:trimmed, durationMinutes:default 30, priceCents:default 0, status:\u0027active\u0027, tags:[]}, isServiceActive(service) returns true if status===\u0027active\u0027. File2 createService.js: export createService(input) generates id \u0027SVC-\u0027+timestamp, uses normalizeServiceInput, sets createdAt/updatedAt. File3 updateService.js: export updateService(service, patch) returns new object with patch merged, updates updatedAt. File4 filterServices.js: export filterServices(services, filter) filters by status, minPrice, maxPrice, tag. All functions return new objects, no mutation. Use module.exports = { ... } pattern."
+                    },
+                    {
+                        "workerId":  "worker-2",
+                        "acceptanceDescription":  "Worker 2 imports from W1 and creates 4 files.",
+                        "description":  "Time slot management: slot generation, availability checking, slot filtering.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.slot.TimeSlot",
+                                            "signature":  {
+                                                              "returns":  "TimeSlot",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "TimeSlot",
+                                            "file":  "src/slotTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.generateSlots",
+                                            "signature":  {
+                                                              "returns":  "object[]",
+                                                              "params":  [
+                                                                             "object",
+                                                                             "string",
+                                                                             "number",
+                                                                             "number",
+                                                                             "number"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "generateSlots",
+                                            "file":  "src/generateSlots.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.checkAvailability",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object",
+                                                                             "object[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "checkAvailability",
+                                            "file":  "src/checkAvailability.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.filterSlots",
+                                            "signature":  {
+                                                              "returns":  "object[]",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "filterSlots",
+                                            "file":  "src/filterSlots.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.validateSlot",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "validateSlot",
+                                            "file":  "src/validateSlot.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.validateSlotRange",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "validateSlotRange",
+                                            "file":  "src/validateSlot.js"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.service.createService",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "createService",
+                                            "file":  "src/createService.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.isServiceActive",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "isServiceActive",
+                                            "file":  "src/serviceTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.isServiceActive",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "isServiceActive",
+                                            "file":  "src/validateSlot.js"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/slotTypes.js",
+                                           "src/generateSlots.js",
+                                           "src/checkAvailability.js",
+                                           "src/filterSlots.js",
+                                           "src/validateSlot.js"
+                                       ],
+                        "taskDescription":  "Create 4 JavaScript files. Import createService, isServiceActive from W1. File1 slotTypes.js: export TimeSlot interface pattern (id, serviceId, startTime ISO string, endTime ISO string, capacity, booked). File2 generateSlots.js: export generateSlots(service, date, startHour, endHour, slotDurationMin) generates array of TimeSlot objects for a day. File3 checkAvailability.js: export checkAvailability(slot, existingBookings) checks if slot has capacity remaining, returns {available:boolean,remaining:number}. File4 filterSlots.js: export filterSlots(slots, filter) filters by serviceId, startTime range, minCapacity. Use require() for imports, module.exports for exports."
+                    },
+                    {
+                        "workerId":  "worker-3",
+                        "acceptanceDescription":  "Worker 3 imports from W1, W2 and creates 4 files.",
+                        "description":  "Booking engine: create booking with conflict detection, cancel booking, list bookings.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.booking.BookingStatus",
+                                            "signature":  {
+                                                              "returns":  "BookingStatus",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "BookingStatus",
+                                            "file":  "src/bookingTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.Booking",
+                                            "signature":  {
+                                                              "returns":  "Booking",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Booking",
+                                            "file":  "src/bookingTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.createBooking",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object",
+                                                                             "object",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "createBooking",
+                                            "file":  "src/createBooking.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.cancelBooking",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "cancelBooking",
+                                            "file":  "src/cancelBooking.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.listBookings",
+                                            "signature":  {
+                                                              "returns":  "object[]",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "listBookings",
+                                            "file":  "src/listBookings.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.validateBookingInput",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object",
+                                                                             "object",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "validateBookingInput",
+                                            "file":  "src/bookingHelpers.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.generateBookingId",
+                                            "signature":  {
+                                                              "returns":  "string",
+                                                              "params":  [
+                                                                             "string"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "generateBookingId",
+                                            "file":  "src/bookingHelpers.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.isBookingConflict",
+                                            "signature":  {
+                                                              "returns":  "boolean",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "isBookingConflict",
+                                            "file":  "src/bookingHelpers.js"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.service.isServiceActive",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "isServiceActive",
+                                            "file":  "src/serviceTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.checkAvailability",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "checkAvailability",
+                                            "file":  "src/checkAvailability.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.TimeSlot",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "TimeSlot",
+                                            "file":  "src/slotTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.isServiceActive",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "isServiceActive",
+                                            "file":  "src/bookingHelpers.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.checkAvailability",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "checkAvailability",
+                                            "file":  "src/bookingHelpers.js"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/bookingTypes.js",
+                                           "src/createBooking.js",
+                                           "src/cancelBooking.js",
+                                           "src/listBookings.js",
+                                           "src/bookingHelpers.js"
+                                       ],
+                        "taskDescription":  "Create 4 JavaScript files. Import from W1 (services) and W2 (slots). File1 bookingTypes.js: export BookingStatus=\u0027confirmed\u0027|\u0027cancelled\u0027, Booking interface (id, serviceId, slotId, customerName, customerEmail, status, createdAt). File2 createBooking.js: export createBooking(service, slot, customer) checks slot availability via W2, creates booking id \u0027BOOK-\u0027+timestamp, sets status=\u0027confirmed\u0027. Returns {booking, error} — error if slot full or service inactive. File3 cancelBooking.js: export cancelBooking(booking) sets status=\u0027cancelled\u0027, sets cancelledAt, returns new object. File4 listBookings.js: export listBookings(bookings, filter) filters by serviceId, status, customerEmail. Use require() and module.exports."
+                    },
+                    {
+                        "workerId":  "worker-4",
+                        "acceptanceDescription":  "Worker 4 imports from W1, W2, W3 and creates 4 files.",
+                        "description":  "Booking reports: summary, daily report, Markdown rendering.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.report.ReportType",
+                                            "signature":  {
+                                                              "returns":  "ReportType",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "ReportType",
+                                            "file":  "src/reportTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.ReportStatus",
+                                            "signature":  {
+                                                              "returns":  "ReportStatus",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "ReportStatus",
+                                            "file":  "src/reportTypes.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.buildBookingSummary",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "buildBookingSummary",
+                                            "file":  "src/buildBookingSummary.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.buildDailyReport",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object[]",
+                                                                             "string"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "buildDailyReport",
+                                            "file":  "src/buildDailyReport.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.renderBookingReport",
+                                            "signature":  {
+                                                              "returns":  "string",
+                                                              "params":  [
+                                                                             "object",
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "renderBookingReport",
+                                            "file":  "src/renderBookingReport.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.calculateRevenue",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "calculateRevenue",
+                                            "file":  "src/reportCalculator.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.calculateOccupancy",
+                                            "signature":  {
+                                                              "returns":  "object",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "calculateOccupancy",
+                                            "file":  "src/reportCalculator.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.aggregateByService",
+                                            "signature":  {
+                                                              "returns":  "object[]",
+                                                              "params":  [
+                                                                             "object[]",
+                                                                             "object[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "aggregateByService",
+                                            "file":  "src/reportCalculator.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.renderReportToMarkdown",
+                                            "signature":  {
+                                                              "returns":  "string",
+                                                              "params":  [
+                                                                             "object"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "renderReportToMarkdown",
+                                            "file":  "src/reportMarkdown.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.report.renderSummaryTable",
+                                            "signature":  {
+                                                              "returns":  "string",
+                                                              "params":  [
+                                                                             "object[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "renderSummaryTable",
+                                            "file":  "src/reportMarkdown.js"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.service.filterServices",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "filterServices",
+                                            "file":  "src/buildBookingSummary.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.listBookings",
+                                            "fromWorkerId":  "worker-3",
+                                            "name":  "listBookings",
+                                            "file":  "src/buildBookingSummary.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.filterServices",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "filterServices",
+                                            "file":  "src/buildDailyReport.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.filterSlots",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "filterSlots",
+                                            "file":  "src/buildDailyReport.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.generateSlots",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "generateSlots",
+                                            "file":  "src/buildDailyReport.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.filterServices",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "filterServices",
+                                            "file":  "src/renderBookingReport.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.filterSlots",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "filterSlots",
+                                            "file":  "src/renderBookingReport.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.filterServices",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "filterServices",
+                                            "file":  "src/reportCalculator.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.filterSlots",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "filterSlots",
+                                            "file":  "src/reportCalculator.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.booking.listBookings",
+                                            "fromWorkerId":  "worker-3",
+                                            "name":  "listBookings",
+                                            "file":  "src/reportCalculator.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.service.filterServices",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "filterServices",
+                                            "file":  "src/reportMarkdown.js"
+                                        },
+                                        {
+                                            "interfaceId":  "module.slot.filterSlots",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "filterSlots",
+                                            "file":  "src/reportMarkdown.js"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/reportTypes.js",
+                                           "src/buildBookingSummary.js",
+                                           "src/buildDailyReport.js",
+                                           "src/renderBookingReport.js",
+                                           "src/reportCalculator.js",
+                                           "src/reportMarkdown.js"
+                                       ],
+                        "taskDescription":  "Create 4 JavaScript files. Import from W1, W2, W3. File1 reportTypes.js: export BookingSummary interface (totalBookings, confirmedCount, cancelledCount, byService breakdown). File2 buildBookingSummary.js: export buildBookingSummary(bookings, services) computes summary stats. File3 buildDailyReport.js: export buildDailyReport(bookings, slots, date) builds daily utilization report. File4 renderBookingReport.js: export renderBookingReport(summary, dailyReport) generates Markdown with ## Booking Report header, summary table, daily breakdown. Use require() and module.exports."
+                    }
+                ],
+    "runId":  "dry7-mini-booking-engine",
+    "description":  "A JavaScript mini booking engine: service catalog, time slot management, booking creation with conflict detection, cancellation, and runtime-verified reports.",
+    "forbiddenPaths":  [
+                           "runs/dry7-mini-booking-engine/workspace/worker-2"
+                       ],
+    "projectName":  "mini-booking-engine",
+    "language":  "javascript",
+    "phase":  "Phase 6C-DRY7-A",
+    "$schema":  "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+    "acceptance":  [
+                       {
+                           "acceptanceId":  "AC-001",
+                           "description":  "Worker 1 creates 4 JS files: serviceTypes.js, createService.js, updateService.js, filterServices.js."
+                       },
+                       {
+                           "acceptanceId":  "AC-002",
+                           "description":  "Worker 2 imports from W1 and creates 4 JS files."
+                       },
+                       {
+                           "acceptanceId":  "AC-003",
+                           "description":  "Worker 3 imports from W1, W2 and creates 4 JS files with conflict detection."
+                       },
+                       {
+                           "acceptanceId":  "AC-004",
+                           "description":  "Worker 4 imports from W1, W2, W3 and creates 4 JS files with Markdown reports."
+                       },
+                       {
+                           "acceptanceId":  "AC-005",
+                           "description":  "Structural gates pass. Runtime scenarios execute with Node.js."
+                       }
+                   ]
+}

@@ -1,0 +1,508 @@
+﻿{
+    "forbiddenPaths":  [
+                           "runs/dry5-mini-commerce-ops/workspace/worker-2"
+                       ],
+    "projectName":  "mini-commerce-ops",
+    "workers":  [
+                    {
+                        "workerId":  "worker-1",
+                        "acceptanceDescription":  "Worker 1 creates 4 files: productTypes.ts (5 types), createProduct.ts, updateProduct.ts, searchProducts.ts.",
+                        "description":  "Product catalog core: defines ProductStatus, ProductCategory, ProductInput, Product, ProductSearchFilter types; createProduct, updateProduct, searchProducts functions.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.product.ProductStatus",
+                                            "signature":  {
+                                                              "returns":  "ProductStatus",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "ProductStatus",
+                                            "file":  "src/productTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.product.ProductCategory",
+                                            "signature":  {
+                                                              "returns":  "ProductCategory",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "ProductCategory",
+                                            "file":  "src/productTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.product.ProductInput",
+                                            "signature":  {
+                                                              "returns":  "ProductInput",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "ProductInput",
+                                            "file":  "src/productTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.product.Product",
+                                            "signature":  {
+                                                              "returns":  "Product",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Product",
+                                            "file":  "src/productTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.product.ProductSearchFilter",
+                                            "signature":  {
+                                                              "returns":  "ProductSearchFilter",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "ProductSearchFilter",
+                                            "file":  "src/productTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.product.createProduct",
+                                            "signature":  {
+                                                              "returns":  "Product",
+                                                              "params":  [
+                                                                             "ProductInput"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "createProduct",
+                                            "file":  "src/createProduct.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.product.updateProduct",
+                                            "signature":  {
+                                                              "returns":  "Product",
+                                                              "params":  [
+                                                                             "Product",
+                                                                             "Partial\u003cProductInput\u003e"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "updateProduct",
+                                            "file":  "src/updateProduct.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.product.searchProducts",
+                                            "signature":  {
+                                                              "returns":  "Product[]",
+                                                              "params":  [
+                                                                             "Product[]",
+                                                                             "ProductSearchFilter"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "searchProducts",
+                                            "file":  "src/searchProducts.ts"
+                                        }
+                                    ],
+                        "imports":  [
+
+                                    ],
+                        "ownedPaths":  [
+                                           "src/productTypes.ts",
+                                           "src/createProduct.ts",
+                                           "src/updateProduct.ts",
+                                           "src/searchProducts.ts"
+                                       ],
+                        "taskDescription":  "Create 4 TypeScript files. File1 productTypes.ts: export ProductStatus=\u0027draft\u0027|\u0027active\u0027|\u0027archived\u0027, ProductCategory=\u0027book\u0027|\u0027course\u0027|\u0027software\u0027|\u0027service\u0027|\u0027other\u0027, ProductSearchFilter interface(category?:ProductCategory,status?:ProductStatus,minPriceCents?:number,maxPriceCents?:number,tag?:string), ProductInput interface(name:string,priceCents:number,category?:ProductCategory,status?:ProductStatus,tags?:string[]), Product interface(id:string,name:string,priceCents:number,category:ProductCategory,status:ProductStatus,tags:string[],createdAt:string,updatedAt:string). File2 createProduct.ts: export createProduct(input:ProductInput):Product generates id like \u0027PROD-\u0027+timestamp, defaults category=\u0027other\u0027,status=\u0027draft\u0027,tags=[], sets timestamps. File3 updateProduct.ts: export updateProduct(product:Product,patch:Partial\u003cProductInput\u003e):Product returns NEW object, no mutation. File4 searchProducts.ts: export searchProducts(products:Product[],filter:ProductSearchFilter):Product[] filters by category,status,price range,tag. All functions return new objects, never mutate."
+                    },
+                    {
+                        "workerId":  "worker-2",
+                        "acceptanceDescription":  "Worker 2 imports Product from W1 and creates 5 files: cartTypes.ts, addCartItem.ts, removeCartItem.ts, computeCart.ts, applyCoupon.ts.",
+                        "description":  "Cart and pricing: defines CartItem, Cart, Coupon types; addCartItem, removeCartItem, computeCart, applyCoupon functions. Imports Product from Worker 1.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.cart.CartItem",
+                                            "signature":  {
+                                                              "returns":  "CartItem",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "CartItem",
+                                            "file":  "src/cartTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.Cart",
+                                            "signature":  {
+                                                              "returns":  "Cart",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Cart",
+                                            "file":  "src/cartTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.Coupon",
+                                            "signature":  {
+                                                              "returns":  "Coupon",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Coupon",
+                                            "file":  "src/cartTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.addCartItem",
+                                            "signature":  {
+                                                              "returns":  "Cart",
+                                                              "params":  [
+                                                                             "Cart|null",
+                                                                             "{id:string,name:string,priceCents:number}",
+                                                                             "number"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "addCartItem",
+                                            "file":  "src/addCartItem.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.removeCartItem",
+                                            "signature":  {
+                                                              "returns":  "Cart",
+                                                              "params":  [
+                                                                             "Cart",
+                                                                             "string"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "removeCartItem",
+                                            "file":  "src/removeCartItem.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.computeCart",
+                                            "signature":  {
+                                                              "returns":  "Cart",
+                                                              "params":  [
+                                                                             "Cart"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "computeCart",
+                                            "file":  "src/computeCart.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.applyCoupon",
+                                            "signature":  {
+                                                              "returns":  "Cart",
+                                                              "params":  [
+                                                                             "Cart",
+                                                                             "Coupon"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "applyCoupon",
+                                            "file":  "src/applyCoupon.ts"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.product.Product",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "Product",
+                                            "file":  "src/productTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.product.ProductInput",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "ProductInput",
+                                            "file":  "src/productTypes.ts"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/cartTypes.ts",
+                                           "src/addCartItem.ts",
+                                           "src/removeCartItem.ts",
+                                           "src/computeCart.ts",
+                                           "src/applyCoupon.ts"
+                                       ],
+                        "taskDescription":  "Create 5 TypeScript files. File1 cartTypes.ts: export CartItem interface(productId:string,name:string,priceCents:number,quantity:number), Cart interface(items:CartItem[],couponCode:string|null,subtotalCents:number,discountCents:number,totalCents:number), Coupon interface(code:string,percentOff:number,minSubtotalCents:number). File2 addCartItem.ts: export addCartItem(cart:Cart|null,product:{id:string,name:string,priceCents:number},quantity:number):Cart returns NEW cart with item added or quantity updated, handles null cart. File3 removeCartItem.ts: export removeCartItem(cart:Cart,productId:string):Cart returns NEW cart with item removed. File4 computeCart.ts: export computeCart(cart:Cart):Cart computes subtotalCents=sum(item.priceCents*item.quantity), returns NEW Cart with subtotal/discount/total. File5 applyCoupon.ts: export applyCoupon(cart:Cart,coupon:Coupon):Cart applies discount if subtotal \u003e= minSubtotalCents, returns NEW Cart with discountCents=floor(subtotal*percentOff/100) and updated totalCents. Import Product from worker-1/src/productTypes.ts. All functions return new objects, never mutate."
+                    },
+                    {
+                        "workerId":  "worker-3",
+                        "acceptanceDescription":  "Worker 3 imports Product from W1 and Cart from W2 and creates 4 files: orderTypes.ts, createOrder.ts, checkInventory.ts, updateOrderStatus.ts.",
+                        "description":  "Order and inventory: defines OrderStatus, OrderInput, Order, OrderItem, Inventory types; createOrder, checkInventory, updateOrderStatus functions. Imports Product from Worker 1 and Cart from Worker 2.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.order.OrderStatus",
+                                            "signature":  {
+                                                              "returns":  "OrderStatus",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "OrderStatus",
+                                            "file":  "src/orderTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.OrderItem",
+                                            "signature":  {
+                                                              "returns":  "OrderItem",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "OrderItem",
+                                            "file":  "src/orderTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.OrderInput",
+                                            "signature":  {
+                                                              "returns":  "OrderInput",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "OrderInput",
+                                            "file":  "src/orderTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.Order",
+                                            "signature":  {
+                                                              "returns":  "Order",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Order",
+                                            "file":  "src/orderTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.Inventory",
+                                            "signature":  {
+                                                              "returns":  "Inventory",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Inventory",
+                                            "file":  "src/orderTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.createOrder",
+                                            "signature":  {
+                                                              "returns":  "Order",
+                                                              "params":  [
+                                                                             "OrderInput",
+                                                                             "Cart"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "createOrder",
+                                            "file":  "src/createOrder.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.checkInventory",
+                                            "signature":  {
+                                                              "returns":  "{ok:boolean,shortages:{productId:string,requested:number,available:number}[]}",
+                                                              "params":  [
+                                                                             "Order",
+                                                                             "Inventory[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "checkInventory",
+                                            "file":  "src/checkInventory.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.updateOrderStatus",
+                                            "signature":  {
+                                                              "returns":  "Order",
+                                                              "params":  [
+                                                                             "Order",
+                                                                             "OrderStatus"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "updateOrderStatus",
+                                            "file":  "src/updateOrderStatus.ts"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.product.Product",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "Product",
+                                            "file":  "src/productTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.Cart",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "Cart",
+                                            "file":  "src/cartTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.CartItem",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "CartItem",
+                                            "file":  "src/cartTypes.ts"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/orderTypes.ts",
+                                           "src/createOrder.ts",
+                                           "src/checkInventory.ts",
+                                           "src/updateOrderStatus.ts"
+                                       ],
+                        "taskDescription":  "Create 4 TypeScript files. File1 orderTypes.ts: export OrderStatus=\u0027pending\u0027|\u0027confirmed\u0027|\u0027shipped\u0027|\u0027delivered\u0027|\u0027cancelled\u0027, OrderItem interface(productId:string,name:string,priceCents:number,quantity:number), OrderInput interface(customerEmail:string,items:OrderItem[]), Order interface(id:string,customerEmail:string,items:OrderItem[],status:OrderStatus,totalCents:number,createdAt:string,updatedAt:string), Inventory interface(productId:string,stock:number,reserved:number). File2 createOrder.ts: export createOrder(input:OrderInput,cart:{items:{productId:string,name:string,priceCents:number,quantity:number}[],totalCents:number}):Order generates id like \u0027ORD-\u0027+timestamp, defaults status=\u0027pending\u0027, sets timestamps, uses cart totalCents. File3 checkInventory.ts: export checkInventory(order:Order,inventory:Inventory[]):{ok:boolean,shortages:{productId:string,requested:number,available:number}[]} checks stock \u003e= order quantity for each item. File4 updateOrderStatus.ts: export updateOrderStatus(order:Order,status:OrderStatus):Order returns NEW object, no mutation. Import Product from worker-1, Cart from worker-2. All functions return new objects, never mutate."
+                    },
+                    {
+                        "workerId":  "worker-4",
+                        "acceptanceDescription":  "Worker 4 imports Product from W1, Cart from W2, Order from W3 and creates 4 files: revenueTypes.ts, computeRevenue.ts, getTopSellers.ts, renderOpsReport.ts.",
+                        "description":  "Ops analytics and Markdown reports: defines RevenueSummary, TopSeller types; computeRevenue, getTopSellers, renderOpsReport, renderRevenueChart functions. Imports Product from W1, Cart from W2, Order from W3.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.analytics.RevenueSummary",
+                                            "signature":  {
+                                                              "returns":  "RevenueSummary",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "RevenueSummary",
+                                            "file":  "src/revenueTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.analytics.TopSeller",
+                                            "signature":  {
+                                                              "returns":  "TopSeller",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "TopSeller",
+                                            "file":  "src/revenueTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.analytics.computeRevenue",
+                                            "signature":  {
+                                                              "returns":  "RevenueSummary",
+                                                              "params":  [
+                                                                             "Order[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "computeRevenue",
+                                            "file":  "src/computeRevenue.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.analytics.getTopSellers",
+                                            "signature":  {
+                                                              "returns":  "TopSeller[]",
+                                                              "params":  [
+                                                                             "Order[]",
+                                                                             "Product[]",
+                                                                             "number"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "getTopSellers",
+                                            "file":  "src/getTopSellers.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.analytics.renderOpsReport",
+                                            "signature":  {
+                                                              "returns":  "string",
+                                                              "params":  [
+                                                                             "RevenueSummary",
+                                                                             "TopSeller[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "renderOpsReport",
+                                            "file":  "src/renderOpsReport.ts"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.product.Product",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "Product",
+                                            "file":  "src/productTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.Cart",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "Cart",
+                                            "file":  "src/cartTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.cart.CartItem",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "CartItem",
+                                            "file":  "src/cartTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.Order",
+                                            "fromWorkerId":  "worker-3",
+                                            "name":  "Order",
+                                            "file":  "src/orderTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.order.OrderItem",
+                                            "fromWorkerId":  "worker-3",
+                                            "name":  "OrderItem",
+                                            "file":  "src/orderTypes.ts"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/revenueTypes.ts",
+                                           "src/computeRevenue.ts",
+                                           "src/getTopSellers.ts",
+                                           "src/renderOpsReport.ts"
+                                       ],
+                        "taskDescription":  "Create 4 TypeScript files. File1 revenueTypes.ts: export RevenueSummary interface(totalOrders:number,totalRevenueCents:number,averageOrderCents:number,totalItemsSold:number), TopSeller interface(productId:string,name:string,unitsSold:number,revenueCents:number). File2 computeRevenue.ts: export computeRevenue(orders:{items:{productId:string,priceCents:number,quantity:number}[],totalCents:number}[]):RevenueSummary computes total orders, total revenue, average order value, total items sold. File3 getTopSellers.ts: export getTopSellers(orders:{items:{productId:string,name:string,priceCents:number,quantity:number}[],totalCents:number}[],products:{id:string,name:string}[],limit:number):TopSeller[] aggregates items across orders, returns top N by revenue. File4 renderOpsReport.ts: export renderOpsReport(summary:RevenueSummary,topSellers:TopSeller[]):string generates a Markdown report with revenue summary table and top sellers list. Import Product from worker-1, Cart from worker-2, Order from worker-3. All functions return new objects, never mutate."
+                    }
+                ],
+    "description":  "A TypeScript mini e-commerce operations engine: product catalog, cart with pricing/coupons, order and inventory management, ops analytics with Markdown reports.",
+    "acceptance":  [
+                       {
+                           "acceptanceId":  "AC-001",
+                           "description":  "Worker 1 creates 4 files: productTypes.ts (5 types), createProduct.ts, updateProduct.ts, searchProducts.ts."
+                       },
+                       {
+                           "acceptanceId":  "AC-002",
+                           "description":  "Worker 2 imports Product,ProductInput from W1 and creates 5 files: cartTypes.ts, addCartItem.ts, removeCartItem.ts, computeCart.ts, applyCoupon.ts."
+                       },
+                       {
+                           "acceptanceId":  "AC-003",
+                           "description":  "Worker 3 imports Product from W1 and Cart,CartItem from W2, creates 4 files: orderTypes.ts, createOrder.ts, checkInventory.ts, updateOrderStatus.ts."
+                       },
+                       {
+                           "acceptanceId":  "AC-004",
+                           "description":  "Worker 4 imports Product from W1, Cart/CartItem from W2, Order/OrderItem from W3, creates 4 files: revenueTypes.ts, computeRevenue.ts, getTopSellers.ts, renderOpsReport.ts."
+                       },
+                       {
+                           "acceptanceId":  "AC-005",
+                           "description":  "No cross-workspace writes. Contract, honesty, drift, isolation, integration, token proof, and hash chain gates must pass."
+                       }
+                   ],
+    "runId":  "dry5-mini-commerce-ops",
+    "$schema":  "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+    "phase":  "Phase 6C-DRY5-A"
+}

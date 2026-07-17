@@ -1,0 +1,63 @@
+﻿{
+    "title":  "Audit Contract Schema",
+    "schemaVersion":  "H2-R1",
+    "properties":  {
+                       "immutableEvidencePaths":  {
+                                                      "items":  {
+                                                                    "type":  "string"
+                                                                },
+                                                      "type":  "array"
+                                                  },
+                       "auditorRole":  {
+                                           "default":  "Auditor",
+                                           "type":  "string"
+                                       },
+                       "intendedFailureMismatchDetection":  {
+                                                                "type":  "boolean"
+                                                            },
+                       "closedEvidenceMutationDetection":  {
+                                                               "type":  "boolean"
+                                                           },
+                       "reportEpochComparison":  {
+                                                     "type":  "boolean"
+                                                 },
+                       "requiredAuditChecks":  {
+                                                   "items":  {
+                                                                 "type":  "string"
+                                                             },
+                                                   "type":  "array"
+                                               },
+                       "proofHashNoiseDetection":  {
+                                                       "type":  "boolean"
+                                                   },
+                       "sourceHashVerification":  {
+                                                      "type":  "boolean"
+                                                  },
+                       "runId":  {
+                                     "type":  "string"
+                                 },
+                       "skippedAsPassDetection":  {
+                                                      "type":  "boolean"
+                                                  },
+                       "phase":  {
+                                     "type":  "string"
+                                 },
+                       "thresholdDriftDetection":  {
+                                                       "type":  "boolean"
+                                                   },
+                       "staleReportDetection":  {
+                                                    "type":  "boolean"
+                                                }
+                   },
+    "type":  "object",
+    "required":  [
+                     "runId",
+                     "requiredAuditChecks",
+                     "staleReportDetection",
+                     "thresholdDriftDetection",
+                     "skippedAsPassDetection",
+                     "intendedFailureMismatchDetection",
+                     "closedEvidenceMutationDetection",
+                     "proofHashNoiseDetection"
+                 ]
+}

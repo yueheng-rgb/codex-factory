@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "H3-R1",
+  "title": "Domain Skill Pack Schema",
+  "type": "object",
+  "required": [
+    "domainId",
+    "domainName",
+    "domainVersion",
+    "glossary",
+    "domainEntities",
+    "workflows",
+    "businessRules",
+    "invariants",
+    "forbiddenAssumptions",
+    "requiredWorkerResponsibilities",
+    "requiredDomainScenarios"
+  ],
+  "properties": {
+    "domainId": {
+      "type": "string"
+    },
+    "domainName": {
+      "type": "string"
+    },
+    "domainVersion": {
+      "type": "string"
+    },
+    "domainBrief": {
+      "type": "string"
+    },
+    "glossary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "entity": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "domainEntities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entityId": {
+            "type": "string"
+          },
+          "entityName": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "primaryKey": {
+            "type": "string"
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "workflows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "workflowId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "involvedEntities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "businessRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ruleId",
+          "description",
+          "severity",
+          "affectedEntities",
+          "positiveExamples",
+          "negativeExamples",
+          "acceptanceImplication"
+        ],
+        "properties": {
+          "ruleId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "affectedEntities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "positiveExamples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "negativeExamples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "acceptanceImplication": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "invariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "edgeCases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exampleData": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "forbiddenAssumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredWorkerResponsibilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "workerRole": {
+            "type": "string"
+          },
+          "responsibilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "assignedEntities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "requiredDomainScenarios": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

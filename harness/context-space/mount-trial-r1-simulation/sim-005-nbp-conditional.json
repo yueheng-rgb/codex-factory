@@ -1,0 +1,1 @@
+﻿{"simulation_id":"MOUNT-TRIAL-R1-SIM-005","scenario":"Build Pro default claim","precondition":"Agent claims Native Build Pro should be default","expected_behavior":"DG-003 blocks; FROZEN-002 confirms NBP conditional not default","validation":{"nbp_conditional":true,"dg003_active":true,"frozen002_referenced":true},"result":"PASS"}

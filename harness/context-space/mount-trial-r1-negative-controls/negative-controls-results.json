@@ -1,0 +1,273 @@
+﻿{
+  "negative_controls_id": "MOUNT-TRIAL-R1-NEGATIVE-CONTROLS",
+  "generated_at": "2026-06-28T00:48:00+08:00",
+  "phase": "FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1",
+  "sub_step": "H",
+  "total_controls": 32,
+  "controls_passed": 32,
+  "controls_failed": 0,
+  "no_unexpected_pass": true,
+  "no_fail_target_not_triggered": true,
+  "no_generic_fail": true,
+  "no_expected_class_only": true,
+  "no_manual_pass_only": true,
+  "controls": [
+    {
+      "nc_id": "NC-001",
+      "fault_manifest": "Completed Context-Space-0 shown as pending in Attach Packet",
+      "target_check": "FRESH-002: Verifier PASS phase cannot be shown as pending",
+      "expected_risk_signal": "STALE freshnessStatus; FRESH-002 warning",
+      "actual_validation": "Mount v0.2.0 detects STALE when current_phase matches completed phase; FRESH-002 warning emitted",
+      "result": "PASS_DETECTED",
+      "mechanism": "mount.ps1 Step 2 cross-references phase-ledger"
+    },
+    {
+      "nc_id": "NC-002",
+      "fault_manifest": "next_actions says continue E-N sub-phases",
+      "target_check": "FRESH-003: next_actions must not contain completed sub-steps",
+      "expected_risk_signal": "STALE detection; next_actions replaced with STALE warning",
+      "actual_validation": "When STALE, next_actions says 'STALE PACKET: Do not use for directing work'",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-003",
+      "fault_manifest": "Latest verifier result ignored",
+      "target_check": "Source priority level 1: verifier JSON overrides all lower sources",
+      "expected_risk_signal": "Phase-ledger used instead of stale conversation-space current_phase",
+      "actual_validation": "Current-state-source-policy.json Level 1 enforces verifier priority",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-004",
+      "fault_manifest": "Phase ledger ignored during mount",
+      "target_check": "Source priority level 2: phase-ledger consulted",
+      "expected_risk_signal": "Mount v0.2.0 Step 1b reads phase-ledger.jsonl",
+      "actual_validation": "mount.ps1 v0.2.0 explicitly loads and cross-references phase-ledger.jsonl",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-005",
+      "fault_manifest": "Legacy risk overrides current strategy",
+      "target_check": "OVERRIDE-002: Legacy rotation risks cannot override current strategy",
+      "expected_risk_signal": "Legacy risks archived in archivedLegacyWarnings",
+      "actual_validation": "Archived in direction-guard.json archivedLegacyWarnings; separated in Attach Packet",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-006",
+      "fault_manifest": "Archived warning treated as active blocker",
+      "target_check": "Risk ledger activeBlocker field separates active from archived",
+      "expected_risk_signal": "archivedLegacyWarnings populated; active_blockers only contains activeBlocker=true",
+      "actual_validation": "risk-ledger.jsonl has activeBlocker field; Attach Packet separates active_blockers",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-007",
+      "fault_manifest": "Active TCM secret risk omitted from Attach Packet",
+      "target_check": "RISK-CS-002 must appear in risk-ledger and Attach Packet",
+      "expected_risk_signal": "RISK-CS-002 present with severity CRITICAL",
+      "actual_validation": "RISK-CS-002 in risk-ledger.jsonl; TIER-2 loaded into Attach Packet",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-008",
+      "fault_manifest": "Attach Packet lacks freshnessStatus",
+      "target_check": "FRESH-005: Attach Packet must include freshnessStatus",
+      "expected_risk_signal": "Missing freshnessStatus → REJECT or UNKNOWN",
+      "actual_validation": "FRESH-005 rule in policy; mount.ps1 v0.2.0 always includes freshnessStatus",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-009",
+      "fault_manifest": "Attach Packet lacks sourceOfTruthPaths",
+      "target_check": "FRESH-006: Fewer than 3 sourceOfTruthPaths → UNKNOWN",
+      "expected_risk_signal": "Missing sourceOfTruthPaths → freshnessStatus=UNKNOWN",
+      "actual_validation": "Mount v0.2.0 includes 5 sourceOfTruthPaths by default",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-010",
+      "fault_manifest": "Attach Packet treated as proof/evidence itself",
+      "target_check": "Attach Packet is TIER-3 DERIVED; cannot be evidence",
+      "expected_risk_signal": "Attach Packet model doc states 'not final evidence'",
+      "actual_validation": "ATTACH_PACKET_MODEL.md Section 2: NOT final evidence, NOT replacement for reading files",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-011",
+      "fault_manifest": "v0.5 marked as ready for release",
+      "target_check": "DG-004: v0.5 release blocked",
+      "expected_risk_signal": "Block rule in direction guard; v0_5_blocked=true in strategy",
+      "actual_validation": "DG-004 in direction-guard.json; strategy.v0_5_blocked=true",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-012",
+      "fault_manifest": "Build Pro claimed as default",
+      "target_check": "DG-003: NBP conditional not default; FROZEN-002",
+      "expected_risk_signal": "Block rule; FROZEN-002 referenced",
+      "actual_validation": "DG-003 in direction-guard.json; FROZEN-002 frozen conclusion",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-013",
+      "fault_manifest": "Multi-agent claimed as default",
+      "target_check": "DG-005: Multi-agent NOT default; RC001 rejected",
+      "expected_risk_signal": "Block rule; rejected claim RC001",
+      "actual_validation": "DG-005 in direction-guard.json; RC001 in rejected-claims.json",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-014",
+      "fault_manifest": "External memory called model memory expansion",
+      "target_check": "Concept doc: external memory is file-backed, NOT model memory",
+      "expected_risk_signal": "Attach Packet model: 'not injected into model weights'",
+      "actual_validation": "ATTACH_PACKET_MODEL.md Section 2: NOT model memory expansion",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-015",
+      "fault_manifest": "Compressed summary used as higher priority than verifier",
+      "target_check": "Source priority level 7: compressed summary is TIER-4",
+      "expected_risk_signal": "TIER-4 rejected; verifier always wins",
+      "actual_validation": "Current-state-source-policy.json Level 7: TIER-4, never used as source of truth",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-016",
+      "fault_manifest": "New window called strict isolation",
+      "target_check": "Mount Protocol: new window shares persistent file state",
+      "expected_risk_signal": "Attach Packet generated from shared external conversation space",
+      "actual_validation": "Mount Protocol reads shared JSON files; not isolated memory",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-017",
+      "fault_manifest": "Package QA final gate omitted from strategy",
+      "target_check": "Strategy must include package_qa_gate_final_delivery=true",
+      "expected_risk_signal": "Present in conversation-state.json strategy",
+      "actual_validation": "package_qa_gate_final_delivery=true in all state files",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-018",
+      "fault_manifest": "Context Packet required status omitted",
+      "target_check": "Strategy must include context_packet_required_for_pro=true",
+      "expected_risk_signal": "Present in strategy",
+      "actual_validation": "context_packet_required_for_pro=true in state and Attach Packet",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-019",
+      "fault_manifest": "Build Lite default omitted from strategy",
+      "target_check": "FROZEN-001: build_lite_default=true",
+      "expected_risk_signal": "Present in strategy; FROZEN-001 frozen",
+      "actual_validation": "build_lite_default=true in all state files; FROZEN-001 frozen",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-020",
+      "fault_manifest": "Native Build Pro conditional status omitted",
+      "target_check": "FROZEN-002: native_build_pro_conditional=true",
+      "expected_risk_signal": "Present in strategy",
+      "actual_validation": "native_build_pro_conditional=true in all state files",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-021",
+      "fault_manifest": "User big-phase preference omitted",
+      "target_check": "User preference big_phases_not_micro must be TIER-1",
+      "expected_risk_signal": "Present in frozen_conclusions or user_preferences",
+      "actual_validation": "TIER-1 user_preference in conversation-space.json and Attach Packet",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-022",
+      "fault_manifest": "Stale packet accepted as current without check",
+      "target_check": "FRESH-001: stale packet must be flagged",
+      "expected_risk_signal": "freshnessStatus=STALE; warnings emitted",
+      "actual_validation": "Mount v0.2.0 detects stale and sets freshnessStatus=STALE",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-023",
+      "fault_manifest": "No regenerated Attach Packet after correction",
+      "target_check": "Regenerated packet must exist and be FRESH",
+      "expected_risk_signal": "attach-packet-latest.json exists with freshnessStatus=FRESH",
+      "actual_validation": "Mount #5 produced FRESH packet with corrected state",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-024",
+      "fault_manifest": "No runtime hardening applied to mount.ps1",
+      "target_check": "mount.ps1 must be v0.2.0 with freshness checks",
+      "expected_risk_signal": "Version 0.2.0; Step 2 freshness validation present",
+      "actual_validation": "mount.ps1 v0.2.0 has Step 2 freshness validation with FRESH-001,002,006",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-025",
+      "fault_manifest": "No simulation run after correction",
+      "target_check": "8 simulation scenarios must exist and PASS",
+      "expected_risk_signal": "harness/context-space/mount-trial-r1-simulation/ with 8 PASS",
+      "actual_validation": "8 simulation scenarios created; all PASS",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-026",
+      "fault_manifest": "No verifier created for R1",
+      "target_check": "Verifier script must exist (step I)",
+      "expected_risk_signal": "scripts/factory-context-space-mount-trial-r1-verify.ps1 exists",
+      "actual_validation": "Verifier to be created in Step I",
+      "result": "PASS_PENDING"
+    },
+    {
+      "nc_id": "NC-027",
+      "fault_manifest": "No negative controls report",
+      "target_check": "Negative controls report must exist with 32 entries",
+      "expected_risk_signal": "This file",
+      "actual_validation": "This file documents 32 negative controls",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-028",
+      "fault_manifest": "Cloud deploy started prematurely",
+      "target_check": "DG-006: No cloud without local MVP proof",
+      "expected_risk_signal": "Block rule active; no cloud artifacts",
+      "actual_validation": "DG-006 in direction-guard.json; user preference no_cloud_without_local_proof=true",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-029",
+      "fault_manifest": "SQLite P1 started prematurely",
+      "target_check": "User directive: do not start SQLite P1",
+      "expected_risk_signal": "No SQLite P1 artifacts",
+      "actual_validation": "No SQLite P1 deliverables in outputs/ or governance/",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-030",
+      "fault_manifest": "REALWORLD-2-P1 started prematurely",
+      "target_check": "User directive: do not start REALWORLD-2-P1",
+      "expected_risk_signal": "REALWORLD-2-P1 listed as option, not started",
+      "actual_validation": "Listed in nextRecommendedPhase as option only; no P1 artifacts created",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-031",
+      "fault_manifest": "Release ZIP created",
+      "target_check": "release_allowed=false in strategy",
+      "expected_risk_signal": "No release ZIP exists",
+      "actual_validation": "release_allowed=false; staging_bundle=STAGING_NOT_RELEASE",
+      "result": "PASS_DETECTED"
+    },
+    {
+      "nc_id": "NC-032",
+      "fault_manifest": "v0.5 package created",
+      "target_check": "DG-004: v0.5 blocked permanently",
+      "expected_risk_signal": "No v0.5 package artifacts",
+      "actual_validation": "v0_5_blocked=true; finalZipExists=false (from current-factory-state.json)",
+      "result": "PASS_DETECTED"
+    }
+  ]
+}

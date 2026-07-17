@@ -1,0 +1,91 @@
+﻿{
+  "domainId": "tenant-ops",
+  "domainName": "Multi-Tenant Operations",
+  "domainVersion": "1.0.0",
+  "domainBrief": "Multi-tenant organization isolation, membership roles, quota enforcement, usage metering, and tenant-scoped audit/reporting.",
+  "glossary": [
+    {"term":"tenant","definition":"An isolated organization space with its own resources and members","entity":true},
+    {"term":"user","definition":"A person who can belong to one or more tenants","entity":true},
+    {"term":"membership","definition":"A user-tenant relationship with a role","entity":true},
+    {"term":"role","definition":"owner, admin, member — determines permissions","entity":false},
+    {"term":"resource","definition":"A tenant-scoped entity (document, config, asset)","entity":true},
+    {"term":"quota","definition":"A limit on usage events per tenant per period","entity":true},
+    {"term":"usageEvent","definition":"A recorded consumption event with idempotency key","entity":true},
+    {"term":"auditEvent","definition":"Immutable record of membership, quota, and resource mutations","entity":true}
+  ],
+  "domainEntities": [
+    {"entityId":"Tenant","entityName":"Tenant","fields":"tenantId name status createdAt","primaryKey":"tenantId","constraints":"status active|suspended|deleted"},
+    {"entityId":"User","entityName":"User","fields":"userId name email createdAt","primaryKey":"userId","constraints":"email unique per user"},
+    {"entityId":"Membership","entityName":"Membership","fields":"membershipId tenantId userId role status createdAt","primaryKey":"membershipId","constraints":"role owner|admin|member; status active|deactivated"},
+    {"entityId":"Resource","entityName":"Resource","fields":"resourceId tenantId name type data createdAt","primaryKey":"resourceId","constraints":"tenant-scoped access only"},
+    {"entityId":"Quota","entityName":"Quota","fields":"quotaId tenantId limit periodStart periodEnd usageCount","primaryKey":"quotaId","constraints":"usageCount <= limit"},
+    {"entityId":"UsageEvent","entityName":"UsageEvent","fields":"eventId tenantId resourceId idempotencyKey amount timestamp","primaryKey":"eventId","constraints":"idempotencyKey unique per tenant"},
+    {"entityId":"AuditEvent","entityName":"AuditEvent","fields":"eventId tenantId eventType entityId details timestamp","primaryKey":"eventId","constraints":"immutable"}
+  ],
+  "workflows": [
+    {"workflowId":"tenant-lifecycle","name":"Tenant Lifecycle","steps":"create tenant, create users, assign memberships, manage resources, record usage, enforce quotas, audit","involvedEntities":"Tenant User Membership Resource Quota UsageEvent AuditEvent"},
+    {"workflowId":"usage-metering","name":"Usage Metering","steps":"record usage event with idempotency key, check quota, increment count, audit if quota breached","involvedEntities":"UsageEvent Quota AuditEvent"}
+  ],
+  "businessRules": [
+    {"ruleId":"BR-001","description":"Tenant resource cannot be read by another tenant","severity":"critical","affectedEntities":["Resource","Tenant"],"positiveExamples":["tenant-A reads tenant-A resource"],"negativeExamples":["tenant-B reads tenant-A resource"],"acceptanceImplication":"cross_tenant_resource_read_rejected"},
+    {"ruleId":"BR-002","description":"Tenant resource cannot be mutated by another tenant","severity":"critical","affectedEntities":["Resource"],"acceptanceImplication":"cross_tenant_resource_mutation_rejected"},
+    {"ruleId":"BR-003","description":"User without membership cannot access tenant","severity":"critical","affectedEntities":["Membership"],"acceptanceImplication":"no_membership_access_rejected"},
+    {"ruleId":"BR-004","description":"Member role cannot perform owner/admin operation","severity":"high","affectedEntities":["Membership"],"acceptanceImplication":"member_cannot_perform_owner_operation"},
+    {"ruleId":"BR-005","description":"Quota cannot be exceeded silently","severity":"critical","affectedEntities":["Quota","UsageEvent"],"acceptanceImplication":"quota_limit_blocks_excess_usage"},
+    {"ruleId":"BR-006","description":"Duplicate usage event idempotency key cannot double-count usage","severity":"high","affectedEntities":["UsageEvent"],"acceptanceImplication":"duplicate_usage_idempotency_key_not_double_counted"},
+    {"ruleId":"BR-007","description":"Usage report must be tenant-scoped","severity":"critical","affectedEntities":["UsageEvent","Tenant"],"acceptanceImplication":"usage_report_excludes_other_tenants"},
+    {"ruleId":"BR-008","description":"Audit event must be created for membership, quota, and resource mutations","severity":"high","affectedEntities":["AuditEvent"],"acceptanceImplication":"audit_records_membership_and_resource_mutations"},
+    {"ruleId":"BR-009","description":"Export/import must preserve tenant boundaries","severity":"high","affectedEntities":["Tenant","Resource"],"acceptanceImplication":"export_import_preserves_usage_and_quota"},
+    {"ruleId":"BR-010","description":"Deactivated membership cannot authorize access","severity":"critical","affectedEntities":["Membership"],"acceptanceImplication":"deactivated_membership_cannot_access"}
+  ],
+  "invariants": [
+    "tenant resource cannot be read by another tenant",
+    "tenant resource cannot be mutated by another tenant",
+    "user without membership cannot access tenant",
+    "member role cannot perform owner/admin operation",
+    "quota cannot be exceeded silently",
+    "duplicate usage event idempotency key cannot double-count usage",
+    "usage report must be tenant-scoped",
+    "audit event must be created for membership, quota, and resource mutations",
+    "export/import must preserve tenant boundaries",
+    "deleted/deactivated membership cannot authorize access"
+  ],
+  "edgeCases": [
+    {"case":"suspended tenant","description":"Suspended tenant cannot record new usage"},
+    {"case":"quota period rollover","description":"Period end resets usage count"},
+    {"case":"concurrent membership change","description":"Membership deactivated during active session"},
+    {"case":"zero-limit quota","description":"Quota with limit 0 blocks all usage"},
+    {"case":"orphan resource","description":"Resource whose tenant was deleted"}
+  ],
+  "exampleData": [
+    {"tenantId":"T-001","name":"Acme Corp","status":"active"},
+    {"tenantId":"T-002","name":"Globex Inc","status":"active"},
+    {"userId":"U-001","name":"Alice","email":"alice@acme.com"},
+    {"userId":"U-002","name":"Bob","email":"bob@globex.com"}
+  ],
+  "forbiddenAssumptions": [
+    "one user per tenant",
+    "flat resource namespace across tenants",
+    "usage never exceeds quota",
+    "all users are tenant owners"
+  ],
+  "requiredWorkerResponsibilities": [
+    {"workerId":1,"role":"Tenant/Identity Domain Core","assignedEntities":["Tenant","User","Membership","Resource","AuditEvent"]},
+    {"workerId":2,"role":"Authorization and Isolation Engine","assignedEntities":["Membership","Resource"]},
+    {"workerId":3,"role":"Usage/Quota/Metering Core","assignedEntities":["Quota","UsageEvent"]},
+    {"workerId":4,"role":"HTTP/CLI/Persistence","assignedEntities":["Tenant","Resource","Quota","UsageEvent"]},
+    {"workerId":5,"role":"Acceptance/Scenario Runner","assignedEntities":["Tenant","Resource","Quota","UsageEvent","AuditEvent"]}
+  ],
+  "requiredDomainScenarios": [
+    {"scenarioId":"S-201","description":"Seed creates two tenants and users"},
+    {"scenarioId":"S-202","description":"Tenant member can read own resource"},
+    {"scenarioId":"S-203","description":"Cross-tenant resource read rejected"},
+    {"scenarioId":"S-204","description":"Cross-tenant resource mutation rejected"},
+    {"scenarioId":"S-205","description":"No membership access rejected"},
+    {"scenarioId":"S-206","description":"Member cannot perform owner operation"},
+    {"scenarioId":"S-207","description":"Admin can manage membership"},
+    {"scenarioId":"S-208","description":"Deactivated membership cannot access"},
+    {"scenarioId":"S-209","description":"Tenant-scoped export excludes other tenants"},
+    {"scenarioId":"S-210","description":"Audit records membership and resource mutations"}
+  ]
+}

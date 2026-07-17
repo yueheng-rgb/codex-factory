@@ -1,0 +1,39 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Live Negative Evidence Schema",
+  "description": "Defines required evidence fields for a live-executed target-gate negative control",
+  "type": "object",
+  "required": ["negativeId", "parentRunId", "runPath", "faultManifestPath", "transcriptPath", "acceptanceReportPath", "targetScenario", "failedScenarios", "passedScenarios", "nonTargetGateResults", "targetGateResult", "exactClassification", "genericFailUsed", "preclassifiedOnly", "liveExecutionConfirmed", "checkedAt"],
+  "properties": {
+    "negativeId": { "type": "string" },
+    "parentRunId": { "type": "string" },
+    "runPath": { "type": "string" },
+    "faultManifestPath": { "type": "string" },
+    "transcriptPath": { "type": "string" },
+    "acceptanceReportPath": { "type": "string" },
+    "classificationReportPath": { "type": "string" },
+    "targetScenario": { "type": "string" },
+    "failedScenarios": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "passedScenarios": { "type": "array", "items": { "type": "string" } },
+    "nonTargetGateResults": {
+      "type": "object",
+      "required": ["gateCheckVerdict", "hardenedPipelineEnforcementVerdict", "complexityBudgetVerdict"],
+      "properties": {
+        "gateCheckVerdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "functionalAcceptanceVerdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "runtimeAcceptanceVerdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "httpAcceptanceVerdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "staticAcceptanceVerdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "hardenedPipelineEnforcementVerdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "auditExecutorVerdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "complexityBudgetVerdict": { "type": "string", "enum": ["PASS", "FAIL"] }
+      }
+    },
+    "targetGateResult": { "type": "string", "enum": ["PASS", "FAIL"] },
+    "exactClassification": { "type": "string", "enum": ["FAIL_TARGET_GATE", "FAIL_MISSING_EVIDENCE", "FAIL_CLOSED_EVIDENCE_MUTATION", "FAIL_INTEGRATION_UNRECORDED_PATCH", "FAIL_CONTRACT_DRIFT", "FAIL_HARNESS_NOISE", "FAIL_VERIFIER_TAMPER"] },
+    "genericFailUsed": { "type": "boolean" },
+    "preclassifiedOnly": { "type": "boolean" },
+    "liveExecutionConfirmed": { "type": "boolean" },
+    "checkedAt": { "type": "string", "format": "date-time" }
+  }
+}

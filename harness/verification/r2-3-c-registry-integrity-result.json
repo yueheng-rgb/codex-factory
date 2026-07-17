@@ -1,0 +1,268 @@
+﻿{
+    "allPassed":  true,
+    "registryResults":  [
+                            {
+                                "registryName":  "verifier",
+                                "filePath":  "C:\\Codex_App_Factory\\registries\\verifier-candidate-registry.jsonl",
+                                "totalEntries":  10,
+                                "validEntries":  10,
+                                "invalidEntries":  0,
+                                "duplicateIds":  [
+
+                                                 ],
+                                "totalWarnings":  0,
+                                "allValid":  true,
+                                "entries":  [
+                                                "@{valid=True; capabilityId=CAP-VER-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-010; errors=System.Object[]; warnings=System.Object[]}"
+                                            ]
+                            },
+                            {
+                                "registryName":  "skill",
+                                "filePath":  "C:\\Codex_App_Factory\\registries\\skill-candidate-registry.jsonl",
+                                "totalEntries":  12,
+                                "validEntries":  12,
+                                "invalidEntries":  0,
+                                "duplicateIds":  [
+
+                                                 ],
+                                "totalWarnings":  0,
+                                "allValid":  true,
+                                "entries":  [
+                                                "@{valid=True; capabilityId=CAP-SKILL-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-010; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-011; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-012; errors=System.Object[]; warnings=System.Object[]}"
+                                            ]
+                            },
+                            {
+                                "registryName":  "master",
+                                "filePath":  "C:\\Codex_App_Factory\\registries\\capability-candidate-registry.jsonl",
+                                "totalEntries":  90,
+                                "validEntries":  90,
+                                "invalidEntries":  0,
+                                "duplicateIds":  [
+
+                                                 ],
+                                "totalWarnings":  2,
+                                "allValid":  true,
+                                "entries":  [
+                                                "@{valid=True; capabilityId=CAP-SKILL-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-010; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-011; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SKILL-012; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-010; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-011; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-012; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-013; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-014; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLI-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLI-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLI-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLI-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLI-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLI-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLI-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLI-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SDK-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SDK-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SDK-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SDK-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SDK-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SDK-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-GEN-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-GEN-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-GEN-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-GEN-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-GEN-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-VER-010; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-010; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLD-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLD-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLD-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLD-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLD-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-CLD-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-KNOW-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-KNOW-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-KNOW-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-KNOW-004; errors=System.Object[]; warnings=System.Object[]}"
+                                            ]
+                            },
+                            {
+                                "registryName":  "runner",
+                                "filePath":  "C:\\Codex_App_Factory\\registries\\runner-candidate-registry.jsonl",
+                                "totalEntries":  6,
+                                "validEntries":  6,
+                                "invalidEntries":  0,
+                                "duplicateIds":  [
+
+                                                 ],
+                                "totalWarnings":  1,
+                                "allValid":  true,
+                                "entries":  [
+                                                "@{valid=True; capabilityId=CAP-RUN-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-RUN-006; errors=System.Object[]; warnings=System.Object[]}"
+                                            ]
+                            },
+                            {
+                                "registryName":  "search",
+                                "filePath":  "C:\\Codex_App_Factory\\registries\\search-provider-candidate-registry.jsonl",
+                                "totalEntries":  10,
+                                "validEntries":  10,
+                                "invalidEntries":  0,
+                                "duplicateIds":  [
+
+                                                 ],
+                                "totalWarnings":  0,
+                                "allValid":  true,
+                                "entries":  [
+                                                "@{valid=True; capabilityId=CAP-SRCH-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-SRCH-010; errors=System.Object[]; warnings=System.Object[]}"
+                                            ]
+                            },
+                            {
+                                "registryName":  "template",
+                                "filePath":  "C:\\Codex_App_Factory\\registries\\template-starter-candidate-registry.jsonl",
+                                "totalEntries":  9,
+                                "validEntries":  9,
+                                "invalidEntries":  0,
+                                "duplicateIds":  [
+
+                                                 ],
+                                "totalWarnings":  0,
+                                "allValid":  true,
+                                "entries":  [
+                                                "@{valid=True; capabilityId=CAP-TMPL-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-TMPL-009; errors=System.Object[]; warnings=System.Object[]}"
+                                            ]
+                            },
+                            {
+                                "registryName":  "mcp",
+                                "filePath":  "C:\\Codex_App_Factory\\registries\\mcp-candidate-registry.jsonl",
+                                "totalEntries":  14,
+                                "validEntries":  14,
+                                "invalidEntries":  0,
+                                "duplicateIds":  [
+
+                                                 ],
+                                "totalWarnings":  1,
+                                "allValid":  true,
+                                "entries":  [
+                                                "@{valid=True; capabilityId=CAP-MCP-001; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-002; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-003; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-004; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-005; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-006; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-007; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-008; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-009; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-010; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-011; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-012; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-013; errors=System.Object[]; warnings=System.Object[]}",
+                                                "@{valid=True; capabilityId=CAP-MCP-014; errors=System.Object[]; warnings=System.Object[]}"
+                                            ]
+                            }
+                        ],
+    "masterDuplicateIds":  [
+
+                           ],
+    "consistencyErrors":  [
+
+                          ],
+    "summary":  {
+                    "masterDuplicates":  0,
+                    "totalEntries":  151,
+                    "totalValid":  151,
+                    "totalRegistries":  7,
+                    "consistencyErrors":  0,
+                    "totalInvalid":  0
+                }
+}

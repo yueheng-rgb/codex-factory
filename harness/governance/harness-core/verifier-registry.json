@@ -1,0 +1,56 @@
+﻿{
+    "schemaVersion":  "H1-R1",
+    "registry":  [
+                     {
+                         "scriptPath":  "scripts\\phase6c-dry14-b-verify.ps1",
+                         "sha256":  "968F908A6A435828DBAF43A59B5D8D67B64D75A3198AC4CCA81387534CB7960A",
+                         "registeredAt":  "2026-06-22T00:03:30.9990860+08:00",
+                         "registeredBy":  "H1-Factory-Core",
+                         "phase":  "Phase 6C-H1",
+                         "purpose":  "DRY14-B scheduler negative controls verifier",
+                         "previousHash":  "GENESIS",
+                         "registryEntryHash":  "E53E66BFF1B4D1A3DB9DE70D92B9B57CC7EFF1D91E95CB4AB756E70AB8AE8B0B"
+                     },
+                     {
+                         "scriptPath":  "scripts\\phase6c-dry15-a-verify.ps1",
+                         "sha256":  "92F450744FD0F70999AE4701D502C98BE4C9793B00A5265703A504238727CCD9",
+                         "registeredAt":  "2026-06-22T00:03:31.0380850+08:00",
+                         "registeredBy":  "H1-Factory-Core",
+                         "phase":  "Phase 6C-H1",
+                         "purpose":  "DRY15-A search/pagination/performance verifier",
+                         "previousHash":  "E53E66BFF1B4D1A3DB9DE70D92B9B57CC7EFF1D91E95CB4AB756E70AB8AE8B0B",
+                         "registryEntryHash":  "86D3DCB858A13D892DC43E20594CB3E4643E38967B48A241F9F76EABA10056D6"
+                     },
+                     {
+                         "scriptPath":  "scripts\\phase6c-dry15-b-verify.ps1",
+                         "sha256":  "B57654920BBF97DE0EFEACF2F3A07A9CDD6579AB008F1C9180D5506EBEFC63CA",
+                         "registeredAt":  "2026-06-22T00:03:31.0580861+08:00",
+                         "registeredBy":  "H1-Factory-Core",
+                         "phase":  "Phase 6C-H1",
+                         "purpose":  "DRY15-B search negative controls verifier",
+                         "previousHash":  "86D3DCB858A13D892DC43E20594CB3E4643E38967B48A241F9F76EABA10056D6",
+                         "registryEntryHash":  "2CD4B3D1B9933937B294627FF8A580AB427F3874CD7D2A910F96A15B956B694E"
+                     },
+                     {
+                         "scriptPath":  "scripts\\phase6c-dry15-b-p1-verify.ps1",
+                         "sha256":  "0DB82684AC53FC8A57B6F4D3E9413F691F87B68522F4FB5E62DE4AB07B66671E",
+                         "registeredAt":  "2026-06-22T00:16:01.5380175+08:00",
+                         "registeredBy":  "H1-P1",
+                         "phase":  "Phase 6C-H1",
+                         "purpose":  "DRY15-B-P1 performance budget hardening verifier (hardened with dynamic budgetMs)",
+                         "previousHash":  "2CD4B3D1B9933937B294627FF8A580AB427F3874CD7D2A910F96A15B956B694E",
+                         "registryEntryHash":  "908246788E0DC9AD1B9D2B0D9985EB66E8A71BFB9D5B8CD165495F1B60384D38"
+                     },
+                     {
+                         "scriptPath":  "scripts\\phase6c-h2-hardened-factory-pipeline-verify.ps1",
+                         "sha256":  "553200CF5CEA682F7B53193BB759C509D487F491A0FF75E67590590A4CF91ECC",
+                         "registeredAt":  "2026-06-22T00:24:16.4192241+08:00",
+                         "registeredBy":  "H2",
+                         "phase":  "Phase 6C-H2",
+                         "purpose":  "H2 hardened factory pipeline integration meta verifier",
+                         "previousHash":  "908246788E0DC9AD1B9D2B0D9985EB66E8A71BFB9D5B8CD165495F1B60384D38",
+                         "registryEntryHash":  "10BACE4FEAE431C9E0E45531A8F72CE628328D7EA2B2790A2D46B3C5780ACD2A"
+                     }
+                 ],
+    "updatedAt":  "2026-06-22T00:24:16.4402238+08:00"
+}

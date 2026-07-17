@@ -1,0 +1,47 @@
+{
+    "importRequiredFields":  [
+                                 "interfaceId",
+                                 "name",
+                                 "file"
+                             ],
+    "requiredFields":  [
+                           "phase",
+                           "workerId",
+                           "taskId",
+                           "exports",
+                           "imports"
+                       ],
+    "validationRules":  [
+                            "workerId must match the agent that submitted the task",
+                            "taskId must match a task in TASKS.json",
+                            "each export interfaceId must exist in the contract lock",
+                            "each import interfaceId must exist in the contract lock",
+                            "export name must match contract name for that interfaceId",
+                            "import name must match contract name for that interfaceId",
+                            "export file must match contract file for that interfaceId",
+                            "import file must match contract file for that interfaceId"
+                        ],
+    "example":  {
+                    "phase":  "Phase 6C-U0-A",
+                    "imports":  [
+
+                                ],
+                    "exports":  [
+                                    {
+                                        "interfaceId":  "task.claim",
+                                        "name":  "ClaimTask",
+                                        "file":  "scripts/claim-task.ps1"
+                                    }
+                                ],
+                    "taskId":  "T-001",
+                    "workerId":  "worker-1"
+                },
+    "name":  "WORKER_INTERFACE_MANIFEST_SCHEMA",
+    "description":  "Defines the per-worker interface manifest format for declaring actual exports and imports.",
+    "schemaVersion":  "6C-U0",
+    "exportRequiredFields":  [
+                                 "interfaceId",
+                                 "name",
+                                 "file"
+                             ]
+}

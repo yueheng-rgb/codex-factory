@@ -1,0 +1,75 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Acceptance Evidence Schema",
+  "description": "Defines required structure for acceptance scenario evidence to prevent hardcoded PASS reports.",
+  "schemaVersion": "H8-P1-R1",
+  "type": "object",
+  "required": ["runId", "acceptanceLayer", "scenarioCount", "scenarios", "runner", "checkedAt", "hardcodedPassRisk", "skippedAsPass", "verdict"],
+  "properties": {
+    "runId": { "type": "string", "minLength": 1 },
+    "workerId": { "type": "integer" },
+    "acceptanceLayer": { "type": "string", "minLength": 1 },
+    "scenarioCount": { "type": "integer", "minimum": 1 },
+    "scenarios": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["scenarioId", "title", "status", "inputSummary", "expectedSummary", "actualSummary", "assertionCount", "assertions", "executedAt", "evidenceRefs"],
+        "properties": {
+          "scenarioId": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "status": { "type": "string", "enum": ["PASS", "FAIL", "SKIPPED", "ERROR"] },
+          "inputSummary": { "type": "string", "minLength": 1 },
+          "expectedSummary": { "type": "string", "minLength": 1 },
+          "actualSummary": { "type": "string", "minLength": 1 },
+          "assertionCount": { "type": "integer", "minimum": 0 },
+          "assertions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["assertionId", "description", "expected", "actual", "passed"],
+              "properties": {
+                "assertionId": { "type": "string" },
+                "description": { "type": "string" },
+                "expected": { "type": "string" },
+                "actual": { "type": "string" },
+                "passed": { "type": "boolean" }
+              }
+            }
+          },
+          "executedAt": { "type": "string", "format": "date-time" },
+          "evidenceRefs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "runner": {
+      "type": "object",
+      "required": ["command", "exitCode", "transcriptPath", "startedAt", "endedAt"],
+      "properties": {
+        "command": { "type": "string", "minLength": 1 },
+        "exitCode": { "type": "integer" },
+        "stdoutPath": { "type": "string" },
+        "stderrPath": { "type": "string" },
+        "transcriptPath": { "type": "string", "minLength": 1 },
+        "startedAt": { "type": "string", "format": "date-time" },
+        "endedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "generatedBy": { "type": "string" },
+    "checkedAt": { "type": "string", "format": "date-time" },
+    "hardcodedPassRisk": { "type": "boolean" },
+    "skippedAsPass": { "type": "boolean" },
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "PASS_WITH_CAVEAT"] }
+  },
+  "rules": {
+    "passRequiresAssertions": "scenario status PASS requires assertionCount >= 1",
+    "skippedNotPass": "skipped scenarios must not count as PASS",
+    "commandRequired": "runner.command is required",
+    "exitCodeRequired": "runner.exitCode is required",
+    "transcriptRequired": "runner.transcriptPath is required",
+    "scenarioCoverage": "every required scenario from contract must appear exactly once",
+    "noDuplicateIds": "no duplicate scenarioId values",
+    "hardcodedPassBlocked": "hardcodedPassRisk=true cannot produce clean PASS",
+    "perScenarioData": "every scenario must have inputSummary, expectedSummary, actualSummary"
+  }
+}

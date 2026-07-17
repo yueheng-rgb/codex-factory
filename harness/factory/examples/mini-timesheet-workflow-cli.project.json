@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "mini-timesheet-workflow-cli",
+  "runId": "dry9-mini-timesheet-workflow-cli",
+  "phase": "Phase 6C-DRY9-A",
+  "language": "javascript",
+  "description": "A pure Node.js zero-dependency timesheet CLI with stateful JSON persistence. Supports project init, member management, task lifecycle, time logging, and Markdown report generation across multiple CLI commands against a shared state.json file.",
+  "workers": [
+    {
+      "workerId": "worker-1",
+      "description": "Member and project core: createProject, addMember, updateMember, member utilities.",
+      "taskDescription": "Create 5 JS files. File1 memberTypes.js: export normalizeMemberInput, isMemberActive, getMemberById. File2 createProject.js: export createProject(name) returns project with id, name, empty members/tasks/timeEntries arrays, timestamps. File3 addMember.js: export addMember(project, input) appends member to project.members array. File4 updateMember.js: export updateMember(project, memberId, patch) immutable update. File5 memberHelpers.js: export filterMembers(project, filter), getActiveMembers(project). Use require() and module.exports. No external packages.",
+      "ownedPaths": ["src/memberTypes.js","src/createProject.js","src/addMember.js","src/updateMember.js","src/memberHelpers.js"],
+      "exports": [
+        {"interfaceId":"module.member.createProject","name":"createProject","file":"src/createProject.js","signature":{"kind":"function","params":["string"],"returns":"object"}},
+        {"interfaceId":"module.member.addMember","name":"addMember","file":"src/addMember.js","signature":{"kind":"function","params":["object","object"],"returns":"object"}},
+        {"interfaceId":"module.member.updateMember","name":"updateMember","file":"src/updateMember.js","signature":{"kind":"function","params":["object","string","object"],"returns":"object"}},
+        {"interfaceId":"module.member.getMemberById","name":"getMemberById","file":"src/memberTypes.js","signature":{"kind":"function","params":["object","string"],"returns":"object|null"}},
+        {"interfaceId":"module.member.filterMembers","name":"filterMembers","file":"src/memberHelpers.js","signature":{"kind":"function","params":["object","object"],"returns":"object[]"}},
+        {"interfaceId":"module.member.normalizeMemberInput","name":"normalizeMemberInput","file":"src/memberTypes.js","signature":{"kind":"function","params":["object"],"returns":"object"}},
+        {"interfaceId":"module.member.isMemberActive","name":"isMemberActive","file":"src/memberTypes.js","signature":{"kind":"function","params":["object"],"returns":"boolean"}}
+      ],
+      "imports": []
+    },
+    {
+      "workerId": "worker-2",
+      "description": "Task core: createTask, assignTask, closeTask, task utilities. Imports from W1.",
+      "taskDescription": "Create 5 JS files. File1 taskTypes.js: export normalizeTaskInput, getTaskById, TASK_STATUS enum. File2 createTask.js: export createTask(project, input) adds task to project.tasks. File3 assignTask.js: export assignTask(project, taskId, memberId) sets assignee on task. Import getMemberById from W1. File4 closeTask.js: export closeTask(project, taskId) sets task status to closed with closedAt. File5 taskHelpers.js: export filterTasks(project, filter), getOpenTasks(project). Import filterMembers from W1. Use require(). No external packages.",
+      "ownedPaths": ["src/taskTypes.js","src/createTask.js","src/assignTask.js","src/closeTask.js","src/taskHelpers.js"],
+      "exports": [
+        {"interfaceId":"module.task.createTask","name":"createTask","file":"src/createTask.js","signature":{"kind":"function","params":["object","object"],"returns":"object"}},
+        {"interfaceId":"module.task.assignTask","name":"assignTask","file":"src/assignTask.js","signature":{"kind":"function","params":["object","string","string"],"returns":"object"}},
+        {"interfaceId":"module.task.closeTask","name":"closeTask","file":"src/closeTask.js","signature":{"kind":"function","params":["object","string"],"returns":"object"}},
+        {"interfaceId":"module.task.getTaskById","name":"getTaskById","file":"src/taskTypes.js","signature":{"kind":"function","params":["object","string"],"returns":"object|null"}},
+        {"interfaceId":"module.task.normalizeTaskInput","name":"normalizeTaskInput","file":"src/taskTypes.js","signature":{"kind":"function","params":["object"],"returns":"object"}},
+        {"interfaceId":"module.task.filterTasks","name":"filterTasks","file":"src/taskHelpers.js","signature":{"kind":"function","params":["object","object"],"returns":"object[]"}}
+      ],
+      "imports": [
+        {"interfaceId":"module.member.getMemberById","name":"getMemberById","fromWorkerId":"worker-1","file":"src/assignTask.js"},
+        {"interfaceId":"module.member.filterMembers","name":"filterMembers","fromWorkerId":"worker-1","file":"src/taskHelpers.js"}
+      ]
+    },
+    {
+      "workerId": "worker-3",
+      "description": "Time entry core: logTime, calculateHours, time utilities. Imports from W1, W2.",
+      "taskDescription": "Create 5 JS files. File1 timeTypes.js: export normalizeTimeEntry, calculateDurationMinutes, TIME_ENTRY_FIELDS. File2 logTime.js: export logTime(project, taskId, memberId, input) appends timeEntry to project.timeEntries. Import getMemberById from W1 and getTaskById from W2. File3 calculateHours.js: export calculateHours(project, memberId) sums total hours for member. Import filterMembers from W1. File4 calculateTaskHours.js: export calculateTaskHours(project) returns hours per task. Import getTaskById from W2. File5 timeHelpers.js: export getTimeEntriesByMember(project, memberId), getTimeEntriesByTask(project, taskId). Import getMemberById from W1, getTaskById from W2. Use require(). No external packages.",
+      "ownedPaths": ["src/timeTypes.js","src/logTime.js","src/calculateHours.js","src/calculateTaskHours.js","src/timeHelpers.js"],
+      "exports": [
+        {"interfaceId":"module.time.logTime","name":"logTime","file":"src/logTime.js","signature":{"kind":"function","params":["object","string","string","object"],"returns":"object"}},
+        {"interfaceId":"module.time.calculateHours","name":"calculateHours","file":"src/calculateHours.js","signature":{"kind":"function","params":["object","string"],"returns":"number"}},
+        {"interfaceId":"module.time.calculateTaskHours","name":"calculateTaskHours","file":"src/calculateTaskHours.js","signature":{"kind":"function","params":["object"],"returns":"object[]"}},
+        {"interfaceId":"module.time.normalizeTimeEntry","name":"normalizeTimeEntry","file":"src/timeTypes.js","signature":{"kind":"function","params":["object"],"returns":"object"}},
+        {"interfaceId":"module.time.calculateDurationMinutes","name":"calculateDurationMinutes","file":"src/timeTypes.js","signature":{"kind":"function","params":["string","string"],"returns":"number"}},
+        {"interfaceId":"module.time.getTimeEntriesByMember","name":"getTimeEntriesByMember","file":"src/timeHelpers.js","signature":{"kind":"function","params":["object","string"],"returns":"object[]"}}
+      ],
+      "imports": [
+        {"interfaceId":"module.member.getMemberById","name":"getMemberById","fromWorkerId":"worker-1","file":"src/logTime.js"},
+        {"interfaceId":"module.task.getTaskById","name":"getTaskById","fromWorkerId":"worker-2","file":"src/logTime.js"},
+        {"interfaceId":"module.member.filterMembers","name":"filterMembers","fromWorkerId":"worker-1","file":"src/calculateHours.js"},
+        {"interfaceId":"module.task.getTaskById","name":"getTaskById","fromWorkerId":"worker-2","file":"src/calculateTaskHours.js"},
+        {"interfaceId":"module.member.getMemberById","name":"getMemberById","fromWorkerId":"worker-1","file":"src/timeHelpers.js"},
+        {"interfaceId":"module.task.getTaskById","name":"getTaskById","fromWorkerId":"worker-2","file":"src/timeHelpers.js"}
+      ]
+    },
+    {
+      "workerId": "worker-4",
+      "description": "CLI + Workflow + Report: multi-command CLI, JSON state persistence, Markdown reports. Imports from W1,W2,W3.",
+      "taskDescription": "Create 7 JS files using only Node built-ins (fs, path). File1 cliTypes.js: export CLI command constants. File2 readStateFile.js: export readStateFile(filePath) reads and parses state.json. File3 writeStateJson.js: export writeStateJson(state, filePath) writes project state. File4 buildReportMarkdown.js: export buildReportMarkdown(state) generates Markdown timesheet report with members, tasks, hours. File5 cliCommands.js: export cliInit(filePath), cliAddMember(filePath, input), cliAddTask(filePath, input), cliLogTime(filePath, taskId, memberId, input), cliCloseTask(filePath, taskId), cliReport(filePath, outputDir). Each command reads state.json, performs operation, writes back. File6 workflowRunner.js: export workflowRunner(commands[]) executes sequence of commands against state.f File7 cliMain.js: export cliMain(filePath, outputDir) orchestrates full workflow. Import from W1 (getMemberById, filterMembers, addMember), W2 (getTaskById, createTask, closeTask), W3 (logTime, calculateHours, calculateTaskHours). Use require(). No external packages.",
+      "ownedPaths": ["src/cliTypes.js","src/readStateFile.js","src/writeStateJson.js","src/buildReportMarkdown.js","src/cliCommands.js","src/workflowRunner.js","src/cliMain.js"],
+      "exports": [
+        {"interfaceId":"module.cli.cliMain","name":"cliMain","file":"src/cliMain.js","signature":{"kind":"function","params":["string","string"],"returns":"object"}},
+        {"interfaceId":"module.cli.cliInit","name":"cliInit","file":"src/cliCommands.js","signature":{"kind":"function","params":["string","string"],"returns":"object"}},
+        {"interfaceId":"module.cli.cliAddMember","name":"cliAddMember","file":"src/cliCommands.js","signature":{"kind":"function","params":["string","object"],"returns":"object"}},
+        {"interfaceId":"module.cli.cliAddTask","name":"cliAddTask","file":"src/cliCommands.js","signature":{"kind":"function","params":["string","object"],"returns":"object"}},
+        {"interfaceId":"module.cli.cliLogTime","name":"cliLogTime","file":"src/cliCommands.js","signature":{"kind":"function","params":["string","string","string","object"],"returns":"object"}},
+        {"interfaceId":"module.cli.cliCloseTask","name":"cliCloseTask","file":"src/cliCommands.js","signature":{"kind":"function","params":["string","string"],"returns":"object"}},
+        {"interfaceId":"module.cli.cliReport","name":"cliReport","file":"src/cliCommands.js","signature":{"kind":"function","params":["string","string"],"returns":"object"}},
+        {"interfaceId":"module.cli.readStateFile","name":"readStateFile","file":"src/readStateFile.js","signature":{"kind":"function","params":["string"],"returns":"object"}},
+        {"interfaceId":"module.cli.writeStateJson","name":"writeStateJson","file":"src/writeStateJson.js","signature":{"kind":"function","params":["object","string"],"returns":"void"}},
+        {"interfaceId":"module.cli.buildReportMarkdown","name":"buildReportMarkdown","file":"src/buildReportMarkdown.js","signature":{"kind":"function","params":["object"],"returns":"string"}},
+        {"interfaceId":"module.cli.workflowRunner","name":"workflowRunner","file":"src/workflowRunner.js","signature":{"kind":"function","params":["object[]","string","string"],"returns":"object"}}
+      ],
+      "imports": [
+        {"interfaceId":"module.member.getMemberById","name":"getMemberById","fromWorkerId":"worker-1","file":"src/cliCommands.js"},
+        {"interfaceId":"module.member.filterMembers","name":"filterMembers","fromWorkerId":"worker-1","file":"src/cliCommands.js"},
+        {"interfaceId":"module.member.addMember","name":"addMember","fromWorkerId":"worker-1","file":"src/cliCommands.js"},
+        {"interfaceId":"module.task.getTaskById","name":"getTaskById","fromWorkerId":"worker-2","file":"src/cliCommands.js"},
+        {"interfaceId":"module.task.createTask","name":"createTask","fromWorkerId":"worker-2","file":"src/cliCommands.js"},
+        {"interfaceId":"module.task.closeTask","name":"closeTask","fromWorkerId":"worker-2","file":"src/cliCommands.js"},
+        {"interfaceId":"module.time.logTime","name":"logTime","fromWorkerId":"worker-3","file":"src/cliCommands.js"},
+        {"interfaceId":"module.time.calculateHours","name":"calculateHours","fromWorkerId":"worker-3","file":"src/cliCommands.js"},
+        {"interfaceId":"module.time.calculateTaskHours","name":"calculateTaskHours","fromWorkerId":"worker-3","file":"src/cliCommands.js"},
+        {"interfaceId":"module.member.getMemberById","name":"getMemberById","fromWorkerId":"worker-1","file":"src/buildReportMarkdown.js"},
+        {"interfaceId":"module.task.getTaskById","name":"getTaskById","fromWorkerId":"worker-2","file":"src/buildReportMarkdown.js"},
+        {"interfaceId":"module.time.calculateHours","name":"calculateHours","fromWorkerId":"worker-3","file":"src/buildReportMarkdown.js"},
+        {"interfaceId":"module.member.filterMembers","name":"filterMembers","fromWorkerId":"worker-1","file":"src/cliMain.js"},
+        {"interfaceId":"module.task.getTaskById","name":"getTaskById","fromWorkerId":"worker-2","file":"src/cliMain.js"}
+      ]
+    }
+  ],
+  "acceptance": [
+    {"acceptanceId":"AC-001","description":"W1 creates 5 JS: memberTypes, createProject, addMember, updateMember, memberHelpers"},
+    {"acceptanceId":"AC-002","description":"W2 imports from W1, creates 5 JS: taskTypes, createTask, assignTask, closeTask, taskHelpers"},
+    {"acceptanceId":"AC-003","description":"W3 imports from W1,W2, creates 5 JS: timeTypes, logTime, calculateHours, calculateTaskHours, timeHelpers"},
+    {"acceptanceId":"AC-004","description":"W4 imports from W1,W2,W3, creates 7 JS: cliCommands, readStateFile, writeStateJson, buildReportMarkdown, workflowRunner, cliMain, cliTypes"},
+    {"acceptanceId":"AC-005","description":"Structural gates, FA, RA, CLI artifact, and multi-command workflow all PASS"}
+  ],
+  "forbiddenPaths": []
+}

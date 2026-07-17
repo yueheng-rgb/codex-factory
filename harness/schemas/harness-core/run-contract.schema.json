@@ -1,0 +1,26 @@
+﻿{
+  "schemaVersion": "H1-R1",
+  "title": "Run Contract Schema",
+  "type": "object",
+  "required": ["runId","phase","minimumJsFiles","minimumNamedExports","minimumCrossWorkerDeps","requiredScenarioCount","requiredAcceptanceLayers","noExternalPackages","nodeBuiltinsOnly","requireRunState","requireWorkerFreeze","requireIntegrationLedger","requireVerifierHashLock"],
+  "properties": {
+    "runId": {"type":"string"},
+    "phase": {"type":"string"},
+    "projectProfile": {"type":"string"},
+    "requiredWorkers": {"type":"integer","minimum":1},
+    "requiredTasks": {"type":"integer","minimum":1},
+    "minimumJsFiles": {"type":"integer","minimum":1},
+    "minimumNamedExports": {"type":"integer","minimum":1},
+    "minimumCrossWorkerDeps": {"type":"integer","minimum":0},
+    "requiredScenarioCount": {"type":"integer","minimum":1},
+    "requiredAcceptanceLayers": {"type":"array","items":{"type":"string"}},
+    "requiredArtifacts": {"type":"array","items":{"type":"string"}},
+    "requiredNegativeControls": {"type":"integer"},
+    "noExternalPackages": {"type":"boolean"},
+    "nodeBuiltinsOnly": {"type":"boolean"},
+    "requireRunState": {"type":"boolean"},
+    "requireWorkerFreeze": {"type":"boolean"},
+    "requireIntegrationLedger": {"type":"boolean"},
+    "requireVerifierHashLock": {"type":"boolean"}
+  }
+}

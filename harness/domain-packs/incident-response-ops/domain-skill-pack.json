@@ -1,0 +1,167 @@
+﻿{
+    "domain":  "incident-response-ops",
+    "businessRules":  [
+                          {
+                              "ruleId":  "incident_lifecycle_valid_transitions",
+                              "description":  "Incident status transitions must follow valid lifecycle"
+                          },
+                          {
+                              "ruleId":  "containment_required_before_closure",
+                              "description":  "Incident cannot be closed without containment evidence"
+                          },
+                          {
+                              "ruleId":  "remediation_required_before_closure",
+                              "description":  "Incident cannot be closed without remediation evidence"
+                          },
+                          {
+                              "ruleId":  "severity_escalation_creates_audit",
+                              "description":  "Severity escalation must create audit event"
+                          },
+                          {
+                              "ruleId":  "invalid_transition_rejected",
+                              "description":  "Invalid status transition must be rejected"
+                          },
+                          {
+                              "ruleId":  "close_requires_evidence",
+                              "description":  "Closing incident requires evidence items attached"
+                          },
+                          {
+                              "ruleId":  "postmortem_requires_closed",
+                              "description":  "Postmortem can only be created for closed incidents"
+                          },
+                          {
+                              "ruleId":  "escalation_preserves_context",
+                              "description":  "Escalation preserves original owner and timeline context"
+                          },
+                          {
+                              "ruleId":  "role_based_access_control",
+                              "description":  "Role-based access: viewer read-only, responder update, manager close, admin all"
+                          },
+                          {
+                              "ruleId":  "timeline_immutable_after_closure",
+                              "description":  "Timeline events cannot be modified after incident closure"
+                          },
+                          {
+                              "ruleId":  "audit_all_mutations",
+                              "description":  "All incident state mutations must produce audit events"
+                          },
+                          {
+                              "ruleId":  "sensitive_redaction",
+                              "description":  "Sensitive values in notes must be redacted in reports"
+                          }
+                      ],
+    "version":  "1.0.0",
+    "packId":  "incident-response-ops-domain-skill-v1",
+    "requiredScenarios":  [
+                              "incident_created_from_alert",
+                              "incident_lifecycle_transition_valid",
+                              "severity_escalation_to_higher_level",
+                              "incident_assignment_to_responder",
+                              "incident_close_with_all_evidence",
+                              "role_based_visibility_filter",
+                              "role_based_action_authorization",
+                              "containment_required_before_closure",
+                              "remediation_required_before_closure",
+                              "evidence_attachment_validates_type",
+                              "timeline_events_created_on_mutation",
+                              "export_import_preserves_full_state"
+                          ],
+    "phase":  "DRY18-A-clean-start",
+    "generatedAt":  "2026-06-22T21:40:21.6559160+08:00",
+    "invariants":  [
+                       "incident_lifecycle_transition_valid",
+                       "containment_required_before_closure",
+                       "remediation_required_before_closure",
+                       "severity_escalation_creates_audit",
+                       "invalid_status_transition_rejected",
+                       "unauthorized_role_cannot_close_incident",
+                       "containment_required_before_closure",
+                       "remediation_required_before_closure",
+                       "incident_close_requires_evidence",
+                       "escalation_preserves_original_owner_context",
+                       "postmortem_requires_closed_incident",
+                       "export_import_preserves_incident_state"
+                   ],
+    "evidenceScenarios":  [
+                              "evidence_attachment_links_to_timeline",
+                              "timeline_events_ordered_by_timestamp",
+                              "timeline_immutable_after_closure",
+                              "incident_report_includes_required_sections",
+                              "sensitive_note_values_redacted_in_report",
+                              "audit_records_all_mutations",
+                              "evidence_export_import_preserves_links",
+                              "static_ui_references_incident_endpoints"
+                          ],
+    "domainEntities":  [
+                           {
+                               "entityId":  "incident",
+                               "description":  "Core incident record with lifecycle state"
+                           },
+                           {
+                               "entityId":  "alert",
+                               "description":  "Incoming alert that may create an incident"
+                           },
+                           {
+                               "entityId":  "severity",
+                               "description":  "Incident severity level (P1-P5)"
+                           },
+                           {
+                               "entityId":  "status",
+                               "description":  "Incident lifecycle status (new, acknowledged, investigating, contained, remediated, closed)"
+                           },
+                           {
+                               "entityId":  "assignee",
+                               "description":  "Person assigned to the incident"
+                           },
+                           {
+                               "entityId":  "responder",
+                               "description":  "Person responding to the incident"
+                           },
+                           {
+                               "entityId":  "role",
+                               "description":  "Role-based access control (viewer, responder, manager, admin)"
+                           },
+                           {
+                               "entityId":  "timelineEvent",
+                               "description":  "Timestamped event in the incident timeline"
+                           },
+                           {
+                               "entityId":  "evidence",
+                               "description":  "Evidence item attached to incident (logs, screenshots, reports)"
+                           },
+                           {
+                               "entityId":  "containmentTask",
+                               "description":  "Containment action task"
+                           },
+                           {
+                               "entityId":  "remediationTask",
+                               "description":  "Remediation action task"
+                           },
+                           {
+                               "entityId":  "escalation",
+                               "description":  "Severity or ownership escalation record"
+                           },
+                           {
+                               "entityId":  "postmortem",
+                               "description":  "Post-incident review document"
+                           },
+                           {
+                               "entityId":  "auditEvent",
+                               "description":  "Audit record for all incident mutations"
+                           },
+                           {
+                               "entityId":  "communicationNote",
+                               "description":  "Internal communication note on incident"
+                           },
+                           {
+                               "entityId":  "externalReference",
+                               "description":  "External reference link attached to incident"
+                           }
+                       ],
+    "acceptanceLayers":  [
+                             "IncidentWorkflowAcceptance",
+                             "EvidenceTimelineRedactionAcceptance",
+                             "HTTPAcceptance",
+                             "StaticAcceptance"
+                         ]
+}

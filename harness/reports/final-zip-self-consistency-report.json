@@ -1,0 +1,35 @@
+﻿{
+    "errors":  [
+
+               ],
+    "verdict":  "PASS",
+    "entryCount":  83,
+    "passCount":  19,
+    "shaRecordCount":  68,
+    "phase":  "6C-T0-R1",
+    "timestamp":  "2026-06-20T16:35:32.0098481+08:00",
+    "errorCount":  0,
+    "zipPath":  "C:\\Codex_App_Factory\\harness\\outputs\\phase6c-t0-r2-final-audit-bundle.zip",
+    "passes":  [
+                   "ZIP openable: 83 entries",
+                   "No JSON at root",
+                   "No PS1 at root",
+                   "SHA256SUMS.txt at root",
+                   "Final report at root",
+                   "Directory: docs",
+                   "Directory: scripts",
+                   "Directory: tests",
+                   "Directory: reports",
+                   "Directory: command-logs",
+                   "SHA256SUMS records: 68",
+                   "No zero hashes in SHA256SUMS",
+                   "No ZIP self-SHA256 in internal reports",
+                   "Report: reports/audit-bundle-schema-validation-report.json",
+                   "Report: reports/bundle-layout-report.json",
+                   "Report: reports/sha256sums-validation-report.json",
+                   "Schema validation report verdict: PASS",
+                   "SHA report: PASS, 0 mismatches",
+                   "SHA record count consistent: 68 = checkedEntries"
+               ]
+}
+

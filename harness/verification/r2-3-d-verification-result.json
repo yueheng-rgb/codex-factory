@@ -1,0 +1,143 @@
+﻿{
+    "date":  "2026-07-09T20:40:49+08:00",
+    "passCount":  27,
+    "failCount":  0,
+    "allPassed":  true,
+    "results":  [
+                    {
+                        "Check":  "Bootstrap plan generated",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Plan has projectId",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Plan has allowedCapabilities",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Plan has monitorOnlyCapabilities",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Plan has recommendedNextAction",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Plan file saved to disk",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Pending_human: no confirmation → PENDING_HUMAN",
+                        "Passed":  true,
+                        "Detail":  "PENDING_HUMAN: Capability \u0027CAP-SKILL-099\u0027 trust level \u0027AVAILABLE\u0027 requires human confirmation"
+                    },
+                    {
+                        "Check":  "Pending_human: WITH confirmation → ALLOW",
+                        "Passed":  true,
+                        "Detail":  "ALLOW: Capability \u0027CAP-SKILL-099\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-VFY\u0027"
+                    },
+                    {
+                        "Check":  "Pending_sandbox: no sandbox → PENDING_SANDBOX",
+                        "Passed":  true,
+                        "Detail":  "PENDING_SANDBOX: Capability \u0027CAP-MCP-006\u0027 has security risk \u0027high\u0027, sandbox required"
+                    },
+                    {
+                        "Check":  "Pending_sandbox: WITH sandbox → ALLOW",
+                        "Passed":  true,
+                        "Detail":  "ALLOW: Capability \u0027CAP-MCP-006\u0027 is permitted for agent \u0027IMPL-DB-001\u0027 in project \u0027PROJ-VFY\u0027. Controls: secrets_configured, network_access"
+                    },
+                    {
+                        "Check":  "Monitor-only: execute → MONITOR_ONLY",
+                        "Passed":  true,
+                        "Detail":  "MONITOR_ONLY: Capability \u0027CAP-MCP-001\u0027 recommended action is \u0027monitor\u0027 — observe only, do not invoke"
+                    },
+                    {
+                        "Check":  "Monitor-only: import → MONITOR_ONLY",
+                        "Passed":  true,
+                        "Detail":  "MONITOR_ONLY: Capability \u0027CAP-MCP-001\u0027 recommended action is \u0027monitor\u0027 — observe only, do not invoke"
+                    },
+                    {
+                        "Check":  "Registry diff tool runs",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Diff has currentEntryCount",
+                        "Passed":  true,
+                        "Detail":  "Count: 91"
+                    },
+                    {
+                        "Check":  "  Diff detects added entries",
+                        "Passed":  true,
+                        "Detail":  "Added: 0"
+                    },
+                    {
+                        "Check":  "Master registry has 91 entries (90 + CAP-SKILL-099)",
+                        "Passed":  true,
+                        "Detail":  "Count: 91"
+                    },
+                    {
+                        "Check":  "Typed registries total 61 entries",
+                        "Passed":  true,
+                        "Detail":  "Count: 61"
+                    },
+                    {
+                        "Check":  "Master + typed = 152 total (no double-count in verification)",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Decision log exists and writable",
+                        "Passed":  true,
+                        "Detail":  "Entries: 465"
+                    },
+                    {
+                        "Check":  "Simulation: all scenarios passed",
+                        "Passed":  true,
+                        "Detail":  "Pass: 9/9"
+                    },
+                    {
+                        "Check":  "R2.3-C exec context fields preserved",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  capabilityRiskSummary preserved",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: runtime\\bootstrap-capability-plan.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: runtime\\capability-registry-diff.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: runtime\\capability-governance-integration-simulation.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: governance\\capability-plans",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: governance\\capability-registry-snapshots\\r2-3-d-baseline",
+                        "Passed":  true,
+                        "Detail":  ""
+                    }
+                ]
+}

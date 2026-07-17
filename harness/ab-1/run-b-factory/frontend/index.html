@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html><html><head><title>InventoryOps — Factory Build Lite</title><style>body{font-family:sans-serif;max-width:960px;margin:20px auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid #ccc;padding:6px;text-align:left}th{background:#f0f0f0}.low{background:#fff3cd;font-weight:bold}.critical{background:#f8d7da}nav a{margin-right:15px}</style></head><body>
+<h1>InventoryOps Portal Lite <small>(Factory Build Lite)</small></h1>
+<nav><a href="#products">Products</a> <a href="#suppliers">Suppliers</a> <a href="#orders">Orders</a> <a href="#movements">Movements</a></nav>
+<div id="products"><h2>Products</h2><table><tr><th>ID</th><th>Name</th><th>SKU</th><th>Qty</th><th>Location</th><th>Status</th></tr></table></div>
+<div id="suppliers"><h2>Suppliers</h2><table><tr><th>ID</th><th>Name</th><th>Contact</th></tr></table></div>
+<div id="orders"><h2>Orders</h2><table><tr><th>ID</th><th>Product</th><th>Qty</th><th>Requester</th><th>Status</th></tr></table></div>
+<div id="movements"><h2>Stock Movements</h2><table><tr><th>ID</th><th>Product</th><th>Dir</th><th>Qty</th><th>Reason</th><th>Time</th></tr></table></div>
+<script>
+async function load(){let p=await fetch("/products");(await p.json()).forEach(r=>{let row=document.querySelector("#products table").insertRow();let cls=r.quantity<10?'low':'';Object.values(r).forEach(v=>{let c=row.insertCell();c.textContent=v;if(cls)c.className=cls})});let s=await fetch("/suppliers");(await s.json()).forEach(r=>{let row=document.querySelector("#suppliers table").insertRow();Object.values(r).forEach(v=>row.insertCell().textContent=v)});let o=await fetch("/orders");(await o.json()).forEach(r=>{let row=document.querySelector("#orders table").insertRow();Object.values(r).forEach(v=>row.insertCell().textContent=v)});let m=await fetch("/stock-movements");(await m.json()).forEach(r=>{let row=document.querySelector("#movements table").insertRow();Object.values(r).forEach(v=>row.insertCell().textContent=v)})}
+load()
+</script></body></html>

@@ -1,0 +1,94 @@
+{
+  "profileId": "cli-workflow",
+  "profileName": "CLI Workflow",
+  "projectType": "cli-workflow",
+  "defaultWorkerRoles": [
+    {
+      "roleId": "domain-core",
+      "roleName": "Domain Core",
+      "responsibilities": [
+        "entity models",
+        "validation",
+        "state management"
+      ]
+    },
+    {
+      "roleId": "cli-commands",
+      "roleName": "CLI Commands",
+      "responsibilities": [
+        "command parsing",
+        "argument validation",
+        "subcommands"
+      ]
+    },
+    {
+      "roleId": "workflow-engine",
+      "roleName": "Workflow Engine",
+      "responsibilities": [
+        "multi-step workflow",
+        "state machine",
+        "error recovery"
+      ]
+    },
+    {
+      "roleId": "artifact",
+      "roleName": "Artifact Builder",
+      "responsibilities": [
+        "output generation",
+        "format conversion",
+        "file I/O"
+      ]
+    },
+    {
+      "roleId": "reports",
+      "roleName": "Reports/Acceptance",
+      "responsibilities": [
+        "acceptance runner",
+        "report generation",
+        "deterministic verification"
+      ]
+    }
+  ],
+  "defaultAcceptanceLayers": [
+    "GateCheck",
+    "FunctionalAcceptance",
+    "RuntimeAcceptance",
+    "ArtifactAcceptance",
+    "StaticAcceptance"
+  ],
+  "defaultComplexityBudget": {
+    "minimumWorkers": 2,
+    "minimumTasks": 2,
+    "minimumJsFiles": 10,
+    "minimumNamedExports": 18,
+    "minimumCrossWorkerDeps": 6,
+    "minimumScenarios": 5
+  },
+  "recommendedArtifacts": [
+    "RUN_STATE.jsonl",
+    "reports/gatecheck-report.json",
+    "reports/artifact-acceptance-report.json",
+    "canonical-integrated/",
+    "output-data/"
+  ],
+  "forbiddenSimplifications": [
+    "skip_cli_acceptance",
+    "skip_artifacts",
+    "single_command_only",
+    "no_validation",
+    "no_error_messages",
+    "deterministic_output_not_guaranteed"
+  ],
+  "requiredArchitecturePatterns": [
+    "command_pattern",
+    "pipeline_workflow",
+    "deterministic_output"
+  ],
+  "defaultFailureModes": [
+    "invalid_args",
+    "workflow_step_failure",
+    "artifact_missing",
+    "state_not_deterministic"
+  ],
+  "profileVersion": "1.0.0"
+}

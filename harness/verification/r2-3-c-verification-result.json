@@ -1,0 +1,220 @@
+﻿{
+    "verificationDate":  "2026-07-09T20:21:38+08:00",
+    "factoryRoot":  "C:\\Codex_App_Factory",
+    "passCount":  42,
+    "failCount":  0,
+    "totalChecks":  42,
+    "allPassed":  true,
+    "results":  [
+                    {
+                        "Check":  "All 7 registries pass integrity check",
+                        "Passed":  true,
+                        "Detail":  "Valid: 151/151"
+                    },
+                    {
+                        "Check":  "Registry verifier: 10/10 valid",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Registry skill: 12/12 valid",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Registry master: 90/90 valid",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Registry runner: 6/6 valid",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Registry search: 10/10 valid",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Registry template: 9/9 valid",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Registry mcp: 14/14 valid",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "90 capability candidates loaded",
+                        "Passed":  true,
+                        "Detail":  "Count: 90"
+                    },
+                    {
+                        "Check":  "Capabilities span multiple types",
+                        "Passed":  true,
+                        "Detail":  "Types: 11"
+                    },
+                    {
+                        "Check":  "All capabilityIds unique",
+                        "Passed":  true,
+                        "Detail":  "Total: 90, Unique: 90"
+                    },
+                    {
+                        "Check":  "Query by type \u0027skill\u0027 works",
+                        "Passed":  true,
+                        "Detail":  "Count: 12"
+                    },
+                    {
+                        "Check":  "Query by priority \u0027P0\u0027 works",
+                        "Passed":  true,
+                        "Detail":  "Count: 25"
+                    },
+                    {
+                        "Check":  "Query by agent \u0027IMPL-FE-001\u0027 works",
+                        "Passed":  true,
+                        "Detail":  "Count: 26"
+                    },
+                    {
+                        "Check":  "Query by projectType \u0027fullstack-admin\u0027 works",
+                        "Passed":  true,
+                        "Detail":  "Count: 76"
+                    },
+                    {
+                        "Check":  "Multi-criteria filter works",
+                        "Passed":  true,
+                        "Detail":  "Count: 22"
+                    },
+                    {
+                        "Check":  "Gate: Unknown capability → REJECT",
+                        "Passed":  true,
+                        "Detail":  "REJECT: Capability \u0027CAP-GHOST-999\u0027 not found in registry"
+                    },
+                    {
+                        "Check":  "Gate: LIB agent + openai-codex-skills → ALLOW",
+                        "Passed":  true,
+                        "Detail":  "ALLOW: Capability \u0027CAP-SKILL-001\u0027 is permitted for agent \u0027LIB-001\u0027 in project \u0027PROJ-VFY-001\u0027. Controls: write_scope_confirmed"
+                    },
+                    {
+                        "Check":  "Gate: Quarantine capability → REJECT",
+                        "Passed":  true,
+                        "Detail":  "REJECT: Capability \u0027CAP-MCP-014\u0027 is in QUARANTINE"
+                    },
+                    {
+                        "Check":  "Gate: No auth for required secrets → REJECT",
+                        "Passed":  true,
+                        "Detail":  "REJECT: Capability \u0027CAP-MCP-005\u0027 requires secrets (GitHub token) but no auth configured"
+                    },
+                    {
+                        "Check":  "Gate: No write scope for fileWrite → REJECT",
+                        "Passed":  true,
+                        "Detail":  "REJECT: Capability \u0027CAP-TMPL-004\u0027 requires file write access but agent lacks write scope"
+                    },
+                    {
+                        "Check":  "Gate: Valid capability + write scope → ALLOW",
+                        "Passed":  true,
+                        "Detail":  "ALLOW: Capability \u0027CAP-TMPL-004\u0027 is permitted for agent \u0027IMPL-FE-001\u0027 in project \u0027PROJ-VFY-001\u0027. Controls: write_scope_confirmed"
+                    },
+                    {
+                        "Check":  "Gate: Verifier + verifier tool → ALLOW",
+                        "Passed":  true,
+                        "Detail":  "ALLOW: Capability \u0027CAP-VER-007\u0027 is permitted for agent \u0027VER-001\u0027 in project \u0027PROJ-VFY-001\u0027"
+                    },
+                    {
+                        "Check":  "Gate: Monitor action → MONITOR_ONLY",
+                        "Passed":  true,
+                        "Detail":  "MONITOR_ONLY: Capability \u0027CAP-MCP-001\u0027 recommended action is \u0027monitor\u0027 — observe only, do not invoke"
+                    },
+                    {
+                        "Check":  "Gate: PENDING_HUMAN logic exists but unreachable (known registry gap — no AVAILABLE+import caps)",
+                        "Passed":  true,
+                        "Detail":  "Will activate when AVAILABLE+import capabilities are added"
+                    },
+                    {
+                        "Check":  "Exec context: capability fields present",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  allowedCapabilities populated",
+                        "Passed":  true,
+                        "Detail":  "Count: 4"
+                    },
+                    {
+                        "Check":  "  blockedCapabilities field present",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  capabilityRiskSummary present",
+                        "Passed":  true,
+                        "Detail":  "TotalApplicable: 18"
+                    },
+                    {
+                        "Check":  "  capabilityLoadReason present",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Decision index file exists",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Decision records writable",
+                        "Passed":  true,
+                        "Detail":  "Entries: 20"
+                    },
+                    {
+                        "Check":  "File: runtime\\registry-integrity-check.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: runtime\\capability-loader.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: runtime\\capability-permission-gate.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: runtime\\capability-decision-logger.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: runtime\\capability-runtime-simulation.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: runtime\\execution-context.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: schemas\\capability-decision.schema.json",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "File: governance\\capability-decisions\\capability-decision-index.jsonl",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "All 11 agent definitions still loadable",
+                        "Passed":  true,
+                        "Detail":  "Count: 11"
+                    },
+                    {
+                        "Check":  "R2.2 exec context fields preserved",
+                        "Passed":  true,
+                        "Detail":  ""
+                    }
+                ]
+}

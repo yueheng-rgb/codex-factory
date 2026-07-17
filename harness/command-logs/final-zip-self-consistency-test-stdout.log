@@ -1,0 +1,8 @@
+﻿=== Phase 6C-T0-R1 Final ZIP Self-Consistency Tests ===
+
+PASS Nonexistent ZIP : Expected FAIL, got FAIL
+T0 ZIP check: verdict=FAIL errors=2
+PASS T0 ZIP self-consistency : Checked T0 ZIP: FAIL (2 issues)
+
+=== Summary: 2 / 2 passed ===
+

@@ -1,0 +1,216 @@
+﻿{
+    "date":  "2026-07-09T20:53:59+08:00",
+    "passCount":  20,
+    "failCount":  0,
+    "allPassed":  true,
+    "results":  {
+                    "Loaded":  true,
+                    "SkillId":  "CAP-SKILL-004",
+                    "AgentId":  "PM-001",
+                    "Reason":  "LOADED: CAP-SKILL-004 (agents-md-ecosystem) loaded for PM-001",
+                    "SkillPackage":  {
+                                         "skillId":  "CAP-SKILL-004",
+                                         "name":  "agents-md-ecosystem",
+                                         "version":  "1.0.0",
+                                         "status":  "verified",
+                                         "sourceRefs":  [
+                                                            "OpenAI AGENTS.md specification",
+                                                            "Codex Factory AGENTS.md implementation"
+                                                        ],
+                                         "trustLevel":  "VERIFIED",
+                                         "applicableAgents":  [
+                                                                  "PM-001",
+                                                                  "ARCH-001",
+                                                                  "RSRC-001",
+                                                                  "LIB-001"
+                                                              ],
+                                         "applicableProjectTypes":  [
+                                                                        "all"
+                                                                    ],
+                                         "triggerConditions":  [
+                                                                   "project has AGENTS.md in root or subdirectory",
+                                                                   "agent context includes project files",
+                                                                   "Factory Bootstrap or Project Expertise Flow is running",
+                                                                   "architect or librarian agent is active"
+                                                               ],
+                                         "requiredInputs":  [
+                                                                {
+                                                                    "name":  "projectRoot",
+                                                                    "description":  "Path to project root directory",
+                                                                    "example":  "C:\\projects\\my-app"
+                                                                },
+                                                                {
+                                                                    "name":  "agentContext",
+                                                                    "description":  "Current agent execution context",
+                                                                    "example":  "{ agentId: \u0027PM-001\u0027, projectId: \u0027PROJ-001\u0027 }"
+                                                                }
+                                                            ],
+                                         "expectedOutputs":  [
+                                                                 {
+                                                                     "name":  "agentsMdSummary",
+                                                                     "format":  "structured markdown",
+                                                                     "description":  "Summary of AGENTS.md rules found in project"
+                                                                 },
+                                                                 {
+                                                                     "name":  "buildCommands",
+                                                                     "format":  "string array",
+                                                                     "description":  "Build/test/lint commands extracted from AGENTS.md"
+                                                                 },
+                                                                 {
+                                                                     "name":  "securityBoundaries",
+                                                                     "format":  "string array",
+                                                                     "description":  "Security boundaries defined in AGENTS.md"
+                                                                 },
+                                                                 {
+                                                                     "name":  "directoryRules",
+                                                                     "format":  "key-value map",
+                                                                     "description":  "Directory-scoped rules from AGENTS.md"
+                                                                 },
+                                                                 {
+                                                                     "name":  "contractInputs",
+                                                                     "format":  "structured json",
+                                                                     "description":  "Extracted inputs for PIC/AC/FC/NGC contracts"
+                                                                 },
+                                                                 {
+                                                                     "name":  "conflictWarnings",
+                                                                     "format":  "string array",
+                                                                     "description":  "Warnings when AGENTS.md conflicts with user instructions"
+                                                                 }
+                                                             ],
+                                         "allowedTools":  [
+                                                              "read",
+                                                              "shell_command(limited:build/test/lint)"
+                                                          ],
+                                         "forbiddenActions":  [
+                                                                  "write_project_files",
+                                                                  "modify_architecture_decisions",
+                                                                  "override_user_instructions_with_agents_md",
+                                                                  "execute_arbitrary_commands_from_agents_md",
+                                                                  "skip_security_boundary_check"
+                                                              ],
+                                         "verificationMethod":  {
+                                                                    "formatCheck":  "Verify AGENTS.md is valid Markdown with recognizable section headers (Build, Test, Lint, Security, Conventions, Handoff)",
+                                                                    "behaviorCheck":  "Load mock project with AGENTS.md, verify skill extracts correct commands and rules",
+                                                                    "requiredEvidence":  [
+                                                                                             "build_command_extraction",
+                                                                                             "security_boundary_detection",
+                                                                                             "conflict_warning_generation",
+                                                                                             "contract_input_summary"
+                                                                                         ]
+                                                                },
+                                         "examples":  [
+                                                          {
+                                                              "scenario":  "Project with AGENTS.md at root",
+                                                              "input":  "AGENTS.md contains \u0027npm run build\u0027, \u0027npm test\u0027, \u0027Do not commit .env files\u0027",
+                                                              "expectedBehavior":  "Skill extracts: build=npm run build, test=npm test, security=no .env commit"
+                                                          },
+                                                          {
+                                                              "scenario":  "Nested AGENTS.md in src/api/",
+                                                              "input":  "src/api/AGENTS.md contains \u0027All API routes must validate JWT\u0027",
+                                                              "expectedBehavior":  "Skill identifies directory-scoped rule for src/api/: JWT validation required"
+                                                          },
+                                                          {
+                                                              "scenario":  "AGENTS.md conflicts with user instruction",
+                                                              "input":  "AGENTS.md says \u0027use TypeScript strict\u0027, user says \u0027use plain JavaScript\u0027",
+                                                              "expectedBehavior":  "Skill generates conflict warning: AGENTS.md requires TypeScript but user requests JavaScript — escalate to human"
+                                                          }
+                                                      ],
+                                         "failureModes":  [
+                                                              {
+                                                                  "mode":  "AGENTS.md not found",
+                                                                  "symptom":  "Skill activates but finds no AGENTS.md files",
+                                                                  "recovery":  "Return empty summary, note \u0027no AGENTS.md detected\u0027"
+                                                              },
+                                                              {
+                                                                  "mode":  "Malformed AGENTS.md",
+                                                                  "symptom":  "AGENTS.md exists but has no recognizable sections",
+                                                                  "recovery":  "Parse as plain text, return raw content with low-confidence flag"
+                                                              },
+                                                              {
+                                                                  "mode":  "Command extraction failure",
+                                                                  "symptom":  "Build/test/lint commands not in standard format",
+                                                                  "recovery":  "Return all code blocks, let agent or human filter"
+                                                              }
+                                                          ],
+                                         "rollbackPolicy":  {
+                                                                "canRollback":  true,
+                                                                "rollbackProcedure":  "Remove skill from agent context, clear loadedSkillRefs, revert any contract inputs derived from AGENTS.md",
+                                                                "dataLossRisk":  "none"
+                                                            }
+                                     },
+                    "SkillSummary":  {
+                                         "skillId":  "CAP-SKILL-004",
+                                         "name":  "agents-md-ecosystem",
+                                         "version":  "1.0.0",
+                                         "status":  "verified",
+                                         "trustLevel":  "VERIFIED",
+                                         "allowedTools":  [
+                                                              "read",
+                                                              "shell_command(limited:build/test/lint)"
+                                                          ],
+                                         "forbiddenActions":  [
+                                                                  "write_project_files",
+                                                                  "modify_architecture_decisions",
+                                                                  "override_user_instructions_with_agents_md",
+                                                                  "execute_arbitrary_commands_from_agents_md",
+                                                                  "skip_security_boundary_check"
+                                                              ],
+                                         "triggerConditions":  [
+                                                                   "project has AGENTS.md in root or subdirectory",
+                                                                   "agent context includes project files",
+                                                                   "Factory Bootstrap or Project Expertise Flow is running",
+                                                                   "architect or librarian agent is active"
+                                                               ],
+                                         "instructionsSummary":  "# AGENTS.md Ecosystem Skill\n\n## Trigger\nThis skill activates when working in a project that contains `AGENTS.md` files at any directory level. It applies to agents involved in project analysis, architecture, implementation planning, and contract generation.\n\n## Purpose\nParse and apply AGENTS.md instructions from a project\u0027s directory tree. AGENTS.md files provide scoped rules for agents — build commands, coding conventions, security boundaries, handoff requirements, and architectural constraints.\n\n## Core Rules\n\n### 1. AGENTS.md Discovery\nWalk the project directory tree from root to leaves. Collect all `AGENTS.md` files. Record their directory paths to establish rule scopes. The root-level AGENTS.md has the widest scope; nested AGENTS.md files override parent rules within their subtree.\n\n### 2. Content Extraction\nParse each AGENTS.md and extract:\n\n| Category | Pattern | Output |\n|----------|---------|--------|\n| Build commands | ``` `npm run build` ```, `make`, `cargo build` | Array of...",
+                                         "instructionsFullPath":  "C:\\Codex_App_Factory\\skills\\CAP-SKILL-004\\SKILL.md",
+                                         "instructionsLength":  4811,
+                                         "verificationMethod":  {
+                                                                    "formatCheck":  "Verify AGENTS.md is valid Markdown with recognizable section headers (Build, Test, Lint, Security, Conventions, Handoff)",
+                                                                    "behaviorCheck":  "Load mock project with AGENTS.md, verify skill extracts correct commands and rules",
+                                                                    "requiredEvidence":  [
+                                                                                             "build_command_extraction",
+                                                                                             "security_boundary_detection",
+                                                                                             "conflict_warning_generation",
+                                                                                             "contract_input_summary"
+                                                                                         ]
+                                                                },
+                                         "failureModes":  [
+                                                              {
+                                                                  "mode":  "AGENTS.md not found",
+                                                                  "symptom":  "Skill activates but finds no AGENTS.md files",
+                                                                  "recovery":  "Return empty summary, note \u0027no AGENTS.md detected\u0027"
+                                                              },
+                                                              {
+                                                                  "mode":  "Malformed AGENTS.md",
+                                                                  "symptom":  "AGENTS.md exists but has no recognizable sections",
+                                                                  "recovery":  "Parse as plain text, return raw content with low-confidence flag"
+                                                              },
+                                                              {
+                                                                  "mode":  "Command extraction failure",
+                                                                  "symptom":  "Build/test/lint commands not in standard format",
+                                                                  "recovery":  "Return all code blocks, let agent or human filter"
+                                                              }
+                                                          ],
+                                         "rollbackPolicy":  {
+                                                                "canRollback":  true,
+                                                                "rollbackProcedure":  "Remove skill from agent context, clear loadedSkillRefs, revert any contract inputs derived from AGENTS.md",
+                                                                "dataLossRisk":  "none"
+                                                            },
+                                         "loadedSections":  [
+                                                                "instructions",
+                                                                "allowedTools",
+                                                                "forbiddenActions",
+                                                                "triggerConditions",
+                                                                "failureModes"
+                                                            ],
+                                         "inputRefs":  [
+                                                           "C:\\Codex_App_Factory\\skills\\CAP-SKILL-004\\skill.json",
+                                                           "C:\\Codex_App_Factory\\skills\\CAP-SKILL-004\\SKILL.md"
+                                                       ]
+                                     },
+                    "Warnings":  [
+
+                                 ],
+                    "UsageRecord":  null
+                }
+}

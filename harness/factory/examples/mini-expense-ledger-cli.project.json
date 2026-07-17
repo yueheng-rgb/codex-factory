@@ -1,0 +1,126 @@
+﻿{
+  "$schema": "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "mini-expense-ledger-cli",
+  "runId": "dry8-mini-expense-ledger-cli",
+  "phase": "Phase 6C-DRY8-A",
+  "language": "javascript",
+  "description": "A pure Node.js, zero-dependency CLI expense ledger. Supports categories, expense records, budget statistics, and Markdown report generation via CLI commands that read/write JSON files.",
+  "workers": [
+    {
+      "workerId": "worker-1",
+      "description": "Category core: defines category objects, createCategory, updateCategory, filterCategories, categoryHelpers.",
+      "taskDescription": "Create 5 JavaScript files in workspace/worker-1/src/. File1 categoryTypes.js: export category object fields (id, name, monthlyBudgetCents, status, tags, createdAt, updatedAt), normalizeCategoryInput, isCategoryActive, getCategoryById. File2 createCategory.js: export createCategory(input) that creates a category with auto-generated id and timestamps. File3 updateCategory.js: export updateCategory(category, patch) returning immutable updated copy. File4 filterCategories.js: export filterCategories(categories, filter) by status, name substring, tag. File5 categoryHelpers.js: export helper utilities. Use require() and module.exports. No external packages.",
+      "ownedPaths": [
+        "src/categoryTypes.js",
+        "src/createCategory.js",
+        "src/updateCategory.js",
+        "src/filterCategories.js",
+        "src/categoryHelpers.js"
+      ],
+      "exports": [
+        { "interfaceId": "module.category.createCategory", "name": "createCategory", "file": "src/createCategory.js", "signature": { "kind": "function", "params": ["object"], "returns": "object" } },
+        { "interfaceId": "module.category.updateCategory", "name": "updateCategory", "file": "src/updateCategory.js", "signature": { "kind": "function", "params": ["object","object"], "returns": "object" } },
+        { "interfaceId": "module.category.filterCategories", "name": "filterCategories", "file": "src/filterCategories.js", "signature": { "kind": "function", "params": ["object[]","object"], "returns": "object[]" } },
+        { "interfaceId": "module.category.normalizeCategoryInput", "name": "normalizeCategoryInput", "file": "src/categoryTypes.js", "signature": { "kind": "function", "params": ["object"], "returns": "object" } },
+        { "interfaceId": "module.category.isCategoryActive", "name": "isCategoryActive", "file": "src/categoryTypes.js", "signature": { "kind": "function", "params": ["object"], "returns": "boolean" } },
+        { "interfaceId": "module.category.getCategoryById", "name": "getCategoryById", "file": "src/categoryTypes.js", "signature": { "kind": "function", "params": ["object[]","string"], "returns": "object|null" } }
+      ],
+      "imports": []
+    },
+    {
+      "workerId": "worker-2",
+      "description": "Expense core: defines expense objects, createExpense, updateExpense, filterExpenses, expenseHelpers. Imports from W1.",
+      "taskDescription": "Create 5 JavaScript files in workspace/worker-2/src/. File1 expenseTypes.js: export expense object fields (id, categoryId, description, amountCents, spentAt, merchant, tags, createdAt, updatedAt), normalizeExpenseInput, isExpenseInMonth, sumExpensesCents. File2 createExpense.js: export createExpense(category, input) that validates category is active (import isCategoryActive from worker-1) and creates expense with auto id. File3 updateExpense.js: export updateExpense(expense, patch) immutable update. File4 filterExpenses.js: export filterExpenses(expenses, filter) by categoryId, date range, amount range, tag. File5 expenseHelpers.js: export getCategoryById from worker-1 helper re-exports. Use require() cross-worker imports. No external packages.",
+      "ownedPaths": [
+        "src/expenseTypes.js",
+        "src/createExpense.js",
+        "src/updateExpense.js",
+        "src/filterExpenses.js",
+        "src/expenseHelpers.js"
+      ],
+      "exports": [
+        { "interfaceId": "module.expense.createExpense", "name": "createExpense", "file": "src/createExpense.js", "signature": { "kind": "function", "params": ["object","object"], "returns": "object" } },
+        { "interfaceId": "module.expense.updateExpense", "name": "updateExpense", "file": "src/updateExpense.js", "signature": { "kind": "function", "params": ["object","object"], "returns": "object" } },
+        { "interfaceId": "module.expense.filterExpenses", "name": "filterExpenses", "file": "src/filterExpenses.js", "signature": { "kind": "function", "params": ["object[]","object"], "returns": "object[]" } },
+        { "interfaceId": "module.expense.normalizeExpenseInput", "name": "normalizeExpenseInput", "file": "src/expenseTypes.js", "signature": { "kind": "function", "params": ["object"], "returns": "object" } },
+        { "interfaceId": "module.expense.isExpenseInMonth", "name": "isExpenseInMonth", "file": "src/expenseTypes.js", "signature": { "kind": "function", "params": ["object","number","number"], "returns": "boolean" } },
+        { "interfaceId": "module.expense.sumExpensesCents", "name": "sumExpensesCents", "file": "src/expenseTypes.js", "signature": { "kind": "function", "params": ["object[]"], "returns": "number" } }
+      ],
+      "imports": [
+        { "interfaceId": "module.category.isCategoryActive", "name": "isCategoryActive", "fromWorkerId": "worker-1", "file": "src/createExpense.js" },
+        { "interfaceId": "module.category.getCategoryById", "name": "getCategoryById", "fromWorkerId": "worker-1", "file": "src/expenseHelpers.js" }
+      ]
+    },
+    {
+      "workerId": "worker-3",
+      "description": "Budget engine: budget statistics, comparison against categories, budget helpers. Imports from W1 and W2.",
+      "taskDescription": "Create 5 JavaScript files in workspace/worker-3/src/. File1 budgetTypes.js: export BudgetSummary, PeriodBudget objects. File2 calculateBudget.js: export calculateBudget(categories, expenses) computes totalSpentCents, byCategory breakdown, overBudgetCategories. Imports sumExpensesCents from worker-2 and getCategoryById from worker-1. File3 getBudgetSummary.js: export getBudgetSummary(categories, expenses, period) returning monthly vs budget comparison. File4 compareBudgetToCategory.js: export compareBudgetToCategory(category, expenses) returning spent vs budget diff. File5 budgetHelpers.js: export budget utility functions. Use require() cross-worker imports. No external packages.",
+      "ownedPaths": [
+        "src/budgetTypes.js",
+        "src/calculateBudget.js",
+        "src/getBudgetSummary.js",
+        "src/compareBudgetToCategory.js",
+        "src/budgetHelpers.js"
+      ],
+      "exports": [
+        { "interfaceId": "module.budget.calculateBudget", "name": "calculateBudget", "file": "src/calculateBudget.js", "signature": { "kind": "function", "params": ["object[]","object[]"], "returns": "object" } },
+        { "interfaceId": "module.budget.getBudgetSummary", "name": "getBudgetSummary", "file": "src/getBudgetSummary.js", "signature": { "kind": "function", "params": ["object[]","object[]","string"], "returns": "object" } },
+        { "interfaceId": "module.budget.compareBudgetToCategory", "name": "compareBudgetToCategory", "file": "src/compareBudgetToCategory.js", "signature": { "kind": "function", "params": ["object","object[]"], "returns": "object" } },
+        { "interfaceId": "module.budget.BudgetStatus", "name": "BudgetStatus", "file": "src/budgetTypes.js", "signature": { "kind": "type", "params": [], "returns": "BudgetStatus" } },
+        { "interfaceId": "module.budget.normalizeBudgetPeriod", "name": "normalizeBudgetPeriod", "file": "src/budgetTypes.js", "signature": { "kind": "function", "params": ["string"], "returns": "string" } },
+        { "interfaceId": "module.budget.isOverBudget", "name": "isOverBudget", "file": "src/budgetHelpers.js", "signature": { "kind": "function", "params": ["number","number"], "returns": "boolean" } }
+      ],
+      "imports": [
+        { "interfaceId": "module.category.getCategoryById", "name": "getCategoryById", "fromWorkerId": "worker-1", "file": "src/calculateBudget.js" },
+        { "interfaceId": "module.expense.sumExpensesCents", "name": "sumExpensesCents", "fromWorkerId": "worker-2", "file": "src/calculateBudget.js" },
+        { "interfaceId": "module.category.getCategoryById", "name": "getCategoryById", "fromWorkerId": "worker-1", "file": "src/getBudgetSummary.js" },
+        { "interfaceId": "module.expense.filterExpenses", "name": "filterExpenses", "fromWorkerId": "worker-2", "file": "src/getBudgetSummary.js" }
+      ]
+    },
+    {
+      "workerId": "worker-4",
+      "description": "CLI + Report: CLI entry point, JSON file I/O, Markdown report generation, artifact validation. Imports from W1, W2, W3.",
+      "taskDescription": "Create 7 JavaScript files in workspace/worker-4/src/. File1 cliMain.js: export cliMain() that reads categories.json, expenses.json from data/ dir, calls budget calculation, and writes ledger.json and report.md. Uses only fs, path built-ins. File2 writeLedgerJson.js: export writeLedgerJson(categories, expenses, budget, filePath) serializes ledger.json with structured data. File3 buildReportMarkdown.js: export buildReportMarkdown(budgetSummary, categories, expenses) generates full Markdown report. File4 validateLedgerFile.js: export validateLedgerFile(filePath) checks file exists and has valid JSON. File5 readDataFiles.js: export readDataFiles(dataDir) reads and parses categories.json and expenses.json. File6 reportHelpers.js: export formatCents, renderTableRow, formatDate helpers. File7 cliTypes.js: export CLI types. Import from worker-1 (filterCategories, getCategoryById), worker-2 (filterExpenses, sumExpensesCents), worker-3 (calculateBudget, getBudgetSummary, compareBudgetToCategory). Use require() and module.exports. No external packages, only Node built-ins.",
+      "ownedPaths": [
+        "src/cliMain.js",
+        "src/writeLedgerJson.js",
+        "src/buildReportMarkdown.js",
+        "src/validateLedgerFile.js",
+        "src/readDataFiles.js",
+        "src/reportHelpers.js",
+        "src/cliTypes.js"
+      ],
+      "exports": [
+        { "interfaceId": "module.cli.cliMain", "name": "cliMain", "file": "src/cliMain.js", "signature": { "kind": "function", "params": ["string","string"], "returns": "object" } },
+        { "interfaceId": "module.cli.writeLedgerJson", "name": "writeLedgerJson", "file": "src/writeLedgerJson.js", "signature": { "kind": "function", "params": ["object[]","object[]","object","string"], "returns": "void" } },
+        { "interfaceId": "module.cli.buildReportMarkdown", "name": "buildReportMarkdown", "file": "src/buildReportMarkdown.js", "signature": { "kind": "function", "params": ["object","object[]","object[]"], "returns": "string" } },
+        { "interfaceId": "module.cli.validateLedgerFile", "name": "validateLedgerFile", "file": "src/validateLedgerFile.js", "signature": { "kind": "function", "params": ["string"], "returns": "object" } },
+        { "interfaceId": "module.cli.readDataFiles", "name": "readDataFiles", "file": "src/readDataFiles.js", "signature": { "kind": "function", "params": ["string"], "returns": "object" } },
+        { "interfaceId": "module.cli.formatCents", "name": "formatCents", "file": "src/reportHelpers.js", "signature": { "kind": "function", "params": ["number"], "returns": "string" } },
+        { "interfaceId": "module.cli.renderTableRow", "name": "renderTableRow", "file": "src/reportHelpers.js", "signature": { "kind": "function", "params": ["object[]"], "returns": "string" } },
+        { "interfaceId": "module.cli.formatDate", "name": "formatDate", "file": "src/reportHelpers.js", "signature": { "kind": "function", "params": ["string"], "returns": "string" } }
+      ],
+      "imports": [
+        { "interfaceId": "module.category.filterCategories", "name": "filterCategories", "fromWorkerId": "worker-1", "file": "src/cliMain.js" },
+        { "interfaceId": "module.category.getCategoryById", "name": "getCategoryById", "fromWorkerId": "worker-1", "file": "src/cliMain.js" },
+        { "interfaceId": "module.expense.filterExpenses", "name": "filterExpenses", "fromWorkerId": "worker-2", "file": "src/cliMain.js" },
+        { "interfaceId": "module.expense.sumExpensesCents", "name": "sumExpensesCents", "fromWorkerId": "worker-2", "file": "src/cliMain.js" },
+        { "interfaceId": "module.budget.calculateBudget", "name": "calculateBudget", "fromWorkerId": "worker-3", "file": "src/cliMain.js" },
+        { "interfaceId": "module.budget.getBudgetSummary", "name": "getBudgetSummary", "fromWorkerId": "worker-3", "file": "src/cliMain.js" },
+        { "interfaceId": "module.category.filterCategories", "name": "filterCategories", "fromWorkerId": "worker-1", "file": "src/buildReportMarkdown.js" },
+        { "interfaceId": "module.expense.sumExpensesCents", "name": "sumExpensesCents", "fromWorkerId": "worker-2", "file": "src/buildReportMarkdown.js" },
+        { "interfaceId": "module.budget.compareBudgetToCategory", "name": "compareBudgetToCategory", "fromWorkerId": "worker-3", "file": "src/buildReportMarkdown.js" },
+        { "interfaceId": "module.category.filterCategories", "name": "filterCategories", "fromWorkerId": "worker-1", "file": "src/writeLedgerJson.js" },
+        { "interfaceId": "module.expense.filterExpenses", "name": "filterExpenses", "fromWorkerId": "worker-2", "file": "src/writeLedgerJson.js" }
+      ]
+    }
+  ],
+  "acceptance": [
+    { "acceptanceId": "AC-001", "description": "Worker 1 creates 5 JS files: categoryTypes.js, createCategory.js, updateCategory.js, filterCategories.js, categoryHelpers.js." },
+    { "acceptanceId": "AC-002", "description": "Worker 2 imports from W1 and creates 5 JS files: expenseTypes.js, createExpense.js, updateExpense.js, filterExpenses.js, expenseHelpers.js." },
+    { "acceptanceId": "AC-003", "description": "Worker 3 imports from W1, W2 and creates 5 JS files: budgetTypes.js, calculateBudget.js, getBudgetSummary.js, compareBudgetToCategory.js, budgetHelpers.js." },
+    { "acceptanceId": "AC-004", "description": "Worker 4 imports from W1, W2, W3 and creates 7 JS files including cliMain.js, writeLedgerJson.js, buildReportMarkdown.js, validateLedgerFile.js, readDataFiles.js, reportHelpers.js, cliTypes.js." },
+    { "acceptanceId": "AC-005", "description": "Structural gates pass. Runtime scenarios execute with Node.js. CLI artifacts (ledger.json, report.md) generated and validated." }
+  ],
+  "forbiddenPaths": []
+}

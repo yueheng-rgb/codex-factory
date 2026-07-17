@@ -1,0 +1,32 @@
+﻿{
+  "acceptance": [
+    {
+      "acceptanceId": "AC-001",
+      "description": "{{WORKER1_ACCEPTANCE}}",
+      "taskIds": ["T-001"],
+      "requiredEvidence": ["source_output", "interface_manifest", "worker_implementation_manifest"],
+      "gateChecks": ["contractLock", "interfaceDrift", "manifestHonesty", "workspaceIsolation"]
+    },
+    {
+      "acceptanceId": "AC-002",
+      "description": "{{WORKER2_ACCEPTANCE}}",
+      "taskIds": ["T-002"],
+      "requiredEvidence": ["source_output", "interface_manifest", "worker_implementation_manifest", "cross_reference_check"],
+      "gateChecks": ["contractLock", "interfaceDrift", "manifestHonesty", "workspaceIsolation", "integrationGate"]
+    },
+    {
+      "acceptanceId": "AC-003",
+      "description": "No cross-workspace writes.",
+      "taskIds": ["T-001", "T-002"],
+      "requiredEvidence": ["ownership_audit_log"],
+      "gateChecks": ["workspaceIsolation", "ownershipViolation"]
+    },
+    {
+      "acceptanceId": "AC-004",
+      "description": "Contract, honesty, drift, isolation, integration, token proof, and hash chain gates must pass in execution phase.",
+      "taskIds": ["T-001", "T-002"],
+      "requiredEvidence": ["validate_state_output"],
+      "gateChecks": ["hashChain", "tokenProofs", "integrationGate", "contractLock"]
+    }
+  ]
+}

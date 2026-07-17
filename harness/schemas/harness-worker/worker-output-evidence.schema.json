@@ -1,0 +1,103 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Worker Output Evidence Schema",
+  "description": "Captures source-derived evidence about a worker's actual output files, compared against the worker's pre-spawn contract.",
+  "schemaVersion": "H8-R1",
+  "type": "object",
+  "required": [
+    "runId", "workerId", "workerContractPath", "workerWorkspacePath",
+    "checkedAt", "sourceFiles", "derivedExports", "derivedRequires",
+    "verdict", "classification"
+  ],
+  "properties": {
+    "runId": { "type": "string", "minLength": 1 },
+    "workerId": { "type": "integer", "minimum": 1 },
+    "workerContractPath": { "type": "string", "minLength": 1 },
+    "workerWorkspacePath": { "type": "string", "minLength": 1 },
+    "checkedAt": { "type": "string", "format": "date-time" },
+    "sourceFiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "sizeBytes", "lineCount"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string" },
+          "sizeBytes": { "type": "integer" },
+          "lineCount": { "type": "integer" }
+        }
+      }
+    },
+    "derivedExports": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Named exports actually found in source files (module.exports, exports.X, or export keyword)"
+    },
+    "derivedRequires": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "require() or import paths actually found in source files"
+    },
+    "ownedFileViolations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Files written outside ownedFilesPlanned"
+    },
+    "forbiddenFileViolations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Files matching forbiddenFiles patterns"
+    },
+    "missingRequiredExports": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Contract-required exports not found in source"
+    },
+    "missingRequiredEvidence": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Contract-required evidence files not found"
+    },
+    "missingScenarioEvidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "missingBusinessRuleEvidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "forbiddenDependencyViolations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "shallowImplementationSignals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["signal", "file", "line"],
+        "properties": {
+          "signal": { "type": "string" },
+          "file": { "type": "string" },
+          "line": { "type": "integer" }
+        }
+      },
+      "description": "Detected shallow implementation signals: TODO, FIXME, stub, placeholder, empty functions, return null/{}"
+    },
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+    "classification": {
+      "type": "string",
+      "enum": ["PASS", "FAIL_CONTRACT_DRIFT", "FAIL_MISSING_EVIDENCE", "FAIL_PROFILE_BOUNDARY_VIOLATION", "FAIL_HARNESS_NOISE"]
+    }
+  },
+  "shallowSignalDefinitions": {
+    "todoFIXME": "Lines containing TODO or FIXME in behavioral code",
+    "placeholder": "Lines containing placeholder or not implemented",
+    "stubReturn": "return null or return {} as sole implementation",
+    "emptyFunction": "Function body with no statements",
+    "commentOnlyFunction": "Function body with only comments, no executable code",
+    "constantsOnly": "Module exporting only constants where behavior was required",
+    "belowMinLines": "Source file below minimum line count threshold where behavior was required",
+    "hardcodedPassRunner": "Scenario runner that always returns PASS without actual test execution",
+    "reportWithoutTranscript": "Acceptance report generated without execution transcript"
+  }
+}

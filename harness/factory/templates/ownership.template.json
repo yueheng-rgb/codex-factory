@@ -1,0 +1,32 @@
+﻿{
+  "ownershipMap": {
+    "worker-1": {
+      "workerId": "worker-1",
+      "ownedPaths": [
+        "src/{{WORKER1_MODULE}}.ts"
+      ],
+      "forbiddenWritePaths": [
+        "runs/{{RUN_ID}}/workspace/worker-2",
+        "runs/{{RUN_ID}}/canonical-integrated"
+      ],
+      "allowedReadPaths": [
+        "runs/{{RUN_ID}}/workspace/worker-1",
+        "runs/{{RUN_ID}}/interface-contract.lock.json"
+      ]
+    },
+    "worker-2": {
+      "workerId": "worker-2",
+      "ownedPaths": [
+        "src/{{WORKER2_MODULE}}.ts"
+      ],
+      "forbiddenWritePaths": [
+        "runs/{{RUN_ID}}/workspace/worker-1",
+        "runs/{{RUN_ID}}/canonical-integrated"
+      ],
+      "allowedReadPaths": [
+        "runs/{{RUN_ID}}/workspace/worker-2",
+        "runs/{{RUN_ID}}/interface-contract.lock.json"
+      ]
+    }
+  }
+}

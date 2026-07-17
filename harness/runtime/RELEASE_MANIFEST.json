@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "6A.1",
+  "releaseId": null,
+  "status": "pending",
+  "zipPath": null,
+  "zipSHA256": null,
+  "roundTrip": {
+    "npmCi": null,
+    "typecheck": null,
+    "build": null,
+    "devStart": null
+  },
+  "verifiedAt": null
+}

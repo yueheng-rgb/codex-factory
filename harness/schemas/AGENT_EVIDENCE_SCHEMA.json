@@ -1,0 +1,63 @@
+{
+    "schemaVersion":  "6C-U0-B",
+    "name":  "AGENT_EVIDENCE_SCHEMA",
+    "description":  "Defines per-agent evidence requirements for multi-agent runs.",
+    "agents":  {
+                   "orchestrator":  {
+                                        "requiredEvidence":  [
+                                                                 "AGENT_SPAWN_MANIFEST.json",
+                                                                 "RUN_PLAN.json",
+                                                                 "TASK_DAG.json"
+                                                             ],
+                                        "hardGate":  true
+                                    },
+                   "builder":  {
+                                   "requiredEvidence":  [
+                                                            "OWNERSHIP.json",
+                                                            "SUBMIT_*.json (submission evidence)",
+                                                            "WORKTREE_MANIFEST.json",
+                                                            "AGENT_CAPSULE_MANIFEST.json",
+                                                            "patch files",
+                                                            "changed files list",
+                                                            "worker-interface-manifest.json (per-worker exports/imports declaration)"
+                                                        ],
+                                   "hardGate":  true,
+                                   "forbiddenActions":  [
+                                                            "self-verification (Builder cannot also be Validator for same task)",
+                                                            "direct modification of canonical"
+                                                        ]
+                               },
+                   "validator":  {
+                                     "requiredEvidence":  [
+                                                              "authorization proofs (validation_started, validation_passed)",
+                                                              "verify-task evidence",
+                                                              "test results",
+                                                              "typecheck results",
+                                                              "interface-drift-report.json (drift detection result)"
+                                                          ],
+                                     "hardGate":  true,
+                                     "requirements":  [
+                                                          "Must be independent agent (not same as Builder)",
+                                                          "Must have valid authorization proof for task_verified"
+                                                      ]
+                                 },
+                   "integrator":  {
+                                      "requiredEvidence":  [
+                                                               "integration result",
+                                                               "conflict report (if any)",
+                                                               "canonical before/after hashes",
+                                                               "integration-gate-report.json (integration gate — depends on drift report)"
+                                                           ],
+                                      "hardGate":  true
+                                  }
+               },
+    "mailboxEvidence":  {
+                            "required":  [
+                                             "agent-mailbox/messages.jsonl",
+                                             "agent-mailbox/MAILBOX_MANIFEST.json",
+                                             "run/MAILBOX_USAGE_REPORT.json"
+                                         ],
+                            "hardGate":  false,
+                            "notes":  "Mailbox evidence is currently advisory. Required for full multi-agent handoff proof but not for minimum closure."
+                        }
+}

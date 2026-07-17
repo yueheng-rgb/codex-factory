@@ -1,0 +1,46 @@
+﻿{
+  "$schema": "../../schemas/RUN_EVIDENCE_SCHEMA.json",
+  "tasks": [
+    {
+      "taskId": "T-001",
+      "workerId": "worker-1",
+      "description": "{{WORKER1_TASK_DESCRIPTION}}",
+      "ownedPaths": [
+        "src/{{WORKER1_MODULE}}.ts"
+      ],
+      "exports": [
+        {
+          "interfaceId": "{{INTERFACE_ID_PREFIX}}.{{EXPORT_NAME}}",
+          "name": "{{EXPORT_NAME}}",
+          "file": "src/{{WORKER1_MODULE}}.ts"
+        }
+      ],
+      "imports": [],
+      "acceptanceCriteria": ["AC-001"]
+    },
+    {
+      "taskId": "T-002",
+      "workerId": "worker-2",
+      "description": "{{WORKER2_TASK_DESCRIPTION}}",
+      "ownedPaths": [
+        "src/{{WORKER2_MODULE}}.ts"
+      ],
+      "exports": [
+        {
+          "interfaceId": "{{INTERFACE_ID_PREFIX}}.{{WORKER2_EXPORT_NAME}}",
+          "name": "{{WORKER2_EXPORT_NAME}}",
+          "file": "src/{{WORKER2_MODULE}}.ts"
+        }
+      ],
+      "imports": [
+        {
+          "interfaceId": "{{INTERFACE_ID_PREFIX}}.{{EXPORT_NAME}}",
+          "name": "{{EXPORT_NAME}}",
+          "fromWorkerId": "worker-1",
+          "file": "src/{{WORKER1_MODULE}}.ts"
+        }
+      ],
+      "acceptanceCriteria": ["AC-002"]
+    }
+  ]
+}

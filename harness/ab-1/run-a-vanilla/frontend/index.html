@@ -1,0 +1,9 @@
+﻿<!DOCTYPE html><html><head><title>InventoryOps — Vanilla</title><style>body{font-family:sans-serif;max-width:900px;margin:20px auto}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:6px;text-align:left}.alert{color:red}.low{background:#fff3cd}</style></head><body>
+<h1>InventoryOps Portal Lite</h1>
+<div><h2>Products</h2><table id="products"><tr><th>ID</th><th>Name</th><th>SKU</th><th>Qty</th><th>Location</th><th>Status</th></tr></table></div>
+<div><h2>Suppliers</h2><table id="suppliers"><tr><th>ID</th><th>Name</th><th>Contact</th></tr></table></div>
+<div><h2>Orders</h2><table id="orders"><tr><th>ID</th><th>Product</th><th>Qty</th><th>Requester</th><th>Status</th></tr></table></div>
+<script>
+async function load(){let p=await fetch("/products");let ps=await p.json();document.getElementById("products").innerHTML+="";ps.forEach(r=>{let row=document.getElementById("products").insertRow();Object.values(r).forEach(v=>row.insertCell().textContent=v)});let s=await fetch("/suppliers");(await s.json()).forEach(r=>{let row=document.getElementById("suppliers").insertRow();Object.values(r).forEach(v=>row.insertCell().textContent=v)});let o=await fetch("/orders");(await o.json()).forEach(r=>{let row=document.getElementById("orders").insertRow();Object.values(r).forEach(v=>row.insertCell().textContent=v)})}
+load()
+</script></body></html>

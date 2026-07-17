@@ -1,0 +1,85 @@
+﻿{
+  "$schema": "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "tiny-typescript-service",
+  "runId": "u2-a-example-run",
+  "phase": "Phase 6C-U2-A",
+  "description": "A minimal 2-Worker TypeScript service: Worker 1 creates utility functions, Worker 2 imports them and exposes a service entry point.",
+  "workers": [
+    {
+      "workerId": "worker-1",
+      "description": "Creates utility functions: formatDate and makeRunLabel.",
+      "ownedPaths": [
+        "src/utils.ts"
+      ],
+      "taskDescription": "Implement formatDate(date: Date): string and makeRunLabel(runId: string): string in src/utils.ts. Export both as named exports.",
+      "acceptanceDescription": "Worker 1 creates provider utilities: formatDate and makeRunLabel with correct signatures.",
+      "exports": [
+        {
+          "interfaceId": "module.utils.formatDate",
+          "name": "formatDate",
+          "file": "src/utils.ts",
+          "signature": { "kind": "function", "params": ["Date"], "returns": "string" }
+        },
+        {
+          "interfaceId": "module.utils.makeRunLabel",
+          "name": "makeRunLabel",
+          "file": "src/utils.ts",
+          "signature": { "kind": "function", "params": ["string"], "returns": "string" }
+        }
+      ],
+      "imports": []
+    },
+    {
+      "workerId": "worker-2",
+      "description": "Imports formatDate and makeRunLabel from Worker 1, exposes runService as the main entry point.",
+      "ownedPaths": [
+        "src/service.ts"
+      ],
+      "taskDescription": "Implement runService(runId: string): string in src/service.ts. Import formatDate and makeRunLabel from worker-1. Export runService as named export.",
+      "acceptanceDescription": "Worker 2 imports provider utilities and exports runService function that composes formatDate and makeRunLabel.",
+      "exports": [
+        {
+          "interfaceId": "module.service.runService",
+          "name": "runService",
+          "file": "src/service.ts",
+          "signature": { "kind": "function", "params": ["string"], "returns": "string" }
+        }
+      ],
+      "imports": [
+        {
+          "interfaceId": "module.utils.formatDate",
+          "name": "formatDate",
+          "fromWorkerId": "worker-1",
+          "file": "src/utils.ts"
+        },
+        {
+          "interfaceId": "module.utils.makeRunLabel",
+          "name": "makeRunLabel",
+          "fromWorkerId": "worker-1",
+          "file": "src/utils.ts"
+        }
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "acceptanceId": "AC-001",
+      "description": "Worker 1 creates provider utilities: formatDate and makeRunLabel with correct signatures."
+    },
+    {
+      "acceptanceId": "AC-002",
+      "description": "Worker 2 imports provider utilities and exports runService function that composes formatDate and makeRunLabel."
+    },
+    {
+      "acceptanceId": "AC-003",
+      "description": "No cross-workspace writes."
+    },
+    {
+      "acceptanceId": "AC-004",
+      "description": "Contract, honesty, drift, isolation, integration, token proof, and hash chain gates must pass in execution phase."
+    }
+  ],
+  "forbiddenPaths": [
+    "runs/u2-a-example-run/workspace/worker-2"
+  ]
+}

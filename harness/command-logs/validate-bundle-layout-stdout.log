@@ -1,0 +1,25 @@
+﻿{
+    "bundleDir":  "C:\\Codex_App_Factory\\harness\\outputs\\phase6c-t0-r2-final-audit-bundle",
+    "verdict":  "PASS",
+    "timestamp":  "2026-06-20T16:35:54.5418122+08:00",
+    "errors":  [
+
+               ],
+    "schemaVersion":  "6C-P",
+    "passes":  [
+                   "Directory: docs",
+                   "Directory: scripts",
+                   "Directory: tests",
+                   "Directory: run",
+                   "Directory: reports",
+                   "Directory: command-logs",
+                   "Directory: evidence",
+                   "No scripts at root",
+                   "No unauthorized docs at root",
+                   "No test files at root",
+                   "scripts/: 3 script(s)",
+                   "reports/: 6 report(s)",
+                   "No JSON at root"
+               ]
+}
+

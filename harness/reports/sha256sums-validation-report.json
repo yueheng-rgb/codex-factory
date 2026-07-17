@@ -1,0 +1,20 @@
+﻿{
+    "absolutePathCount":  0,
+    "mismatches":  [
+
+                   ],
+    "timestamp":  "2026-06-20T16:29:59.8918257+08:00",
+    "relativePathsOnly":  true,
+    "selfExcluded":  true,
+    "bundleDir":  "C:\\Codex_App_Factory\\harness\\outputs\\phase6c-t0-r2-final-audit-bundle",
+    "mismatchCount":  0,
+    "checkedEntries":  46,
+    "verdict":  "PASS",
+    "absolutePaths":  [
+
+                      ],
+    "schemaVersion":  "6C-P",
+    "matchedEntries":  46,
+    "hashReportExcluded":  true
+}
+

@@ -1,0 +1,376 @@
+﻿{
+    "registryId":  "FACTORY_AGENT_REGISTRY",
+    "generatedAt":  "2026-06-23T19:07:39.1258829+08:00",
+    "defaultAgentRoles":  [
+                              "builder",
+                              "verifier",
+                              "skeptic",
+                              "integrator",
+                              "researcher",
+                              "contractor"
+                          ],
+    "agents":  [
+                   {
+                       "agentId":  "dry19-a-worker-1",
+                       "taskId":  "dry19-a-core-domain",
+                       "role":  "builder",
+                       "status":  "closed",
+                       "createdAt":  "2026-06-23T00:07:08.000+08:00",
+                       "lastHeartbeatAt":  "2026-06-23T00:07:30.000+08:00",
+                       "closedAt":  "2026-06-23T00:07:35.000+08:00",
+                       "capsulePath":  "runs/dry19-mini-workflow-approval-ops-app-realspawn/branches/worker-1/WORKER_CAPSULE.json",
+                       "worktreePath":  "runs/dry19-mini-workflow-approval-ops-app-realspawn/workspace/worker-1-workspace",
+                       "expectedOutputs":  [
+                                               "approvalTypes.js",
+                                               "approvalStore.js",
+                                               "approvalValidator.js",
+                                               "approvalFactory.js"
+                                           ],
+                       "actualOutputs":  [
+                                             "approvalTypes.js",
+                                             "approvalStore.js",
+                                             "approvalValidator.js",
+                                             "approvalFactory.js",
+                                             "approvalConstraintValidator.js",
+                                             "approvalSerializer.js",
+                                             "policyRuleEvaluator.js",
+                                             "roleTypes.js",
+                                             "seedData.js",
+                                             "userTypes.js"
+                                         ],
+                       "parentPhase":  "DRY19-A",
+                       "forkContext":  false,
+                       "isolationRequired":  true
+                   },
+                   {
+                       "evidencePaths":  [
+
+                                         ],
+                       "forkContext":  false,
+                       "parentPhase":  "H13-A",
+                       "worktreePath":  "",
+                       "agentId":  "h13-test-agent",
+                       "capsulePath":  "",
+                       "actualOutputs":  [
+
+                                         ],
+                       "status":  "quarantined",
+                       "taskId":  "h13-test-task",
+                       "riskSignals":  [
+                                           "manual_quarantine"
+                                       ],
+                       "role":  "verifier",
+                       "isolationRequired":  true,
+                       "createdAt":  "2026-06-23T16:05:47.2619274+08:00",
+                       "expectedOutputs":  [
+
+                                           ]
+                   },
+                   {
+                       "agentId":  "h13-verify-3502",
+                       "taskId":  "h13-verify-task",
+                       "role":  "verifier",
+                       "createdAt":  "2026-06-23T16:06:42.1354086+08:00",
+                       "capsulePath":  "",
+                       "worktreePath":  "",
+                       "parentPhase":  "",
+                       "forkContext":  false,
+                       "isolationRequired":  false,
+                       "expectedOutputs":  [
+
+                                           ],
+                       "actualOutputs":  [
+
+                                         ],
+                       "evidencePaths":  [
+
+                                         ],
+                       "lastHeartbeatAt":  "2026-06-23T16:06:42.3775425+08:00",
+                       "handoffPath":  "test/capsule.json",
+                       "closedAt":  "2026-06-23T16:06:43.0352843+08:00",
+                       "status":  "quarantined",
+                       "riskSignals":  [
+                                           "manual_quarantine"
+                                       ]
+                   },
+                   {
+                       "agentId":  "h13-verify-9656",
+                       "taskId":  "h13-verify-task",
+                       "role":  "verifier",
+                       "createdAt":  "2026-06-23T16:07:04.7932461+08:00",
+                       "capsulePath":  "",
+                       "worktreePath":  "",
+                       "parentPhase":  "",
+                       "forkContext":  false,
+                       "isolationRequired":  false,
+                       "expectedOutputs":  [
+
+                                           ],
+                       "actualOutputs":  [
+
+                                         ],
+                       "evidencePaths":  [
+
+                                         ],
+                       "lastHeartbeatAt":  "2026-06-23T16:07:05.0265205+08:00",
+                       "handoffPath":  "test/capsule.json",
+                       "closedAt":  "2026-06-23T16:07:05.6857186+08:00",
+                       "status":  "quarantined",
+                       "riskSignals":  [
+                                           "manual_quarantine"
+                                       ]
+                   },
+                   {
+                       "agentId":  "h13v-1804197421",
+                       "taskId":  "t",
+                       "role":  "verifier",
+                       "createdAt":  "2026-06-23T16:08:19.8785197+08:00",
+                       "capsulePath":  "",
+                       "worktreePath":  "",
+                       "parentPhase":  "",
+                       "forkContext":  false,
+                       "isolationRequired":  false,
+                       "expectedOutputs":  [
+
+                                           ],
+                       "actualOutputs":  [
+
+                                         ],
+                       "evidencePaths":  [
+
+                                         ],
+                       "lastHeartbeatAt":  "2026-06-23T16:08:20.1145179+08:00",
+                       "handoffPath":  "t/c.json",
+                       "closedAt":  "2026-06-23T16:08:20.8002797+08:00",
+                       "status":  "quarantined",
+                       "riskSignals":  [
+                                           "manual_quarantine"
+                                       ]
+                   },
+                   {
+                       "agentId":  "h13-b-builder-1",
+                       "taskId":  "h13-b-pilot-build",
+                       "role":  "builder",
+                       "status":  "created",
+                       "createdAt":  "2026-06-23T16:46:33.5211839+08:00",
+                       "capsulePath":  "runs/h13-b-real-agent-integration-pilot/builder-capsule/WORKER_CAPSULE.json",
+                       "worktreePath":  "runs/h13-b-real-agent-integration-pilot/worktrees/builder",
+                       "expectedOutputs":  [
+                                               "mathUtils.js",
+                                               "stringUtils.js",
+                                               "acceptance-runner.js"
+                                           ],
+                       "parentPhase":  "H13-B",
+                       "forkContext":  false,
+                       "isolationRequired":  true
+                   },
+                   {
+                       "agentId":  "h13-b-verifier-1",
+                       "taskId":  "h13-b-pilot-verify",
+                       "role":  "skeptic",
+                       "status":  "created",
+                       "createdAt":  "2026-06-23T16:46:33.5211839+08:00",
+                       "capsulePath":  "runs/h13-b-real-agent-integration-pilot/verifier-capsule/WORKER_CAPSULE.json",
+                       "worktreePath":  "runs/h13-b-real-agent-integration-pilot/worktrees/verifier",
+                       "expectedOutputs":  [
+                                               "truthfulness-report.json"
+                                           ],
+                       "parentPhase":  "H13-B",
+                       "forkContext":  false,
+                       "isolationRequired":  true
+                   },
+                   {
+                       "agentId":  "h13-c-builder-1",
+                       "createdAt":  "2026-06-23T17:00:00.000+08:00",
+                       "capsulePath":  "runs/h13-c-real-spawn-agent-lifecycle-integration/capsules/builder/WORKER_CAPSULE.json",
+                       "expectedOutputs":  [
+                                               "src/stringLib.js",
+                                               "src/mathLib.js",
+                                               "src/asyncLib.js",
+                                               "src/acceptance-runner.js",
+                                               "BRANCH_RESULT.md",
+                                               "BRANCH_DELTA.json",
+                                               "evidence-manifest.json"
+                                           ],
+                       "forkContext":  false,
+                       "role":  "builder",
+                       "taskId":  "h13-c-pilot-build",
+                       "isolationRequired":  true,
+                       "status":  "closed",
+                       "worktreePath":  "runs/h13-c-real-spawn-agent-lifecycle-integration/worktrees/builder",
+                       "parentPhase":  "H13-C",
+                       "closedAt":  "2026-06-23T17:09:00.000+08:00",
+                       "actualOutputs":  [
+                                             "src/stringLib.js",
+                                             "src/mathLib.js",
+                                             "src/asyncLib.js",
+                                             "src/acceptance-runner.js",
+                                             "BRANCH_RESULT.md",
+                                             "BRANCH_DELTA.json",
+                                             "evidence-manifest.json"
+                                         ],
+                       "spawnAgentId":  "019ef3b6-9deb-7e13-a765-cc6ed78932fd",
+                       "spawnMethod":  "multi_agent_v1__spawn_agent",
+                       "spawnAvailable":  true
+                   },
+                   {
+                       "agentId":  "h13-c-verifier-1",
+                       "createdAt":  "2026-06-23T17:00:00.000+08:00",
+                       "capsulePath":  "runs/h13-c-real-spawn-agent-lifecycle-integration/capsules/verifier/WORKER_CAPSULE.json",
+                       "expectedOutputs":  [
+                                               "truthfulness-report.json",
+                                               "verifier-skeptic-readonly-check.json"
+                                           ],
+                       "forkContext":  false,
+                       "role":  "skeptic",
+                       "taskId":  "h13-c-pilot-verify",
+                       "isolationRequired":  true,
+                       "isReadOnly":  true,
+                       "status":  "closed",
+                       "worktreePath":  "runs/h13-c-real-spawn-agent-lifecycle-integration/worktrees/verifier",
+                       "parentPhase":  "H13-C",
+                       "closedAt":  "2026-06-23T17:17:00.000+08:00"
+                   },
+                   {
+                       "agentId":  "dry20-worker-1",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-worker-1-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "builder",
+                       "taskId":  "dry20-worker-1-core-domain-store",
+                       "isolationRequired":  true,
+                       "status":  "closed",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-1",
+                       "parentPhase":  "DRY20-A",
+                       "closedAt":  "2026-06-23T19:07:39.1258829+08:00"
+                   },
+                   {
+                       "agentId":  "dry20-worker-2",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-worker-2-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "builder",
+                       "taskId":  "dry20-worker-2-risk-policy-engine",
+                       "isolationRequired":  true,
+                       "status":  "closed",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-2",
+                       "parentPhase":  "DRY20-A",
+                       "closedAt":  "2026-06-23T19:07:39.1258829+08:00"
+                   },
+                   {
+                       "agentId":  "dry20-worker-3",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-worker-3-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "builder",
+                       "taskId":  "dry20-worker-3-procurement-approval-workflow",
+                       "isolationRequired":  true,
+                       "status":  "closed",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-3",
+                       "parentPhase":  "DRY20-A",
+                       "closedAt":  "2026-06-23T19:07:39.1258829+08:00"
+                   },
+                   {
+                       "agentId":  "dry20-worker-4",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-worker-4-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "builder",
+                       "taskId":  "dry20-worker-4-invoice-exception-matching",
+                       "isolationRequired":  true,
+                       "status":  "closed",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-4",
+                       "parentPhase":  "DRY20-A",
+                       "closedAt":  "2026-06-23T19:07:39.1258829+08:00"
+                   },
+                   {
+                       "agentId":  "dry20-worker-5",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-worker-5-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "builder",
+                       "taskId":  "dry20-worker-5-audit-redaction-reporting",
+                       "isolationRequired":  true,
+                       "status":  "closed",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-5",
+                       "parentPhase":  "DRY20-A",
+                       "closedAt":  "2026-06-23T19:07:39.1258829+08:00"
+                   },
+                   {
+                       "agentId":  "dry20-worker-6",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-worker-6-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "builder",
+                       "taskId":  "dry20-worker-6-http-cli-static-ui",
+                       "isolationRequired":  true,
+                       "status":  "closed",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-6",
+                       "parentPhase":  "DRY20-A",
+                       "closedAt":  "2026-06-23T19:07:39.1258829+08:00"
+                   },
+                   {
+                       "agentId":  "dry20-integrator",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-integrator-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "integrator",
+                       "taskId":  "dry20-integrator-canonical-parent",
+                       "isolationRequired":  false,
+                       "status":  "created",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/integrator",
+                       "parentPhase":  "DRY20-A"
+                   },
+                   {
+                       "agentId":  "dry20-verifier",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-verifier-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "verifier",
+                       "taskId":  "dry20-verifier-positive-acceptance",
+                       "isolationRequired":  true,
+                       "status":  "created",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/verifier",
+                       "parentPhase":  "DRY20-A"
+                   },
+                   {
+                       "agentId":  "dry20-skeptic",
+                       "createdAt":  "2026-06-23T19:01:32.4672023+08:00",
+                       "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/dry20-skeptic-capsule.json",
+                       "expectedOutputs":  [
+
+                                           ],
+                       "forkContext":  false,
+                       "role":  "skeptic",
+                       "taskId":  "dry20-skeptic-anti-deception-audit",
+                       "isolationRequired":  true,
+                       "status":  "created",
+                       "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/skeptic",
+                       "parentPhase":  "DRY20-A"
+                   }
+               ]
+}

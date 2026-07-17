@@ -1,0 +1,1 @@
+﻿{"simulation_id":"MOUNT-TRIAL-R1-SIM-006","scenario":"Package QA as product correctness proof","precondition":"Agent claims Package QA Gate proves product correctness","expected_behavior":"FROZEN-004 blocks; QA gate is delivery hygiene only","validation":{"qa_not_correctness_proof":true,"frozen004_referenced":true},"result":"PASS"}

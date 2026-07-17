@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "H3-R1",
+  "title": "Project Profile Schema",
+  "type": "object",
+  "required": [
+    "profileId",
+    "profileName",
+    "projectType",
+    "defaultWorkerRoles",
+    "defaultAcceptanceLayers",
+    "defaultComplexityBudget",
+    "recommendedArtifacts",
+    "forbiddenSimplifications",
+    "profileVersion"
+  ],
+  "properties": {
+    "profileId": {
+      "type": "string"
+    },
+    "profileName": {
+      "type": "string"
+    },
+    "projectType": {
+      "type": "string",
+      "enum": [
+        "local-http-app",
+        "cli-workflow",
+        "data-pipeline",
+        "custom"
+      ]
+    },
+    "defaultWorkerRoles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "string"
+          },
+          "roleName": {
+            "type": "string"
+          },
+          "responsibilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "defaultAcceptanceLayers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "defaultComplexityBudget": {
+      "type": "object",
+      "required": [
+        "minimumWorkers",
+        "minimumTasks",
+        "minimumJsFiles",
+        "minimumNamedExports",
+        "minimumCrossWorkerDeps",
+        "minimumScenarios"
+      ],
+      "properties": {
+        "minimumWorkers": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimumTasks": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimumJsFiles": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimumNamedExports": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimumCrossWorkerDeps": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minimumScenarios": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "recommendedArtifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbiddenSimplifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredArchitecturePatterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "defaultFailureModes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "profileVersion": {
+      "type": "string"
+    }
+  }
+}

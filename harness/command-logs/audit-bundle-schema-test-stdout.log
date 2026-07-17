@@ -1,0 +1,7 @@
+﻿=== Phase 6C-T0 Audit Bundle Schema Tests ===
+
+PASS s2-missing-governance-reports : Expected FAIL, got FAIL (2 missing items)
+PASS clean-project-mode-bundle : Expected PASS, got PASS
+
+=== Summary: 2 / 2 passed ===
+

@@ -1,0 +1,8 @@
+runs/
+outputs/
+node_modules/
+dist/
+coverage/
+playwright-report/
+*.zip
+*.zip.meta.json

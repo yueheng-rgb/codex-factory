@@ -1,0 +1,66 @@
+﻿{
+  "$schema": "../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "{{PROJECT_NAME}}",
+  "runId": "{{RUN_ID}}",
+  "phase": "{{PHASE}}",
+  "workers": [
+    {
+      "workerId": "worker-1",
+      "description": "{{WORKER1_DESCRIPTION}}",
+      "ownedPaths": [
+        "src/{{WORKER1_MODULE}}.ts"
+      ],
+      "exports": [
+        {
+          "interfaceId": "{{INTERFACE_ID_PREFIX}}.{{EXPORT_NAME}}",
+          "name": "{{EXPORT_NAME}}",
+          "file": "src/{{WORKER1_MODULE}}.ts"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "workerId": "worker-2",
+      "description": "{{WORKER2_DESCRIPTION}}",
+      "ownedPaths": [
+        "src/{{WORKER2_MODULE}}.ts"
+      ],
+      "exports": [
+        {
+          "interfaceId": "{{INTERFACE_ID_PREFIX}}.{{WORKER2_EXPORT_NAME}}",
+          "name": "{{WORKER2_EXPORT_NAME}}",
+          "file": "src/{{WORKER2_MODULE}}.ts"
+        }
+      ],
+      "imports": [
+        {
+          "interfaceId": "{{INTERFACE_ID_PREFIX}}.{{EXPORT_NAME}}",
+          "name": "{{EXPORT_NAME}}",
+          "fromWorkerId": "worker-1",
+          "file": "src/{{WORKER1_MODULE}}.ts"
+        }
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "acceptanceId": "AC-001",
+      "description": "{{WORKER1_ACCEPTANCE}}"
+    },
+    {
+      "acceptanceId": "AC-002",
+      "description": "{{WORKER2_ACCEPTANCE}}"
+    },
+    {
+      "acceptanceId": "AC-003",
+      "description": "No cross-workspace writes."
+    },
+    {
+      "acceptanceId": "AC-004",
+      "description": "Contract, honesty, drift, isolation, integration, token proof, and hash chain gates must pass in execution phase."
+    }
+  ],
+  "forbiddenPaths": [
+    "runs/{{RUN_ID}}/workspace/worker-2/**"
+  ]
+}

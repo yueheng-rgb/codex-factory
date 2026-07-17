@@ -1,0 +1,186 @@
+{
+  "verifierPackId": "support-desk-verifier",
+  "domainId": "support-desk",
+  "acceptanceScenarios": [
+    {
+      "scenarioId": "S-101",
+      "description": "Valid status transition accepted",
+      "requiredInputs": [
+        "ticket in open status",
+        "transition to assigned"
+      ],
+      "expectedOutputs": [
+        "status changed to assigned",
+        "timestamp recorded"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "valid lifecycle transitions"
+      ]
+    },
+    {
+      "scenarioId": "S-102",
+      "description": "Invalid status transition rejected",
+      "requiredInputs": [
+        "ticket in resolved status",
+        "transition to assigned"
+      ],
+      "expectedOutputs": [
+        "transition rejected",
+        "INVALID_TRANSITION error"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "valid lifecycle transitions"
+      ]
+    },
+    {
+      "scenarioId": "S-103",
+      "description": "Agent at capacity assignment rejected",
+      "requiredInputs": [
+        "agent at maxWorkload",
+        "new ticket assignment"
+      ],
+      "expectedOutputs": [
+        "assignment rejected",
+        "AGENT_AT_CAPACITY error"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "workload <= maxWorkload"
+      ]
+    },
+    {
+      "scenarioId": "S-104",
+      "description": "SLA breach detected for unassigned high priority",
+      "requiredInputs": [
+        "high priority ticket",
+        "no assignment within SLA window"
+      ],
+      "expectedOutputs": [
+        "SLAEvent with breached=true"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "high priority assigned within SLA"
+      ]
+    },
+    {
+      "scenarioId": "S-105",
+      "description": "Resolved ticket reopen with audit reason accepted",
+      "requiredInputs": [
+        "resolved ticket",
+        "reopen with reason"
+      ],
+      "expectedOutputs": [
+        "ticket reopened",
+        "audit reason recorded"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "audit reason on reopen"
+      ]
+    },
+    {
+      "scenarioId": "S-106",
+      "description": "Resolved ticket reopen without reason rejected",
+      "requiredInputs": [
+        "resolved ticket",
+        "reopen without reason"
+      ],
+      "expectedOutputs": [
+        "reopen rejected",
+        "REASON_REQUIRED error"
+      ],
+      "evidencePath": "reports/functional-acceptance-report.json",
+      "failureClassification": "FAIL_TARGET_GATE",
+      "invariantCoverage": [
+        "audit reason on reopen"
+      ]
+    }
+  ],
+  "negativeControls": [
+    {
+      "negativeId": "N-101",
+      "targetsScenario": "S-101",
+      "injectedFault": "allow invalid status transition",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-102",
+      "targetsScenario": "S-102",
+      "injectedFault": "reject valid transition",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-103",
+      "targetsScenario": "S-103",
+      "injectedFault": "assign to agent at capacity",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-104",
+      "targetsScenario": "S-104",
+      "injectedFault": "miss SLA breach detection",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    },
+    {
+      "negativeId": "N-105",
+      "targetsScenario": "S-105",
+      "injectedFault": "reopen without checking for audit reason",
+      "expectedFailureClass": "FAIL_TARGET_GATE",
+      "mustKeepOtherGatesPassing": true
+    }
+  ],
+  "requiredEvidence": [
+    "RUN_STATE.jsonl",
+    "reports/functional-acceptance-report.json",
+    "reports/gatecheck-report.json",
+    "worker-freeze-manifests/",
+    "reports/sla-event-log.json"
+  ],
+  "domainSpecificFailureModes": [
+    "invalid_status_transition",
+    "agent_over_capacity",
+    "sla_breached",
+    "missing_audit_reason",
+    "duplicate_assignment"
+  ],
+  "invariantChecks": [
+    {
+      "invariant": "valid lifecycle transitions",
+      "scenarioId": "S-101",
+      "negativeId": "N-101"
+    },
+    {
+      "invariant": "agent workload <= maxWorkload",
+      "scenarioId": "S-103",
+      "negativeId": "N-103"
+    },
+    {
+      "invariant": "high priority SLA assignment",
+      "scenarioId": "S-104",
+      "negativeId": "N-104"
+    },
+    {
+      "invariant": "audit reason on reopen",
+      "scenarioId": "S-105",
+      "negativeId": "N-105"
+    }
+  ],
+  "reportRequirements": [
+    "Must list invariant->scenario mapping",
+    "Must list scenario->negative mapping",
+    "Must cover all 5 invariants",
+    "Must confirm all business rules have scenarios"
+  ]
+}

@@ -1,0 +1,46 @@
+﻿{
+    "version":  "6A.1",
+    "description":  "Codex App Factory Phase 6A Harness — minimal multi-agent orchestration with independent verification",
+    "roles":  {
+                  "orchestrator":  {
+                                       "maxAgents":  1,
+                                       "description":  "Master control \u0026 task assignment"
+                                   },
+                  "spec-agent":  {
+                                     "maxAgents":  1,
+                                     "description":  "Requirements \u0026 acceptance criteria"
+                                 },
+                  "builder-agent":  {
+                                        "maxAgents":  2,
+                                        "description":  "Feature implementation"
+                                    },
+                  "test-agent":  {
+                                     "maxAgents":  1,
+                                     "description":  "Independent verification"
+                                 },
+                  "release-agent":  {
+                                        "maxAgents":  1,
+                                        "description":  "Final packaging \u0026 round-trip validation"
+                                    }
+              },
+    "stateFiles":  {
+                       "tasks":  "runtime/TASKS.json",
+                       "acceptance":  "runtime/ACCEPTANCE.json",
+                       "ownership":  "runtime/OWNERSHIP.json",
+                       "runState":  "runtime/RUN_STATE.jsonl",
+                       "releaseManifest":  "runtime/RELEASE_MANIFEST.json"
+                   },
+    "completionGate":  {
+                           "description":  "Only Validator (validate-state.ps1) can declare PASS. Agents can only submit candidate_complete.",
+                           "passCriteria":  [
+                                                "All required acceptance items pass",
+                                                "All tasks verified",
+                                                "No unclosed validation_started events",
+                                                "No builder self-verification",
+                                                "All evidence files exist",
+                                                "ZIP round-trip passes",
+                                                "No manual remediation recorded"
+                                            ]
+                       },
+    "maxConcurrentWorkers":  2
+}

@@ -1,0 +1,20 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Progress Event Schema",
+  "type": "object",
+  "required": ["eventId", "agentId", "taskId", "eventType", "timestamp"],
+  "properties": {
+    "eventId": { "type": "string" },
+    "agentId": { "type": "string" },
+    "taskId": { "type": "string" },
+    "eventType": { "type": "string", "enum": ["heartbeat", "progress", "artifact", "blocked", "risk", "handoff", "close"] },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "progressPercent": { "type": "number", "minimum": 0, "maximum": 100 },
+    "currentStep": { "type": "string" },
+    "artifactPaths": { "type": "array", "items": { "type": "string" } },
+    "evidencePaths": { "type": "array", "items": { "type": "string" } },
+    "blocker": { "type": "string" },
+    "riskSignal": { "type": "string" },
+    "message": { "type": "string" }
+  }
+}

@@ -1,0 +1,27 @@
+﻿{
+    "quarantinedRuns": [
+        {
+            "runId": "dry18-mini-incident-response-ops-app",
+            "runPath": "runs/dry18-mini-incident-response-ops-app/",
+            "status": "QUARANTINED_PARTIAL_RUN",
+            "reason": [
+                "manual PASS evidence in readiness/",
+                "missing RUN_STATE.jsonl",
+                "missing worker freeze manifests",
+                "missing integration-patches.jsonl",
+                "ownership boundary risk (healthChecker.js)",
+                "context compression / stale context regression"
+            ],
+            "resumeAllowed": false,
+            "mayDelete": false,
+            "mayUseAsSource": false,
+            "mayIntegrate": false,
+            "mayVerifyAsFinal": false,
+            "quarantineReport": "outputs/PHASE_6C_DRY18_A_PARTIAL_RUN_QUARANTINE_REPORT.md",
+            "h9p2Report": "outputs/PHASE_6C_H9_P2_PHASE_LOCK_RESUME_GUARD_REPORT.md",
+            "quarantinedAt": "2026-06-22T21:00:00+08:00",
+            "cleanRestartAuthorized": false
+        }
+    ],
+    "updatedAt": "2026-06-22T21:35:00+08:00"
+}

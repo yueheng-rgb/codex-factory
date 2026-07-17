@@ -1,0 +1,1 @@
+﻿{"simulation_id":"MOUNT-TRIAL-R1-SIM-007","scenario":"Current next phase requested","precondition":"Mount done; user asks what is next","expected_behavior":"Returns P1 or REALWORLD-2-P1 options; not old E-N","validation":{"e_n_not_recommended":true,"p1_listed":true,"realworld2p1_listed":true},"result":"PASS"}

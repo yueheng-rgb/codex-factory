@@ -1,0 +1,83 @@
+﻿{
+    "title":  "Role Contract Schema",
+    "schemaVersion":  "H2-R1",
+    "properties":  {
+                       "maxSpawnAgents":  {
+                                              "type":  "integer",
+                                              "minimum":  0
+                                          },
+                       "forbiddenActions":  {
+                                                "items":  {
+                                                              "type":  "string"
+                                                          },
+                                                "type":  "array"
+                                            },
+                       "projectProfile":  {
+                                              "type":  "string"
+                                          },
+                       "roleType":  {
+                                        "type":  "string",
+                                        "enum":  [
+                                                     "MainAgent",
+                                                     "Worker",
+                                                     "Integrator",
+                                                     "Verifier",
+                                                     "Auditor"
+                                                 ]
+                                    },
+                       "roleId":  {
+                                      "type":  "string"
+                                  },
+                       "decisionRules":  {
+                                             "items":  {
+                                                           "type":  "string"
+                                                       },
+                                             "type":  "array"
+                                         },
+                       "requiredControls":  {
+                                                "items":  {
+                                                              "type":  "string"
+                                                          },
+                                                "type":  "array"
+                                            },
+                       "complexityBudgetSource":  {
+                                                      "type":  "string"
+                                                  },
+                       "runId":  {
+                                     "type":  "string"
+                                 },
+                       "phase":  {
+                                     "type":  "string"
+                                 },
+                       "mandatoryEvidenceOutputs":  {
+                                                        "items":  {
+                                                                      "type":  "string"
+                                                                  },
+                                                        "type":  "array"
+                                                    },
+                       "requiredAcceptanceLayers":  {
+                                                        "items":  {
+                                                                      "type":  "string"
+                                                                  },
+                                                        "type":  "array"
+                                                    },
+                       "allowedActions":  {
+                                              "items":  {
+                                                            "type":  "string"
+                                                        },
+                                              "type":  "array"
+                                          }
+                   },
+    "type":  "object",
+    "required":  [
+                     "roleId",
+                     "roleType",
+                     "runId",
+                     "phase",
+                     "allowedActions",
+                     "forbiddenActions",
+                     "requiredControls",
+                     "requiredAcceptanceLayers",
+                     "decisionRules"
+                 ]
+}

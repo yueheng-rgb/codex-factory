@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DRY18+ Readiness Schema",
+  "description": "Unified readiness gate for all future DRY18+ runs. All required Factory controls must be verified before any new app run can start.",
+  "type": "object",
+  "required": [
+    "readinessId", "phase", "targetPhase", "projectProfile", "domainPack",
+    "verifierPack", "securitySensitiveDomain", "externalReferencePlan",
+    "preSpawnRunPlanPath", "preSpawnValidationResultPath", "workerContracts",
+    "postSpawnValidationRequired", "acceptanceEvidenceStandard",
+    "negativeControlStandard", "complexityStandard",
+    "pipelineControlsRequired", "auditControlsRequired",
+    "reportSanitizerRequired", "runStateRequired", "workerFreezeRequired",
+    "integrationLedgerRequired", "noExternalPackages", "readinessVerdict"
+  ],
+  "properties": {
+    "readinessId": { "type": "string" },
+    "phase": { "type": "string" },
+    "targetPhase": { "type": "string" },
+    "projectProfile": { "type": "string", "description": "Path to project profile" },
+    "domainPack": { "type": "string", "description": "Path to domain skill pack" },
+    "verifierPack": { "type": "string", "description": "Path to verifier pack" },
+    "securitySensitiveDomain": { "type": "boolean" },
+    "externalReferencePlan": { "type": "string", "description": "Path to external reference plan or 'not-required' if securitySensitiveDomain=false" },
+    "preSpawnRunPlanPath": { "type": "string" },
+    "preSpawnValidationResultPath": { "type": "string" },
+    "workerContracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["workerId", "contractPath", "spawnAllowed", "preSpawnValidationPassed"],
+        "properties": {
+          "workerId": { "type": "integer" },
+          "contractPath": { "type": "string" },
+          "spawnAllowed": { "type": "boolean" },
+          "preSpawnValidationPassed": { "type": "boolean" }
+        }
+      }
+    },
+    "postSpawnValidationRequired": { "type": "boolean" },
+    "acceptanceEvidenceStandard": {
+      "type": "object",
+      "required": ["requiresTranscript", "requiresCommand", "requiresExitCode", "requiresScenarioAssertions", "requiresTargetScenarioIdForNegatives", "forbidsPreclassifiedOnly"],
+      "properties": {
+        "requiresTranscript": { "type": "boolean" },
+        "requiresCommand": { "type": "boolean" },
+        "requiresExitCode": { "type": "boolean" },
+        "requiresScenarioAssertions": { "type": "boolean" },
+        "requiresTargetScenarioIdForNegatives": { "type": "boolean" },
+        "forbidsPreclassifiedOnly": { "type": "boolean" }
+      }
+    },
+    "negativeControlStandard": {
+      "type": "object",
+      "required": ["liveExecutionRequired", "faultManifestRequired", "beforeAfterHashesRequired", "nonTargetGateEvidenceRequired", "scenarioAdaptationGovernanceRequired"],
+      "properties": {
+        "liveExecutionRequired": { "type": "boolean" },
+        "faultManifestRequired": { "type": "boolean" },
+        "beforeAfterHashesRequired": { "type": "boolean" },
+        "nonTargetGateEvidenceRequired": { "type": "boolean" },
+        "scenarioAdaptationGovernanceRequired": { "type": "boolean" }
+      }
+    },
+    "complexityStandard": {
+      "type": "object",
+      "required": ["derivedMetricsRequired", "reportClaimedMetricsForbidden", "minimumWorkers", "minimumJsFiles", "minimumNamedExports", "minimumCrossWorkerDeps", "minimumScenarios"],
+      "properties": {
+        "derivedMetricsRequired": { "type": "boolean" },
+        "reportClaimedMetricsForbidden": { "type": "boolean" },
+        "minimumWorkers": { "type": "integer", "minimum": 2 },
+        "minimumJsFiles": { "type": "integer", "minimum": 4 },
+        "minimumNamedExports": { "type": "integer", "minimum": 6 },
+        "minimumCrossWorkerDeps": { "type": "integer", "minimum": 2 },
+        "minimumScenarios": { "type": "integer", "minimum": 6 }
+      }
+    },
+    "pipelineControlsRequired": { "type": "array", "items": { "type": "string" } },
+    "auditControlsRequired": { "type": "array", "items": { "type": "string" } },
+    "reportSanitizerRequired": { "type": "boolean" },
+    "runStateRequired": { "type": "boolean" },
+    "workerFreezeRequired": { "type": "boolean" },
+    "integrationLedgerRequired": { "type": "boolean" },
+    "noExternalPackages": { "type": "boolean" },
+    "readinessVerdict": { "type": "string", "enum": ["PASS", "FAIL", "PASS_WITH_CAVEAT"] }
+  },
+  "additionalProperties": false
+}

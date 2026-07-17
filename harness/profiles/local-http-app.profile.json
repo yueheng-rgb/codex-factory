@@ -1,0 +1,96 @@
+{
+  "profileId": "local-http-app",
+  "profileName": "Local HTTP App",
+  "projectType": "local-http-app",
+  "defaultWorkerRoles": [
+    {
+      "roleId": "domain-core",
+      "roleName": "Domain Core",
+      "responsibilities": [
+        "entity models",
+        "validation",
+        "state management"
+      ]
+    },
+    {
+      "roleId": "http-api",
+      "roleName": "HTTP API",
+      "responsibilities": [
+        "routing",
+        "handlers",
+        "request parsing",
+        "response building"
+      ]
+    },
+    {
+      "roleId": "static-ui",
+      "roleName": "Static UI",
+      "responsibilities": [
+        "static page",
+        "app JS",
+        "basic UI"
+      ]
+    },
+    {
+      "roleId": "cli-tool",
+      "roleName": "CLI Tool",
+      "responsibilities": [
+        "dataset generation",
+        "fixture management",
+        "CLI commands"
+      ]
+    },
+    {
+      "roleId": "reports",
+      "roleName": "Reports",
+      "responsibilities": [
+        "acceptance runner",
+        "report generation",
+        "export/import"
+      ]
+    }
+  ],
+  "defaultAcceptanceLayers": [
+    "GateCheck",
+    "FunctionalAcceptance",
+    "RuntimeAcceptance",
+    "HTTPAcceptance",
+    "StaticAcceptance"
+  ],
+  "defaultComplexityBudget": {
+    "minimumWorkers": 2,
+    "minimumTasks": 2,
+    "minimumJsFiles": 12,
+    "minimumNamedExports": 20,
+    "minimumCrossWorkerDeps": 8,
+    "minimumScenarios": 6
+  },
+  "recommendedArtifacts": [
+    "RUN_STATE.jsonl",
+    "reports/gatecheck-report.json",
+    "reports/functional-acceptance-report.json",
+    "reports/http-app-acceptance-report.json",
+    "reports/static-artifact-acceptance-report.json",
+    "canonical-integrated/"
+  ],
+  "forbiddenSimplifications": [
+    "skip_http_acceptance",
+    "skip_static_ui",
+    "merge_all_workers_into_one",
+    "single_file_server",
+    "no_validation_on_input",
+    "no_error_handling"
+  ],
+  "requiredArchitecturePatterns": [
+    "entity_validation_layer",
+    "request_response_separation",
+    "static_page_with_js"
+  ],
+  "defaultFailureModes": [
+    "invalid_input",
+    "missing_endpoint",
+    "static_page_broken",
+    "performance_budget_exceeded"
+  ],
+  "profileVersion": "1.0.0"
+}

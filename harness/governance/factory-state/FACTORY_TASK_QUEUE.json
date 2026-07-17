@@ -1,0 +1,283 @@
+﻿{
+    "queueId":  "FACTORY_TASK_QUEUE",
+    "generatedAt":  "2026-06-23T19:00:58.1948335+08:00",
+    "tasks":  [
+                  {
+                      "role":  "researcher",
+                      "handoffRequired":  true,
+                      "dependencies":  [
+
+                                       ],
+                      "status":  "ready",
+                      "taskId":  "dry20-research-domain-boundaries",
+                      "phase":  "DRY20-A",
+                      "isolationRequired":  false,
+                      "expectedOutputs":  [
+                                              "domain-boundary-map.json"
+                                          ]
+                  },
+                  {
+                      "role":  "contractor",
+                      "handoffRequired":  true,
+                      "dependencies":  [
+                                           "dry20-research-domain-boundaries"
+                                       ],
+                      "status":  "ready",
+                      "taskId":  "dry20-contract-run-plan",
+                      "phase":  "DRY20-A",
+                      "isolationRequired":  false,
+                      "expectedOutputs":  [
+                                              "run-contract.json",
+                                              "worker-interface-contracts.json"
+                                          ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "vendorModel.js",
+                                              "riskModel.js",
+                                              "purchaseRequest.js",
+                                              "purchaseOrder.js",
+                                              "receiptModel.js",
+                                              "invoiceModel.js",
+                                              "approvalModel.js",
+                                              "auditModel.js",
+                                              "budgetModel.js",
+                                              "segregationModel.js",
+                                              "vendorStore.js",
+                                              "approvalStore.js"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-1",
+                      "isolationRequired":  true,
+                      "role":  "builder",
+                      "forkContext":  false,
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-worker-1-core-domain-store",
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/worker-1-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-contract-run-plan"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "riskScorer.js",
+                                              "vendorAssessor.js",
+                                              "policyRuleEngine.js",
+                                              "policyRuleSet.js",
+                                              "riskThresholds.js",
+                                              "complianceChecker.js",
+                                              "dueDiligenceTracker.js",
+                                              "riskReportGenerator.js",
+                                              "vendorRiskMatrix.js",
+                                              "riskAlertManager.js"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-2",
+                      "isolationRequired":  true,
+                      "role":  "builder",
+                      "forkContext":  false,
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-worker-2-risk-policy-engine",
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/worker-2-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-worker-1-core-domain-store"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "purchaseRequestValidator.js",
+                                              "approvalChainSelector.js",
+                                              "budgetThresholdChecker.js",
+                                              "segregationOfDutiesEnforcer.js",
+                                              "approvalWorkflowEngine.js",
+                                              "approvalStepExecutor.js",
+                                              "delegationManager.js",
+                                              "escalationHandler.js",
+                                              "approvalTimelineTracker.js",
+                                              "workflowStateMachine.js"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-3",
+                      "isolationRequired":  true,
+                      "role":  "builder",
+                      "forkContext":  false,
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-worker-3-procurement-approval-workflow",
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/worker-3-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-worker-1-core-domain-store",
+                                           "dry20-worker-2-risk-policy-engine"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "threeWayMatcher.js",
+                                              "invoiceValidator.js",
+                                              "receiptValidator.js",
+                                              "exceptionClassifier.js",
+                                              "exceptionResolver.js",
+                                              "toleranceCalculator.js",
+                                              "lineItemReconciler.js",
+                                              "paymentReleaser.js",
+                                              "discrepancyReportGenerator.js",
+                                              "matchResultStore.js"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-4",
+                      "isolationRequired":  true,
+                      "role":  "builder",
+                      "forkContext":  false,
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-worker-4-invoice-exception-matching",
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/worker-4-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-worker-1-core-domain-store",
+                                           "dry20-worker-3-procurement-approval-workflow"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "auditTrailWriter.js",
+                                              "auditTrailReader.js",
+                                              "immutableLogStore.js",
+                                              "dataRedactor.js",
+                                              "sensitiveFieldRegistry.js",
+                                              "complianceReportBuilder.js",
+                                              "exportFormatter.js",
+                                              "chainOfCustodyVerifier.js",
+                                              "auditSearchEngine.js",
+                                              "reportScheduler.js"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-5",
+                      "isolationRequired":  true,
+                      "role":  "builder",
+                      "forkContext":  false,
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-worker-5-audit-redaction-reporting",
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/worker-5-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-worker-1-core-domain-store"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "cliRouter.js",
+                                              "httpRouter.js",
+                                              "apiHandler.js",
+                                              "requestParser.js",
+                                              "responseFormatter.js",
+                                              "staticDashboard.html",
+                                              "dashboardDataAggregator.js",
+                                              "statusEndpoint.js",
+                                              "healthCheck.js",
+                                              "serverEntrypoint.js"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/worker-6",
+                      "isolationRequired":  true,
+                      "role":  "builder",
+                      "forkContext":  false,
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-worker-6-http-cli-static-ui",
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/worker-6-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-worker-3-procurement-approval-workflow",
+                                           "dry20-worker-4-invoice-exception-matching",
+                                           "dry20-worker-5-audit-redaction-reporting"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "integration-patches.jsonl",
+                                              "canonical-index.js",
+                                              "dependency-graph.json",
+                                              "integration-report.json"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/integrator",
+                      "isolationRequired":  false,
+                      "role":  "integrator",
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-integrator-canonical-parent",
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/integrator-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-worker-1-core-domain-store",
+                                           "dry20-worker-2-risk-policy-engine",
+                                           "dry20-worker-3-procurement-approval-workflow",
+                                           "dry20-worker-4-invoice-exception-matching",
+                                           "dry20-worker-5-audit-redaction-reporting",
+                                           "dry20-worker-6-http-cli-static-ui"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "acceptance-runner.js",
+                                              "scenario-manifest.json",
+                                              "live-positive-acceptance.json",
+                                              "verification-report.json",
+                                              "command-transcript.json"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/verifier",
+                      "isolationRequired":  true,
+                      "role":  "verifier",
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-verifier-positive-acceptance",
+                      "isReadOnly":  true,
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/verifier-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-integrator-canonical-parent"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "skeptic-audit-report.json",
+                                              "truthfulness-cross-check.json",
+                                              "source-modification-audit.json"
+                                          ],
+                      "worktreePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/worktrees/skeptic",
+                      "isolationRequired":  true,
+                      "role":  "skeptic",
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-skeptic-anti-deception-audit",
+                      "isReadOnly":  true,
+                      "capsulePath":  "C:\\Codex_App_Factory\\harness\\runs\\dry20-vendor-procurement-risk-app/agent-capsules/skeptic-capsule.json",
+                      "status":  "ready",
+                      "dependencies":  [
+                                           "dry20-verifier-positive-acceptance"
+                                       ]
+                  },
+                  {
+                      "expectedOutputs":  [
+                                              "DRY20-A-final-report.md",
+                                              "metrics-summary.json"
+                                          ],
+                      "role":  "integrator",
+                      "isolationRequired":  false,
+                      "dependencies":  [
+                                           "dry20-skeptic-anti-deception-audit"
+                                       ],
+                      "phase":  "DRY20-A",
+                      "taskId":  "dry20-report-positive-run",
+                      "status":  "ready"
+                  },
+                  {
+                      "role":  "planner",
+                      "executionStarted":  false,
+                      "dependencies":  [
+                                           "dry20-report-positive-run"
+                                       ],
+                      "status":  "planning_allowed",
+                      "taskId":  "dry20-b-negative-plan-preflight",
+                      "phase":  "DRY20-B",
+                      "startRequiresExplicitUserInstruction":  true,
+                      "expectedOutputs":  [
+                                              "dry20-b-negative-control-plan.json",
+                                              "dry20-b-scenario-alias-map.json",
+                                              "dry20-b-directness-preflight.json",
+                                              "dry20-b-risk-matrix.json"
+                                          ]
+                  }
+              ]
+}

@@ -1,0 +1,60 @@
+﻿{
+    "postSpawnValidationRequired":  true,
+    "externalReferencePlan":  "runs/h9-dry18-readiness/dry18-a-candidate-plan/external-reference-plan.json",
+    "targetPhase":  "DRY18",
+    "phase":  "Phase 6C-DRY18-A",
+    "preSpawnRunPlanPath":  "runs/h9-dry18-readiness/dry18-a-candidate-plan/candidate-run-plan.json",
+    "workerFreezeRequired":  true,
+    "reportSanitizerRequired":  true,
+    "pipelineControlsRequired":  [
+                                     "RUN_STATE",
+                                     "worker-freeze-manifests",
+                                     "integration-patches.jsonl",
+                                     "classify-run-verdict",
+                                     "report-sanitizer"
+                                 ],
+    "auditControlsRequired":  [
+                                  "stale-report",
+                                  "threshold-drift",
+                                  "skipped-as-pass",
+                                  "intended-failure-mismatch",
+                                  "closed-evidence-mutation"
+                              ],
+    "acceptanceEvidenceStandard":  {
+                                       "requiresTranscript":  true,
+                                       "requiresTargetScenarioIdForNegatives":  true,
+                                       "forbidsPreclassifiedOnly":  true,
+                                       "requiresExitCode":  true,
+                                       "requiresCommand":  true,
+                                       "requiresScenarioAssertions":  true
+                                   },
+    "preSpawnValidationResultPath":  "runs/h9-dry18-readiness/dry18-a-candidate-plan/pre-spawn-validation-result.json",
+    "readinessId":  "DRY18-A-CANDIDATE-001",
+    "projectProfile":  "runs/h9-dry18-readiness/dry18-a-candidate-plan/profiles/candidate-profile.json",
+    "negativeControlStandard":  {
+                                    "liveExecutionRequired":  true,
+                                    "nonTargetGateEvidenceRequired":  true,
+                                    "beforeAfterHashesRequired":  true,
+                                    "faultManifestRequired":  true,
+                                    "scenarioAdaptationGovernanceRequired":  true
+                                },
+    "runStateRequired":  true,
+    "verifierPack":  "runs/h9-dry18-readiness/dry18-a-candidate-plan/verifiers/candidate-verifier-pack.json",
+    "integrationLedgerRequired":  true,
+    "noExternalPackages":  true,
+    "securitySensitiveDomain":  true,
+    "complexityStandard":  {
+                               "minimumScenarios":  20,
+                               "minimumNamedExports":  85,
+                               "derivedMetricsRequired":  true,
+                               "minimumJsFiles":  45,
+                               "reportClaimedMetricsForbidden":  true,
+                               "minimumCrossWorkerDeps":  40,
+                               "minimumWorkers":  5
+                           },
+    "readinessVerdict":  "PASS",
+    "workerContracts":  [
+
+                        ],
+    "domainPack":  "domain-packs/incident-response-ops.domain-pack.json"
+}

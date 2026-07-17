@@ -1,0 +1,96 @@
+{
+  "profileId": "data-pipeline",
+  "profileName": "Data Pipeline",
+  "projectType": "data-pipeline",
+  "defaultWorkerRoles": [
+    {
+      "roleId": "ingestion",
+      "roleName": "Data Ingestion",
+      "responsibilities": [
+        "source reading",
+        "format parsing",
+        "schema validation"
+      ]
+    },
+    {
+      "roleId": "transformation",
+      "roleName": "Transformation",
+      "responsibilities": [
+        "mapping",
+        "filtering",
+        "aggregation",
+        "enrichment"
+      ]
+    },
+    {
+      "roleId": "validation",
+      "roleName": "Quality Validation",
+      "responsibilities": [
+        "integrity checks",
+        "constraint validation",
+        "anomaly detection"
+      ]
+    },
+    {
+      "roleId": "output",
+      "roleName": "Output Writer",
+      "responsibilities": [
+        "report generation",
+        "format serialization",
+        "file export"
+      ]
+    },
+    {
+      "roleId": "fixture",
+      "roleName": "Fixture/Repro",
+      "responsibilities": [
+        "fixture generation",
+        "reproducible runs",
+        "data snapshot"
+      ]
+    }
+  ],
+  "defaultAcceptanceLayers": [
+    "GateCheck",
+    "FunctionalAcceptance",
+    "RuntimeAcceptance",
+    "DataIntegrityAcceptance",
+    "StaticAcceptance"
+  ],
+  "defaultComplexityBudget": {
+    "minimumWorkers": 3,
+    "minimumTasks": 3,
+    "minimumJsFiles": 14,
+    "minimumNamedExports": 22,
+    "minimumCrossWorkerDeps": 10,
+    "minimumScenarios": 7
+  },
+  "recommendedArtifacts": [
+    "RUN_STATE.jsonl",
+    "reports/gatecheck-report.json",
+    "reports/data-integrity-acceptance-report.json",
+    "output-data/",
+    "fixtures/"
+  ],
+  "forbiddenSimplifications": [
+    "skip_integrity_checks",
+    "skip_validation",
+    "single_pipeline_stage",
+    "no_reproducible_fixture",
+    "no_error_log",
+    "no_data_lineage"
+  ],
+  "requiredArchitecturePatterns": [
+    "pipeline_stages",
+    "validation_gate",
+    "reproducible_fixtures"
+  ],
+  "defaultFailureModes": [
+    "invalid_source_data",
+    "transform_error",
+    "integrity_check_failed",
+    "fixture_not_reproducible",
+    "missing_output"
+  ],
+  "profileVersion": "1.0.0"
+}

@@ -1,0 +1,148 @@
+﻿{
+    "taskGraph":  [
+                      {
+                          "agent":  "main",
+                          "step":  "create_task_queue_entries"
+                      },
+                      {
+                          "step":  "register_builder_agents",
+                          "dependsOn":  [
+                                            "create_task_queue_entries"
+                                        ],
+                          "agent":  "main"
+                      },
+                      {
+                          "step":  "spawn_builders",
+                          "dependsOn":  [
+                                            "register_builder_agents"
+                                        ],
+                          "fork_context":  false,
+                          "agent":  "main"
+                      },
+                      {
+                          "step":  "builder_output_handoff",
+                          "dependsOn":  [
+                                            "spawn_builders"
+                                        ],
+                          "agent":  "builder"
+                      },
+                      {
+                          "step":  "register_verifier_skeptic",
+                          "dependsOn":  [
+                                            "builder_output_handoff"
+                                        ],
+                          "agent":  "main"
+                      },
+                      {
+                          "step":  "spawn_verifier_skeptic",
+                          "dependsOn":  [
+                                            "register_verifier_skeptic"
+                                        ],
+                          "fork_context":  false,
+                          "agent":  "main"
+                      },
+                      {
+                          "step":  "verification_handoff",
+                          "dependsOn":  [
+                                            "spawn_verifier_skeptic"
+                                        ],
+                          "agent":  "verifier"
+                      },
+                      {
+                          "step":  "register_integrator",
+                          "dependsOn":  [
+                                            "verification_handoff"
+                                        ],
+                          "agent":  "main"
+                      },
+                      {
+                          "step":  "integrate_and_close",
+                          "dependsOn":  [
+                                            "register_integrator"
+                                        ],
+                          "agent":  "integrator"
+                      },
+                      {
+                          "step":  "negative_controls",
+                          "dependsOn":  [
+                                            "integrate_and_close"
+                                        ],
+                          "agent":  "main",
+                          "requiresParentPositivePASS":  true
+                      }
+                  ],
+    "stopConditions":  [
+                           "generic_fail_from_any_agent",
+                           "truthfulness_verifier_catches_deception",
+                           "phase_regression_detected",
+                           "compressionCount_gte_2",
+                           "zombie_agents_remain_after_closure"
+                       ],
+    "createdAt":  "2026-06-23T17:15:00.000+08:00",
+    "planId":  "dry20-a-agent-execution-plan",
+    "preconditions":  [
+                          {
+                              "condition":  "DRY19_CLOSED",
+                              "status":  "MET"
+                          },
+                          {
+                              "condition":  "H13_C_REAL_SPAWN_PROVEN",
+                              "status":  "MET"
+                          },
+                          {
+                              "condition":  "H13_C_FACTORYCTL_OPERATIONAL",
+                              "status":  "MET"
+                          },
+                          {
+                              "condition":  "H13_C_TRUTHFULNESS_CATCHES_10_FIXTURES",
+                              "status":  "MET"
+                          }
+                      ],
+    "antiDeceptionChecks":  [
+                                "verify-agent-report-truthfulness.ps1 on all agent reports",
+                                "All 10 truthfulness negative fixtures must be caught",
+                                "No fake fork_context claims",
+                                "No fake real-spawn claims"
+                            ],
+    "phase":  "DRY20-A",
+    "proposedAgentRoles":  [
+                               {
+                                   "isolationRequired":  true,
+                                   "description":  "Creates domain source files and acceptance runners",
+                                   "forkContext":  false,
+                                   "count":  3,
+                                   "role":  "builder"
+                               },
+                               {
+                                   "description":  "Runs acceptance checks and truthfulness verification",
+                                   "count":  1,
+                                   "isolationRequired":  true,
+                                   "forkContext":  false,
+                                   "isReadOnly":  true,
+                                   "role":  "verifier"
+                               },
+                               {
+                                   "description":  "Challenges verifier claims and checks source modification",
+                                   "count":  1,
+                                   "isolationRequired":  true,
+                                   "forkContext":  false,
+                                   "isReadOnly":  true,
+                                   "role":  "skeptic"
+                               },
+                               {
+                                   "isolationRequired":  false,
+                                   "description":  "Integrates worker outputs into main branch",
+                                   "forkContext":  false,
+                                   "count":  1,
+                                   "role":  "integrator"
+                               }
+                           ],
+    "status":  "PLAN_ONLY_DO_NOT_EXECUTE",
+    "forbiddenActions":  [
+                             "start_dry20_a_in_h13_c_phase",
+                             "create_final_zip",
+                             "delete_evidence",
+                             "modify_closed_reports",
+                             "use_generic_fail_classifications"
+                         ]
+}

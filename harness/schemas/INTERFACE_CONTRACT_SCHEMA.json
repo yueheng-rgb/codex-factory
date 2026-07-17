@@ -1,0 +1,61 @@
+{
+    "requiredFields":  [
+                           "phase",
+                           "contractId",
+                           "locked",
+                           "createdAtUtc",
+                           "interfaces"
+                       ],
+    "example":  {
+                    "phase":  "Phase 6C-U0-A",
+                    "interfaces":  [
+                                       {
+                                           "requiredBy":  [
+                                                              "worker-2"
+                                                          ],
+                                           "interfaceId":  "task.claim",
+                                           "exports":  true,
+                                           "kind":  "function",
+                                           "owner":  "worker-1",
+                                           "name":  "ClaimTask",
+                                           "returns":  "claim result object",
+                                           "parameters":  [
+                                                              {
+                                                                  "name":  "taskId",
+                                                                  "required":  true
+                                                              }
+                                                          ],
+                                           "file":  "scripts/claim-task.ps1"
+                                       }
+                                   ],
+                    "locked":  true,
+                    "createdAtUtc":  "2026-06-20T00:00:00Z",
+                    "contractId":  "phase6c-u0-a-contract-lock"
+                },
+    "interfaceRequiredFields":  [
+                                    "interfaceId",
+                                    "name",
+                                    "kind",
+                                    "owner",
+                                    "file",
+                                    "requiredBy"
+                                ],
+    "name":  "INTERFACE_CONTRACT_SCHEMA",
+    "description":  "Defines the machine-readable contract lock format for multi-agent interface agreements.",
+    "interfaceOptionalFields":  [
+                                    "exports",
+                                    "parameters",
+                                    "returns",
+                                    "signature"
+                                ],
+    "schemaVersion":  "6C-U0",
+    "validationRules":  [
+                            "contractId must match the run/phase identity",
+                            "locked must be true before Workers start",
+                            "interfaceId is the stable key — must not change between contract and manifest",
+                            "name must match exactly between contract and manifest",
+                            "file must match exactly between contract and manifest",
+                            "owner worker must actually export the interface",
+                            "requiredBy workers must actually import the interface"
+                        ]
+}

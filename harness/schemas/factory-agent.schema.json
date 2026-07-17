@@ -1,0 +1,25 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Factory Agent Schema",
+  "type": "object",
+  "required": ["agentId", "taskId", "role", "status", "createdAt"],
+  "properties": {
+    "agentId": { "type": "string", "description": "Unique agent identifier" },
+    "taskId": { "type": "string", "description": "Associated task queue entry" },
+    "role": { "type": "string", "enum": ["builder", "verifier", "skeptic", "integrator", "researcher", "contractor"] },
+    "status": { "type": "string", "enum": ["created", "running", "blocked", "done", "failed", "cancelled", "quarantined", "closed"] },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "lastHeartbeatAt": { "type": "string", "format": "date-time" },
+    "closedAt": { "type": "string", "format": "date-time" },
+    "capsulePath": { "type": "string" },
+    "worktreePath": { "type": "string" },
+    "handoffPath": { "type": "string" },
+    "expectedOutputs": { "type": "array", "items": { "type": "string" } },
+    "actualOutputs": { "type": "array", "items": { "type": "string" } },
+    "evidencePaths": { "type": "array", "items": { "type": "string" } },
+    "riskSignals": { "type": "array", "items": { "type": "string" } },
+    "parentPhase": { "type": "string" },
+    "forkContext": { "type": "boolean" },
+    "isolationRequired": { "type": "boolean" }
+  }
+}

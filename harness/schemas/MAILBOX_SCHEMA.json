@@ -1,0 +1,56 @@
+﻿{
+  "schemaVersion": "6C-T0",
+  "name": "MAILBOX_SCHEMA",
+  "description": "Defines mailbox message format and manifest requirements for inter-agent communication.",
+  "messageFormat": {
+    "fields": {
+      "messageId": {
+        "type": "string",
+        "required": true,
+        "description": "Unique message identifier"
+      },
+      "fromAgent": {
+        "type": "string",
+        "required": true,
+        "description": "Agent ID of sender"
+      },
+      "toAgent": {
+        "type": "string",
+        "required": true,
+        "description": "Agent ID of recipient"
+      },
+      "timestamp": {
+        "type": "string",
+        "required": true,
+        "description": "ISO 8601 timestamp"
+      },
+      "type": {
+        "type": "string",
+        "required": true,
+        "enum": ["handoff", "notification", "blocker", "status_update", "request"],
+        "description": "Message type"
+      },
+      "payload": {
+        "type": "object",
+        "required": true,
+        "description": "Message body"
+      }
+    }
+  },
+  "manifestFormat": {
+    "fields": {
+      "manifestVersion": "string",
+      "totalMessages": "number",
+      "agents": ["string"],
+      "firstMessageAt": "string (ISO 8601)",
+      "lastMessageAt": "string (ISO 8601)"
+    }
+  },
+  "storage": {
+    "messagesFile": "agent-mailbox/messages.jsonl",
+    "manifestFile": "agent-mailbox/MAILBOX_MANIFEST.json",
+    "usageReportFile": "run/MAILBOX_USAGE_REPORT.json"
+  },
+  "hardGate": false,
+  "notes": "Mailbox evidence is advisory in Phase 6C-T0. It becomes a hard gate only when multi-agent handoff is part of the proven capability set."
+}

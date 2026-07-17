@@ -1,0 +1,12 @@
+﻿{
+  "simulation_id": "MOUNT-TRIAL-R1-SIM-001",
+  "scenario": "New window mounts after Context-Space-0 complete",
+  "precondition": "FACTORY-CONTEXT-SPACE-0 is 48/48 PASS complete; phase-ledger shows completed; conversation-space.json current_phase is MOUNT-TRIAL-R1",
+  "expected_behavior": "Attach Packet shows lastCompletedPhase=FACTORY-CONTEXT-SPACE-0, currentActivePhase=FACTORY-CONTEXT-SPACE-MOUNT-TRIAL-R1, freshnessStatus=FRESH",
+  "validation": {
+    "completion_shown_not_pending": true,
+    "next_actions_not_e_n": true,
+    "freshness_fresh": true
+  },
+  "result": "PASS"
+}

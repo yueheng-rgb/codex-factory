@@ -1,0 +1,1 @@
+﻿{ "projectName": "mini-inventory-concurrency-app", "runId": "dry13-mini-inventory-concurrency-app", "phase": "Phase 6C-DRY13-A", "language": "javascript", "workers": 5, "tasks": 5, "description": "A Node.js zero-dependency inventory management app with optimistic concurrency control, idempotency keys, conflict detection/resolution, and stock adjustment audit trail." }

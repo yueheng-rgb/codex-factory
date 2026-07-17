@@ -1,0 +1,34 @@
+﻿{
+  "contractId": "{{CONTRACT_ID}}",
+  "projectName": "{{PROJECT_NAME}}",
+  "runId": "{{RUN_ID}}",
+  "phase": "{{PHASE}}",
+  "locked": true,
+  "lockedAt": "{{LOCKED_AT}}",
+  "interfaces": [
+    {
+      "interfaceId": "{{INTERFACE_ID_PREFIX}}.{{EXPORT_NAME}}",
+      "name": "{{EXPORT_NAME}}",
+      "providerWorkerId": "worker-1",
+      "consumerWorkerIds": ["worker-2"],
+      "file": "src/{{WORKER1_MODULE}}.ts",
+      "signature": {
+        "kind": "function",
+        "params": ["{{EXPORT_PARAM_TYPE}}"],
+        "returns": "{{EXPORT_RETURN_TYPE}}"
+      }
+    },
+    {
+      "interfaceId": "{{INTERFACE_ID_PREFIX}}.{{WORKER2_EXPORT_NAME}}",
+      "name": "{{WORKER2_EXPORT_NAME}}",
+      "providerWorkerId": "worker-2",
+      "consumerWorkerIds": [],
+      "file": "src/{{WORKER2_MODULE}}.ts",
+      "signature": {
+        "kind": "function",
+        "params": ["{{WORKER2_EXPORT_PARAM_TYPE}}"],
+        "returns": "{{WORKER2_EXPORT_RETURN_TYPE}}"
+      }
+    }
+  ]
+}

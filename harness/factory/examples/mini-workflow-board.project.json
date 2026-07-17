@@ -1,0 +1,71 @@
+{
+  "$schema": "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "mini-workflow-board",
+  "runId": "dry3-mini-workflow-board",
+  "phase": "Phase 6C-DRY3-A",
+  "description": "A TypeScript mini workflow board engine: create work items, transition status, filter by assignee/tags, compute stats, generate Markdown reports.",
+  "workers": [
+    {
+      "workerId": "worker-1",
+      "description": "Core workflow model + state transitions: defines WorkflowStatus, WorkflowPriority, WorkItemInput, WorkItem, WorkflowStats types; createWorkItem, transitionWorkItem, computeWorkflowStats functions.",
+      "ownedPaths": [
+        "src/workflowTypes.ts",
+        "src/createWorkItem.ts",
+        "src/transitionWorkItem.ts",
+        "src/computeWorkflowStats.ts"
+      ],
+      "taskDescription": "Create 4 TypeScript source files in workspace/worker-1/src/. File 1 workflowTypes.ts: export WorkflowStatus type = 'backlog'|'todo'|'doing'|'review'|'done'|'blocked', WorkflowPriority type = 'low'|'normal'|'high'|'urgent', WorkItemInput interface (title:string, description?:string, assignee?:string|null, priority?:WorkflowPriority, tags?:string[]), WorkItem interface (id:string, title:string, description:string, assignee:string|null, status:WorkflowStatus, priority:WorkflowPriority, tags:string[], createdAt:string, updatedAt:string, history:string[]), WorkflowStats interface (total:number, byStatus:Record<WorkflowStatus,number>, byPriority:Record<WorkflowPriority,number>, blockedCount:number, doneCount:number, activeCount:number). File 2 createWorkItem.ts: export createWorkItem(input:WorkItemInput):WorkItem that trims title, defaults description='', assignee=null, priority='normal', tags=[], status='backlog', generates deterministic id, sets createdAt/updatedAt to ISO, initializes history as ['created']. File 3 transitionWorkItem.ts: export transitionWorkItem(item:WorkItem, newStatus:WorkflowStatus):WorkItem that returns NEW object with updated status, updatedAt, and appends status change to history. Do NOT mutate original. File 4 computeWorkflowStats.ts: export computeWorkflowStats(items:WorkItem[]):WorkflowStats that counts total, byStatus, byPriority, blockedCount, doneCount, activeCount (backlog excluded from active).",
+      "acceptanceDescription": "Worker 1 creates 4 files: workflowTypes.ts (5 types/interfaces), createWorkItem.ts (factory with defaults), transitionWorkItem.ts (immutable status transition with history), computeWorkflowStats.ts (stats aggregation).",
+      "exports": [
+        {"interfaceId":"module.workflow.WorkflowStatus","name":"WorkflowStatus","file":"src/workflowTypes.ts","signature":{"kind":"type","params":[],"returns":"WorkflowStatus"}},
+        {"interfaceId":"module.workflow.WorkflowPriority","name":"WorkflowPriority","file":"src/workflowTypes.ts","signature":{"kind":"type","params":[],"returns":"WorkflowPriority"}},
+        {"interfaceId":"module.workflow.WorkItemInput","name":"WorkItemInput","file":"src/workflowTypes.ts","signature":{"kind":"interface","params":[],"returns":"WorkItemInput"}},
+        {"interfaceId":"module.workflow.WorkItem","name":"WorkItem","file":"src/workflowTypes.ts","signature":{"kind":"interface","params":[],"returns":"WorkItem"}},
+        {"interfaceId":"module.workflow.WorkflowStats","name":"WorkflowStats","file":"src/workflowTypes.ts","signature":{"kind":"interface","params":[],"returns":"WorkflowStats"}},
+        {"interfaceId":"module.workflow.createWorkItem","name":"createWorkItem","file":"src/createWorkItem.ts","signature":{"kind":"function","params":["WorkItemInput"],"returns":"WorkItem"}},
+        {"interfaceId":"module.workflow.transitionWorkItem","name":"transitionWorkItem","file":"src/transitionWorkItem.ts","signature":{"kind":"function","params":["WorkItem","WorkflowStatus"],"returns":"WorkItem"}},
+        {"interfaceId":"module.workflow.computeWorkflowStats","name":"computeWorkflowStats","file":"src/computeWorkflowStats.ts","signature":{"kind":"function","params":["WorkItem[]"],"returns":"WorkflowStats"}}
+      ],
+      "imports": []
+    },
+    {
+      "workerId": "worker-2",
+      "description": "Board query + report generation: imports types and functions from Worker 1; provides board management, filtering, Markdown report rendering, and board summary.",
+      "ownedPaths": [
+        "src/workflowBoard.ts",
+        "src/filterWorkItems.ts",
+        "src/renderMarkdownReport.ts",
+        "src/buildBoardSummary.ts"
+      ],
+      "taskDescription": "Create 4 TypeScript source files in workspace/worker-2/src/. Import types and functions from Worker 1 (use relative paths ../../worker-1/src/...). File 1 workflowBoard.ts: export WorkflowBoard interface (name:string, items:WorkItem[]), createBoard(name:string):WorkflowBoard, addItemToBoard(board:WorkflowBoard, input:WorkItemInput):WorkflowBoard (calls createWorkItem from W1, returns NEW object, no mutation). File 2 filterWorkItems.ts: export filterWorkItems(items:WorkItem[], filters:{status?:WorkflowStatus, priority?:WorkflowPriority, assignee?:string, tags?:string[]}):WorkItem[] that filters by any combination of criteria. Status filter: includes items where status matches. Priority filter: matches exact priority. Assignee: matches if assignee includes the given string (case-insensitive). Tags: items that have AT LEAST ONE matching tag. Filter parameters are independent (AND logic). File 3 renderMarkdownReport.ts: export renderMarkdownReport(board:WorkflowBoard):string that produces a Markdown-formatted report with board name, total items, status breakdown as a table, and a sections listing by status. File 4 buildBoardSummary.ts: export buildBoardSummary(board:WorkflowBoard):string that returns a text summary including board name, total items, blocked count, done count, active count (items not done), and high+urgent priority count. Must call computeWorkflowStats from Worker 1 internally.",
+      "acceptanceDescription": "Worker 2 imports from Worker 1 (WorkflowStatus, WorkflowPriority, WorkItemInput, WorkItem, WorkflowStats, createWorkItem, computeWorkflowStats) and creates 4 files: workflowBoard.ts (board + immutable add), filterWorkItems.ts (multi-criteria filter), renderMarkdownReport.ts (Markdown report), buildBoardSummary.ts (text summary using computeWorkflowStats).",
+      "exports": [
+        {"interfaceId":"module.board.WorkflowBoard","name":"WorkflowBoard","file":"src/workflowBoard.ts","signature":{"kind":"interface","params":[],"returns":"WorkflowBoard"}},
+        {"interfaceId":"module.board.createBoard","name":"createBoard","file":"src/workflowBoard.ts","signature":{"kind":"function","params":["string"],"returns":"WorkflowBoard"}},
+        {"interfaceId":"module.board.addItemToBoard","name":"addItemToBoard","file":"src/workflowBoard.ts","signature":{"kind":"function","params":["WorkflowBoard","WorkItemInput"],"returns":"WorkflowBoard"}},
+        {"interfaceId":"module.board.filterWorkItems","name":"filterWorkItems","file":"src/filterWorkItems.ts","signature":{"kind":"function","params":["WorkItem[]","object"],"returns":"WorkItem[]"}},
+        {"interfaceId":"module.board.renderMarkdownReport","name":"renderMarkdownReport","file":"src/renderMarkdownReport.ts","signature":{"kind":"function","params":["WorkflowBoard"],"returns":"string"}},
+        {"interfaceId":"module.board.buildBoardSummary","name":"buildBoardSummary","file":"src/buildBoardSummary.ts","signature":{"kind":"function","params":["WorkflowBoard"],"returns":"string"}}
+      ],
+      "imports": [
+        {"interfaceId":"module.workflow.WorkflowStatus","name":"WorkflowStatus","fromWorkerId":"worker-1","file":"src/workflowTypes.ts"},
+        {"interfaceId":"module.workflow.WorkflowPriority","name":"WorkflowPriority","fromWorkerId":"worker-1","file":"src/workflowTypes.ts"},
+        {"interfaceId":"module.workflow.WorkItemInput","name":"WorkItemInput","fromWorkerId":"worker-1","file":"src/workflowTypes.ts"},
+        {"interfaceId":"module.workflow.WorkItem","name":"WorkItem","fromWorkerId":"worker-1","file":"src/workflowTypes.ts"},
+        {"interfaceId":"module.workflow.WorkflowStats","name":"WorkflowStats","fromWorkerId":"worker-1","file":"src/workflowTypes.ts"},
+        {"interfaceId":"module.workflow.createWorkItem","name":"createWorkItem","fromWorkerId":"worker-1","file":"src/createWorkItem.ts"},
+        {"interfaceId":"module.workflow.computeWorkflowStats","name":"computeWorkflowStats","fromWorkerId":"worker-1","file":"src/computeWorkflowStats.ts"}
+      ]
+    }
+  ],
+  "acceptance": [
+    {"acceptanceId":"AC-001","description":"Worker 1 creates 4 files: workflowTypes.ts (5 types/interfaces), createWorkItem.ts, transitionWorkItem.ts, computeWorkflowStats.ts."},
+    {"acceptanceId":"AC-002","description":"Worker 2 imports 7 interfaces/functions from Worker 1 and creates 4 files: workflowBoard.ts, filterWorkItems.ts, renderMarkdownReport.ts, buildBoardSummary.ts."},
+    {"acceptanceId":"AC-003","description":"No cross-workspace writes."},
+    {"acceptanceId":"AC-004","description":"Contract, honesty, drift, isolation, integration, token proof, and hash chain gates must pass."},
+    {"acceptanceId":"AC-005","description":"TypeScript typecheck: if tsc available, must pass; if unavailable, SKIPPED_ENVIRONMENT_UNAVAILABLE."}
+  ],
+  "forbiddenPaths": [
+    "runs/dry3-mini-workflow-board/workspace/worker-2"
+  ]
+}

@@ -1,0 +1,49 @@
+﻿{
+  "schemaVersion": "6C-T0",
+  "name": "REPORT_REQUIREMENTS_SCHEMA",
+  "description": "Defines which reports are hard gate vs advisory for audit bundle closure.",
+  "reports": [
+    {
+      "name": "PHASE_*_FINAL_REPORT.md",
+      "type": "final_report",
+      "hardGate": true,
+      "notes": "Human-readable phase summary. Advisory in content; hard gate because it must exist."
+    },
+    {
+      "name": "reports/harness-inventory-report.json",
+      "type": "inventory",
+      "hardGate": false,
+      "notes": "Structural inventory. Advisory only."
+    },
+    {
+      "name": "reports/audit-bundle-schema-validation-report.json",
+      "type": "schema_validation",
+      "hardGate": true,
+      "notes": "Schema compliance check. Must exist with verdict PASS."
+    },
+    {
+      "name": "reports/bundle-layout-report.json",
+      "type": "layout_validation",
+      "hardGate": true,
+      "notes": "Layout validation report from validate-bundle-layout.ps1. Must be PASS."
+    },
+    {
+      "name": "reports/sha256sums-validation-report.json",
+      "type": "sha_validation",
+      "hardGate": true,
+      "notes": "SHA256SUMS validation report. Must have 0 mismatches."
+    },
+    {
+      "name": "run/validate-state-stdout.log",
+      "type": "state_validation",
+      "hardGate": true,
+      "notes": "stdout from validate-state.ps1. Must show run_passed verdict."
+    }
+  ],
+  "reportIntegrityRules": [
+    "Final report must not claim untested capabilities",
+    "Final report must not contain ZIP self-SHA256",
+    "Final report must distinguish ENGINEERING_PASS from AUDIT_PASS",
+    "Final report must list ZIP absolute path for external audit"
+  ]
+}

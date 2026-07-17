@@ -1,0 +1,76 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pre-Spawn Run Plan Schema",
+  "description": "Validates the full run plan before any worker is spawned. Enforces domain coverage, complexity minimums, and role boundaries.",
+  "schemaVersion": "H7-R1",
+  "type": "object",
+  "required": [
+    "runId", "phase", "projectProfile", "domainPack", "verifierPack",
+    "workerContracts", "globalComplexityBudget", "requiredAcceptanceLayers",
+    "requiredNegativeControls", "roleBoundaryRules", "spawnPolicy",
+    "preSpawnValidationRequired"
+  ],
+  "properties": {
+    "runId": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "minLength": 1 },
+    "projectProfile": { "type": "string", "minLength": 1 },
+    "domainPack": { "type": "string", "minLength": 1 },
+    "verifierPack": { "type": "string", "minLength": 1 },
+    "workerContracts": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "pre-spawn-worker-contract.schema.json" }
+    },
+    "globalComplexityBudget": {
+      "type": "object",
+      "required": ["minimumWorkers", "minimumJsFiles", "minimumNamedExports", "minimumCrossWorkerDeps", "minimumScenarios"],
+      "properties": {
+        "minimumWorkers": { "type": "integer", "minimum": 2 },
+        "minimumJsFiles": { "type": "integer", "minimum": 12 },
+        "minimumNamedExports": { "type": "integer", "minimum": 20 },
+        "minimumCrossWorkerDeps": { "type": "integer", "minimum": 8 },
+        "minimumScenarios": { "type": "integer", "minimum": 6 }
+      }
+    },
+    "requiredAcceptanceLayers": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "string" }
+    },
+    "requiredNegativeControls": { "type": "integer", "minimum": 1 },
+    "roleBoundaryRules": {
+      "type": "object",
+      "required": ["noWorkerOwnsAllCore", "noResponsibilityEmptyWorker", "noEvidenceEmptyWorker"],
+      "properties": {
+        "noWorkerOwnsAllCore": { "type": "boolean" },
+        "noResponsibilityEmptyWorker": { "type": "boolean" },
+        "noEvidenceEmptyWorker": { "type": "boolean" }
+      }
+    },
+    "spawnPolicy": {
+      "type": "object",
+      "required": ["requireValidationBeforeSpawn", "blockOnSchemaInvalid", "blockOnCoverageGap"],
+      "properties": {
+        "requireValidationBeforeSpawn": { "type": "boolean" },
+        "blockOnSchemaInvalid": { "type": "boolean" },
+        "blockOnCoverageGap": { "type": "boolean" }
+      }
+    },
+    "preSpawnValidationRequired": { "const": true },
+    "externalReferencePlan": { "type": "string" },
+    "domainInvariants": { "type": "array", "items": { "type": "string" } },
+    "domainBusinessRules": { "type": "array", "items": { "type": "string" } },
+    "domainEntities": { "type": "array", "items": { "type": "string" } }
+  },
+  "runPlanRules": {
+    "workerCountFloor": "worker count must meet contract floor (minimumWorkers)",
+    "entityAssignment": "every domain entity assigned to at least one worker",
+    "businessRuleAssignment": "every business rule assigned to at least one worker",
+    "invariantCoverage": "every invariant mapped to one scenario and one negative",
+    "acceptanceLayerAssignment": "every required acceptance layer assigned to worker responsibility",
+    "crossWorkerDependencyFloor": "cross-worker dependency plan must meet minimum dependency floor",
+    "noWorkerOwnsAllCore": "no worker can own all core layers",
+    "noResponsibilityEmpty": "no worker can be responsibility-empty",
+    "noEvidenceEmpty": "no worker can be evidence-empty"
+  }
+}

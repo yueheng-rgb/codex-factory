@@ -1,0 +1,93 @@
+﻿{
+    "title":  "Worker Contract Schema",
+    "schemaVersion":  "H2-R1",
+    "properties":  {
+                       "minimumNamedExports":  {
+                                                   "type":  "integer",
+                                                   "minimum":  1
+                                               },
+                       "workerName":  {
+                                          "type":  "string"
+                                      },
+                       "requiredEvidenceOutputs":  {
+                                                       "minItems":  1,
+                                                       "items":  {
+                                                                     "type":  "string"
+                                                                 },
+                                                       "type":  "array"
+                                                   },
+                       "expectedExportCount":  {
+                                                   "type":  "integer",
+                                                   "minimum":  1
+                                               },
+                       "allowedDependencies":  {
+                                                   "items":  {
+                                                                 "type":  "string"
+                                                             },
+                                                   "type":  "array"
+                                               },
+                       "requiredExports":  {
+                                               "items":  {
+                                                             "type":  "string"
+                                                         },
+                                               "type":  "array"
+                                           },
+                       "ownedFiles":  {
+                                          "minItems":  1,
+                                          "items":  {
+                                                        "type":  "string"
+                                                    },
+                                          "type":  "array"
+                                      },
+                       "freezeRequired":  {
+                                              "type":  "boolean"
+                                          },
+                       "forbiddenDependencies":  {
+                                                     "items":  {
+                                                                   "type":  "string"
+                                                               },
+                                                     "type":  "array"
+                                                 },
+                       "minimumJsFiles":  {
+                                              "type":  "integer",
+                                              "minimum":  1
+                                          },
+                       "forbiddenFiles":  {
+                                              "items":  {
+                                                            "type":  "string"
+                                                        },
+                                              "type":  "array"
+                                          },
+                       "workerId":  {
+                                        "type":  "integer",
+                                        "minimum":  1
+                                    },
+                       "runId":  {
+                                     "type":  "string"
+                                 },
+                       "phase":  {
+                                     "type":  "string"
+                                 },
+                       "cannotModifyAfterFreeze":  {
+                                                       "type":  "boolean"
+                                                   },
+                       "requiredScenarios":  {
+                                                 "items":  {
+                                                               "type":  "string"
+                                                           },
+                                                 "type":  "array"
+                                             }
+                   },
+    "type":  "object",
+    "required":  [
+                     "workerId",
+                     "runId",
+                     "ownedFiles",
+                     "requiredExports",
+                     "forbiddenFiles",
+                     "requiredEvidenceOutputs",
+                     "requiredScenarios",
+                     "freezeRequired",
+                     "cannotModifyAfterFreeze"
+                 ]
+}

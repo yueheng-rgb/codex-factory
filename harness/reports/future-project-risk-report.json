@@ -1,0 +1,102 @@
+﻿{
+    "requiredPostRunEvidence":  [
+                                    "RUN_STATE.jsonl with valid hash chain",
+                                    "validate-state stdout/stderr/exitCode",
+                                    "All command logs: npm ci, typecheck, test:unit, build",
+                                    "Authorization proofs for task_claimed, task_verified",
+                                    "SHA256SUMS.txt with relative paths, 0 mismatches",
+                                    "External sidecar meta matching ZIP digest"
+                                ],
+    "blockedConditions":  [
+                              "No AUDIT_BUNDLE_SCHEMA.json — cannot validate bundle completeness",
+                              "No validate-state.ps1 run_passed — cannot close phase",
+                              "No validate-sha256sums.ps1 PASS — ZIP integrity unverified",
+                              "No external sidecar meta — ZIP digest unverifiable",
+                              "CFP-001 through CFP-012 not all passing — evidence/report contradiction possible"
+                          ],
+    "risks":  [
+                  {
+                      "detail":  "Evidence flow documented, schema frozen. Risk: Agent generates PASS claim without saving evidence files.",
+                      "mitigation":  "Schema validator checks required files; final-zip-self-consistency checks ZIP integrity.",
+                      "name":  "Evidence Omission",
+                      "id":  "R1",
+                      "level":  "LOW"
+                  },
+                  {
+                      "detail":  "CFP-001 gate exists. Risk: Agent writes PASS in report but evidence says FAIL.",
+                      "mitigation":  "validate-evidence-gates.ps1 detects CFP-001; schema validator checks report consistency.",
+                      "name":  "Report/Evidence Contradiction",
+                      "id":  "R2",
+                      "level":  "LOW"
+                  },
+                  {
+                      "detail":  "Mailbox schema exists but mailbox is advisory (not hard gate). Agents may use spawn_agent/resume_agent without preserving handoff artifacts.",
+                      "mitigation":  "Require mailbox evidence for phases that claim multi-agent handoff.",
+                      "name":  "Missing Mailbox Evidence",
+                      "id":  "R3",
+                      "level":  "MEDIUM"
+                  },
+                  {
+                      "detail":  "Codex may compress/truncate long conversations. Agents may lose task context, settings, or handoff details.",
+                      "mitigation":  "Contract-first planning (read SPEC.md, write PLAN.md). Handoff files in independent workspace files.",
+                      "name":  "Context Compression Data Loss",
+                      "id":  "R4",
+                      "level":  "MEDIUM"
+                  },
+                  {
+                      "detail":  "Agent may write final ZIP outside harness/outputs/.",
+                      "mitigation":  "Schema validator and final-zip-self-consistency check absolute path. Report must state ZIP path.",
+                      "name":  "Bundle Path Drift",
+                      "id":  "R5",
+                      "level":  "LOW"
+                  },
+                  {
+                      "detail":  "Phases 6C-A through S2 were short runs (\u003c 30 min). Overnight or multi-hour runs untested. Agent timeouts, token expiry, context exhaustion likely.",
+                      "mitigation":  "Phase 6C-S2 proves continuation. Heartbeat and timeout sweep exist. But overnight not proven.",
+                      "name":  "Long-Run Stability",
+                      "id":  "R6",
+                      "level":  "MEDIUM"
+                  },
+                  {
+                      "detail":  "Codex requires user approval for escalated operations. Long runs may stall on approval prompts.",
+                      "mitigation":  "Prefix rules for approved command prefixes. But new commands may still require approval.",
+                      "name":  "Approval Interruptions",
+                      "id":  "R7",
+                      "level":  "MEDIUM"
+                  },
+                  {
+                      "detail":  "codex exec worker pool not implemented. All current multi-agent is via spawn_agent within same session.",
+                      "mitigation":  "Phase 6C-F explored token auth for external workers but not production ready.",
+                      "name":  "External Worker Pool",
+                      "id":  "R8",
+                      "level":  "HIGH"
+                  },
+                  {
+                      "detail":  "Current test fixture is bookmark-manager (~30 files). Large projects with 100+ files may have complex merge conflicts.",
+                      "mitigation":  "Git worktree spike shows feasibility. But large-scale merge not tested.",
+                      "name":  "Large Project Integration Complexity",
+                      "id":  "R9",
+                      "level":  "MEDIUM"
+                  },
+                  {
+                      "detail":  "Codex CLI, spawn_agent, resume_agent behavior may change across versions. Harness assumptions may break.",
+                      "mitigation":  "Schema-frozen requirements. Phase validators are versioned. Re-validate after Codex updates.",
+                      "name":  "Codex Capability Drift",
+                      "id":  "R10",
+                      "level":  "LOW"
+                  }
+              ],
+    "honestAnswer":  "Yes, future projects may still have problems. The expected failure modes are now explicit and machine-checkable. The biggest remaining risks are long-run stability, external worker pool, approval interruptions, and large-project context drift.",
+    "phase":  "6C-T0-R1",
+    "timestamp":  "2026-06-20T16:20:10.7215571+08:00",
+    "riskLevel":  "MEDIUM",
+    "requiredPreRunArtifacts":  [
+                                    "TASKS.json with baseCanonicalHash",
+                                    "ACCEPTANCE.json with acceptance items",
+                                    "CONTROL_PLANE_LOCK.json frozen before Worker start",
+                                    "RUN_PLAN.json or TASK_DAG.json",
+                                    "Authorization trust root established"
+                                ],
+    "riskScore":  36
+}
+

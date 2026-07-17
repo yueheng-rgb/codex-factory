@@ -1,0 +1,485 @@
+﻿{
+    "forbiddenPaths":  [
+                           "runs/dry6-mini-invoice-ledger/workspace/worker-2"
+                       ],
+    "projectName":  "mini-invoice-ledger",
+    "workers":  [
+                    {
+                        "workerId":  "worker-1",
+                        "acceptanceDescription":  "Worker 1 creates 4 files: customerTypes.ts (4 types), createCustomer.ts, updateCustomer.ts, filterCustomers.ts.",
+                        "description":  "Customer core: defines CustomerStatus, CustomerInput, Customer, CustomerFilter types; createCustomer, updateCustomer, filterCustomers functions.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.customer.CustomerStatus",
+                                            "signature":  {
+                                                              "returns":  "CustomerStatus",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "CustomerStatus",
+                                            "file":  "src/customerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.customer.CustomerInput",
+                                            "signature":  {
+                                                              "returns":  "CustomerInput",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "CustomerInput",
+                                            "file":  "src/customerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.customer.Customer",
+                                            "signature":  {
+                                                              "returns":  "Customer",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Customer",
+                                            "file":  "src/customerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.customer.CustomerFilter",
+                                            "signature":  {
+                                                              "returns":  "CustomerFilter",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "CustomerFilter",
+                                            "file":  "src/customerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.customer.createCustomer",
+                                            "signature":  {
+                                                              "returns":  "Customer",
+                                                              "params":  [
+                                                                             "CustomerInput"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "createCustomer",
+                                            "file":  "src/createCustomer.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.customer.updateCustomer",
+                                            "signature":  {
+                                                              "returns":  "Customer",
+                                                              "params":  [
+                                                                             "Customer",
+                                                                             "Partial\u003cCustomerInput\u003e"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "updateCustomer",
+                                            "file":  "src/updateCustomer.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.customer.filterCustomers",
+                                            "signature":  {
+                                                              "returns":  "Customer[]",
+                                                              "params":  [
+                                                                             "Customer[]",
+                                                                             "CustomerFilter"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "filterCustomers",
+                                            "file":  "src/filterCustomers.ts"
+                                        }
+                                    ],
+                        "imports":  [
+
+                                    ],
+                        "ownedPaths":  [
+                                           "src/customerTypes.ts",
+                                           "src/createCustomer.ts",
+                                           "src/updateCustomer.ts",
+                                           "src/filterCustomers.ts"
+                                       ],
+                        "taskDescription":  "Create 4 TypeScript files. File1 customerTypes.ts: export CustomerStatus=\u0027active\u0027|\u0027paused\u0027|\u0027archived\u0027, CustomerInput interface(name:string,email?:string,status?:CustomerStatus,tags?:string[]), Customer interface(id:string,name:string,email:string|null,status:CustomerStatus,tags:string[],createdAt:string,updatedAt:string), CustomerFilter interface(emailContains?:string,status?:CustomerStatus,tag?:string). File2 createCustomer.ts: export createCustomer(input:CustomerInput):Customer generates id like \u0027CUST-\u0027+timestamp, trims name, defaults status=\u0027active\u0027,email=null,tags=[], sets timestamps. File3 updateCustomer.ts: export updateCustomer(customer:Customer,patch:Partial\u003cCustomerInput\u003e):Customer returns NEW object, no mutation, updates updatedAt. File4 filterCustomers.ts: export filterCustomers(customers:Customer[],filter:CustomerFilter):Customer[] filters by emailContains,status,tag. All functions return new objects, never mutate."
+                    },
+                    {
+                        "workerId":  "worker-2",
+                        "acceptanceDescription":  "Worker 2 imports Customer,CustomerStatus from W1 and creates 4 files.",
+                        "description":  "Invoice core: defines InvoiceStatus, InvoiceLineItem, InvoiceInput, Invoice, InvoiceTotals types; createInvoice, updateInvoiceStatus, calculateInvoiceTotals functions. Imports Customer, CustomerStatus from Worker 1.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.invoice.InvoiceStatus",
+                                            "signature":  {
+                                                              "returns":  "InvoiceStatus",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "InvoiceStatus",
+                                            "file":  "src/invoiceTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.InvoiceLineItem",
+                                            "signature":  {
+                                                              "returns":  "InvoiceLineItem",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "InvoiceLineItem",
+                                            "file":  "src/invoiceTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.InvoiceInput",
+                                            "signature":  {
+                                                              "returns":  "InvoiceInput",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "InvoiceInput",
+                                            "file":  "src/invoiceTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.Invoice",
+                                            "signature":  {
+                                                              "returns":  "Invoice",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Invoice",
+                                            "file":  "src/invoiceTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.InvoiceTotals",
+                                            "signature":  {
+                                                              "returns":  "InvoiceTotals",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "InvoiceTotals",
+                                            "file":  "src/invoiceTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.createInvoice",
+                                            "signature":  {
+                                                              "returns":  "Invoice",
+                                                              "params":  [
+                                                                             "InvoiceInput",
+                                                                             "{id:string}"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "createInvoice",
+                                            "file":  "src/createInvoice.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.updateInvoiceStatus",
+                                            "signature":  {
+                                                              "returns":  "Invoice",
+                                                              "params":  [
+                                                                             "Invoice",
+                                                                             "InvoiceStatus"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "updateInvoiceStatus",
+                                            "file":  "src/updateInvoiceStatus.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.calculateInvoiceTotals",
+                                            "signature":  {
+                                                              "returns":  "InvoiceTotals",
+                                                              "params":  [
+                                                                             "InvoiceLineItem[]",
+                                                                             "number"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "calculateInvoiceTotals",
+                                            "file":  "src/calculateInvoiceTotals.ts"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.customer.Customer",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "Customer",
+                                            "file":  "src/customerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.customer.CustomerStatus",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "CustomerStatus",
+                                            "file":  "src/customerTypes.ts"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/invoiceTypes.ts",
+                                           "src/createInvoice.ts",
+                                           "src/updateInvoiceStatus.ts",
+                                           "src/calculateInvoiceTotals.ts"
+                                       ],
+                        "taskDescription":  "Create 4 TypeScript files. File1 invoiceTypes.ts: export InvoiceStatus=\u0027draft\u0027|\u0027sent\u0027|\u0027paid\u0027|\u0027void\u0027|\u0027overdue\u0027, InvoiceLineItem interface(description:string,quantity:number,unitPriceCents:number), InvoiceInput interface(customerId:string,items:InvoiceLineItem[],issuedAt?:string,dueAt?:string,status?:InvoiceStatus,notes?:string), Invoice interface(id:string,customerId:string,items:InvoiceLineItem[],status:InvoiceStatus,subtotalCents:number,taxCents:number,totalCents:number,issuedAt:string,dueAt:string,notes:string,createdAt:string,updatedAt:string), InvoiceTotals interface(subtotalCents:number,taxRate:number,taxCents:number,totalCents:number). File2 createInvoice.ts: export createInvoice(input:InvoiceInput,customer:{id:string}):Invoice generates id like \u0027INV-\u0027+timestamp, defaults status=\u0027draft\u0027,issuedAt=now,dueAt=now+30days,notes=\u0027\u0027, calculates totals, sets timestamps. File3 updateInvoiceStatus.ts: export updateInvoiceStatus(invoice:Invoice,status:InvoiceStatus):Invoice returns NEW object, no mutation. File4 calculateInvoiceTotals.ts: export calculateInvoiceTotals(items:InvoiceLineItem[],taxRate:number):InvoiceTotals computes subtotal=sum(qty*unitPrice), taxCents=Math.floor(subtotal*taxRate/100), total=subtotal+taxCents. Returns NEW InvoiceTotals. Import Customer, CustomerStatus from worker-1/src/customerTypes.ts. All functions return new objects, never mutate."
+                    },
+                    {
+                        "workerId":  "worker-3",
+                        "acceptanceDescription":  "Worker 3 imports Customer from W1, Invoice/InvoiceStatus from W2 and creates 4 files.",
+                        "description":  "Payment and overdue: defines PaymentStatus, Payment, OverdueReport types; recordPayment, detectOverdue, buildPaymentSummary functions. Imports Customer from W1 and Invoice,InvoiceStatus from W2.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.payment.PaymentStatus",
+                                            "signature":  {
+                                                              "returns":  "PaymentStatus",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "type"
+                                                          },
+                                            "name":  "PaymentStatus",
+                                            "file":  "src/paymentTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.payment.Payment",
+                                            "signature":  {
+                                                              "returns":  "Payment",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "Payment",
+                                            "file":  "src/paymentTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.payment.OverdueReport",
+                                            "signature":  {
+                                                              "returns":  "OverdueReport",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "OverdueReport",
+                                            "file":  "src/paymentTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.payment.recordPayment",
+                                            "signature":  {
+                                                              "returns":  "{invoice:Invoice,payment:Payment}",
+                                                              "params":  [
+                                                                             "Invoice",
+                                                                             "number"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "recordPayment",
+                                            "file":  "src/recordPayment.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.payment.detectOverdue",
+                                            "signature":  {
+                                                              "returns":  "OverdueReport[]",
+                                                              "params":  [
+                                                                             "Invoice[]",
+                                                                             "Customer[]",
+                                                                             "string"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "detectOverdue",
+                                            "file":  "src/detectOverdue.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.payment.buildPaymentSummary",
+                                            "signature":  {
+                                                              "returns":  "{totalCollected:number,paidCount:number,pendingCount:number,collectionRate:number}",
+                                                              "params":  [
+                                                                             "Payment[]",
+                                                                             "Invoice[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "buildPaymentSummary",
+                                            "file":  "src/buildPaymentSummary.ts"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.customer.Customer",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "Customer",
+                                            "file":  "src/customerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.Invoice",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "Invoice",
+                                            "file":  "src/invoiceTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.InvoiceStatus",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "InvoiceStatus",
+                                            "file":  "src/invoiceTypes.ts"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/paymentTypes.ts",
+                                           "src/recordPayment.ts",
+                                           "src/detectOverdue.ts",
+                                           "src/buildPaymentSummary.ts"
+                                       ],
+                        "taskDescription":  "Create 4 TypeScript files. File1 paymentTypes.ts: export PaymentStatus=\u0027pending\u0027|\u0027completed\u0027|\u0027failed\u0027|\u0027refunded\u0027, Payment interface(id:string,invoiceId:string,amountCents:number,status:PaymentStatus,paidAt:string), OverdueReport interface(invoiceId:string,customerId:string,dueAt:string,daysOverdue:number,amountCents:number,status:string). File2 recordPayment.ts: export recordPayment(invoice:Invoice,amountCents:number):{invoice:Invoice,payment:Payment} processes payment, sets invoice status to \u0027paid\u0027 if amount\u003e=invoice.totalCents, returns new objects. File3 detectOverdue.ts: export detectOverdue(invoices:Invoice[],customers:Customer[],referenceDate:string):OverdueReport[] finds invoices where status!=\u0027paid\u0027 and dueAt\u003creferenceDate, computes daysOverdue, joins with customerId. Returns sorted by daysOverdue desc. File4 buildPaymentSummary.ts: export buildPaymentSummary(payments:Payment[],invoices:Invoice[]):{totalCollected:number,paidCount:number,pendingCount:number,collectionRate:number} computes payment stats. Import from W1 and W2. All functions return new objects, never mutate."
+                    },
+                    {
+                        "workerId":  "worker-4",
+                        "acceptanceDescription":  "Worker 4 imports from W1, W2, W3 and creates 4 files.",
+                        "description":  "Financial ledger and Markdown summary: defines LedgerEntry, FinancialHighlight types; buildLedger, computeFinancialHighlights, renderFinancialReport functions. Imports from W1, W2, W3.",
+                        "exports":  [
+                                        {
+                                            "interfaceId":  "module.ledger.LedgerEntry",
+                                            "signature":  {
+                                                              "returns":  "LedgerEntry",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "LedgerEntry",
+                                            "file":  "src/ledgerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.ledger.FinancialHighlight",
+                                            "signature":  {
+                                                              "returns":  "FinancialHighlight",
+                                                              "params":  [
+
+                                                                         ],
+                                                              "kind":  "interface"
+                                                          },
+                                            "name":  "FinancialHighlight",
+                                            "file":  "src/ledgerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.ledger.buildLedger",
+                                            "signature":  {
+                                                              "returns":  "LedgerEntry[]",
+                                                              "params":  [
+                                                                             "Invoice[]",
+                                                                             "Payment[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "buildLedger",
+                                            "file":  "src/buildLedger.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.ledger.computeFinancialHighlights",
+                                            "signature":  {
+                                                              "returns":  "FinancialHighlight[]",
+                                                              "params":  [
+                                                                             "Invoice[]",
+                                                                             "Payment[]",
+                                                                             "OverdueReport[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "computeFinancialHighlights",
+                                            "file":  "src/computeFinancialHighlights.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.ledger.renderFinancialReport",
+                                            "signature":  {
+                                                              "returns":  "string",
+                                                              "params":  [
+                                                                             "LedgerEntry[]",
+                                                                             "FinancialHighlight[]",
+                                                                             "OverdueReport[]"
+                                                                         ],
+                                                              "kind":  "function"
+                                                          },
+                                            "name":  "renderFinancialReport",
+                                            "file":  "src/renderFinancialReport.ts"
+                                        }
+                                    ],
+                        "imports":  [
+                                        {
+                                            "interfaceId":  "module.customer.Customer",
+                                            "fromWorkerId":  "worker-1",
+                                            "name":  "Customer",
+                                            "file":  "src/customerTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.Invoice",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "Invoice",
+                                            "file":  "src/invoiceTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.invoice.InvoiceStatus",
+                                            "fromWorkerId":  "worker-2",
+                                            "name":  "InvoiceStatus",
+                                            "file":  "src/invoiceTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.payment.Payment",
+                                            "fromWorkerId":  "worker-3",
+                                            "name":  "Payment",
+                                            "file":  "src/paymentTypes.ts"
+                                        },
+                                        {
+                                            "interfaceId":  "module.payment.OverdueReport",
+                                            "fromWorkerId":  "worker-3",
+                                            "name":  "OverdueReport",
+                                            "file":  "src/paymentTypes.ts"
+                                        }
+                                    ],
+                        "ownedPaths":  [
+                                           "src/ledgerTypes.ts",
+                                           "src/buildLedger.ts",
+                                           "src/computeFinancialHighlights.ts",
+                                           "src/renderFinancialReport.ts"
+                                       ],
+                        "taskDescription":  "Create 4 TypeScript files. File1 ledgerTypes.ts: export LedgerEntry interface(date:string,type:\u0027invoice\u0027|\u0027payment\u0027,amountCents:number,invoiceId:string,description:string), FinancialHighlight interface(label:string,value:string,trend:\u0027up\u0027|\u0027down\u0027|\u0027stable\u0027). File2 buildLedger.ts: import from W1,W2,W3; export buildLedger(invoices:Invoice[],payments:Payment[]):LedgerEntry[] builds sorted ledger by date from both invoices and payments. File3 computeFinancialHighlights.ts: import from W1,W2,W3; export computeFinancialHighlights(invoices:Invoice[],payments:Payment[],overdue:OverdueReport[]):FinancialHighlight[] computes 4 highlights: total invoiced, total collected, overdue count, collection rate. File4 renderFinancialReport.ts: import from W1,W2,W3; export renderFinancialReport(ledger:LedgerEntry[],highlights:FinancialHighlight[],overdue:OverdueReport[]):string generates Markdown report with ## Financial Report header, highlights table, overdue table, ledger entries list. All functions return new objects, never mutate."
+                    }
+                ],
+    "description":  "A TypeScript mini invoice and payment ledger engine: customer management, invoice creation/totals, payment processing with overdue detection, and Markdown financial summaries.",
+    "acceptance":  [
+                       {
+                           "acceptanceId":  "AC-001",
+                           "description":  "Worker 1 creates 4 files: customerTypes.ts (4 types), createCustomer.ts, updateCustomer.ts, filterCustomers.ts."
+                       },
+                       {
+                           "acceptanceId":  "AC-002",
+                           "description":  "Worker 2 imports Customer,CustomerStatus from W1 and creates 4 files."
+                       },
+                       {
+                           "acceptanceId":  "AC-003",
+                           "description":  "Worker 3 imports Customer from W1, Invoice/InvoiceStatus from W2 and creates 4 files."
+                       },
+                       {
+                           "acceptanceId":  "AC-004",
+                           "description":  "Worker 4 imports from W1, W2, W3 and creates 4 files."
+                       },
+                       {
+                           "acceptanceId":  "AC-005",
+                           "description":  "No cross-workspace writes. Structural gates pass."
+                       }
+                   ],
+    "runId":  "dry6-mini-invoice-ledger",
+    "$schema":  "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+    "phase":  "Phase 6C-DRY6-A"
+}

@@ -1,0 +1,16 @@
+﻿{
+  "": "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "mini-incident-board-http-app",
+  "runId": "dry10-mini-incident-board-http-app",
+  "phase": "Phase 6C-DRY10-A",
+  "language": "javascript",
+  "description": "A pure Node.js zero-dependency incident board HTTP application. Supports users, teams, incidents (create/assign/resolve), comments with timeline, stats dashboard, search, static HTML page, and local HTTP JSON API. All built on Node built-in http module with stateful JSON file persistence.",
+  "workers": 5,
+  "tasks": 5,
+  "sourceFileMinimum": 28,
+  "exportMinimum": 42,
+  "crossWorkerDepMinimum": 30,
+  "runtimeScenarioMinimum": 4,
+  "httpScenarioMinimum": 6,
+  "staticArtifactScenarioMinimum": 3
+}

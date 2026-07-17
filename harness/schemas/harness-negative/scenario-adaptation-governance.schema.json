@@ -1,0 +1,30 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Scenario Adaptation Governance Schema",
+  "description": "Governs when and how scenarios may be adapted for negative controls",
+  "type": "object",
+  "required": ["adaptationId", "negativeId", "adaptedScenarios", "adaptationReason", "adaptationMethod", "nonTargetScenariosUnaffected", "approved", "reviewedAt"],
+  "properties": {
+    "adaptationId": { "type": "string" },
+    "negativeId": { "type": "string" },
+    "adaptedScenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["scenarioId", "originalBehavior", "adaptedBehavior", "reason"],
+        "properties": {
+          "scenarioId": { "type": "string" },
+          "originalBehavior": { "type": "string" },
+          "adaptedBehavior": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "adaptationReason": { "type": "string", "enum": ["cascading-failure", "infrastructure-dependency", "non-target-contamination", "test-design-flaw"] },
+    "adaptationMethod": { "type": "string", "enum": ["skip-scenario", "relax-assertion", "mock-dependency", "isolate-state"] },
+    "nonTargetScenariosUnaffected": { "type": "boolean" },
+    "approved": { "type": "boolean" },
+    "approverNotes": { "type": "string" },
+    "reviewedAt": { "type": "string", "format": "date-time" }
+  }
+}

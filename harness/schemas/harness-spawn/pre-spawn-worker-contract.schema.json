@@ -1,0 +1,69 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pre-Spawn Worker Contract Schema",
+  "description": "Validates worker contracts before spawn_agent is used. spawnAllowed must be false until all checks pass.",
+  "schemaVersion": "H7-R1",
+  "type": "object",
+  "required": [
+    "runId", "phase", "workerId", "workerRole", "workerMission",
+    "ownedFilesPlanned", "forbiddenFiles", "requiredExports",
+    "requiredEvidenceOutputs", "requiredDomainEntities",
+    "requiredBusinessRules", "requiredScenarios", "requiredNegativeControls",
+    "allowedDependencies", "forbiddenDependencies",
+    "expectedCrossWorkerConsumers", "expectedCrossWorkerProviders",
+    "minimumSourceFiles", "minimumExports", "minimumBehavioralResponsibilities",
+    "edgeCasesRequired", "failureModesRequired", "acceptanceLayersTouched",
+    "complexityContribution", "integrationContract", "freezeRequired",
+    "noExternalPackages", "spawnAllowed"
+  ],
+  "properties": {
+    "runId": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "minLength": 1 },
+    "workerId": { "type": "integer", "minimum": 1 },
+    "workerRole": { "type": "string", "minLength": 1 },
+    "workerMission": { "type": "string", "minLength": 20 },
+    "ownedFilesPlanned": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "forbiddenFiles": { "type": "array", "items": { "type": "string" } },
+    "requiredExports": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "requiredEvidenceOutputs": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "requiredDomainEntities": { "type": "array", "items": { "type": "string" } },
+    "requiredBusinessRules": { "type": "array", "items": { "type": "string" } },
+    "requiredScenarios": { "type": "array", "items": { "type": "string" } },
+    "requiredNegativeControls": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "allowedDependencies": { "type": "array", "items": { "type": "string" } },
+    "forbiddenDependencies": { "type": "array", "items": { "type": "string" } },
+    "expectedCrossWorkerConsumers": { "type": "array", "items": { "type": "string" } },
+    "expectedCrossWorkerProviders": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "minimumSourceFiles": { "type": "integer", "minimum": 1 },
+    "minimumExports": { "type": "integer", "minimum": 1 },
+    "minimumBehavioralResponsibilities": { "type": "integer", "minimum": 3 },
+    "edgeCasesRequired": { "type": "array", "items": { "type": "string" } },
+    "failureModesRequired": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "acceptanceLayersTouched": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "complexityContribution": {
+      "type": "object",
+      "required": ["sourceFiles", "exports", "crossWorkerDeps", "scenarios"],
+      "properties": {
+        "sourceFiles": { "type": "integer", "minimum": 1 },
+        "exports": { "type": "integer", "minimum": 1 },
+        "crossWorkerDeps": { "type": "integer", "minimum": 1 },
+        "scenarios": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "integrationContract": { "type": "string", "minLength": 1 },
+    "freezeRequired": { "type": "boolean" },
+    "noExternalPackages": { "type": "boolean" },
+    "spawnAllowed": { "type": "boolean" }
+  },
+  "validationRules": {
+    "spawnAllowedInitialFalse": "spawnAllowed must be false before validation passes",
+    "requiredExportsNotEmpty": "requiredExports cannot be empty",
+    "requiredEvidenceNotEmpty": "requiredEvidenceOutputs cannot be empty",
+    "scenariosRequiredForAcceptance": "requiredScenarios cannot be empty for acceptance workers",
+    "businessRulesRequiredForDomain": "requiredBusinessRules cannot be empty for domain/rules workers",
+    "forbiddenFilesExplicit": "forbiddenFiles must be explicit (empty array means no explicit guard)",
+    "edgeCasesExplicit": "edgeCasesRequired and failureModesRequired must be explicit",
+    "minBehavioralResponsibilities": "minimumBehavioralResponsibilities >= 3",
+    "noDocOnlyWorkers": "no worker may have only documentation/reporting responsibilities unless audit/report worker"
+  }
+}

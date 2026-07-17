@@ -1,0 +1,158 @@
+{
+  "$schema": "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "mini-task-runner",
+  "runId": "dry2-mini-task-runner",
+  "phase": "Phase 6C-DRY2-A",
+  "description": "A TypeScript mini task orchestration library: define task model, task status, task queue, support creating tasks, updating status, generating execution summary.",
+  "workers": [
+    {
+      "workerId": "worker-1",
+      "description": "Task model + state transitions: defines TaskStatus, TaskPriority, TaskInput, TaskRecord types and createTask, updateTaskStatus functions.",
+      "ownedPaths": [
+        "src/taskTypes.ts",
+        "src/createTask.ts",
+        "src/updateTaskStatus.ts"
+      ],
+      "taskDescription": "Create src/taskTypes.ts with TaskStatus type ('pending'|'running'|'completed'|'failed'), TaskPriority type ('low'|'normal'|'high'), TaskInput interface (title:string, priority?:TaskPriority, tags?:string[]), and TaskRecord interface (id:string, title:string, status:TaskStatus, priority:TaskPriority, tags:string[], createdAt:string, updatedAt:string). Create src/createTask.ts with createTask(input: TaskInput): TaskRecord that trims title, defaults priority to 'normal', defaults tags to [], sets status to 'pending', generates a deterministic id, sets createdAt/updatedAt to ISO string. Create src/updateTaskStatus.ts with updateTaskStatus(task: TaskRecord, status: TaskStatus): TaskRecord that returns a new object with updated status and updatedAt, does not mutate original. Export all types and functions as named exports.",
+      "acceptanceDescription": "Worker 1 creates taskTypes.ts with TaskStatus, TaskPriority, TaskInput, TaskRecord type definitions; createTask.ts with createTask function applying defaults; updateTaskStatus.ts with immutable status transition function.",
+      "exports": [
+        {
+          "interfaceId": "module.task.TaskStatus",
+          "name": "TaskStatus",
+          "file": "src/taskTypes.ts",
+          "signature": { "kind": "type", "params": [], "returns": "TaskStatus" }
+        },
+        {
+          "interfaceId": "module.task.TaskPriority",
+          "name": "TaskPriority",
+          "file": "src/taskTypes.ts",
+          "signature": { "kind": "type", "params": [], "returns": "TaskPriority" }
+        },
+        {
+          "interfaceId": "module.task.TaskInput",
+          "name": "TaskInput",
+          "file": "src/taskTypes.ts",
+          "signature": { "kind": "type", "params": [], "returns": "TaskInput" }
+        },
+        {
+          "interfaceId": "module.task.TaskRecord",
+          "name": "TaskRecord",
+          "file": "src/taskTypes.ts",
+          "signature": { "kind": "type", "params": [], "returns": "TaskRecord" }
+        },
+        {
+          "interfaceId": "module.task.createTask",
+          "name": "createTask",
+          "file": "src/createTask.ts",
+          "signature": { "kind": "function", "params": ["TaskInput"], "returns": "TaskRecord" }
+        },
+        {
+          "interfaceId": "module.task.updateTaskStatus",
+          "name": "updateTaskStatus",
+          "file": "src/updateTaskStatus.ts",
+          "signature": { "kind": "function", "params": ["TaskRecord","TaskStatus"], "returns": "TaskRecord" }
+        }
+      ],
+      "imports": []
+    },
+    {
+      "workerId": "worker-2",
+      "description": "Queue + summary: imports TaskStatus, TaskPriority, TaskInput, TaskRecord, createTask, updateTaskStatus from Worker 1; provides TaskQueue, createTaskQueue, addTaskToQueue, buildTaskSummary.",
+      "ownedPaths": [
+        "src/taskQueue.ts",
+        "src/buildTaskSummary.ts"
+      ],
+      "taskDescription": "Create src/taskQueue.ts with TaskQueue interface (tasks:TaskRecord[]), createTaskQueue(): TaskQueue returning empty queue, addTaskToQueue(queue:TaskQueue, input:TaskInput): TaskQueue that calls createTask(input) from Worker 1 and returns new queue object without mutating original. Create src/buildTaskSummary.ts with buildTaskSummary(queue:TaskQueue): string that includes total task count, count by status (pending/running/completed/failed), count by priority (low/normal/high), and high priority count. Export TaskQueue, createTaskQueue, addTaskToQueue, buildTaskSummary as named exports.",
+      "acceptanceDescription": "Worker 2 imports TaskStatus, TaskPriority, TaskInput, TaskRecord, createTask, updateTaskStatus from Worker 1, creates taskQueue.ts with immutable queue operations, and buildTaskSummary.ts with comprehensive summary generator.",
+      "exports": [
+        {
+          "interfaceId": "module.queue.TaskQueue",
+          "name": "TaskQueue",
+          "file": "src/taskQueue.ts",
+          "signature": { "kind": "type", "params": [], "returns": "TaskQueue" }
+        },
+        {
+          "interfaceId": "module.queue.createTaskQueue",
+          "name": "createTaskQueue",
+          "file": "src/taskQueue.ts",
+          "signature": { "kind": "function", "params": [], "returns": "TaskQueue" }
+        },
+        {
+          "interfaceId": "module.queue.addTaskToQueue",
+          "name": "addTaskToQueue",
+          "file": "src/taskQueue.ts",
+          "signature": { "kind": "function", "params": ["TaskQueue","TaskInput"], "returns": "TaskQueue" }
+        },
+        {
+          "interfaceId": "module.summary.buildTaskSummary",
+          "name": "buildTaskSummary",
+          "file": "src/buildTaskSummary.ts",
+          "signature": { "kind": "function", "params": ["TaskQueue"], "returns": "string" }
+        }
+      ],
+      "imports": [
+        {
+          "interfaceId": "module.task.TaskStatus",
+          "name": "TaskStatus",
+          "fromWorkerId": "worker-1",
+          "file": "src/taskTypes.ts"
+        },
+        {
+          "interfaceId": "module.task.TaskPriority",
+          "name": "TaskPriority",
+          "fromWorkerId": "worker-1",
+          "file": "src/taskTypes.ts"
+        },
+        {
+          "interfaceId": "module.task.TaskInput",
+          "name": "TaskInput",
+          "fromWorkerId": "worker-1",
+          "file": "src/taskTypes.ts"
+        },
+        {
+          "interfaceId": "module.task.TaskRecord",
+          "name": "TaskRecord",
+          "fromWorkerId": "worker-1",
+          "file": "src/taskTypes.ts"
+        },
+        {
+          "interfaceId": "module.task.createTask",
+          "name": "createTask",
+          "fromWorkerId": "worker-1",
+          "file": "src/createTask.ts"
+        },
+        {
+          "interfaceId": "module.task.updateTaskStatus",
+          "name": "updateTaskStatus",
+          "fromWorkerId": "worker-1",
+          "file": "src/updateTaskStatus.ts"
+        }
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "acceptanceId": "AC-001",
+      "description": "Worker 1 creates taskTypes.ts with TaskStatus, TaskPriority, TaskInput, TaskRecord type definitions; createTask.ts with createTask function applying defaults; updateTaskStatus.ts with immutable status transition function."
+    },
+    {
+      "acceptanceId": "AC-002",
+      "description": "Worker 2 imports TaskStatus, TaskPriority, TaskInput, TaskRecord, createTask, updateTaskStatus from Worker 1, creates taskQueue.ts with immutable queue operations, and buildTaskSummary.ts with comprehensive summary generator."
+    },
+    {
+      "acceptanceId": "AC-003",
+      "description": "No cross-workspace writes."
+    },
+    {
+      "acceptanceId": "AC-004",
+      "description": "Contract, honesty, drift, isolation, integration, token proof, and hash chain gates must pass in execution phase."
+    },
+    {
+      "acceptanceId": "AC-005",
+      "description": "TypeScript typecheck: if tsc available, must pass; if unavailable, SKIPPED_ENVIRONMENT_UNAVAILABLE."
+    }
+  ],
+  "forbiddenPaths": [
+    "runs/dry2-mini-task-runner/workspace/worker-2"
+  ]
+}

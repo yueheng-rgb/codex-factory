@@ -1,0 +1,25 @@
+﻿{
+    "totalChecks":  11,
+    "present":  [
+                    "Directory: docs",
+                    "Directory: scripts",
+                    "Directory: tests",
+                    "Directory: run",
+                    "Directory: reports",
+                    "Directory: command-logs",
+                    "Directory: evidence",
+                    "Bundle file: PHASE_6C-T0-R2_FINAL_REPORT.md (pattern: PHASE_*_FINAL_REPORT.md)",
+                    "Bundle file: SHA256SUMS.txt (pattern: SHA256SUMS.txt)"
+                ],
+    "verdict":  "PASS",
+    "inputMode":  "StagingDir",
+    "inputPath":  "C:\\Codex_App_Factory\\harness\\outputs\\phase6c-t0-r2-final-audit-bundle",
+    "timestamp":  "2026-06-20T16:34:57.6847551+08:00",
+    "missingCount":  0,
+    "missing":  [
+
+                ],
+    "presentCount":  9,
+    "schemaVersion":  "6C-T0-R1"
+}
+

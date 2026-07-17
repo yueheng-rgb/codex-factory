@@ -1,0 +1,393 @@
+{
+  "domainId": "inventory-ops",
+  "domainName": "Inventory Operations",
+  "domainVersion": "1.0.0",
+  "domainBrief": "Warehouse inventory management with stock tracking, adjustments, transfers, audit events, and concurrency control.",
+  "glossary": [
+    {
+      "term": "SKU",
+      "definition": "Stock Keeping Unit — unique product identifier",
+      "entity": true
+    },
+    {
+      "term": "stock level",
+      "definition": "Current on-hand quantity of a SKU at a location",
+      "entity": false
+    },
+    {
+      "term": "reserved stock",
+      "definition": "Stock reserved for pending orders, not available for new orders",
+      "entity": false
+    },
+    {
+      "term": "inbound adjustment",
+      "definition": "Positive stock correction (receiving, return, recount up)",
+      "entity": false
+    },
+    {
+      "term": "outbound adjustment",
+      "definition": "Negative stock correction (shipment, damage, recount down)",
+      "entity": false
+    },
+    {
+      "term": "transfer",
+      "definition": "Movement of stock between locations",
+      "entity": false
+    },
+    {
+      "term": "inventory count",
+      "definition": "Physical or system stock count at a point in time",
+      "entity": false
+    },
+    {
+      "term": "audit event",
+      "definition": "Immutable record of any stock change",
+      "entity": true
+    },
+    {
+      "term": "idempotency key",
+      "definition": "Unique key to prevent double-application of stock changes",
+      "entity": false
+    },
+    {
+      "term": "optimistic version",
+      "definition": "Version number for optimistic concurrency control on stock records",
+      "entity": false
+    }
+  ],
+  "domainEntities": [
+    {
+      "entityId": "SKU",
+      "entityName": "SKU",
+      "fields": [
+        "skuId",
+        "name",
+        "category",
+        "unit"
+      ],
+      "primaryKey": "skuId",
+      "constraints": [
+        "skuId must be unique",
+        "name must not be empty"
+      ]
+    },
+    {
+      "entityId": "StockRecord",
+      "entityName": "StockRecord",
+      "fields": [
+        "skuId",
+        "locationId",
+        "onHand",
+        "reserved",
+        "version"
+      ],
+      "primaryKey": "skuId+locationId",
+      "constraints": [
+        "onHand >= 0",
+        "reserved <= onHand",
+        "reserved >= 0",
+        "version starts at 1"
+      ]
+    },
+    {
+      "entityId": "Adjustment",
+      "entityName": "Adjustment",
+      "fields": [
+        "adjustmentId",
+        "skuId",
+        "locationId",
+        "quantity",
+        "type",
+        "idempotencyKey",
+        "timestamp"
+      ],
+      "primaryKey": "adjustmentId",
+      "constraints": [
+        "adjustmentId must be unique",
+        "idempotencyKey must not repeat for same skuId+locationId",
+        "type must be inbound or outbound"
+      ]
+    },
+    {
+      "entityId": "Transfer",
+      "entityName": "Transfer",
+      "fields": [
+        "transferId",
+        "skuId",
+        "fromLocationId",
+        "toLocationId",
+        "quantity",
+        "status",
+        "timestamp"
+      ],
+      "primaryKey": "transferId",
+      "constraints": [
+        "fromLocation.onHand must have sufficient stock",
+        "toLocation must exist",
+        "quantity > 0"
+      ]
+    },
+    {
+      "entityId": "AuditEvent",
+      "entityName": "AuditEvent",
+      "fields": [
+        "eventId",
+        "entityType",
+        "entityId",
+        "change",
+        "timestamp",
+        "actor"
+      ],
+      "primaryKey": "eventId",
+      "constraints": [
+        "every stock change must produce an audit event",
+        "audit events are immutable"
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "workflowId": "inbound-receipt",
+      "name": "Inbound Receipt",
+      "steps": [
+        "validate SKU exists",
+        "validate quantity > 0",
+        "generate idempotency key",
+        "apply inbound adjustment",
+        "update stock level",
+        "create audit event"
+      ],
+      "involvedEntities": [
+        "SKU",
+        "StockRecord",
+        "Adjustment",
+        "AuditEvent"
+      ]
+    },
+    {
+      "workflowId": "outbound-shipment",
+      "name": "Outbound Shipment",
+      "steps": [
+        "validate SKU exists",
+        "check available stock >= quantity",
+        "validate quantity > 0",
+        "generate idempotency key",
+        "apply outbound adjustment",
+        "update stock level",
+        "create audit event"
+      ],
+      "involvedEntities": [
+        "SKU",
+        "StockRecord",
+        "Adjustment",
+        "AuditEvent"
+      ]
+    },
+    {
+      "workflowId": "inter-location-transfer",
+      "name": "Inter-Location Transfer",
+      "steps": [
+        "validate both locations",
+        "check source stock",
+        "decrement source",
+        "increment destination",
+        "create transfer record",
+        "create audit events"
+      ],
+      "involvedEntities": [
+        "StockRecord",
+        "Transfer",
+        "AuditEvent"
+      ]
+    }
+  ],
+  "businessRules": [
+    {
+      "ruleId": "BR-001",
+      "description": "Available stock cannot be negative",
+      "severity": "critical",
+      "affectedEntities": [
+        "StockRecord"
+      ],
+      "positiveExamples": [
+        "onHand=10, reserved=5 => available=5"
+      ],
+      "negativeExamples": [
+        "onHand=5, reserved=10 => REJECT"
+      ],
+      "acceptanceImplication": "Stock adjustment must reject if resulting available stock < 0"
+    },
+    {
+      "ruleId": "BR-002",
+      "description": "Duplicate idempotency key cannot double-apply stock",
+      "severity": "critical",
+      "affectedEntities": [
+        "Adjustment",
+        "StockRecord"
+      ],
+      "positiveExamples": [
+        "key=abc applied once => stock changes"
+      ],
+      "negativeExamples": [
+        "key=abc applied twice => second time REJECT"
+      ],
+      "acceptanceImplication": "Idempotency key must be checked before applying adjustment"
+    },
+    {
+      "ruleId": "BR-003",
+      "description": "Reserved stock cannot exceed on-hand stock",
+      "severity": "critical",
+      "affectedEntities": [
+        "StockRecord"
+      ],
+      "positiveExamples": [
+        "onHand=10 => reserve up to 10"
+      ],
+      "negativeExamples": [
+        "onHand=5 => reserve 6 REJECT"
+      ],
+      "acceptanceImplication": "Reservation must check onHand before reserving"
+    },
+    {
+      "ruleId": "BR-004",
+      "description": "Every inventory adjustment must create an audit event",
+      "severity": "high",
+      "affectedEntities": [
+        "Adjustment",
+        "AuditEvent"
+      ],
+      "positiveExamples": [
+        "adjust stock => audit event created"
+      ],
+      "negativeExamples": [
+        "adjust stock => no audit event FAIL"
+      ],
+      "acceptanceImplication": "Every adjustment must produce a paired audit event"
+    },
+    {
+      "ruleId": "BR-005",
+      "description": "Stale version update must be rejected",
+      "severity": "high",
+      "affectedEntities": [
+        "StockRecord"
+      ],
+      "positiveExamples": [
+        "version=3 update with version=3 => OK"
+      ],
+      "negativeExamples": [
+        "version=3 update with version=2 => REJECT (stale)"
+      ],
+      "acceptanceImplication": "Optimistic version check must reject stale updates"
+    }
+  ],
+  "invariants": [
+    "available stock = onHand - reserved; available >= 0",
+    "duplicate idempotency key cannot double-apply stock change",
+    "reserved stock cannot exceed on-hand stock",
+    "every inventory adjustment must create an audit event",
+    "stale version update must be rejected"
+  ],
+  "edgeCases": [
+    "zero stock adjustment",
+    "stock level at exactly zero",
+    "transfer between same location",
+    "adjustment with quantity zero",
+    "reservation release after cancellation"
+  ],
+  "exampleData": [
+    {
+      "scenario": "normal inbound",
+      "data": {
+        "skuId": "SKU-001",
+        "locationId": "WH-A",
+        "quantity": 100,
+        "type": "inbound"
+      }
+    },
+    {
+      "scenario": "insufficient stock outbound",
+      "data": {
+        "skuId": "SKU-001",
+        "locationId": "WH-A",
+        "quantity": 200,
+        "type": "outbound"
+      }
+    }
+  ],
+  "forbiddenAssumptions": [
+    "stock is always available",
+    "no concurrent updates",
+    "adjustments never conflict",
+    "transfers are instantaneous"
+  ],
+  "requiredWorkerResponsibilities": [
+    {
+      "workerRole": "domain-core",
+      "responsibilities": [
+        "SKU CRUD",
+        "StockRecord CRUD",
+        "Adjustment validation",
+        "inventory queries"
+      ],
+      "assignedEntities": [
+        "SKU",
+        "StockRecord",
+        "Adjustment"
+      ]
+    },
+    {
+      "workerRole": "transfer-worker",
+      "responsibilities": [
+        "Transfer creation",
+        "cross-location validation",
+        "stock reservation"
+      ],
+      "assignedEntities": [
+        "Transfer",
+        "StockRecord"
+      ]
+    },
+    {
+      "workerRole": "audit-worker",
+      "responsibilities": [
+        "AuditEvent creation",
+        "audit log queries",
+        "immutability enforcement"
+      ],
+      "assignedEntities": [
+        "AuditEvent"
+      ]
+    },
+    {
+      "workerRole": "concurrency-worker",
+      "responsibilities": [
+        "optimistic version check",
+        "idempotency key check",
+        "conflict resolution"
+      ],
+      "assignedEntities": [
+        "StockRecord",
+        "Adjustment"
+      ]
+    },
+    {
+      "workerRole": "acceptance-worker",
+      "responsibilities": [
+        "fixture generation",
+        "acceptance runner",
+        "report generation"
+      ],
+      "assignedEntities": []
+    }
+  ],
+  "requiredDomainScenarios": [
+    "inbound_adjustment_correctly_updates_stock",
+    "outbound_rejected_when_insufficient_stock",
+    "duplicate_idempotency_key_rejected",
+    "reservation_exceeds_on_hand_rejected",
+    "audit_event_created_on_adjustment",
+    "stale_version_update_rejected",
+    "transfer_decrements_source_increments_destination",
+    "adjustment_with_quantity_zero_handled"
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "verdictClasses": [
+    {
+      "code": "PASS",
+      "description": "All checks pass with clean evidence",
+      "severity": 0
+    },
+    {
+      "code": "PASS_WITH_CAVEAT",
+      "description": "Passes but has known non-blocking limitation",
+      "severity": 1
+    },
+    {
+      "code": "PASS_PENDING_RECONCILIATION",
+      "description": "Report says PASS but verifier pending or evidence incomplete",
+      "severity": 2
+    },
+    {
+      "code": "FAIL_TARGET_GATE",
+      "description": "Harness infra is intact; intended target acceptance gate failed",
+      "severity": 3
+    },
+    {
+      "code": "FAIL_HARNESS_NOISE",
+      "description": "Evidence infrastructure noise caused failure (e.g. timeout, parse error)",
+      "severity": 4
+    },
+    {
+      "code": "FAIL_MISSING_EVIDENCE",
+      "description": "Required evidence file or directory missing",
+      "severity": 5
+    },
+    {
+      "code": "FAIL_CONTRACT_DRIFT",
+      "description": "Run thresholds differ from contract without reconciliation",
+      "severity": 6
+    },
+    {
+      "code": "FAIL_CLOSED_EVIDENCE_MUTATION",
+      "description": "Frozen/closed evidence was modified after freeze",
+      "severity": 7
+    },
+    {
+      "code": "FAIL_VERIFIER_TAMPER",
+      "description": "Registered verifier hash does not match current file",
+      "severity": 8
+    },
+    {
+      "code": "FAIL_INTEGRATION_UNRECORDED_PATCH",
+      "description": "Integration modified frozen output without patch ledger",
+      "severity": 9
+    },
+    {
+      "code": "FAIL_MISSING_DOMAIN_RULES",
+      "description": "Domain skill pack has no business rules",
+      "severity": 10
+    },
+    {
+      "code": "FAIL_MISSING_NEGATIVE_CONTROLS",
+      "description": "Domain verifier pack has no negative controls",
+      "severity": 11
+    },
+    {
+      "code": "FAIL_DOMAIN_COVERAGE_GAP",
+      "description": "Invariant or entity not covered by scenario or worker",
+      "severity": 12
+    },
+    {
+      "code": "FAIL_PROFILE_BOUNDARY_VIOLATION",
+      "description": "Generic profile contains domain-specific terms",
+      "severity": 13
+    },
+    {
+      "code": "FAIL_PROFILE_SCHEMA_INVALID",
+      "description": "Profile JSON fails schema validation",
+      "severity": 14
+    },
+    {
+      "code": "FAIL_DOMAIN_SCHEMA_INVALID",
+      "description": "Domain pack JSON fails schema validation",
+      "severity": 15
+    }
+  ],
+  "title": "Verdict Taxonomy Schema",
+  "schemaVersion": "H3-R1",
+  "description": "Defines the classification taxonomy for run verdicts beyond binary PASS/FAIL",
+  "classificationRules": [
+    {
+      "condition": "verifier_verdict_is_PENDING_and_report_says_PASS",
+      "classifyAs": "PASS_PENDING_RECONCILIATION"
+    },
+    {
+      "condition": "missing_RUN_STATE_jsonl",
+      "classifyAs": "FAIL_MISSING_EVIDENCE"
+    },
+    {
+      "condition": "missing_ACCEPTANCE_json",
+      "classifyAs": "FAIL_MISSING_EVIDENCE"
+    },
+    {
+      "condition": "verifier_hash_mismatch",
+      "classifyAs": "FAIL_VERIFIER_TAMPER"
+    },
+    {
+      "condition": "worker_freeze_mutation_detected",
+      "classifyAs": "FAIL_CLOSED_EVIDENCE_MUTATION"
+    },
+    {
+      "condition": "integration_unrecorded_modification",
+      "classifyAs": "FAIL_INTEGRATION_UNRECORDED_PATCH"
+    },
+    {
+      "condition": "threshold_differs_from_contract_no_reconciliation",
+      "classifyAs": "FAIL_CONTRACT_DRIFT"
+    },
+    {
+      "condition": "target_acceptance_fail_with_intact_infrastructure",
+      "classifyAs": "FAIL_TARGET_GATE"
+    },
+    {
+      "condition": "parse_error_or_timeout",
+      "classifyAs": "FAIL_HARNESS_NOISE"
+    },
+    {
+      "condition": "all_gates_pass_all_evidence_clean",
+      "classifyAs": "PASS"
+    }
+  ]
+}

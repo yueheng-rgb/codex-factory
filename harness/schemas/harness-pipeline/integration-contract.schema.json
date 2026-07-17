@@ -1,0 +1,67 @@
+﻿{
+    "title":  "Integration Contract Schema",
+    "schemaVersion":  "H2-R1",
+    "properties":  {
+                       "runId":  {
+                                     "type":  "string"
+                                 },
+                       "requireInterfaceDriftCheck":  {
+                                                          "type":  "boolean"
+                                                      },
+                       "mustNotModifyFrozenWorkerOutputWithoutPatch":  {
+                                                                           "type":  "boolean"
+                                                                       },
+                       "sourceWorkerWorkspaces":  {
+                                                      "items":  {
+                                                                    "type":  "string"
+                                                                },
+                                                      "type":  "array"
+                                                  },
+                       "requiredPatchFields":  {
+                                                   "items":  {
+                                                                 "type":  "string"
+                                                             },
+                                                   "type":  "array"
+                                               },
+                       "maxWorkerCount":  {
+                                              "type":  "integer",
+                                              "minimum":  1
+                                          },
+                       "phase":  {
+                                     "type":  "string"
+                                 },
+                       "allowedOperations":  {
+                                                 "items":  {
+                                                               "type":  "string",
+                                                               "enum":  [
+                                                                            "add",
+                                                                            "modify",
+                                                                            "delete",
+                                                                            "move",
+                                                                            "rename",
+                                                                            "freeze"
+                                                                        ]
+                                                           },
+                                                 "type":  "array"
+                                             },
+                       "canonicalOutputPath":  {
+                                                   "type":  "string"
+                                               },
+                       "integratorRole":  {
+                                              "default":  "Integrator",
+                                              "type":  "string"
+                                          },
+                       "requiresPatchLedger":  {
+                                                   "type":  "boolean"
+                                               }
+                   },
+    "type":  "object",
+    "required":  [
+                     "runId",
+                     "allowedOperations",
+                     "requiresPatchLedger",
+                     "mustNotModifyFrozenWorkerOutputWithoutPatch",
+                     "requiredPatchFields",
+                     "canonicalOutputPath"
+                 ]
+}

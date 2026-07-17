@@ -1,0 +1,93 @@
+{
+    "schemaVersion":  "6C-U0-B",
+    "name":  "RUN_EVIDENCE_SCHEMA",
+    "description":  "Defines required governance files inside each run directory.",
+    "requiredGovernanceFiles":  [
+                                    {
+                                        "file":  "RUN_STATE.jsonl",
+                                        "description":  "Hash-chained event log with eventHash, previousHash, payloadHash per event",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "file":  "TASKS.json",
+                                        "description":  "Task definitions with baseCanonicalHash, status, assigned agent",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "file":  "ACCEPTANCE.json",
+                                        "description":  "Acceptance criteria mapped to task IDs",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "file":  "CONTROL_PLANE_LOCK.json",
+                                        "description":  "Freeze manifest created before Worker start",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "file":  "RUN_PLAN.json",
+                                        "description":  "Task DAG and execution plan",
+                                        "hardGate":  false
+                                    },
+                                    {
+                                        "file":  "TASK_DAG.json",
+                                        "description":  "Dependency graph between tasks",
+                                        "hardGate":  false
+                                    },
+                                    {
+                                        "file":  "RELEASE_MANIFEST.json",
+                                        "description":  "Release packaging manifest",
+                                        "hardGate":  false
+                                    },
+                                    {
+                                        "file":  "OWNERSHIP.json",
+                                        "description":  "Per-agent ownership records with file lists",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "file":  "command-summary.json",
+                                        "description":  "Summary of all command executions with exit codes",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "description":  "Interface contract lock — defines stable interface IDs and owner/requiredBy mappings. Created before Workers start.",
+                                        "file":  "interface-contract.lock.json",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "description":  "Per-worker interface manifests declaring actual exports and imports",
+                                        "file":  "worker-interface-manifests/*.json",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "description":  "Interface drift detection report — compares manifests to contract",
+                                        "file":  "reports/interface-drift-report.json",
+                                        "hardGate":  true
+                                    },
+                                    {
+                                        "description":  "Integration gate report — depends on drift report; blocks integration if drift detected",
+                                        "file":  "reports/integration-gate-report.json",
+                                        "hardGate":  true
+                                    }
+                                ],
+    "requiredCommandLogs":  [
+                                {
+                                    "pattern":  "*-stdout.log",
+                                    "description":  "stdout capture for each command"
+                                },
+                                {
+                                    "pattern":  "*-stderr.log",
+                                    "description":  "stderr capture for each command (may be empty)"
+                                },
+                                {
+                                    "pattern":  "*-exitcode.txt",
+                                    "description":  "Numeric exit code for each command"
+                                }
+                            ],
+    "requiredAuthorizationProofs":  [
+                                        "task_claimed",
+                                        "validation_started",
+                                        "validation_passed",
+                                        "task_verified"
+                                    ],
+    "hashChainRequirement":  "All events in RUN_STATE.jsonl must have valid eventHash, previousHash, and payloadHash fields forming an unbroken chain from GENESIS."
+}

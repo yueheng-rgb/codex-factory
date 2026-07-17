@@ -1,0 +1,111 @@
+﻿{
+  "$schema": "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "mini-config-kit",
+  "runId": "dry1-mini-config-kit",
+  "phase": "Phase 6C-DRY1-A",
+  "description": "A TypeScript mini config parser and validator library: read raw config objects, normalize fields, validate required items, generate final config summary.",
+  "workers": [
+    {
+      "workerId": "worker-1",
+      "description": "Config model + normalization: defines ConfigInput, NormalizedConfig types and normalizeConfig function.",
+      "ownedPaths": [
+        "src/configTypes.ts",
+        "src/normalizeConfig.ts"
+      ],
+      "taskDescription": "Create src/configTypes.ts with ConfigInput and NormalizedConfig type definitions, and src/normalizeConfig.ts with normalizeConfig(input: ConfigInput): NormalizedConfig that applies defaults (appName='unnamed-app', env='dev', port=3000, features=[]). Export ConfigInput, NormalizedConfig, normalizeConfig as named exports.",
+      "acceptanceDescription": "Worker 1 creates configTypes.ts with ConfigInput and NormalizedConfig type definitions, and normalizeConfig.ts with normalizeConfig function applying default values.",
+      "exports": [
+        {
+          "interfaceId": "module.config.ConfigInput",
+          "name": "ConfigInput",
+          "file": "src/configTypes.ts",
+          "signature": { "kind": "type", "params": [], "returns": "ConfigInput" }
+        },
+        {
+          "interfaceId": "module.config.NormalizedConfig",
+          "name": "NormalizedConfig",
+          "file": "src/configTypes.ts",
+          "signature": { "kind": "type", "params": [], "returns": "NormalizedConfig" }
+        },
+        {
+          "interfaceId": "module.config.normalizeConfig",
+          "name": "normalizeConfig",
+          "file": "src/normalizeConfig.ts",
+          "signature": { "kind": "function", "params": ["ConfigInput"], "returns": "NormalizedConfig" }
+        }
+      ],
+      "imports": []
+    },
+    {
+      "workerId": "worker-2",
+      "description": "Validation + summary: imports ConfigInput, NormalizedConfig, normalizeConfig from Worker 1; provides validateConfig and buildConfigSummary.",
+      "ownedPaths": [
+        "src/validateConfig.ts",
+        "src/buildConfigSummary.ts"
+      ],
+      "taskDescription": "Create src/validateConfig.ts with ValidationResult type and validateConfig(input: ConfigInput): ValidationResult. Validate: appName if present must be non-empty string, env if present must be 'dev'|'test'|'prod', port if present must be 1-65535 integer, features if present must be string array. Create src/buildConfigSummary.ts with buildConfigSummary(input: ConfigInput): string. Internally call normalizeConfig(input) from Worker 1. Call validateConfig(input). Output includes appName, env, port, features count. If validation fails, include 'invalid' or error count in summary. Export ValidationResult, validateConfig, buildConfigSummary as named exports.",
+      "acceptanceDescription": "Worker 2 imports ConfigInput, NormalizedConfig, normalizeConfig from Worker 1, creates validateConfig.ts with validated rules, and buildConfigSummary.ts with summary generator that composes normalize+validate.",
+      "exports": [
+        {
+          "interfaceId": "module.validation.ValidationResult",
+          "name": "ValidationResult",
+          "file": "src/validateConfig.ts",
+          "signature": { "kind": "type", "params": [], "returns": "ValidationResult" }
+        },
+        {
+          "interfaceId": "module.validation.validateConfig",
+          "name": "validateConfig",
+          "file": "src/validateConfig.ts",
+          "signature": { "kind": "function", "params": ["ConfigInput"], "returns": "ValidationResult" }
+        },
+        {
+          "interfaceId": "module.summary.buildConfigSummary",
+          "name": "buildConfigSummary",
+          "file": "src/buildConfigSummary.ts",
+          "signature": { "kind": "function", "params": ["ConfigInput"], "returns": "string" }
+        }
+      ],
+      "imports": [
+        {
+          "interfaceId": "module.config.ConfigInput",
+          "name": "ConfigInput",
+          "fromWorkerId": "worker-1",
+          "file": "src/configTypes.ts"
+        },
+        {
+          "interfaceId": "module.config.NormalizedConfig",
+          "name": "NormalizedConfig",
+          "fromWorkerId": "worker-1",
+          "file": "src/configTypes.ts"
+        },
+        {
+          "interfaceId": "module.config.normalizeConfig",
+          "name": "normalizeConfig",
+          "fromWorkerId": "worker-1",
+          "file": "src/normalizeConfig.ts"
+        }
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "acceptanceId": "AC-001",
+      "description": "Worker 1 creates configTypes.ts with ConfigInput and NormalizedConfig type definitions, and normalizeConfig.ts with normalizeConfig function applying default values."
+    },
+    {
+      "acceptanceId": "AC-002",
+      "description": "Worker 2 imports ConfigInput, NormalizedConfig, normalizeConfig from Worker 1, creates validateConfig.ts with validated rules, and buildConfigSummary.ts with summary generator that composes normalize+validate."
+    },
+    {
+      "acceptanceId": "AC-003",
+      "description": "No cross-workspace writes."
+    },
+    {
+      "acceptanceId": "AC-004",
+      "description": "Contract, honesty, drift, isolation, integration, token proof, and hash chain gates must pass in execution phase."
+    }
+  ],
+  "forbiddenPaths": [
+    "runs/dry1-mini-config-kit/workspace/worker-2"
+  ]
+}

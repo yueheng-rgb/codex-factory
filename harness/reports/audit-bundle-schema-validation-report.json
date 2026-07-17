@@ -1,0 +1,24 @@
+﻿{
+    "totalChecks":  11,
+    "present":  [
+                    "Directory: docs",
+                    "Directory: scripts",
+                    "Directory: tests",
+                    "Directory: run",
+                    "Directory: reports",
+                    "Directory: command-logs",
+                    "Directory: evidence"
+                ],
+    "verdict":  "FAIL",
+    "inputMode":  "StagingDir",
+    "inputPath":  "C:\\Codex_App_Factory\\harness\\outputs\\phase6c-t0-r2-final-audit-bundle",
+    "timestamp":  "2026-06-20T16:29:59.6177807+08:00",
+    "missingCount":  2,
+    "missing":  [
+                    "MISSING_BUNDLE_FILE: PHASE_*_FINAL_REPORT.md (searched 0 root files)",
+                    "MISSING_BUNDLE_FILE: SHA256SUMS.txt (searched 0 root files)"
+                ],
+    "presentCount":  7,
+    "schemaVersion":  "6C-T0-R1"
+}
+

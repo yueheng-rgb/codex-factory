@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Report Schema",
+  "type": "object",
+  "required": ["reportId", "agentId", "taskId", "generatedAt", "verdict"],
+  "properties": {
+    "reportId": { "type": "string" },
+    "agentId": { "type": "string" },
+    "taskId": { "type": "string" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "PASS_WITH_CAVEAT", "PASS_PENDING_RECONCILIATION", "FAIL_MISSING_EVIDENCE", "FAIL_CONTRACT_DRIFT", "FAIL_HARNESS_NOISE", "FAIL_PROFILE_BOUNDARY_VIOLATION"] },
+    "claimedFiles": { "type": "array", "items": { "type": "string" } },
+    "claimedEvidence": { "type": "array", "items": { "type": "string" } },
+    "claimedCommands": { "type": "array", "items": { "type": "object", "properties": { "command": { "type": "string" }, "exitCode": { "type": "number" } } } },
+    "claimedPassScenarios": { "type": "array", "items": { "type": "string" } },
+    "claimedFailedScenarios": { "type": "array", "items": { "type": "object", "properties": { "scenarioId": { "type": "string" }, "targetScenarioId": { "type": "string" } } } },
+    "claimedSourceChanges": { "type": "array", "items": { "type": "object", "properties": { "file": { "type": "string" }, "diffHash": { "type": "string" } } } },
+    "classification": { "type": "string" },
+    "expectedClass": { "type": "string" },
+    "riskSignals": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,93 @@
+{
+    "latestTrustedReports":  [
+                                 "outputs/PHASE_6C_DRY20_A_P4_CROSS_WORKER_DEP_FLOOR_REPAIR_REPORT.md",
+                                 "outputs/PHASE_6C_DRY20_B_LIVE_NEGATIVE_CONTROLS_REPORT.md",
+                                 "outputs/PHASE_6C_DRY20_B_P1_NEGATIVE_GAP_REPAIR_REPORT.md",
+                                 "outputs/PHASE_6C_DRY20_CLOSURE_READINESS_P1_REPORT.md",
+                                 "outputs/PHASE_6C_DRY20_B_P1_PREMATURE_CLOSURE_INVALIDATION_REPORT.md",
+                                 "outputs/PHASE_6C_H13_C_REAL_SPAWN_AGENT_LIFECYCLE_WATCH_REPORT.md"
+                             ],
+    "DRY20BGroupA":  6,
+    "agentRegistryAgents":  10,
+    "agentRegistryActiveAgents":  6,
+    "taskQueueTasks":  13,
+    "DRY20AP4Status":  "PASS",
+    "DRY20BP1Status":  "PASS",
+    "taskQueuePath":  "governance/factory-state/FACTORY_TASK_QUEUE.json",
+    "DRY20BFailTargetGate":  18,
+    "taskQueueDRY20BStatus":  "planning_allowed",
+    "DRY20FinalClassification":  "POSITIVE_NEGATIVE_CLOSED",
+    "agentRegistryPath":  "governance/factory-state/AGENT_REGISTRY.json",
+    "verifiers":  [
+                      {
+                          "path":  "scripts/phase6c-dry20-a-p4-cross-worker-dep-floor-verify.ps1",
+                          "exitCode":  0,
+                          "checks":  "25/25"
+                      },
+                      {
+                          "path":  "scripts/phase6c-dry20-b-live-negative-controls-verify.ps1",
+                          "exitCode":  0,
+                          "checks":  "25/25"
+                      },
+                      {
+                          "path":  "scripts/phase6c-dry20-b-p1-negative-gap-repair-verify.ps1",
+                          "exitCode":  0,
+                          "checks":  "24/24"
+                      },
+                      {
+                          "path":  "scripts/phase6c-dry20-closure-readiness-p1-verify.ps1",
+                          "exitCode":  0,
+                          "checks":  "10/10"
+                      }
+                  ],
+    "agentProgressPath":  "governance/factory-state/AGENT_PROGRESS.jsonl",
+    "handoffId":  "phase6c-session-rotation-2026-06-23",
+    "H13CFinalStatus":  "PASS",
+    "DRY20AP4NamedExports":  438,
+    "DRY20AStatus":  "PASS",
+    "DRY20BFailControlNegative":  5,
+    "closedReportsUnchanged":  true,
+    "recommendedNextPhase":  "DRY21",
+    "currentFactoryStatePath":  "governance/factory-state/current-factory-state.json",
+    "DRY20BStatus":  "PASS",
+    "DRY21Status":  "NOT_STARTED",
+    "H13CTruthfulnessFixtures":  10,
+    "allowedNextPhase":  "DRY21",
+    "H13CForkContext":  false,
+    "dry21NotStarted":  true,
+    "agentRegistryQuarantinedAgents":  2,
+    "DRY20BNegatives":  24,
+    "H13CRealSpawnUsed":  true,
+    "DRY20BFailMissingEvidence":  1,
+    "blockedPhases":  [
+
+                      ],
+    "DRY20BGroupB":  9,
+    "DRY19AStatus":  "PASS",
+    "createdAt":  "2026-06-23T21:32:08.7004485+08:00",
+    "pausedPhases":  [
+                         "DRY2-C",
+                         "DRY3-C",
+                         "DRY4-C",
+                         "DRY5-C",
+                         "DRY6-C",
+                         "DRY7-C",
+                         "DRY8-C",
+                         "DRY9-C",
+                         "DRY10-C",
+                         "DRY11-C",
+                         "DRY12-C",
+                         "DRY13-C"
+                     ],
+    "dry2cThroughDry13cPaused":  true,
+    "DRY19BStatus":  "PASS",
+    "DRY20AP4JSFiles":  73,
+    "DRY20AP4CrossWorkerDeps":  64,
+    "noFinalZip":  true,
+    "openCaveats":  [
+
+                    ],
+    "DRY19FinalStatus":  "POSITIVE_NEGATIVE_CLOSED",
+    "DRY20BGroupC":  9,
+    "currentTrustedPhase":  "DRY20-B-P1"
+}

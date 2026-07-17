@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "H3-R1",
+  "title": "Domain Verifier Pack Schema",
+  "type": "object",
+  "required": [
+    "verifierPackId",
+    "domainId",
+    "acceptanceScenarios",
+    "negativeControls",
+    "requiredEvidence",
+    "domainSpecificFailureModes"
+  ],
+  "properties": {
+    "verifierPackId": {
+      "type": "string"
+    },
+    "domainId": {
+      "type": "string"
+    },
+    "acceptanceScenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scenarioId",
+          "description",
+          "requiredInputs",
+          "expectedOutputs",
+          "evidencePath",
+          "failureClassification"
+        ],
+        "properties": {
+          "scenarioId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "requiredInputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expectedOutputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidencePath": {
+            "type": "string"
+          },
+          "failureClassification": {
+            "type": "string"
+          },
+          "invariantCoverage": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "negativeControls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "negativeId",
+          "targetsScenario",
+          "injectedFault",
+          "expectedFailureClass",
+          "mustKeepOtherGatesPassing"
+        ],
+        "properties": {
+          "negativeId": {
+            "type": "string"
+          },
+          "targetsScenario": {
+            "type": "string"
+          },
+          "injectedFault": {
+            "type": "string"
+          },
+          "expectedFailureClass": {
+            "type": "string"
+          },
+          "mustKeepOtherGatesPassing": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "requiredEvidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "domainSpecificFailureModes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "invariantChecks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "invariant": {
+            "type": "string"
+          },
+          "scenarioId": {
+            "type": "string"
+          },
+          "negativeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reportRequirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

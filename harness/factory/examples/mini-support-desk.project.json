@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/PROJECT_REQUEST_SCHEMA.json",
+  "projectName": "mini-support-desk",
+  "runId": "dry4-mini-support-desk",
+  "phase": "Phase 6C-DRY4-A",
+  "description": "A TypeScript mini customer support ticket system: create tickets, assign teams, calculate SLA, add comments, generate Markdown reports.",
+  "workers": [
+    {
+      "workerId": "worker-1",
+      "description": "Ticket core model: defines TicketStatus, TicketPriority, TicketInput, TicketComment, Ticket types; createTicket, updateTicketStatus, addTicketComment functions.",
+      "ownedPaths": ["src/ticketTypes.ts","src/createTicket.ts","src/updateTicketStatus.ts","src/addTicketComment.ts"],
+      "taskDescription": "Create 4 TypeScript files. File1 ticketTypes.ts: export TicketStatus='new'|'open'|'pending'|'resolved'|'closed', TicketPriority='low'|'normal'|'high'|'urgent', TicketInput interface(subject:string,description?:string,customerEmail?:string,priority?:TicketPriority,tags?:string[]), TicketComment interface(author:string,body:string,timestamp:string), Ticket interface(id:string,subject:string,description:string,customerEmail:string|null,status:TicketStatus,priority:TicketPriority,tags:string[],comments:TicketComment[],createdAt:string,updatedAt:string). File2 createTicket.ts: export createTicket(input:TicketInput):Ticket trims subject, defaults description='',customerEmail=null,priority='normal',tags=[],status='new',generates id like 'TKT-'+timestamp, sets timestamps, empty comments. File3 updateTicketStatus.ts: export updateTicketStatus(ticket:Ticket,status:TicketStatus):Ticket returns NEW object, no mutation. File4 addTicketComment.ts: export addTicketComment(ticket:Ticket,body:string,author:string):Ticket returns NEW object with comment appended. All functions return new objects, never mutate.",
+      "acceptanceDescription": "Worker 1 creates 4 files: ticketTypes.ts (5 types), createTicket.ts, updateTicketStatus.ts, addTicketComment.ts.",
+      "exports": [
+        {"interfaceId":"module.ticket.TicketStatus","name":"TicketStatus","file":"src/ticketTypes.ts","signature":{"kind":"type","params":[],"returns":"TicketStatus"}},
+        {"interfaceId":"module.ticket.TicketPriority","name":"TicketPriority","file":"src/ticketTypes.ts","signature":{"kind":"type","params":[],"returns":"TicketPriority"}},
+        {"interfaceId":"module.ticket.TicketInput","name":"TicketInput","file":"src/ticketTypes.ts","signature":{"kind":"interface","params":[],"returns":"TicketInput"}},
+        {"interfaceId":"module.ticket.TicketComment","name":"TicketComment","file":"src/ticketTypes.ts","signature":{"kind":"interface","params":[],"returns":"TicketComment"}},
+        {"interfaceId":"module.ticket.Ticket","name":"Ticket","file":"src/ticketTypes.ts","signature":{"kind":"interface","params":[],"returns":"Ticket"}},
+        {"interfaceId":"module.ticket.createTicket","name":"createTicket","file":"src/createTicket.ts","signature":{"kind":"function","params":["TicketInput"],"returns":"Ticket"}},
+        {"interfaceId":"module.ticket.updateTicketStatus","name":"updateTicketStatus","file":"src/updateTicketStatus.ts","signature":{"kind":"function","params":["Ticket","TicketStatus"],"returns":"Ticket"}},
+        {"interfaceId":"module.ticket.addTicketComment","name":"addTicketComment","file":"src/addTicketComment.ts","signature":{"kind":"function","params":["Ticket","string","string"],"returns":"Ticket"}}
+      ],
+      "imports": []
+    },
+    {
+      "workerId": "worker-2",
+      "description": "Routing + SLA: imports types from W1; defines team model, assignment, SLA calculation, and prioritization.",
+      "ownedPaths": ["src/teamTypes.ts","src/assignTicket.ts","src/calculateSla.ts","src/prioritizeTicket.ts"],
+      "taskDescription": "Create 4 TypeScript files importing from Worker 1 (../../worker-1/src/ticketTypes). File1 teamTypes.ts: export Team interface(name:string,members:string[]), TeamAssignment interface(ticketId:string,teamName:string,assignedAt:string). File2 assignTicket.ts: export assignTicket(ticket:Ticket,team:Team):TeamAssignment returns assignment with ticketId, teamName, timestamp. File3 calculateSla.ts: export TicketSla interface(hoursOpen:number,isBreached:boolean,slaHours:number), calculateSla(ticket:Ticket,slaHours?:number):TicketSla calculates hours since createdAt, isBreached if exceeds slaHours(default 24). File4 prioritizeTicket.ts: export PrioritizedTicket interface(ticket:Ticket,score:number), prioritizeTicket(ticket:Ticket):PrioritizedTicket computes score: urgent=100,high=75,normal=50,low=25 + bonus 10 if status is 'new'. All exports named.",
+      "acceptanceDescription": "Worker 2 imports Ticket,TicketStatus,TicketPriority from W1 and creates teamTypes, assignTicket, calculateSla, prioritizeTicket.",
+      "exports": [
+        {"interfaceId":"module.routing.Team","name":"Team","file":"src/teamTypes.ts","signature":{"kind":"interface","params":[],"returns":"Team"}},
+        {"interfaceId":"module.routing.TeamAssignment","name":"TeamAssignment","file":"src/teamTypes.ts","signature":{"kind":"interface","params":[],"returns":"TeamAssignment"}},
+        {"interfaceId":"module.routing.assignTicket","name":"assignTicket","file":"src/assignTicket.ts","signature":{"kind":"function","params":["Ticket","Team"],"returns":"TeamAssignment"}},
+        {"interfaceId":"module.routing.TicketSla","name":"TicketSla","file":"src/calculateSla.ts","signature":{"kind":"interface","params":[],"returns":"TicketSla"}},
+        {"interfaceId":"module.routing.calculateSla","name":"calculateSla","file":"src/calculateSla.ts","signature":{"kind":"function","params":["Ticket","number"],"returns":"TicketSla"}},
+        {"interfaceId":"module.routing.PrioritizedTicket","name":"PrioritizedTicket","file":"src/prioritizeTicket.ts","signature":{"kind":"interface","params":[],"returns":"PrioritizedTicket"}},
+        {"interfaceId":"module.routing.prioritizeTicket","name":"prioritizeTicket","file":"src/prioritizeTicket.ts","signature":{"kind":"function","params":["Ticket"],"returns":"PrioritizedTicket"}}
+      ],
+      "imports": [
+        {"interfaceId":"module.ticket.Ticket","name":"Ticket","fromWorkerId":"worker-1","file":"src/ticketTypes.ts"},
+        {"interfaceId":"module.ticket.TicketStatus","name":"TicketStatus","fromWorkerId":"worker-1","file":"src/ticketTypes.ts"},
+        {"interfaceId":"module.ticket.TicketPriority","name":"TicketPriority","fromWorkerId":"worker-1","file":"src/ticketTypes.ts"}
+      ]
+    },
+    {
+      "workerId": "worker-3",
+      "description": "Reporting: imports types from W1 and W2; generates summary stats and Markdown reports.",
+      "ownedPaths": ["src/deskStats.ts","src/renderTicketReport.ts","src/renderDeskReport.ts","src/buildTicketSummary.ts"],
+      "taskDescription": "Create 4 TypeScript files. Import from W1 (../../worker-1/src/ticketTypes) and W2 (../../worker-2/src/teamTypes, ../../worker-2/src/calculateSla). File1 deskStats.ts: export DeskStats interface(total:number,byStatus:Record<TicketStatus,number>,byPriority:Record<TicketPriority,number>,slaBreached:number), computeDeskStats(tickets:Ticket[]):DeskStats. Call calculateSla from W2 for each ticket. File2 renderTicketReport.ts: export renderTicketReport(ticket:Ticket,sla?:TicketSla):string returns multi-line text with ticket details. File3 renderDeskReport.ts: export renderDeskReport(tickets:Ticket[],slaResults:TicketSla[]):string returns Markdown report with summary table. File4 buildTicketSummary.ts: export buildTicketSummary(tickets:Ticket[]):string returns compact text summary. All exports named.",
+      "acceptanceDescription": "Worker 3 imports from W1 (Ticket,TicketStatus,TicketPriority) and W2 (Team,Sla) and creates deskStats, renderTicketReport, renderDeskReport, buildTicketSummary.",
+      "exports": [
+        {"interfaceId":"module.report.DeskStats","name":"DeskStats","file":"src/deskStats.ts","signature":{"kind":"interface","params":[],"returns":"DeskStats"}},
+        {"interfaceId":"module.report.computeDeskStats","name":"computeDeskStats","file":"src/deskStats.ts","signature":{"kind":"function","params":["Ticket[]"],"returns":"DeskStats"}},
+        {"interfaceId":"module.report.renderTicketReport","name":"renderTicketReport","file":"src/renderTicketReport.ts","signature":{"kind":"function","params":["Ticket","TicketSla"],"returns":"string"}},
+        {"interfaceId":"module.report.renderDeskReport","name":"renderDeskReport","file":"src/renderDeskReport.ts","signature":{"kind":"function","params":["Ticket[]","TicketSla[]"],"returns":"string"}},
+        {"interfaceId":"module.report.buildTicketSummary","name":"buildTicketSummary","file":"src/buildTicketSummary.ts","signature":{"kind":"function","params":["Ticket[]"],"returns":"string"}}
+      ],
+      "imports": [
+        {"interfaceId":"module.ticket.Ticket","name":"Ticket","fromWorkerId":"worker-1","file":"src/ticketTypes.ts"},
+        {"interfaceId":"module.ticket.TicketStatus","name":"TicketStatus","fromWorkerId":"worker-1","file":"src/ticketTypes.ts"},
+        {"interfaceId":"module.ticket.TicketPriority","name":"TicketPriority","fromWorkerId":"worker-1","file":"src/ticketTypes.ts"},
+        {"interfaceId":"module.routing.Team","name":"Team","fromWorkerId":"worker-2","file":"src/teamTypes.ts"},
+        {"interfaceId":"module.routing.TicketSla","name":"TicketSla","fromWorkerId":"worker-2","file":"src/calculateSla.ts"},
+        {"interfaceId":"module.routing.calculateSla","name":"calculateSla","fromWorkerId":"worker-2","file":"src/calculateSla.ts"}
+      ]
+    }
+  ],
+  "acceptance": [
+    {"acceptanceId":"AC-001","description":"Worker 1 creates 4 files: ticketTypes.ts (5 types), createTicket.ts, updateTicketStatus.ts, addTicketComment.ts."},
+    {"acceptanceId":"AC-002","description":"Worker 2 imports Ticket,TicketStatus,TicketPriority from W1 and creates 4 files."},
+    {"acceptanceId":"AC-003","description":"Worker 3 imports from W1 and W2 and creates 4 files."},
+    {"acceptanceId":"AC-004","description":"No cross-workspace writes."},
+    {"acceptanceId":"AC-005","description":"Contract, honesty, drift, isolation, integration, token proof, and hash chain gates must pass."}
+  ],
+  "forbiddenPaths": ["runs/dry4-mini-support-desk/workspace/worker-2"]
+}

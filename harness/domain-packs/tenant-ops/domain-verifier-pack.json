@@ -1,0 +1,49 @@
+﻿{
+  "verifierPackId": "tenant-ops-verifier",
+  "domainId": "tenant-ops",
+  "acceptanceScenarios": [
+    {"scenarioId":"S-201","description":"Seed creates two tenants and users","requiredInputs":["seed command"],"expectedOutputs":["2 tenants","4 users","6 memberships"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["tenant isolation"]},
+    {"scenarioId":"S-202","description":"Tenant member can read own resource","requiredInputs":["valid tenant membership","resource read"],"expectedOutputs":["resource returned"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE"},
+    {"scenarioId":"S-203","description":"Cross-tenant resource read rejected","requiredInputs":["tenant-B user","tenant-A resource"],"expectedOutputs":["REJECT: cross-tenant access"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["cross-tenant read rejected"]},
+    {"scenarioId":"S-204","description":"Cross-tenant resource mutation rejected","requiredInputs":["tenant-B user mutations","tenant-A resource"],"expectedOutputs":["REJECT"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["cross-tenant mutation rejected"]},
+    {"scenarioId":"S-205","description":"No membership access rejected","requiredInputs":["user without membership"],"expectedOutputs":["REJECT"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["no membership"]},
+    {"scenarioId":"S-206","description":"Member cannot perform owner operation","requiredInputs":["member role","owner operation"],"expectedOutputs":["REJECT: insufficient role"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["role enforcement"]},
+    {"scenarioId":"S-207","description":"Admin can manage membership","requiredInputs":["admin role","membership management"],"expectedOutputs":["membership updated"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE"},
+    {"scenarioId":"S-208","description":"Deactivated membership cannot access","requiredInputs":["deactivated membership"],"expectedOutputs":["REJECT"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["deactivated membership"]},
+    {"scenarioId":"S-209","description":"Tenant-scoped export excludes other tenants","requiredInputs":["export for tenant-A"],"expectedOutputs":["only tenant-A resources"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["tenant boundary export"]},
+    {"scenarioId":"S-210","description":"Audit records membership and resource mutations","requiredInputs":["resource mutation","membership change"],"expectedOutputs":["audit events created"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["audit enforcement"]},
+    {"scenarioId":"S-211","description":"Usage event increments tenant usage","requiredInputs":["usage event","idempotency key"],"expectedOutputs":["usage count increased"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE"},
+    {"scenarioId":"S-212","description":"Duplicate idempotency key not double-counted","requiredInputs":["same idempotency key twice"],"expectedOutputs":["DUPLICATE_KEY rejected"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["idempotency"]},
+    {"scenarioId":"S-213","description":"Quota limit blocks excess usage","requiredInputs":["usage at limit","additional attempt"],"expectedOutputs":["QUOTA_EXCEEDED"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["quota exceeded"]},
+    {"scenarioId":"S-214","description":"Quota reset starts new period","requiredInputs":["quota reset"],"expectedOutputs":["usage count 0"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE"},
+    {"scenarioId":"S-215","description":"Usage summary is tenant-scoped","requiredInputs":["usage summary for tenant-A"],"expectedOutputs":["only tenant-A events"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["tenant-scoped report"]},
+    {"scenarioId":"S-216","description":"Usage report excludes other tenants","requiredInputs":["report for tenant-A"],"expectedOutputs":["excludes tenant-B data"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE"},
+    {"scenarioId":"S-217","description":"Quota change creates audit event","requiredInputs":["quota update"],"expectedOutputs":["audit event created"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["audit for quota"]},
+    {"scenarioId":"S-218","description":"Export/import preserves usage and quota","requiredInputs":["export","import"],"expectedOutputs":["usage and quota restored"],"evidencePath":"reports/tenant-metering-acceptance-report.json","failureClassification":"FAIL_TARGET_GATE","invariantCoverage":["export boundary"]}
+  ],
+  "negativeControls": [
+    {"negativeId":"N-201","targetsScenario":"S-203","injectedFault":"Allow cross-tenant resource read","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-202","targetsScenario":"S-205","injectedFault":"Allow access without membership","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-203","targetsScenario":"S-206","injectedFault":"Allow member to perform owner operation","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-204","targetsScenario":"S-208","injectedFault":"Allow deactivated membership access","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-205","targetsScenario":"S-212","injectedFault":"Ignore idempotency key","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-206","targetsScenario":"S-213","injectedFault":"Silently exceed quota","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-207","targetsScenario":"S-209","injectedFault":"Export includes cross-tenant data","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-208","targetsScenario":"S-210","injectedFault":"Skip audit event on mutation","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-209","targetsScenario":"S-211","injectedFault":"Usage event does not increment count","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true},
+    {"negativeId":"N-210","targetsScenario":"S-204","injectedFault":"Allow cross-tenant mutation","expectedFailureClass":"FAIL_TARGET_GATE","mustKeepOtherGatesPassing":true}
+  ],
+  "requiredEvidence": ["RUN_STATE.jsonl","reports/tenant-metering-acceptance-report.json","reports/gatecheck-report.json","worker-freeze-manifests/","reports/audit-event-log.json"],
+  "domainSpecificFailureModes": ["cross_tenant_access","insufficient_role","deactivated_membership","duplicate_idempotency_key","quota_exceeded","missing_audit_event","cross_tenant_export","inactive_tenant_access"],
+  "invariantChecks": [
+    {"invariant":"tenant resource cannot be read by another tenant","scenarioId":"S-203","negativeId":"N-201"},
+    {"invariant":"user without membership cannot access tenant","scenarioId":"S-205","negativeId":"N-202"},
+    {"invariant":"member role cannot perform owner/admin operation","scenarioId":"S-206","negativeId":"N-203"},
+    {"invariant":"deleted/deactivated membership cannot authorize access","scenarioId":"S-208","negativeId":"N-204"},
+    {"invariant":"duplicate usage event idempotency key cannot double-count usage","scenarioId":"S-212","negativeId":"N-205"},
+    {"invariant":"quota cannot be exceeded silently","scenarioId":"S-213","negativeId":"N-206"},
+    {"invariant":"usage report must be tenant-scoped","scenarioId":"S-209","negativeId":"N-207"},
+    {"invariant":"audit event must be created","scenarioId":"S-210","negativeId":"N-208"}
+  ],
+  "reportRequirements": ["Must list invariant->scenario mapping","Must list scenario->negative mapping","Must cover all 10 invariants","Must confirm all business rules have scenarios"]
+}

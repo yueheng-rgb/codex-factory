@@ -1,0 +1,1 @@
+﻿{ "projectName": "mini-notification-scheduler-app", "runId": "dry14-mini-notification-scheduler-app", "phase": "Phase 6C-DRY14-A", "language": "javascript", "workers": 5, "tasks": 5, "description": "A Node.js zero-dependency notification scheduler with future-dated jobs, retry with backoff, dead-letter queue, state persistence, and job export/import." }

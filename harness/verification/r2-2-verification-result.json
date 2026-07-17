@@ -1,0 +1,260 @@
+﻿{
+    "factoryRoot":  "C:\\Codex_App_Factory\\runtime\\..",
+    "allPassed":  true,
+    "passCount":  50,
+    "verificationDate":  "2026-07-05T21:38:57+08:00",
+    "results":  [
+                    {
+                        "Check":  "All 11 agent definitions loadable",
+                        "Passed":  true,
+                        "Detail":  "Count: 11"
+                    },
+                    {
+                        "Check":  "Agent PM-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent RSRC-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent LIB-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent ARCH-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent IMPL-FE-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent IMPL-BE-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent IMPL-DB-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent VER-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent SEC-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent INTG-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Agent AUD-001 loaded",
+                        "Passed":  true,
+                        "Detail":  "OK (12 fields)"
+                    },
+                    {
+                        "Check":  "Permission: PM reading governance",
+                        "Passed":  true,
+                        "Detail":  "PERMISSION_GRANTED: All checks passed."
+                    },
+                    {
+                        "Check":  "Permission: Verifier blocked from writing source",
+                        "Passed":  true,
+                        "Detail":  "PERMISSION_DENIED: Agent \u0027VER-001\u0027 write scope does not include \u0027projects/PROJ-099/src/app/page.tsx\u0027. Allowed: projects/{projectId}/reports/verification/, projects/{projectId}/tests/"
+                    },
+                    {
+                        "Check":  "Permission: Security blocked from browser skill",
+                        "Passed":  true,
+                        "Detail":  "PERMISSION_DENIED: Skill \u0027browser\u0027 is FORBIDDEN for agent \u0027SEC-001\u0027"
+                    },
+                    {
+                        "Check":  "Permission: Write rejected without projectId",
+                        "Passed":  true,
+                        "Detail":  "PERMISSION_DENIED: ProjectId is required for write actions."
+                    },
+                    {
+                        "Check":  "Permission: Unknown agent rejected",
+                        "Passed":  true,
+                        "Detail":  "PERMISSION_DENIED: Agent \u0027GHOST-999\u0027 is not a registered agent."
+                    },
+                    {
+                        "Check":  "Execution context: PM-001 generated",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Context has projectId",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Context has allowedWriteScopes",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Context has forbiddenActions",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Context has allowedSkills",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "  Context has handoffRequired",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Execution contexts: all agents generated",
+                        "Passed":  true,
+                        "Detail":  "Count: 11"
+                    },
+                    {
+                        "Check":  "Context files written to disk",
+                        "Passed":  true,
+                        "Detail":  "Count: 11"
+                    },
+                    {
+                        "Check":  "Handoff: Valid handoff passes",
+                        "Passed":  true,
+                        "Detail":  "HANDOFF_ACCEPTED: All validation checks passed."
+                    },
+                    {
+                        "Check":  "Handoff: Anonymous handoff rejected",
+                        "Passed":  true,
+                        "Detail":  "HANDOFF_REJECTED: Anonymous handoff not allowed. fromAgent is required."
+                    },
+                    {
+                        "Check":  "Handoff: Missing projectId rejected",
+                        "Passed":  true,
+                        "Detail":  "HANDOFF_REJECTED: Missing required fields: projectId"
+                    },
+                    {
+                        "Check":  "Handoff: Unregistered agent rejected",
+                        "Passed":  true,
+                        "Detail":  "HANDOFF_REJECTED: Agent \u0027GHOST-999\u0027 is not a registered agent."
+                    },
+                    {
+                        "Check":  "Handoff index: Entry appended",
+                        "Passed":  true,
+                        "Detail":  "Before: 1, After: 2"
+                    },
+                    {
+                        "Check":  "Handoff submission accepted",
+                        "Passed":  true,
+                        "Detail":  "HANDOFF_ACCEPTED: All validation checks passed."
+                    },
+                    {
+                        "Check":  "Contract: PIC schema parseable",
+                        "Passed":  true,
+                        "Detail":  "Schema exists and is valid JSON"
+                    },
+                    {
+                        "Check":  "Contract: AC schema parseable",
+                        "Passed":  true,
+                        "Detail":  "Schema exists and is valid JSON"
+                    },
+                    {
+                        "Check":  "Contract: NGC schema parseable",
+                        "Passed":  true,
+                        "Detail":  "Schema exists and is valid JSON"
+                    },
+                    {
+                        "Check":  "Contract: FC schema parseable",
+                        "Passed":  true,
+                        "Detail":  "Schema exists and is valid JSON"
+                    },
+                    {
+                        "Check":  "Contract: SKILL_REGISTRY schema parseable",
+                        "Passed":  true,
+                        "Detail":  "Valid JSON"
+                    },
+                    {
+                        "Check":  "Contract: DRIFT_CHECK schema parseable",
+                        "Passed":  true,
+                        "Detail":  "Valid JSON"
+                    },
+                    {
+                        "Check":  "Simulation: All 6 tests passed",
+                        "Passed":  true,
+                        "Detail":  "Pass: 6, Fail: 0"
+                    },
+                    {
+                        "Check":  "  Test 1: Valid Implementer Handoff",
+                        "Passed":  true,
+                        "Detail":  "PASS"
+                    },
+                    {
+                        "Check":  "  Test 2: Anonymous Handoff",
+                        "Passed":  true,
+                        "Detail":  "PASS (correctly rejected)"
+                    },
+                    {
+                        "Check":  "  Test 3: Out-of-Scope Write (Verifier modifying source)",
+                        "Passed":  true,
+                        "Detail":  "PASS (correctly rejected)"
+                    },
+                    {
+                        "Check":  "  Test 4: Unregistered Agent Handoff",
+                        "Passed":  true,
+                        "Detail":  "PASS (correctly rejected)"
+                    },
+                    {
+                        "Check":  "  Test 5: Unauthorized Skill (Verifier using imagegen)",
+                        "Passed":  true,
+                        "Detail":  "PASS (correctly rejected)"
+                    },
+                    {
+                        "Check":  "  Test 6: Missing projectId Handoff",
+                        "Passed":  true,
+                        "Detail":  "PASS (correctly rejected)"
+                    },
+                    {
+                        "Check":  "Runtime file: runtime\\agent-loader.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Runtime file: runtime\\permission-gate.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Runtime file: runtime\\execution-context.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Runtime file: runtime\\handoff-validator.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Runtime file: runtime\\contract-checker.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    },
+                    {
+                        "Check":  "Runtime file: runtime\\runtime-simulation.ps1",
+                        "Passed":  true,
+                        "Detail":  ""
+                    }
+                ],
+    "totalChecks":  50,
+    "failCount":  0
+}
