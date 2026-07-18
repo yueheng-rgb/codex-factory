@@ -1,4 +1,4 @@
-﻿# Codex Factory — cross-platform line-ending normalization
+# Codex Factory — cross-platform line-ending normalization
 # Ensures SHA256 hashes are consistent between Windows dev and Linux CI
 
 *      text=auto eol=lf
