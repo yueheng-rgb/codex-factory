@@ -1,0 +1,30 @@
+{
+  "name": "@codex-app-factory/cli",
+  "version": "5.0.0-preview.1",
+  "private": true,
+  "description": "Local-first Codex Factory control plane for verified context, native multi-agent orchestration, and opt-in search.",
+  "type": "module",
+  "bin": {
+    "factoryctl": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "cli": "tsx src/cli.ts"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "license": "MIT"
+}

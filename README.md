@@ -3,13 +3,40 @@
 > **Make Codex trustworthy for real software engineering.**
 > Not "generate code from scratch" — but "generate code you can verify, trace, and trust."
 
-[中文简介](#中文简介) · [Quick Start](#quick-start) · [Verified Results](#verified-results) · [Architecture](#architecture) · [Limitations](#limitations)
+[V5 自动控制平面](#v5-自动控制平面-preview) · [中文简介](#中文简介) · [Quick Start](#quick-start) · [Verified Results](#verified-results) · [Architecture](#architecture) · [Limitations](#limitations)
 
 ---
 
-**New here?** → [Getting Started (5 min)](GETTING_STARTED.md) · [User Guide](docs/user-guide.md) · [V4 Demo Walkthrough](docs/v4-public-demo-guide.md)
+**New here?** → [V5 中文安装与使用指南](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md) · [V5 CLI](packages/factory-cli/README.md) · [Getting Started (V4)](GETTING_STARTED.md)
 
-**30-second pitch:** Codex Factory lets you configure providers, add skill packs, import your own knowledge, decompose complex projects into task graphs, distribute work across multiple Codex windows, and verify every result. **GLM is optional. No artifact = no PASS. Your knowledge stays local.**
+**30-second pitch:** Codex Factory lets you configure providers, add role-bound skills, import source-bound knowledge, decompose complex projects into task graphs, let the Codex main Agent automatically dispatch native subagents, and independently verify results. **Multi-agent and GLM search are optional. No artifact = no PASS. Your knowledge stays local.**
+
+## V5 自动控制平面 (Preview)
+
+V5 把用户记忆中的多 Agent、外接 Conversation Space、GLM 搜索和防假通过路径重新接成一个可安装的本地控制平面。用户只选择功能开关；启用多 Agent 后，由 Codex 主 Agent 自动拆分、派发常驻角色、按需生成临时 Agent、等待/纠偏、续跑验证波次，不要求用户手工开窗口或复制 prompt。
+
+Windows 一次安装：
+
+```powershell
+Set-Location C:\Codex_App_Factory
+powershell -ExecutionPolicy Bypass -File .\packages\factory-cli\install.ps1 `
+  -ProjectRoot C:\Projects\my-app `
+  -MultiAgent `
+  -Search none `
+  -MaxThreads 4
+
+factoryctl doctor --project C:\Projects\my-app --json
+```
+
+关键边界：
+
+- 默认继承当前 Codex runtime，GPT 用户可直接使用；兼容 Codex runtime 中的 DeepSeek 用户需以 `doctor` 和小型真实任务验证工具兼容性。
+- 多 Agent、GLM 搜索均为 opt-in；搜索 Key 只从 `ZHIPUAI_API_KEY` 或项目本地、已忽略的 `.codex-factory/secrets.env` 读取。
+- 外部 Context Packet、SQLite 哈希链和物理仓库是工作依据；前端压缩摘要仅是不可信备注。
+- 当前 `scope_guard` 会检测漏报和波次级越界写入，但不能提供逐 Agent 作者归因，也不是 OS ACL 或独立 worktree。因此开启多 Agent 时 `doctor` 会诚实返回 `READY_WITH_LIMITATIONS`。
+- 原生 Codex 支持昵称候选；Factory 的角色 icon 可用于自己的记录/仪表盘，但不能控制原生子 Agent 头像。
+
+完整命令、各功能用法、知识库、API Key、安全关闭和故障排查见 [V5 中文指南](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md)。
 
 ## What is Codex Factory?
 
