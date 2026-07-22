@@ -1,10 +1,43 @@
 ﻿# Codex Factory User Guide
 
-## Core Concepts
+> **Current path:** new installations should use the V5 `factoryctl` control
+> plane and the [Chinese V5 guide](CONTROL_PLANE_V5_GUIDE.zh-CN.md). The V5
+> multi-Agent option lets the Codex main Agent dispatch resident Agents first
+> and create temporary subagents only when needed; users do not need to open
+> worker windows or paste prompts. The PowerShell workflows later in this file
+> are the hardened V4 compatibility path and remain manual.
+
+## V5 Automatic Workflow
+
+```powershell
+Set-Location C:\Codex_App_Factory
+powershell -ExecutionPolicy Bypass -File .\packages\factory-cli\install.ps1 `
+  -ProjectRoot C:\Projects\my-app `
+  -MultiAgent `
+  -Search none `
+  -MaxThreads 4
+
+factoryctl doctor --project C:\Projects\my-app --json
+```
+
+After installation, start the project task in Codex. The generated project
+rules and control-plane skill tell the main Agent to plan the DAG, dispatch
+resident roles, create temporary roles for uncovered work, exchange Context
+Packets outside the compressed frontend conversation, and require independent
+verification before acceptance. Multi-Agent and external GLM search are
+separate opt-in switches. GLM requires the user's `ZHIPUAI_API_KEY`; keys never
+belong in tracked configuration.
+
+Factory inherits the model/runtime selected in Codex. It does not implement or
+certify a DeepSeek provider; DeepSeek compatibility must be proven in the
+user's actual Codex runtime with a real model/tool-call smoke task.
+
+## Legacy V4 Concepts and Workflows
 
 ### Provider
-A provider is an external service Codex Factory connects to. You choose:
-- **LLM provider** — OpenAI, DeepSeek, etc.
+A V4 provider entry is compatibility metadata. It is not proof that Factory
+implemented or connected that provider. Historical choices included:
+- **LLM/runtime label** — OpenAI, DeepSeek, etc. (the actual Codex runtime owns the connection)
 - **Search provider** — none (default), glm_zhipu, or custom
 - **Memory provider** — local_snapshot
 - **CI provider** — none (default), github_actions, or local_only
@@ -80,7 +113,7 @@ The final signed record of a run:
 
 ---
 
-## User Workflows
+## Legacy V4 User Workflows
 
 ### Run the Demos
 ```powershell
@@ -121,7 +154,7 @@ pwsh runtime/task-decomposition-engine.ps1 -Requirement requirement.md
 #    Adjust before proceeding to execution
 ```
 
-### Cross-Window Multi-Worker Execution
+### Cross-Window Multi-Worker Execution (manual compatibility only)
 ```powershell
 # 1. Start a run
 pwsh runtime/agent-execution-runtime.ps1 -Command start -PlanDir outputs/my-project

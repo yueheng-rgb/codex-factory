@@ -2,6 +2,10 @@
 # Part of: FACTORY-R2.3-Y
 # 18 regression tests covering P0/P1/P2 classification
 
+param(
+    [string]$OutputFile = (Join-Path $PSScriptRoot "..\outputs\FACTORY_R2_3_Y_REGRESSION_RESULTS.json")
+)
+
 Push-Location (Split-Path -Parent $PSCommandPath)
 
 . (Join-Path $PSScriptRoot "search-operating-doctrine.ps1")
@@ -114,7 +118,12 @@ Write-Output "Total: $total | Passed: $passed | Failed: $failed"
 Write-Output "Pass Rate: $(if($total -gt 0){[math]::Round($passed/$total*100,1)}else{0})%"
 
 $output = [PSCustomObject]@{phase="R2.3-Y-REGRESSION"; total=$total; passed=$passed; failed=$failed; pass_rate=$(if($total -gt 0){[math]::Round($passed/$total*100,1)}else{0}); results=$results}
-$output | ConvertTo-Json -Depth 4 | Out-File (Join-Path $PSScriptRoot "..\outputs\FACTORY_R2_3_Y_REGRESSION_RESULTS.json") -Encoding UTF8
+$resolvedOutput = [IO.Path]::GetFullPath($OutputFile)
+$outputParent = Split-Path -Parent $resolvedOutput
+if (-not (Test-Path -LiteralPath $outputParent -PathType Container)) { New-Item -ItemType Directory -Force -Path $outputParent | Out-Null }
+$output | ConvertTo-Json -Depth 4 | Out-File $resolvedOutput -Encoding UTF8
 
 Pop-Location
 Write-Output "Regression results written"
+if ($failed -gt 0) { exit 1 }
+exit 0

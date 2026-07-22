@@ -7,9 +7,9 @@
   "properties": {
     "worker_id": {"type":"string","description":"Worker producing this handoff"},
     "task_ids": {"type":"array","items":{"type":"string"},"description":"Task IDs covered by this handoff"},
-    "status": {"type":"string","enum":["COMPLETED","PARTIAL","BLOCKED","FAILED"],"description":"Status of assigned tasks"},
-    "files_changed": {"type":"array","items":{"type":"string"},"description":"Files modified by this worker"},
-    "artifacts_produced": {"type":"array","items":{"type":"string"},"description":"Artifact paths produced"},
+    "status": {"type":"string","enum":["PENDING","COMPLETED","PARTIAL","BLOCKED","FAILED"],"description":"PENDING is template-only; only COMPLETED can pass task validation"},
+    "files_changed": {"type":"array","items":{"type":"string"},"description":"Project-relative physical files modified by this worker"},
+    "artifacts_produced": {"type":"array","items":{"type":"string"},"description":"Non-empty physical artifact paths relative to runs/<run-id>/artifacts"},
     "tests_run": {"type":"integer","description":"Number of tests executed (if applicable)"},
     "tests_passed": {"type":"integer","description":"Number of tests passed"},
     "tests_failed": {"type":"integer","description":"Number of tests failed"},

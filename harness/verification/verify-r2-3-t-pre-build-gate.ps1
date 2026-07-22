@@ -2,6 +2,10 @@
 # Part of: FACTORY-R2.3-T
 # Tests: P0 enforcement, P2 no-force, Implementer block, example classifications
 
+param(
+    [string]$ResultsFile = (Join-Path $PSScriptRoot "..\..\outputs\FACTORY_R2_3_T_GATE_VERIFICATION_RESULTS.json")
+)
+
 . (Join-Path $PSScriptRoot "..\..\runtime\pre-build-research-gate.ps1")
 
 $results = [System.Collections.ArrayList]::new()
@@ -11,14 +15,19 @@ function Assert-GateLevel {
     param($TaskDescription, $ExpectedLevel, $TestName, $ExtraContext = @{}, $AgentId = "RSRC-001")
     $gate = Invoke-PreBuildResearchGate -TaskDescription $TaskDescription -AgentId $AgentId -Context $ExtraContext
     $ok = ($gate.search_level -eq $ExpectedLevel)
-    $fatalOk = $gate.gate_passed
-    $result = if ($ok -and $fatalOk) { "PASS"; $script:pass++ } else { "FAIL"; $script:fail++ }
-    $r = [PSCustomObject]@{test=$TestName;result=$result;expected_level=$ExpectedLevel;actual_level=$gate.search_level;gate_passed=$fatalOk;reason=$gate.reason;search_required=$gate.search_required;ep_required=$gate.evidence_pack_required}
+    $evidenceBoundLevel = $ExpectedLevel -in @("P0_MUST_SEARCH", "P1_SHOULD_SEARCH")
+    $gateSemanticsOk = if ($evidenceBoundLevel) {
+        $gate.gate_passed -eq $false -and $gate.evidence_pack_required -eq $true -and $gate.fatal_violations -contains "EVIDENCE_PACK_REQUIRED"
+    } else {
+        $gate.gate_passed -eq $true
+    }
+    $result = if ($ok -and $gateSemanticsOk) { "PASS"; $script:pass++ } else { "FAIL"; $script:fail++ }
+    $r = [PSCustomObject]@{test=$TestName;result=$result;expected_level=$ExpectedLevel;actual_level=$gate.search_level;gate_passed=$gate.gate_passed;gate_semantics_ok=$gateSemanticsOk;reason=$gate.reason;search_required=$gate.search_required;ep_required=$gate.evidence_pack_required}
     [void]$script:results.Add($r)
     Write-Output "[$result] $TestName"
     Write-Output "       expected=$ExpectedLevel actual=$($gate.search_level) search_required=$($gate.search_required) ep=$($gate.evidence_pack_required)"
     if (-not $ok) { Write-Output "       FAIL: expected $ExpectedLevel but got $($gate.search_level)" }
-    if (-not $fatalOk) { Write-Output "       FATAL: $($gate.fatal_violations -join ', ')" }
+    if (-not $gateSemanticsOk) { Write-Output "       FAIL-CLOSED SEMANTICS MISMATCH: gate_passed=$($gate.gate_passed) fatal=$($gate.fatal_violations -join ', ')" }
     return $r
 }
 
@@ -74,8 +83,7 @@ Write-Output "============================================"
 Write-Output "SUMMARY: $pass PASS / $fail FAIL / $($results.Count) TOTAL"
 Write-Output "============================================"
 
-$resultsFile = Join-Path $PSScriptRoot "..\..\outputs\FACTORY_R2_3_T_GATE_VERIFICATION_RESULTS.json"
-$results | ConvertTo-Json -Depth 4 | Set-Content $resultsFile -Encoding UTF8
-Write-Output "Results: $resultsFile"
+$results | ConvertTo-Json -Depth 4 | Set-Content $ResultsFile -Encoding UTF8
+Write-Output "Results: $ResultsFile"
 
 if ($fail -gt 0) { exit 1 } else { exit 0 }

@@ -1,0 +1,106 @@
+name: Factory CLI V5
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Node 24 / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+
+    defaults:
+      run:
+        working-directory: packages/factory-cli
+
+    steps:
+      - name: Check out current commit
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: packages/factory-cli/package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Audit package contents
+        run: npm pack --dry-run
+
+  legacy-fail-closed-regressions:
+    name: Hardened V4 compatibility / Windows
+    runs-on: windows-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out current commit
+        uses: actions/checkout@v4
+
+      - name: Parse hardened compatibility scripts
+        shell: powershell
+        run: |
+          $files = @(
+            'runtime/agent-execution-runtime.ps1',
+            'runtime/evidence-pack-builder.ps1',
+            'runtime/pre-build-research-gate.ps1',
+            'runtime/knowledge-pack-manager.ps1',
+            'runtime/codex-factory-doctor.ps1'
+          )
+          foreach ($file in $files) {
+            $tokens = $null
+            $errors = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile(
+              (Resolve-Path $file), [ref]$tokens, [ref]$errors
+            )
+            if ($errors.Count -gt 0) {
+              $errors | ForEach-Object { Write-Error "$file line $($_.Extent.StartLineNumber): $($_.Message)" }
+              exit 1
+            }
+          }
+
+      - name: Reject fake runtime PASS
+        shell: powershell
+        run: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File runtime/agent-execution-runtime-regression-tests.ps1
+
+      - name: Bind research Evidence Packs
+        shell: powershell
+        run: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File runtime/tests/legacy-research-evidence-regression.ps1
+
+      - name: Preserve research classification contracts
+        shell: powershell
+        run: |
+          & powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass `
+            -File harness/verification/verify-r2-3-t-pre-build-gate.ps1 `
+            -ResultsFile (Join-Path $env:RUNNER_TEMP 'r2-3-t-current.json')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass `
+            -File runtime/search-doctrine-regression-tests.ps1 `
+            -OutputFile (Join-Path $env:RUNNER_TEMP 'r2-3-y-current.json')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Protect legacy knowledge and secrets
+        shell: powershell
+        run: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File runtime/tests/legacy-knowledge-doctor-regression.ps1

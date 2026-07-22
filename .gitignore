@@ -1,9 +1,27 @@
 ﻿# Dependencies
 node_modules/
 
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+factory.config.json
+.codex-factory/secrets.env
+
+# Local runtime knowledge and evidence
+knowledge/private/
+knowledge/packs/
+knowledge/evidence/
+knowledge/.staging/
+knowledge/index.json
+knowledge/keyword-index.json
+
 # Build outputs
 .next/
 dist/
+!/dist/
+/dist/*
+!/dist/LEGACY-ARTIFACTS-INVALID.md
 build/
 *.zip
 

@@ -3,13 +3,13 @@
 > **Make Codex trustworthy for real software engineering.**
 > Not "generate code from scratch" — but "generate code you can verify, trace, and trust."
 
-[V5 自动控制平面](#v5-自动控制平面-preview) · [中文简介](#中文简介) · [Quick Start](#quick-start) · [Verified Results](#verified-results) · [Architecture](#architecture) · [Limitations](#limitations)
+[V5 自动控制平面](#v5-自动控制平面-preview) · [当前发布状态](#current-release-and-evidence-status) · [快速开始](#v5-quick-start) · [历史验证记录](#historical-verified-results-v342-commit-scoped) · [Architecture](#architecture) · [Limitations](#limitations--non-claims)
 
 ---
 
-**New here?** → [V5 中文安装与使用指南](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md) · [V5 CLI](packages/factory-cli/README.md) · [Getting Started (V4)](GETTING_STARTED.md)
+**New here?** → [V5 中文安装与使用指南](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md) · [V5 CLI](packages/factory-cli/README.md) · [Legacy Getting Started (V4, historical)](GETTING_STARTED.md)
 
-**30-second pitch:** Codex Factory lets you configure providers, add role-bound skills, import source-bound knowledge, decompose complex projects into task graphs, let the Codex main Agent automatically dispatch native subagents, and independently verify results. **Multi-agent and GLM search are optional. No artifact = no PASS. Your knowledge stays local.**
+**30-second pitch:** Codex Factory works with the user's current Codex runtime, adds role-bound skills and source-bound knowledge, decomposes complex projects into task graphs, lets the Codex main Agent dispatch native subagents, and independently verifies results. **Multi-agent and GLM search are optional. No artifact = no PASS. Your knowledge stays local.**
 
 ## V5 自动控制平面 (Preview)
 
@@ -38,6 +38,9 @@ factoryctl doctor --project C:\Projects\my-app --json
 
 完整命令、各功能用法、知识库、API Key、安全关闭和故障排查见 [V5 中文指南](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md)。
 
+> [!IMPORTANT]
+> 当前权威实现是 [`packages/factory-cli`](packages/factory-cli/) 中的 V5 Preview 源码，以及从该目录当前提交现场生成的 `.tgz`。`dist/codex-factory-v4-capability-package.zip` 的 ZIP、manifest 和 SHA 文本彼此不一致，已明确判定为无效历史制品，不能用于安装、发布或证明当前代码通过。详见 [旧制品告警](dist/LEGACY-ARTIFACTS-INVALID.md)。
+
 ## What is Codex Factory?
 
 Codex Factory is an **open engineering reliability framework** for AI coding agents (Codex / Claude Code / Cursor / Copilot). It solves the trust gap between "AI wrote it" and "we can ship it."
@@ -55,185 +58,88 @@ Codex Factory addresses this with a **structured verification pipeline** — not
 
 | Problem | Codex Factory Solution |
 |---|---|
-| **Fake PASS** — agent claims success, but nothing was verified | Snapshot verifier with strict hash comparison |
-| **Missing artifacts** — no stdout, no logs, no receipts | CI artifact traceability with `provider=github_actions` |
-| **Weak evidence chain** — "trust me, it works" | Evidence Pack v2 with hash-chained audit trail |
-| **Local results cannot be trusted** — "works on my machine" | Cross-machine snapshot comparison + remote CI |
-| **Context compression pollution** | Sandbox lifecycle + snapshot-aware resume gate |
-| **No reproducibility** | Immutable snapshot manifest + frozen trunk check |
+| **Fake PASS** — agent claims success, but nothing was verified | Physical artifact hashes, real command exit codes and an independent verifier |
+| **Missing artifacts** — no stdout, no logs, no receipts | Immutable handoffs, verification receipts and evidence bundles |
+| **Weak evidence chain** — "trust me, it works" | Hash-chained Context Space and source-bound evidence |
+| **Local results cannot be trusted** — "works on my machine" | Current-commit Windows/Ubuntu CI matrix |
+| **Context compression pollution** | External role-bound Context Packets; frontend summaries stay untrusted |
+| **No reproducibility** | Locked dependencies, deterministic build and package-content audit |
 
 ---
 
-## Verified Results (V3.4.2, Real GitHub Actions)
+## Current Release and Evidence Status
 
-These are **not simulated**. They were verified on a real GitHub Actions Linux runner with strict hash comparison.
+V5 Preview is the current maintained path. The repository does not treat a report from another commit, a hand-written manifest, or an Agent's statement as proof for the current checkout.
 
-| Check | Result | Evidence |
-|---|---|---|
-| Snapshot Verifier | **15/15 PASS** | `SNAPSHOT_VERIFIED`, `FILE_HASH_MATCH=true` |
-| products-api Regression | **23/23 PASS** | Real runner `/home/runner/work/codex-factory/...` |
-| Frozen Trunk Check | **3/3 OK** | SHA256-verified: execution-runner, snapshot-verifier, schema |
-| CI Job Receipts | **github_actions / remote_generated** | 3 receipts, cross-referenced |
-| Secret Scan | **PASS** | Zero real secrets in 4500+ files |
-| Cross-Machine Snapshot | **SNAPSHOT_MATCH** | Local ↔ Remote manifest identical |
-| Expert Packs | **6/6 loadable** | All domain packs pass schema validation |
+| Item | Current status |
+|---|---|
+| Authoritative source | [`packages/factory-cli`](packages/factory-cli/) |
+| Install guide | [`docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md`](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md) |
+| Reproducible package candidate | Run `npm pack` in `packages/factory-cli`; use the `.tgz` generated from the commit being tested |
+| Cross-platform CI definition | [`factory-cli-v5.yml`](.github/workflows/factory-cli-v5.yml), Node 24 on Windows and Ubuntu |
+| Legacy V4 ZIP | **INVALID / archive only**; see [`LEGACY-ARTIFACTS-INVALID.md`](dist/LEGACY-ARTIFACTS-INVALID.md) |
+| Historical PASS reports | Evidence for their recorded commit/run only; they do not automatically certify current HEAD or V5 |
 
-> **Final classification: `V3_4_2_REMOTE_ARTIFACT_VERIFIED_STRICT`**
-> Run ID: `29584799436` · Commit: `6127376` · [View CI run](https://github.com/yueheng-rgb/codex-factory/actions)
+Verify the current checkout before using or distributing it:
 
----
-
-
-## V4.0: Provider Choice & User Onboarding (NEW)
-
-Codex Factory V4.0 puts **you** in control of your AI stack:
-
-### Choose Your Providers
 ```powershell
-# Interactive setup — no API keys collected
-powershell -File runtime/codex-factory-init.ps1
+Set-Location C:\Codex_App_Factory\packages\factory-cli
+npm ci
+npm run typecheck
+npm test
+npm run build
+npm pack --dry-run
 ```
-- **LLM**: OpenAI · DeepSeek · Claude · Qwen · Local · Custom
-- **Search**: None (default) · GLM/Zhipu · Tavily · SerpAPI · Custom
-- **Memory**: Local snapshot · File-based · Disabled
-- **CI**: GitHub Actions · Local only · None
 
-> **Search defaults to NONE.** GPT/Claude have built-in search. No external API required.
+A successful local run proves only that checkout on that machine. A current GitHub Actions run on both matrix platforms is required before making a cross-platform claim.
 
-### Bring Your Own Knowledge
+## V5 Quick Start
+
+Prerequisites: Git, Node.js 24+, npm, and a Codex runtime that supports project-level customization.
+
 ```powershell
-powershell -File runtime/knowledge-pack-manager.ps1 -Action add -Name my-project -Source ./docs
-```
-Import your docs, API specs, and project rules. Every claim traceable to source.
+git clone https://github.com/yueheng-rgb/codex-factory.git C:\Codex_App_Factory
+Set-Location C:\Codex_App_Factory
+powershell -ExecutionPolicy Bypass -File .\packages\factory-cli\install.ps1 `
+  -ProjectRoot C:\Projects\my-app `
+  -MultiAgent `
+  -Search none `
+  -MaxThreads 4
 
-### Create Skill Packs
-```powershell
-powershell -File runtime/skill-pack-manager.ps1 -Action create -Name my-domain
-```
-
-### Check Your Environment
-```powershell
-powershell -File runtime/codex-factory-doctor.ps1
+factoryctl doctor --project C:\Projects\my-app --json
 ```
 
-### Start a New Project
-```powershell
-powershell -File runtime/project-onboarding-wizard.ps1 -ProjectName my-app
-```
+For optional GLM search, initialize with `-Search glm` and provide `ZHIPUAI_API_KEY` through the documented environment or ignored project secret file. Do not put an API key in Factory configuration or commit it.
 
-## 5-Minute Quick Start
+Factory does **not** implement or certify a DeepSeek provider. It inherits the model/runtime selected in Codex. A developer whose Codex runtime is already compatible with DeepSeek can use Factory, but must verify model access, tool calls and a small real task in that runtime; selecting or writing a `deepseek` label is not proof of compatibility.
 
-### Prerequisites
-- Git, Node.js, npm
-- PowerShell 5+ (Windows) or PowerShell Core 7+ (`pwsh`) on Linux/macOS
+See the [V5 Chinese guide](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md) for feature switches, multi-Agent dispatch, Context Space, skills, knowledge, search, verification, and uninstall steps.
 
-### Step 1: Clone & Init
-```powershell
-git clone https://github.com/yueheng-rgb/codex-factory.git
-cd codex-factory
-pwsh -File runtime/codex-factory-init.ps1
-```
-Choose your LLM provider, search (default: none), and CI settings. No API keys collected.
+## Historical Verified Results (V3.4.2, commit-scoped)
 
-### Step 2: Check Environment
-```powershell
-pwsh -File runtime/codex-factory-doctor.ps1
-```
+The following records describe a historical GitHub Actions run. They are retained for traceability, not presented as current release certification.
 
-### Step 3: Run the Snapshot Verifier
-```powershell
-pwsh -File runtime/snapshot-verifier.ps1
-```
-Expected: `15/15 PASS, SNAPSHOT_VERIFIED`
+| Check | Recorded result |
+|---|---|
+| Snapshot Verifier | `15/15 PASS`, `SNAPSHOT_VERIFIED` |
+| products-api Regression | `23/23 PASS` |
+| Frozen Trunk Check | `3/3 OK` |
+| Classification | `V3_4_2_REMOTE_ARTIFACT_VERIFIED_STRICT` |
 
-### Step 4: Add Your Project
-```powershell
-# Create a skill pack for your domain
-pwsh -File runtime/skill-pack-manager.ps1 -Action create-template -Name my-domain
+Recorded scope: run `29584799436`, commit `6127376`. These results do **not** prove the current HEAD, the V4 ZIP, or the V5 package. Re-run the current workflows and bind any claim to the resulting commit SHA and run ID.
 
-# Import your project knowledge (local only, never uploaded)
-pwsh -File runtime/knowledge-pack-manager.ps1 -Action add -Name my-project -Source ./docs
-pwsh -File runtime/knowledge-pack-manager.ps1 -Action build-evidence
+## Legacy V4 Compatibility Notes
 
-# Generate project onboarding plan
-pwsh -File runtime/project-onboarding-wizard.ps1 -ProjectName my-app
-```
+The root `runtime/*.ps1`, V4 onboarding text and historical outputs remain for compatibility and audit work. They are not the recommended installation path and must not override a failing V5 check.
 
-### User Path Examples
+- A V4 provider selection was configuration metadata; it did not by itself implement a DeepSeek API provider, endpoint, authentication path or tool-use compatibility.
+- The V4 ZIP in `dist/` is invalid because its physical bytes do not match the adjacent release metadata. Keep it only as an audit sample.
+- Historical `PASS`, `VERIFIED` and expected test-count text is commit-scoped. It is not an expected result that a modified checkout may copy without rerunning the commands.
+- New users should use V5 `factoryctl`; legacy PowerShell commands are for migration or historical diagnosis.
 
-**DeepSeek + GLM search:**
-```powershell
-pwsh -File runtime/codex-factory-init.ps1
-# Choose: [2] DeepSeek → [2] GLM/Zhipu search
-# Set DEEPSEEK_API_KEY + ZHIPUAI_API_KEY in .env
-```
+## Legacy Complex Project Workflow (V4.1, historical)
 
-**GPT / native search / no external search:**
-```powershell
-pwsh -File runtime/codex-factory-init.ps1
-# Choose: [1] OpenAI → [1] None (search)
-# Set OPENAI_API_KEY in .env
-```
-
-**Local-only / offline:**
-```powershell
-pwsh -File runtime/codex-factory-init.ps1
-# Choose: [5] Local → [1] None (search) → [3] Disabled (CI)
-# No API keys needed.
-```
-
-**Existing project onboarding:**
-```powershell
-pwsh -File runtime/project-onboarding-wizard.ps1 -ProjectName existing-app
-pwsh -File runtime/skill-pack-manager.ps1 -Action enable -Name backend-api-design
-pwsh -File runtime/skill-pack-manager.ps1 -Action enable -Name auth-permission-security
-```
-
-> **No artifact = no PASS.** Every verification claim must be backed by evidence.
-> **GLM is optional.** Search defaults to none. You choose your own stack.
-> **Skill packs are customizable.** Create your own with `create-template`.
-> **Knowledge packs are local only.** Never uploaded, never committed.
-
-Expected output:
-```
-=== Snapshot Verifier V3.4.2 (Strict) ===
-Checks: 15
-PASS: 15 | FAIL: 0 | WARN: 0
-SNAPSHOT_VERIFIED: True
-Overall: SNAPSHOT_VERIFIED
-```
-
-### 2. Run a Local Demo
-
-```bash
-cd testbeds/products-api
-npm install
-npm test          # 23 tests should pass
-```
-
-### 3. Run GitHub Actions Workflow
-
-1. Fork this repo
-2. Go to **Actions** → **Codex Factory CI** → **Run workflow**
-3. Select `products-api` testbed → **Run**
-4. Download the 3 artifact zips
-5. Run verification locally:
-   ```powershell
-   powershell -File runtime/remote-artifact-verifier.ps1
-   powershell -File runtime/cross-machine-snapshot-comparison.ps1
-   ```
-
-### 4. Verify a Remote Artifact
-
-After downloading CI artifacts, place them in `artifacts/remote/gh-run-XXX/` and run:
-```powershell
-powershell -File runtime/remote-artifact-verifier.ps1 -RunId "gh-run-XXX"
-```
-
----
-
-
-## Complex Project Workflow (V4.1)
+This section records the earlier intended workflow. It is not evidence that the current checkout completed these steps.
 
 From requirement to verified execution plan in one command:
 
@@ -271,51 +177,30 @@ pwsh -File runtime/task-decomposition-engine.ps1 `
 
 ```
 Codex Factory
-├── runtime/              # 90+ verification & governance PowerShell modules
-│   ├── snapshot-verifier.ps1        # Strict hash-based snapshot verification
-│   ├── execution-runner.ps1         # Immutable execution context
-│   ├── evidence-pack-builder.ps1    # Hash-chained evidence packs
-│   ├── cross-machine-snapshot-comparison.ps1
-│   ├── remote-artifact-verifier.ps1
-│   ├── ci-regression-capture.ps1
-│   ├── frozen-trunk-check (inline)
-│   └── ... (80+ more modules)
-├── schemas/              # 57 JSON Schema definitions (ci-receipt, evidence, skill...)
-├── governance/           # 1400+ decision records, expert packs, policies, protocols
-├── outputs/              # Versioned reports, manifests, claim snapshots (V2.0–V3.4.2)
-├── blueprints/           # 7 application type design blueprints
-├── starters/             # 7 runnable starter templates
-├── skills/               # 9 reusable domain skills
-├── harness/              # Test harness, scenarios, verification scripts
-├── testbeds/             # 8 runtime-validated testbeds
-├── reviews/              # Human review receipts
-├── .github/workflows/    # CI pipeline with remote artifact traceability
-└── artifacts/            # CI run artifacts, remote verification extracts
+├── packages/factory-cli/             # Current V5 Preview control plane
+│   ├── src/                          # CLI, orchestration, context, knowledge, evidence
+│   ├── tests/                        # Current automated contracts
+│   ├── install.ps1                   # Windows source installer
+│   └── package.json                  # Node 24 package definition
+├── docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md
+├── .github/workflows/
+│   ├── factory-cli-v5.yml            # Current Node 24 Windows + Ubuntu checks
+│   └── codex-factory-ci.yml          # Historical V3/V4 testbed workflow
+├── runtime/                          # Legacy PowerShell compatibility/audit path
+├── outputs/                          # Historical, commit-scoped reports
+└── dist/                             # Legacy archives; V4 ZIP is explicitly invalid
 ```
 
 ### Verification Flow
 
 ```
-Local Dev (Windows)          GitHub Actions (Linux)         Verifier (Any)
-─────────────────          ──────────────────────        ───────────────
-git push ──────────────►   checkout (LF normalized)
-                            │
-                            ├─ snapshot-verify ────────►  ci-job-receipt.json
-                            │   (pwsh strict verifier)     snapshot-verifier-result.json
-                            │   15/15 checks               stdout/stderr logs
-                            │
-                            ├─ regression ──────────────►  ci-job-receipt.json
-                            │   (npm test, vitest)         regression-result.json
-                            │   23/23 tests                stdout/stderr logs
-                            │
-                            └─ frozen-trunk-check ──────►  ci-job-receipt.json
-                                (SHA256 verify)            frozen-trunk-result.json
-                                                           stdout/stderr logs
-                                    │
-                            Download artifacts
-                                    │
-                            ◄── cross-machine comparison ──►  SNAPSHOT_MATCH?
-                            ◄── remote artifact verify ────►  REMOTE_ARTIFACT_VERIFIED?
+Current commit SHA
+       │
+       ├── Windows / Node 24 ── npm ci ─ typecheck ─ test ─ build ─ pack dry-run
+       │
+       └── Ubuntu / Node 24 ─── npm ci ─ typecheck ─ test ─ build ─ pack dry-run
+                                      │
+                                      └── claim is bound to this run + commit only
 ```
 
 ---
@@ -328,9 +213,12 @@ This project is an **engineering reliability framework**, not a commercial produ
 - ❌ **Not a replacement for senior engineers** — it augments, not replaces, human judgment
 - ❌ **No real corporate identity** — receipts use self-declared automated signatures
 - ❌ **Not a security audit tool** — secret scans are pattern-based, not exhaustive
+- ❌ **No Factory-provided DeepSeek provider** — Factory inherits the user's Codex runtime
+- ❌ **No published V5 registry release yet** — `5.0.0-preview.1` is installed from source or a locally generated `.tgz`
+- ❌ **No trust inheritance from old reports** — historical PASS records certify only their recorded inputs and commit
 - ❌ **No fake production approval** — "VERIFIED" means the framework''s own checks passed
-- ✅ **Honest about limitations** — every claim is backed by reproducible evidence
-- ✅ **Cross-platform verification** — LF-normalized via `.gitattributes`
+- ✅ **Honest about limitations** — current claims require reproducible evidence from the current checkout
+- ✅ **Cross-platform CI definition** — V5 checks are defined for Windows and Ubuntu; inspect the current run before claiming success
 - ✅ **Open source** — MIT licensed, community contributions welcome
 
 ---
@@ -339,11 +227,9 @@ This project is an **engineering reliability framework**, not a commercial produ
 
 | Phase | Focus |
 |---|---|
-| **V3.5** (current) | Public README, portfolio packaging, internship-ready docs |
-| **V3.6** | Container runner (Docker), multi-platform CI matrix |
-| **V3.7** | Real external identity (SignPath / keyless signing) |
-| **V3.8** | More expert packs: mobile, game-dev, embedded |
-| **V4.0** | Public example gallery, community contributions |
+| **V5 Preview** (current) | Harden control-plane contracts, legacy fail-closed migration, user installation |
+| **V5 release candidate** | Current-run cross-platform evidence and consumable release packaging |
+| **Later** | Stronger per-Agent isolation/provenance and broader runtime compatibility testing |
 
 ---
 
@@ -357,7 +243,7 @@ Codex Factory 是一个面向 AI 编程助手（Codex / Claude Code / Cursor / C
 通过快照验证、CI 制品溯源、跨机器哈希对比、证据链审计等机制，
 Codex Factory 让 AI 编码从"黑盒生成"变成"可验证、可追溯、可信任"的工程实践。
 
-目前已通过真实 GitHub Actions 严格远程验证（15/15 checks, 23/23 tests, SNAPSHOT_VERIFIED）。
+V3.4.2 曾在记录的 commit `6127376`、run `29584799436` 上取得严格远程验证结果；这是历史证据，不等于当前 HEAD、V4 ZIP 或 V5 已自动通过。当前版本请使用 `packages/factory-cli`，并以当前提交的本地命令和 Node 24 Windows/Ubuntu CI 结果为准。
 
 ---
 

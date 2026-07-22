@@ -106,10 +106,21 @@ Factory Bootstrap 完成后，**任何涉及以下内容的任务必须先经过
 
 ### 快速判定命令
 ```powershell
-# 判定任务是否需要搜索
-Import-Module .\runtime\pre-build-research-gate.ps1
+# 先分类；P0/P1 在还没有 Evidence Pack 时 gate_passed=false 是正确结果
+. .\runtime\pre-build-research-gate.ps1
 Invoke-PreBuildResearchGate -TaskDescription "你的任务" -AgentId "RSRC-001"
+
+# 搜索与质量门禁完成后，必须绑定真实 pack 才能通过
+Invoke-PreBuildResearchGate `
+  -TaskDescription "你的任务" `
+  -PhaseId "implementation" `
+  -AgentId "RSRC-001" `
+  -ExistingEvidencePackId ".\knowledge\evidence\EVID-....json" `
+  -Context @{ ProjectId = "你的项目ID" }
 ```
+
+P0/P1 的“分类成功”不等于“研究门禁通过”。缺 pack、`FAIL_FATAL`、非 live
+来源、模型文本抽取来源、过期/篡改内容、任务/阶段不匹配都会 fail-closed。
 
 （保持有效）
 

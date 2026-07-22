@@ -4,9 +4,9 @@
   "title": "Evidence Pack — Curated Search Evidence for Agent Consumption",
   "description": "Standard evidence package produced by the Evidence Search Loop. Contains curated, quality-gated search results ready for agent context injection. Implementer agents consume this, NOT raw search results.",
   "type": "object",
-  "required": ["evidenceId", "task", "projectId", "searchRound", "triggerReason", "sources", "qualityGateStatus"],
+  "required": ["evidenceId", "task", "projectId", "phaseId", "searchRound", "queryTime", "triggerReason", "provider", "mode", "accepted", "sources", "sourceCount", "qualityGateStatus", "allowedNextActions", "forbiddenUse", "contentHashAlgorithm", "contentHash"],
   "properties": {
-    "evidenceId": { "type": "string", "pattern": "^EVID-\\d{8}-\\d{3}$" },
+    "evidenceId": { "type": "string", "pattern": "^EVID-\\d{8}-(?:\\d{3}|REJECTED)$" },
     "task": { "type": "string", "description": "The task this evidence was gathered for" },
     "projectId": { "type": "string" },
     "phaseId": { "type": "string" },
@@ -16,19 +16,24 @@
       "type": "string",
       "enum": ["initial_search", "error_driven_search", "version_uncertainty_search", "dependency_introduction_search", "conflicting_sources_search", "verification_failure_search", "user_requested"]
     },
-    "provider": { "type": "string", "enum": ["glm_search", "manual", "chatgpt_manual", "dry_run"] },
-    "mode": { "type": "string", "enum": ["manual", "dry_run", "live_api"] },
+    "provider": { "type": "string", "minLength": 1 },
+    "mode": { "type": "string", "enum": ["manual", "dry_run", "live_api", "live_search"] },
+    "accepted": { "type": "boolean", "description": "True only when the quality verdict is explicitly accepted; never infer this from source count." },
+    "rejectionReason": { "type": "string" },
+    "sourceCount": { "type": "integer", "minimum": 0 },
     "sources": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["title", "url", "sourceType"],
+        "required": ["title", "url", "sourceType", "sourceOrigin", "retrievedAt", "evidenceExcerpt"],
         "properties": {
           "title": { "type": "string" },
           "url": { "type": "string", "format": "uri" },
           "sourceType": { "type": "string", "enum": ["official_doc", "release_note", "github_issue", "stackoverflow", "community_blog", "ai_generated", "unknown"] },
+          "sourceOrigin": { "type": "string", "enum": ["provider_search_result", "model_text_extraction", "manual", "unknown"] },
           "authority": { "type": "string", "enum": ["high", "medium", "low", "unknown"] },
           "freshness": { "type": "string", "enum": ["current", "recent", "stale", "unknown"] },
+          "publishedAt": { "type": "string" },
           "retrievedAt": { "type": "string", "format": "date-time" },
           "claimSupported": { "type": "string", "description": "The specific claim this source supports" },
           "evidenceExcerpt": { "type": "string", "description": "Relevant excerpt from the source" },
@@ -37,12 +42,14 @@
       }
     },
     "qualityGateStatus": {
-      "type": "object",
+      "type": ["object", "null"],
       "properties": {
         "passed": { "type": "boolean" },
         "score": { "type": "integer" },
-        "verdict": { "type": "string", "enum": ["high_quality", "acceptable", "needs_review", "reject"] },
-        "trustRecommendation": { "type": "string", "enum": ["trusted_reference", "reference_only", "needs_human_review", "do_not_use"] }
+        "verdict": { "type": "string", "enum": ["PASS_CLEAN", "PASS_WITH_WARNINGS", "PASS_WITH_CAVEATS", "FAIL_FATAL", "high_quality", "acceptable", "needs_review", "reject"] },
+        "trustRecommendation": { "type": "string", "enum": ["trusted_reference", "reference_only", "needs_human_review", "do_not_use"] },
+        "fatalRejections": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
       }
     },
     "allowedNextActions": { "type": "array", "items": { "type": "string" }, "description": "What agents may do with this evidence" },
@@ -54,6 +61,34 @@
     "roundHistory": {
       "type": "array",
       "items": { "type": "string", "description": "Evidence IDs from previous rounds" }
+    },
+    "secretPresent": { "type": "boolean" },
+    "humanApproval": { "type": "boolean" },
+    "contentHashAlgorithm": { "const": "SHA256" },
+    "contentHash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$", "description": "SHA-256 of the canonical security-relevant Evidence Pack projection." }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "accepted": { "const": true } }, "required": ["accepted"] },
+      "then": {
+        "properties": {
+          "qualityGateStatus": {
+            "type": "object",
+            "required": ["passed", "verdict", "trustRecommendation"],
+            "properties": {
+              "passed": { "const": true },
+              "verdict": { "enum": ["PASS_CLEAN", "PASS_WITH_WARNINGS", "PASS_WITH_CAVEATS", "high_quality", "acceptable"] }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "allowedNextActions": {
+            "not": { "contains": { "enum": ["use_in_implementation", "implement", "deploy"] } }
+          }
+        }
+      }
     }
-  }
+  ]
 }
