@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { AGENT_PROFILES } from "./agents.js";
+import { DOMAIN_SKILL_IDS } from "./capabilities.js";
 import { loadConfig, resolveSecret } from "./config.js";
 import { contextDatabasePath, verifyContextLedger } from "./context-space.js";
 import {
@@ -13,6 +14,7 @@ import {
   inspectCodexAgentsConfig,
   managedAgentContent,
   managedHooksContent,
+  domainSkillContent,
   specialistSkillContent,
 } from "./installer.js";
 import { verifyKnowledgeStore } from "./knowledge.js";
@@ -212,13 +214,26 @@ function checkSpecialistSkills(root: string): DoctorCheck {
       issues.push(skillId + " is stale or unowned");
     }
   }
+  for (const skillId of DOMAIN_SKILL_IDS) {
+    const path = join(root, ".agents", "skills", skillId, "SKILL.md");
+    if (!existsSync(path)) {
+      issues.push(skillId + " is missing");
+      continue;
+    }
+    if (normalizeNewlines(readText(path)) !== normalizeNewlines(domainSkillContent(skillId))) {
+      issues.push(skillId + " is stale or unowned");
+    }
+  }
   return issues.length > 0
     ? { id: "skills.specialists", status: "FAIL", detail: issues.join("; ") }
     : {
         id: "skills.specialists",
         status: "PASS",
-        detail: String(Object.keys(FACTORY_SPECIALIST_SKILLS).length) +
-          " role-specific Skills are installed and bound through Agent TOML",
+        detail:
+          String(Object.keys(FACTORY_SPECIALIST_SKILLS).length) +
+          " role Skills and " +
+          String(DOMAIN_SKILL_IDS.length) +
+          " task-routed professional Skills are installed",
       };
 }
 

@@ -74,6 +74,10 @@ describe("initializeFactoryProject", () => {
       existsSync(join(root, ".agents", "skills", "codex-factory", "SKILL.md")),
       true,
     );
+    assert.equal(
+      existsSync(join(root, ".agents", "skills", "auth-permission-security", "SKILL.md")),
+      true,
+    );
     const doctor = testDoctor(root);
     assert.equal(doctor.status, "READY_WITH_LIMITATIONS");
     assert.equal(

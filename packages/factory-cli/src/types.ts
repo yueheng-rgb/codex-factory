@@ -1,6 +1,36 @@
 export type AgentExecutionMode = "codex_native" | "manual";
 export type AgentIsolationMode = "scope_guard" | "worktree" | "directory";
 export type SearchProviderType = "none" | "glm_zhipu";
+export type AgentCapability =
+  | "routing"
+  | "architecture"
+  | "product-design"
+  | "app-classification"
+  | "anti-overengineering"
+  | "knowledge-retrieval"
+  | "skill-curation"
+  | "source-verification"
+  | "independent-verification"
+  | "security-review"
+  | "drift-audit"
+  | "scope-audit"
+  | "contract-audit"
+  | "web-research"
+  | "documentation-research"
+  | "evidence-pack"
+  | "implementation"
+  | "frontend"
+  | "backend"
+  | "database"
+  | "auth-security"
+  | "mobile"
+  | "testing"
+  | "e2e-testing"
+  | "smoke-testing"
+  | "negative-testing"
+  | "integration"
+  | "conflict-resolution"
+  | "release";
 
 export interface MultiAgentFeatureConfig {
   enabled: boolean;
@@ -168,6 +198,7 @@ export interface AgentProfile {
   read_only: boolean;
   nickname_candidates: string[];
   skill_ids: string[];
+  capabilities: AgentCapability[];
   developer_instructions: string;
 }
 
@@ -176,6 +207,8 @@ export interface FactoryTask {
   title: string;
   description: string;
   role: string;
+  profile_id?: string;
+  required_capabilities?: AgentCapability[];
   status:
     | "pending"
     | "ready"

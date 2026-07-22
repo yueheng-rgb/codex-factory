@@ -7,7 +7,9 @@ import {
   writeFileSync,
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { AGENT_PROFILES, renderAgentToml } from "./agents.js";
+import { DOMAIN_SKILL_IDS } from "./capabilities.js";
 import {
   configPath,
   initializeConfig,
@@ -238,6 +240,21 @@ export function specialistSkillContent(skillId: string): string {
     SKILL_BLOCK_END,
     "",
   ].join("\n");
+}
+
+export function domainSkillContent(skillId: string): string {
+  if (!(DOMAIN_SKILL_IDS as readonly string[]).includes(skillId)) {
+    throw new Error("Unknown Factory domain Skill: " + skillId);
+  }
+  const assetPath = join(
+    dirname(fileURLToPath(import.meta.url)),
+    "..",
+    "domain-skills",
+    skillId,
+    "SKILL.md",
+  );
+  if (!existsSync(assetPath)) throw new Error("Factory domain Skill asset is missing: " + skillId);
+  return readText(assetPath);
 }
 
 export const FACTORY_AGENTS_BLOCK = [
@@ -631,6 +648,22 @@ export function initializeFactoryProject(
       ),
       root,
       specialistPath,
+      written,
+      warnings,
+    );
+  }
+
+  for (const skillId of DOMAIN_SKILL_IDS) {
+    const domainPath = join(root, ".agents", "skills", skillId, "SKILL.md");
+    recordWrite(
+      writeOwnedFile(
+        domainPath,
+        SKILL_BLOCK_START,
+        SKILL_BLOCK_END,
+        domainSkillContent(skillId),
+      ),
+      root,
+      domainPath,
       written,
       warnings,
     );

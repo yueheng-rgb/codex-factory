@@ -15,7 +15,7 @@ import { dirname, join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { afterEach, describe, it } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { getAgentProfile, profileForTaskRole } from "../src/agents.js";
+import { getAgentProfile, profileForTask, profileForTaskRole } from "../src/agents.js";
 import { initializeConfig } from "../src/config.js";
 import {
   appendContextEvent,
@@ -365,6 +365,36 @@ describe("external Context Space", () => {
 });
 
 describe("task DAG and scheduling", () => {
+  it("routes explicit capabilities to the correct specialist and domain Skills", () => {
+    const securityImplementation = factoryTask("secure-api", {
+      role: "security implementation",
+      required_capabilities: ["backend", "auth-security"],
+    });
+    assert.equal(profileForTask(securityImplementation).profile_id, "factory_implementer");
+    const securityReview = factoryTask("security-review", {
+      role: "review",
+      required_capabilities: ["security-review"],
+      write_scope: [],
+    });
+    assert.equal(profileForTask(securityReview).profile_id, "factory_verifier");
+
+    const root = createProject({ context: false });
+    const plan = prepareSpawnPlan(root, [securityImplementation], "run-capability-routing");
+    const prompt = plan.assignments.find((item) => item.task_id === "secure-api")?.prompt ?? "";
+    assert.match(prompt, /auth-permission-security\/SKILL\.md/);
+    assert.match(prompt, /backend-api-design\/SKILL\.md/);
+    assert.throws(
+      () =>
+        validateTaskGraph([
+          factoryTask("bad-profile", {
+            profile_id: "factory_tester",
+            required_capabilities: ["implementation"],
+          }),
+        ]),
+      /lacks required capabilities/i,
+    );
+  });
+
   it("routes the canonical verifier role to the independent resident verifier", () => {
     const profile = profileForTaskRole("verifier");
     assert.equal(profile.profile_id, "factory_verifier");
@@ -481,7 +511,54 @@ describe("task DAG and scheduling", () => {
       "run-overlap",
     );
     assert.equal(overlap.assignments.length, 1);
-    assert.match(overlap.blocked_tasks[0]?.blocked_by.join(" ") ?? "", /scope:/);
+    assert.match(
+      overlap.blocked_tasks.find((task) => task.task_id === "child")?.blocked_by.join(" ") ?? "",
+      /scope:/,
+    );
+  });
+
+  it("reserves a released worker slot for ready independent verification", () => {
+    const root = createProject({ context: false, maxThreads: 2 });
+    const runId = "run-verifier-priority";
+    const tasks = [
+      factoryTask("priority-a", {
+        write_scope: ["artifacts/priority-a.txt"],
+        required_artifacts: ["artifacts/priority-a.txt"],
+        acceptance_methods: ["exists:artifacts/priority-a.txt"],
+      }),
+      factoryTask("priority-b", { write_scope: ["src/priority-b"] }),
+      factoryTask("priority-c", { write_scope: ["src/priority-c"] }),
+    ];
+    const first = prepareSpawnPlan(root, tasks, runId);
+    assert.deepEqual(
+      first.assignments.map((assignment) => assignment.task_id),
+      ["priority-a", "priority-b"],
+    );
+    for (const assignment of first.assignments) {
+      registerNativeDispatch(root, runId, assignment.assignment_id, {
+        nativeAgentId: "native-" + assignment.task_id,
+        rawToolReceipt: nativeReceipt("native-" + assignment.task_id),
+        toolName: "spawn_agent",
+      });
+    }
+    mkdirSync(join(root, "artifacts"), { recursive: true });
+    writeFileSync(join(root, "artifacts", "priority-a.txt"), "done\n", "utf8");
+    const completed = first.assignments.find((item) => item.task_id === "priority-a")!;
+    recordAgentHandoff(root, runId, completed.assignment_id, {
+      summary: "First worker released its slot for verification.",
+      changed_paths: ["artifacts/priority-a.txt"],
+      artifacts: [
+        {
+          path: "artifacts/priority-a.txt",
+          sha256: sha256(readFileSync(join(root, "artifacts", "priority-a.txt"))),
+        },
+      ],
+      commands: [],
+      proposed_verdict: "PASS",
+    });
+
+    const next = prepareSpawnPlan(root, persistedTasks(root, runId), runId);
+    assert.deepEqual(next.assignments.map((assignment) => assignment.task_id), ["verify-priority-a"]);
   });
 
   it("returns a plan whose every Context Packet is still current", () => {

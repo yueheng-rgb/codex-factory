@@ -94,6 +94,9 @@ export function validateConfig(config: FactoryConfig): string[] {
   if (!Number.isInteger(maxThreads) || maxThreads < 2 || maxThreads > 8) {
     issues.push("multi_agent.max_threads must be an integer from 2 to 8");
   }
+  if (config.features.multi_agent.isolation !== "scope_guard") {
+    issues.push("multi_agent.isolation must be scope_guard; worktree/directory are not implemented");
+  }
   if (config.features.external_context.trust_frontend_summary !== false) {
     issues.push("external_context.trust_frontend_summary must be false");
   }

@@ -9,6 +9,7 @@
   },
   "files": [
     "dist",
+    "domain-skills",
     "README.md"
   ],
   "scripts": {
