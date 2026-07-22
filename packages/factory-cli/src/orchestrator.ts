@@ -815,7 +815,9 @@ export function writeScopesConflict(left: string[], right: string[]): boolean {
 }
 
 function instanceKey(profile: AgentProfile, assignmentId: string): string {
-  return profile.kind === "resident" ? "resident:" + profile.profile_id : "temporary:" + assignmentId;
+  return profile.kind === "resident"
+    ? "resident:" + profile.profile_id + ":" + assignmentId
+    : "temporary:" + assignmentId;
 }
 
 function emptyRegistry(runId: string, projectId: string): NativeAgentRegistry {
@@ -994,7 +996,7 @@ function selectReadyTasks(
   availableSlots: number,
   allowTemporaryAgents: boolean,
   alreadyAssignedTaskIds: Set<string>,
-  residentState: Map<string, "busy" | "reusable">,
+  residentState: Map<string, "busy">,
 ): {
   selected: Array<{ task: FactoryTask; profile: AgentProfile }>;
   blocked: Array<{ task_id: string; blocked_by: string[] }>;
@@ -1046,9 +1048,7 @@ function selectReadyTasks(
       });
       continue;
     }
-    const reusesResident =
-      profile.kind === "resident" && residentState.get(profile.profile_id) === "reusable";
-    if (!reusesResident && newThreadSelections >= availableSlots) {
+    if (newThreadSelections >= availableSlots) {
       blocked.push({ task_id: task.task_id, blocked_by: ["capacity:no_thread_slot"] });
       continue;
     }
@@ -1074,7 +1074,7 @@ function selectReadyTasks(
       }
     }
     selected.push({ task, profile });
-    if (!reusesResident) newThreadSelections += 1;
+    newThreadSelections += 1;
   }
   return { selected, blocked };
 }
@@ -1178,17 +1178,20 @@ function prepareSpawnPlanUnlocked(
   const openNativeThreads = registry.entries.filter(
     (entry) =>
       entry.native_agent_id !== null &&
-      !["completed", "failed", "closed"].includes(entry.lifecycle),
+      ["spawned", "running"].includes(entry.lifecycle),
   ).length;
-  const residentState = new Map<string, "busy" | "reusable">();
-  for (const entry of registry.entries.filter((item) => item.profile_kind === "resident")) {
-    const state =
-      entry.native_agent_id && entry.lifecycle === "idle" ? "reusable" : "busy";
-    residentState.set(entry.profile_id, state);
+  const residentState = new Map<string, "busy">();
+  for (const entry of registry.entries.filter(
+    (item) =>
+      item.profile_kind === "resident" &&
+      item.native_agent_id !== null &&
+      ["spawned", "running"].includes(item.lifecycle),
+  )) {
+    residentState.set(entry.profile_id, "busy");
   }
   const availableSlots = Math.max(
     0,
-    config.features.multi_agent.max_threads - 1 - openNativeThreads,
+    config.features.multi_agent.max_threads - openNativeThreads,
   );
   const { selected, blocked } = selectReadyTasks(
     plannedTasks,
@@ -1207,12 +1210,6 @@ function prepareSpawnPlanUnlocked(
   for (const { task, profile } of selected) {
     const assignmentId = newId("assignment");
     const key = instanceKey(profile, assignmentId);
-    const resident = registry.entries.find(
-      (entry) =>
-        entry.instance_key === key &&
-        entry.native_agent_id &&
-        !["failed", "closed"].includes(entry.lifecycle),
-    );
     const packetPath = createAssignmentPacket(root, runId, assignmentId, task, profile);
     const baseline = writeAssignmentBaseline(
       root,
@@ -1234,52 +1231,38 @@ function prepareSpawnPlanUnlocked(
       write_scope: task.write_scope,
       prompt: assignmentPrompt(root, runId, assignmentId, task, profile, packetPath),
       status: "planned",
-      action: resident ? "followup" : "spawn",
+      action: "spawn",
       instance_key: key,
       logical_display_name: profile.display_name,
       logical_icon: profile.icon,
-      reuse_native_agent_id: resident?.native_agent_id ?? undefined,
     };
     assignments.push(entry);
 
-    if (resident) {
-      resident.assignment_ids.push(assignmentId);
-      resident.task_ids.push(task.task_id);
-      resident.updated_at = generatedAt;
-      resident.baselines ??= [];
-      resident.baselines.push({
-        assignment_id: assignmentId,
-        path: baseline.path,
-        sha256: baseline.sha256,
-        wave_write_scopes: waveWriteScopes,
-      });
-    } else {
-      registry.entries.push({
-        instance_key: key,
-        profile_id: profile.profile_id,
-        profile_kind: profile.kind,
-        codex_agent_name: profile.codex_agent_name,
-        logical_display_name: profile.display_name,
-        logical_icon: profile.icon,
-        nickname_candidates: profile.nickname_candidates,
-        native_agent_id: null,
-        native_nickname: null,
-        lifecycle: "planned",
-        assignment_ids: [assignmentId],
-        task_ids: [task.task_id],
-        created_at: generatedAt,
-        updated_at: generatedAt,
-        native_receipts: [],
-        baselines: [
-          {
-            assignment_id: assignmentId,
-            path: baseline.path,
-            sha256: baseline.sha256,
-            wave_write_scopes: waveWriteScopes,
-          },
-        ],
-      });
-    }
+    registry.entries.push({
+      instance_key: key,
+      profile_id: profile.profile_id,
+      profile_kind: profile.kind,
+      codex_agent_name: profile.codex_agent_name,
+      logical_display_name: profile.display_name,
+      logical_icon: profile.icon,
+      nickname_candidates: profile.nickname_candidates,
+      native_agent_id: null,
+      native_nickname: null,
+      lifecycle: "planned",
+      assignment_ids: [assignmentId],
+      task_ids: [task.task_id],
+      created_at: generatedAt,
+      updated_at: generatedAt,
+      native_receipts: [],
+      baselines: [
+        {
+          assignment_id: assignmentId,
+          path: baseline.path,
+          sha256: baseline.sha256,
+          wave_write_scopes: waveWriteScopes,
+        },
+      ],
+    });
   }
 
   const plan: ManagedSpawnPlan = {
@@ -1295,7 +1278,7 @@ function prepareSpawnPlanUnlocked(
     instructions_for_main_agent: [
       "Act automatically: do not ask the user to open windows or copy prompts.",
       "For action=spawn, call the Codex native sub-agent tool with fork_turns=none and the declared profile/task prompt.",
-      "For action=followup, send the prompt to reuse_native_agent_id; resident means reusable within this run, not a permanent background process.",
+      "Resident means a durable specialist profile, not a reusable conversation. Spawn a fresh isolated execution instance for every assignment.",
       "Record the actual native tool result (ID and host nickname) with factoryctl agent register-spawn; never invent either value.",
       "Keep a single sub-agent layer. Workers must not spawn children.",
       "Wait/steer through the main controller. A worker handoff is never a PASS decision.",

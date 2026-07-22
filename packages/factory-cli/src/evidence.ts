@@ -272,17 +272,11 @@ function recordAgentHandoffUnlocked(
   };
   writeJsonAtomic(targetHandoffPath, handoff);
   setRunTaskStatus(root, runId, assignment.task.task_id, "handoff");
-  const lifecycleTarget = assignment.profileId.startsWith("factory_") &&
-      ["factory_router", "factory_librarian", "factory_verifier", "factory_drift_auditor"].includes(
-        assignment.profileId,
-      )
-    ? "idle"
-    : "completed";
   updateNativeAgentLifecycleUnderControllerLock(
     root,
     runId,
     assignment.nativeAgentId,
-    lifecycleTarget,
+    "completed",
   );
   const config = loadConfig(root);
   if (config.features.external_context.enabled) {

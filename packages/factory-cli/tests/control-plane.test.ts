@@ -422,7 +422,7 @@ describe("task DAG and scheduling", () => {
     assert.equal(new Set(residentKeys).size, residentKeys.length);
     assert.equal(
       readAgentRegistry(root, plan.run_id).entries.filter(
-        (entry) => entry.instance_key === "resident:factory_router",
+        (entry) => entry.instance_key.startsWith("resident:factory_router:"),
       ).length,
       1,
     );
@@ -436,7 +436,7 @@ describe("task DAG and scheduling", () => {
       [factoryTask("a"), factoryTask("b"), factoryTask("c")],
       runId,
     );
-    assert.equal(first.assignments.length, 2);
+    assert.equal(first.assignments.length, 3);
 
     const resumed = prepareSpawnPlan(root, persistedTasks(root, runId), runId);
     assert.deepEqual(
@@ -445,7 +445,7 @@ describe("task DAG and scheduling", () => {
     );
     assert.equal(
       resumed.assignments.some((assignment) => assignment.task_id === "c"),
-      false,
+      true,
     );
 
     const assignment = first.assignments[0]!;
@@ -954,7 +954,7 @@ describe("native dispatch and evidence gates", () => {
     );
   });
 
-  it("reuses an idle resident by followup after its bounded handoff", () => {
+  it("spawns a fresh resident execution after its bounded handoff", () => {
     const root = createProject({ context: false, maxThreads: 4 });
     const runId = "run-resident-reuse";
     const plan = prepareSpawnPlan(
@@ -982,17 +982,18 @@ describe("native dispatch and evidence gates", () => {
     });
 
     const next = prepareSpawnPlan(root, persistedTasks(root, runId), runId);
-    const reused = next.assignments.find(
+    const fresh = next.assignments.find(
       (assignment) => assignment.task_id === "route-second",
     );
-    assert.ok(reused);
-    assert.equal(reused.action, "followup");
-    assert.equal(reused.reuse_native_agent_id, "native-resident-router");
+    assert.ok(fresh);
+    assert.equal(fresh.action, "spawn");
+    assert.equal(fresh.reuse_native_agent_id, undefined);
+    assert.notEqual(fresh.instance_key, first.instance_key);
 
     assert.throws(
       () =>
-        recordAgentHandoff(root, runId, reused.assignment_id, {
-          summary: "A reused resident must not inherit the prior assignment receipt.",
+        recordAgentHandoff(root, runId, fresh.assignment_id, {
+          summary: "A fresh resident must have its own native dispatch receipt.",
           changed_paths: [],
           artifacts: [],
           commands: [],
