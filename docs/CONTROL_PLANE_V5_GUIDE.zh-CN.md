@@ -342,6 +342,7 @@ factoryctl context append `
 factoryctl context query `
   --project C:\Projects\my-app `
   --query "RBAC transaction boundary" `
+  --role factory_librarian `
   --limit 20
 ```
 
@@ -350,6 +351,8 @@ factoryctl context query `
 ```powershell
 factoryctl context verify --project C:\Projects\my-app --json
 ```
+
+公开的 `context append` 只登记候选记忆，不提供 `--verified` 或其他自我提权开关。候选内容可供主 Agent 排查，但不会自动进入派发给工作 Agent 的可信区；准入必须绑定 Factory 控制平面回执或独立 verifier 回执。
 
 请不要手工修改 SQLite 表或 Context Packet。需要更正时追加新事件，保留原始事件和拒绝原因，才能维持审计链。
 
@@ -380,7 +383,95 @@ factoryctl knowledge query `
   --json
 ```
 
+知识生命周期：
+
+```powershell
+# 旧条目恢复了完全一致的项目内来源文件后，重新验证来源绑定
+factoryctl knowledge bind `
+  --project C:\Projects\my-app `
+  --id knowledge-restored-policy `
+  --json
+
+# 正常版本替代或内容过时：保留审计记录，但不再参与正常检索
+factoryctl knowledge retire `
+  --project C:\Projects\my-app `
+  --id knowledge-auth-policy-v1 `
+  --json
+
+# 已确认错误、不安全或禁止继续使用：保留撤销记录并永久排除
+factoryctl knowledge revoke `
+  --project C:\Projects\my-app `
+  --id knowledge-unsafe-guidance `
+  --json
+```
+
+`retire` 表示正常淘汰，`revoke` 表示内容本身不应再被使用。两种状态都不能通过 CLI 重新改回 active；条目继续留在完整性锚和审计历史中。正常更新流程是“导入带 `--supersedes <旧 ID>` 的新版本 → 验证知识库 → retire 旧版本”，不要把普通升级误标成 revoke。
+
+#### 从 Memory/Knowledge 1.0 升级
+
+升级过程先验证旧数据库锚点，验证失败会停止迁移。对通过旧版完整性检查的知识条目：
+
+- 如果 `source_uri` 仍解析到项目内部普通 UTF-8 文件，而且当前文件 SHA-256 与保存值一致、正文也逐字节一致，迁移会自动建立 `project_file` 来源绑定；
+- 无法完成上述验证时，条目保守迁移为 `uri_claim`。它仍留在审计库，但不会自动注入 assignment；
+- 恢复完全一致的原项目文件后，运行 `factoryctl knowledge bind --id <entry>`。命令会重新检查路径边界、UTF-8、秘密材料、SHA-256 和正文，任一不符都失败关闭；
+- 如果来源已经是新修订，使用 `knowledge import --supersedes <旧 ID>` 导入当前项目文件，验证后再 retire 旧条目。
+
+Context Packet 1.0 不能通过 V5.1 验证。恢复旧 run 时，工作 Agent 必须停止使用旧 Packet，由主 Agent 根据当前 run、role 和 assignment 重新生成 1.1 Packet；不能手工把 `packet_version` 改成 1.1，也不能自行重算哈希冒充迁移完成。
+
 初始化会安装 Router、Librarian、Verifier、Drift Auditor、Researcher、Implementer、Tester 和 Integrator 八个窄职责 Skill，并把它们绑定到对应 Agent profile。Skill 负责工作协议，知识库负责项目/领域事实；两者不能互相冒充来源证据。移动项目目录后重新运行 `factoryctl init --project <新路径>`，刷新 Agent TOML 中的绝对 Skill 路径。
+
+### 7.4 Memory Quality V5.1 用户管理入口
+
+用户不需要手工进入 SQLite，也不应该靠查看前端压缩摘要判断记忆是否可信。统一状态入口为：
+
+```powershell
+factoryctl memory status --project C:\Projects\my-app --json
+```
+
+重点查看：
+
+| 字段 | 含义 | 不能推导出的结论 |
+| --- | --- | --- |
+| `context.integrity_status` | Context 账本、FTS、锚点和哈希链是否完整 | 事件里的说法一定正确 |
+| `knowledge.integrity_status` | 知识表、检索索引、条目哈希、项目来源绑定和全库锚是否完整 | 来源一定权威、内容事实一定正确 |
+| `trust_boundary.content_verification.status` | 当前命令是否独立验证了内容事实 | `NOT_ASSERTED` 不能当作 PASS |
+
+因此，`integrity=VERIFIED` 表示“已存内容没有被发现篡改”，不等于“内容经过独立验收”。任务是否完成仍由独立 verifier、可执行验收和物理证据决定。
+
+生成脱敏审计导出：
+
+```powershell
+factoryctl memory export `
+  --project C:\Projects\my-app `
+  --out .codex-factory\exports\memory-audit-20260722.json `
+  --json
+```
+
+安全边界：
+
+- 只接受新的 `.json` 文件，拒绝覆盖已有文件；
+- 相对路径必须留在项目内，并检查 symlink/junction 越界；
+- 项目外导出必须显式使用绝对路径，父目录必须已经存在且是真实目录；
+- 敏感字段、`secrets.env` 中的值、当前环境凭据和常见 Token/私钥格式会被脱敏；
+- 导出保留来源完整性检查结果，但脱敏后不再是可恢复原哈希链的数据库备份。
+
+只读查看清理候选：
+
+```powershell
+factoryctl memory cleanup-plan `
+  --project C:\Projects\my-app `
+  --older-than-days 30 `
+  --json
+```
+
+该命令固定返回 `dry_run=true`、`executed=false`，只报告：
+
+- 已过期的 Context Packet；
+- 超过阈值的 `frontend_summary` 不可信备注；
+- 已有新版本通过 `supersedes_id` 替代的知识条目；
+- 候选条数、预计字节数和必须采用的安全动作。
+
+它不会删除任何内容。Context 哈希链和知识锚不能用 `DELETE FROM` 手工清理；需要删除时必须通过后续审计式 archive/rewrite 功能重建锚点并留下回执。
 
 ## 8. GLM 外部搜索与 API Key
 

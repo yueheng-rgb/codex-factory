@@ -144,11 +144,11 @@ Codex 原生自定义 Agent 支持 `nickname_candidates`，因此可显示候选
 ```powershell
 $decision = '{"boundary":"server-side authorization"}'
 npm run cli -- context append --project C:\Projects\my-app --kind decision --actor main --payload-json $decision
-npm run cli -- context query --project C:\Projects\my-app --query "authentication boundary" --limit 20
+npm run cli -- context query --project C:\Projects\my-app --query "authentication boundary" --role factory_librarian --limit 20
 npm run cli -- context verify --project C:\Projects\my-app --json
 ```
 
-`frontend_summary` 只能作为不可信备注保存，不会自动进入 `trusted_context`。这不会关闭 Codex 前端自身的压缩显示；它改变的是 Factory 的事实依据。
+公开的 `context append` 一律写成 `candidate`，不能靠命令参数自称 verified；只有绑定控制平面回执或独立验证回执的内部准入流程才能进入 `trusted_context`。`frontend_summary` 只能作为不可信备注保存。这不会关闭 Codex 前端自身的压缩显示；它改变的是 Factory 的事实依据。
 
 子 Agent 在工作前会执行角色、运行和 assignment 绑定验证：
 
@@ -164,9 +164,53 @@ factoryctl context packet-verify --project C:\Projects\my-app --file <packet.jso
 factoryctl knowledge import --project C:\Projects\my-app --file docs\architecture.md --roles "librarian,router" --tags "architecture,approved"
 factoryctl knowledge query --project C:\Projects\my-app --query "authorization boundary" --role librarian --limit 10
 factoryctl knowledge verify --project C:\Projects\my-app --json
+factoryctl knowledge bind --project C:\Projects\my-app --id knowledge-restored-policy --json
+factoryctl knowledge retire --project C:\Projects\my-app --id knowledge-old-policy --json
+factoryctl knowledge revoke --project C:\Projects\my-app --id knowledge-unsafe-policy --json
 ```
 
 导入文件必须位于项目内；junction/symlink 越界、二进制或无效 UTF-8、重复来源版本和被篡改的索引都会失败关闭。
+
+`retire` 用于正常的版本替代或知识过时；`revoke` 用于已经确认不应再使用的错误或不安全内容。两者都会保留条目用于审计，但从正常检索结果中排除，并且不能通过状态命令重新激活。常规更新应先导入带 `--supersedes <旧 entry-id>` 的新条目，再 retire 旧条目；不要用 revoke 表示普通版本升级。
+
+从 Knowledge 1.0 升级时，Factory 先验证旧锚点；只有旧条目的 `source_uri` 仍指向项目内普通 UTF-8 文件，并且文件 SHA-256 与正文逐字节匹配时，迁移才会自动标记为 `project_file`。无法证明这一点的旧条目会保守迁移为 `uri_claim`，不会自动注入子 Agent assignment。恢复完全一致的项目文件后运行 `knowledge bind --id <entry>` 可重新验证并受控绑定；如果来源已经产生新修订，则用 `knowledge import --supersedes <旧 ID>` 导入新文件，再 retire 旧条目。旧版 Context Packet 1.0 不会继续通过验证，必须由主 Agent 按当前 run/role/assignment 重新生成，禁止手工修改版本号或哈希。
+
+## Memory Quality V5.1 管理
+
+普通用户不需要打开 SQLite。先用统一状态命令检查 Context Space、知识库和占用空间：
+
+```powershell
+factoryctl memory status --project C:\Projects\my-app --json
+```
+
+输出会明确区分两件事：
+
+- `trust_boundary.integrity`：数据库结构、索引、锚点、准入回执、已存哈希和项目来源绑定是否完整；
+- `trust_boundary.content_verification`：记忆内容是否经过独立事实与证据验证。
+
+`integrity.status=VERIFIED` 只表示存储没有被发现篡改，**不表示记忆里的每个判断都是真实或已经验收**。当前管理命令会把内容验证标为 `NOT_ASSERTED`，防止把“完整性通过”误读为“内容通过”。
+
+需要携带给人工审计时，生成脱敏便携导出：
+
+```powershell
+factoryctl memory export `
+  --project C:\Projects\my-app `
+  --out .codex-factory\exports\memory-audit.json `
+  --json
+```
+
+导出会隐藏敏感字段、项目 secrets 文件中的值、当前环境里的凭据以及常见 Token 格式，并且拒绝覆盖已有文件。相对路径只能位于项目内；确需导出到项目外时必须传绝对 `.json` 路径，且其父目录必须已存在并且不是 symlink/junction。该文件经过脱敏，适合审计和迁移参考，**不是可以还原 SQLite 哈希链的原始备份**。
+
+查看潜在清理项：
+
+```powershell
+factoryctl memory cleanup-plan `
+  --project C:\Projects\my-app `
+  --older-than-days 30 `
+  --json
+```
+
+`cleanup-plan` 永远是 dry-run：它只统计过期 Context Packet、达到年龄阈值的不可信前端摘要和已被替代的知识条目，并报告候选数量与字节数。它不会删除或改写文件、账本和知识库；哈希链记录与知识条目需要未来的审计式重写流程，不能直接从 SQLite 手工删除。
 
 ## GLM 搜索
 

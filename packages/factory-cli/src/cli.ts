@@ -18,11 +18,18 @@ import {
 import { initializeFactoryProject } from "./installer.js";
 import {
   addKnowledgeEntry,
+  bindKnowledgeEntryToProjectFile,
   importKnowledgeFile,
   queryKnowledge,
+  setKnowledgeEntryStatus,
   verifyKnowledgeStore,
   type AddKnowledgeEntryInput,
 } from "./knowledge.js";
+import {
+  createMemoryCleanupPlan,
+  exportMemory,
+  getMemoryStatus,
+} from "./memory-admin.js";
 import {
   prepareSpawnPlan,
   readAgentRegistry,
@@ -180,12 +187,12 @@ function helpText(): string {
   return [
     "Codex App Factory control plane " + VERSION,
     "",
-    "核心命令 / Commands:",
+    "核心命令 / Core commands:",
     "  factoryctl init [--project <path>] [--multi-agent] [--external-context] [--search glm|none]",
     "  factoryctl configure [same feature flags as init]",
     "  factoryctl doctor [--project <path>] [--json]",
     "  factoryctl context append --kind <kind> --actor <name> --payload-json <json>",
-    "  factoryctl context verify | query --query <text>",
+    "  factoryctl context verify | query --query <text> --role <role>",
     "  factoryctl context packet-verify --file <packet.json> --run <id> --role <role> --assignment <id>",
     "  factoryctl plan --tasks <tasks.json> [--run <id>] [--json] (new run)",
     "  factoryctl plan --run <id> --json (resume authoritative run)",
@@ -197,9 +204,14 @@ function helpText(): string {
     "  factoryctl search --query <text>",
     "  factoryctl knowledge import --file <path> --roles <role,...> [--tags <tag,...>]",
     "  factoryctl knowledge add --file <entry.json> | query --query <text> --role <role> | verify",
+    "  factoryctl knowledge retire --id <entry> | revoke --id <entry>",
+    "  factoryctl knowledge bind --id <entry> (verify and bind an exact project file)",
+    "  factoryctl memory status",
+    "  factoryctl memory export --out <new-file.json>",
+    "  factoryctl memory cleanup-plan [--older-than-days <days>] (dry-run only)",
     "",
-    "多 Agent 开启后由 Codex 主 Agent 自动执行 plan；用户无需打开窗口或复制提示词。",
-    "API key 只放进 ZHIPUAI_API_KEY 或 .codex-factory/secrets.env，绝不写进 config。",
+    "启用多 Agent 后，Codex 主 Agent 会自动执行 plan；用户无需打开额外窗口或复制提示词。",
+    "API Key 只放在 ZHIPUAI_API_KEY 或 .codex-factory/secrets.env 中，绝不写入 config。",
   ].join("\n");
 }
 
@@ -269,8 +281,11 @@ async function run(argv: string[]): Promise<void> {
       return;
     }
     if (subcommand === "query") {
-      assertAllowedFlags(args, ["project", "query", "limit", "json"]);
-      output(queryContextEvents(root, requiredFlag(args, "query"), Number(flagString(args, "limit") ?? 20)));
+      assertAllowedFlags(args, ["project", "query", "role", "limit", "json"]);
+      output(queryContextEvents(root, requiredFlag(args, "query"), {
+        targetRole: requiredFlag(args, "role"),
+        limit: Number(flagString(args, "limit") ?? 20),
+      }));
       return;
     }
     if (subcommand === "packet-verify") {
@@ -288,6 +303,31 @@ async function run(argv: string[]): Promise<void> {
       return;
     }
     throw new Error("context requires append, verify, query, or packet-verify");
+  }
+  if (command === "memory") {
+    if (subcommand === "status") {
+      assertAllowedFlags(args, ["project", "json"]);
+      const result = getMemoryStatus(root);
+      output(result);
+      if (["NOT_INITIALIZED", "INTEGRITY_FAILED"].includes(result.status)) {
+        process.exitCode = 1;
+      }
+      return;
+    }
+    if (subcommand === "export") {
+      assertAllowedFlags(args, ["project", "out", "json"]);
+      output(exportMemory(root, requiredFlag(args, "out")));
+      return;
+    }
+    if (subcommand === "cleanup-plan") {
+      assertAllowedFlags(args, ["project", "older-than-days", "json"]);
+      const rawDays = flagString(args, "older-than-days");
+      output(createMemoryCleanupPlan(root, {
+        olderThanDays: rawDays === undefined ? undefined : Number(rawDays),
+      }));
+      return;
+    }
+    throw new Error("memory requires status, export, or cleanup-plan");
   }
   if (command === "plan") {
     assertAllowedFlags(args, ["project", "tasks", "run", "json"]);
@@ -420,7 +460,21 @@ async function run(argv: string[]): Promise<void> {
       if (!result.valid) process.exitCode = 1;
       return;
     }
-    throw new Error("knowledge requires import, add, query, or verify");
+    if (subcommand === "retire" || subcommand === "revoke") {
+      assertAllowedFlags(args, ["project", "id", "json"]);
+      output(setKnowledgeEntryStatus(
+        root,
+        requiredFlag(args, "id"),
+        subcommand === "retire" ? "retired" : "revoked",
+      ));
+      return;
+    }
+    if (subcommand === "bind") {
+      assertAllowedFlags(args, ["project", "id", "json"]);
+      output(bindKnowledgeEntryToProjectFile(root, requiredFlag(args, "id")));
+      return;
+    }
+    throw new Error("knowledge requires import, add, query, verify, retire, revoke, or bind");
   }
   throw new Error("Unknown command: " + command);
 }
