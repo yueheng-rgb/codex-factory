@@ -1,4 +1,5 @@
 import { DatabaseSync } from "node:sqlite";
+import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { AGENT_PROFILES } from "./agents.js";
@@ -15,6 +16,82 @@ import {
 } from "./installer.js";
 import { verifyKnowledgeStore } from "./knowledge.js";
 import type { DoctorCheck, DoctorResult, FactoryConfig } from "./types.js";
+
+export interface CodexCapabilityProbe {
+  available: boolean;
+  version: string | null;
+  multi_agent: boolean;
+  multi_agent_v2: boolean;
+  error?: "not_found" | "timeout" | "version_failed" | "features_failed";
+}
+
+export interface DoctorOptions {
+  codexCapabilityProbe?: () => CodexCapabilityProbe;
+}
+
+export function parseCodexFeatureList(output: string): Map<string, boolean> {
+  const features = new Map<string, boolean>();
+  for (const line of output.split(/\r?\n/)) {
+    const columns = line.trim().split(/\s+/);
+    if (columns.length < 2) continue;
+    const state = columns.at(-1);
+    if (state !== "true" && state !== "false") continue;
+    features.set(columns[0], state === "true");
+  }
+  return features;
+}
+
+export function probeCodexCapabilities(): CodexCapabilityProbe {
+  const command = process.env.CODEX_FACTORY_CODEX_BIN?.trim() || "codex";
+  const options = {
+    encoding: "utf8" as const,
+    timeout: 5_000,
+    windowsHide: true,
+  };
+  const versionResult = spawnSync(command, ["--version"], options);
+  if (versionResult.error) {
+    const code = (versionResult.error as NodeJS.ErrnoException).code;
+    return {
+      available: false,
+      version: null,
+      multi_agent: false,
+      multi_agent_v2: false,
+      error: code === "ETIMEDOUT" ? "timeout" : "not_found",
+    };
+  }
+  if (versionResult.status !== 0) {
+    return {
+      available: false,
+      version: null,
+      multi_agent: false,
+      multi_agent_v2: false,
+      error: "version_failed",
+    };
+  }
+  const version = /\b(\d+\.\d+\.\d+(?:[-+][\w.-]+)?)\b/.exec(
+    String(versionResult.stdout),
+  )?.[1] ?? null;
+  const featureResult = spawnSync(command, ["features", "list"], options);
+  if (featureResult.error || featureResult.status !== 0) {
+    return {
+      available: true,
+      version,
+      multi_agent: false,
+      multi_agent_v2: false,
+      error:
+        (featureResult.error as NodeJS.ErrnoException | undefined)?.code === "ETIMEDOUT"
+          ? "timeout"
+          : "features_failed",
+    };
+  }
+  const features = parseCodexFeatureList(String(featureResult.stdout));
+  return {
+    available: true,
+    version,
+    multi_agent: features.get("multi_agent") === true,
+    multi_agent_v2: features.get("multi_agent_v2") === true,
+  };
+}
 
 function normalizeNewlines(value: string): string {
   return value.replace(/\r\n/g, "\n");
@@ -204,6 +281,47 @@ function checkCodexLimits(root: string, config: FactoryConfig): DoctorCheck {
   };
 }
 
+function checkCodexCapabilities(
+  config: FactoryConfig,
+  probe: () => CodexCapabilityProbe,
+): DoctorCheck {
+  if (!config.features.multi_agent.enabled) {
+    return {
+      id: "multi_agent.codex_capabilities",
+      status: "PASS",
+      detail: "Native Codex multi-agent capability is not required while Factory multi-agent is disabled",
+    };
+  }
+  const capability = probe();
+  if (!capability.available) {
+    return {
+      id: "multi_agent.codex_capabilities",
+      status: "FAIL",
+      detail: "Codex CLI capability probe failed (" + (capability.error ?? "unavailable") + ")",
+    };
+  }
+  if (!capability.multi_agent && !capability.multi_agent_v2) {
+    return {
+      id: "multi_agent.codex_capabilities",
+      status: "FAIL",
+      detail:
+        "Installed Codex " +
+        (capability.version ?? "unknown") +
+        " does not report an enabled multi_agent or multi_agent_v2 feature",
+    };
+  }
+  return {
+    id: "multi_agent.codex_capabilities",
+    status: "PASS",
+    detail:
+      "Codex " +
+      (capability.version ?? "unknown") +
+      " native multi-agent is enabled (" +
+      (capability.multi_agent_v2 ? "multi_agent_v2" : "multi_agent") +
+      ")",
+  };
+}
+
 function readContextMetadata(databasePath: string): Record<string, string> {
   const database = new DatabaseSync(databasePath, { readOnly: true });
   try {
@@ -342,7 +460,7 @@ function checkSearch(root: string, config: FactoryConfig): DoctorCheck[] {
   ];
 }
 
-export function runDoctor(projectRoot: string): DoctorResult {
+export function runDoctor(projectRoot: string, options: DoctorOptions = {}): DoctorResult {
   const root = resolve(projectRoot);
   const checks: DoctorCheck[] = [];
   if (!existsSync(root) || !statSync(root).isDirectory()) {
@@ -398,6 +516,9 @@ export function runDoctor(projectRoot: string): DoctorResult {
   );
   checks.push(checkAgentFiles(root, config));
   checks.push(checkSpecialistSkills(root));
+  checks.push(
+    checkCodexCapabilities(config, options.codexCapabilityProbe ?? probeCodexCapabilities),
+  );
   checks.push(checkCodexLimits(root, config));
   checks.push(checkContextSpace(root, config));
   checks.push(checkKnowledgeStore(root));

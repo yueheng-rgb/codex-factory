@@ -10,13 +10,27 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import assert from "node:assert/strict";
 import { afterEach, describe, it } from "node:test";
-import { runDoctor } from "../src/doctor.js";
+import {
+  parseCodexFeatureList,
+  runDoctor,
+  type CodexCapabilityProbe,
+} from "../src/doctor.js";
 import {
   AGENTS_BLOCK_START,
   initializeFactoryProject,
 } from "../src/installer.js";
 
 const temporaryRoots: string[] = [];
+const TEST_CODEX_CAPABILITY: CodexCapabilityProbe = {
+  available: true,
+  version: "0.145.0",
+  multi_agent: true,
+  multi_agent_v2: false,
+};
+
+function testDoctor(root: string) {
+  return runDoctor(root, { codexCapabilityProbe: () => TEST_CODEX_CAPABILITY });
+}
 
 function projectRoot(): string {
   const root = mkdtempSync(join(tmpdir(), "codex-factory-installer-"));
@@ -59,7 +73,7 @@ describe("initializeFactoryProject", () => {
       existsSync(join(root, ".agents", "skills", "codex-factory", "SKILL.md")),
       true,
     );
-    const doctor = runDoctor(root);
+    const doctor = testDoctor(root);
     assert.equal(doctor.status, "READY_WITH_LIMITATIONS");
     assert.equal(
       doctor.checks.some(
@@ -83,7 +97,7 @@ describe("initializeFactoryProject", () => {
       initialized.warnings.some((warning) => warning.includes("unowned")),
       true,
     );
-    const doctor = runDoctor(root);
+    const doctor = testDoctor(root);
     assert.equal(doctor.status, "NOT_READY");
     assert.equal(
       doctor.checks.find((check) => check.id === "multi_agent.agent_profiles")?.status,
@@ -116,7 +130,7 @@ describe("initializeFactoryProject", () => {
       initialized.warnings.some((warning) => warning.includes("conflict")),
       true,
     );
-    assert.equal(runDoctor(root).status, "NOT_READY");
+    assert.equal(testDoctor(root).status, "NOT_READY");
   });
 
   it("reports only credential presence when GLM search is enabled", () => {
@@ -125,7 +139,7 @@ describe("initializeFactoryProject", () => {
     delete process.env.ZHIPUAI_API_KEY;
     try {
       initializeFactoryProject(root, { searchProvider: "glm_zhipu" });
-      const missing = runDoctor(root);
+      const missing = testDoctor(root);
       const check = missing.checks.find(
         (item) => item.id === "external_search.credential",
       );
@@ -133,7 +147,7 @@ describe("initializeFactoryProject", () => {
       assert.match(check?.detail ?? "", /present: false/);
 
       process.env.ZHIPUAI_API_KEY = "must-never-appear-in-doctor-output";
-      const ready = runDoctor(root);
+      const ready = testDoctor(root);
       const serialized = JSON.stringify(ready);
       assert.equal(ready.status, "READY");
       assert.equal(serialized.includes("must-never-appear-in-doctor-output"), false);
@@ -142,5 +156,33 @@ describe("initializeFactoryProject", () => {
       if (previous === undefined) delete process.env.ZHIPUAI_API_KEY;
       else process.env.ZHIPUAI_API_KEY = previous;
     }
+  });
+
+  it("parses current Codex feature-list rows without trusting decorative columns", () => {
+    const parsed = parseCodexFeatureList([
+      "multi_agent stable true",
+      "multi_agent_v2 under development false",
+      "not-a-feature-row",
+    ].join("\n"));
+    assert.equal(parsed.get("multi_agent"), true);
+    assert.equal(parsed.get("multi_agent_v2"), false);
+  });
+
+  it("fails readiness when Factory multi-agent is enabled but Codex lacks it", () => {
+    const root = projectRoot();
+    initializeFactoryProject(root, { multiAgent: true });
+    const doctor = runDoctor(root, {
+      codexCapabilityProbe: () => ({
+        available: true,
+        version: "0.140.0",
+        multi_agent: false,
+        multi_agent_v2: false,
+      }),
+    });
+    assert.equal(doctor.status, "NOT_READY");
+    assert.equal(
+      doctor.checks.find((check) => check.id === "multi_agent.codex_capabilities")?.status,
+      "FAIL",
+    );
   });
 });
