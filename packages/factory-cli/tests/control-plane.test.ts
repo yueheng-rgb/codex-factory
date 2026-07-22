@@ -1124,6 +1124,19 @@ describe("native dispatch and evidence gates", () => {
       proposed_verdict: "PASS",
     });
 
+    const legacyRegistryPath = join(
+      root,
+      ".codex-factory",
+      "runs",
+      runId,
+      "agent-registry.json",
+    );
+    const legacyRegistry = JSON.parse(readFileSync(legacyRegistryPath, "utf8")) as {
+      entries: Array<{ lifecycle: string }>;
+    };
+    legacyRegistry.entries[0]!.lifecycle = "idle";
+    writeFileSync(legacyRegistryPath, JSON.stringify(legacyRegistry, null, 2) + "\n", "utf8");
+
     const next = prepareSpawnPlan(root, persistedTasks(root, runId), runId);
     const fresh = next.assignments.find(
       (assignment) => assignment.task_id === "route-second",

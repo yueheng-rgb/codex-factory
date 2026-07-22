@@ -34,6 +34,8 @@ factoryctl doctor --project C:\Projects\my-app --json
 - 多 Agent、GLM 搜索均为 opt-in；搜索 Key 只从 `ZHIPUAI_API_KEY` 或项目本地、已忽略的 `.codex-factory/secrets.env` 读取。
 - 只有带来源绑定准入回执的 `trusted_context`、独立验证证据和物理仓库才可作为工作依据；哈希链只证明写入后未被篡改。前端压缩摘要和普通手工追加内容保留为不可信候选。
 - Memory Quality V5.1 会按任务和角色自动检索当前、未被替代、来源未漂移的项目知识，并把带条目 ID、来源 SHA-256 的限长摘录绑定进子 Agent Packet。
+- 常驻角色现在只持久化 profile/分工，每个 assignment 都使用新的 `fork_turns=none` 执行实例；9 个领域 Skill 按 capability 动态路由。
+- 项目级 Codex Hooks 会在真实 Subagent 生命周期中校验 spawn、绑定 Host 返回的 Agent ID、检查 handoff，并在压缩后要求重新加载外部权威上下文。首次或 Hook 变化后仍需按 Codex 安全规则在 `/hooks` 审阅信任。
 - 当前 `scope_guard` 会检测漏报和波次级越界写入，但不能提供逐 Agent 作者归因，也不是 OS ACL 或独立 worktree。因此开启多 Agent 时 `doctor` 会诚实返回 `READY_WITH_LIMITATIONS`。
 - 原生 Codex 支持昵称候选；Factory 的角色 icon 可用于自己的记录/仪表盘，但不能控制原生子 Agent 头像。
 

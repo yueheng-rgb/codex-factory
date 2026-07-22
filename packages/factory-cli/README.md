@@ -43,6 +43,8 @@ powershell -ExecutionPolicy Bypass -File .\packages\factory-cli\install.ps1 `
 factoryctl doctor --project C:\Projects\my-app --json
 ```
 
+第一次在 Codex 中打开该项目时，执行一次 `/hooks`，审阅并信任 `.codex/hooks.json`。这是 Codex 对新增/变更项目 Hook 的宿主安全确认，Factory 不会绕过；确认后，派发、真实 Agent ID 回执、Subagent 停止检查和压缩上下文恢复均自动执行。
+
 独立上下文默认开启；只有明确不需要时才传 `-NoExternalContext`。如传 `-Search glm`，脚本只开启搜索，不接收 API Key。
 
 手动安装是跨平台和排障时的备用路径：
@@ -68,7 +70,7 @@ factoryctl --help
 
 `npm link` 会创建本机 npm 链接。Windows 推荐脚本已自动执行该步骤，不要重复执行。
 
-本地构建的 `.tgz` 只包含运行所需的 `dist`、README 和 manifest，不包含仓库级 `install.ps1`。如以 tarball 形式做消费端 smoke，可运行 `npm install <local-tgz>`，然后使用安装生成的 `factoryctl` bin；正式 npm 发布与跨平台发行安装器属于 Preview 之后的发布工作。
+本地构建的 `.tgz` 包含运行所需的 `dist`、9 个专业领域 Skill、README 和 manifest，不包含仓库级 `install.ps1`。如以 tarball 形式做消费端 smoke，可运行 `npm install <local-tgz>`，然后使用安装生成的 `factoryctl` bin；正式 npm 发布与跨平台发行安装器属于 Preview 之后的发布工作。
 
 ## 两分钟开始
 
@@ -129,9 +131,11 @@ Factory 使用单层调度：主 Agent 负责拆分、派发、等待、纠偏�
 | Factory Verifier | 独立复跑验收、拒绝假通过 | 否 |
 | Factory Drift Auditor | 检查需求、架构、权限和文件漂移 | 否 |
 
-“常驻”指角色配置长期存在，并可在一次运行中复用；它不表示操作系统里永久运行四个后台进程。实现、测试、研究、集成等临时工作只在任务需要时生成临时 Agent，提交结构化 handoff 后即可结束。
+“常驻”只表示角色配置和专业分工长期存在，不表示后台守护进程，也不复用旧对话。每个 assignment 都生成新的 `fork_turns=none` 隔离执行实例，完成 handoff 后释放线程，避免上一个任务的上下文泄漏。实现、测试、研究、集成等临时工作也只在需要时生成。
 
-初始化会同时安装 8 个窄职责项目 Skill，并通过每个 Agent TOML 的 `[[skills.config]]` 绑定绝对 `SKILL.md` 路径。Router、Librarian、Verifier、Drift Auditor 各自只加载相关 Skill，避免给常驻 Agent 无限制地堆叠能力；移动项目目录后重新运行 `init` 可刷新这些路径。
+初始化会安装 8 个角色协议 Skill 和 9 个专业领域 Skill。角色 Skill 通过 Agent TOML 绑定；领域 Skill 由任务的 `required_capabilities` 或受控推断按 assignment 注入，只加载本次需要的前端、后端、数据库、安全、移动端、产品架构或测试知识。移动项目目录后重新运行 `init` 可刷新绝对路径与 Hook 命令。
+
+`max_threads` 是可同时打开的原生工作 Agent 数，不包含主 Agent。调度器优先给已就绪的独立 Verifier 留出释放后的槽位，避免实现任务长期挤占验证。
 
 Codex 原生自定义 Agent 支持 `nickname_candidates`，因此可显示候选昵称；最终昵称和原生 UI 呈现由 Codex 决定。当前原生配置没有供 Factory 设置每个子 Agent 头像图片的接口。Factory 仪表盘可以显示自己的逻辑 icon，但不应把逻辑 icon 宣称为原生头像。
 

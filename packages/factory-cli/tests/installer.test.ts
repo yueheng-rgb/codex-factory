@@ -110,6 +110,27 @@ describe("initializeFactoryProject", () => {
     );
   });
 
+  it("preserves an unowned Codex hooks file and fails closed", () => {
+    const root = projectRoot();
+    const codexDirectory = join(root, ".codex");
+    mkdirSync(codexDirectory, { recursive: true });
+    const path = join(codexDirectory, "hooks.json");
+    const userHooks = '{"description":"user hooks","hooks":{}}\n';
+    writeFileSync(path, userHooks, "utf8");
+
+    const initialized = initializeFactoryProject(root, { multiAgent: true });
+
+    assert.equal(readFileSync(path, "utf8"), userHooks);
+    assert.equal(
+      initialized.warnings.some((warning) => warning.includes("unowned hooks")),
+      true,
+    );
+    assert.equal(
+      testDoctor(root).checks.find((check) => check.id === "control_plane.hooks")?.status,
+      "FAIL",
+    );
+  });
+
   it("does not overwrite conflicting user-owned Codex limits", () => {
     const root = projectRoot();
     const codexDirectory = join(root, ".codex");

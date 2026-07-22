@@ -64,6 +64,12 @@ const FACTORY_HOOK_EVENTS = [
 
 export function managedHooksContent(projectRoot: string): string {
   const root = resolve(projectRoot);
+  const moduleDirectory = dirname(fileURLToPath(import.meta.url));
+  const localCli = join(moduleDirectory, "cli.js");
+  const builtCli = join(moduleDirectory, "..", "dist", "cli.js");
+  const cliPath = existsSync(localCli) ? localCli : existsSync(builtCli) ? builtCli : null;
+  const posixQuote = (value: string): string => "'" + value.replaceAll("'", "'\\''") + "'";
+  const windowsQuote = (value: string): string => '"' + value.replaceAll('"', '\\"') + '"';
   const hooks = Object.fromEntries(
     FACTORY_HOOK_EVENTS.map((event) => {
       const matcher = event === "PreToolUse" || event === "PostToolUse"
@@ -73,8 +79,20 @@ export function managedHooksContent(projectRoot: string): string {
           : event === "SessionStart"
             ? "startup|resume|clear|compact"
             : "*";
+      const commandPrefix = cliPath
+        ? posixQuote(process.execPath) + " " + posixQuote(cliPath)
+        : "factoryctl";
+      const windowsCommandPrefix = cliPath
+        ? windowsQuote(process.execPath) + " " + windowsQuote(cliPath)
+        : "factoryctl";
       const command =
-        "factoryctl hook handle --project " + JSON.stringify(root) + " --event " + event;
+        commandPrefix + " hook handle --project " + posixQuote(root) + " --event " + event;
+      const commandWindows =
+        windowsCommandPrefix +
+        " hook handle --project " +
+        windowsQuote(root) +
+        " --event " +
+        event;
       return [
         event,
         [
@@ -84,7 +102,7 @@ export function managedHooksContent(projectRoot: string): string {
               {
                 type: "command",
                 command,
-                commandWindows: command,
+                commandWindows,
                 timeout: 30,
                 statusMessage: "Codex App Factory: " + event,
               },
