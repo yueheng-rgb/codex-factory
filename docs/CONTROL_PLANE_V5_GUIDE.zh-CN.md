@@ -318,7 +318,7 @@ factoryctl agent register-spawn `
 - 外键与完整性检查；
 - FTS5：可搜索历史决策、风险和证据；
 - 哈希链：事件包含前序哈希，发现修改、丢失或重排；
-- Role Context Packet：只给 Agent 与职责相关、已验证、未过期的上下文；
+- Role Context Packet：可信区只接收与 Agent 职责相关、已通过来源绑定准入且未过期的上下文；候选内容若被携带，必须留在显式标注的不可信候选区；
 - `frontend_summary` 永远进入不可信备注区。
 
 Context Packet 不是“更多 prompt 文本”，而是一个可验哈希、有来源事件 ID、有生成时账本锚点和过期时间的派发合同。生成后的正常追加事件不会让正在工作的 Packet 自动失效；但来源事件被修改/删除、Packet 与 run/role/assignment 不匹配、锚点不再是有效祖先、Packet 过期或哈希不一致时，Agent 必须停止并要求主 Agent 重新生成。
@@ -353,6 +353,8 @@ factoryctl context verify --project C:\Projects\my-app --json
 ```
 
 公开的 `context append` 只登记候选记忆，不提供 `--verified` 或其他自我提权开关。候选内容可供主 Agent 排查，但不会自动进入派发给工作 Agent 的可信区；准入必须绑定 Factory 控制平面回执或独立 verifier 回执。
+
+角色过滤用于防止不同 Agent 职责之间的误注入，不是操作系统级保密边界。能够读取项目目录或调用 CLI 的同一用户进程仍可能直接读取数据库，或用另一个 `--role` 发起查询；涉及互不信任的本地用户、恶意进程或强监管隔离时，必须叠加独立账号、ACL、容器或隔离 worktree。
 
 请不要手工修改 SQLite 表或 Context Packet。需要更正时追加新事件，保留原始事件和拒绝原因，才能维持审计链。
 

@@ -150,6 +150,8 @@ npm run cli -- context verify --project C:\Projects\my-app --json
 
 公开的 `context append` 一律写成 `candidate`，不能靠命令参数自称 verified；只有绑定控制平面回执或独立验证回执的内部准入流程才能进入 `trusted_context`。`frontend_summary` 只能作为不可信备注保存。这不会关闭 Codex 前端自身的压缩显示；它改变的是 Factory 的事实依据。
 
+`--role` 与 Packet 的角色过滤用于阻止 Agent 之间误注入上下文，不是操作系统 ACL。任何能读取项目目录或以同一用户调用 CLI 的进程仍可能直接读取本地数据库，或指定另一个角色查询；不互信或强监管场景需要额外使用独立账号、ACL、容器或隔离 worktree。
+
 子 Agent 在工作前会执行角色、运行和 assignment 绑定验证：
 
 ```powershell
