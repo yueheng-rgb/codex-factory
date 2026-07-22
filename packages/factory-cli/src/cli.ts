@@ -16,6 +16,7 @@ import {
   type WorkerHandoffInput,
 } from "./evidence.js";
 import { initializeFactoryProject } from "./installer.js";
+import { runFactoryHook, type FactoryHookEvent } from "./hooks.js";
 import {
   addKnowledgeEntry,
   bindKnowledgeEntryToProjectFile,
@@ -191,6 +192,7 @@ function helpText(): string {
     "  factoryctl init [--project <path>] [--multi-agent] [--external-context] [--search glm|none]",
     "  factoryctl configure [same feature flags as init]",
     "  factoryctl doctor [--project <path>] [--json]",
+    "  factoryctl hook handle --event <CodexHookEvent> (reads hook JSON from stdin)",
     "  factoryctl context append --kind <kind> --actor <name> --payload-json <json>",
     "  factoryctl context verify | query --query <text> --role <role>",
     "  factoryctl context packet-verify --file <packet.json> --run <id> --role <role> --assignment <id>",
@@ -253,6 +255,19 @@ async function run(argv: string[]): Promise<void> {
     const result = runDoctor(root);
     output(result, true);
     if (result.status === "NOT_READY") process.exitCode = 1;
+    return;
+  }
+  if (command === "hook" && subcommand === "handle") {
+    assertAllowedFlags(args, ["project", "event", "json"]);
+    const event = requiredFlag(args, "event") as FactoryHookEvent;
+    const allowedEvents = new Set<FactoryHookEvent>([
+      "SessionStart", "PreToolUse", "PostToolUse", "SubagentStart",
+      "SubagentStop", "PreCompact", "PostCompact", "Stop",
+    ]);
+    if (!allowedEvents.has(event)) throw new Error("Unsupported Factory hook event: " + event);
+    const inputText = readFileSync(0, "utf8");
+    const input = JSON.parse(inputText || "{}") as Record<string, unknown>;
+    output(runFactoryHook(root, event, input), true);
     return;
   }
   if (command === "context") {

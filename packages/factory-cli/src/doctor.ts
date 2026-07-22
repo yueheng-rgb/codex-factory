@@ -12,6 +12,7 @@ import {
   FACTORY_SKILL_CONTENT,
   inspectCodexAgentsConfig,
   managedAgentContent,
+  managedHooksContent,
   specialistSkillContent,
 } from "./installer.js";
 import { verifyKnowledgeStore } from "./knowledge.js";
@@ -22,6 +23,7 @@ export interface CodexCapabilityProbe {
   version: string | null;
   multi_agent: boolean;
   multi_agent_v2: boolean;
+  hooks: boolean;
   error?: "not_found" | "timeout" | "version_failed" | "features_failed";
 }
 
@@ -56,6 +58,7 @@ export function probeCodexCapabilities(): CodexCapabilityProbe {
       version: null,
       multi_agent: false,
       multi_agent_v2: false,
+      hooks: false,
       error: code === "ETIMEDOUT" ? "timeout" : "not_found",
     };
   }
@@ -65,6 +68,7 @@ export function probeCodexCapabilities(): CodexCapabilityProbe {
       version: null,
       multi_agent: false,
       multi_agent_v2: false,
+      hooks: false,
       error: "version_failed",
     };
   }
@@ -78,6 +82,7 @@ export function probeCodexCapabilities(): CodexCapabilityProbe {
       version,
       multi_agent: false,
       multi_agent_v2: false,
+      hooks: false,
       error:
         (featureResult.error as NodeJS.ErrnoException | undefined)?.code === "ETIMEDOUT"
           ? "timeout"
@@ -90,6 +95,7 @@ export function probeCodexCapabilities(): CodexCapabilityProbe {
     version,
     multi_agent: features.get("multi_agent") === true,
     multi_agent_v2: features.get("multi_agent_v2") === true,
+    hooks: features.get("hooks") === true,
   };
 }
 
@@ -310,6 +316,16 @@ function checkCodexCapabilities(
         " does not report an enabled multi_agent or multi_agent_v2 feature",
     };
   }
+  if (!capability.hooks) {
+    return {
+      id: "multi_agent.codex_capabilities",
+      status: "FAIL",
+      detail:
+        "Installed Codex " +
+        (capability.version ?? "unknown") +
+        " does not report the Hooks feature enabled",
+    };
+  }
   return {
     id: "multi_agent.codex_capabilities",
     status: "PASS",
@@ -498,6 +514,25 @@ export function runDoctor(projectRoot: string, options: DoctorOptions = {}): Doc
       "AGENTS.md automatic-dispatch contract",
     ),
   );
+  checks.push(
+    checkManagedText(
+      "control_plane.hooks",
+      join(root, ".codex", "hooks.json"),
+      managedHooksContent(root),
+      "Codex lifecycle Hooks",
+    ),
+  );
+  checks.push({
+    id: "control_plane.hook_trust",
+    status:
+      config.features.multi_agent.enabled || config.features.external_context.enabled
+        ? "WARN"
+        : "PASS",
+    detail:
+      config.features.multi_agent.enabled || config.features.external_context.enabled
+        ? "Codex requires one-time review of new or changed project hooks in /hooks; Factory does not bypass this host security boundary"
+        : "Factory lifecycle hooks are dormant while multi-agent and external context are disabled",
+  });
   checks.push(
     checkManagedText(
       "control_plane.skill",

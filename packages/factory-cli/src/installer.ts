@@ -28,6 +28,7 @@ export const CODEX_CONFIG_BLOCK_START = "# >>> CODEX_APP_FACTORY:THREAD_LIMITS >
 export const CODEX_CONFIG_BLOCK_END = "# <<< CODEX_APP_FACTORY:THREAD_LIMITS <<<";
 export const GITIGNORE_BLOCK_START = "# >>> CODEX_APP_FACTORY:RUNTIME_STATE >>>";
 export const GITIGNORE_BLOCK_END = "# <<< CODEX_APP_FACTORY:RUNTIME_STATE <<<";
+export const FACTORY_HOOKS_DESCRIPTION = "Codex App Factory managed lifecycle hooks v1";
 
 export interface InitializeFactoryProjectResult {
   config: FactoryConfig;
@@ -46,6 +47,71 @@ export interface CodexAgentsConfigInspection {
 interface ManagedWriteResult {
   changed: boolean;
   warning?: string;
+}
+
+const FACTORY_HOOK_EVENTS = [
+  "SessionStart",
+  "PreToolUse",
+  "PostToolUse",
+  "SubagentStart",
+  "SubagentStop",
+  "PreCompact",
+  "PostCompact",
+  "Stop",
+] as const;
+
+export function managedHooksContent(projectRoot: string): string {
+  const root = resolve(projectRoot);
+  const hooks = Object.fromEntries(
+    FACTORY_HOOK_EVENTS.map((event) => {
+      const matcher = event === "PreToolUse" || event === "PostToolUse"
+        ? "Agent|spawn_agent"
+        : event === "PreCompact" || event === "PostCompact"
+          ? "manual|auto"
+          : event === "SessionStart"
+            ? "startup|resume|clear|compact"
+            : "*";
+      const command =
+        "factoryctl hook handle --project " + JSON.stringify(root) + " --event " + event;
+      return [
+        event,
+        [
+          {
+            matcher,
+            hooks: [
+              {
+                type: "command",
+                command,
+                commandWindows: command,
+                timeout: 30,
+                statusMessage: "Codex App Factory: " + event,
+              },
+            ],
+          },
+        ],
+      ];
+    }),
+  );
+  return JSON.stringify({ description: FACTORY_HOOKS_DESCRIPTION, hooks }, null, 2) + "\n";
+}
+
+function writeOwnedHooksFile(path: string, content: string): ManagedWriteResult {
+  if (!existsSync(path)) {
+    writeTextAtomic(path, content);
+    return { changed: true };
+  }
+  const current = readText(path);
+  try {
+    const parsed = JSON.parse(current) as Record<string, unknown>;
+    if (parsed.description !== FACTORY_HOOKS_DESCRIPTION) {
+      return { changed: false, warning: "Existing unowned hooks file was preserved: " + path };
+    }
+  } catch {
+    return { changed: false, warning: "Invalid existing hooks file was preserved: " + path };
+  }
+  if (current === content) return { changed: false };
+  writeTextAtomic(path, content);
+  return { changed: true };
 }
 
 const FACTORY_SKILL_BODY = [
@@ -591,6 +657,15 @@ export function initializeFactoryProject(
     updateCodexConfig(codexConfigPath, config.features.multi_agent.max_threads),
     root,
     codexConfigPath,
+    written,
+    warnings,
+  );
+
+  const hooksPath = join(root, ".codex", "hooks.json");
+  recordWrite(
+    writeOwnedHooksFile(hooksPath, managedHooksContent(root)),
+    root,
+    hooksPath,
     written,
     warnings,
   );

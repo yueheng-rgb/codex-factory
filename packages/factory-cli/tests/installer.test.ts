@@ -26,6 +26,7 @@ const TEST_CODEX_CAPABILITY: CodexCapabilityProbe = {
   version: "0.145.0",
   multi_agent: true,
   multi_agent_v2: false,
+  hooks: true,
 };
 
 function testDoctor(root: string) {
@@ -149,7 +150,7 @@ describe("initializeFactoryProject", () => {
       process.env.ZHIPUAI_API_KEY = "must-never-appear-in-doctor-output";
       const ready = testDoctor(root);
       const serialized = JSON.stringify(ready);
-      assert.equal(ready.status, "READY");
+      assert.equal(ready.status, "READY_WITH_LIMITATIONS");
       assert.equal(serialized.includes("must-never-appear-in-doctor-output"), false);
       assert.match(serialized, /present: true/);
     } finally {
@@ -177,6 +178,7 @@ describe("initializeFactoryProject", () => {
         version: "0.140.0",
         multi_agent: false,
         multi_agent_v2: false,
+        hooks: true,
       }),
     });
     assert.equal(doctor.status, "NOT_READY");

@@ -35,6 +35,7 @@ import {
   validateTaskGraph,
   writeScopesConflict,
 } from "../src/orchestrator.js";
+import { runFactoryHook } from "../src/hooks.js";
 import type { ContextPacket, FactoryTask } from "../src/types.js";
 import {
   assertWithinRoot,
@@ -556,6 +557,71 @@ describe("task DAG and scheduling", () => {
 });
 
 describe("native dispatch and evidence gates", () => {
+  it("binds a real host spawn response through Codex lifecycle hooks", () => {
+    const root = createProject({ context: false, maxThreads: 4 });
+    const runId = "run-host-hook-binding";
+    const plan = prepareSpawnPlan(root, [factoryTask("hooked-worker")], runId);
+    const assignment = plan.assignments[0]!;
+    const common = {
+      session_id: "session-hook-binding",
+      turn_id: "turn-hook-binding",
+      permission_mode: "default",
+      cwd: root,
+      model: "test-model",
+      tool_name: "spawn_agent",
+      tool_use_id: "tool-use-hook-binding",
+    };
+
+    const unmanaged = runFactoryHook(root, "PreToolUse", {
+      ...common,
+      hook_event_name: "PreToolUse",
+      tool_input: { message: "unmanaged", fork_turns: "none" },
+    });
+    assert.equal(
+      (unmanaged.hookSpecificOutput as Record<string, unknown>).permissionDecision,
+      "deny",
+    );
+
+    const pre = runFactoryHook(root, "PreToolUse", {
+      ...common,
+      hook_event_name: "PreToolUse",
+      tool_input: { message: assignment.prompt, fork_turns: "none" },
+    });
+    assert.deepEqual(pre, {});
+
+    const post = runFactoryHook(root, "PostToolUse", {
+      ...common,
+      hook_event_name: "PostToolUse",
+      tool_input: { message: assignment.prompt, fork_turns: "none" },
+      tool_response: {
+        status: "spawned",
+        agent_id: "native-from-host-hook",
+        nickname: "Hooked",
+      },
+    });
+    assert.match(JSON.stringify(post), /registered native agent/i);
+    const registered = readAgentRegistry(root, runId).entries[0]!;
+    assert.equal(registered.native_agent_id, "native-from-host-hook");
+    assert.equal(registered.native_receipts.length, 1);
+    assert.equal(registered.lifecycle, "spawned");
+
+    const stop = runFactoryHook(root, "SubagentStop", {
+      session_id: common.session_id,
+      hook_event_name: "SubagentStop",
+      stop_hook_active: false,
+      last_assistant_message: "done",
+    });
+    assert.equal(stop.decision, "block");
+    const validStop = runFactoryHook(root, "SubagentStop", {
+      session_id: common.session_id,
+      hook_event_name: "SubagentStop",
+      stop_hook_active: false,
+      last_assistant_message:
+        'FACTORY_HANDOFF_JSON={"summary":"done","changed_paths":[],"artifacts":[],"commands":[]}',
+    });
+    assert.deepEqual(validStop, {});
+  });
+
   it("rejects an empty self-authored native receipt", () => {
     const root = createProject({ context: false });
     const plan = prepareSpawnPlan(root, [factoryTask("receipt")], "run-empty-receipt");

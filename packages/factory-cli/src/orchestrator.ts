@@ -125,13 +125,14 @@ function verifyNativeToolReceipt(
   rawReceipt: unknown,
   nativeAgentId: string,
   nativeNickname: string | undefined,
+  expectedTool: "spawn_agent" | "followup_task",
 ): void {
   if (rawReceipt === null || typeof rawReceipt !== "object" || Array.isArray(rawReceipt)) {
     throw new Error("Native tool receipt must be a structured object");
   }
   const ids = receiptValuesForKeys(
     rawReceipt,
-    new Set(["agent_id", "agentid", "id", "thread_id", "threadid", "task_name", "taskname", "target"]),
+    new Set(["agent_id", "agentid", "native_agent_id", "thread_id", "threadid"]),
   );
   if (!ids.includes(nativeAgentId)) {
     throw new Error("Native agent id does not match the structured tool receipt");
@@ -145,9 +146,20 @@ function verifyNativeToolReceipt(
       throw new Error("Native nickname was provided but is not present in the tool receipt");
     }
   }
+  const toolNames = receiptValuesForKeys(rawReceipt, new Set(["tool_name", "toolname"]));
+  if (toolNames.length !== 1 || toolNames[0] !== expectedTool) {
+    throw new Error("Native tool receipt does not identify the expected tool exactly");
+  }
+  const statuses = receiptValuesForKeys(rawReceipt, new Set(["status", "state"]));
+  const allowedStatuses = expectedTool === "spawn_agent"
+    ? new Set(["spawned", "running", "accepted"])
+    : new Set(["running", "accepted", "sent"]);
+  if (statuses.length === 0 || !statuses.some((status) => allowedStatuses.has(status))) {
+    throw new Error("Native tool receipt does not contain an accepted host status");
+  }
 }
 
-function readCurrentSpawnPlan(projectRoot: string, runId: string): ManagedSpawnPlan {
+export function readCurrentSpawnPlan(projectRoot: string, runId: string): ManagedSpawnPlan {
   const directory = runDirectory(projectRoot, runId);
   const planPath = join(directory, "spawn-plan.json");
   const runPath = join(directory, "run.json");
@@ -965,6 +977,7 @@ function assignmentPrompt(
   packetPath: string,
 ): string {
   return [
+    "FACTORY_ASSIGNMENT=" + JSON.stringify({ run_id: runId, assignment_id: assignmentId }),
     "Factory managed assignment for run " + runId + ", task " + task.task_id + ".",
     "Use project root: " + resolve(projectRoot) + ".",
     "Load and verify the role Context Packet/capsule at: " + packetPath + ".",
@@ -987,6 +1000,7 @@ function assignmentPrompt(
     "Acceptance methods: " + task.acceptance_methods.join(" | ") + ".",
     "Required artifacts: " + (task.required_artifacts.join(", ") || "none declared") + ".",
     "Return a factual handoff. Do not mark your own work PASS; the main controller must dispatch an independent verifier.",
+    "End the final assistant message with one single-line FACTORY_HANDOFF_JSON=<json> object containing summary, changed_paths, artifacts, and commands.",
     "Temporary agents must not spawn children. Send progress and the final handoff only to the main controller.",
   ].join("\n");
 }
@@ -1350,7 +1364,6 @@ function registerNativeDispatchUnlocked(
   const config = loadConfig(root);
   if (!config.features.multi_agent.enabled) throw new Error("Managed multi-agent is disabled");
   if (!input.nativeAgentId.trim()) throw new Error("Native agent id is required");
-  verifyNativeToolReceipt(input.rawToolReceipt, input.nativeAgentId, input.nativeNickname);
   readTaskGraphSnapshot(root, runId);
   const toolName = input.toolName ?? "spawn_agent";
   const planEntry = readCurrentSpawnPlan(root, runId).assignments.find(
@@ -1363,6 +1376,12 @@ function registerNativeDispatchUnlocked(
       "Native tool receipt does not match planned action: expected " + expectedTool,
     );
   }
+  verifyNativeToolReceipt(
+    input.rawToolReceipt,
+    input.nativeAgentId,
+    input.nativeNickname,
+    expectedTool,
+  );
   const path = registryPath(root, runId);
   const registered = withFileLock(path + ".lock", () => {
     const registry = readAgentRegistry(root, runId);
