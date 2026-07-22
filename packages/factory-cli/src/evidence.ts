@@ -8,7 +8,7 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { factoryDirectory, loadConfig, loadSecrets } from "./config.js";
-import { appendContextEvent } from "./context-space.js";
+import { appendContextEvent, appendTrustedContextEvent } from "./context-space.js";
 import {
   readAgentRegistry,
   readTaskGraphSnapshot,
@@ -565,15 +565,30 @@ function verifyTaskCompletionUnlocked(
   setRunTaskStatus(root, runId, verifier.task.task_id, "verified");
   const config = loadConfig(root);
   if (config.features.external_context.enabled) {
-    appendContextEvent(root, receipt.verdict === "PASS" ? "evidence" : "rejected_claim", "factoryctl", {
-      run_id: runId,
-      task_id: taskId,
-      verifier_native_agent_id: verifier.nativeAgentId,
-      verdict: receipt.verdict,
-      failure_reasons: receipt.failure_reasons,
-      receipt_hash: receipt.receipt_hash,
-      visible_to_roles: ["main_controller", "verifier", "drift_auditor", "integrator"],
-    });
+    appendTrustedContextEvent(
+      root,
+      receipt.verdict === "PASS" ? "evidence" : "rejected_claim",
+      "factoryctl",
+      {
+        run_id: runId,
+        task_id: taskId,
+        verifier_native_agent_id: verifier.nativeAgentId,
+        verdict: receipt.verdict,
+        failure_reasons: receipt.failure_reasons,
+        receipt_hash: receipt.receipt_hash,
+        visible_to_roles: ["main_controller", "verifier", "drift_auditor", "integrator"],
+      },
+      {
+        basis: "independent_verification",
+        authority: "factory_independent_verifier",
+        verifiedBy: verifier.nativeAgentId,
+        source: {
+          kind: "verification_receipt",
+          reference: relative(root, receiptPath).replaceAll("\\", "/"),
+          sha256: sha256(readFileSync(receiptPath)),
+        },
+      },
+    );
   }
   return receipt;
 }

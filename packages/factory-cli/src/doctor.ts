@@ -235,7 +235,7 @@ function checkContextSpace(root: string, config: FactoryConfig): DoctorCheck {
   try {
     const metadata = readContextMetadata(path);
     const metadataIssues: string[] = [];
-    if (metadata.schema_version !== "1.1.0") {
+    if (metadata.schema_version !== "1.2.0") {
       metadataIssues.push("unexpected or missing schema_version");
     }
     if (metadata.project_id !== config.project_id) {
@@ -244,7 +244,7 @@ function checkContextSpace(root: string, config: FactoryConfig): DoctorCheck {
     if (metadata.trust_frontend_summary !== "false") {
       metadataIssues.push("trust_frontend_summary must be false");
     }
-    if (metadata.authority !== "sqlite_hash_chain_and_verified_artifacts") {
+    if (metadata.authority !== "sqlite_hash_chain_and_admission_receipts") {
       metadataIssues.push("context authority metadata is missing or invalid");
     }
     const ledger = verifyContextLedger(root);
@@ -260,8 +260,12 @@ function checkContextSpace(root: string, config: FactoryConfig): DoctorCheck {
       id: "external_context.ledger",
       status: "PASS",
       detail:
-        "SQLite integrity and hash chain verified (events=" +
+        "SQLite event chain and admission receipts verified (events=" +
         ledger.event_count +
+        ", admitted=" +
+        ledger.admitted_event_count +
+        ", candidates=" +
+        ledger.candidate_event_count +
         ", head=" +
         ledger.head_hash.slice(0, 12) +
         ")",

@@ -32,7 +32,8 @@ factoryctl doctor --project C:\Projects\my-app --json
 
 - 默认继承当前 Codex runtime，GPT 用户可直接使用；兼容 Codex runtime 中的 DeepSeek 用户需以 `doctor` 和小型真实任务验证工具兼容性。
 - 多 Agent、GLM 搜索均为 opt-in；搜索 Key 只从 `ZHIPUAI_API_KEY` 或项目本地、已忽略的 `.codex-factory/secrets.env` 读取。
-- 外部 Context Packet、SQLite 哈希链和物理仓库是工作依据；前端压缩摘要仅是不可信备注。
+- 只有带来源绑定准入回执的 `trusted_context`、独立验证证据和物理仓库才可作为工作依据；哈希链只证明写入后未被篡改。前端压缩摘要和普通手工追加内容保留为不可信候选。
+- Memory Quality V5.1 会按任务和角色自动检索当前、未被替代、来源未漂移的项目知识，并把带条目 ID、来源 SHA-256 的限长摘录绑定进子 Agent Packet。
 - 当前 `scope_guard` 会检测漏报和波次级越界写入，但不能提供逐 Agent 作者归因，也不是 OS ACL 或独立 worktree。因此开启多 Agent 时 `doctor` 会诚实返回 `READY_WITH_LIMITATIONS`。
 - 原生 Codex 支持昵称候选；Factory 的角色 icon 可用于自己的记录/仪表盘，但不能控制原生子 Agent 头像。
 
@@ -60,7 +61,7 @@ Codex Factory addresses this with a **structured verification pipeline** — not
 |---|---|
 | **Fake PASS** — agent claims success, but nothing was verified | Physical artifact hashes, real command exit codes and an independent verifier |
 | **Missing artifacts** — no stdout, no logs, no receipts | Immutable handoffs, verification receipts and evidence bundles |
-| **Weak evidence chain** — "trust me, it works" | Hash-chained Context Space and source-bound evidence |
+| **Weak evidence chain** — "trust me, it works" | Hash-chained Context Space, admission receipts and source-bound evidence |
 | **Local results cannot be trusted** — "works on my machine" | Current-commit Windows/Ubuntu CI matrix |
 | **Context compression pollution** | External role-bound Context Packets; frontend summaries stay untrusted |
 | **No reproducibility** | Locked dependencies, deterministic build and package-content audit |
@@ -107,6 +108,7 @@ powershell -ExecutionPolicy Bypass -File .\packages\factory-cli\install.ps1 `
   -MaxThreads 4
 
 factoryctl doctor --project C:\Projects\my-app --json
+factoryctl memory status --project C:\Projects\my-app --json
 ```
 
 For optional GLM search, initialize with `-Search glm` and provide `ZHIPUAI_API_KEY` through the documented environment or ignored project secret file. Do not put an API key in Factory configuration or commit it.
