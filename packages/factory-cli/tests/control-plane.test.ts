@@ -243,6 +243,7 @@ describe("external Context Space", () => {
     const database = new DatabaseSync(contextDatabasePath(root));
     try {
       database.prepare("DELETE FROM context_events_fts WHERE event_id = ?").run(tail.event_id);
+      database.prepare("DELETE FROM context_event_admissions WHERE event_id = ?").run(tail.event_id);
       database.prepare("DELETE FROM context_events WHERE event_id = ?").run(tail.event_id);
     } finally {
       database.close();

@@ -53,9 +53,53 @@ export type ContextEventKind =
   | "task_state"
   | "risk"
   | "evidence"
+  | "knowledge_retrieval"
   | "rejected_claim"
   | "agent_event"
   | "frontend_summary";
+
+export type ContextAdmissionStatus = "candidate" | "admitted";
+
+export type ContextAdmissionBasis =
+  | "legacy_unverified"
+  | "untrusted_append"
+  | "trusted_internal"
+  | "independent_verification";
+
+export type ContextAdmissionSource =
+  | {
+      kind: "control_plane_receipt";
+      reference: string;
+      sha256: string;
+    }
+  | {
+      kind: "verification_receipt";
+      reference: string;
+      sha256: string;
+    }
+  | {
+      kind: "knowledge_store_verified";
+      reference: string;
+      store_digest: string;
+      entry_digests: string[];
+      source_digests: string[];
+      content_digests: string[];
+    };
+
+export interface ContextEventAdmission {
+  status: ContextAdmissionStatus;
+  basis: ContextAdmissionBasis;
+  authority:
+    | "untrusted_input"
+    | "legacy_migration"
+    | "factory_control_plane"
+    | "factory_independent_verifier";
+  recorded_at: string;
+  verified_by?: string;
+  source?: ContextAdmissionSource;
+  bound_event_hash: string;
+  admission_hash: string;
+}
 
 export interface ContextEvent {
   event_id: string;
@@ -66,18 +110,25 @@ export interface ContextEvent {
   payload: Record<string, unknown>;
   previous_hash: string;
   hash: string;
+  /** Admission is separately hash-bound to this event; event-chain integrity alone is not trust. */
+  admission: ContextEventAdmission;
 }
 
 export interface ContextLedgerVerification {
   valid: boolean;
+  integrity_valid: boolean;
+  admission_integrity_valid: boolean;
   event_count: number;
+  admitted_event_count: number;
+  candidate_event_count: number;
   head_hash: string;
+  admission_root_hash: string;
   issues: string[];
 }
 
 export interface ContextPacket {
   packet_id: string;
-  packet_version: "1.0.0";
+  packet_version: "1.1.0";
   project_id: string;
   run_id: string;
   target_role: string;
@@ -89,6 +140,13 @@ export interface ContextPacket {
     event_id: string;
     kind: Exclude<ContextEventKind, "frontend_summary">;
     payload: Record<string, unknown>;
+    admission: ContextEventAdmission;
+  }>;
+  untrusted_context_candidates: Array<{
+    event_id: string;
+    kind: Exclude<ContextEventKind, "frontend_summary">;
+    payload: Record<string, unknown>;
+    admission: ContextEventAdmission;
   }>;
   untrusted_frontend_notes: Array<{
     event_id: string;
