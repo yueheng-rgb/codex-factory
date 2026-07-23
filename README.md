@@ -9,7 +9,7 @@
 
 **New here?** → [V5 中文安装与使用指南](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md) · [V5 CLI](packages/factory-cli/README.md) · [Legacy Getting Started (V4, historical)](GETTING_STARTED.md)
 
-**30-second pitch:** Codex Factory works with the user's current Codex runtime, adds role-bound skills and source-bound knowledge, decomposes complex projects into task graphs, lets the Codex main Agent dispatch native subagents, and independently verifies results. **Multi-agent and GLM search are optional. No artifact = no PASS. Your knowledge stays local.**
+**30-second pitch:** Codex Factory is a local control plane for developers who use Codex or Codex-compatible runtimes to build non-trivial software projects. It adds structured planning, role-bound skills, source-bound memory, optional native multi-agent execution, optional GLM search, and a verification layer that treats real files, command exit codes, hashes, and receipts as evidence. **No artifact = no PASS. Your project knowledge stays local.**
 
 ## V5 自动控制平面 (Preview)
 
@@ -46,16 +46,18 @@ factoryctl doctor --project C:\Projects\my-app --json
 
 ## What is Codex Factory?
 
-Codex Factory is an **open engineering reliability framework** for AI coding agents (Codex / Claude Code / Cursor / Copilot). It solves the trust gap between "AI wrote it" and "we can ship it."
+Codex Factory is an **open engineering reliability framework** for AI coding agents. It does not try to replace your coding agent or invent another model. Instead, it gives AI-assisted development the structure that real engineering work needs: clear task boundaries, specialist roles, trusted context, evidence capture, and independent verification.
 
-AI coding agents are powerful but unreliable. They:
+Modern AI coding agents are powerful, but complex projects still expose predictable failure modes:
 - Generate code that looks right but has subtle bugs
 - Claim "done" with no evidence
 - Skip error states, loading states, and edge cases
 - Mix security concerns with UI concerns
 - Produce artifacts you cannot reproduce or verify
 
-Codex Factory addresses this with a **structured verification pipeline** — not by replacing the agent, but by giving it the guardrails, evidence requirements, and reproducibility checks that professional software engineering demands.
+Codex Factory addresses this with a **local control plane and verification pipeline** — not by replacing the agent, but by surrounding it with the guardrails, evidence requirements, and reproducibility checks that professional software engineering demands.
+
+A complex request can be decomposed into a task graph, routed to specialist profiles, executed through Codex native subagents when enabled, enriched with source-bound memory, and closed only after independent checks produce reproducible evidence.
 
 ### Core Problem → Solution Map
 
@@ -239,13 +241,13 @@ This project is an **engineering reliability framework**, not a commercial produ
 
 ## 中文简介
 
-Codex Factory 是一个面向 AI 编程助手（Codex / Claude Code / Cursor / Copilot）的**工程可靠性框架**。
+Codex Factory 是一个面向 AI 编程助手的**本地工程可靠性框架**。
 
 它的核心不是"生成代码"，而是解决一个关键问题：
 **AI 说"做完了"——你怎么知道它真的做对了？**
 
-通过快照验证、CI 制品溯源、跨机器哈希对比、证据链审计等机制，
-Codex Factory 让 AI 编码从"黑盒生成"变成"可验证、可追溯、可信任"的工程实践。
+通过任务图拆分、角色化 Agent、来源绑定记忆、可选外部搜索、上下文证据账本、独立验收和 CI 制品溯源等机制，
+Codex Factory 让 AI 编码从"一段长对话里的黑盒生成"变成"可拆分、可追踪、可复验"的工程流程。
 
 V3.4.2 曾在记录的 commit `6127376`、run `29584799436` 上取得严格远程验证结果；这是历史证据，不等于当前 HEAD、V4 ZIP 或 V5 已自动通过。当前版本请使用 `packages/factory-cli`，并以当前提交的本地命令和 Node 24 Windows/Ubuntu CI 结果为准。
 
