@@ -1,7 +1,7 @@
 ﻿# Codex Factory — Engineering Reliability Framework for AI Coding Agents
 
-> **Make Codex trustworthy for real software engineering.**
-> Not "generate code from scratch" — but "generate code you can verify, trace, and trust."
+> **An engineering reliability layer for AI coding agents.**
+> Turn AI-assisted development from a long, fragile chat into a controlled workflow with task routing, trusted context, native subagents, and independent verification.
 
 [V5 自动控制平面](#v5-自动控制平面-preview) · [当前发布状态](#current-release-and-evidence-status) · [快速开始](#v5-quick-start) · [历史验证记录](#historical-verified-results-v342-commit-scoped) · [Architecture](#architecture) · [Limitations](#limitations--non-claims)
 
