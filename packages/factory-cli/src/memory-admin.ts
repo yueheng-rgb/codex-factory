@@ -3,8 +3,8 @@ import {
   lstatSync,
   readFileSync,
   readdirSync,
-  realpathSync,
   statSync,
+  type Stats,
 } from "node:fs";
 import { dirname, extname, isAbsolute, join, relative, resolve } from "node:path";
 import { DatabaseSync } from "node:sqlite";
@@ -438,9 +438,31 @@ function pathInsideRoot(root: string, candidate: string): boolean {
   return rel === "" || (rel !== ".." && !rel.startsWith("..\\") && !rel.startsWith("../") && !isAbsolute(rel));
 }
 
-function normalizedPath(path: string): string {
-  const value = resolve(path);
-  return process.platform === "win32" ? value.toLowerCase() : value;
+function sameFilesystemEntry(
+  left: Stats,
+  right: Stats,
+): boolean {
+  return left.dev === right.dev && left.ino === right.ino;
+}
+
+function isSymlinkOrJunction(path: string, entry: Stats): boolean {
+  if (entry.isSymbolicLink()) return true;
+  if (process.platform !== "win32" || !entry.isDirectory()) return false;
+  const followed = statSync(path);
+  return followed.isDirectory() && !sameFilesystemEntry(entry, followed);
+}
+
+function assertNoSymlinkOrJunctionAncestor(path: string): void {
+  let current = resolve(path);
+  while (true) {
+    const entry = lstatSync(current);
+    if (isSymlinkOrJunction(current, entry)) {
+      throw new Error("External export parent resolves through a symlink or junction");
+    }
+    const parent = dirname(current);
+    if (parent === current) return;
+    current = parent;
+  }
 }
 
 export function resolveMemoryExportPath(projectRoot: string, requestedPath: string): string {
@@ -475,10 +497,7 @@ export function resolveMemoryExportPath(projectRoot: string, requestedPath: stri
   if (!parentEntry.isDirectory() || parentEntry.isSymbolicLink()) {
     throw new Error("External export parent must be a real directory, not a symlink or junction");
   }
-  const realParent = realpathSync.native(parent);
-  if (normalizedPath(realParent) !== normalizedPath(parent)) {
-    throw new Error("External export parent resolves through a symlink or junction");
-  }
+  assertNoSymlinkOrJunctionAncestor(parent);
   return candidate;
 }
 

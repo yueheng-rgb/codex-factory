@@ -7,6 +7,7 @@ import {
   mkdirSync,
   readFileSync,
   rmSync,
+  symlinkSync,
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
@@ -42,6 +43,15 @@ function createProject(): string {
   initializeConfig(root, { externalContext: true });
   initializeContextSpace(root);
   return root;
+}
+
+function windowsProgramFilesShortPath(): string | null {
+  if (process.platform !== "win32" || !process.env.ProgramFiles) return null;
+  const shortPath = join(dirname(process.env.ProgramFiles), "PROGRA~1");
+  return existsSync(shortPath) &&
+    shortPath.toLowerCase() !== process.env.ProgramFiles.toLowerCase()
+    ? shortPath
+    : null;
 }
 
 function populateMemory(root: string, secret: string): void {
@@ -171,6 +181,39 @@ test("memory export is sanitized, atomic, project-safe, and never overwrites", (
   );
   const explicitExternalPath = join(externalDirectory, "memory-audit.json");
   assert.equal(resolveMemoryExportPath(root, explicitExternalPath), explicitExternalPath);
+});
+
+test("memory export accepts Windows short-path aliases for real external parents", (context) => {
+  if (process.platform !== "win32") return;
+  const root = createProject();
+  context.after(() => rmSync(root, { recursive: true, force: true }));
+  const shortParent = windowsProgramFilesShortPath();
+  assert.ok(shortParent, "ProgramFiles should expose a Windows short-path alias");
+  const requestedPath = join(
+    shortParent,
+    `codex-memory-export-alias-${process.pid}-${Date.now()}.json`,
+  );
+
+  assert.equal(resolveMemoryExportPath(root, requestedPath), requestedPath);
+});
+
+test("memory export rejects an external parent that resolves through a Windows junction", (context) => {
+  if (process.platform !== "win32") return;
+  const root = createProject();
+  const junctionHost = mkdtempSync(join(tmpdir(), "codex-factory-memory-junction-host-"));
+  const outside = mkdtempSync(join(tmpdir(), "codex-factory-memory-junction-outside-"));
+  context.after(() => rmSync(root, { recursive: true, force: true }));
+  context.after(() => rmSync(junctionHost, { recursive: true, force: true }));
+  context.after(() => rmSync(outside, { recursive: true, force: true }));
+  const junction = join(junctionHost, "outside-link");
+  symlinkSync(outside, junction, "junction");
+  const nestedParent = join(junction, "nested");
+  mkdirSync(nestedParent);
+
+  assert.throws(
+    () => resolveMemoryExportPath(root, join(nestedParent, "memory-audit.json")),
+    /symlink|junction/i,
+  );
 });
 
 test("cleanup-plan reports candidates and bytes without deleting or rewriting memory", (context) => {
