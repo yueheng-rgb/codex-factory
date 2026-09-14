@@ -252,3 +252,38 @@ Codex_App_Factory 已完成两个不同类型测试项目的 runtime validation�
 | pagination.ts: silent normalization of bad params | Starter | Added parsePaginationStrict with INVALID_PAGINATION |
 | api-response.ts: missing DUPLICATE_CHECKIN in statusFromCode | Starter | Added DUPLICATE_CHECKIN + INVALID_PAGINATION |
 | Copy script: Set-Content -Encoding UTF8 writes BOM | Script | All writes → [System.IO.File]::WriteAllBytes with UTF8Encoding($false) |
+
+
+---
+
+## Case 5: story-mystery-engine — Story-to-Murder-Mystery Compiler Vertical Slice
+
+**Date**: 2026-08-02
+**Type**: saas-tool / ai-generation-engine (L first slice, XL vision)
+**Project path**: `<user-documents>\Codex\2026-08-01\files-mentioned-by-the-user-codex`
+
+### Validation Flow
+
+| Step | Result | Notes |
+|---|:--:|---|
+| npm install | ✅ | 94 packages installed |
+| npm run typecheck | ✅ | Passed after pinning TypeScript to 5.9 series |
+| npm test | ✅ | 3 Vitest tests, including leakage and deduction negative cases |
+| npm run demo | ✅ | Generated HTML, JSON, and ZIP Game Kit |
+| npm run build | ✅ | Next.js production build passed |
+| npm run dev | ✅ | Started at `http://localhost:3000` |
+| Runtime HTTP check | ✅ | Home returned 200; `/api/runs` returned validationPassed=true, 11 clues, 6 roles |
+
+### Defects Found & Fixed
+
+| Defect | Category | Fix |
+|---|---|---|
+| TypeScript `latest` installed 7.0.2 preview and broke JSX typings | Dependency/environment | Pin TypeScript to `^5.9.2` |
+| Vitest could not resolve Next path alias `@/*` | Generated project issue | Added Vitest alias to `./src` |
+| Next inferred wrong workspace root because user-level lockfile exists | Environment/workspace | Added `turbopack.root` to `next.config.mjs` |
+
+### Generated Artifact
+
+- `outputs\RUN-20260801161528\game-kit.html`
+- `outputs\RUN-20260801161528\game-kit.json`
+- `outputs\RUN-20260801161528\game-kit.zip`

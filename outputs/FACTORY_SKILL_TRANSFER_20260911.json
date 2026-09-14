@@ -1,0 +1,144 @@
+{
+  "date": "2026-09-11T10:30:28.151Z",
+  "mode": "ONE_NATIVE_SKILL_TRANSFER_TRIAL",
+  "root": "<temp>\\factory-bom-transfer-C3mP44",
+  "run_id": "transfer",
+  "status": "FAILED",
+  "lesson_id": "lesson-42415021f480e8ba4e1cf25f",
+  "skill_path": "<temp>\\factory-bom-transfer-C3mP44\\.agents\\skills\\factory-learned-local-json-bom-boundary\\SKILL.md",
+  "artifact": "<temp>\\factory-bom-transfer-C3mP44\\solution.cjs",
+  "artifact_sha256": "deababfd269e807af55e5e9ecb392a10fcc6d1dcd3fcfbab3b88d7539634ac55",
+  "source": {
+    "repository": "C:/Codex_App_Factory",
+    "path": "packages/factory-cli/src/util.ts",
+    "repository_head": "8c134b4af72ab0323d227d8fff9f9f89fbe8c7d6",
+    "before_sha256": "e44426e0896c5d267a8fd770fc7ee491f837a81c1c16b705258f4ae74c769bba",
+    "after_sha256": "627c7d561d01ccd54fa8808c6f0071f324b96eec3b2c21b02b5d53d8b54576dd",
+    "snapshot_path": "teaching-source.ts",
+    "source_id": "source-5116cfd721e74bc43551f6f2"
+  },
+  "check_sha256": "0d69af5b0e5bdb7ba5c4b807ab5be9e0687c5e41d43fe050a3943fe9bb217612",
+  "frozen_inputs_unchanged": true,
+  "main_source_unchanged": true,
+  "receipt_path": "<temp>\\factory-bom-transfer-C3mP44\\.codex-factory\\runs\\transfer\\verification\\worker\\receipt.json",
+  "receipt_hash": "7a2bb0a22cb46760c09f912ab89d3fabbd947a99de75f53b2ec5f510af98685e",
+  "acceptance_checks": [
+    {
+      "method": "command:node check.cjs",
+      "status": "PASS",
+      "detail": "Command output stored under .codex-factory/runs/transfer/verification/worker",
+      "exit_code": 0,
+      "stdout_sha256": "6003eebc40ca42cb62c967f90fcb722d5295fa2e410f79f983cd5033824a99b7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_ms": 75
+    }
+  ],
+  "failure_reasons": [
+    "Worker reported at least one failing command"
+  ],
+  "host": [
+    {
+      "role": "worker",
+      "native_agent_id": "01a08f10-180a-7c21-a07f-11baff933e9b",
+      "nickname": "Boyle",
+      "commands": [
+        {
+          "command": "Get-Content -Raw .codex-factory/runs/transfer/task-capsules/assignment-a3f5beb6-40de-4e51-a74b-6c6980a06277.json, .agents/skills/factory-learned-local-json-bom-boundary/SKILL.md, .agents/skills/backend-api-design/SKILL.md, solution.cjs, check.cjs",
+          "exit_code": 0
+        },
+        {
+          "command": "node -e 'const fs=require(\"node:fs\"),c=require(\"node:crypto\"),a=require(\"node:assert/strict\"); const p=JSON.parse(fs.readFileSync(\".codex-factory/runs/transfer/task-capsules/assignment-a3f5beb6-40de-4e51-a74b-6c6980a06277.json\",\"utf8\")); const expected=p.capsule_hash; delete p.capsule_hash; const hash=s=>c.createHash(\"sha256\").update(s).digest(\"hex\"); a.equal(hash(JSON.stringify(p)),expected); a.equal(p.run_id,\"transfer\"); a.equal(p.assignment_id,\"assignment-a3f5beb6-40de-4e51-a74b-6c6980a06277\"); a.equal(p.target_role,\"implementation\"); a.deepEqual(p.task.write_scope,[\"solution.cjs\"]); a.equal(hash(fs.readFileSync(\".agents/skills/factory-learned-local-json-bom-boundary/SKILL.md\")),\"edd0924e34f686e99e5ff27ae83e6f351555a5a3b824cf16d862b40e5a2950db\"); console.log(\"Verified task capsule hash, assignment, role, write scope, and learned Skill SHA256; this artifact is a task capsule, not a Context Packet.\");'",
+          "exit_code": 1
+        },
+        {
+          "command": "node -e 'const fs=require(\"node:fs\"),c=require(\"node:crypto\"),a=require(\"node:assert/strict\"); const p=JSON.parse(fs.readFileSync(\".codex-factory/runs/transfer/task-capsules/assignment-a3f5beb6-40de-4e51-a74b-6c6980a06277.json\",\"utf8\")); const expected=p.capsule_hash; delete p.capsule_hash; const hash=s=>c.createHash(\"sha256\").update(s).digest(\"hex\"); const sort=v=>Array.isArray(v)?v.map(sort):v&&typeof v===\"object\"?Object.fromEntries(Object.keys(v).sort().map(k=>[k,sort(v[k])])):v; a.equal(hash(JSON.stringify(sort(p))),expected); a.equal(p.run_id,\"transfer\"); a.equal(p.assignment_id,\"assignment-a3f5beb6-40de-4e51-a74b-6c6980a06277\"); a.equal(p.target_role,\"implementation\"); a.deepEqual(p.task.write_scope,[\"solution.cjs\"]); a.equal(hash(fs.readFileSync(\".agents/skills/factory-learned-local-json-bom-boundary/SKILL.md\")),\"edd0924e34f686e99e5ff27ae83e6f351555a5a3b824cf16d862b40e5a2950db\"); console.log(\"Verified sorted-key capsule hash, assignment, role, write scope, and learned Skill SHA256. Artifact is a task capsule, not a Context Packet.\");'",
+          "exit_code": 0
+        },
+        {
+          "command": "node check.cjs",
+          "exit_code": 0
+        },
+        {
+          "command": "Get-FileHash -Algorithm SHA256 solution.cjs",
+          "exit_code": 0
+        }
+      ],
+      "proposed_verdict": "PASS",
+      "self_reported_caveats": [
+        "All shell commands ran in the authorized trial root. Only solution.cjs was edited, using apply_patch; no agents, network, installs, report files, or Factory runtime changes were made.",
+        "The initial capsule hash assertion failed using insertion-order JSON serialization. Recursive sorted-key serialization matched the stored hash; assignment, role, write scope, and learned Skill SHA256 verification then succeeded.",
+        "The physical artifact is a task capsule, not a Context Packet, so conditional factoryctl context packet-verify did not apply. Evidence paths: .codex-factory/runs/transfer/task-capsules/assignment-a3f5beb6-40de-4e51-a74b-6c6980a06277.json, .agents/skills/factory-learned-local-json-bom-boundary/SKILL.md, .agents/skills/backend-api-design/SKILL.md, check.cjs, solution.cjs. Command evidence remains in tool outputs.",
+        "Learned Skill Method 1 affected implementation: remove exactly one leading decoded U+FEFF only for local UTF-8 files, preserve embedded characters, and hash original bytes without rewriting files. Its strict-message exclusion applied to parseStrictMessage; misplaced markers and other encodings receive no compatibility handling. This is self-report, not causal evidence.",
+        "The backend-api-design Skill informed input validation at the message boundary; endpoint, authorization, and pagination guidance was outside this assignment.",
+        "The teaching correction was assistant-authored and user-designated, not user-authored. The reported host interruption is a caveat, not a fabricated failed command."
+      ],
+      "spawn_path": "<temp>\\factory-bom-transfer-C3mP44\\.codex-factory\\host-observations\\worker-spawn.json",
+      "completed_path": "<temp>\\factory-bom-transfer-C3mP44\\.codex-factory\\host-observations\\worker-completed.json"
+    },
+    {
+      "role": "verifier",
+      "native_agent_id": "01a09001-66f1-7b01-bcde-fb53c8ba4899",
+      "nickname": "Dewey",
+      "commands": [
+        {
+          "command": "Get-Content -LiteralPath '.codex-factory/runs/transfer/task-capsules/assignment-17f931e2-541d-49b1-829b-d93b9c70bacc.json'; Get-ChildItem -LiteralPath '.codex-factory/runs/transfer' -Recurse -File | Select-Object -ExpandProperty FullName; Get-ChildItem -Force | Select-Object Name,Mode",
+          "exit_code": 0
+        },
+        {
+          "command": "Get-Content -LiteralPath 'AGENTS.md','.codex-factory/runs/transfer/task-graph.json','.codex-factory/runs/transfer/handoffs/assignment-a3f5beb6-40de-4e51-a74b-6c6980a06277.json','solution.cjs','check.cjs'",
+          "exit_code": 0
+        },
+        {
+          "command": "rg --files --hidden .agents .codex",
+          "exit_code": 0
+        },
+        {
+          "command": "Get-Content -LiteralPath '.agents/skills/factory-learned-local-json-bom-boundary/SKILL.md','.codex-factory/runs/transfer/baselines/assignment-17f931e2-541d-49b1-829b-d93b9c70bacc.json'",
+          "exit_code": 0
+        },
+        {
+          "command": "Get-FileHash -Algorithm SHA256 -LiteralPath 'solution.cjs','check.cjs','.agents/skills/factory-learned-local-json-bom-boundary/SKILL.md','fixtures/plain.json','fixtures/bom.json','fixtures/double.json','fixtures/misplaced.json','fixtures/broken.json','fixtures/utf16.json' | Format-List Path,Hash",
+          "exit_code": 0
+        },
+        {
+          "command": "node check.cjs",
+          "exit_code": 0
+        },
+        {
+          "command": "Format-Hex -LiteralPath 'fixtures/plain.json','fixtures/bom.json','fixtures/double.json','fixtures/misplaced.json','fixtures/broken.json','fixtures/utf16.json'",
+          "exit_code": 0
+        }
+      ],
+      "proposed_verdict": "PASS",
+      "self_reported_caveats": [
+        "All commands ran in the assigned trial root. No edits, report files, child agents, installs, network operations or repair runs were performed.",
+        "The artifact is a task capsule, not a Context Packet. Assignment, run, role and scope match; no packet-verify command or alternative capsule hash serialization was used. Recorded integrity validation remains with the Factory controller.",
+        "Physical solution.cjs SHA256 is deababfd269e807af55e5e9ecb392a10fcc6d1dcd3fcfbab3b88d7539634ac55, matching the recorded artifact and verifier baseline. The learned Skill SHA256 is edd0924e34f686e99e5ff27ae83e6f351555a5a3b824cf16d862b40e5a2950db, matching the task graph. check.cjs and all six fixture hashes match the verifier baseline.",
+        "Historical Worker evidence reports an insertion-order capsule hash assertion exiting 1, followed by a sorted-key attempt exiting 0. Neither was executed or adopted by this verifier. The Worker also reported a host interruption; it is not an independently observed command failure.",
+        "Behavior agrees with the learned Skill, but causal Skill efficacy is unproven because the task contract independently specifies the same behavior.",
+        "The Worker handoff remains RECORDED_UNVERIFIED; this proposal derives from physical review and the independent acceptance run. The controller records final acceptance through Factory."
+      ],
+      "spawn_path": "<temp>\\factory-bom-transfer-C3mP44\\.codex-factory\\host-observations\\verifier-spawn.json",
+      "completed_path": "<temp>\\factory-bom-transfer-C3mP44\\.codex-factory\\host-observations\\verifier-completed.json"
+    }
+  ],
+  "metrics": {
+    "cases": 1,
+    "native_agents": 2,
+    "control_cases": 0,
+    "repeated_trials": 0,
+    "worker_host_resumes": 1,
+    "tokens": null,
+    "cost": null
+  },
+  "controller_note": "The Worker was interrupted after a parent continuation and resumed with the same ID. The first wait after resumption timed out; actual completion was subsequently retrieved from the host and then captured by wait_agent. No replacement Worker was spawned.",
+  "limitations": [
+    "One designed transfer task inspired by a real fix, not production workload or a causal comparison.",
+    "The task contract also names the required behavior; passing cannot isolate the Skill contribution.",
+    "Skill synthesized by the controller from an assistant-authored, user-designated correction. No model training.",
+    "Agent statements about Skill use are self-reports; required behavior also appears in the task.",
+    "Factory also selected backend-api-design guidance for the task; this is not a learned-Skill-only intervention.",
+    "One successful transfer exercise cannot establish a causal improvement, success rate, saved tokens or monetary benefit.",
+    "Publication was authorized for this isolated trial only; the user did not review every candidate line."
+  ]
+}

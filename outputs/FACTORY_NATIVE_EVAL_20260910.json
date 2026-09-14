@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "generated_at": "2026-09-10T05:24:39.903Z",
+  "mode": "NATIVE_HOST_EVAL",
+  "cases": [
+    {
+      "case_id": "normalize",
+      "kind": "natural",
+      "root": "<temp>\\factory-live-eval-hiPvQq\\normalize",
+      "runs": [
+        {
+          "run_id": "initial",
+          "status": "PASSED",
+          "agents": [
+            {
+              "native_agent_id": "01a084cf-8855-7870-b43d-a3dad3cc03e9",
+              "observation_complete": true,
+              "wall_elapsed_ms": 201509,
+              "timing_basis": "host_completed_at",
+              "host_reported_turn_duration_ms": 201521,
+              "interrupted_turns": 0,
+              "interruption_categories": []
+            },
+            {
+              "native_agent_id": "01a0861a-5b66-7333-96fe-af760bf0f40e",
+              "observation_complete": true,
+              "wall_elapsed_ms": 327257,
+              "timing_basis": "controller_wait_returned_at",
+              "host_reported_turn_duration_ms": null,
+              "interrupted_turns": 0,
+              "interruption_categories": []
+            }
+          ],
+          "repair_index": 0,
+          "failure_reasons": [],
+          "acceptance_duration_ms": 69,
+          "evidence_snapshot_sha256": "3c5ee04719e40a2cfcf02969a4da768fb51750cd54aaad86b48fc6dda1394af2"
+        }
+      ],
+      "original_evidence_preserved": true,
+      "outcome": "PASSED"
+    },
+    {
+      "case_id": "lower-bound",
+      "kind": "seeded_repair",
+      "root": "<temp>\\factory-live-eval-hiPvQq\\lower-bound",
+      "runs": [
+        {
+          "run_id": "initial",
+          "status": "FAILED",
+          "agents": [
+            {
+              "native_agent_id": "01a084cf-e0a2-7ff2-ae0e-2c440eebaf77",
+              "observation_complete": true,
+              "wall_elapsed_ms": 21750628,
+              "timing_basis": "controller_wait_returned_at",
+              "host_reported_turn_duration_ms": null,
+              "interrupted_turns": 1,
+              "interruption_categories": [
+                "HOST_USAGE_LIMIT"
+              ]
+            },
+            {
+              "native_agent_id": "01a0861c-1924-75b1-b2fd-c8f7f1b66534",
+              "observation_complete": true,
+              "wall_elapsed_ms": 215397,
+              "timing_basis": "controller_wait_returned_at",
+              "host_reported_turn_duration_ms": null,
+              "interrupted_turns": 0,
+              "interruption_categories": []
+            }
+          ],
+          "repair_index": 0,
+          "failure_reasons": [
+            "Worker reported at least one failing command",
+            "Independent verifier reported at least one failing command",
+            "One or more independently executed acceptance checks failed",
+            "Independent native verifier did not propose PASS"
+          ],
+          "acceptance_duration_ms": 66,
+          "evidence_snapshot_sha256": "8c3dec2d69a5041d8583ffaedfdd75e63c8ecab8d267345fe043ecb0fb8a9116"
+        },
+        {
+          "run_id": "repair-r1-0bbf10d937694487f857385168ef759d",
+          "status": "FAILED",
+          "agents": [
+            {
+              "native_agent_id": "01a08620-2972-7de1-ae38-c3f6f69350a5",
+              "observation_complete": true,
+              "wall_elapsed_ms": 350704,
+              "timing_basis": "controller_wait_returned_at",
+              "host_reported_turn_duration_ms": null,
+              "interrupted_turns": 0,
+              "interruption_categories": []
+            },
+            {
+              "native_agent_id": "01a08625-dd7f-7ed3-bd50-fba3ee434dd9",
+              "observation_complete": true,
+              "wall_elapsed_ms": 60217968,
+              "timing_basis": "controller_wait_returned_at",
+              "host_reported_turn_duration_ms": null,
+              "interrupted_turns": 1,
+              "interruption_categories": [
+                "HOST_USAGE_LIMIT"
+              ]
+            }
+          ],
+          "repair_index": 1,
+          "failure_reasons": [
+            "Worker reported at least one failing command",
+            "Independent verifier reported at least one failing command"
+          ],
+          "acceptance_duration_ms": 101,
+          "evidence_snapshot_sha256": "233cfcdb3c7f3518d35ca66f4acbcd2d4bac5de93b315fb2579c33e6c3ec998f"
+        },
+        {
+          "run_id": "repair-r1-4127bfd42c28a6d97bdaa63194d73b16",
+          "status": "PASSED",
+          "agents": [
+            {
+              "native_agent_id": "01a089bd-6a1e-7611-861e-6a2f6f03f6ab",
+              "observation_complete": true,
+              "wall_elapsed_ms": 191806,
+              "timing_basis": "controller_wait_returned_at",
+              "host_reported_turn_duration_ms": null,
+              "interrupted_turns": 0,
+              "interruption_categories": []
+            },
+            {
+              "native_agent_id": "01a089c0-d61f-7bb2-b809-ca72f11a7ee5",
+              "observation_complete": true,
+              "wall_elapsed_ms": 352696,
+              "timing_basis": "controller_wait_returned_at",
+              "host_reported_turn_duration_ms": null,
+              "interrupted_turns": 0,
+              "interruption_categories": []
+            }
+          ],
+          "repair_index": 2,
+          "failure_reasons": [],
+          "acceptance_duration_ms": 80,
+          "evidence_snapshot_sha256": "55e5f35ac03ffb6e09f0d6f1181876b11587a6ff72144c9d9eb36e2256497ec6"
+        }
+      ],
+      "original_evidence_preserved": true,
+      "outcome": "PASSED"
+    }
+  ],
+  "metrics": {
+    "natural_cases": 1,
+    "natural_first_attempt_pass": 1,
+    "seeded_cases": 1,
+    "final_pass": 2,
+    "native_agent_executions": 8,
+    "host_interrupted_turns": 2,
+    "tokens": null,
+    "cost": null,
+    "model": "inherited; exact host model not reported"
+  },
+  "limitations": [
+    "Two public synthetic cases, not a model benchmark or production success estimate.",
+    "Seeded initial failure is deliberate and excluded from natural first-attempt metrics.",
+    "The controller records actual tool responses; JSON files are not cryptographic host attestations.",
+    "Token usage and monetary cost are unavailable, not zero. Host wall time includes controller waiting/polling, not pure model inference time."
+  ]
+}
