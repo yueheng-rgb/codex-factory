@@ -48,6 +48,25 @@ function cli(root: string, args: string[]) {
 afterEach(() => { for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true }); });
 
 describe("diff teaching", () => {
+  it("accepts the repository root with either Windows drive-letter case", { skip: process.platform !== "win32" }, () => {
+    const root = project();
+    assert.match(root, /^[A-Za-z]:/);
+    const upper = root[0].toUpperCase() + root.slice(1);
+    const lower = root[0].toLowerCase() + root.slice(1);
+    const first = capture(upper);
+    const second = capture(lower);
+    assert.equal(first.status, "CAPTURED");
+    assert.equal(second.source_id, first.source_id);
+  });
+
+  it("rejects a project directory below the Git repository root", () => {
+    const root = project();
+    const child = join(root, "src");
+    initializeConfig(child, { multiAgent: false, externalContext: false });
+    assert.throws(() => capture(child, "retry.mjs"), /Teaching project must be the Git repository root/);
+    assert.equal(existsSync(join(child, ".codex-factory/teaching")), false);
+  });
+
   it("discovers an empty catalog without creating teaching state and validates pagination", () => {
     const root = project();
     const beforeSnapshot = runFileSnapshot(root, root);

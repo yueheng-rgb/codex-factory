@@ -119,7 +119,8 @@ export function captureTeachingSource(root: string, input: { path: string; base?
   const info = lstatSync(source.absolute);
   if (!info.isFile() || info.isSymbolicLink() || info.size > MAX_SOURCE_BYTES) throw new Error("Select one regular text file no larger than 32 KiB");
   const top = git(root, ["rev-parse", "--show-toplevel"]).toString("utf8").trim();
-  if (realpathSync(top) !== realpathSync(root)) throw new Error("Teaching project must be the Git repository root");
+  // Native resolution canonicalizes Windows drive letters as well as junctions.
+  if (realpathSync.native(top) !== realpathSync.native(root)) throw new Error("Teaching project must be the Git repository root");
   const base = git(root, ["rev-parse", "--verify", "--end-of-options", (input.base ?? "HEAD") + "^{commit}"]).toString("utf8").trim();
   if (!/^[a-f0-9]{40,64}$/.test(base)) throw new Error("Invalid resolved Git commit");
   const mode = git(root, ["ls-tree", "--format=%(objectmode)", base, "--", ":(literal)" + source.path]).toString("utf8").trim();
