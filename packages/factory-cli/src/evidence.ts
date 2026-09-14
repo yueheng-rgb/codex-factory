@@ -8,6 +8,7 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { factoryDirectory, loadConfig, loadSecrets } from "./config.js";
+import { COMMAND_OUTCOME_POLICY, reportedCommandOutcomes, type CommandOutcome } from "./command-outcome.js";
 import { appendContextEvent, appendTrustedContextEvent } from "./context-space.js";
 import {
   readAgentRegistry,
@@ -87,6 +88,8 @@ export interface VerificationReceipt {
   verifier_handoff_hash: string;
   artifact_checks: AcceptanceCheck[];
   acceptance_checks: AcceptanceCheck[];
+  command_policy?: typeof COMMAND_OUTCOME_POLICY;
+  command_outcomes?: { worker: CommandOutcome[]; verifier: CommandOutcome[] };
   independent_verifier_proposal: "PASS" | "FAIL" | "BLOCKED";
   verdict: "PASS" | "FAIL";
   failure_reasons: string[];
@@ -518,10 +521,14 @@ function verifyTaskCompletionUnlocked(
     executeAcceptanceMethod(root, runId, taskId, index, method),
   );
   const failureReasons: string[] = [];
-  if (workerHandoff.report.commands.some((command) => command.exit_code !== 0)) {
+  const commandOutcomes = {
+    worker: reportedCommandOutcomes(workerHandoff.report.commands, task.acceptance_methods, COMMAND_OUTCOME_POLICY),
+    verifier: reportedCommandOutcomes(verifierHandoff.report.commands, task.acceptance_methods, COMMAND_OUTCOME_POLICY),
+  };
+  if (commandOutcomes.worker.includes("FAILURE")) {
     failureReasons.push("Worker reported at least one failing command");
   }
-  if (verifierHandoff.report.commands.some((command) => command.exit_code !== 0)) {
+  if (commandOutcomes.verifier.includes("FAILURE")) {
     failureReasons.push("Independent verifier reported at least one failing command");
   }
   if (artifactChecks.some((check) => check.status !== "PASS")) {
@@ -546,6 +553,8 @@ function verifyTaskCompletionUnlocked(
     verifier_handoff_hash: verifierHandoff.handoff_hash,
     artifact_checks: artifactChecks,
     acceptance_checks: acceptanceChecks,
+    command_policy: COMMAND_OUTCOME_POLICY,
+    command_outcomes: commandOutcomes,
     independent_verifier_proposal: verifierProposal,
     verdict: (failureReasons.length === 0 ? "PASS" : "FAIL") as "PASS" | "FAIL",
     failure_reasons: failureReasons,

@@ -41,6 +41,9 @@ jobs:
       - name: Type-check
         run: npm run typecheck
 
+      - name: Type-check evaluation scripts (no live model calls)
+        run: npm run eval:typecheck
+
       - name: Test
         run: npm test
 

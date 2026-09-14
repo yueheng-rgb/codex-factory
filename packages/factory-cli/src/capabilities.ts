@@ -50,13 +50,14 @@ function inferredCapabilities(task: FactoryTask, profile: AgentProfile): AgentCa
   if (profile.profile_id === "factory_tester" || profile.profile_id === "factory_verifier") {
     inferred.push("testing");
   }
-  if (/(front[ -]?end|react|vue|ui|页面|界面)/i.test(text)) inferred.push("frontend");
-  if (/(back[ -]?end|api|server|后端|接口)/i.test(text)) inferred.push("backend");
-  if (/(database|schema|sql|postgres|数据库|表结构)/i.test(text)) inferred.push("database");
-  if (/(auth|permission|security|login|权限|鉴权|登录|安全)/i.test(text)) {
+  // Match English terms, not substrings such as "ui" in "require" or "api" in "rapid".
+  if (/\b(?:front[ -]?end|react(?:js)?|vue(?:js|[23])?|ui)\b|页面|界面/i.test(text)) inferred.push("frontend");
+  if (/\b(?:back[ -]?end|apis?|server(?:s|less)?)\b|后端|接口/i.test(text)) inferred.push("backend");
+  if (/\b(?:databases?|schemas?|sql|postgres(?:ql)?|mysql|sqlite|sqlalchemy)\b|数据库|表结构/i.test(text)) inferred.push("database");
+  if (/\b(?:auth(?:entication|orization)?|permissions?|security|login)\b|权限|鉴权|登录|安全/i.test(text)) {
     inferred.push("auth-security");
   }
-  if (/(mobile|miniapp|wechat|小程序|移动端|安卓|ios)/i.test(text)) inferred.push("mobile");
+  if (/\b(?:mobile|miniapp|wechat|ios)\b|小程序|移动端|安卓/i.test(text)) inferred.push("mobile");
   return inferred;
 }
 

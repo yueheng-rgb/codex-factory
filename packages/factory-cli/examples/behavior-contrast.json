@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "request": "Remove duplicate customer records by ID.",
+  "question": "When two records have the same ID, which record should survive?",
+  "why_it_matters": "Keeping the first protects the original value; keeping the last applies the last supplied correction. Neither policy can infer real-world freshness without a timestamp.",
+  "task": {
+    "task_id": "deduplicate-records",
+    "title": "Implement deduplicateById with a confirmed duplicate policy",
+    "description": "Create src/deduplicate.mjs exporting deduplicateById(records). Inputs are arrays of objects with string IDs. Return a new array without mutating inputs. Preserve first-appearance ID order. Add test/deduplicate.test.mjs using node:test, covering empty input, unique IDs and the confirmed examples. The duplicate survivor policy is deliberately unresolved until clarification.",
+    "role": "implementation",
+    "status": "pending",
+    "dependencies": [],
+    "write_scope": ["src/deduplicate.mjs", "test/deduplicate.test.mjs"],
+    "acceptance_methods": ["command:node --test test/deduplicate.test.mjs"],
+    "required_artifacts": ["src/deduplicate.mjs", "test/deduplicate.test.mjs"]
+  },
+  "options": [
+    {
+      "id": "keep-first",
+      "label": "Keep the first supplied record",
+      "requirement": "For each ID, retain the complete first record and ignore later duplicates. Preserve first-appearance ID order.",
+      "examples": [
+        {
+          "input": "[{\"id\":\"u1\",\"name\":\"Old\"},{\"id\":\"u1\",\"name\":\"Corrected\"}]",
+          "expected_output": "[{\"id\":\"u1\",\"name\":\"Old\"}]"
+        },
+        {
+          "input": "[{\"id\":\"u1\",\"v\":1},{\"id\":\"u2\",\"v\":2},{\"id\":\"u1\",\"v\":3}]",
+          "expected_output": "[{\"id\":\"u1\",\"v\":1},{\"id\":\"u2\",\"v\":2}]"
+        }
+      ]
+    },
+    {
+      "id": "keep-last",
+      "label": "Keep the last supplied record",
+      "requirement": "For each ID, retain the complete last supplied record, without merging fields. Preserve first-appearance ID order, not last-appearance order.",
+      "examples": [
+        {
+          "input": "[{\"id\":\"u1\",\"name\":\"Old\"},{\"id\":\"u1\",\"name\":\"Corrected\"}]",
+          "expected_output": "[{\"id\":\"u1\",\"name\":\"Corrected\"}]"
+        },
+        {
+          "input": "[{\"id\":\"u1\",\"v\":1},{\"id\":\"u2\",\"v\":2},{\"id\":\"u1\",\"v\":3}]",
+          "expected_output": "[{\"id\":\"u1\",\"v\":3},{\"id\":\"u2\",\"v\":2}]"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "name": "preserve-explicit-zero",
+  "description": "Preserve an explicitly valid zero when defaulting JavaScript numeric options whose contract treats only null or undefined as missing.",
+  "applies_when": [
+    "A JavaScript numeric option explicitly accepts zero, and only null or undefined means the option was omitted."
+  ],
+  "do_not_apply_when": [
+    "The contract intentionally treats all falsy values as missing, or the value has not passed the required type validation.",
+    "The language has different defaulting semantics; do not perform a blind cross-language operator replacement."
+  ],
+  "rules": [
+    {
+      "instruction": "For this contract, default with nullish coalescing instead of logical OR so that a valid zero survives. Retain the task-specific fallback value and existing type validation.",
+      "before_excerpt": "options.retries || 3",
+      "after_excerpt": "options.retries ?? 3",
+      "rationale": "Logical OR replaces zero. Nullish coalescing only replaces null or undefined. The fallback 3 belongs to the demonstrated retry setting and is not a universal default."
+    }
+  ],
+  "example": {
+    "scenario": "A separate timeout option accepts timeoutMs=0 to disable the timeout and uses 1000 only when omitted.",
+    "expected_behavior": "After validating the numeric input, options.timeoutMs ?? 1000 preserves 0 and uses 1000 for undefined; keep its own fallback rather than copying the retry default."
+  },
+  "counterexample": {
+    "scenario": "A display label intentionally falls back when the input is an empty string.",
+    "expected_behavior": "Do not replace name || 'Anonymous' with nullish coalescing: the empty-string fallback is part of this different contract."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "ILLUSTRATIVE_ASSUMPTIONS_NOT_MEASURED",
+  "basis": "Analyst-chosen sensitivity inputs, not empirical estimates, priors, benchmark outcomes or architecture-derived frequencies. No central scenario is preferred.",
+  "comparison": "Same model, task distribution, independent acceptance, tools and maximum attempt/token budget. Baseline means direct Codex with normal engineering checks, not an unchecked self-report. Recovery must occur within the common budget; regression includes failures from overhead, interruptions or inappropriate guidance. External evaluator determines actual deliverability in both arms; Factory run status is not the shared outcome metric.",
+  "scenarios": [
+    {
+      "id": "low-applicability",
+      "baseline_success": 0.7,
+      "addressable_failure_share": 0.1,
+      "recovery_given_addressable": 0.25,
+      "regression_given_baseline_success": 0.03
+    },
+    {
+      "id": "moderate-coverage",
+      "baseline_success": 0.7,
+      "addressable_failure_share": 0.4,
+      "recovery_given_addressable": 0.5,
+      "regression_given_baseline_success": 0.03
+    },
+    {
+      "id": "high-coverage",
+      "baseline_success": 0.7,
+      "addressable_failure_share": 0.7,
+      "recovery_given_addressable": 0.65,
+      "regression_given_baseline_success": 0.03
+    },
+    {
+      "id": "high-regression",
+      "baseline_success": 0.7,
+      "addressable_failure_share": 0.4,
+      "recovery_given_addressable": 0.5,
+      "regression_given_baseline_success": 0.12
+    }
+  ]
+}

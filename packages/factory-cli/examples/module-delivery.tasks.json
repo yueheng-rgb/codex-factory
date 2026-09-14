@@ -1,0 +1,24 @@
+[
+  {
+    "task_id": "normalize-module",
+    "title": "Implement a whitespace normalizer with focused tests",
+    "description": "Create src/normalize.mjs exporting normalizeWhitespace(text) for string inputs. Trim leading and trailing whitespace and collapse each internal whitespace sequence to one ASCII space. Add Node built-in tests in test/normalize.test.mjs for empty input, whitespace-only input, tabs, newlines and unchanged text. Do not introduce dependencies or change unrelated files.",
+    "role": "implementation",
+    "status": "pending",
+    "dependencies": [],
+    "write_scope": ["src/normalize.mjs", "test/normalize.test.mjs"],
+    "acceptance_methods": ["command:node --test test/normalize.test.mjs"],
+    "required_artifacts": ["src/normalize.mjs", "test/normalize.test.mjs"]
+  },
+  {
+    "task_id": "module-usage",
+    "title": "Document the verified module",
+    "description": "After normalize-module is independently verified, inspect its real exports and tests. Write docs/normalize.md with the supported string-input contract, import example, expected output and the actual test command. Do not change implementation or test files. The independent verifier must check the examples against the implementation.",
+    "role": "implementation",
+    "status": "pending",
+    "dependencies": ["normalize-module"],
+    "write_scope": ["docs/normalize.md"],
+    "acceptance_methods": ["exists:docs/normalize.md", "command:node --test test/normalize.test.mjs"],
+    "required_artifacts": ["docs/normalize.md"]
+  }
+]

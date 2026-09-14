@@ -3,6 +3,8 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { initializeConfig, loadConfig, type CreateConfigOptions } from "./config.js";
+import { chooseClarification, clarificationTemplate, createClarification, formatClarification, inspectClarification, readConfirmedClarificationTasks } from "./clarification.js";
+import { applyTeachingToTasks, captureTeachingSource, createTeachingDraft, formatTeachingCatalog, formatTeachingDraft, formatTeachingSuggestions, inspectTeachingDraft, listTeachingLessons, publishTeachingSkill, suggestTeachingLessons, teachingTemplate } from "./teaching.js";
 import {
   appendContextEvent,
   queryContextEvents,
@@ -34,11 +36,17 @@ import {
 import {
   prepareSpawnPlan,
   readAgentRegistry,
+  readTaskGraphSnapshot,
   registerNativeDispatch,
   updateNativeAgentLifecycle,
+  validateNewTasks,
+  verifyAssignmentInput,
   type NativeAgentLifecycle,
 } from "./orchestrator.js";
 import { executeSearch } from "./search.js";
+import { continueRun, createRepairRun, inspectRun, listRuns, prepareRepair } from "./run-management.js";
+import { RunManagementError } from "./repair-store.js";
+import { createProbeDraft, inspectProbe, observeProbe, prepareProbeRepair, probeTemplate } from "./probes.js";
 import type {
   ContextEventKind,
   ContextPacket,
@@ -162,7 +170,9 @@ function readProjectJson<T>(root: string, inputPath: string): T {
 
 function readTasks(root: string, inputPath: string): FactoryTask[] {
   const value = readProjectJson<FactoryTask[] | { tasks: FactoryTask[] }>(root, inputPath);
-  const tasks = Array.isArray(value) ? value : value.tasks;
+  const confirmed = readConfirmedClarificationTasks(root, value);
+  if (confirmed) return confirmed;
+  const tasks = Array.isArray(value) ? value : value?.tasks;
   if (!Array.isArray(tasks)) throw new Error("Task input must be an array or an object with tasks[]");
   return tasks;
 }
@@ -196,8 +206,32 @@ function helpText(): string {
     "  factoryctl context append --kind <kind> --actor <name> --payload-json <json>",
     "  factoryctl context verify | query --query <text> --role <role>",
     "  factoryctl context packet-verify --file <packet.json> --run <id> --role <role> --assignment <id>",
+    "  factoryctl context assignment-verify --file <input.json> --run <id> --role <role> --assignment <id>",
     "  factoryctl plan --tasks <tasks.json> [--run <id>] [--json] (new run)",
+    "  factoryctl tasks validate --tasks <tasks.json> [--json] (read-only preflight)",
+    "  factoryctl clarify template [--json] (read-only example proposal; no model call)",
+    "  factoryctl clarify create --file <contrast.json> [--json] (record two concrete alternatives)",
+    "  factoryctl clarify show --id <id> [--json] (read-only comparison)",
+    "  factoryctl clarify choose --id <id> --option <id> --draft-hash <hash> --reply <user-reply> [--json]",
+    "  factoryctl teach template [--json] (example candidate schema)",
+    "  factoryctl teach capture --path <tracked-file> [--base HEAD] --note <user-explanation> [--json]",
+    "  factoryctl teach draft --source <source-id> --file <lesson.json> [--json]",
+    "  factoryctl teach show --id <lesson-id> [--json] (read-only preview and status)",
+    "  factoryctl teach list [--limit <1-100>] [--offset <n>] [--json] (discover lessons and applicability boundaries)",
+    "  factoryctl teach suggest --tasks <file> --task <id> [--limit <1-5>] [--json] (reviewable lexical shortlist)",
+    "  factoryctl teach publish --id <lesson-id> --draft-hash <hash> --reply <user-approval> [--json]",
+    "  factoryctl teach apply --id <lesson-id> --tasks <file> --task <id> --reason <applicability> [--json]",
+    "  factoryctl run continue --run <id> [--json] (execute ready acceptance, then plan next wave)",
     "  factoryctl plan --run <id> --json (resume authoritative run)",
+    "  factoryctl run inspect --run <id> [--json] (read-only; does not dispatch)",
+    "  factoryctl run list [--limit <1-50>] [--json] (newest created first; default 10)",
+    "  factoryctl repair create --from-run <id> --task <id> (--reuse-task | --tasks <file> | --probe <id>) --request-id <id> [--json]",
+    "  factoryctl repair prepare --from-run <id> --task <id> [--json] (read-only failure context and recovery guidance)",
+    "  factoryctl probe template [--json] (two hypotheses and one JSON observation)",
+    "  factoryctl probe draft --from-run <id> --task <id> --file <probe.json> [--json]",
+    "  factoryctl probe show --id <probe-id> [--json]",
+    "  factoryctl probe observe --id <probe-id> --draft-hash <hash> --reply <user-approval> [--json]",
+    "  factoryctl probe repair-plan --id <probe-id> [--json] (read-only repair task preview)",
     "  factoryctl agent register-spawn --run <id> --assignment <id> --native-id <id> --receipt-json <json>",
     "  factoryctl agent status --run <id>",
     "  factoryctl agent lifecycle --run <id> --native-id <id> --status <state>",
@@ -303,6 +337,17 @@ async function run(argv: string[]): Promise<void> {
       }));
       return;
     }
+    if (subcommand === "assignment-verify") {
+      assertAllowedFlags(args, ["project", "file", "run", "role", "assignment", "json"]);
+      const result = verifyAssignmentInput(root, requiredFlag(args, "file"), {
+        runId: requiredFlag(args, "run"),
+        targetRole: requiredFlag(args, "role"),
+        assignmentId: requiredFlag(args, "assignment"),
+      });
+      output(result);
+      if (!result.valid) process.exitCode = 1;
+      return;
+    }
     if (subcommand === "packet-verify") {
       assertAllowedFlags(args, [
         "project", "file", "run", "role", "assignment", "json",
@@ -317,7 +362,7 @@ async function run(argv: string[]): Promise<void> {
       if (!result.valid) process.exitCode = 1;
       return;
     }
-    throw new Error("context requires append, verify, query, or packet-verify");
+    throw new Error("context requires append, verify, query, assignment-verify, or packet-verify");
   }
   if (command === "memory") {
     if (subcommand === "status") {
@@ -344,6 +389,241 @@ async function run(argv: string[]): Promise<void> {
     }
     throw new Error("memory requires status, export, or cleanup-plan");
   }
+  if (command === "probe") {
+    if (args.positionals.length !== 2) throw new Error("Unexpected probe arguments");
+    if (subcommand === "repair-plan") {
+      assertAllowedFlags(args, ["project", "id", "json"]);
+      output(prepareProbeRepair(root, requiredFlag(args, "id")));
+      return;
+    }
+    if (subcommand === "template") {
+      assertAllowedFlags(args, ["project", "json"]);
+      output(probeTemplate());
+      return;
+    }
+    let result: ReturnType<typeof inspectProbe>;
+    if (subcommand === "draft") {
+      assertAllowedFlags(args, ["project", "from-run", "task", "file", "json"]);
+      result = createProbeDraft(root, requiredFlag(args, "from-run"), requiredFlag(args, "task"),
+        readProjectJson<unknown>(root, requiredFlag(args, "file")));
+    } else if (subcommand === "show") {
+      assertAllowedFlags(args, ["project", "id", "json"]);
+      result = inspectProbe(root, requiredFlag(args, "id"));
+    } else if (subcommand === "observe") {
+      assertAllowedFlags(args, ["project", "id", "draft-hash", "reply", "json"]);
+      result = observeProbe(root, requiredFlag(args, "id"), { draftHash: requiredFlag(args, "draft-hash"),
+        userReply: requiredFlag(args, "reply") });
+    } else throw new Error("probe requires template, draft, show, observe, or repair-plan");
+    output(jsonMode(args) ? result : [result.status + " " + result.draft.probe_id,
+      "Draft hash: " + result.draft.draft_hash, result.draft.data.proposal.question,
+      ...result.draft.data.proposal.hypotheses.map((item) => item.id + ": " + item.cause + " Expected: " + JSON.stringify(item.expected) +
+        "\n  Evidence: " + item.evidence_refs.join(", ") + "; follow-up: " + item.next_step),
+      "Observation: " + JSON.stringify(result.draft.data.proposal.observation),
+      "Saved result: " + JSON.stringify(result.observation?.data ?? null), result.next_step, ...result.limitations].join("\n"), jsonMode(args));
+    return;
+  }
+  if (command === "teach") {
+    if (args.positionals.length !== 2) throw new Error("Unexpected teach arguments");
+    if (subcommand === "suggest") {
+      assertAllowedFlags(args, ["project", "tasks", "task", "limit", "json"]);
+      const result = suggestTeachingLessons(root, readTasks(root, requiredFlag(args, "tasks")), requiredFlag(args, "task"),
+        args.flags.has("limit") ? Number(requiredFlag(args, "limit")) : undefined);
+      output(jsonMode(args) ? result : formatTeachingSuggestions(result), jsonMode(args));
+      return;
+    }
+    if (subcommand === "list") {
+      assertAllowedFlags(args, ["project", "limit", "offset", "json"]);
+      const result = listTeachingLessons(root, {
+        limit: args.flags.has("limit") ? Number(requiredFlag(args, "limit")) : undefined,
+        offset: args.flags.has("offset") ? Number(requiredFlag(args, "offset")) : undefined,
+      });
+      output(jsonMode(args) ? result : formatTeachingCatalog(result), jsonMode(args));
+      return;
+    }
+    if (subcommand === "apply") {
+      assertAllowedFlags(args, ["project", "id", "tasks", "task", "reason", "json"]);
+      output(applyTeachingToTasks(root, requiredFlag(args, "id"), readTasks(root, requiredFlag(args, "tasks")),
+        requiredFlag(args, "task"), requiredFlag(args, "reason")));
+      return;
+    }
+    if (subcommand === "template") {
+      assertAllowedFlags(args, ["project", "json"]);
+      output(teachingTemplate());
+      return;
+    }
+    if (subcommand === "capture") {
+      assertAllowedFlags(args, ["project", "path", "base", "note", "json"]);
+      const result = captureTeachingSource(root, { path: requiredFlag(args, "path"),
+        base: args.flags.has("base") ? requiredFlag(args, "base") : undefined, note: requiredFlag(args, "note") });
+      output(jsonMode(args) ? result : [result.status + " " + result.source_id, "Path: " + result.data.path,
+        "Base: " + result.data.base_commit, "Source file: " + result.source_file, "", result.data.diff,
+        result.next_action, result.limitation].join("\n"), jsonMode(args));
+      return;
+    }
+    let result: ReturnType<typeof inspectTeachingDraft>;
+    if (subcommand === "draft") {
+      assertAllowedFlags(args, ["project", "source", "file", "json"]);
+      result = createTeachingDraft(root, requiredFlag(args, "source"), readProjectJson<unknown>(root, requiredFlag(args, "file")));
+    } else if (subcommand === "show") {
+      assertAllowedFlags(args, ["project", "id", "json"]);
+      result = inspectTeachingDraft(root, requiredFlag(args, "id"));
+    } else if (subcommand === "publish") {
+      assertAllowedFlags(args, ["project", "id", "draft-hash", "reply", "json"]);
+      result = publishTeachingSkill(root, requiredFlag(args, "id"), { draftHash: requiredFlag(args, "draft-hash"),
+        userReply: requiredFlag(args, "reply") });
+    } else throw new Error("teach requires template, capture, draft, list, suggest, show, publish, or apply");
+    output(jsonMode(args) ? result : formatTeachingDraft(result), jsonMode(args));
+    return;
+  }
+  if (command === "clarify") {
+    if (args.positionals.length !== 2) throw new Error("Unexpected clarify arguments");
+    if (subcommand === "template") {
+      assertAllowedFlags(args, ["project", "json"]);
+      output(clarificationTemplate());
+      return;
+    }
+    let result: ReturnType<typeof inspectClarification>;
+    if (subcommand === "create") {
+      assertAllowedFlags(args, ["project", "file", "json"]);
+      result = createClarification(root, readProjectJson<unknown>(root, requiredFlag(args, "file")));
+    } else if (subcommand === "show") {
+      assertAllowedFlags(args, ["project", "id", "json"]);
+      result = inspectClarification(root, requiredFlag(args, "id"));
+    } else if (subcommand === "choose") {
+      assertAllowedFlags(args, ["project", "id", "option", "draft-hash", "reply", "json"]);
+      result = chooseClarification(root, requiredFlag(args, "id"), {
+        optionId: requiredFlag(args, "option"), draftHash: requiredFlag(args, "draft-hash"),
+        userReply: requiredFlag(args, "reply"),
+      });
+    } else throw new Error("clarify requires template, create, show, or choose");
+    output(jsonMode(args) ? result : formatClarification(result), jsonMode(args));
+    return;
+  }
+  if (command === "tasks" && subcommand === "validate") {
+    assertAllowedFlags(args, ["project", "tasks", "json"]);
+    if (args.positionals.length !== 2) throw new Error("Unexpected tasks validate arguments");
+    const result = validateNewTasks(readTasks(root, requiredFlag(args, "tasks")));
+    output(jsonMode(args) ? result : [
+      "VALID: " + result.worker_count + " workers + " + result.verifier_count + " independent verifiers",
+      "Initially ready: " + result.ready_task_ids.join(", "),
+      ...result.tasks.map((task) => "  " + task.task_id + " [" + task.profile_id + "] depends on: " +
+        (task.dependencies.join(", ") || "none") + "; writes: " + (task.write_scope.join(", ") || "read-only")),
+      ...result.limitations,
+    ].join("\n"), jsonMode(args));
+    return;
+  }
+  if (command === "run" && subcommand === "continue") {
+    assertAllowedFlags(args, ["project", "run", "json"]);
+    if (args.positionals.length !== 2) throw new Error("Unexpected run continue arguments");
+    const result = continueRun(root, requiredFlag(args, "run"));
+    output(jsonMode(args) ? result : [
+      result.run_id + ": " + result.status,
+      ...result.verifications.map((receipt) => "Acceptance " + receipt.task_id + ": " + receipt.verdict),
+      ...(result.plan?.assignments ?? []).map((item) => "Dispatch " + item.task_id + ": " + item.assignment_id),
+      ...result.waiting_for.map((item) => "Await " + item.task_id + ": " + item.native_agent_id),
+      "Verified deliveries: " + result.delivery.tasks.length + (result.delivery.complete ? " (complete)" : " (partial)"),
+      ...result.delivery.tasks.flatMap((task) => ["  " + task.task_id + ": " + task.title,
+        ...task.artifacts.map((artifact) => "    " + artifact.path), "    Receipt: " + task.receipt_path]),
+      ...result.inspection.tasks.flatMap((task) => task.failure_reasons.map((reason) => task.task_id + ": " + reason)),
+      ...result.next_actions, ...result.inspection.limitations,
+    ].join("\n"), jsonMode(args));
+    if (result.status === "FAILED") process.exitCode = 1;
+    return;
+  }
+  if (command === "run" && subcommand === "list") {
+    assertAllowedFlags(args, ["project", "limit", "json"]);
+    if (args.positionals.length !== 2) throw new Error("Unexpected run list arguments");
+    const limit = args.flags.has("limit") ? Number(requiredFlag(args, "limit")) : 10;
+    const result = listRuns(root, limit);
+    output(jsonMode(args) ? result : result.total === 0 ? "No Factory runs found in this project." : [
+      "Recent runs (newest created first): " + result.runs.length + "/" + result.total,
+      "Created (UTC)             Status             Verified/Total  Run",
+      ...result.runs.map((run) => [
+        (run.created_at ?? "unknown").padEnd(24), run.status.padEnd(18),
+        (run.total_tasks === null ? "?/?" : run.verified_tasks + "/" + run.total_tasks).padEnd(15),
+        run.run_id + (run.parent_run_id ? " (repair " + run.repair_index + "/2 from " + run.parent_run_id + ")" : ""),
+        ...(run.error ? ["- " + run.error] : []),
+      ].join(" ")),
+      ...(result.has_more ? ["More runs exist; increase --limit (maximum 50)."] : []),
+      "Recorded status only; host liveness is unknown. Task counts include independent verifiers.",
+      "Next: factoryctl run inspect --project " + JSON.stringify(root.replaceAll("\\", "/")) + " --run <id>",
+    ].join("\n"), jsonMode(args));
+    return;
+  }
+  if (command === "run" && subcommand === "inspect") {
+    assertAllowedFlags(args, ["project", "run", "json"]);
+    if (args.positionals.length !== 2) throw new Error("Unexpected run inspect arguments");
+    const result = inspectRun(root, requiredFlag(args, "run"));
+    output(jsonMode(args) ? result : [
+      result.run_id + ": " + result.status + " (evidence " + result.integrity + ")",
+      ...result.tasks.map((task) => "  " + task.task_id + ": " + task.status +
+        (task.blocked_by.length ? " (blocked by: " + task.blocked_by.join(", ") + ")" : task.status === "blocked" ? " (explicitly blocked)" : "") +
+        (task.failure_reasons.length ? " - " + task.failure_reasons.join("; ") : "")),
+      ...result.next_actions, ...result.limitations,
+    ].join("\n"), jsonMode(args));
+    return;
+  }
+
+  if (command === "repair" && subcommand === "prepare") {
+    assertAllowedFlags(args, ["project", "from-run", "task", "json"]);
+    if (args.positionals.length !== 2) throw new Error("Unexpected repair prepare arguments");
+    const result = prepareRepair(root, requiredFlag(args, "from-run"), requiredFlag(args, "task"));
+    output(jsonMode(args) ? result : [
+      result.from_run + "/" + result.task_id + ": " + result.status + " (read-only; original verdict " + result.source_verdict + ")",
+      "Acceptance: " + result.observations.acceptance.passed + "/" + result.observations.acceptance.total + " passed",
+      ...result.observations.acceptance.items.map((check) => "  Check " + check.index + ": " + check.method + " - " + check.detail),
+      ...result.observations.artifacts.items.map((check) => "  Artifact: " + check.method + " - " + check.detail),
+      "Reported command failures: " + result.observations.reported_command_failures.total,
+      ...result.observations.reported_command_failures.items.map((item) => "  " + item.source + ": " + item.command + " (exit " + item.exit_code + ")"),
+      "Independent verifier proposal: " + result.observations.verifier_proposal,
+      "Scope: " + (result.task_contract.write_scope.join(", ") || "read-only"),
+      "Required artifacts: " + result.task_contract.required_artifacts.join(", "),
+      "Original acceptance: " + result.task_contract.acceptance_methods.join(" | "),
+      ...result.upstream_inputs.map((item) => "Upstream " + item.run_id + "/" + item.task_id + ": " + item.artifacts.map((artifact) => artifact.path).join(", ")),
+      "Repair attempts remaining: " + result.repair.remaining_attempts + "/2",
+      ...(result.repair.existing_child ? ["Existing repair: " + result.repair.existing_child.run_id + " (" +
+        (result.repair.existing_child.status ?? result.repair.existing_child.state) + ")"] : []),
+      "Evidence: " + result.evidence.receipt_path,
+      ...result.next_actions, ...result.limitations,
+    ].join("\n"), jsonMode(args));
+    return;
+  }
+  if (command === "repair" && subcommand === "create") {
+    assertAllowedFlags(args, ["project", "from-run", "task", "tasks", "reuse-task", "probe", "request-id", "json"]);
+    if (args.positionals.length !== 2) throw new Error("Unexpected repair create arguments");
+    const fromRun = requiredFlag(args, "from-run");
+    const taskId = requiredFlag(args, "task");
+    const requestId = requiredFlag(args, "request-id");
+    if (args.flags.has("reuse-task") && args.flags.has("tasks")) throw new Error("Choose --reuse-task or --tasks, not both");
+    if (args.flags.has("probe") && (args.flags.has("tasks") || args.flags.has("reuse-task"))) {
+      throw new Error("Choose --probe, --reuse-task or --tasks, not a combination");
+    }
+    if (args.flags.has("reuse-task") && args.flags.get("reuse-task") !== true) throw new Error("--reuse-task takes no value");
+    let tasks: FactoryTask[];
+    if (args.flags.has("probe")) {
+      const prepared = prepareProbeRepair(root, requiredFlag(args, "probe"));
+      if (prepared.from_run !== fromRun || prepared.task_id !== taskId) throw new Error("Probe belongs to a different failed run/task");
+      if (!prepared.tasks || prepared.status === "BLOCKED") throw new Error("Probe repair is blocked; inspect repair prepare before proceeding");
+      tasks = prepared.tasks;
+    } else if (args.flags.has("reuse-task")) {
+      const graph = readTaskGraphSnapshot(root, fromRun);
+      const original = graph.tasks.find((task) => task.task_id === taskId);
+      if (!original) throw new RunManagementError("TASK_NOT_FOUND", "Failed task not found");
+      if (original.dependencies.some((id) => graph.tasks.find((task) => task.task_id === id)?.status !== "verified")) {
+        throw new Error("--reuse-task requires verified upstream tasks; use --tasks for an explicit repair plan");
+      }
+      // Upstream outputs are reused; only this task receives a new execution.
+      tasks = [{ ...original, status: "pending", dependencies: [] }];
+    } else {
+      tasks = readTasks(root, requiredFlag(args, "tasks"));
+    }
+    const result = createRepairRun(root, {
+      fromRun, taskId, tasks, requestId,
+    });
+    output(jsonMode(args) ? result : result.run_id + " (repair " + result.repair.repair_index + "/2)\n" + result.next_action, jsonMode(args));
+    return;
+  }
+
   if (command === "plan") {
     assertAllowedFlags(args, ["project", "tasks", "run", "json"]);
     const runId = flagString(args, "run");
@@ -496,6 +776,8 @@ async function run(argv: string[]): Promise<void> {
 
 run(process.argv.slice(2)).catch((error: unknown) => {
   const message = error instanceof Error ? error.message : String(error);
-  process.stderr.write(JSON.stringify({ status: "ERROR", message }, null, 2) + "\n");
+  process.stderr.write(JSON.stringify({ status: "ERROR", message,
+    ...(error instanceof RunManagementError ? { code: error.code } : {}),
+  }, null, 2) + "\n");
   process.exitCode = 1;
 });

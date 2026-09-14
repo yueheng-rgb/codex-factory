@@ -9,6 +9,8 @@
 
 **New here?** → [V5 中文安装与使用指南](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md) · [V5 CLI](packages/factory-cli/README.md) · [Legacy Getting Started (V4, historical)](GETTING_STARTED.md)
 
+**体验新增三条主线：** 在 `packages/factory-cli` 执行 `npm run demo:tour`，离线查看“结果对比澄清 → 纠错经验复用 → 假设驱动排错”的三个独立案例。无需模型调用，输出可读摘要和完整日志；不是一次真实项目交付。见[实用导览与触发场景](docs/FACTORY_PRACTICAL_WALKTHROUGH.zh-CN.md)。
+
 **30-second pitch:** Codex Factory is a local control plane for developers who use Codex or Codex-compatible runtimes to build non-trivial software projects. It adds structured planning, role-bound skills, source-bound memory, optional native multi-agent execution, optional GLM search, and a verification layer that treats real files, command exit codes, hashes, and receipts as evidence. **No artifact = no PASS. Your project knowledge stays local.**
 
 ## V5 自动控制平面 (Preview)
@@ -41,8 +43,20 @@ factoryctl doctor --project C:\Projects\my-app --json
 
 完整命令、各功能用法、知识库、API Key、安全关闭和故障排查见 [V5 中文指南](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md)。
 
+开发任务现在使用统一流程：`tasks validate` 只读检查任务输入，首次 `plan` 生成派发计划；主 Agent 登记原生执行与交接后，由 `run continue` 执行就绪的独立验收并返回下一波计划，直至交付或失败停止。结果直接包含已验收产物与回执引用，不额外生成审计报告。CLI 不自行启动 Agent，也不自动重试失败任务。见 [开发任务从启动到交付](packages/factory-cli/README.md#开发任务从启动到交付)。
+
+失败恢复使用 `repair prepare → 确认修复 → repair create → run continue`：先只读汇总失败证据、冻结约束和上游输入，并指向已有修复，再进入受限重新执行。prepare 不改变验收标准，也不把非零退出码直接解释为代码缺陷。见 [修复准备流程](packages/factory-cli/README.md#从失败证据准备修复)。
+
 > [!IMPORTANT]
 > 当前权威实现是 [`packages/factory-cli`](packages/factory-cli/) 中的 V5 Preview 源码，以及从该目录当前提交现场生成的 `.tgz`。`dist/codex-factory-v4-capability-package.zip` 的 ZIP、manifest 和 SHA 文本彼此不一致，已明确判定为无效历史制品，不能用于安装、发布或证明当前代码通过。详见 [旧制品告警](dist/LEGACY-ARTIFACTS-INVALID.md)。
+
+新增的结果对比式澄清使用 `clarify create → show → 用户选择 → choose → tasks validate/plan`：主 Agent 用同一输入的不同预期结果帮助用户确认关键业务行为，选中的例子随任务进入实现和独立验收。CLI 负责记录与编译，不自行检测歧义或代替用户决定。见[澄清流程与离线示例](packages/factory-cli/README.md#用结果对比澄清需求)。
+
+增量演进按三阶段推进：**确认意图 → 从人工修正中提炼技能 → 改善修复与工作决策**。第二阶段已支持 `teach capture/draft/show/publish`：从用户指定的单文件 Git 修改提炼有证据、适用条件和反例的候选 Skill，人工确认后发布到当前项目，不宣称模型训练或自动泛化。见[路线图](docs/FACTORY_EVOLUTION_ROADMAP.md)与[教学流程](packages/factory-cli/README.md#从代码修正中提炼技能)。
+
+第三阶段已支持 `probe template/draft/show/observe`：先声明两条候选原因及不同预测，再确认读取一个小型 JSON 诊断字段，为修复提供分支线索；不匹配时明确保留不确定性。它不自动运行实验、不证明根因、不消耗修复次数。源码目录执行 `npm run demo:probe -- --observe-demo` 可复跑离线闭环，见[假设驱动排错说明](docs/HYPOTHESIS_PROBES.md)。
+
+流程衔接已补齐：`teach apply` 将一个已发布 Skill 附加到指定待执行任务，`probe repair-plan` 预览带诊断线索的任务，`repair create --probe` 直接接入原修复流程。原需求例子与验收合同保留，不再依赖手工复制证据；仍需正常审批，不自动判断技能适用性或启动 Agent。见[任务衔接说明](packages/factory-cli/README.md#把经验带入下一次任务)。
 
 ## What is Codex Factory?
 

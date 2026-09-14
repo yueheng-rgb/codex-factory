@@ -1,5 +1,6 @@
 import { DatabaseSync } from "node:sqlite";
-import { existsSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join, relative, resolve } from "node:path";
 import { loadConfig } from "./config.js";
 import type {
@@ -276,6 +277,40 @@ export function readAllContextEventsInternal(projectRoot: string): ContextEvent[
     return readEventsFromDatabase(database);
   } finally {
     database.close();
+  }
+}
+
+/** Inspect existing evidence without schema installation, migration, or ledger writes. */
+export function readVerifiedContextEventsReadonly(projectRoot: string): ContextEvent[] {
+  const path = assertWithinRoot(projectRoot, contextDatabasePath(projectRoot));
+  if (!existsSync(path)) throw new Error("Context database does not exist");
+  // SQLite read-only connections can still create WAL/SHM files. Inspect a stable
+  // private copy instead; no database connection is opened against the project.
+  const readSource = (): Array<{ suffix: string; bytes: Buffer }> => ["", "-wal", "-journal"].flatMap((suffix) => {
+    const source = assertWithinRoot(projectRoot, path + suffix);
+    return existsSync(source) ? [{ suffix, bytes: readFileSync(source) }] : [];
+  });
+  const source = readSource();
+  const digest = (files: typeof source): string => sha256(stableStringify(files.map((file) => [file.suffix, sha256(file.bytes)])));
+  const directory = mkdtempSync(join(tmpdir(), "factory-context-inspect-"));
+  let database: DatabaseSync | undefined;
+  try {
+    const snapshot = join(directory, "context.db");
+    for (const file of source) writeFileSync(snapshot + file.suffix, file.bytes, { mode: 0o600 });
+    if (digest(source) !== digest(readSource())) throw new Error("Context database changed during inspection; retry");
+    database = new DatabaseSync(snapshot, { readOnly: true });
+    database.exec("BEGIN");
+    const integrity = database.prepare("PRAGMA integrity_check").get();
+    if (integrity?.integrity_check !== "ok") throw new Error("Context database integrity failed");
+    const events = readEventsFromDatabase(database);
+    const result = verifyEvents(events);
+    verifyAnchorsAndFts(database, events, result, loadConfig(projectRoot).project_id);
+    verifyAdmissionReceipts(database, events, result);
+    if (!result.valid) throw new Error("Context ledger is invalid: " + result.issues.join("; "));
+    return events;
+  } finally {
+    database?.close();
+    rmSync(directory, { recursive: true, force: true });
   }
 }
 

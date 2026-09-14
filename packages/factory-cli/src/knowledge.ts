@@ -288,7 +288,7 @@ const SECRET_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
   },
 ];
 
-function assertNoSecrets(value: string, location: string): void {
+export function assertNoSecrets(value: string, location: string): void {
   const match = SECRET_PATTERNS.find(({ pattern }) => pattern.test(value));
   if (match) {
     throw new Error(
@@ -297,7 +297,7 @@ function assertNoSecrets(value: string, location: string): void {
   }
 }
 
-function assertSafeKnowledgeSourcePath(sourceUri: string): void {
+export function assertSafeKnowledgeSourcePath(sourceUri: string): void {
   const normalized = sourceUri.replaceAll("\\", "/").toLowerCase();
   const leaf = normalized.split("/").at(-1) ?? "";
   if (

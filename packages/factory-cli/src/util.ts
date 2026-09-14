@@ -50,7 +50,12 @@ export function ensureDirectory(path: string): void {
 }
 
 export function readJson<T>(path: string): T {
-  return JSON.parse(readFileSync(path, "utf8")) as T;
+  return parseJsonFileText<T>(readFileSync(path, "utf8"));
+}
+
+export function parseJsonFileText<T = unknown>(content: string): T {
+  // Accept the UTF-8 file signature, not BOMs embedded in JSON data or syntax.
+  return JSON.parse(content.startsWith("\uFEFF") ? content.slice(1) : content) as T;
 }
 
 export function writeJsonAtomic(path: string, value: unknown): void {

@@ -10,13 +10,25 @@
   "files": [
     "dist",
     "domain-skills",
+    "examples",
     "README.md"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "tsx --test tests/*.test.ts",
-    "cli": "tsx src/cli.ts"
+    "cli": "tsx src/cli.ts",
+    "demo:tour": "tsx scripts/demo-tour.ts",
+    "demo:repair": "tsx scripts/demo-repair.ts",
+    "demo:clarify": "tsx scripts/demo-clarification.ts",
+    "demo:teach": "tsx scripts/demo-teaching.ts",
+    "demo:probe": "tsx scripts/demo-probe.ts",
+    "eval:prepare": "tsx scripts/live-eval.ts prepare",
+    "eval:forecast": "tsx scripts/forecast-effects.ts",
+    "eval:lessons": "tsx scripts/eval-lesson-selection.ts",
+    "eval:transfer": "tsx scripts/eval-transfer-boundary.ts prepare",
+    "eval:report": "tsx scripts/live-eval.ts summarize",
+    "eval:typecheck": "tsc -p tsconfig.evals.json"
   },
   "engines": {
     "node": ">=24.0.0"

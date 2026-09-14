@@ -36,5 +36,27 @@ Thumbs.db
 # Workspace run artifacts (large)
 workspaces/runs/
 
+# Local Codex work artifacts
+.codex-work/
+.chart-data-*/
+packs/enabled-packs.json
+packages/factory-cli/outputs/
+runs/run-*/
+runs/v*-*/
+
+# Generated worker trial outputs
+src/worker-backend/
+src/worker-frontend/
+tests/worker-backend/
+tests/worker-frontend/
+tests/worker-qa/
+
+# Large generated evaluation artifacts
+outputs/*_ARTIFACTS/
+outputs/FACTORY_CAPABILITY_PILOT_*/
+outputs/FACTORY_CUSTOMER_PREVIEW_DEMO_*/
+outputs/FACTORY_T3_ATTEMPT2_NATIVE_*/
+outputs/FACTORY_TRANSFER_BOUNDARY_NATIVE_*/
+
 # Remote artifact verification extracts
 artifacts/remote/

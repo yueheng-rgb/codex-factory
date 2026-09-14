@@ -66,6 +66,12 @@ describe("initializeFactoryProject", () => {
     const agents = readFileSync(join(root, "AGENTS.md"), "utf8");
     assert.match(agents, /Keep this line\./);
     assert.equal(agents.split(AGENTS_BLOCK_START).length, 2);
+    assert.match(agents, /Main controller:.*read.*config\.json/);
+    assert.match(agents, /Managed assignee: first pass.*context assignment-verify/);
+    assert.match(agents, /User rules, failed checks and task-specific requirements still apply/);
+    const controllerSkill = readFileSync(join(root, ".agents/skills/codex-factory/SKILL.md"), "utf8");
+    assert.match(controllerSkill, /not a routine worker\/verifier startup step/);
+    assert.match(controllerSkill, /Run `factoryctl doctor.*stop on `NOT_READY`/);
     assert.equal(
       existsSync(join(root, ".codex", "agents", "factory_verifier.toml")),
       true,

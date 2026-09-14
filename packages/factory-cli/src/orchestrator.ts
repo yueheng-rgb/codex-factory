@@ -9,6 +9,7 @@ import { dirname, join, relative, resolve } from "node:path";
 import { getAgentProfile, profileForTask } from "./agents.js";
 import { ALL_AGENT_CAPABILITIES, skillIdsForTask } from "./capabilities.js";
 import { factoryDirectory, loadConfig } from "./config.js";
+import { reportedCommandOutcomes } from "./command-outcome.js";
 import {
   appendTrustedContextEvent,
   createContextPacket,
@@ -20,8 +21,11 @@ import {
   verifyContextPacket,
 } from "./context-space.js";
 import { appendAssignmentKnowledgeContext } from "./memory-packet.js";
+import { assertRepairRunCommitted } from "./repair-store.js";
 import type {
   AgentProfile,
+  ContextEvent,
+  ContextPacket,
   FactoryTask,
   SpawnPlan,
   SpawnPlanEntry,
@@ -161,6 +165,7 @@ function verifyNativeToolReceipt(
 }
 
 export function readCurrentSpawnPlan(projectRoot: string, runId: string): ManagedSpawnPlan {
+  assertRepairRunCommitted(projectRoot, runId);
   const directory = runDirectory(projectRoot, runId);
   const planPath = join(directory, "spawn-plan.json");
   const runPath = join(directory, "run.json");
@@ -203,6 +208,7 @@ export function readTaskGraphSnapshot(
   projectRoot: string,
   runId: string,
 ): MutableTaskGraphSnapshot {
+  assertRepairRunCommitted(projectRoot, runId);
   const path = join(runDirectory(projectRoot, runId), "task-graph.json");
   if (!existsSync(path)) throw new Error("Task graph not found for run: " + runId);
   const graph = readJson<MutableTaskGraphSnapshot>(path);
@@ -233,11 +239,12 @@ export function setRunTaskStatus(
       handoff: ["verified", "failed", "blocked"],
       verified: [],
       blocked: ["pending", "ready", "failed"],
-      failed: ["pending", "ready"],
+      failed: [],
     };
     if (task.status !== next && !allowed[task.status].includes(next)) {
       throw new Error("Invalid task status transition: " + task.status + " -> " + next);
     }
+    if (task.status === next) return task;
     task.status = next;
     graph.updated_at = nowIso();
     graph.graph_sha256 = sha256(stableStringify(graph.tasks));
@@ -262,12 +269,13 @@ export function validateTaskGraph(tasks: FactoryTask[]): void {
     "failed",
   ]);
   for (const task of tasks) {
-    if (!/^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/.test(task.task_id)) {
+    if (!task || typeof task !== "object") throw new Error("Each task must be an object");
+    if (typeof task.task_id !== "string" || !/^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/.test(task.task_id)) {
       throw new Error("Invalid task_id: " + String(task.task_id));
     }
     if (ids.has(task.task_id)) throw new Error("Duplicate task_id: " + task.task_id);
     ids.add(task.task_id);
-    if (!task.title?.trim() || !task.description?.trim() || !task.role?.trim()) {
+    if ([task.title, task.description, task.role].some((value) => typeof value !== "string" || !value.trim())) {
       throw new Error("Task " + task.task_id + " requires title, description, and role");
     }
     if (!allowedStatuses.has(task.status)) {
@@ -281,6 +289,11 @@ export function validateTaskGraph(tasks: FactoryTask[]): void {
     }
     if (!Array.isArray(task.required_artifacts)) {
       throw new Error("Task " + task.task_id + " has invalid required_artifacts");
+    }
+    for (const field of ["dependencies", "write_scope", "acceptance_methods", "required_artifacts"] as const) {
+      if (task[field].some((value) => typeof value !== "string" || !value.trim())) {
+        throw new Error("Task " + task.task_id + " requires nonempty strings in " + field);
+      }
     }
     if (
       task.required_capabilities !== undefined &&
@@ -357,7 +370,9 @@ export function addAutomaticVerificationTasks(tasks: FactoryTask[]): FactoryTask
       description:
         "Re-run the target task acceptance methods, inspect required physical artifacts and hashes, and issue a skeptical PASS/FAIL proposal for " +
         task.task_id +
-        ". Do not repair implementation defects.",
+        ". Read that target's full description in the authoritative task graph, including any confirmed behavior examples. " +
+        "Check that scoped tests and physical behavior cover those examples; a recorded user choice is not PASS evidence. " +
+        "Do not repair implementation defects.",
       role: "verifier",
       profile_id: "factory_verifier",
       required_capabilities: [
@@ -389,15 +404,42 @@ function validateInitialTaskStates(tasks: FactoryTask[]): void {
   }
 }
 
-function verifyPersistedRuntimeClaims(
+export function validateNewTasks(tasks: FactoryTask[]) {
+  validateTaskGraph(tasks);
+  validateInitialTaskStates(tasks);
+  const graph = addAutomaticVerificationTasks(tasks);
+  validateTaskGraph(graph);
+  const summaries = graph.map((task) => ({
+    task_id: task.task_id, title: task.title, profile_id: profileForTask(task).profile_id,
+    dependencies: [...task.dependencies], write_scope: [...task.write_scope],
+    acceptance_methods: [...task.acceptance_methods], required_artifacts: [...task.required_artifacts],
+  }));
+  for (const task of summaries.filter((item) => item.profile_id === "factory_verifier")) {
+    if (task.dependencies.length !== 1 || task.write_scope.length ||
+        summaries.find((item) => item.task_id === task.dependencies[0])?.profile_id === "factory_verifier") {
+      throw new Error("Verifier " + task.task_id + " must be read-only and depend on exactly one worker");
+    }
+  }
+  return { version: "1.0.0" as const, status: "VALID" as const,
+    worker_count: summaries.filter((task) => task.profile_id !== "factory_verifier").length,
+    verifier_count: summaries.filter((task) => task.profile_id === "factory_verifier").length,
+    ready_task_ids: summaries.filter((task) => !task.dependencies.length).map((task) => task.task_id),
+    tasks: summaries,
+    limitations: ["Task structure only; no dispatch, acceptance commands, host readiness or current artifacts are checked.",
+      "The scheduler still enforces thread capacity, role policy and concurrent write scopes."],
+  };
+}
+
+export function verifyPersistedRuntimeClaims(
   projectRoot: string,
   runId: string,
   tasks: FactoryTask[],
   registry: NativeAgentRegistry,
+  providedContextEvents?: ContextEvent[],
 ): void {
   const externalContextEnabled = loadConfig(projectRoot).features.external_context.enabled;
   const contextEvents = externalContextEnabled
-    ? readAllContextEventsInternal(projectRoot)
+    ? providedContextEvents ?? readAllContextEventsInternal(projectRoot)
     : [];
   const assignmentForTask = (taskId: string): { assignmentId: string; entry: NativeAgentRegistryEntry } | undefined => {
     for (const entry of registry.entries) {
@@ -518,7 +560,7 @@ function verifyPersistedRuntimeClaims(
   };
   for (const task of tasks) {
     const assignment = assignmentForTask(task.task_id);
-    if (["assigned", "in_progress", "handoff", "verified"].includes(task.status) && !assignment) {
+    if (["assigned", "in_progress", "handoff", "verified", "failed"].includes(task.status) && !assignment) {
       throw new Error("Runtime task state has no registered assignment: " + task.task_id);
     }
     if (task.status === "in_progress" && assignment) {
@@ -531,7 +573,7 @@ function verifyPersistedRuntimeClaims(
       if (!binding) throw new Error("Handoff state assignment is missing: " + task.task_id);
       readBoundHandoff(binding);
     }
-    if (task.status === "verified") {
+    if (task.status === "verified" || task.status === "failed") {
       const isVerifierTask = profileForTask(task).profile_id === "factory_verifier";
       const receiptTaskId = isVerifierTask ? task.dependencies[0] : task.task_id;
       if (!receiptTaskId) {
@@ -555,10 +597,13 @@ function verifyPersistedRuntimeClaims(
         throw new Error("Verification receipt references an unknown assignment: " + task.task_id);
       }
       const verifierTask = tasks.find((candidate) => candidate.task_id === verifierBinding.taskId);
+      const workerTask = tasks.find((candidate) => candidate.task_id === receiptTaskId);
       if (
         workerBinding.taskId !== receiptTaskId ||
         verifierBinding.entry.profile_id !== "factory_verifier" ||
-        !verifierTask?.dependencies.includes(receiptTaskId)
+        !verifierTask?.dependencies.includes(receiptTaskId) ||
+        verifierTask.status !== "verified" ||
+        workerTask?.status !== (receipt.verdict === "FAIL" ? "failed" : "verified")
       ) {
         throw new Error("Verification receipt assignment roles are invalid: " + task.task_id);
       }
@@ -591,10 +636,14 @@ function verifyPersistedRuntimeClaims(
         ? receipt.acceptance_checks as Array<Record<string, unknown>>
         : [];
       const expectedFailureReasons: string[] = [];
-      if (workerCommands.some((command) => command.exit_code !== 0)) {
+      const commandOutcomes = {
+        worker: reportedCommandOutcomes(workerCommands, workerTask.acceptance_methods, receipt.command_policy),
+        verifier: reportedCommandOutcomes(verifierCommands, workerTask.acceptance_methods, receipt.command_policy),
+      };
+      if (commandOutcomes.worker.includes("FAILURE")) {
         expectedFailureReasons.push("Worker reported at least one failing command");
       }
-      if (verifierCommands.some((command) => command.exit_code !== 0)) {
+      if (commandOutcomes.verifier.includes("FAILURE")) {
         expectedFailureReasons.push("Independent verifier reported at least one failing command");
       }
       if (artifactChecks.some((check) => check.status !== "PASS")) {
@@ -610,10 +659,24 @@ function verifyPersistedRuntimeClaims(
         expectedFailureReasons.push("Independent native verifier did not propose PASS");
       }
       const expectedVerdict = expectedFailureReasons.length === 0 ? "PASS" : "FAIL";
+      const observedArtifacts = workerHandoff.handoff.observed_artifacts;
+      if (!Array.isArray(observedArtifacts) || observedArtifacts.some((artifact) =>
+        !artifact || typeof artifact.path !== "string")) {
+        throw new Error("Bound handoff artifact manifest is invalid: " + task.task_id);
+      }
+      const expectedArtifactMethods = [
+        ...observedArtifacts.map((artifact) => "artifact:" + artifact.path),
+        ...workerTask.required_artifacts.filter((path) => !observedArtifacts.some((artifact) => artifact.path === path))
+          .map((path) => "required-artifact:" + path),
+      ];
       const receiptSemanticsMatch =
+        (receipt.command_policy === undefined ? receipt.command_outcomes === undefined :
+          stableStringify(receipt.command_outcomes) === stableStringify(commandOutcomes)) &&
         Array.isArray(receipt.artifact_checks) &&
+        stableStringify(artifactChecks.map((check) => check.method)) === stableStringify(expectedArtifactMethods) &&
         artifactChecks.every((check) => ["PASS", "FAIL"].includes(String(check.status))) &&
         Array.isArray(receipt.acceptance_checks) &&
+        stableStringify(acceptanceChecks.map((check) => check.method)) === stableStringify(workerTask.acceptance_methods) &&
         acceptanceChecks.every((check) => ["PASS", "FAIL"].includes(String(check.status))) &&
         stableStringify(receipt.failure_reasons) === stableStringify(expectedFailureReasons) &&
         receipt.verdict === expectedVerdict;
@@ -630,7 +693,7 @@ function verifyPersistedRuntimeClaims(
       if (
         receipt.run_id !== runId ||
         receipt.task_id !== receiptTaskId ||
-        (!isVerifierTask && receipt.verdict !== "PASS") ||
+        (!isVerifierTask && receipt.verdict !== (task.status === "failed" ? "FAIL" : "PASS")) ||
         !["PASS", "FAIL"].includes(String(receipt.verdict)) ||
         (!isVerifierTask && receipt.worker_assignment_id !== assignment?.assignmentId) ||
         (isVerifierTask && receipt.verifier_assignment_id !== assignment?.assignmentId) ||
@@ -866,6 +929,7 @@ function emptyRegistry(runId: string, projectId: string): NativeAgentRegistry {
 }
 
 export function readAgentRegistry(projectRoot: string, runId: string): NativeAgentRegistry {
+  assertRepairRunCommitted(projectRoot, runId);
   const config = loadConfig(projectRoot);
   const path = registryPath(projectRoot, runId);
   return existsSync(path) ? readJson<NativeAgentRegistry>(path) : emptyRegistry(runId, config.project_id);
@@ -899,6 +963,67 @@ function createBoundedTaskCapsule(
   const path = join(runDirectory(projectRoot, runId), "task-capsules", assignmentId + ".json");
   writeJsonAtomic(path, capsule);
   return relative(resolve(projectRoot), path).replaceAll("\\", "/");
+}
+
+export function verifyAssignmentInput(
+  projectRoot: string,
+  file: string,
+  expected: { runId: string; targetRole: string; assignmentId: string },
+): { valid: boolean; stale: boolean; kind: "task_capsule" | "context_packet" | "unknown"; issues: string[] } {
+  let kind: "task_capsule" | "context_packet" | "unknown" = "unknown";
+  try {
+    const config = loadConfig(projectRoot);
+    const registry = readAgentRegistry(projectRoot, expected.runId);
+    const entries = registry.entries.filter((entry) => entry.assignment_ids.includes(expected.assignmentId));
+    if (registry.project_id !== config.project_id || registry.run_id !== expected.runId || entries.length !== 1) {
+      throw new Error("Assignment is not uniquely registered in this project/run");
+    }
+    const entry = entries[0];
+    if (getAgentProfile(entry.profile_id).role !== expected.targetRole) {
+      throw new Error("Assignment target_role mismatch");
+    }
+    const path = assertWithinRoot(projectRoot, resolve(projectRoot, file));
+    const input = readJson<Record<string, unknown>>(path);
+    if (!input || typeof input !== "object" || Array.isArray(input)) {
+      throw new Error("Assignment input must be a JSON object");
+    }
+    const capsule = Object.hasOwn(input, "capsule_hash");
+    const packet = Object.hasOwn(input, "packet_hash");
+    if (capsule === packet) throw new Error("Unknown or ambiguous assignment input format");
+    if (packet) {
+      kind = "context_packet";
+      return { ...verifyContextPacket(projectRoot, input as unknown as ContextPacket, expected), kind };
+    }
+    kind = "task_capsule";
+    const issues: string[] = [];
+    const { capsule_hash, ...unsigned } = input;
+    if (capsule_hash !== sha256(stableStringify(unsigned))) issues.push("Capsule hash mismatch");
+    if (input.version !== "1.0.0") issues.push("Unsupported capsule version");
+    if (input.project_id !== config.project_id) issues.push("Capsule project_id mismatch");
+    if (input.run_id !== expected.runId) issues.push("Capsule run_id mismatch");
+    if (input.assignment_id !== expected.assignmentId) issues.push("Capsule assignment_id mismatch");
+    if (input.target_role !== expected.targetRole) issues.push("Capsule target_role mismatch");
+    const capsulePath = resolve(runDirectory(projectRoot, expected.runId), "task-capsules", expected.assignmentId + ".json");
+    if (path !== capsulePath) issues.push("Capsule is not at the registered assignment location");
+    if (input.authority !== "bounded_task_contract_and_physical_repository_only" || input.frontend_summary_trusted !== false) {
+      issues.push("Capsule authority boundary mismatch");
+    }
+    const taskId = entry.task_ids[entry.assignment_ids.indexOf(expected.assignmentId)];
+    const task = readTaskGraphSnapshot(projectRoot, expected.runId).tasks.find((item) => item.task_id === taskId);
+    if (!task || !input.task || typeof input.task !== "object" || Array.isArray(input.task)) {
+      issues.push("Capsule task contract is missing");
+    } else {
+      // Dispatch advances status; the bounded contract must remain unchanged.
+      const { status: storedStatus, ...contract } = task;
+      const { status: capsuleStatus, ...capsuleContract } = input.task as Record<string, unknown>;
+      if (stableStringify(contract) !== stableStringify(capsuleContract)) {
+        issues.push("Capsule task contract does not match the persisted task graph");
+      }
+    }
+    return { valid: issues.length === 0, stale: false, kind, issues };
+  } catch (error) {
+    return { valid: false, stale: false, kind, issues: [error instanceof Error ? error.message : String(error)] };
+  }
 }
 
 function createAssignmentPacket(
@@ -959,11 +1084,12 @@ function createAssignmentPacket(
     .filter(
       (event) =>
         eventVisibleToRole(event, profile.role) &&
+        (event.payload.run_id === undefined || event.payload.run_id === runId) &&
         (["requirement", "decision", "risk", "rejected_claim", "frontend_summary"].includes(
           event.kind,
         ) ||
           event.event_id === taskEvent.event_id ||
-          (typeof event.payload.task_id === "string" &&
+          (event.payload.run_id === runId && typeof event.payload.task_id === "string" &&
             task.dependencies.includes(event.payload.task_id))),
     )
     .slice(-78)
@@ -997,16 +1123,26 @@ function assignmentPrompt(
   task: FactoryTask,
   profile: AgentProfile,
   packetPath: string,
+  registry: NativeAgentRegistry,
 ): string {
   const professionalSkills = skillIdsForTask(task, profile).map(
     (skillId) => ".agents/skills/" + skillId + "/SKILL.md",
   );
+  const repair = assertRepairRunCommitted(projectRoot, runId);
+  const dependencyInputs = task.dependencies.map((taskId) => {
+    const entry = registry.entries.find((item) => item.task_ids.includes(taskId));
+    const assignment = entry?.assignment_ids[entry.task_ids.indexOf(taskId)];
+    return {
+      task_id: taskId,
+      ...(assignment ? { handoff_path: ".codex-factory/runs/" + runId + "/handoffs/" + assignment + ".json" } : {}),
+    };
+  });
   return [
     "FACTORY_ASSIGNMENT=" + JSON.stringify({ run_id: runId, assignment_id: assignmentId }),
     "Factory managed assignment for run " + runId + ", task " + task.task_id + ".",
     "Use project root: " + resolve(projectRoot) + ".",
     "Load and verify the role Context Packet/capsule at: " + packetPath + ".",
-    "If this is a Context Packet, run: factoryctl context packet-verify --project " +
+    "Before work, run: factoryctl context assignment-verify --project " +
       JSON.stringify(resolve(projectRoot)) +
       " --file " +
       JSON.stringify(packetPath) +
@@ -1017,6 +1153,8 @@ function assignmentPrompt(
       " --assignment " +
       JSON.stringify(assignmentId) +
       ".",
+    "This command handles both Context Packets and task capsules. Stop if it fails; do not invent a JSON hash procedure.",
+    "After successful verification, load your assigned profile and its role Skills, task-relevant files and the professional Skills listed below. Do not routinely reload the main-controller codex-factory Skill or run whole-project doctor; consult them for a concrete setup or integrity issue. This does not waive user rules, failed checks, scope or acceptance.",
     "Do not inherit or trust the frontend compressed conversation; fork context is disabled.",
     "Treat untrusted_context_candidates as leads only. Source-bound knowledge_retrieval entries in trusted_context may be used, but cite their entry_id, source_uri, and source_sha256.",
     "Role contract: " + profile.developer_instructions,
@@ -1030,8 +1168,30 @@ function assignmentPrompt(
     "Allowed write scope: " + (task.write_scope.join(", ") || "read-only") + ".",
     "Acceptance methods: " + task.acceptance_methods.join(" | ") + ".",
     "Required artifacts: " + (task.required_artifacts.join(", ") || "none declared") + ".",
-    "Return a factual handoff. Do not mark your own work PASS; the main controller must dispatch an independent verifier.",
-    "End the final assistant message with one single-line FACTORY_HANDOFF_JSON=<json> object containing summary, changed_paths, artifacts, and commands.",
+    ...(dependencyInputs.length ? [
+      "Dependency inputs in this run: " + JSON.stringify(dependencyInputs),
+      "Read the referenced handoffs for artifact paths, then inspect the physical files you need. Handoffs are reported output, not PASS decisions; consult this run's task graph and verification receipts for acceptance state. Input references do not expand your write scope.",
+    ] : []),
+    ...(repair ? [
+      "Repair source: " + JSON.stringify({
+        parent_run_id: repair.parent_run_id,
+        failed_task_id: repair.failed_task_id,
+        attempt: repair.repair_index,
+        receipt_path: ".codex-factory/runs/" + repair.parent_run_id + "/verification/" + repair.failed_task_id + "/receipt.json",
+        task_graph_path: ".codex-factory/runs/" + repair.parent_run_id + "/task-graph.json",
+      }),
+      "Read the parent receipt's failure_reasons and acceptance_checks first. Follow its assignment IDs to parent handoffs and read command logs only as needed. Consult the parent task graph for prior upstream inputs. Treat these as historical observations, not current command results or a replacement for this task's contract. Do not modify parent records; rerun current acceptance.",
+      "For a read-only summary of specific failures, the original contract and upstream inputs, run factoryctl repair prepare --project " +
+        JSON.stringify(resolve(projectRoot).replaceAll("\\", "/")) + " --from-run " + repair.parent_run_id + " --task " + repair.failed_task_id +
+        " --json. Use its observations as repair context only; its next_actions are for the main controller. Do not create, continue or spawn additional runs.",
+    ] : []),
+    profile.profile_id === "factory_verifier"
+      ? "Return an independent PASS/FAIL/BLOCKED proposal; the main controller records the final verdict with factoryctl verify. Do not dispatch another verifier."
+      : "Return a factual handoff and a PASS/FAIL/BLOCKED proposal only; the main controller must dispatch an independent verifier before accepting your work.",
+    "End the final assistant message with one single-line FACTORY_HANDOFF_JSON=<json> object.",
+    'Handoff fields: summary:string; changed_paths:string[]; artifacts:Array<{path:string,sha256:string}>; commands:Array<{command:string,exit_code:number}>; proposed_verdict:"PASS"|"FAIL"|"BLOCKED"; caveats:string[]; unresolved_risks:string[].',
+    "Use project-relative paths and actual 64-hex SHA256 artifact hashes, never filename-only artifact arrays. Include required artifacts even when no edits were needed; changed_paths must then be [].",
+    "Report actual command results from this attempt, including nonzero exits. Describe historical failures separately in caveats, not as commands you executed. Do not invent commands, hashes or successful results.",
     "Temporary agents must not spawn children. Send progress and the final handoff only to the main controller.",
   ].join("\n");
 }
@@ -1157,6 +1317,7 @@ export function withRunControllerLock<T>(
   runId: string,
   operation: () => T,
 ): T {
+  assertRepairRunCommitted(projectRoot, runId);
   const directory = runDirectory(projectRoot, runId);
   ensureDirectory(directory);
   return withFileLock(join(directory, "controller.lock"), operation);
@@ -1168,6 +1329,7 @@ export function prepareSpawnPlan(
   requestedRunId?: string,
 ): ManagedSpawnPlan {
   const runId = requestedRunId ?? newId("run");
+  if (!existsSync(join(runDirectory(projectRoot, runId), "task-graph.json"))) validateNewTasks(tasks);
   return withRunControllerLock(projectRoot, runId, () =>
     prepareSpawnPlanUnlocked(projectRoot, tasks, runId),
   );
@@ -1192,6 +1354,8 @@ function prepareSpawnPlanUnlocked(
   const runId = requestedRunId;
   const targetRunDirectory = runDirectory(root, runId);
   const taskGraphAlreadyExists = existsSync(join(targetRunDirectory, "task-graph.json"));
+  if (taskGraphAlreadyExists) validateTaskGraph(tasks);
+  else validateNewTasks(tasks);
   let plannedTasks = addAutomaticVerificationTasks(tasks);
   validateTaskGraph(plannedTasks);
   if (taskGraphAlreadyExists) {
@@ -1275,6 +1439,9 @@ function prepareSpawnPlanUnlocked(
     new Set(config.features.multi_agent.resident_profiles),
   );
   const generatedAt = nowIso();
+  const createdAt = taskGraphAlreadyExists
+    ? readJson<{ created_at: string }>(join(targetRunDirectory, "run.json")).created_at
+    : generatedAt;
   const assignments: ManagedSpawnPlanEntry[] = [];
   const baselineEntries = filesystemManifest(root);
   const waveWriteScopes = selected
@@ -1303,7 +1470,7 @@ function prepareSpawnPlanUnlocked(
       fork_turns: "none",
       context_packet_path: packetPath,
       write_scope: task.write_scope,
-      prompt: assignmentPrompt(root, runId, assignmentId, task, profile, packetPath),
+      prompt: assignmentPrompt(root, runId, assignmentId, task, profile, packetPath, registry),
       status: "planned",
       action: "spawn",
       instance_key: key,
@@ -1394,7 +1561,7 @@ function prepareSpawnPlanUnlocked(
     version: "1.0.0",
     run_id: runId,
     project_id: config.project_id,
-    created_at: generatedAt,
+    created_at: createdAt,
     status: assignments.length > 0 ? "AWAITING_NATIVE_DISPATCH" : "NO_READY_TASKS",
     config_sha256: sha256(stableStringify(config)),
     task_graph_sha256: graphSnapshot.graph_sha256,

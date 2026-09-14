@@ -1,0 +1,11 @@
+const assert = require('node:assert/strict');
+const { normalizeTags } = require('./solution.cjs');
+assert.deepEqual(normalizeTags([' A ', 'b', 'a', '', ' B ', '\tC\n']), ['a', 'b', 'c']);
+assert.deepEqual(normalizeTags([]), []);
+assert.deepEqual(normalizeTags(['__proto__', 'constructor', '__proto__']), ['__proto__', 'constructor']);
+const input = Object.freeze(['Z', ' z ', 'Y']);
+assert.deepEqual(normalizeTags(input), ['z', 'y']);
+for (const value of [null, undefined, 'abc', {}, 3]) assert.throws(() => normalizeTags(value), TypeError);
+for (const value of [[1], ['a', null], ['a', {}]]) assert.throws(() => normalizeTags(value), TypeError);
+assert.deepEqual(normalizeTags(['\u4e2d\u6587', ' \u4e2d\u6587 ', '\u00c4', '\u00e4']), ['\u4e2d\u6587', '\u00e4']);
+console.log('normalize acceptance PASS');

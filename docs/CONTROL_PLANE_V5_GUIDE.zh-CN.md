@@ -3,6 +3,8 @@
 > 适用版本：`5.0.0-preview.1`
 > 本文描述本地优先控制平面，不把历史报告、Agent 自述或前端压缩摘要当成已验证事实。
 
+要先了解新增的需求澄清、纠错经验复用和假设驱动排错，可从[三条主线实用导览](FACTORY_PRACTICAL_WALKTHROUGH.zh-CN.md)开始。在源码 CLI 目录运行 `npm run demo:tour` 可离线体验，不需要先给真实项目安装配置。
+
 ## 1. 它解决什么问题
 
 Codex App Factory 的目标不是替代 Codex，而是在复杂项目外增加一层可选择、可审计的工程控制：
@@ -236,7 +238,34 @@ factoryctl doctor --project C:\Projects\my-app --json
 - `max_threads` 统计原生工作 Agent，不包含主 Agent；调度优先处理已经就绪的独立验证任务。
 - 并行波次避免重叠写入范围；当前 `scope_guard` 记录派发基线并检查真实文件哈希/diff，读角色保持只读。它能发现波次整体越界与单次 handoff 漏报，但不能证明同一波次中某个 Agent 没有写入另一个 Agent 的已批准范围。
 
-### 6.4 可审计的底层命令
+### 6.4 从启动到交付的统一流程
+
+主 Agent 根据确认过的需求生成目标项目内的 `tasks.json`，先校验，再启动：
+
+```powershell
+factoryctl tasks validate --project C:\Projects\my-app --tasks tasks.json --json
+factoryctl plan --project C:\Projects\my-app --tasks tasks.json --run run-001 --json
+```
+
+校验检查任务结构、DAG、角色、范围格式及 pending/ready 初始状态，并展示自动增加的独立验证任务；不创建运行记录或执行验收。就绪不等于已经获得线程，调度器仍负责容量和并行写入冲突。
+
+主 Agent 按计划校验 Packet、调用原生工具、登记真实回执，并记录交接；每次交接后统一推进：
+
+```powershell
+factoryctl run continue --project C:\Projects\my-app --run run-001 --json
+```
+
+该命令执行已有独立 Verifier 交接对应的原验收方法，通过后返回下一波计划。`DISPATCH` 表示主 Agent 需要处理 `plan.assignments`；`WAITING` 表示按 `waiting_for` 等待宿主交接；`BLOCKED` 表示先处理依赖或调度限制；`FAILED` 停止新增派发；`COMPLETE` 才表示这个 run 全部完成。宿主执行仍由主 Agent 负责，CLI 不会启动原生 Agent。
+
+失败返回退出码 1；其他正常状态返回 0，但不代表任务已完成。交付结果 `delivery.tasks` 只汇总已验收的非 Verifier 任务、产物与回执，允许显示部分完成。该结果依据历史 PASS，不会重新检查已完成产物的当前内容。
+
+`run inspect` 是只读诊断，`run continue` 则会执行验收命令和写入运行状态。仅对批准的任务串行推进；中途出错先 inspect 再重试，保留已完成回执。未登记的派发始终复用原 assignment，主 Agent 必须先核对宿主再决定派发或补录，不能盲目重复 spawn。失败修复仍需确认原执行停止、获准后调用 `repair create`，再对返回的新 run 使用 continue，不自动无限重试。
+
+完整状态说明、安装协议刷新与可复用任务示例见 [CLI 主流程](../packages/factory-cli/README.md#开发任务从启动到交付)。
+
+失败后的第一步现在是 `factoryctl repair prepare --project <root> --from-run <id> --task <id> --json`。它只读整合具体失败项、原任务约束、上游产物引用和已有修复进度，再给出下一步。它不推断根因、不改变 FAIL、不创建修复，也不会执行失败日志中的命令；已有修复时优先指向它。详细字段与状态见 [修复准备流程](../packages/factory-cli/README.md#从失败证据准备修复)。
+
+### 6.5 可审计的底层命令
 
 自动流程会调用相同协议。排障时可以手动查看：
 
@@ -256,9 +285,9 @@ factoryctl verify `
   --verifier-assignment <assignment-id-from-plan>
 ```
 
-`plan --run run-001` 是自动续跑入口：主 Agent 每收完一波 handoff 都重新读取同一个权威任务图。若上一波仍有已规划但尚未登记原生回执的 assignment，它会先原样返回这些 assignment；否则才生成下一波（包括独立验证任务）。主 Agent 持续执行“验 Packet → 全新 spawn → Hook 登记原生回执 → 等待/纠偏 → handoff → 再次 plan”，直到没有待派发 assignment，并且目标任务都已有独立验证结论。
+`plan --run run-001` 是底层续波入口，只生成计划，不执行验收。正常流程由 `run continue` 组合验收和续波；需要单独排障时才手动使用 plan/verify。若上一波仍有已规划但尚未登记原生回执的 assignment，plan 会先原样返回这些 assignment；否则才生成下一波（包括独立验证任务）。
 
-当前预览版的同一 run 任务图是不可变合同：验证 FAIL 后不会在原 run 中追加修复节点。主 Agent 必须保留该失败证据，自动用新的 run ID 创建一个只包含必要修复与重新验证的有界 DAG。不能覆盖旧 run，也不能把“准备修复”改写成旧任务已经 PASS。
+当前预览版的同一 run 任务图是不可变合同：验证 FAIL 后不会在原 run 中追加修复节点。主 Agent 必须保留失败证据，确认原执行停止并获准修复后，用 `factoryctl repair create --from-run <id> --task <id> --reuse-task --request-id <stable-id>` 创建关联修复 run。需要辅助任务时用 `--tasks <file>` 替代 `--reuse-task`，仍保留原验收与范围，最多关联修复两次。不能另起普通 run 绕过上限、覆盖旧 run，或把“准备修复”改写成已经 PASS。
 
 派发前的 Packet 校验命令是：
 

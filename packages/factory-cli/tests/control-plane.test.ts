@@ -16,6 +16,7 @@ import { DatabaseSync } from "node:sqlite";
 import { afterEach, describe, it } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { getAgentProfile, profileForTask, profileForTaskRole } from "../src/agents.js";
+import { skillIdsForTask } from "../src/capabilities.js";
 import { initializeConfig } from "../src/config.js";
 import {
   appendContextEvent,
@@ -163,6 +164,9 @@ function executeVerificationScenario(
   );
   const worker = initial.assignments.find((assignment) => assignment.task_id === "worker");
   assert.ok(worker);
+  assert.match(worker.prompt, /artifacts:Array<\{path:string,sha256:string\}>/);
+  assert.match(worker.prompt, /proposed_verdict:"PASS"\|"FAIL"\|"BLOCKED"/);
+  assert.match(worker.prompt, /including nonzero exits/);
   registerNativeDispatch(root, runId, worker.assignment_id, {
     nativeAgentId: "native-worker-" + verifierProposal.toLowerCase(),
     rawToolReceipt: nativeReceipt("native-worker-" + verifierProposal.toLowerCase()),
@@ -186,6 +190,12 @@ function executeVerificationScenario(
     (assignment) => assignment.profile_id === "factory_verifier",
   );
   assert.ok(verifier);
+  const dependencyLine = verifier.prompt.split("\n").find((line) => line.startsWith("Dependency inputs in this run: "))!;
+  assert.deepEqual(JSON.parse(dependencyLine.slice("Dependency inputs in this run: ".length)), [{
+    task_id: "worker", handoff_path: ".codex-factory/runs/" + runId + "/handoffs/" + worker.assignment_id + ".json",
+  }]);
+  assert.match(verifier.prompt, /Do not dispatch another verifier/);
+  assert.doesNotMatch(verifier.prompt, /the main controller must dispatch an independent verifier/);
   registerNativeDispatch(root, runId, verifier.assignment_id, {
     nativeAgentId: "native-verifier-" + verifierProposal.toLowerCase(),
     rawToolReceipt: nativeReceipt(
@@ -212,6 +222,31 @@ afterEach(() => {
 });
 
 describe("external Context Space", () => {
+  it("keeps dependency context within its run while retaining project-wide requirements", () => {
+    const root = createProject();
+    const runId = "current-run";
+    const first = prepareSpawnPlan(root, [factoryTask("worker", { write_scope: [] })], runId);
+    const worker = first.assignments[0];
+    registerNativeDispatch(root, runId, worker.assignment_id, {
+      nativeAgentId: "fixture-context-worker", rawToolReceipt: nativeReceipt("fixture-context-worker"),
+    });
+    recordAgentHandoff(root, runId, worker.assignment_id, {
+      summary: "Context selection fixture only", changed_paths: [], artifacts: [], commands: [], proposed_verdict: "PASS",
+    });
+    const common = appendContextEvent(root, "requirement", "main_controller", { requirement: "Shared project requirement" });
+    const current = appendContextEvent(root, "evidence", "main_controller", { run_id: runId, task_id: "worker", detail: "Current input" });
+    const other = appendContextEvent(root, "evidence", "main_controller", { run_id: "other-run", task_id: "worker", detail: "Unrelated same-name input" });
+    const otherRisk = appendContextEvent(root, "risk", "main_controller", { run_id: "other-run", detail: "Unrelated run risk" });
+    const ambiguous = appendContextEvent(root, "evidence", "main_controller", { task_id: "worker", detail: "No run binding" });
+    const plan = prepareSpawnPlan(root, persistedTasks(root, runId), runId);
+    const verifier = plan.assignments.find((item) => item.profile_id === "factory_verifier")!;
+    const packet = JSON.parse(readFileSync(join(root, verifier.context_packet_path), "utf8")) as ContextPacket;
+    assert.equal(packet.source_event_ids.includes(common.event_id), true);
+    assert.equal(packet.source_event_ids.includes(current.event_id), true);
+    for (const event of [other, otherRisk, ambiguous]) assert.equal(packet.source_event_ids.includes(event.event_id), false);
+    assert.equal(verifyContextPacket(root, packet, { runId, targetRole: "verifier", assignmentId: verifier.assignment_id }).valid, true);
+  });
+
   it("rejects a tampered SQLite hash chain and refuses another append", () => {
     const root = createProject();
     appendContextEvent(root, "requirement", "main_controller", {
@@ -365,6 +400,34 @@ describe("external Context Space", () => {
 });
 
 describe("task DAG and scheduling", () => {
+  it("does not infer domain skills from unrelated English substrings", () => {
+    const task = factoryTask("normalize", { title: "Build a utility", description: "Require strings; preserve author credits, rapid sorting and BIOS version labels." });
+    assert.deepEqual(skillIdsForTask(task, getAgentProfile("factory_implementer")), []);
+    const root = createProject({ context: false });
+    const plan = prepareSpawnPlan(root, [task], "run-skill-word-boundaries");
+    assert.match(plan.assignments[0].prompt, /Professional Skills to load before work: no additional domain Skill/);
+  });
+
+  it("retains English variants and mixed Chinese domain skill matching", () => {
+    const groups: Array<[string[], string]> = [
+      [["UI", "React.js", "Vue3", "front-end", "Vue界面"], "frontend-ui-system"],
+      [["APIs", "backend", "serverless", "新增API接口"], "backend-api-design"],
+      [["PostgreSQL", "MySQL", "SQLite", "SQLAlchemy", "schemas", "数据库"], "database-schema-design"],
+      [["authentication", "authorization", "permissions", "login", "权限"], "auth-permission-security"],
+      [["iOS", "WeChat", "mobile", "小程序"], "mobile-miniapp-patterns"],
+    ];
+    for (const [terms, skill] of groups) {
+      for (const term of terms) {
+        assert.deepEqual(skillIdsForTask(factoryTask("bounded", { description: term }), getAgentProfile("factory_implementer")), [skill], term);
+      }
+    }
+  });
+
+  it("keeps explicit capability selection ahead of inferred domain words", () => {
+    const task = factoryTask("bounded", { description: "React UI and API", required_capabilities: ["database", "database"] });
+    assert.deepEqual(skillIdsForTask(task, getAgentProfile("factory_implementer")), ["database-schema-design"]);
+  });
+
   it("routes explicit capabilities to the correct specialist and domain Skills", () => {
     const securityImplementation = factoryTask("secure-api", {
       role: "security implementation",
@@ -833,6 +896,14 @@ describe("native dispatch and evidence gates", () => {
     );
   });
 
+  it("never resurrects an independently failed task in the same run", () => {
+    const { root, runId } = executeVerificationScenario("FAIL");
+    for (const status of ["pending", "ready"] as const) {
+      assert.throws(() => setRunTaskStatus(root, runId, "worker", status), /Invalid task status transition/);
+    }
+    assert.equal(setRunTaskStatus(root, runId, "worker", "failed").status, "failed");
+  });
+
   it("fails closed on a verifier command failure and binds that handoff into the receipt", () => {
     const scenario = executeVerificationScenario("PASS", [
       { command: "npm test", exit_code: 1 },
@@ -880,6 +951,22 @@ describe("native dispatch and evidence gates", () => {
         scenario.runId,
       ),
     );
+  });
+
+  it("accepts a standalone diagnostic no-match and revalidates its versioned receipt", () => {
+    const command = "rg --files --hidden .codex-factory -g '*verif*' -g '*receipt*' -g '*baseline*' -g '!native-receipts/**'";
+    const scenario = executeVerificationScenario("PASS", [{ command, exit_code: 1 }]);
+    assert.equal(scenario.verdict, "PASS");
+    const path = join(scenario.root, ".codex-factory/runs", scenario.runId, "verification/worker/receipt.json");
+    const receipt = JSON.parse(readFileSync(path, "utf8"));
+    assert.equal(receipt.command_policy, "rg-files-v1");
+    assert.deepEqual(receipt.command_outcomes.verifier, ["NO_MATCH"]);
+    assert.doesNotThrow(() => prepareSpawnPlan(scenario.root, persistedTasks(scenario.root, scenario.runId), scenario.runId));
+    receipt.command_outcomes.verifier = ["SUCCESS"];
+    const { receipt_hash: ignored, ...unsigned } = receipt;
+    receipt.receipt_hash = sha256(stableStringify(unsigned));
+    writeFileSync(path, JSON.stringify(receipt));
+    assert.throws(() => prepareSpawnPlan(scenario.root, persistedTasks(scenario.root, scenario.runId), scenario.runId), /receipt/i);
   });
 
   it("rejects a rehashed worker or verifier handoff after a PASS receipt was issued", () => {
