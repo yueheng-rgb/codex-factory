@@ -17,6 +17,7 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "tsx --test tests/*.test.ts",
+    "test:package": "node scripts/package-smoke.mjs",
     "cli": "tsx src/cli.ts",
     "demo:tour": "tsx scripts/demo-tour.ts",
     "demo:repair": "tsx scripts/demo-repair.ts",

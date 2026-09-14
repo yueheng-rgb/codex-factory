@@ -53,6 +53,9 @@ jobs:
       - name: Audit package contents
         run: npm pack --dry-run
 
+      - name: Install and smoke-test the packed CLI offline
+        run: npm run test:package
+
   legacy-fail-closed-regressions:
     name: Hardened V4 compatibility / Windows
     runs-on: windows-latest
