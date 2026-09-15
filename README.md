@@ -96,6 +96,7 @@ V5 Preview is the current maintained path. The repository does not treat a repor
 | Install guide | [`docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md`](docs/CONTROL_PLANE_V5_GUIDE.zh-CN.md) |
 | Reproducible package candidate | Run `npm pack` in `packages/factory-cli`; use the `.tgz` generated from the commit being tested |
 | Cross-platform CI definition | [`factory-cli-v5.yml`](.github/workflows/factory-cli-v5.yml), Node 24 on Windows and Ubuntu |
+| Verified V5 code snapshot | Commit `768be48`, [CI run 34844335859](https://github.com/yueheng-rgb/codex-factory/actions/runs/34844335859): Windows 189 tests passed; Ubuntu 188 passed, 1 Windows-only test skipped; all three jobs passed |
 | Legacy V4 ZIP | **INVALID / archive only**; see [`LEGACY-ARTIFACTS-INVALID.md`](dist/LEGACY-ARTIFACTS-INVALID.md) |
 | Historical PASS reports | Evidence for their recorded commit/run only; they do not automatically certify current HEAD or V5 |
 
@@ -105,12 +106,16 @@ Verify the current checkout before using or distributing it:
 Set-Location C:\Codex_App_Factory\packages\factory-cli
 npm ci
 npm run typecheck
+npm run eval:typecheck
 npm test
 npm run build
 npm pack --dry-run
+npm run test:package
 ```
 
 A successful local run proves only that checkout on that machine. A current GitHub Actions run on both matrix platforms is required before making a cross-platform claim.
+
+The recorded V5 run also passed build, package-content checks and actual offline tarball installation on both platforms, plus the Windows legacy compatibility regressions. The Windows teaching-root regression found in [the preceding run](https://github.com/yueheng-rgb/codex-factory/actions/runs/34843750872) was fixed in `768be48`. These results are bound to that commit; they do not establish live Agent performance gains, trusted Hook installation, or a public npm release. See the [V5 preview handoff](docs/V5_PREVIEW_HANDOFF.md) for installation and verification.
 
 ## V5 Quick Start
 
