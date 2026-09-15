@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -10,6 +10,11 @@ const packageRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const npmCli = process.env.npm_execpath;
 assert.ok(npmCli && existsSync(npmCli), "Run this check with npm run test:package");
 const manifest = JSON.parse(readFileSync(join(packageRoot, "package.json"), "utf8"));
+const gitOptions = { cwd: packageRoot, encoding: "utf8", windowsHide: true, timeout: 10000 };
+const revision = spawnSync("git", ["rev-parse", "HEAD"], gitOptions);
+const status = spawnSync("git", ["status", "--porcelain", "--untracked-files=all"], gitOptions);
+const sourceCommit = revision.status === 0 ? revision.stdout.trim() : null;
+const sourceClean = status.status === 0 ? status.stdout.trim() === "" : null;
 const smokeRoot = mkdtempSync(join(tmpdir(), "factory-package-smoke-"));
 const consumerRoot = join(smokeRoot, "consumer project");
 const projectRoot = join(smokeRoot, "target project");
@@ -75,6 +80,8 @@ assert.equal(ledger.valid, true);
 
 const report = {
   status: "PASS", package: packed.name, version: packed.version,
+  source_commit: sourceCommit, source_worktree_clean: sourceClean,
+  generated_at: new Date().toISOString(),
   node: process.version, platform: process.platform,
   tarball: packed.filename, sha256: createHash("sha256").update(readFileSync(tarball)).digest("hex"),
   packed_files: packed.files.length, doctor_status: doctor.status,
@@ -83,4 +90,7 @@ const report = {
   limitations: ["No live agent execution, hook trust approval, or registry publication."],
 };
 writeFileSync(join(smokeRoot, "result.json"), JSON.stringify(report, null, 2) + "\n", "utf8");
+if (process.env.GITHUB_OUTPUT) {
+  appendFileSync(process.env.GITHUB_OUTPUT, "artifact_directory=" + smokeRoot + "\n", "utf8");
+}
 process.stdout.write(JSON.stringify(report, null, 2) + "\n");

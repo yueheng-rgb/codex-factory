@@ -762,6 +762,74 @@ describe("native dispatch and evidence gates", () => {
     assert.deepEqual(validStop, {});
   });
 
+  for (const toolName of ["Agent", "spawn_agent"]) {
+    for (const isolation of [
+      { fork_context: false },
+      { fork_turns: "none", fork_context: false },
+    ]) {
+      it(`accepts native spawn isolation for ${toolName}: ${JSON.stringify(isolation)}`, () => {
+        const root = createProject({ context: false });
+        const plan = prepareSpawnPlan(root, [factoryTask("isolated")], "run-isolation");
+        const common = {
+          session_id: "session-isolation",
+          tool_name: toolName,
+          tool_use_id: "tool-use-isolation",
+          tool_input: { message: plan.assignments[0]!.prompt, ...isolation },
+        };
+
+        assert.deepEqual(runFactoryHook(root, "PreToolUse", common), {});
+        const post = runFactoryHook(root, "PostToolUse", {
+          ...common,
+          tool_response: { agent_id: "native-isolated", status: "spawned" },
+        });
+        assert.match(JSON.stringify(post), /registered native agent/i);
+        const registered = readAgentRegistry(root, plan.run_id).entries[0]!;
+        assert.equal(registered.native_agent_id, "native-isolated");
+        assert.equal(registered.native_receipts.length, 1);
+        assert.equal(registered.lifecycle, "spawned");
+      });
+    }
+
+    it(`rejects missing or invalid native spawn isolation for ${toolName}`, () => {
+      const root = createProject({ context: false });
+      const plan = prepareSpawnPlan(root, [factoryTask("isolated")], "run-isolation");
+      const invalidOptions: Record<string, unknown>[] = [{}];
+      for (const forkContext of [true, "false", "true", null, undefined, 0, 1, [], {}]) {
+        invalidOptions.push(
+          { fork_context: forkContext },
+          { fork_turns: "none", fork_context: forkContext },
+        );
+      }
+      for (const forkTurns of ["all", "NONE", "", false, null, undefined, 0, [], {}]) {
+        invalidOptions.push(
+          { fork_turns: forkTurns },
+          { fork_turns: forkTurns, fork_context: false },
+        );
+      }
+
+      for (const [index, isolation] of invalidOptions.entries()) {
+        const common = {
+          session_id: "session-isolation",
+          tool_name: toolName,
+          tool_use_id: "tool-use-rejected-" + index,
+          tool_input: { message: plan.assignments[0]!.prompt, ...isolation },
+        };
+        const pre = runFactoryHook(root, "PreToolUse", common);
+        const output = pre.hookSpecificOutput as Record<string, unknown> | undefined;
+        assert.equal(output?.permissionDecision, "deny", `isolation case ${index}`);
+        assert.match(String(output?.permissionDecisionReason), /context leakage/i);
+        const post = runFactoryHook(root, "PostToolUse", {
+          ...common,
+          tool_response: { agent_id: "native-rejected", status: "spawned" },
+        });
+        assert.equal(post.decision, "block", `isolation case ${index} must not record intent`);
+      }
+      const registered = readAgentRegistry(root, plan.run_id).entries[0]!;
+      assert.equal(registered.native_receipts.length, 0);
+      assert.equal(registered.lifecycle, "planned");
+    });
+  }
+
   it("rejects an empty self-authored native receipt", () => {
     const root = createProject({ context: false });
     const plan = prepareSpawnPlan(root, [factoryTask("receipt")], "run-empty-receipt");

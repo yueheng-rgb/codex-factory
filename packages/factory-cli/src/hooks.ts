@@ -152,12 +152,20 @@ function preToolUse(projectRoot: string, input: HookInput): Record<string, unkno
   if (!stringsIn(toolInput).some((value) => value.includes(assignment!.prompt))) {
     return denyTool("The native spawn prompt does not match the authoritative Factory assignment.");
   }
-  const forkTurns =
+  const options =
     toolInput && typeof toolInput === "object"
-      ? (toolInput as Record<string, unknown>).fork_turns
-      : undefined;
-  if (forkTurns !== "none") {
-    return denyTool("Factory assignments require fork_turns=none to prevent context leakage.");
+      ? (toolInput as Record<string, unknown>)
+      : {};
+  const hasForkTurns = Object.hasOwn(options, "fork_turns");
+  const hasForkContext = Object.hasOwn(options, "fork_context");
+  if (
+    (!hasForkTurns && !hasForkContext) ||
+    (hasForkTurns && options.fork_turns !== "none") ||
+    (hasForkContext && options.fork_context !== false)
+  ) {
+    return denyTool(
+      "Factory assignments require fork_turns=none or fork_context=false, with no conflicting or invalid isolation options, to prevent context leakage.",
+    );
   }
   const toolUseId = String(input.tool_use_id ?? "");
   if (!toolUseId) return denyTool("Native spawn lacks a host tool_use_id.");

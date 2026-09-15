@@ -28,6 +28,7 @@
     "eval:forecast": "tsx scripts/forecast-effects.ts",
     "eval:lessons": "tsx scripts/eval-lesson-selection.ts",
     "eval:transfer": "tsx scripts/eval-transfer-boundary.ts prepare",
+    "eval:diagnostic": "tsx scripts/eval-diagnostic-routine.ts prepare",
     "eval:report": "tsx scripts/live-eval.ts summarize",
     "eval:typecheck": "tsc -p tsconfig.evals.json"
   },

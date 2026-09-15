@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": { "rootDir": ".", "noEmit": true },
-  "include": ["src/**/*.ts", "scripts/live-eval.ts", "scripts/eval-transfer-boundary.ts"],
+  "include": ["src/**/*.ts", "scripts/live-eval.ts", "scripts/eval-transfer-boundary.ts", "scripts/eval-diagnostic-routine.ts"],
   "exclude": ["dist", "node_modules"]
 }

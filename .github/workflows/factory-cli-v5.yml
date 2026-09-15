@@ -54,7 +54,18 @@ jobs:
         run: npm pack --dry-run
 
       - name: Install and smoke-test the packed CLI offline
+        id: package-smoke
         run: npm run test:package
+
+      - name: Retain the tested package and its provenance
+        uses: actions/upload-artifact@v4
+        with:
+          name: factory-cli-v5-${{ matrix.os }}-${{ github.sha }}
+          path: |
+            ${{ steps.package-smoke.outputs.artifact_directory }}/*.tgz
+            ${{ steps.package-smoke.outputs.artifact_directory }}/result.json
+          if-no-files-found: error
+          retention-days: 30
 
   legacy-fail-closed-regressions:
     name: Hardened V4 compatibility / Windows
