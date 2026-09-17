@@ -1,0 +1,218 @@
+{
+  "kind": "PUBLIC_CONTROLLER_SUMMARY_NOT_HOST_ATTESTATION",
+  "source_commit": "14684e78d2a5611bacb50c8ab5d20670fc2b9e8f",
+  "observed_at": "2026-09-15T08:07:38.253Z",
+  "local_reviewed_results_sha256": "ccb97c5b46a019e15d48591349702a6c5705858d2033cf3ac84ea3d15bd2be2b",
+  "manifest_sha256": "f807a7da6f6a0973b1b316732fbc47783fb48dcdd9587082bf7f96e17d54906e",
+  "protocol_sha256": "fe9be5864f9d701442416138e5eb032ef6eb7bd228eba414ce800d550ac69d8b",
+  "rows": [
+    {
+      "trial_id": "t5-A",
+      "native_executions": 1,
+      "native_completion": "COMPLETED",
+      "code_pass": true,
+      "factory_status": "NOT_APPLICABLE",
+      "independent_proposal": null,
+      "factory_receipt_hash": null,
+      "failure_reasons": [],
+      "frozen_violations": [],
+      "unexpected_paths": [],
+      "wall_observed_ms": 192212,
+      "within_budget": true,
+      "rounds_started": 1,
+      "prompt_bytes": [
+        {
+          "role": "worker",
+          "bytes": 1164
+        }
+      ],
+      "input_sha256": "62ae893457d67e6c7cab30ce35c46e2f9dc324b183701c2b2ad2508f7b7d67e0",
+      "artifact_hashes": {
+        "src/reader.cjs": "03a707b75c816a2ce76b6f871d1d02a9dfa4e3634b254fb722b220ea65bb028b",
+        "src/validate.cjs": "d6c03fc2537c96f8a5b87dee74a90ac63cd74f925a6608d17256f3f1c6b94551",
+        "src/mapping.cjs": "764c2d77de68454204390132638dd0981de7cf262ce985b8875fbd421d6cee30",
+        "src/money.cjs": "2313874d952a10d0979eae7e4e3d19afc7776061ec19b57535302a652028dadb",
+        "src/summary.cjs": "574ef3334d04a9977d2d9d1a77da45b8432da492a1436653931e0e42eba1c9a5",
+        "src/reconcile.cjs": "dc54fcaa4cca4f3b116ff0be52dd3b17de031b4dc8b274347d0f07ec3c543873"
+      },
+      "grade_sha256": "c08ae6d310ab28071c0700b74ec82a77d0b8c7eeac593ba3c39b75f1b5ee183b"
+    },
+    {
+      "trial_id": "t5-B",
+      "native_executions": 2,
+      "native_completion": "COMPLETED",
+      "code_pass": true,
+      "factory_status": "FAILED",
+      "independent_proposal": "PASS",
+      "factory_receipt_hash": "32832344b27fa96f7a7d8d673a56a9ad39e9901c73a8eb28ddad4f25003cace9",
+      "failure_reasons": [
+        "Worker reported at least one failing command",
+        "Independent verifier reported at least one failing command"
+      ],
+      "frozen_violations": [],
+      "unexpected_paths": [],
+      "wall_observed_ms": 650114,
+      "within_budget": true,
+      "rounds_started": 1,
+      "prompt_bytes": [
+        {
+          "role": "worker",
+          "bytes": 4214
+        },
+        {
+          "role": "verifier",
+          "bytes": 4206
+        }
+      ],
+      "input_sha256": "62ae893457d67e6c7cab30ce35c46e2f9dc324b183701c2b2ad2508f7b7d67e0",
+      "artifact_hashes": {
+        "src/reader.cjs": "03a707b75c816a2ce76b6f871d1d02a9dfa4e3634b254fb722b220ea65bb028b",
+        "src/validate.cjs": "d6c03fc2537c96f8a5b87dee74a90ac63cd74f925a6608d17256f3f1c6b94551",
+        "src/mapping.cjs": "764c2d77de68454204390132638dd0981de7cf262ce985b8875fbd421d6cee30",
+        "src/money.cjs": "2313874d952a10d0979eae7e4e3d19afc7776061ec19b57535302a652028dadb",
+        "src/summary.cjs": "574ef3334d04a9977d2d9d1a77da45b8432da492a1436653931e0e42eba1c9a5",
+        "src/reconcile.cjs": "dc54fcaa4cca4f3b116ff0be52dd3b17de031b4dc8b274347d0f07ec3c543873"
+      },
+      "grade_sha256": "c3ae8c36c3f55d4e53336d7b12c327660025811efc4f367ad6afb15a1f756d52"
+    },
+    {
+      "trial_id": "t5-C",
+      "native_executions": 2,
+      "native_completion": "COMPLETED",
+      "code_pass": true,
+      "factory_status": "FAILED",
+      "independent_proposal": "PASS",
+      "factory_receipt_hash": "06fbd613b29d2a58e58e51a979329f0b98af7824c4a664f4c147553d1e8b809f",
+      "failure_reasons": [
+        "Independent verifier reported at least one failing command"
+      ],
+      "frozen_violations": [],
+      "unexpected_paths": [],
+      "wall_observed_ms": 650649,
+      "within_budget": true,
+      "rounds_started": 1,
+      "prompt_bytes": [
+        {
+          "role": "worker",
+          "bytes": 4445
+        },
+        {
+          "role": "verifier",
+          "bytes": 4206
+        }
+      ],
+      "input_sha256": "62ae893457d67e6c7cab30ce35c46e2f9dc324b183701c2b2ad2508f7b7d67e0",
+      "artifact_hashes": {
+        "src/reader.cjs": "03a707b75c816a2ce76b6f871d1d02a9dfa4e3634b254fb722b220ea65bb028b",
+        "src/validate.cjs": "d6c03fc2537c96f8a5b87dee74a90ac63cd74f925a6608d17256f3f1c6b94551",
+        "src/mapping.cjs": "764c2d77de68454204390132638dd0981de7cf262ce985b8875fbd421d6cee30",
+        "src/money.cjs": "2313874d952a10d0979eae7e4e3d19afc7776061ec19b57535302a652028dadb",
+        "src/summary.cjs": "574ef3334d04a9977d2d9d1a77da45b8432da492a1436653931e0e42eba1c9a5",
+        "src/reconcile.cjs": "dc54fcaa4cca4f3b116ff0be52dd3b17de031b4dc8b274347d0f07ec3c543873"
+      },
+      "grade_sha256": "82043c3737b62163d764090b58a8bd99336ddbdbdcf5e05dd47d6e50902677b0"
+    },
+    {
+      "trial_id": "t6-A",
+      "native_executions": 1,
+      "native_completion": "COMPLETED",
+      "code_pass": true,
+      "factory_status": "NOT_APPLICABLE",
+      "independent_proposal": null,
+      "factory_receipt_hash": null,
+      "failure_reasons": [],
+      "frozen_violations": [],
+      "unexpected_paths": [],
+      "wall_observed_ms": 215369,
+      "within_budget": true,
+      "rounds_started": 1,
+      "prompt_bytes": [
+        {
+          "role": "worker",
+          "bytes": 1028
+        }
+      ],
+      "input_sha256": "70877e93f9181a992405a4245f66f9124c809e0ef2a4991259a14e17550dcb20",
+      "artifact_hashes": {
+        "src/summary.cjs": "75e02336cf7238c1ae17dd2b07964953bc90fffda666480169e227bbb1eec3ca",
+        "self.test.cjs": "a96b4be657c087e653809bcf1097764067fd17081b3f9fbc257ea7478c37c0d9"
+      },
+      "grade_sha256": "94170f51370f2e8eda3858ad87f2fe6386e34f98660360c896362c2e80646ae1"
+    },
+    {
+      "trial_id": "t6-B",
+      "native_executions": 2,
+      "native_completion": "COMPLETED",
+      "code_pass": true,
+      "factory_status": "FAILED",
+      "independent_proposal": "PASS",
+      "factory_receipt_hash": "05ab597cc5175eceba21f3884ed9437976aa5047a10a61cf980d483879e82bb3",
+      "failure_reasons": [
+        "Worker reported at least one failing command"
+      ],
+      "frozen_violations": [],
+      "unexpected_paths": [],
+      "wall_observed_ms": 543017,
+      "within_budget": true,
+      "rounds_started": 1,
+      "prompt_bytes": [
+        {
+          "role": "worker",
+          "bytes": 3982
+        },
+        {
+          "role": "verifier",
+          "bytes": 4197
+        }
+      ],
+      "input_sha256": "70877e93f9181a992405a4245f66f9124c809e0ef2a4991259a14e17550dcb20",
+      "artifact_hashes": {
+        "src/summary.cjs": "75e02336cf7238c1ae17dd2b07964953bc90fffda666480169e227bbb1eec3ca"
+      },
+      "grade_sha256": "4ac36111b9b2d2cc079f24bbdb80bf8015242d6a9f217f84b77a9e8d6d39ec3f"
+    },
+    {
+      "trial_id": "t6-C",
+      "native_executions": 2,
+      "native_completion": "COMPLETED",
+      "code_pass": true,
+      "factory_status": "FAILED",
+      "independent_proposal": "PASS",
+      "factory_receipt_hash": "16b8ee22aa73ba627742c51b487bf83492727e74e3edff6b03e27863db6ebe81",
+      "failure_reasons": [
+        "Independent verifier reported at least one failing command"
+      ],
+      "frozen_violations": [],
+      "unexpected_paths": [],
+      "wall_observed_ms": 543445,
+      "within_budget": true,
+      "rounds_started": 1,
+      "prompt_bytes": [
+        {
+          "role": "worker",
+          "bytes": 3982
+        },
+        {
+          "role": "verifier",
+          "bytes": 4197
+        }
+      ],
+      "input_sha256": "70877e93f9181a992405a4245f66f9124c809e0ef2a4991259a14e17550dcb20",
+      "artifact_hashes": {
+        "src/summary.cjs": "75e02336cf7238c1ae17dd2b07964953bc90fffda666480169e227bbb1eec3ca"
+      },
+      "grade_sha256": "af32a7195e72ebf2afecdcfe0e18f759b29d28d1750df5ff39546ee976b772d7"
+    }
+  ],
+  "tokens": null,
+  "cost": null,
+  "review_correction": "The first aggregation treated installer-created .gitignore as unexpected. Its unchanged hash is now verified against the pre-dispatch baseline. Original native-results.json and all final grades are retained unchanged.",
+  "limitations": [
+    "fork_context=false; shared local filesystem, not OS isolation",
+    "Development variants, one initial round; all genuine errors retained. No external grader feedback or no-op retries for a green verdict. T5-C is controller guidance, not probe-module integration; T6 B/C same task.",
+    "Time includes controller scheduling and observation delay; no speed or cost claims.",
+    "No Git repositories were initialized in these fixtures; retain any Git diagnostic failures.",
+    "One shared terminal wait response for T5 A/B was saved after their workers completed; later captures are per-agent. No external grader feedback was supplied.",
+    "Raw records are controller captures, not cryptographic host attestations."
+  ]
+}

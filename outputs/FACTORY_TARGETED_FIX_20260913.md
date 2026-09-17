@@ -24,6 +24,6 @@
 字节减少只覆盖派发任务 JSON；如果 Worker 继续读取完整 Skill，整体 Token 变化需要另测。没有把本轮结果包装为成功率、费用或端到端速度提升。
 下一阶段再进入正式任务包准备：先确定可执行的预算限制和度量口径，再冻结新变体。当前二十分钟约束仍仅由提示词传达，不能据此声称严格同预算性能结果。
 
-[结构化验证记录](/C:/Codex_App_Factory/outputs/FACTORY_TARGETED_FIX_20260913.json)
+[结构化验证记录](FACTORY_TARGETED_FIX_20260913.json)
 
 复现定向检查：在 `C:/Codex_App_Factory/packages/factory-cli` 执行 `npm run build`，随后执行 `node --import tsx --test tests/command-outcome.test.ts tests/teaching.test.ts`；回执与修复上下文检查使用同目录下的 `control-plane.test.ts`、`repair-preparation.test.ts` 中相关测试。
