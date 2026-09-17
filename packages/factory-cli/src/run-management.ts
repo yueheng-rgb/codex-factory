@@ -420,8 +420,8 @@ export function prepareRepair(root: string, fromRun: string, taskId: string) {
     failed: checks.filter((check) => check.status !== "PASS").length,
     items: checks.flatMap((check, position) => check.status === "PASS" ? [] : [{ index: position + 1, ...check }]).slice(0, 20),
   });
-  const workerOutcomes = reportedCommandOutcomes(source.worker.report.commands, original.acceptance_methods, source.receipt.command_policy);
-  const verifierOutcomes = reportedCommandOutcomes(source.verifier.report.commands, original.acceptance_methods, source.receipt.command_policy);
+  const workerOutcomes = reportedCommandOutcomes(source.worker.report.commands, original.acceptance_methods, source.receipt.command_policy, source.receipt.acceptance_checks);
+  const verifierOutcomes = reportedCommandOutcomes(source.verifier.report.commands, original.acceptance_methods, source.receipt.command_policy, source.receipt.acceptance_checks);
   const reportedFailures = [
     ...source.worker.report.commands.filter((_, index) => workerOutcomes[index] === "FAILURE")
       .map((command) => ({ source: "WORKER_HANDOFF" as const, handoff_path: source.worker_handoff_path, ...command })),

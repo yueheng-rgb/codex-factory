@@ -1027,7 +1027,7 @@ describe("native dispatch and evidence gates", () => {
     assert.equal(scenario.verdict, "PASS");
     const path = join(scenario.root, ".codex-factory/runs", scenario.runId, "verification/worker/receipt.json");
     const receipt = JSON.parse(readFileSync(path, "utf8"));
-    assert.equal(receipt.command_policy, "rg-files-v1");
+    assert.equal(receipt.command_policy, "acceptance-recheck-v2");
     assert.deepEqual(receipt.command_outcomes.verifier, ["NO_MATCH"]);
     assert.doesNotThrow(() => prepareSpawnPlan(scenario.root, persistedTasks(scenario.root, scenario.runId), scenario.runId));
     receipt.command_outcomes.verifier = ["SUCCESS"];

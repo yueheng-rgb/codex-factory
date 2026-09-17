@@ -56,6 +56,9 @@ for (const context of [false, true]) {
     assert.ok(!assignment.prompt.includes(profile.developer_instructions));
     assert.ok(assignment.prompt.includes("FACTORY_HANDOFF_JSON="));
     assert.match(assignment.prompt, /Allowed write scope: artifact.txt/);
+    assert.match(assignment.prompt, /commands lists direct top-level invocations/);
+    assert.match(assignment.prompt, /Never omit a failed direct invocation/);
+    assert.match(assignment.prompt, /Use an existence predicate for optional paths/);
     assert.match(assignment.prompt, /main controller must dispatch an independent verifier/);
     assert.ok(assignment.prompt.indexOf("Before work, run:") < assignment.prompt.indexOf("After successful verification"));
     assert.doesNotMatch(assignment.prompt, /If this is a Context Packet/);

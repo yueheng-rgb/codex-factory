@@ -9,7 +9,7 @@ import { dirname, join, relative, resolve } from "node:path";
 import { getAgentProfile, profileForTask } from "./agents.js";
 import { ALL_AGENT_CAPABILITIES, skillIdsForTask } from "./capabilities.js";
 import { factoryDirectory, loadConfig } from "./config.js";
-import { reportedCommandOutcomes } from "./command-outcome.js";
+import { acceptanceCommand, reportedCommandOutcomes } from "./command-outcome.js";
 import { managedAgentContent } from "./installer.js";
 import {
   appendTrustedContextEvent,
@@ -638,9 +638,23 @@ export function verifyPersistedRuntimeClaims(
         : [];
       const expectedFailureReasons: string[] = [];
       const commandOutcomes = {
-        worker: reportedCommandOutcomes(workerCommands, workerTask.acceptance_methods, receipt.command_policy),
-        verifier: reportedCommandOutcomes(verifierCommands, workerTask.acceptance_methods, receipt.command_policy),
+        worker: reportedCommandOutcomes(workerCommands, workerTask.acceptance_methods, receipt.command_policy, acceptanceChecks),
+        verifier: reportedCommandOutcomes(verifierCommands, workerTask.acceptance_methods, receipt.command_policy, acceptanceChecks),
       };
+      const allCommandOutcomes = [...commandOutcomes.worker, ...commandOutcomes.verifier];
+      const recoveredCommands = [...workerCommands, ...verifierCommands].filter((_, index) =>
+        allCommandOutcomes[index] === "RECHECK_PASSED");
+      for (const [index, check] of acceptanceChecks.entries()) {
+        if (typeof check.method !== "string" || !recoveredCommands.some(report =>
+          typeof report.command === "string" && report.command.trim() === acceptanceCommand(check.method as string))) continue;
+        for (const stream of ["stdout", "stderr"] as const) {
+          const logPath = assertWithinRoot(projectRoot, join(runDirectory(projectRoot, runId), "verification", receiptTaskId,
+            String(index + 1).padStart(2, "0") + "-" + stream + ".log"));
+          if (!existsSync(logPath) || sha256(readFileSync(logPath)) !== check[stream + "_sha256"]) {
+            throw new Error("Verification receipt recheck log is missing or changed: " + receiptTaskId);
+          }
+        }
+      }
       if (commandOutcomes.worker.includes("FAILURE")) {
         expectedFailureReasons.push("Worker reported at least one failing command");
       }
@@ -1199,6 +1213,8 @@ function assignmentPrompt(
     'Handoff fields: summary:string; changed_paths:string[]; artifacts:Array<{path:string,sha256:string}>; commands:Array<{command:string,exit_code:number}>; proposed_verdict:"PASS"|"FAIL"|"BLOCKED"; caveats:string[]; unresolved_risks:string[].',
     "Use project-relative paths and actual 64-hex SHA256 artifact hashes, never filename-only artifact arrays. Include required artifacts even when no edits were needed; changed_paths must then be [].",
     "Report actual command results from this attempt, including nonzero exits. Describe historical failures separately in caveats, not as commands you executed. Do not invent commands, hashes or successful results.",
+    "commands lists direct top-level invocations. For negative tests, assert expected child failures inside a parent test; report that parent's actual exit and describe asserted child outcomes in caveats, without duplicating them as direct commands. Never omit a failed direct invocation.",
+    "Use an existence predicate for optional paths (Test-Path or fs.existsSync). Check Git availability before Git diagnostics; without a repository, inspect files and recorded baseline hashes.",
     "Temporary agents must not spawn children. Send progress and the final handoff only to the main controller.",
   ].join("\n");
 }

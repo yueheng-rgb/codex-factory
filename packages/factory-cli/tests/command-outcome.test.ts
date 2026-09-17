@@ -33,3 +33,42 @@ test("old receipts retain strict semantics and unknown policies fail closed", ()
   assert.deepEqual(reportedCommandOutcomes([{ command: listing, exit_code: 1 }], []), ["FAILURE"]);
   assert.throws(() => reportedCommandOutcomes([], [], "future-policy"), /Unsupported/);
 });
+
+const acceptance = "command:node --test public.test.cjs";
+const checked = { method: acceptance, status: "PASS", exit_code: 0,
+  stdout_sha256: "a".repeat(64), stderr_sha256: "b".repeat(64) };
+const failedReport = { command: "node --test public.test.cjs", exit_code: 1 };
+
+test("recovers a reported failure only from the matching controller acceptance recheck", () => {
+  assert.deepEqual(reportedCommandOutcomes([failedReport], [acceptance], COMMAND_OUTCOME_POLICY, [checked]), ["RECHECK_PASSED"]);
+  assert.equal(failedReport.exit_code, 1);
+  const alias = " cmd: node --test public.test.cjs ";
+  assert.deepEqual(reportedCommandOutcomes([failedReport], [alias], COMMAND_OUTCOME_POLICY, [{ ...checked, method: alias }]), ["RECHECK_PASSED"]);
+});
+
+test("recheck requires full contract binding, successful execution and output digests", () => {
+  for (const checks of [[], [{ ...checked, method: "command:other" }], [{ ...checked, status: "FAIL" }],
+    [{ ...checked, exit_code: 1 }], [{ ...checked, exit_code: null }], [{ ...checked, stdout_sha256: undefined }],
+    [{ ...checked, stderr_sha256: "bad" }], [checked, checked]]) {
+    assert.deepEqual(reportedCommandOutcomes([failedReport], [acceptance], COMMAND_OUTCOME_POLICY, checks), ["FAILURE"]);
+  }
+  assert.deepEqual(reportedCommandOutcomes([failedReport], [acceptance, acceptance], COMMAND_OUTCOME_POLICY,
+    [checked, { ...checked, status: "FAIL", exit_code: 1 }]), ["FAILURE"]);
+  for (const exit_code of [-1, 126, 127, 130, 256, null, "1"]) {
+    assert.deepEqual(reportedCommandOutcomes([{ ...failedReport, exit_code }], [acceptance], COMMAND_OUTCOME_POLICY, [checked]), ["FAILURE"]);
+  }
+});
+
+test("self-declared expected exits, unrelated and compound commands cannot borrow a passing check", () => {
+  for (const command of ["node missing.cjs", "node cli.cjs report invalid.json", "Get-ChildItem self.test.cjs",
+    failedReport.command + " && node fail.cjs", "pwsh -Command '" + failedReport.command + "'"]) {
+    const report = { command, exit_code: 1, expected_exit_code: 1, phase: "before-edit", parent_command: failedReport.command };
+    assert.deepEqual(reportedCommandOutcomes([report], [acceptance], COMMAND_OUTCOME_POLICY, [checked]), ["FAILURE"]);
+  }
+});
+
+test("v1 and unversioned receipt outcomes never acquire recovery retrospectively", () => {
+  for (const policy of [undefined, "rg-files-v1"]) {
+    assert.deepEqual(reportedCommandOutcomes([failedReport], [acceptance], policy, [checked]), ["FAILURE"]);
+  }
+});

@@ -8,7 +8,7 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { factoryDirectory, loadConfig, loadSecrets } from "./config.js";
-import { COMMAND_OUTCOME_POLICY, reportedCommandOutcomes, type CommandOutcome } from "./command-outcome.js";
+import { COMMAND_OUTCOME_POLICY, reportedCommandOutcomes, type CommandOutcome, type CommandOutcomePolicy } from "./command-outcome.js";
 import { appendContextEvent, appendTrustedContextEvent } from "./context-space.js";
 import {
   readAgentRegistry,
@@ -88,7 +88,7 @@ export interface VerificationReceipt {
   verifier_handoff_hash: string;
   artifact_checks: AcceptanceCheck[];
   acceptance_checks: AcceptanceCheck[];
-  command_policy?: typeof COMMAND_OUTCOME_POLICY;
+  command_policy?: CommandOutcomePolicy;
   command_outcomes?: { worker: CommandOutcome[]; verifier: CommandOutcome[] };
   independent_verifier_proposal: "PASS" | "FAIL" | "BLOCKED";
   verdict: "PASS" | "FAIL";
@@ -491,6 +491,10 @@ function verifyTaskCompletionUnlocked(
   }
   const verifierProposal = verifierHandoff.report.proposed_verdict ?? "BLOCKED";
 
+  const acceptanceChecks = task.acceptance_methods.map((method, index) =>
+    executeAcceptanceMethod(root, runId, taskId, index, method),
+  );
+  // Bind acceptance to the delivered bytes even if a check modifies an artifact.
   const artifactChecks: AcceptanceCheck[] = workerHandoff.observed_artifacts.map((artifact) => {
     try {
       const current = hashArtifact(root, artifact.path);
@@ -517,13 +521,10 @@ function verifyTaskCompletionUnlocked(
       });
     }
   }
-  const acceptanceChecks = task.acceptance_methods.map((method, index) =>
-    executeAcceptanceMethod(root, runId, taskId, index, method),
-  );
   const failureReasons: string[] = [];
   const commandOutcomes = {
-    worker: reportedCommandOutcomes(workerHandoff.report.commands, task.acceptance_methods, COMMAND_OUTCOME_POLICY),
-    verifier: reportedCommandOutcomes(verifierHandoff.report.commands, task.acceptance_methods, COMMAND_OUTCOME_POLICY),
+    worker: reportedCommandOutcomes(workerHandoff.report.commands, task.acceptance_methods, COMMAND_OUTCOME_POLICY, acceptanceChecks),
+    verifier: reportedCommandOutcomes(verifierHandoff.report.commands, task.acceptance_methods, COMMAND_OUTCOME_POLICY, acceptanceChecks),
   };
   if (commandOutcomes.worker.includes("FAILURE")) {
     failureReasons.push("Worker reported at least one failing command");
